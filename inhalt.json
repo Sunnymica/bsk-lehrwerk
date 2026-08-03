@@ -60,7 +60,9 @@
           "titel": "Satzbau",
           "module": [
             { "titel": "Haupt- und Nebensatz", "beschreibung": "Satzklammer, Verbstellung, Nebensatzarten.", "pfad": "satzbau.html", "niveau": "B2", "dauer": "60 Min", "fertigkeiten": ["Üben", "Sprechen"], "status": "in-arbeit" },
-            { "titel": "Konnektoren", "beschreibung": "weil, denn, deshalb. Gleiche Bedeutung, drei Stellungen.", "pfad": "konnektoren.html", "niveau": "B2–C1", "dauer": "75 Min", "fertigkeiten": ["Üben", "Schreiben", "Lesen"], "status": "fertig" },
+            { "titel": "Konnektoren – der Überblick", "beschreibung": "Die vier Familien: ADUSO, Subjunktionen, Adverbien, zweiteilige.", "pfad": "konnektoren-ueberblick.html", "niveau": "B2", "dauer": "60 Min", "fertigkeiten": ["Üben", "Lesen", "Sprechen"], "status": "fertig" },
+            { "titel": "Konnektoren – die Bedeutungen", "beschreibung": "Folge, Zugeständnis, Gegensatz, Grund, Zweck – und der passende Ton.", "pfad": "konnektoren.html", "niveau": "B2–C1", "dauer": "75 Min", "fertigkeiten": ["Üben", "Schreiben", "Lesen"], "status": "fertig" },
+            { "titel": "Umformen: weil → deshalb → wegen", "beschreibung": "Dieselbe Aussage als Nebensatz, Hauptsatz und Präposition.", "pfad": "umformen.html", "niveau": "C1", "dauer": "60 Min", "fertigkeiten": ["Üben", "Schreiben", "Sprechen"], "status": "in-arbeit" },
             { "titel": "Zweiteilige Konnektoren", "beschreibung": "je desto, entweder oder, nicht nur sondern auch.", "pfad": "zweiteilige-konnektoren.html", "niveau": "C1", "dauer": "45 Min", "fertigkeiten": ["Üben", "Sprechen"], "status": "in-arbeit" },
             { "titel": "Relativsätze", "beschreibung": "Mit Präposition, mit Genitiv, mit was und wo.", "pfad": "relativsaetze.html", "niveau": "B2", "dauer": "45 Min", "fertigkeiten": ["Üben", "Schreiben"], "status": "in-arbeit" },
             { "titel": "Infinitivsätze", "beschreibung": "zu, um zu, ohne zu, statt zu.", "pfad": "infinitivsaetze.html", "niveau": "B2–C1", "dauer": "45 Min", "fertigkeiten": ["Üben", "Sprechen"], "status": "in-arbeit" },
