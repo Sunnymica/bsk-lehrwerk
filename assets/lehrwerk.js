@@ -152,6 +152,42 @@ window.Lehrwerk = (function () {
     box.hidden = false;
   }
 
+  /* ====== Unterrichtsansicht ======
+     Setzt die Grundschrift hoch. Weil alles in rem gebaut ist,
+     wachsen Schrift, Kästen und Spaltenbreite gemeinsam mit. */
+
+  const STUFEN = [
+    { wert: '100%', name: 'Normal' },
+    { wert: '130%', name: 'Groß' },
+    { wert: '160%', name: 'Sehr groß' }
+  ];
+
+  function ansicht() {
+    let nr = 0;
+    try { nr = parseInt(localStorage.getItem('bsk-ansicht')) || 0; } catch (e) {}
+    if (nr < 0 || nr >= STUFEN.length) nr = 0;
+
+    function anwenden() {
+      document.documentElement.style.fontSize = STUFEN[nr].wert;
+      knopf.textContent = 'Aa ' + STUFEN[nr].name;
+      knopf.setAttribute('aria-label', 'Schriftgröße: ' + STUFEN[nr].name + '. Klicken zum Wechseln.');
+      try { localStorage.setItem('bsk-ansicht', nr); } catch (e) {}
+    }
+
+    const knopf = document.createElement('button');
+    knopf.type = 'button';
+    knopf.className = 'ansicht-knopf';
+    knopf.addEventListener('click', () => { nr = (nr + 1) % STUFEN.length; anwenden(); });
+    document.body.appendChild(knopf);
+    anwenden();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', ansicht);
+  } else {
+    ansicht();
+  }
+
   /* ====== Daten laden ====== */
 
   function laden(wurzel) {
