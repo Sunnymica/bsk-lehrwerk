@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap");
+
 /* =========================================================
    BSK-Lehrwerk – gemeinsames Stylesheet
    Aufschlagseite, Bereichsseiten und Module benutzen dieselbe Datei.
@@ -376,6 +378,7 @@ body[data-bereich="referenz"]  .karte { border-left-color: var(--flieder-tief); 
 .verb { background: #D6EFD2; color: #2C4A28; border-radius: 3px; padding: 0 0.2rem; }
 .subj { background: #D6E6F4; color: #24425C; border-radius: 3px; padding: 0 0.2rem; }
 .neb  { background: #E9DCF2; color: #4A3459; border-radius: 3px; padding: 0 0.2rem; }
+.pos1 { border-bottom: 2px solid var(--tinte-weich); padding-bottom: 1px; }
 
 .satzbau {
   background: var(--karte);
@@ -413,3 +416,92 @@ body[data-bereich="referenz"]  .karte { border-left-color: var(--flieder-tief); 
 
 .merker h3 { font-family: var(--display); font-size: 1.05rem; margin: 0 0 0.5rem; }
 .merker p:last-child { margin-bottom: 0; }
+
+/* =========================================================
+   Modulbausteine – ab hier gilt: kein Modul definiert diese
+   Klassen noch einmal selbst.
+   ========================================================= */
+
+/* Reiterleiste */
+.reiter { display: flex; flex-wrap: wrap; gap: 0.35rem; border-bottom: 1px solid var(--linie); margin-bottom: 2rem; }
+
+.reiter button {
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--tinte-weich); background: transparent;
+  border: 1px solid transparent; border-bottom: none;
+  border-radius: 6px 6px 0 0; padding: 0.6rem 0.9rem; margin-bottom: -1px; cursor: pointer;
+}
+
+.reiter button:hover { color: var(--tinte); }
+.reiter button[aria-selected="true"] { color: var(--tinte); background: var(--rose); border-color: var(--linie); }
+.reiter button:focus-visible { outline: 2px solid var(--rose-tief); outline-offset: 2px; }
+
+.blatt[hidden] { display: none; }
+
+/* Inhaltskästen */
+.kasten {
+  background: var(--karte); border: 1px solid var(--linie); border-left: 4px solid var(--rose-tief);
+  border-radius: 8px; padding: 1.1rem 1.2rem; margin: 1.2rem 0;
+}
+
+.kasten h3 { font-family: var(--display); font-size: 1.05rem; margin: 0 0 0.5rem; }
+.kasten .formel { font-family: var(--mono); font-size: 0.72rem; color: var(--tinte-weich); margin: 0 0 0.7rem; }
+
+.marke {
+  display: inline-block; font-family: var(--mono); font-size: 0.6rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  background: var(--rose); color: var(--rose-tief);
+  border-radius: 999px; padding: 0.15rem 0.6rem; margin-right: 0.5rem;
+}
+
+.satz { background: var(--papier); border-left: 3px solid var(--linie); padding: 0.6rem 0.8rem; margin: 0.5rem 0; font-size: 0.97rem; }
+.regel { background: var(--sand); border-radius: 8px; padding: 1rem 1.2rem; margin: 1.2rem 0; }
+
+/* Tabellen */
+.modul table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: 0.95rem; }
+
+.modul th {
+  background: var(--rose); color: var(--rose-tief);
+  font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase;
+  text-align: left; padding: 0.55rem 0.7rem;
+}
+
+.modul td { padding: 0.5rem 0.7rem; border-bottom: 1px solid var(--linie); vertical-align: top; }
+
+/* Aufgaben */
+.frage { background: var(--karte); border: 1px solid var(--linie); border-radius: 8px; padding: 1rem 1.1rem; margin: 1rem 0; }
+.wahl { display: grid; gap: 0.45rem; margin-top: 0.7rem; }
+
+.wahl button {
+  text-align: left; font-family: var(--body); font-size: 1rem; color: var(--tinte);
+  background: var(--papier); border: 1px solid var(--linie); border-radius: 6px;
+  padding: 0.55rem 0.8rem; cursor: pointer;
+}
+
+.wahl button:hover { border-color: var(--rose-tief); }
+.wahl button.richtig { background: var(--salbei); border-color: var(--salbei-tief); }
+.wahl button.falsch  { background: var(--rose); border-color: var(--rose-tief); }
+.wahl button:disabled { cursor: default; }
+
+.rueckmeldung { margin-top: 0.7rem; font-size: 0.95rem; color: var(--tinte-weich); }
+.rueckmeldung[hidden] { display: none; }
+
+input.luecke, textarea.feld {
+  font-family: var(--body); font-size: 1rem; color: var(--tinte);
+  background: var(--papier); border: 1px solid var(--linie); border-radius: 5px;
+  padding: 0.3rem 0.5rem;
+}
+
+input.luecke { min-width: 11rem; }
+input.luecke.richtig { border-color: var(--salbei-tief); background: var(--salbei); }
+input.luecke.falsch  { border-color: var(--rose-tief); background: var(--rose); }
+
+textarea.feld { width: 100%; min-height: 8rem; padding: 0.7rem 0.8rem; line-height: 1.6; }
+textarea.feld:focus-visible { outline: 2px solid var(--rose-tief); outline-offset: 2px; }
+
+.knopfreihe { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.knopfreihe .knopf { margin-top: 0; }
+
+.stand { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--tinte-weich); margin: 1.2rem 0 0; }
+
+mark { background: var(--sand); padding: 0 0.2rem; border-radius: 3px; }
