@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Konnektoren – Berufssprachkurs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  /* Nur, was es im gemeinsamen Stylesheet noch nicht gibt */
+  .reiter { display: flex; flex-wrap: wrap; gap: 0.35rem; border-bottom: 1px solid var(--linie); margin-bottom: 2rem; }
+  .reiter button {
+    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--tinte-weich); background: transparent; border: 1px solid transparent; border-bottom: none;
+    border-radius: 6px 6px 0 0; padding: 0.6rem 0.9rem; margin-bottom: -1px; cursor: pointer;
+  }
+  .reiter button[aria-selected="true"] { color: var(--tinte); background: var(--rose); border-color: var(--linie); }
+  .reiter button:focus-visible { outline: 2px solid var(--rose-tief); outline-offset: 2px; }
+
+  .blatt[hidden] { display: none; }
+  .kasten { background: var(--karte); border: 1px solid var(--linie); border-left: 4px solid var(--rose-tief); border-radius: 8px; padding: 1.1rem 1.2rem; margin: 1.2rem 0; }
+  .kasten h3 { font-family: var(--display); font-size: 1.05rem; margin: 0 0 0.5rem; }
+  .marke { display: inline-block; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+           background: var(--rose); color: var(--rose-tief); border-radius: 999px; padding: 0.15rem 0.6rem; margin-right: 0.5rem; }
+  .satz { background: var(--papier); border-left: 3px solid var(--linie); padding: 0.6rem 0.8rem; margin: 0.5rem 0; font-size: 0.97rem; }
+  .regel { background: var(--sand); border-radius: 8px; padding: 1rem 1.2rem; margin: 1.2rem 0; }
+  table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: 0.95rem; }
+  th { background: var(--rose); color: var(--rose-tief); font-family: var(--mono); font-size: 0.66rem;
+       letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 0.6rem 0.7rem; }
+  td { padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--linie); vertical-align: top; }
+  .frage { background: var(--karte); border: 1px solid var(--linie); border-radius: 8px; padding: 1rem 1.1rem; margin: 1rem 0; }
+  .wahl { display: grid; gap: 0.45rem; margin-top: 0.7rem; }
+  .wahl button {
+    text-align: left; font-family: var(--body); font-size: 1rem; color: var(--tinte);
+    background: var(--papier); border: 1px solid var(--linie); border-radius: 6px; padding: 0.6rem 0.8rem; cursor: pointer;
+  }
+  .wahl button:hover { border-color: var(--rose-tief); }
+  .wahl button.richtig { background: var(--salbei); border-color: var(--salbei-tief); }
+  .wahl button.falsch  { background: var(--rose); border-color: var(--rose-tief); }
+  .wahl button:disabled { cursor: default; }
+  .rueckmeldung { margin-top: 0.7rem; font-size: 0.95rem; color: var(--tinte-weich); }
+  .rueckmeldung[hidden] { display: none; }
+  input.luecke {
+    font-family: var(--body); font-size: 1rem; padding: 0.3rem 0.5rem; min-width: 11rem;
+    border: 1px solid var(--linie); border-radius: 5px; background: var(--papier); color: var(--tinte);
+  }
+  input.luecke.richtig { border-color: var(--salbei-tief); background: var(--salbei); }
+  input.luecke.falsch  { border-color: var(--rose-tief); background: var(--rose); }
+  .stand { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--tinte-weich); margin: 1rem 0 0; }
+  .knopfreihe { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+  .knopfreihe .knopf { margin-top: 0; }
+  mark { background: var(--sand); padding: 0 0.2rem; border-radius: 3px; }
+</style>
+</head>
+<body data-bereich="grammatik">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../grammatik.html">← Grammatik</a>
+    <h1><em>Konnektoren</em></h1>
+    <p class="anleitung">weil, deshalb, folglich, dennoch – gleiche Aussage, andere Satzstellung. Wer die Stellung beherrscht, klingt im Schriftverkehr sofort sicherer.</p>
+  </div>
+</header>
+
+<main class="innen modul" style="max-width:52rem">
+
+  <div class="reiter" role="tablist">
+    <button role="tab" aria-selected="true"  data-blatt="bedeutung">Bedeutung</button>
+    <button role="tab" aria-selected="false" data-blatt="stellung">Satzstellung</button>
+    <button role="tab" aria-selected="false" data-blatt="uebungen">Übungen</button>
+    <button role="tab" aria-selected="false" data-blatt="stil">Stil und Register</button>
+    <button role="tab" aria-selected="false" data-blatt="buero">Im Büro</button>
+  </div>
+
+  <!-- ============ Bedeutung ============ -->
+  <section class="blatt" id="blatt-bedeutung">
+    <p>Konnektoren verbinden Aussagen und zeigen, in welchem Verhältnis sie zueinander stehen. Auf B2/C1 geht es nicht mehr darum, ob Sie „weil" kennen, sondern ob Sie zwischen fünf Möglichkeiten die passende wählen – und ob die Satzstellung stimmt.</p>
+
+    <h2>Folge: Was ergibt sich daraus?</h2>
+
+    <div class="kasten">
+      <h3><span class="marke">Folge</span>folglich</h3>
+      <p>Die logische Schlussfolgerung. Neutral, im Schriftverkehr sehr gebräuchlich.</p>
+      <p class="satz">Die Lieferung ist ausgeblieben. Folglich können wir den Termin nicht halten.</p>
+    </div>
+
+    <div class="kasten">
+      <h3><span class="marke">Folge</span>infolgedessen</h3>
+      <p>Etwas schwerer und schriftsprachlicher als „folglich". Betont den Ursache-Wirkung-Zusammenhang.</p>
+      <p class="satz">Die Software wurde umgestellt. Infolgedessen sind die alten Vorlagen nicht mehr verwendbar.</p>
+    </div>
+
+    <div class="kasten">
+      <h3><span class="marke">Folge</span>somit</h3>
+      <p>Kurz und sachlich. Gut geeignet, um einen Vorgang abzuschließen.</p>
+      <p class="satz">Beide Seiten haben unterschrieben. Somit ist der Auftrag erteilt.</p>
+    </div>
+
+    <h2>Zugeständnis: Es gilt trotzdem</h2>
+    <p>In der Grammatik heißt das <em>konzessiv</em>. Gemeint ist: Sie geben etwas zu, das eigentlich dagegen spricht – und bleiben trotzdem bei Ihrer Aussage.</p>
+
+    <div class="kasten">
+      <h3><span class="marke">Zugeständnis</span>dennoch</h3>
+      <p>Das Übliche und Unauffällige. Passt fast immer.</p>
+      <p class="satz">Die Frist war knapp. Dennoch wurde der Antrag rechtzeitig eingereicht.</p>
+    </div>
+
+    <div class="kasten">
+      <h3><span class="marke">Zugeständnis</span>allerdings</h3>
+      <p>Schwächer als „dennoch", eher abwägend und einschränkend. Im Büro sehr häufig, weil es höflich klingt.</p>
+      <p class="satz">Der Vorschlag überzeugt. Allerdings fehlt noch die Zustimmung der Abteilungsleitung.</p>
+    </div>
+
+    <div class="kasten">
+      <h3><span class="marke">Zugeständnis</span>nichtsdestotrotz</h3>
+      <p>Sehr gehoben. Sparsam verwenden – zweimal im selben Text wirkt es gestelzt.</p>
+      <p class="satz">Die Kritik war deutlich. Nichtsdestotrotz hielt die Geschäftsführung an der Entscheidung fest.</p>
+    </div>
+
+    <h2>Gegensatz: Bei uns so, dort anders</h2>
+
+    <div class="kasten">
+      <h3><span class="marke">Gegensatz</span>hingegen</h3>
+      <p>Der neutrale Vergleich. Anders als beim Zugeständnis geht es nicht um „trotzdem", sondern um „im Unterschied dazu".</p>
+      <p class="satz">Im Vertrieb sind die Zahlen stabil. Im Einkauf hingegen sind die Kosten gestiegen.</p>
+    </div>
+
+    <div class="kasten">
+      <h3><span class="marke">Gegensatz</span>demgegenüber</h3>
+      <p>Formeller, betont den direkten Vergleich zweier Größen.</p>
+      <p class="satz">Der erste Entwurf blieb vage. Demgegenüber enthält die neue Fassung klare Fristen.</p>
+    </div>
+
+    <h2>Grund und Zweck</h2>
+
+    <div class="kasten">
+      <h3><span class="marke">Grund</span>deshalb, deswegen, daher</h3>
+      <p>Weitgehend austauschbar. „Daher" wirkt eine Spur formeller.</p>
+      <p class="satz">Die Anlage entsprach nicht den Sicherheitsvorgaben. Daher wurde sie stillgelegt.</p>
+    </div>
+
+    <div class="kasten">
+      <h3><span class="marke">Zweck</span>zu diesem Zweck, hierzu, dazu</h3>
+      <p>Antwortet auf „Wozu?", nicht auf „Warum?".</p>
+      <p class="satz">Wir wollen die Bearbeitungszeit verkürzen. Zu diesem Zweck führen wir ein neues Ablagesystem ein.</p>
+    </div>
+  </section>
+
+  <!-- ============ Satzstellung ============ -->
+  <section class="blatt" id="blatt-stellung" hidden>
+    <p>Der häufigste Fehler in diesem Bereich ist keine Bedeutungsfrage, sondern eine Stellungsfrage. Der Grund: Diese Konnektoren sind <strong>Adverbien</strong>, keine Konjunktionen.</p>
+
+    <div class="regel">
+      <h3 style="margin-top:0">Die Grundregel</h3>
+      <p>Steht der Konnektor auf Position 1, muss das <strong>Verb auf Position 2</strong> folgen. Das Subjekt rutscht dahinter.</p>
+      <p class="satz">Die Rechnung ist überfällig. <strong>Deshalb mahnen wir</strong> heute.<br>
+      <span style="color:var(--rose-tief)">Nicht:</span> Deshalb wir mahnen heute.</p>
+    </div>
+
+    <table>
+      <tr><th>Vorheriger Satz</th><th>Position 1</th><th>Position 2</th><th>Rest</th></tr>
+      <tr><td>Die Kosten steigen.</td><td><strong>Folglich</strong></td><td>müssen</td><td>wir die Kalkulation anpassen.</td></tr>
+      <tr><td>Die Frist war knapp.</td><td><strong>Dennoch</strong></td><td>wurde</td><td>der Antrag eingereicht.</td></tr>
+      <tr><td>Im Vertrieb läuft es gut.</td><td><strong>Im Einkauf hingegen</strong></td><td>sind</td><td>die Kosten gestiegen.</td></tr>
+    </table>
+
+    <h2>Der Konnektor kann auch später stehen</h2>
+    <p>Viele dieser Wörter dürfen ins Mittelfeld rücken, also hinter das Verb. Das wirkt oft ruhiger und weniger belehrend – besonders bei „allerdings", „dennoch" und „hingegen".</p>
+
+    <table>
+      <tr><th>Position 1</th><th>Verb</th><th>Mittelfeld</th><th>Rest</th></tr>
+      <tr><td>Die Situation</td><td>bleibt</td><td><strong>dennoch</strong></td><td>angespannt.</td></tr>
+      <tr><td>Die Abteilung</td><td>reagiert</td><td><strong>allerdings</strong></td><td>zögerlich.</td></tr>
+    </table>
+
+    <div class="regel">
+      <h3 style="margin-top:0">Konjunktion oder Adverb – der Unterschied</h3>
+      <p><strong>und, aber, denn, oder, sondern</strong> stehen vor dem Satz und ändern nichts an der Stellung:</p>
+      <p class="satz">Die Kosten steigen, <strong>aber wir halten</strong> den Preis.</p>
+      <p><strong>folglich, dennoch, deshalb, hingegen</strong> besetzen Position 1 und drehen Subjekt und Verb um:</p>
+      <p class="satz">Die Kosten steigen. <strong>Dennoch halten wir</strong> den Preis.</p>
+      <p>Beides zusammen geht schief: „aber dennoch es wurde" ist falsch. Entscheiden Sie sich für eines.</p>
+    </div>
+
+    <h2>Komma oder Punkt?</h2>
+    <div class="regel">
+      <p><strong>Punkt:</strong> Die Preise steigen. Folglich sinkt die Nachfrage. → klar, immer richtig, im Schriftverkehr die erste Wahl.</p>
+      <p><strong>Komma:</strong> Die Preise steigen, folglich sinkt die Nachfrage. → möglich, wenn beides eng zusammengehört.</p>
+      <p><strong>Semikolon:</strong> Die Preise steigen; folglich sinkt die Nachfrage. → elegant, aber im Büroalltag selten.</p>
+    </div>
+  </section>
+
+  <!-- ============ Übungen ============ -->
+  <section class="blatt" id="blatt-uebungen" hidden>
+    <p>Ihre Eingaben bleiben gespeichert, auch wenn Sie die Seite schließen. Mit dem Knopf unten setzen Sie alles zurück.</p>
+
+    <h2>Übung 1: Welcher Konnektor passt?</h2>
+    <div id="mc"></div>
+
+    <h2>Übung 2: Lückentext</h2>
+    <div class="frage">
+      <p style="line-height:2.2">
+        Die Umstellung auf das neue Ablagesystem verzögert sich.
+        <input class="luecke" id="l1" placeholder="Konnektor" autocomplete="off">
+        müssen wir die alten Vorlagen vorerst weiterverwenden. Viele Kolleginnen finden das umständlich,
+        <input class="luecke" id="l2" placeholder="Konnektor" autocomplete="off">
+        bleibt der Arbeitsablauf so wenigstens verlässlich. In der Zentrale ist bereits umgestellt worden. Bei uns
+        <input class="luecke" id="l3" placeholder="Konnektor" autocomplete="off">
+        dauert es noch bis zum Quartalsende.
+      </p>
+      <div class="knopfreihe">
+        <button class="knopf" id="luecke-pruefen" type="button">Prüfen</button>
+        <button class="knopf" id="luecke-tipp" type="button">Tipp</button>
+      </div>
+      <p class="rueckmeldung" id="luecke-rueck" hidden></p>
+      <p class="rueckmeldung" id="luecke-hinweis" hidden>
+        Lücke 1: eine Folge. Lücke 2: ein Zugeständnis. Lücke 3: ein Gegensatz zwischen zwei Orten.
+      </p>
+    </div>
+
+    <h2>Übung 3: Wo steckt der Fehler?</h2>
+    <div id="korrektur"></div>
+
+    <p class="stand" id="stand"></p>
+    <div class="knopfreihe">
+      <button class="knopf" id="kopieren" type="button">Ergebnis kopieren</button>
+      <button class="knopf" id="zuruecksetzen" type="button">Von vorne beginnen</button>
+    </div>
+  </section>
+
+  <!-- ============ Stil ============ -->
+  <section class="blatt" id="blatt-stil" hidden>
+    <h2>Warum Abwechslung zählt</h2>
+    <p>Auf B2 reicht es, verstanden zu werden. Auf C1 fällt auf, wer dreimal hintereinander „deshalb" schreibt. Nicht weil es falsch wäre, sondern weil es den Eindruck erweckt, es stünde nichts anderes zur Verfügung.</p>
+
+    <div class="kasten" style="border-left-color:var(--rose-tief)">
+      <h3>Eintönig</h3>
+      <p>Die Bearbeitungszeiten sind zu lang. <strong>Deshalb</strong> gibt es Beschwerden. Die Abläufe sind unklar. <strong>Deshalb</strong> dauert alles länger. Das System ist veraltet. <strong>Deshalb</strong> planen wir eine Umstellung.</p>
+    </div>
+
+    <div class="kasten" style="border-left-color:var(--salbei-tief)">
+      <h3>Abwechslungsreich</h3>
+      <p>Die Bearbeitungszeiten sind zu lang, <strong>weshalb</strong> es vermehrt Beschwerden gibt. Die Abläufe sind unklar. <strong>Infolgedessen</strong> dauert alles länger. Das System ist veraltet. <strong>Aus diesem Grund</strong> planen wir eine Umstellung.</p>
+    </div>
+
+    <h2>Was passt wohin?</h2>
+    <table>
+      <tr><th>Situation</th><th>Passende Konnektoren</th></tr>
+      <tr><td>E-Mail an die Kollegin</td><td>deshalb, also, allerdings, trotzdem</td></tr>
+      <tr><td>Schreiben an eine Behörde</td><td>infolgedessen, aus diesem Grund, demzufolge</td></tr>
+      <tr><td>Beschwerde an einen Lieferanten</td><td>folglich, dennoch, demgegenüber</td></tr>
+      <tr><td>Protokoll</td><td>somit, hingegen, folglich</td></tr>
+      <tr><td>Mündlich im Meeting</td><td>deshalb, daher, allerdings<br><span style="color:var(--tinte-weich)">Nicht: nichtsdestotrotz, demzufolge</span></td></tr>
+    </table>
+
+    <div class="regel">
+      <h3 style="margin-top:0">Faustregel</h3>
+      <p>Je förmlicher der Anlass, desto eher darf ein gehobener Konnektor stehen. Aber auch dort gilt: einer pro Text reicht. Wer „dessen ungeachtet" und „nichtsdestotrotz" in einem Absatz unterbringt, klingt nicht gebildeter, sondern angestrengt.</p>
+    </div>
+
+    <h2>Ketten zum Wechseln</h2>
+    <div class="kasten"><h3>Folge</h3><p>folglich → infolgedessen → somit → daher → deshalb → aus diesem Grund</p></div>
+    <div class="kasten"><h3>Zugeständnis</h3><p>dennoch → allerdings → trotzdem → gleichwohl → nichtsdestotrotz</p></div>
+    <div class="kasten"><h3>Gegensatz</h3><p>hingegen → dagegen → demgegenüber → im Gegensatz dazu → andererseits</p></div>
+  </section>
+
+  <!-- ============ Im Büro ============ -->
+  <section class="blatt" id="blatt-buero" hidden>
+    <h2>Ein Text aus dem Arbeitsalltag</h2>
+    <p>Eine Mitteilung an das Team, wie sie so verschickt werden könnte. Die Konnektoren sind hervorgehoben.</p>
+
+    <div class="kasten" style="border-left-color:var(--himmel-tief)">
+      <p><strong>Betreff: Umstellung der Ablage – Verschiebung auf Oktober</strong></p>
+      <p style="margin-top:0.8rem">Liebe Kolleginnen und Kollegen,</p>
+      <p style="margin-top:0.6rem">die Einführung des neuen Ablagesystems verzögert sich. Der Anbieter hat die Schulungsunterlagen bisher nicht geliefert. <mark>Folglich</mark> können wir den Termin im September nicht halten.</p>
+      <p style="margin-top:0.6rem">Für den Übergang bleibt alles beim Alten. <mark>Allerdings</mark> bitte ich Sie, ab sofort keine neuen Ordner mehr anzulegen. <mark>Zudem</mark> sollten Sie abgeschlossene Vorgänge weiterhin wie gewohnt archivieren. <mark>Hinzu kommt</mark>, dass die Zugriffsrechte im Oktober neu vergeben werden.</p>
+      <p style="margin-top:0.6rem">In der Zentrale ist die Umstellung bereits erfolgt. <mark>Bei uns hingegen</mark> beginnt sie erst nach den Herbstferien. <mark>Dennoch</mark> möchte ich Sie bitten, sich die Unterlagen vorab anzusehen.</p>
+      <p style="margin-top:0.6rem">Bei Fragen komme ich gern auf Sie zu. <mark>Somit</mark> wäre alles Wesentliche gesagt.</p>
+      <p style="margin-top:0.6rem">Mit freundlichen Grüßen</p>
+    </div>
+
+    <h2>Was diesen Text trägt</h2>
+    <div class="kasten">
+      <h3>Sieben verschiedene Verbindungen</h3>
+      <p>folglich, allerdings, zudem, hinzu kommt, hingegen, dennoch, somit. Keines doppelt – und keines davon gehoben genug, um in einer Mitteilung an Kollegen aufzufallen.</p>
+    </div>
+    <div class="kasten">
+      <h3>Jeder Absatz beginnt mit einer Weiche</h3>
+      <p>Absatz 1 nennt den Grund, Absatz 2 die Anweisungen, Absatz 3 den Vergleich mit der Zentrale, Absatz 4 den Abschluss. Die Leserin weiß nach dem ersten Wort jedes Absatzes, was kommt.</p>
+    </div>
+
+    <h2>Zum Selberschreiben</h2>
+    <div class="regel">
+      <p>Schreiben Sie eine kurze Mitteilung aus Ihrem eigenen Arbeitsbereich, etwa acht bis zwölf Sätze. Verwenden Sie mindestens vier verschiedene Konnektoren, darunter einen für die Folge, einen für das Zugeständnis und einen für den Gegensatz. Markieren Sie sie anschließend und prüfen Sie die Satzstellung: Steht nach jedem Konnektor auf Position 1 tatsächlich das Verb?</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="fuss">Nur für Kursteilnehmerinnen und Kursteilnehmer</footer>
+
+<script>
+(function () {
+  const SCHLUESSEL = 'bsk-modul-konnektoren';
+
+  function laden() {
+    try { return JSON.parse(localStorage.getItem(SCHLUESSEL)) || {}; } catch (e) { return {}; }
+  }
+  function sichern(stand) {
+    try { localStorage.setItem(SCHLUESSEL, JSON.stringify(stand)); } catch (e) {}
+  }
+  let stand = laden();
+
+  /* ---------- Reiter ---------- */
+  const knoepfe = document.querySelectorAll('.reiter button');
+  knoepfe.forEach(b => b.addEventListener('click', () => {
+    knoepfe.forEach(x => x.setAttribute('aria-selected', 'false'));
+    b.setAttribute('aria-selected', 'true');
+    document.querySelectorAll('.blatt').forEach(s => s.hidden = true);
+    document.getElementById('blatt-' + b.dataset.blatt).hidden = false;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }));
+
+  /* ---------- Übung 1: Mehrfachwahl ---------- */
+  const fragen = [
+    {
+      id: 'mc1',
+      text: 'Der Lieferant hat die Unterlagen nicht geschickt. ____ können wir den Termin nicht halten.',
+      optionen: ['folglich', 'hingegen', 'nichtsdestotrotz', 'zudem'],
+      richtig: ['folglich'],
+      erklaerung: 'Es geht um eine Folge. „Infolgedessen" oder „daher" wären hier ebenso richtig.'
+    },
+    {
+      id: 'mc2',
+      text: 'Der Vorschlag überzeugt inhaltlich. ____ fehlt noch die Zustimmung der Abteilungsleitung.',
+      optionen: ['deshalb', 'allerdings', 'somit', 'infolgedessen'],
+      richtig: ['allerdings'],
+      erklaerung: 'Eine Einschränkung, keine Folge. „Dennoch" ginge auch, klingt aber eine Spur schärfer.'
+    },
+    {
+      id: 'mc3',
+      text: 'In der Zentrale ist bereits umgestellt worden. Bei uns ____ dauert es bis Oktober.',
+      optionen: ['folglich', 'dennoch', 'hingegen', 'somit'],
+      richtig: ['hingegen'],
+      erklaerung: 'Zwei Orte werden verglichen – das ist ein Gegensatz. „Dagegen" wäre ebenfalls möglich.'
+    },
+    {
+      id: 'mc4',
+      text: 'Beide Seiten haben unterschrieben. ____ ist der Auftrag erteilt.',
+      optionen: ['allerdings', 'hingegen', 'somit', 'dessen ungeachtet'],
+      richtig: ['somit'],
+      erklaerung: 'Ein Vorgang wird abgeschlossen. „Damit" wäre die noch schlichtere Variante.'
+    }
+  ];
+
+  const mcBox = document.getElementById('mc');
+  fragen.forEach(f => {
+    const div = document.createElement('div');
+    div.className = 'frage';
+    div.innerHTML = '<p>' + f.text + '</p>';
+    const wahl = document.createElement('div');
+    wahl.className = 'wahl';
+
+    f.optionen.forEach(opt => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = opt;
+      b.addEventListener('click', () => {
+        const ok = f.richtig.includes(opt);
+        wahl.querySelectorAll('button').forEach(x => x.disabled = true);
+        b.classList.add(ok ? 'richtig' : 'falsch');
+        if (!ok) {
+          wahl.querySelectorAll('button').forEach(x => {
+            if (f.richtig.includes(x.textContent)) x.classList.add('richtig');
+          });
+        }
+        rueck.hidden = false;
+        rueck.textContent = (ok ? 'Richtig. ' : 'Noch nicht. Richtig ist „' + f.richtig[0] + '". ') + f.erklaerung;
+        stand[f.id] = opt;
+        sichern(stand);
+        standZeigen();
+      });
+      wahl.appendChild(b);
+    });
+
+    const rueck = document.createElement('p');
+    rueck.className = 'rueckmeldung';
+    rueck.hidden = true;
+
+    div.appendChild(wahl);
+    div.appendChild(rueck);
+    mcBox.appendChild(div);
+
+    // gespeicherte Antwort wiederherstellen
+    if (stand[f.id]) {
+      const treffer = [...wahl.querySelectorAll('button')].find(x => x.textContent === stand[f.id]);
+      if (treffer) treffer.click();
+    }
+  });
+
+  /* ---------- Übung 2: Lückentext ---------- */
+  const luecken = {
+    l1: ['folglich', 'infolgedessen', 'somit', 'daher', 'deshalb', 'deswegen', 'aus diesem grund'],
+    l2: ['dennoch', 'allerdings', 'trotzdem', 'gleichwohl', 'immerhin'],
+    l3: ['hingegen', 'dagegen', 'demgegenüber']
+  };
+
+  Object.keys(luecken).forEach(id => {
+    const el = document.getElementById(id);
+    if (stand[id]) el.value = stand[id];
+    el.addEventListener('input', () => { stand[id] = el.value; sichern(stand); });
+  });
+
+  document.getElementById('luecke-pruefen').addEventListener('click', () => {
+    let richtig = 0;
+    Object.keys(luecken).forEach(id => {
+      const el = document.getElementById(id);
+      const wert = el.value.trim().toLowerCase();
+      const ok = luecken[id].includes(wert);
+      el.classList.toggle('richtig', ok);
+      el.classList.toggle('falsch', !ok && wert !== '');
+      if (ok) richtig++;
+    });
+    const r = document.getElementById('luecke-rueck');
+    r.hidden = false;
+    r.textContent = richtig === 3
+      ? 'Alle drei sitzen. Beachten Sie: Bei jeder Lücke wären auch andere Wörter richtig gewesen.'
+      : richtig + ' von 3 richtig. Es gibt jeweils mehrere Möglichkeiten – der Tipp nennt die Richtung.';
+    stand.luecken = richtig;
+    sichern(stand);
+    standZeigen();
+  });
+
+  document.getElementById('luecke-tipp').addEventListener('click', () => {
+    const h = document.getElementById('luecke-hinweis');
+    h.hidden = !h.hidden;
+  });
+
+  /* ---------- Übung 3: Fehlersuche ---------- */
+  const fehler = [
+    {
+      falsch: 'Die Inflation steigt. Folglich die Zentralbank erhöht die Zinsen.',
+      richtig: 'Die Inflation steigt. <strong>Folglich erhöht die Zentralbank</strong> die Zinsen.',
+      warum: 'Der Konnektor steht auf Position 1, also muss das Verb auf Position 2 folgen.'
+    },
+    {
+      falsch: 'Das Projekt war teuer, aber dennoch es wurde ein Erfolg.',
+      richtig: 'Das Projekt war teuer. <strong>Dennoch wurde es</strong> ein Erfolg.',
+      warum: '„Aber" ist eine Konjunktion, „dennoch" ein Adverb. Zusammen kollidieren sie. Eines von beiden genügt.'
+    },
+    {
+      falsch: 'In Norddeutschland regnet es viel. In Süddeutschland hingegen dort scheint häufiger die Sonne.',
+      richtig: 'In Norddeutschland regnet es viel. In Süddeutschland <strong>hingegen scheint</strong> häufiger die Sonne.',
+      warum: '„Dort" ist überflüssig und schiebt sich zwischen Konnektor und Verb.'
+    }
+  ];
+
+  const korrBox = document.getElementById('korrektur');
+  fehler.forEach((f, i) => {
+    const div = document.createElement('div');
+    div.className = 'frage';
+    div.innerHTML = '<p><strong>' + (i + 1) + '.</strong> ' + f.falsch + '</p>';
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'knopf';
+    b.textContent = 'Lösung zeigen';
+    const p = document.createElement('p');
+    p.className = 'rueckmeldung';
+    p.hidden = true;
+    p.innerHTML = f.richtig + '<br>' + f.warum;
+    b.addEventListener('click', () => { p.hidden = false; b.disabled = true; });
+    div.appendChild(b);
+    div.appendChild(p);
+    korrBox.appendChild(div);
+  });
+
+  /* ---------- Stand, Kopieren, Zurücksetzen ---------- */
+  function standZeigen() {
+    const mcRichtig = fragen.filter(f => stand[f.id] && f.richtig.includes(stand[f.id])).length;
+    const lueckenRichtig = stand.luecken || 0;
+    document.getElementById('stand').textContent =
+      'Stand: Übung 1 – ' + mcRichtig + ' von 4 · Übung 2 – ' + lueckenRichtig + ' von 3';
+  }
+  standZeigen();
+
+  document.getElementById('kopieren').addEventListener('click', () => {
+    const mcRichtig = fragen.filter(f => stand[f.id] && f.richtig.includes(stand[f.id])).length;
+    const text = 'Modul Konnektoren, Stand vom ' + new Date().toLocaleDateString('de-DE') +
+      '\nÜbung 1 (Auswahl): ' + mcRichtig + ' von 4 richtig' +
+      '\nÜbung 2 (Lückentext): ' + (stand.luecken || 0) + ' von 3 richtig';
+    navigator.clipboard.writeText(text).then(
+      () => { document.getElementById('kopieren').textContent = 'Kopiert'; },
+      () => { window.prompt('Zum Kopieren markieren:', text); }
+    );
+  });
+
+  document.getElementById('zuruecksetzen').addEventListener('click', () => {
+    stand = {};
+    sichern(stand);
+    location.reload();
+  });
+})();
+</script>
+
+</body>
+</html>
