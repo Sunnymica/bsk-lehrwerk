@@ -365,3 +365,51 @@ body[data-bereich="referenz"]  .karte { border-left-color: var(--flieder-tief); 
 .ansicht-knopf:focus-visible { outline: 2px solid var(--tinte); outline-offset: 2px; }
 
 @media print { .ansicht-knopf { display: none; } }
+
+/* ---------- Farbsystem für Satzanalyse ----------
+   In jedem Modul gleich:
+   .kon = Konnektor, .verb = finites Verb, .subj = Subjekt, .neb = Nebensatzverb
+   Beispiel: <p class="satzbau"><span class="kon">Deshalb</span>
+             <span class="verb">bleibt</span> <span class="subj">er</span> zu Hause.</p> */
+
+.kon  { color: #A32F3C; font-weight: 600; }
+.verb { background: #D6EFD2; color: #2C4A28; border-radius: 3px; padding: 0 0.2rem; }
+.subj { background: #D6E6F4; color: #24425C; border-radius: 3px; padding: 0 0.2rem; }
+.neb  { background: #E9DCF2; color: #4A3459; border-radius: 3px; padding: 0 0.2rem; }
+
+.satzbau {
+  background: var(--karte);
+  border: 1px solid var(--linie);
+  border-radius: 6px;
+  padding: 0.55rem 0.8rem;
+  margin: 0.45rem 0;
+  font-size: 1rem;
+}
+
+.legende {
+  display: flex; flex-wrap: wrap; gap: 0.8rem;
+  font-family: var(--mono); font-size: 0.64rem;
+  letter-spacing: 0.06em; color: var(--tinte-weich);
+  margin: 0.8rem 0 1.4rem;
+}
+
+/* ---------- Wiederkehrender Merkkasten ---------- */
+
+.merker {
+  background: var(--sand);
+  border-left: 4px solid var(--sand-tief);
+  border-radius: 8px;
+  padding: 1.1rem 1.2rem;
+  margin: 1.6rem 0;
+}
+
+.merker .marke-merker {
+  display: inline-block;
+  font-family: var(--mono); font-size: 0.6rem;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--sand-tief);
+  margin-bottom: 0.4rem;
+}
+
+.merker h3 { font-family: var(--display); font-size: 1.05rem; margin: 0 0 0.5rem; }
+.merker p:last-child { margin-bottom: 0; }
