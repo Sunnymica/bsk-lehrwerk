@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Konnektoren – der Überblick</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .reiter { display: flex; flex-wrap: wrap; gap: 0.35rem; border-bottom: 1px solid var(--linie); margin-bottom: 2rem; }
+  .reiter button {
+    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--tinte-weich); background: transparent; border: 1px solid transparent; border-bottom: none;
+    border-radius: 6px 6px 0 0; padding: 0.6rem 0.9rem; margin-bottom: -1px; cursor: pointer;
+  }
+  .reiter button[aria-selected="true"] { color: var(--tinte); background: var(--rose); border-color: var(--linie); }
+  .reiter button:focus-visible { outline: 2px solid var(--rose-tief); outline-offset: 2px; }
+  .blatt[hidden] { display: none; }
+  table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: 0.95rem; }
+  th { background: var(--rose); color: var(--rose-tief); font-family: var(--mono); font-size: 0.64rem;
+       letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 0.55rem 0.7rem; }
+  td { padding: 0.5rem 0.7rem; border-bottom: 1px solid var(--linie); vertical-align: top; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  .familie { background: var(--karte); border: 1px solid var(--linie); border-left: 4px solid var(--rose-tief);
+             border-radius: 8px; padding: 1.1rem 1.2rem; margin: 1.4rem 0; }
+  .familie h3 { font-family: var(--display); font-size: 1.1rem; margin: 0 0 0.3rem; }
+  .familie .formel { font-family: var(--mono); font-size: 0.72rem; color: var(--tinte-weich); margin: 0 0 0.7rem; }
+  .aduso { font-family: var(--display); font-size: 1.6rem; letter-spacing: 0.3em; color: var(--rose-tief); margin: 0.3rem 0 0.6rem; }
+  .frage { background: var(--karte); border: 1px solid var(--linie); border-radius: 8px; padding: 1rem 1.1rem; margin: 1rem 0; }
+  .wahl { display: grid; gap: 0.45rem; margin-top: 0.7rem; }
+  .wahl button { text-align: left; font-family: var(--body); font-size: 1rem; color: var(--tinte);
+                 background: var(--papier); border: 1px solid var(--linie); border-radius: 6px; padding: 0.55rem 0.8rem; cursor: pointer; }
+  .wahl button:hover { border-color: var(--rose-tief); }
+  .wahl button.richtig { background: var(--salbei); border-color: var(--salbei-tief); }
+  .wahl button.falsch  { background: var(--rose); border-color: var(--rose-tief); }
+  .rueckmeldung { margin-top: 0.7rem; font-size: 0.95rem; color: var(--tinte-weich); }
+  .rueckmeldung[hidden] { display: none; }
+  .knopfreihe { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+  .knopfreihe .knopf { margin-top: 0; }
+</style>
+</head>
+<body data-bereich="grammatik">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../grammatik.html">← Grammatik</a>
+    <h1><em>Konnektoren</em> – der Überblick</h1>
+    <p class="anleitung">Vier Familien, vier Satzstellungen. Wer weiß, zu welcher Familie ein Wort gehört, weiß auch, wohin das Verb gehört.</p>
+  </div>
+</header>
+
+<main class="innen modul" style="max-width:52rem">
+
+  <div class="reiter" role="tablist">
+    <button role="tab" aria-selected="true"  data-blatt="familien">Die vier Familien</button>
+    <button role="tab" aria-selected="false" data-blatt="nebensatz">Nebensatz vorn</button>
+    <button role="tab" aria-selected="false" data-blatt="listen">Listen</button>
+    <button role="tab" aria-selected="false" data-blatt="uebung">Übung</button>
+  </div>
+
+  <!-- ============ Familien ============ -->
+  <section class="blatt" id="blatt-familien">
+    <p>In den Beispielsätzen ist alles gleich eingefärbt – auf dieser Seite und in allen anderen Modulen:</p>
+    <p class="legende">
+      <span><span class="kon">Konnektor</span></span>
+      <span><span class="verb">konjugiertes Verb</span></span>
+      <span><span class="subj">Subjekt</span></span>
+      <span><span class="neb">Verb im Nebensatz</span></span>
+    </p>
+
+    <div class="merker">
+      <span class="marke-merker">Position 2 – immer wieder</span>
+      <h3>Das konjugierte Verb steht im Hauptsatz auf Position 2</h3>
+      <p>Egal, was vorn steht: eine Zeitangabe, eine Ortsangabe, ein Objekt oder ein Konnektor. Position 1 ist <strong>ein</strong> Element, dann kommt das Verb, dann der Rest.</p>
+      <p style="color:var(--tinte-weich)">Gemeint ist das Verb, das sich nach dem Subjekt richtet: ich <em>komme</em>, du <em>kommst</em>. In Grammatiken heißt es <em>finites Verb</em>.</p>
+      <p class="satzbau"><span class="kon">Morgen</span> <span class="verb">beginnt</span> <span class="subj">der Unterricht</span> um acht.</p>
+      <p class="satzbau"><span class="kon">Wegen des Regens</span> <span class="verb">bleiben</span> <span class="subj">viele</span> zu Hause.</p>
+      <p class="satzbau"><span class="kon">Deshalb</span> <span class="verb">bleibt</span> <span class="subj">er</span> zu Hause.</p>
+    </div>
+
+    <h2>Familie 1: ADUSO</h2>
+    <div class="familie">
+      <h3>Die fünf, die nichts verändern</h3>
+      <p class="aduso">A D U S O</p>
+      <p><strong>aber · denn · und · sondern · oder</strong> – sie stehen vor dem Satz, auf Position 0. Danach geht es weiter, als stünde nichts da: Subjekt, Verb, Rest.</p>
+      <p class="formel">Position 0: ADUSO + Subjekt + konjugiertes Verb + …</p>
+      <p class="satzbau"><span class="subj">Ich</span> <span class="verb">gehe</span> nicht spazieren, <span class="kon">denn</span> <span class="subj">mein Mann</span> <span class="verb">kommt</span> gleich nach Hause.</p>
+      <p class="satzbau"><span class="subj">Wir</span> <span class="verb">können</span> ins Kino gehen <span class="kon">oder</span> <span class="subj">wir</span> <span class="verb">bleiben</span> zu Hause.</p>
+      <p style="margin-top:0.8rem;color:var(--tinte-weich)">Merkhilfe: Die Anfangsbuchstaben ergeben ADUSO. Wer sie kennt, muss bei diesen fünf nie über die Stellung nachdenken.</p>
+    </div>
+
+    <h2>Familie 2: Subjunktionen</h2>
+    <div class="familie">
+      <h3>Sie schicken das Verb ans Ende</h3>
+      <p><strong>weil · obwohl · wenn · dass · damit · während · nachdem · bevor …</strong> Sie eröffnen einen Nebensatz. Das konjugierte Verb rutscht ganz nach hinten.</p>
+      <p class="formel">Subjunktion + Subjekt + … + konjugiertes Verb</p>
+      <p class="satzbau"><span class="subj">Ich</span> <span class="verb">bleibe</span> zu Hause, <span class="kon">weil</span> es draußen fürchterlich <span class="neb">regnet</span>.</p>
+      <p class="satzbau"><span class="subj">Sie</span> <span class="verb">ging</span> spazieren, <span class="kon">obwohl</span> es <span class="neb">regnete</span>.</p>
+      <p class="satzbau"><span class="subj">Er</span> <span class="verb">spart</span> Geld, <span class="kon">damit</span> er ein Auto kaufen <span class="neb">kann</span>.</p>
+    </div>
+
+    <h2>Familie 3: Konjunktionaladverbien</h2>
+    <div class="familie">
+      <h3>Sie besetzen Position 1 und drehen um</h3>
+      <p><strong>deshalb · dennoch · folglich · allerdings · trotzdem · hingegen …</strong> Sie sind Adverbien, keine Konjunktionen. Deshalb zählen sie als Position 1 – und das Verb muss auf Position 2 folgen. Das Subjekt rutscht dahinter.</p>
+      <p class="formel">Konjunktionaladverb + konjugiertes Verb + Subjekt + …</p>
+      <p class="satzbau"><span class="subj">Sie</span> <span class="verb">will</span> den Sonnenuntergang sehen, <span class="kon">deshalb</span> <span class="verb">ist</span> <span class="subj">sie</span> jetzt am Strand.</p>
+      <p class="satzbau">Die Lieferung blieb aus. <span class="kon">Folglich</span> <span class="verb">können</span> <span class="subj">wir</span> den Termin nicht halten.</p>
+      <p style="margin-top:0.8rem;color:var(--rose-tief)">Häufigster Fehler: „Folglich wir können …" – das Subjekt darf hier nicht vor das Verb.</p>
+    </div>
+
+    <h2>Familie 4: Zweiteilige</h2>
+    <div class="familie">
+      <h3>Sie kommen im Doppelpack</h3>
+      <p><strong>entweder … oder · weder … noch · nicht nur … sondern auch · je … desto · zwar … aber</strong></p>
+      <p class="satzbau"><span class="kon">Entweder</span> <span class="verb">kommen</span> <span class="subj">Sie</span> heute <span class="kon">oder</span> <span class="subj">Sie</span> <span class="verb">rufen</span> morgen an.</p>
+      <p class="satzbau"><span class="kon">Je</span> länger die Frist <span class="neb">läuft</span>, <span class="kon">desto</span> teurer <span class="verb">wird</span> <span class="subj">es</span>.</p>
+      <p style="margin-top:0.8rem;color:var(--tinte-weich)">Diese Gruppe hat ein eigenes Modul – hier steht sie nur zur Einordnung.</p>
+    </div>
+  </section>
+
+  <!-- ============ Nebensatz vorn ============ -->
+  <section class="blatt" id="blatt-nebensatz" hidden>
+    <p>Ein Nebensatz kann auch vorn stehen. Dann passiert etwas, das viele überrascht: Der ganze Nebensatz besetzt Position 1. Also muss direkt nach dem Komma das Verb des Hauptsatzes kommen, denn das steht immer auf Position 2.</p>
+    <p>Die Folge sieht man sofort: Die beiden Verben stehen in der Satzmitte hintereinander, getrennt nur durch das Komma.</p>
+
+    <div class="merker">
+      <span class="marke-merker">Die Regel dahinter</span>
+      <h3>Der Nebensatz zählt als ein einziges Element</h3>
+      <p>Er ist Position 1. Danach folgt sofort das konjugierte Verb des Hauptsatzes, erst dann das Subjekt.</p>
+      <p class="satzbau"><span class="kon">Weil</span> es <span class="neb">regnet</span>, <span class="verb">bleibt</span> <span class="subj">er</span> zu Hause.</p>
+    </div>
+
+    <h2>Beide Reihenfolgen nebeneinander</h2>
+    <table>
+      <tr><th>Hauptsatz zuerst</th><th>Nebensatz zuerst</th></tr>
+      <tr>
+        <td><span class="subj">Er</span> <span class="verb">bleibt</span> zu Hause, <span class="kon">weil</span> es <span class="neb">regnet</span>.</td>
+        <td><span class="kon">Weil</span> es <span class="neb">regnet</span>, <span class="verb">bleibt</span> <span class="subj">er</span> zu Hause.</td>
+      </tr>
+      <tr>
+        <td><span class="subj">Sie</span> <span class="verb">geht</span> joggen, <span class="kon">obwohl</span> es spät <span class="neb">ist</span>.</td>
+        <td><span class="kon">Obwohl</span> es spät <span class="neb">ist</span>, <span class="verb">geht</span> <span class="subj">sie</span> joggen.</td>
+      </tr>
+      <tr>
+        <td><span class="subj">Ich</span> <span class="verb">rufe</span> dich an, <span class="kon">falls</span> er heute <span class="neb">ankommt</span>.</td>
+        <td><span class="kon">Falls</span> er heute <span class="neb">ankommt</span>, <span class="verb">rufe</span> <span class="subj">ich</span> dich an.</td>
+      </tr>
+      <tr>
+        <td><span class="subj">Er</span> <span class="verb">ging</span> früh ins Bett, <span class="kon">nachdem</span> er die Prüfung bestanden <span class="neb">hatte</span>.</td>
+        <td><span class="kon">Nachdem</span> er die Prüfung bestanden <span class="neb">hatte</span>, <span class="verb">ging</span> <span class="subj">er</span> früh ins Bett.</td>
+      </tr>
+    </table>
+
+    <div class="merker">
+      <span class="marke-merker">Die Probe</span>
+      <h3>Zwei Verben, ein Komma dazwischen</h3>
+      <p>Wenn der Nebensatz vorn steht, stehen zwei Verben hintereinander, getrennt nur durch das Komma: <em>… regnet, bleibt …</em> · <em>… ist, geht …</em> · <em>… hatte, ging …</em></p>
+      <p>Steht dort etwas anderes, stimmt die Stellung nicht.</p>
+    </div>
+  </section>
+
+  <!-- ============ Listen ============ -->
+  <section class="blatt" id="blatt-listen" hidden>
+    <p>Zum Nachsehen, nicht zum Auswendiglernen. Die vollständige Liste steht unter Nachschlagen.</p>
+
+    <table>
+      <tr><th>ADUSO</th><th>Subjunktionen</th><th>Konjunktionaladverbien</th></tr>
+      <tr>
+        <td style="white-space:normal">aber<br>denn<br>und<br>sondern<br>oder</td>
+        <td style="white-space:normal">als · bevor · bis · da · damit · dass · ehe · falls · indem · nachdem · ob · obwohl · obgleich · seit · seitdem · sobald · sodass · sofern · solange · während · weil · wenn · wie · wohingegen</td>
+        <td style="white-space:normal">allerdings · also · andererseits · anschließend · außerdem · dabei · dadurch · dafür · dagegen · danach · dann · darauf · darum · davor · dazu · dennoch · deshalb · deswegen · einerseits · ferner · folglich · immerhin · inzwischen · jedoch · schließlich · somit · sonst · später · trotzdem · vorher · zuerst · zuvor · zwar</td>
+      </tr>
+    </table>
+
+    <h2>Wörter, die in zwei Familien vorkommen</h2>
+    <p>Ein paar Wörter treten doppelt auf und verhalten sich je nach Familie anders. Das ist keine Ausnahme zum Auswendiglernen, sondern ein Grund, immer auf die Verbstellung zu achten.</p>
+    <table>
+      <tr><th>Wort</th><th>als Subjunktion</th><th>als Adverb</th></tr>
+      <tr>
+        <td>damit</td>
+        <td><span class="kon">damit</span> er pünktlich <span class="neb">kommt</span></td>
+        <td><span class="kon">Damit</span> <span class="verb">ist</span> <span class="subj">alles</span> geklärt.</td>
+      </tr>
+      <tr>
+        <td>seitdem</td>
+        <td><span class="kon">seitdem</span> er hier <span class="neb">wohnt</span></td>
+        <td><span class="kon">Seitdem</span> <span class="verb">ist</span> <span class="subj">er</span> glücklicher.</td>
+      </tr>
+      <tr>
+        <td>während</td>
+        <td><span class="kon">während</span> sie <span class="neb">schlief</span></td>
+        <td>—</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- ============ Übung ============ -->
+  <section class="blatt" id="blatt-uebung" hidden>
+    <p>Zu welcher Familie gehört das Wort – und wo steht dann das Verb? Ihre Antworten bleiben gespeichert.</p>
+    <div id="quiz"></div>
+    <p class="stand" id="stand" style="font-family:var(--mono);font-size:0.7rem;color:var(--tinte-weich)"></p>
+    <div class="knopfreihe">
+      <button class="knopf" id="zuruecksetzen" type="button">Von vorne beginnen</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="fuss">Nur für Kursteilnehmerinnen und Kursteilnehmer</footer>
+
+<script src="../assets/lehrwerk.js"></script>
+<script>
+(function () {
+  const SCHLUESSEL = 'bsk-modul-konnektoren-ueberblick';
+  let stand = {};
+  try { stand = JSON.parse(localStorage.getItem(SCHLUESSEL)) || {}; } catch (e) {}
+  function sichern() { try { localStorage.setItem(SCHLUESSEL, JSON.stringify(stand)); } catch (e) {} }
+
+  const knoepfe = document.querySelectorAll('.reiter button');
+  knoepfe.forEach(b => b.addEventListener('click', () => {
+    knoepfe.forEach(x => x.setAttribute('aria-selected', 'false'));
+    b.setAttribute('aria-selected', 'true');
+    document.querySelectorAll('.blatt').forEach(s => s.hidden = true);
+    document.getElementById('blatt-' + b.dataset.blatt).hidden = false;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }));
+
+  const fragen = [
+    { id: 'f1', text: 'Ich bleibe zu Hause, ____ es regnet.',
+      optionen: ['weil', 'deshalb', 'denn'], richtig: 'weil',
+      erklaerung: 'Mit „weil" rutscht das Verb ans Ende: … weil es regnet. „Denn" wäre auch möglich, dann bliebe die Stellung wie im Hauptsatz.' },
+    { id: 'f2', text: 'Es hat geregnet. ____ ist der Termin ausgefallen.',
+      optionen: ['weil', 'deshalb', 'obwohl'], richtig: 'deshalb',
+      erklaerung: 'Nach „deshalb" folgt sofort das Verb: Deshalb ist der Termin … Das Subjekt kommt danach.' },
+    { id: 'f3', text: 'Welcher Satz ist richtig?',
+      optionen: ['Folglich wir können den Termin nicht halten.', 'Folglich können wir den Termin nicht halten.'],
+      richtig: 'Folglich können wir den Termin nicht halten.',
+      erklaerung: '„Folglich" besetzt Position 1, also muss das Verb auf Position 2 stehen.' },
+    { id: 'f4', text: 'Welcher Satz ist richtig?',
+      optionen: ['Weil es regnet, er bleibt zu Hause.', 'Weil es regnet, bleibt er zu Hause.'],
+      richtig: 'Weil es regnet, bleibt er zu Hause.',
+      erklaerung: 'Der Nebensatz ist Position 1. Nach dem Komma kommt sofort das Verb des Hauptsatzes.' },
+    { id: 'f5', text: 'Ich lese ein Buch ____ mein Mann telefoniert.',
+      optionen: ['und', 'deshalb', 'während'], richtig: 'und',
+      erklaerung: '„und" gehört zu ADUSO und ändert nichts: Subjekt, dann Verb. Mit „während" hieße es: … während mein Mann telefoniert.' },
+    { id: 'f6', text: 'Zu welcher Familie gehört „trotzdem"?',
+      optionen: ['ADUSO', 'Subjunktion', 'Konjunktionaladverb'], richtig: 'Konjunktionaladverb',
+      erklaerung: 'Trotzdem verhält sich wie dennoch: Position 1, Verb auf Position 2. Die Subjunktion mit ähnlicher Bedeutung ist „obwohl".' }
+  ];
+
+  const box = document.getElementById('quiz');
+  fragen.forEach(f => {
+    const div = document.createElement('div');
+    div.className = 'frage';
+    div.innerHTML = '<p>' + f.text + '</p>';
+    const wahl = document.createElement('div');
+    wahl.className = 'wahl';
+    const rueck = document.createElement('p');
+    rueck.className = 'rueckmeldung';
+    rueck.hidden = true;
+
+    f.optionen.forEach(opt => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = opt;
+      b.addEventListener('click', () => {
+        const ok = opt === f.richtig;
+        wahl.querySelectorAll('button').forEach(x => x.disabled = true);
+        b.classList.add(ok ? 'richtig' : 'falsch');
+        if (!ok) wahl.querySelectorAll('button').forEach(x => { if (x.textContent === f.richtig) x.classList.add('richtig'); });
+        rueck.hidden = false;
+        rueck.textContent = (ok ? 'Richtig. ' : 'Noch nicht. Richtig ist „' + f.richtig + '". ') + f.erklaerung;
+        stand[f.id] = opt; sichern(); standZeigen();
+      });
+      wahl.appendChild(b);
+    });
+
+    div.appendChild(wahl); div.appendChild(rueck); box.appendChild(div);
+    if (stand[f.id]) {
+      const t = [...wahl.querySelectorAll('button')].find(x => x.textContent === stand[f.id]);
+      if (t) t.click();
+    }
+  });
+
+  function standZeigen() {
+    const r = fragen.filter(f => stand[f.id] === f.richtig).length;
+    document.getElementById('stand').textContent = 'Stand: ' + r + ' von ' + fragen.length + ' richtig';
+  }
+  standZeigen();
+
+  document.getElementById('zuruecksetzen').addEventListener('click', () => {
+    stand = {}; sichern(); location.reload();
+  });
+})();
+</script>
+
+</body>
+</html>
