@@ -188,6 +188,183 @@ window.Lehrwerk = (function () {
     ansicht();
   }
 
+  /* =========================================================
+     Modul-Bausteine
+     Jedes Modul ruft nur noch auf:
+       Lehrwerk.modul('konnektoren')      – Speicherschlüssel setzen
+       Lehrwerk.reiter()                  – Reiterleiste aktivieren
+       Lehrwerk.auswahl('quiz', fragen)   – Auswahlaufgaben bauen
+       Lehrwerk.luecken('lt', config)     – Lückentext prüfen
+       Lehrwerk.frei('schreiben')         – freies Schreibfeld (speichert)
+       Lehrwerk.abschluss()               – Stand, Kopieren, Zurücksetzen
+     ========================================================= */
+
+  let M = { schluessel: null, stand: {}, teile: [] };
+
+  function modul(name) {
+    M = { schluessel: 'bsk-modul-' + name, stand: {}, teile: [] };
+    try { M.stand = JSON.parse(localStorage.getItem(M.schluessel)) || {}; } catch (e) {}
+    return M;
+  }
+
+  function speichern() {
+    try { localStorage.setItem(M.schluessel, JSON.stringify(M.stand)); } catch (e) {}
+  }
+
+  function reiter() {
+    const knoepfe = document.querySelectorAll('.reiter button');
+    knoepfe.forEach(b => b.addEventListener('click', () => {
+      knoepfe.forEach(x => x.setAttribute('aria-selected', 'false'));
+      b.setAttribute('aria-selected', 'true');
+      document.querySelectorAll('.blatt').forEach(s => s.hidden = true);
+      const ziel = document.getElementById('blatt-' + b.dataset.blatt);
+      if (ziel) ziel.hidden = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }));
+  }
+
+  /* fragen: [{ id, text, optionen: [], richtig: [] , erklaerung }]
+     richtig ist IMMER eine Liste – auch bei nur einer Lösung. */
+  function auswahl(zielId, fragen) {
+    const box = document.getElementById(zielId);
+    if (!box) return;
+    M.teile.push({ art: 'auswahl', name: zielId, fragen: fragen });
+
+    fragen.forEach(f => {
+      const div = document.createElement('div');
+      div.className = 'frage';
+      div.innerHTML = '<p>' + f.text + '</p>';
+
+      const wahl = document.createElement('div');
+      wahl.className = 'wahl';
+      const rueck = document.createElement('p');
+      rueck.className = 'rueckmeldung';
+      rueck.hidden = true;
+
+      f.optionen.forEach(opt => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.textContent = opt;
+        b.addEventListener('click', () => {
+          const ok = f.richtig.includes(opt);
+          wahl.querySelectorAll('button').forEach(x => x.disabled = true);
+          b.classList.add(ok ? 'richtig' : 'falsch');
+          if (!ok) wahl.querySelectorAll('button').forEach(x => {
+            if (f.richtig.includes(x.textContent)) x.classList.add('richtig');
+          });
+          let text;
+          if (ok) {
+            const andere = f.richtig.filter(r => r !== opt);
+            text = 'Richtig. ' + (andere.length ? 'Ebenso möglich: ' + andere.join(', ') + '. ' : '') + (f.erklaerung || '');
+          } else {
+            text = 'Noch nicht. Richtig ' + (f.richtig.length > 1 ? 'sind: ' + f.richtig.join(', ') : 'ist: „' + f.richtig[0] + '"') + '. ' + (f.erklaerung || '');
+          }
+          rueck.hidden = false;
+          rueck.textContent = text;
+          M.stand[f.id] = opt;
+          speichern();
+          standZeigen();
+        });
+        wahl.appendChild(b);
+      });
+
+      div.appendChild(wahl);
+      div.appendChild(rueck);
+      box.appendChild(div);
+
+      if (M.stand[f.id]) {
+        const t = [...wahl.querySelectorAll('button')].find(x => x.textContent === M.stand[f.id]);
+        if (t) t.click();
+      }
+    });
+  }
+
+  /* config: { felder: { id: [alternativen] }, pruefen: 'knopf-id',
+               rueck: 'absatz-id', tipp: 'knopf-id', hinweis: 'absatz-id' } */
+  function luecken(name, config) {
+    const ids = Object.keys(config.felder);
+    M.teile.push({ art: 'luecken', name: name, anzahl: ids.length });
+
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (M.stand[id]) el.value = M.stand[id];
+      el.addEventListener('input', () => { M.stand[id] = el.value; speichern(); });
+    });
+
+    const knopf = document.getElementById(config.pruefen);
+    const rueck = document.getElementById(config.rueck);
+    if (knopf) knopf.addEventListener('click', () => {
+      let richtig = 0;
+      ids.forEach(id => {
+        const el = document.getElementById(id);
+        const wert = el.value.trim().toLowerCase();
+        const ok = config.felder[id].map(x => x.toLowerCase()).includes(wert);
+        el.classList.toggle('richtig', ok);
+        el.classList.toggle('falsch', !ok && wert !== '');
+        if (ok) richtig++;
+      });
+      if (rueck) {
+        rueck.hidden = false;
+        rueck.textContent = richtig === ids.length
+          ? 'Alle richtig. Bei jeder Lücke wären auch andere Wörter möglich gewesen.'
+          : richtig + ' von ' + ids.length + ' richtig. Es gibt jeweils mehrere Möglichkeiten.';
+      }
+      M.stand['_' + name] = richtig;
+      speichern();
+      standZeigen();
+    });
+
+    const tipp = document.getElementById(config.tipp);
+    const hinweis = document.getElementById(config.hinweis);
+    if (tipp && hinweis) tipp.addEventListener('click', () => { hinweis.hidden = !hinweis.hidden; });
+  }
+
+  /* Freies Schreibfeld: speichert laufend, wird nicht bewertet. */
+  function frei(feldId) {
+    const el = document.getElementById(feldId);
+    if (!el) return;
+    if (M.stand[feldId]) el.value = M.stand[feldId];
+    el.addEventListener('input', () => { M.stand[feldId] = el.value; speichern(); });
+  }
+
+  function standText() {
+    return M.teile.map(t => {
+      if (t.art === 'auswahl') {
+        const r = t.fragen.filter(f => M.stand[f.id] && f.richtig.includes(M.stand[f.id])).length;
+        return r + ' von ' + t.fragen.length;
+      }
+      return (M.stand['_' + t.name] || 0) + ' von ' + t.anzahl;
+    }).join(' · ');
+  }
+
+  function standZeigen() {
+    const el = document.getElementById('stand');
+    if (el && M.teile.length) el.textContent = 'Stand: ' + standText();
+  }
+
+  /* Erwartet optional die Knöpfe #zuruecksetzen und #kopieren sowie #stand. */
+  function abschluss() {
+    standZeigen();
+
+    const zurueck = document.getElementById('zuruecksetzen');
+    if (zurueck) zurueck.addEventListener('click', () => {
+      M.stand = {};
+      speichern();
+      location.reload();
+    });
+
+    const kopieren = document.getElementById('kopieren');
+    if (kopieren) kopieren.addEventListener('click', () => {
+      const text = document.title.split(' –')[0] + ', Stand vom ' +
+        new Date().toLocaleDateString('de-DE') + '\n' + standText();
+      navigator.clipboard.writeText(text).then(
+        () => { kopieren.textContent = 'Kopiert'; },
+        () => { window.prompt('Zum Kopieren markieren:', text); }
+      );
+    });
+  }
+
   /* ====== Daten laden ====== */
 
   function laden(wurzel) {
@@ -350,5 +527,5 @@ window.Lehrwerk = (function () {
     }).catch(() => fehler(meldung));
   }
 
-  return { aufschlag, bereich, KURS };
+  return { aufschlag, bereich, KURS, modul, reiter, auswahl, luecken, frei, abschluss };
 })();
