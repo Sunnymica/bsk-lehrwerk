@@ -340,3 +340,28 @@ body[data-bereich="referenz"]  .karte { border-left-color: var(--flieder-tief); 
   .band, .haken, .wort-des-tages { display: none; }
   .karte, .bereichskarte { break-inside: avoid; }
 }
+
+/* ---------- Unterrichtsansicht ---------- */
+
+.ansicht-knopf {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 20;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tinte);
+  background: var(--karte);
+  border: 1px solid var(--linie);
+  border-radius: 999px;
+  padding: 0.5rem 0.9rem;
+  box-shadow: 0 4px 14px rgba(34, 34, 43, 0.12);
+  cursor: pointer;
+}
+
+.ansicht-knopf:hover { border-color: var(--tinte-weich); }
+.ansicht-knopf:focus-visible { outline: 2px solid var(--tinte); outline-offset: 2px; }
+
+@media print { .ansicht-knopf { display: none; } }
