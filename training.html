@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Training – Berufssprachkurs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-bereich="training">
+
+<div class="band">
+  <p class="eyebrow" id="band-titel">Kursbeginn</p>
+  <ul class="uhr" id="uhr">
+    <li><span class="zahl" data-feld="tage">–</span><span class="einheit">Tage</span></li>
+    <li><span class="zahl" data-feld="stunden">–</span><span class="einheit">Stunden</span></li>
+    <li><span class="zahl" data-feld="minuten">–</span><span class="einheit">Minuten</span></li>
+    <li><span class="zahl" data-feld="sekunden">–</span><span class="einheit">Sekunden</span></li>
+  </ul>
+  <p class="fussnote" id="band-fussnote"></p>
+  <div class="fortschritt" id="fortschritt" hidden>
+    <div class="schiene"><div class="balken" id="balken"></div></div>
+    <p id="fortschritt-text"></p>
+  </div>
+</div>
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="index.html">← Übersicht</a>
+    <h1 id="bereich-titel"><em>Training</em></h1>
+    <p class="anleitung" id="bereich-text"></p>
+    <button class="knopf" id="alle-auf" type="button" hidden>Alle aufklappen</button>
+  </div>
+</header>
+
+<main class="innen gruppen" id="gruppen"></main>
+<div class="innen meldung" id="meldung" hidden></div>
+
+<footer class="fuss">Nur für Kursteilnehmerinnen und Kursteilnehmer</footer>
+
+<script src="assets/lehrwerk.js"></script>
+<script>Lehrwerk.bereich('training');</script>
+
+</body>
+</html>
