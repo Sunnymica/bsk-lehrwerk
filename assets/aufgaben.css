@@ -1,0 +1,42 @@
+/* =========================================================
+   Deutsch fürs Büro – interaktive Aufgaben
+   Wiederverwendbare Aufgabenkomponenten und ihre Zustände.
+   Komponentenvariablen immer am Komponentenselektor definieren,
+   niemals global auf :root.
+   ========================================================= */
+
+/* Aufgaben */
+.frage { background: var(--karte); border: 1px solid var(--linie); border-radius: 8px; padding: 1rem 1.1rem; margin: 1rem 0; }
+.wahl { display: grid; gap: 0.45rem; margin-top: 0.7rem; }
+
+.wahl button {
+  text-align: left; font-family: var(--body); font-size: 1rem; color: var(--tinte);
+  background: var(--papier); border: 1px solid var(--linie); border-radius: 6px;
+  padding: 0.55rem 0.8rem; cursor: pointer;
+}
+
+.wahl button:hover { border-color: var(--rose-tief); }
+.wahl button.richtig { background: var(--salbei); border-color: var(--salbei-tief); }
+.wahl button.falsch  { background: var(--rose); border-color: var(--rose-tief); }
+.wahl button:disabled { cursor: default; }
+
+.rueckmeldung { margin-top: 0.7rem; font-size: 0.95rem; color: var(--tinte-weich); }
+.rueckmeldung[hidden] { display: none; }
+
+input.luecke, textarea.feld {
+  font-family: var(--body); font-size: 1rem; color: var(--tinte);
+  background: var(--papier); border: 1px solid var(--linie); border-radius: 5px;
+  padding: 0.3rem 0.5rem;
+}
+
+input.luecke { min-width: 11rem; }
+input.luecke.richtig { border-color: var(--salbei-tief); background: var(--salbei); }
+input.luecke.falsch  { border-color: var(--rose-tief); background: var(--rose); }
+
+textarea.feld { width: 100%; min-height: 8rem; padding: 0.7rem 0.8rem; line-height: 1.6; }
+textarea.feld:focus-visible { outline: 2px solid var(--rose-tief); outline-offset: 2px; }
+
+.knopfreihe { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.knopfreihe .knopf { margin-top: 0; }
+
+.stand { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--tinte-weich); margin: 1.2rem 0 0; }

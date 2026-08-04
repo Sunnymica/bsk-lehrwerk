@@ -1,55 +1,102 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>Berufssprachkurs B2/C1</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#173f50">
+  <meta name="description" content="Deutsch fürs Büro – digitale Lernplattform für den Job-BSK Bürokommunikation B2/C1.">
+  <title>Deutsch fürs Büro · Job-BSK B2/C1</title>
+  <link rel="stylesheet" href="assets/basis.css">
+<link rel="stylesheet" href="assets/platform.css">
+<link rel="stylesheet" href="assets/lehrwerk.css">
+<link rel="stylesheet" href="assets/aufgaben.css">
+  <script src="assets/lehrwerk.js" defer></script>
+  <script src="data/homework.js" defer></script>
+  <script src="assets/platform.js"></script>
 </head>
-<body>
+<body data-page="home" data-root="">
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main-frame">
+      <header class="topbar">
+        <button class="icon-btn mobile-only" id="menu-button" aria-label="Navigation öffnen">☰</button>
+        <div><span class="eyebrow" id="date-label">Heute</span><strong id="welcome">Willkommen im Kurs.</strong></div>
+        <button class="avatar" id="profile-button" aria-label="Profil öffnen">B2</button>
+      </header>
 
-<div class="band">
-  <p class="eyebrow" id="band-titel">Kursbeginn</p>
-  <ul class="uhr" id="uhr">
-    <li><span class="zahl" data-feld="tage">–</span><span class="einheit">Tage</span></li>
-    <li><span class="zahl" data-feld="stunden">–</span><span class="einheit">Stunden</span></li>
-    <li><span class="zahl" data-feld="minuten">–</span><span class="einheit">Minuten</span></li>
-    <li><span class="zahl" data-feld="sekunden">–</span><span class="einheit">Sekunden</span></li>
-  </ul>
-  <p class="fussnote" id="band-fussnote"></p>
-  <div class="fortschritt" id="fortschritt" hidden>
-    <div class="schiene"><div class="balken" id="balken"></div></div>
-    <p id="fortschritt-text"></p>
+      <main id="main" class="platform-main">
+        <section id="heute" class="dashboard-hero platform-section">
+          <div class="hero-copy">
+            <span class="kicker">Ihr nächster Schritt</span>
+            <h1 id="next-title">Deutsch fürs Büro</h1>
+            <p id="next-description">Die Lernplattform wird geladen.</p>
+            <div class="meta-row" id="next-meta"></div>
+            <div class="button-row">
+              <a class="button primary" id="continue-button" href="grammatik.html">Weiterlernen</a>
+              <a class="button secondary" href="#bereiche">Alle Bereiche</a>
+            </div>
+          </div>
+          <div class="progress-ring" id="progress-ring"><div><strong id="progress-number">0%</strong><span>geschafft</span></div></div>
+        </section>
+
+        <section class="quick-grid" aria-label="Kursübersicht">
+          <article class="quick-card"><span class="quick-icon">▣</span><div><small>Nächste Sitzung</small><strong id="next-session">Termin wird berechnet</strong></div></article>
+          <article class="quick-card"><span class="quick-icon">✓</span><div><small>Hausaufgaben</small><strong><span id="homework-quick">0</span> offene Aufgaben</strong></div><a class="icon-btn" href="#hausaufgaben" aria-label="Zu den Hausaufgaben">→</a></article>
+          <article class="quick-card"><span class="quick-icon">✎</span><div><small>Notizbuch</small><strong><span id="notes-quick">0</span> persönliche Notizen</strong></div><a class="icon-btn" href="#notizbuch" aria-label="Zum Notizbuch">→</a></article>
+        </section>
+
+        <section id="bereiche" class="platform-section">
+          <div class="section-head"><div><span class="kicker">Ihr Kursweg</span><h2>Lernbereiche</h2></div><span>Inhalte nach Aufgabe und Lernziel geordnet</span></div>
+          <div class="area-grid" id="area-grid"></div>
+        </section>
+
+        <section id="hausaufgaben" class="platform-section">
+          <div class="section-head"><div><span class="kicker">Fester Kursbereich</span><h2>Hausaufgaben</h2></div><span id="homework-summary">Keine offenen Aufgaben</span></div>
+          <div id="homework-area" class="surface"></div>
+        </section>
+
+        <section id="notizbuch" class="platform-section">
+          <div class="section-head"><div><span class="kicker">Eigene Wörter, Sätze und Fragen</span><h2>Notizbuch</h2></div><button class="button secondary small" id="new-note">Neue Notiz</button></div>
+          <div class="notes-tools"><input type="search" id="notes-search" placeholder="Notizen durchsuchen"><select id="notes-filter"><option value="all">Alle Notizen</option><option value="pinned">Angeheftet</option><option value="module">Aus Modulen</option></select></div>
+          <div class="notes-grid" id="notes-grid"></div>
+        </section>
+
+        <section id="fortschritt" class="platform-section">
+          <div class="section-head"><div><span class="kicker">Nicht Punkte, sondern Können</span><h2>Ihr Fortschritt</h2></div></div>
+          <div class="progress-grid">
+            <article class="surface"><h3>Bearbeitete Lernbereiche</h3><div id="area-progress"></div></article>
+            <article class="surface"><h3>Letzte Nutzung</h3><div class="activity-list" id="activity-list"></div><p class="activity-note">Der Lernstand bleibt ausschließlich in diesem Browser gespeichert.</p></article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="platform-footer"><span>Deutsch fürs Büro · Plattformversion 0.4</span><button class="text-button" id="reset-button">Lokale Lerndaten zurücksetzen</button></footer>
+    </div>
   </div>
-</div>
+  <div class="backdrop" id="backdrop"></div>
 
-<header class="hero">
-  <div class="innen">
-    <p class="eyebrow">Berufssprachkurs · Bürokommunikation und Verwaltung · B2/C1</p>
-    <h1>Deutsch fürs <em>Büro</em></h1>
-    <p class="anleitung">
-      Fünf Bereiche, jeder mit eigenen Themen. Wählen Sie einen aus –
-      auf der nächsten Seite sehen Sie alle Module dazu, sortiert nach Thema.
-    </p>
-    <p class="wort-des-tages" id="wort-des-tages" hidden>
-      <span class="marke">Wort des Tages</span>
-      <span class="wort"></span>
-      <span class="erklaerung"></span>
-    </p>
-  </div>
-</header>
+  <dialog id="note-dialog">
+    <form method="dialog" id="note-form" class="dialog-card">
+      <div class="dialog-head"><div><span class="kicker">Notizbuch</span><h2 id="note-heading">Neue Notiz</h2></div><button value="cancel" class="icon-btn" aria-label="Schließen">×</button></div>
+      <input type="hidden" id="note-id">
+      <label>Titel<input id="note-title" maxlength="80" placeholder="Zum Beispiel: Frage zu Konnektoren"></label>
+      <label>Notiz<textarea id="note-text" rows="7" maxlength="1600" required placeholder="Wörter, Sätze, Fragen oder Beobachtungen …"></textarea></label>
+      <label class="check"><input id="note-pinned" type="checkbox"> Anheften</label>
+      <input type="hidden" id="note-context">
+      <div class="button-row right"><button value="cancel" class="button secondary">Abbrechen</button><button type="submit" class="button primary">Speichern</button></div>
+    </form>
+  </dialog>
 
-<main class="innen bereiche" id="bereiche"></main>
-<div class="innen meldung" id="meldung" hidden></div>
-
-<footer class="fuss">Nur für Kursteilnehmerinnen und Kursteilnehmer</footer>
-
-<script src="assets/lehrwerk.js"></script>
-<script>Lehrwerk.aufschlag();</script>
-
+  <dialog id="profile-dialog">
+    <form method="dialog" id="profile-form" class="dialog-card">
+      <div class="dialog-head"><div><span class="kicker">Einstellungen</span><h2>Ihr Lernprofil</h2></div><button value="cancel" class="icon-btn" aria-label="Schließen">×</button></div>
+      <label>Name<input id="profile-name" maxlength="40" placeholder="Vorname"></label>
+      <label>Persönliches Lernziel<select id="profile-goal"><option value="1">Ein Modul pro Woche</option><option value="2">Zwei Module pro Woche</option><option value="3">Drei Module pro Woche</option></select></label>
+      <div class="button-row right"><button value="cancel" class="button secondary">Abbrechen</button><button type="submit" class="button primary">Speichern</button></div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" aria-live="polite"></div>
 </body>
 </html>

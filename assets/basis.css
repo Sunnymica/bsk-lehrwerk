@@ -1,0 +1,73 @@
+/* =========================================================
+   Deutsch fürs Büro – gemeinsame Basis
+   Design-Tokens, Reset und systemweit geteilte Grundregeln.
+   Änderungen an globalen Tokens nur im Einvernehmen.
+   ========================================================= */
+
+:root {
+  /* Lehrwerk */
+  --papier:      #FBFAF7;
+  --karte:       #FFFFFF;
+  --tinte:       #22222B;
+  --tinte-weich: #5C5C6B;
+  --linie:       #E2E0DA;
+
+  --salbei:  #E7EFE6;  --salbei-tief:  #40614A;
+  --flieder: #EBE5F1;  --flieder-tief: #574269;
+  --rose:    #F5E6E6;  --rose-tief:    #833F4B;
+  --himmel:  #E3EBF3;  --himmel-tief:  #31536F;
+  --sand:    #F5EDDD;  --sand-tief:    #6F5320;
+
+  --aubergine: #4F3F57;
+
+  --display: "Aptos Display", "Segoe UI", Helvetica, Arial, sans-serif;
+  --body:    "Aptos", "Segoe UI", system-ui, sans-serif;
+  --mono:    "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+
+  --mass: 68rem;
+  --radius: 8px;
+
+  /* Plattform */
+  --platform-blue: #215E78;
+  --platform-blue-dark: #173F50;
+  --platform-blue-soft: #DCECEF;
+  --platform-terracotta: #B86143;
+  --platform-olive: #667A4A;
+  --platform-yellow: #E8C46A;
+  --platform-bg: #F4F1EB;
+  --platform-paper: #FFFDF8;
+  --platform-line: #D9D7D0;
+  --platform-muted: #657177;
+  --platform-sidebar: 270px;
+  --platform-topbar: 76px;
+  --platform-shadow: 0 18px 50px rgba(37,50,58,.10);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--papier);
+  color: var(--tinte);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.innen { max-width: var(--mass); margin: 0 auto; padding-inline: 1.5rem; }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--tinte-weich);
+  margin: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

@@ -1,7 +1,6 @@
 /* =========================================================
-   BSK-Lehrwerk – gemeinsames Skript
-   Aufschlagseite:  Lehrwerk.aufschlag()
-   Bereichsseite:   Lehrwerk.bereich('grammatik')
+   BSK-Lehrwerk – gemeinsame Modul- und Aufgabenlogik
+   Bereichsseite: Lehrwerk.bereich('grammatik')
    ========================================================= */
 
 window.Lehrwerk = (function () {
@@ -43,7 +42,10 @@ window.Lehrwerk = (function () {
   }
 
   function merken(liste) {
-    try { localStorage.setItem(SCHLUESSEL, JSON.stringify(liste)); } catch (e) {}
+    try {
+      localStorage.setItem(SCHLUESSEL, JSON.stringify(liste));
+      window.dispatchEvent(new CustomEvent('bsk:progress-changed', { detail: liste }));
+    } catch (e) {}
   }
 
   function geoeffnet() {
@@ -369,6 +371,12 @@ window.Lehrwerk = (function () {
 
   function laden(wurzel) {
     if (window.DATEN_INLINE) return Promise.resolve(window.DATEN_INLINE);
+    if (window.BSKPlatform && typeof window.BSKPlatform.getContent === 'function') {
+      return window.BSKPlatform.getContent().then(data => {
+        if (!data) throw new Error('Inhaltsdatei nicht erreichbar');
+        return data;
+      });
+    }
     return fetch(wurzel + 'inhalt.json').then(r => {
       if (!r.ok) throw new Error(r.status);
       return r.json();
@@ -383,38 +391,6 @@ window.Lehrwerk = (function () {
         '<code>http://localhost:8000</code> aufrufen. Auf GitHub Pages läuft es ohne diesen Schritt.</p>'
       : '<p><code>inhalt.json</code> fehlt oder enthält einen JSON-Fehler. ' +
         'Häufigste Ursache: ein Komma zu viel hinter dem letzten Eintrag.</p>';
-  }
-
-  /* ====== Aufschlagseite ====== */
-
-  function aufschlag() {
-    countdown();
-    wortDesTages();
-
-    const ziel = document.getElementById('bereiche');
-    const meldung = document.getElementById('meldung');
-
-    laden('./').then(daten => {
-      ziel.innerHTML = '';
-      daten.bereiche.forEach(b => {
-        const alle = b.gruppen.flatMap(g => g.module);
-        const fertig = alle.filter(m => m.status !== 'in-arbeit').length;
-
-        const a = document.createElement('a');
-        a.className = 'bereichskarte';
-        a.dataset.bereich = b.id;
-        a.href = b.id + '.html';
-        a.innerHTML = `
-          <p class="eyebrow">${anzahl(b.gruppen.length, 'Themengruppe', 'Themengruppen')}</p>
-          <h2>${b.label}</h2>
-          <p>${b.kurz}</p>
-          <div class="bilanz">
-            <span>${anzahl(alle.length, 'Modul', 'Module')}</span>
-            <span>${fertig} fertig</span>
-          </div>`;
-        ziel.appendChild(a);
-      });
-    }).catch(() => fehler(meldung));
   }
 
   /* ====== Bereichsseite ====== */
@@ -470,13 +446,14 @@ window.Lehrwerk = (function () {
         grid.className = 'kartei';
 
         g.module.forEach(m => {
-          const offen = m.status !== 'in-arbeit';
+          const hausaufgabenBereich = id === 'referenz' && m.pfad === 'hausaufgaben.html';
+          const offen = hausaufgabenBereich || m._available === true;
           const kennung = id + '/' + m.pfad;
           const fertig = erledigt().includes(kennung);
 
           const el = document.createElement(offen ? 'a' : 'div');
           el.className = 'karte' + (offen ? '' : ' in-arbeit') + (fertig ? ' erledigt' : '');
-          if (offen) el.href = id + '/' + m.pfad;
+          if (offen) el.href = hausaufgabenBereich ? 'index.html#hausaufgaben' : id + '/' + m.pfad;
 
           const fk = (m.fertigkeiten || [])
             .map(f => '<span class="fk-' + f + '">' + f + '</span>').join('');
@@ -484,9 +461,10 @@ window.Lehrwerk = (function () {
           el.innerHTML = `
             <h3>${m.titel}</h3>
             <p class="text">${m.beschreibung}</p>
-            <div class="meta"><span>${m.niveau}</span><span>${m.dauer}</span>${fk}</div>`;
+            <div class="meta"><span>${m.niveau}</span><span>${m.dauer}</span>${fk}</div>
+            ${offen ? '' : '<span class="status-hinweis">Material wird ergänzt</span>'}`;
 
-          if (offen) {
+          if (offen && !hausaufgabenBereich) {
             const haken = document.createElement('button');
             haken.type = 'button';
             haken.className = 'haken';
@@ -527,5 +505,5 @@ window.Lehrwerk = (function () {
     }).catch(() => fehler(meldung));
   }
 
-  return { aufschlag, bereich, KURS, modul, reiter, auswahl, luecken, frei, abschluss };
+  return { bereich, KURS, modul, reiter, auswahl, luecken, frei, abschluss };
 })();

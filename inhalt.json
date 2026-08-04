@@ -9,47 +9,278 @@
         {
           "titel": "Am Telefon und am Empfang",
           "module": [
-            { "titel": "Telefonieren", "beschreibung": "Annehmen, weiterverbinden, Notiz aufnehmen.", "pfad": "telefonieren.html", "niveau": "B2", "dauer": "45 Min", "fertigkeiten": ["Sprechen", "Hören", "Schreiben"], "status": "fertig" },
-            { "titel": "Schlecht verstanden", "beschreibung": "Nachfragen, buchstabieren, wiederholen lassen.", "pfad": "nachfragen.html", "niveau": "B2", "dauer": "30 Min", "fertigkeiten": ["Sprechen", "Hören"], "status": "in-arbeit" },
-            { "titel": "Empfang und Kundengespräch", "beschreibung": "Begrüßen, Anliegen aufnehmen, weiterleiten.", "pfad": "empfang.html", "niveau": "B2", "dauer": "45 Min", "fertigkeiten": ["Sprechen", "Lesen"], "status": "in-arbeit" }
+            {
+              "titel": "Telefonieren",
+              "beschreibung": "Annehmen, weiterverbinden, Notiz aufnehmen.",
+              "pfad": "telefonieren.html",
+              "niveau": "B2",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Hören",
+                "Schreiben"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Schlecht verstanden",
+              "beschreibung": "Nachfragen, buchstabieren, wiederholen lassen.",
+              "pfad": "nachfragen.html",
+              "niveau": "B2",
+              "dauer": "30 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Hören"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Empfang und Kundengespräch",
+              "beschreibung": "Begrüßen, Anliegen aufnehmen, weiterleiten.",
+              "pfad": "empfang.html",
+              "niveau": "B2",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Lesen"
+              ],
+              "status": "in-arbeit"
+            }
           ]
         },
         {
           "titel": "Schriftverkehr",
           "module": [
-            { "titel": "E-Mail und Register", "beschreibung": "Anrede, Betreff, Ton. Formell oder kollegial.", "pfad": "email.html", "niveau": "B2–C1", "dauer": "60 Min", "fertigkeiten": ["Schreiben", "Lesen"], "status": "fertig" },
-            { "titel": "Termine und Fristen", "beschreibung": "Vorschlagen, verschieben, absagen, einfordern.", "pfad": "termine.html", "niveau": "B2", "dauer": "45 Min", "fertigkeiten": ["Schreiben", "Sprechen"], "status": "in-arbeit" },
-            { "titel": "Angebot und Auftrag", "beschreibung": "Anfrage, Angebot, Bestellung, Bestätigung.", "pfad": "angebot.html", "niveau": "B2–C1", "dauer": "60 Min", "fertigkeiten": ["Schreiben", "Lesen"], "status": "in-arbeit" },
-            { "titel": "Rechnung und Mahnung", "beschreibung": "Zahlungsziel, Erinnerung, Mahnstufen.", "pfad": "rechnung.html", "niveau": "C1", "dauer": "60 Min", "fertigkeiten": ["Schreiben", "Lesen"], "status": "in-arbeit" },
-            { "titel": "Beschwerde und Reklamation", "beschreibung": "Sachlich beanstanden, Lösung anbieten.", "pfad": "beschwerde.html", "niveau": "B2–C1", "dauer": "60 Min", "fertigkeiten": ["Schreiben", "Sprechen"], "status": "in-arbeit" },
-            { "titel": "Kommasetzung", "beschreibung": "Die Regeln, die im Schriftverkehr auffallen.", "pfad": "komma.html", "niveau": "B2–C1", "dauer": "45 Min", "fertigkeiten": ["Schreiben", "Lesen"], "status": "in-arbeit" }
+            {
+              "titel": "E-Mail und Register",
+              "beschreibung": "Anrede, Betreff, Ton. Formell oder kollegial.",
+              "pfad": "email.html",
+              "niveau": "B2–C1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Schreiben",
+                "Lesen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Termine und Fristen",
+              "beschreibung": "Vorschlagen, verschieben, absagen, einfordern.",
+              "pfad": "termine.html",
+              "niveau": "B2",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Schreiben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Angebot und Auftrag",
+              "beschreibung": "Anfrage, Angebot, Bestellung, Bestätigung.",
+              "pfad": "angebot.html",
+              "niveau": "B2–C1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Schreiben",
+                "Lesen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Rechnung und Mahnung",
+              "beschreibung": "Zahlungsziel, Erinnerung, Mahnstufen.",
+              "pfad": "rechnung.html",
+              "niveau": "C1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Schreiben",
+                "Lesen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Beschwerde und Reklamation",
+              "beschreibung": "Sachlich beanstanden, Lösung anbieten.",
+              "pfad": "beschwerde.html",
+              "niveau": "B2–C1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Schreiben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Kommasetzung",
+              "beschreibung": "Die Regeln, die im Schriftverkehr auffallen.",
+              "pfad": "komma.html",
+              "niveau": "B2–C1",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Schreiben",
+                "Lesen"
+              ],
+              "status": "in-arbeit"
+            }
           ]
         },
         {
           "titel": "Besprechung und Zusammenarbeit",
           "module": [
-            { "titel": "Meetings", "beschreibung": "Wortmeldung, Zustimmung, Einwand, Zusammenfassung.", "pfad": "meetings.html", "niveau": "B2–C1", "dauer": "60 Min", "fertigkeiten": ["Sprechen", "Hören"], "status": "fertig" },
-            { "titel": "Protokoll und Aktennotiz", "beschreibung": "Mitschreiben, verdichten, Beschlüsse festhalten.", "pfad": "protokoll.html", "niveau": "C1", "dauer": "75 Min", "fertigkeiten": ["Schreiben", "Hören"], "status": "in-arbeit" },
-            { "titel": "Widersprechen und verhandeln", "beschreibung": "Anderer Meinung sein, ohne den Ton zu verlieren.", "pfad": "verhandeln.html", "niveau": "C1", "dauer": "60 Min", "fertigkeiten": ["Sprechen"], "status": "in-arbeit" },
-            { "titel": "Kritik geben und annehmen", "beschreibung": "Fehler ansprechen, Missverständnis klären.", "pfad": "kritik.html", "niveau": "C1", "dauer": "60 Min", "fertigkeiten": ["Sprechen", "Hören"], "status": "in-arbeit" },
-            { "titel": "Präsentieren", "beschreibung": "Aufbau, Überleitungen, Nachfragen aushalten.", "pfad": "praesentieren.html", "niveau": "C1", "dauer": "75 Min", "fertigkeiten": ["Sprechen", "Lesen"], "status": "in-arbeit" },
-            { "titel": "Grafiken und Zahlen beschreiben", "beschreibung": "Entwicklung, Anteil, Vergleich in Worte fassen.", "pfad": "grafiken.html", "niveau": "C1", "dauer": "60 Min", "fertigkeiten": ["Sprechen", "Schreiben", "Lesen"], "status": "in-arbeit" },
-            { "titel": "Small Talk", "beschreibung": "Anfangen, dabeibleiben, wieder aussteigen.", "pfad": "smalltalk.html", "niveau": "B2", "dauer": "45 Min", "fertigkeiten": ["Sprechen", "Hören"], "status": "in-arbeit" },
-            { "titel": "Videokonferenz", "beschreibung": "Technik ansagen, bei Störung souverän bleiben.", "pfad": "videokonferenz.html", "niveau": "B2", "dauer": "45 Min", "fertigkeiten": ["Sprechen", "Hören"], "status": "in-arbeit" }
+            {
+              "titel": "Meetings",
+              "beschreibung": "Wortmeldung, Zustimmung, Einwand, Zusammenfassung.",
+              "pfad": "meetings.html",
+              "niveau": "B2–C1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Hören"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Protokoll und Aktennotiz",
+              "beschreibung": "Mitschreiben, verdichten, Beschlüsse festhalten.",
+              "pfad": "protokoll.html",
+              "niveau": "C1",
+              "dauer": "75 Min",
+              "fertigkeiten": [
+                "Schreiben",
+                "Hören"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Widersprechen und verhandeln",
+              "beschreibung": "Anderer Meinung sein, ohne den Ton zu verlieren.",
+              "pfad": "verhandeln.html",
+              "niveau": "C1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Kritik geben und annehmen",
+              "beschreibung": "Fehler ansprechen, Missverständnis klären.",
+              "pfad": "kritik.html",
+              "niveau": "C1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Hören"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Präsentieren",
+              "beschreibung": "Aufbau, Überleitungen, Nachfragen aushalten.",
+              "pfad": "praesentieren.html",
+              "niveau": "C1",
+              "dauer": "75 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Lesen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Grafiken und Zahlen beschreiben",
+              "beschreibung": "Entwicklung, Anteil, Vergleich in Worte fassen.",
+              "pfad": "grafiken.html",
+              "niveau": "C1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Schreiben",
+                "Lesen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Small Talk",
+              "beschreibung": "Anfangen, dabeibleiben, wieder aussteigen.",
+              "pfad": "smalltalk.html",
+              "niveau": "B2",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Hören"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Videokonferenz",
+              "beschreibung": "Technik ansagen, bei Störung souverän bleiben.",
+              "pfad": "videokonferenz.html",
+              "niveau": "B2",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Hören"
+              ],
+              "status": "in-arbeit"
+            }
           ]
         },
         {
           "titel": "Amt und Bewerbung",
           "module": [
-            { "titel": "Behördendeutsch", "beschreibung": "Amtssprache entschlüsseln, Anträge ausfüllen.", "pfad": "behoerdendeutsch.html", "niveau": "B2–C1", "dauer": "75 Min", "fertigkeiten": ["Lesen", "Schreiben"], "status": "in-arbeit" },
-            { "titel": "Bewerbung", "beschreibung": "Anschreiben, Lebenslauf, die Fragen, die kommen.", "pfad": "bewerbung.html", "niveau": "B2–C1", "dauer": "90 Min", "fertigkeiten": ["Schreiben", "Sprechen"], "status": "in-arbeit" },
-            { "titel": "Register und Stilebenen", "beschreibung": "Dasselbe an die Chefin, die Kollegin, das Amt.", "pfad": "register.html", "niveau": "C1", "dauer": "60 Min", "fertigkeiten": ["Schreiben", "Lesen"], "status": "in-arbeit" },
-            { "titel": "Argumentieren und erörtern", "beschreibung": "These, Beleg, Gegenargument, Schluss.", "pfad": "argumentieren.html", "niveau": "C1", "dauer": "75 Min", "fertigkeiten": ["Sprechen", "Schreiben"], "status": "in-arbeit" }
+            {
+              "titel": "Behördendeutsch",
+              "beschreibung": "Amtssprache entschlüsseln, Anträge ausfüllen.",
+              "pfad": "behoerdendeutsch.html",
+              "niveau": "B2–C1",
+              "dauer": "75 Min",
+              "fertigkeiten": [
+                "Lesen",
+                "Schreiben"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Bewerbung",
+              "beschreibung": "Anschreiben, Lebenslauf, die Fragen, die kommen.",
+              "pfad": "bewerbung.html",
+              "niveau": "B2–C1",
+              "dauer": "90 Min",
+              "fertigkeiten": [
+                "Schreiben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Register und Stilebenen",
+              "beschreibung": "Dasselbe an die Chefin, die Kollegin, das Amt.",
+              "pfad": "register.html",
+              "niveau": "C1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Schreiben",
+                "Lesen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Argumentieren und erörtern",
+              "beschreibung": "These, Beleg, Gegenargument, Schluss.",
+              "pfad": "argumentieren.html",
+              "niveau": "C1",
+              "dauer": "75 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Schreiben"
+              ],
+              "status": "in-arbeit"
+            }
           ]
         }
       ]
     },
-
     {
       "id": "grammatik",
       "label": "Grammatik",
@@ -59,72 +290,471 @@
         {
           "titel": "Satzbau",
           "module": [
-            { "titel": "Haupt- und Nebensatz", "beschreibung": "Satzklammer, Verbstellung, Nebensatzarten.", "pfad": "satzbau.html", "niveau": "B2", "dauer": "60 Min", "fertigkeiten": ["Üben", "Sprechen"], "status": "in-arbeit" },
-            { "titel": "Konnektoren – der Überblick", "beschreibung": "Die vier Familien: ADUSO, Subjunktionen, Adverbien, zweiteilige.", "pfad": "konnektoren-ueberblick.html", "niveau": "B2", "dauer": "60 Min", "fertigkeiten": ["Üben", "Lesen", "Sprechen"], "status": "fertig" },
-            { "titel": "Konnektoren – die Bedeutungen", "beschreibung": "Folge, Zugeständnis, Gegensatz, Grund, Zweck – und der passende Ton.", "pfad": "konnektoren.html", "niveau": "B2–C1", "dauer": "75 Min", "fertigkeiten": ["Üben", "Schreiben", "Lesen"], "status": "fertig" },
-            { "titel": "Umformen: weil → deshalb → wegen", "beschreibung": "Dieselbe Aussage als Nebensatz, Hauptsatz und Präposition.", "pfad": "umformen.html", "niveau": "C1", "dauer": "60 Min", "fertigkeiten": ["Üben", "Schreiben", "Sprechen"], "status": "in-arbeit" },
-            { "titel": "Zweiteilige Konnektoren", "beschreibung": "je desto, entweder oder, nicht nur sondern auch.", "pfad": "zweiteilige-konnektoren.html", "niveau": "C1", "dauer": "45 Min", "fertigkeiten": ["Üben", "Sprechen"], "status": "in-arbeit" },
-            { "titel": "Relativsätze", "beschreibung": "Mit Präposition, mit Genitiv, mit was und wo.", "pfad": "relativsaetze.html", "niveau": "B2", "dauer": "45 Min", "fertigkeiten": ["Üben", "Schreiben"], "status": "in-arbeit" },
-            { "titel": "Infinitivsätze", "beschreibung": "zu, um zu, ohne zu, statt zu.", "pfad": "infinitivsaetze.html", "niveau": "B2–C1", "dauer": "45 Min", "fertigkeiten": ["Üben", "Sprechen"], "status": "in-arbeit" },
-            { "titel": "Tekamolo", "beschreibung": "Temporal, kausal, modal, lokal. Die Mittelfeldstellung.", "pfad": "tekamolo.html", "niveau": "B2", "dauer": "45 Min", "fertigkeiten": ["Üben", "Sprechen"], "status": "in-arbeit" },
-            { "titel": "Negation", "beschreibung": "nicht oder kein, und wo genau nicht steht.", "pfad": "negation.html", "niveau": "B2", "dauer": "45 Min", "fertigkeiten": ["Üben", "Sprechen"], "status": "in-arbeit" },
-            { "titel": "Irreale Vergleichssätze", "beschreibung": "als ob, als wenn, als. Mit Konjunktiv II.", "pfad": "als-ob.html", "niveau": "C1", "dauer": "30 Min", "fertigkeiten": ["Üben", "Sprechen"], "status": "in-arbeit" }
+            {
+              "titel": "Haupt- und Nebensatz",
+              "beschreibung": "Satzklammer, Verbstellung, Nebensatzarten.",
+              "pfad": "satzbau.html",
+              "niveau": "B2",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Konnektoren – der Überblick",
+              "beschreibung": "Die vier Familien: ADUSO, Subjunktionen, Adverbien, zweiteilige.",
+              "pfad": "konnektoren-ueberblick.html",
+              "niveau": "B2",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Lesen",
+                "Sprechen"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Konnektoren – die Bedeutungen",
+              "beschreibung": "Folge, Zugeständnis, Gegensatz, Grund, Zweck – und der passende Ton.",
+              "pfad": "konnektoren.html",
+              "niveau": "B2–C1",
+              "dauer": "75 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Schreiben",
+                "Lesen",
+                "Sprechen"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Umformen: weil → deshalb → wegen",
+              "beschreibung": "Dieselbe Aussage als Nebensatz, Hauptsatz und Präposition.",
+              "pfad": "umformen.html",
+              "niveau": "C1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Schreiben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Zweiteilige Konnektoren",
+              "beschreibung": "je desto, entweder oder, nicht nur sondern auch.",
+              "pfad": "zweiteilige-konnektoren.html",
+              "niveau": "C1",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Relativsätze",
+              "beschreibung": "Mit Präposition, mit Genitiv, mit was und wo.",
+              "pfad": "relativsaetze.html",
+              "niveau": "B2",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Schreiben"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Infinitivsätze",
+              "beschreibung": "zu, um zu, ohne zu, statt zu.",
+              "pfad": "infinitivsaetze.html",
+              "niveau": "B2–C1",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Tekamolo",
+              "beschreibung": "Temporal, kausal, modal, lokal. Die Mittelfeldstellung.",
+              "pfad": "tekamolo.html",
+              "niveau": "B2",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Negation",
+              "beschreibung": "nicht oder kein, und wo genau nicht steht.",
+              "pfad": "negation.html",
+              "niveau": "B2",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Irreale Vergleichssätze",
+              "beschreibung": "als ob, als wenn, als. Mit Konjunktiv II.",
+              "pfad": "als-ob.html",
+              "niveau": "C1",
+              "dauer": "30 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            }
           ]
         },
         {
           "titel": "Verben in allen Zeiten",
           "module": [
-            { "titel": "Zeiten und Zeitenfolge", "beschreibung": "Plusquamperfekt, Futur I und II, Vorzeitigkeit.", "pfad": "zeiten.html", "niveau": "B2", "dauer": "60 Min", "fertigkeiten": ["Üben", "Schreiben"], "status": "in-arbeit" },
-            { "titel": "Präteritum oder Perfekt", "beschreibung": "Was man spricht und was man schreibt.", "pfad": "praeteritum-perfekt.html", "niveau": "B2", "dauer": "30 Min", "fertigkeiten": ["Üben", "Schreiben"], "status": "in-arbeit" },
-            { "titel": "Passiv und Passiversatz", "beschreibung": "Vorgang, Zustand, sein-zu, sich lassen, -bar.", "pfad": "passiv.html", "niveau": "B2–C1", "dauer": "60 Min", "fertigkeiten": ["Üben", "Lesen"], "status": "in-arbeit" },
-            { "titel": "Konjunktiv II", "beschreibung": "Höflichkeit, Wunsch, Irreales. Zwei Zeitstufen.", "pfad": "konjunktiv-2.html", "niveau": "B2–C1", "dauer": "60 Min", "fertigkeiten": ["Üben", "Sprechen"], "status": "in-arbeit" },
-            { "titel": "Konjunktiv I", "beschreibung": "Indirekte Rede für Protokoll und Presse.", "pfad": "konjunktiv-1.html", "niveau": "C1", "dauer": "60 Min", "fertigkeiten": ["Üben", "Schreiben"], "status": "in-arbeit" },
-            { "titel": "Modalverben", "beschreibung": "Die normale Bedeutung und die Feinheiten.", "pfad": "modalverben.html", "niveau": "B2", "dauer": "45 Min", "fertigkeiten": ["Üben", "Sprechen"], "status": "in-arbeit" },
-            { "titel": "Modalverben subjektiv", "beschreibung": "müsste, dürfte, will, soll: Vermutung und Gerücht.", "pfad": "modalverben-subjektiv.html", "niveau": "C1", "dauer": "45 Min", "fertigkeiten": ["Üben", "Hören"], "status": "in-arbeit" },
-            { "titel": "lassen", "beschreibung": "Zulassen, veranlassen, sich lassen. Alle Formen.", "pfad": "lassen.html", "niveau": "B2–C1", "dauer": "45 Min", "fertigkeiten": ["Üben", "Sprechen"], "status": "in-arbeit" },
-            { "titel": "Verbvalenz", "beschreibung": "Welches Verb braucht welche Ergänzung.", "pfad": "verbvalenz.html", "niveau": "C1", "dauer": "45 Min", "fertigkeiten": ["Üben", "Schreiben"], "status": "in-arbeit" }
+            {
+              "titel": "Zeiten und Zeitenfolge",
+              "beschreibung": "Plusquamperfekt, Futur I und II, Vorzeitigkeit.",
+              "pfad": "zeiten.html",
+              "niveau": "B2",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Schreiben"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Präteritum oder Perfekt",
+              "beschreibung": "Was man spricht und was man schreibt.",
+              "pfad": "praeteritum-perfekt.html",
+              "niveau": "B2",
+              "dauer": "30 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Schreiben"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Passiv und Passiversatz",
+              "beschreibung": "Vorgang, Zustand, sein-zu, sich lassen, -bar.",
+              "pfad": "passiv.html",
+              "niveau": "B2–C1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Lesen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Konjunktiv II",
+              "beschreibung": "Höflichkeit, Wunsch, Irreales. Zwei Zeitstufen.",
+              "pfad": "konjunktiv-2.html",
+              "niveau": "B2–C1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Konjunktiv I",
+              "beschreibung": "Indirekte Rede für Protokoll und Presse.",
+              "pfad": "konjunktiv-1.html",
+              "niveau": "C1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Schreiben"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Modalverben",
+              "beschreibung": "Die normale Bedeutung und die Feinheiten.",
+              "pfad": "modalverben.html",
+              "niveau": "B2",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Modalverben subjektiv",
+              "beschreibung": "müsste, dürfte, will, soll: Vermutung und Gerücht.",
+              "pfad": "modalverben-subjektiv.html",
+              "niveau": "C1",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Hören"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "lassen",
+              "beschreibung": "Zulassen, veranlassen, sich lassen. Alle Formen.",
+              "pfad": "lassen.html",
+              "niveau": "B2–C1",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Verbvalenz",
+              "beschreibung": "Welches Verb braucht welche Ergänzung.",
+              "pfad": "verbvalenz.html",
+              "niveau": "C1",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Schreiben"
+              ],
+              "status": "in-arbeit"
+            }
           ]
         },
         {
           "titel": "Die Nomengruppe",
           "module": [
-            { "titel": "Adjektivendungen", "beschreibung": "Bis sie automatisch kommen, nicht nur richtig sind.", "pfad": "adjektivendungen.html", "niveau": "B2", "dauer": "45 Min", "fertigkeiten": ["Üben", "Sprechen"], "status": "in-arbeit" },
-            { "titel": "Nullartikel", "beschreibung": "Wann gar kein Artikel steht, und warum.", "pfad": "nullartikel.html", "niveau": "B2–C1", "dauer": "30 Min", "fertigkeiten": ["Üben", "Lesen"], "status": "in-arbeit" },
-            { "titel": "viel und viele", "beschreibung": "Auch wenig, alle, manche, einige.", "pfad": "viel-viele.html", "niveau": "B2", "dauer": "30 Min", "fertigkeiten": ["Üben", "Sprechen"], "status": "in-arbeit" },
-            { "titel": "n-Deklination", "beschreibung": "Der Kollege, den Kollegen. Die kleine Falle.", "pfad": "n-deklination.html", "niveau": "B2", "dauer": "30 Min", "fertigkeiten": ["Üben", "Schreiben"], "status": "in-arbeit" },
-            { "titel": "Genitiv", "beschreibung": "Formen, Präpositionen, Genitiv im Amtsstil.", "pfad": "genitiv.html", "niveau": "B2–C1", "dauer": "45 Min", "fertigkeiten": ["Üben", "Lesen"], "status": "in-arbeit" },
-            { "titel": "Partizipialattribute", "beschreibung": "Erweitertes Attribut lesen und auflösen.", "pfad": "partizipialattribute.html", "niveau": "C1", "dauer": "60 Min", "fertigkeiten": ["Üben", "Lesen"], "status": "in-arbeit" },
-            { "titel": "Nominalstil", "beschreibung": "Vom Verb zum Nomen und wieder zurück.", "pfad": "nominalstil.html", "niveau": "C1", "dauer": "75 Min", "fertigkeiten": ["Üben", "Schreiben"], "status": "in-arbeit" }
+            {
+              "titel": "Adjektivendungen",
+              "beschreibung": "Bis sie automatisch kommen, nicht nur richtig sind.",
+              "pfad": "adjektivendungen.html",
+              "niveau": "B2",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Nullartikel",
+              "beschreibung": "Wann gar kein Artikel steht, und warum.",
+              "pfad": "nullartikel.html",
+              "niveau": "B2–C1",
+              "dauer": "30 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Lesen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "viel und viele",
+              "beschreibung": "Auch wenig, alle, manche, einige.",
+              "pfad": "viel-viele.html",
+              "niveau": "B2",
+              "dauer": "30 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "n-Deklination",
+              "beschreibung": "Der Kollege, den Kollegen. Die kleine Falle.",
+              "pfad": "n-deklination.html",
+              "niveau": "B2",
+              "dauer": "30 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Schreiben"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Genitiv",
+              "beschreibung": "Formen, Präpositionen, Genitiv im Amtsstil.",
+              "pfad": "genitiv.html",
+              "niveau": "B2–C1",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Lesen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Partizipialattribute",
+              "beschreibung": "Erweitertes Attribut lesen und auflösen.",
+              "pfad": "partizipialattribute.html",
+              "niveau": "C1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Lesen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Nominalstil",
+              "beschreibung": "Vom Verb zum Nomen und wieder zurück.",
+              "pfad": "nominalstil.html",
+              "niveau": "C1",
+              "dauer": "75 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Schreiben"
+              ],
+              "status": "in-arbeit"
+            }
           ]
         },
         {
           "titel": "Die kleinen Wörter",
           "module": [
-            { "titel": "Das Wort es", "beschreibung": "Platzhalter, Korrelat, Verweis. Wann es wegfällt.", "pfad": "es.html", "niveau": "B2–C1", "dauer": "60 Min", "fertigkeiten": ["Üben", "Schreiben"], "status": "in-arbeit" },
-            { "titel": "es gibt", "beschreibung": "Und die Alternativen: sein, existieren, vorhanden sein.", "pfad": "es-gibt.html", "niveau": "B2", "dauer": "30 Min", "fertigkeiten": ["Üben", "Sprechen"], "status": "in-arbeit" },
-            { "titel": "Pronominaladverbien", "beschreibung": "darauf, worüber, damit. Der Anschluss ans Verb.", "pfad": "pronominaladverbien.html", "niveau": "B2–C1", "dauer": "45 Min", "fertigkeiten": ["Üben", "Sprechen"], "status": "in-arbeit" },
-            { "titel": "Modalpartikeln", "beschreibung": "doch, halt, eben, ja, mal. Der Klang von Nähe.", "pfad": "partikeln.html", "niveau": "C1", "dauer": "60 Min", "fertigkeiten": ["Hören", "Sprechen"], "status": "in-arbeit" },
-            { "titel": "Verweismittel im Text", "beschreibung": "Womit Sätze zusammenhängen, ohne Wiederholung.", "pfad": "verweismittel.html", "niveau": "C1", "dauer": "45 Min", "fertigkeiten": ["Lesen", "Schreiben"], "status": "in-arbeit" }
+            {
+              "titel": "Das Wort es",
+              "beschreibung": "Platzhalter, Korrelat, Verweis. Wann es wegfällt.",
+              "pfad": "es.html",
+              "niveau": "B2–C1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Schreiben"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "es gibt",
+              "beschreibung": "Und die Alternativen: sein, existieren, vorhanden sein.",
+              "pfad": "es-gibt.html",
+              "niveau": "B2",
+              "dauer": "30 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Pronominaladverbien",
+              "beschreibung": "darauf, worüber, damit. Der Anschluss ans Verb.",
+              "pfad": "pronominaladverbien.html",
+              "niveau": "B2–C1",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Modalpartikeln",
+              "beschreibung": "doch, halt, eben, ja, mal. Der Klang von Nähe.",
+              "pfad": "partikeln.html",
+              "niveau": "C1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Hören",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Verweismittel im Text",
+              "beschreibung": "Womit Sätze zusammenhängen, ohne Wiederholung.",
+              "pfad": "verweismittel.html",
+              "niveau": "C1",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Lesen",
+                "Schreiben"
+              ],
+              "status": "in-arbeit"
+            }
           ]
         },
         {
           "titel": "Präpositionen",
           "module": [
-            { "titel": "Präpositionen und Kasus", "beschreibung": "Feste Fälle, Wechselpräpositionen, Genitiv.", "pfad": "praepositionen.html", "niveau": "B2", "dauer": "60 Min", "fertigkeiten": ["Üben", "Sprechen"], "status": "in-arbeit" },
-            { "titel": "Verben mit Präposition", "beschreibung": "Die Rektion, die man nicht ableiten kann.", "pfad": "verben-mit-praeposition.html", "niveau": "B2–C1", "dauer": "60 Min", "fertigkeiten": ["Üben", "Sprechen"], "status": "in-arbeit" },
-            { "titel": "Adjektive und Nomen mit Präposition", "beschreibung": "stolz auf, Anspruch auf, zuständig für.", "pfad": "adjektive-mit-praeposition.html", "niveau": "C1", "dauer": "45 Min", "fertigkeiten": ["Üben", "Schreiben"], "status": "in-arbeit" }
+            {
+              "titel": "Präpositionen und Kasus",
+              "beschreibung": "Feste Fälle, Wechselpräpositionen, Genitiv.",
+              "pfad": "praepositionen.html",
+              "niveau": "B2",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Verben mit Präposition",
+              "beschreibung": "Die Rektion, die man nicht ableiten kann.",
+              "pfad": "verben-mit-praeposition.html",
+              "niveau": "B2–C1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Adjektive und Nomen mit Präposition",
+              "beschreibung": "stolz auf, Anspruch auf, zuständig für.",
+              "pfad": "adjektive-mit-praeposition.html",
+              "niveau": "C1",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Schreiben"
+              ],
+              "status": "in-arbeit"
+            }
           ]
         },
         {
           "titel": "Wortbildung",
           "module": [
-            { "titel": "Trennbar oder untrennbar", "beschreibung": "übersetzen und übersetzen. Betonung entscheidet.", "pfad": "trennbare-verben.html", "niveau": "B2", "dauer": "45 Min", "fertigkeiten": ["Üben", "Hören"], "status": "in-arbeit" },
-            { "titel": "Vorsilben und Nachsilben", "beschreibung": "Aus einem Wort werden zwanzig.", "pfad": "wortbildung.html", "niveau": "C1", "dauer": "60 Min", "fertigkeiten": ["Üben", "Lesen"], "status": "in-arbeit" }
+            {
+              "titel": "Trennbar oder untrennbar",
+              "beschreibung": "übersetzen und übersetzen. Betonung entscheidet.",
+              "pfad": "trennbare-verben.html",
+              "niveau": "B2",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Hören"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Vorsilben und Nachsilben",
+              "beschreibung": "Aus einem Wort werden zwanzig.",
+              "pfad": "wortbildung.html",
+              "niveau": "C1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Lesen"
+              ],
+              "status": "in-arbeit"
+            }
           ]
         }
       ]
     },
-
     {
       "id": "pauken",
       "label": "Pauken",
@@ -134,26 +764,135 @@
         {
           "titel": "Wortschatz Büro",
           "module": [
-            { "titel": "Redemittel Büro", "beschreibung": "Bausteine nach Situation: bitten, ablehnen, zusagen.", "pfad": "redemittel.html", "niveau": "B2–C1", "dauer": "10 Min", "fertigkeiten": ["Sprechen", "Üben"], "status": "in-arbeit" },
-            { "titel": "Nomen-Verb-Verbindungen", "beschreibung": "in Anspruch nehmen, zur Verfügung stellen.", "pfad": "nomen-verb.html", "niveau": "C1", "dauer": "10 Min", "fertigkeiten": ["Üben", "Schreiben"], "status": "in-arbeit" },
-            { "titel": "Kollokationen", "beschreibung": "Welches Adjektiv passt zu welchem Nomen.", "pfad": "kollokationen.html", "niveau": "C1", "dauer": "10 Min", "fertigkeiten": ["Üben", "Schreiben"], "status": "in-arbeit" },
-            { "titel": "Abkürzungen", "beschreibung": "z. Hd., i. A., ggf., o. g.", "pfad": "abkuerzungen.html", "niveau": "B2", "dauer": "10 Min", "fertigkeiten": ["Lesen", "Üben"], "status": "in-arbeit" },
-            { "titel": "Zahlen, Daten, Beträge", "beschreibung": "Prozente, Uhrzeiten, Fristen laut lesen.", "pfad": "zahlen.html", "niveau": "B2", "dauer": "10 Min", "fertigkeiten": ["Sprechen", "Hören"], "status": "in-arbeit" }
+            {
+              "titel": "Redemittel Büro",
+              "beschreibung": "Bausteine nach Situation: bitten, ablehnen, zusagen.",
+              "pfad": "redemittel.html",
+              "niveau": "B2–C1",
+              "dauer": "10 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Üben"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Nomen-Verb-Verbindungen",
+              "beschreibung": "in Anspruch nehmen, zur Verfügung stellen.",
+              "pfad": "nomen-verb.html",
+              "niveau": "C1",
+              "dauer": "10 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Schreiben"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Kollokationen",
+              "beschreibung": "Welches Adjektiv passt zu welchem Nomen.",
+              "pfad": "kollokationen.html",
+              "niveau": "C1",
+              "dauer": "10 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Schreiben"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Abkürzungen",
+              "beschreibung": "z. Hd., i. A., ggf., o. g.",
+              "pfad": "abkuerzungen.html",
+              "niveau": "B2",
+              "dauer": "10 Min",
+              "fertigkeiten": [
+                "Lesen",
+                "Üben"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Zahlen, Daten, Beträge",
+              "beschreibung": "Prozente, Uhrzeiten, Fristen laut lesen.",
+              "pfad": "zahlen.html",
+              "niveau": "B2",
+              "dauer": "10 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Hören"
+              ],
+              "status": "in-arbeit"
+            }
           ]
         },
         {
           "titel": "Listen zum Wiederholen",
           "module": [
-            { "titel": "Verben mit Präpositionen", "beschreibung": "Die große Liste mit Kasus und Beispielsatz.", "pfad": "verben-praepositionen.html", "niveau": "B2–C1", "dauer": "10 Min", "fertigkeiten": ["Üben", "Sprechen"], "status": "in-arbeit" },
-            { "titel": "Unregelmäßige Verben", "beschreibung": "Die dritte Form, die immer fehlt.", "pfad": "unregelmaessige-verben.html", "niveau": "B2", "dauer": "10 Min", "fertigkeiten": ["Üben"], "status": "in-arbeit" },
-            { "titel": "Redewendungen", "beschreibung": "Was im Büro tatsächlich gesagt wird.", "pfad": "redewendungen.html", "niveau": "C1", "dauer": "10 Min", "fertigkeiten": ["Hören", "Sprechen"], "status": "in-arbeit" },
-            { "titel": "Falsche Freunde", "beschreibung": "Wörter, die anders klingen, als sie sind.", "pfad": "falsche-freunde.html", "niveau": "B2–C1", "dauer": "10 Min", "fertigkeiten": ["Üben", "Lesen"], "status": "in-arbeit" },
-            { "titel": "Denglisch", "beschreibung": "Handy und Beamer, das oder die Mail, und wann es passt.", "pfad": "denglisch.html", "niveau": "B2–C1", "dauer": "45 Min", "fertigkeiten": ["Lesen", "Sprechen", "Schreiben"], "status": "in-arbeit" }
+            {
+              "titel": "Verben mit Präpositionen",
+              "beschreibung": "Die große Liste mit Kasus und Beispielsatz.",
+              "pfad": "verben-praepositionen.html",
+              "niveau": "B2–C1",
+              "dauer": "10 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Unregelmäßige Verben",
+              "beschreibung": "Die dritte Form, die immer fehlt.",
+              "pfad": "unregelmaessige-verben.html",
+              "niveau": "B2",
+              "dauer": "10 Min",
+              "fertigkeiten": [
+                "Üben"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Redewendungen",
+              "beschreibung": "Was im Büro tatsächlich gesagt wird.",
+              "pfad": "redewendungen.html",
+              "niveau": "C1",
+              "dauer": "10 Min",
+              "fertigkeiten": [
+                "Hören",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Falsche Freunde",
+              "beschreibung": "Wörter, die anders klingen, als sie sind.",
+              "pfad": "falsche-freunde.html",
+              "niveau": "B2–C1",
+              "dauer": "10 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Lesen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Denglisch",
+              "beschreibung": "Handy und Beamer, das oder die Mail, und wann es passt.",
+              "pfad": "denglisch.html",
+              "niveau": "B2–C1",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Lesen",
+                "Sprechen",
+                "Schreiben"
+              ],
+              "status": "in-arbeit"
+            }
           ]
         }
       ]
     },
-
     {
       "id": "training",
       "label": "Training",
@@ -163,27 +902,88 @@
         {
           "titel": "Sprechen",
           "module": [
-            { "titel": "Sprechkarten", "beschreibung": "Situationskarten für die Dreier-Rotation.", "pfad": "sprechkarten.html", "niveau": "B2–C1", "dauer": "30 Min", "fertigkeiten": ["Sprechen"], "status": "in-arbeit" },
-            { "titel": "Aussprache und Satzmelodie", "beschreibung": "Betonung, Pausen, Fragen ohne Fragewort.", "pfad": "aussprache.html", "niveau": "B2–C1", "dauer": "30 Min", "fertigkeiten": ["Sprechen", "Hören"], "status": "in-arbeit" }
+            {
+              "titel": "Sprechkarten",
+              "beschreibung": "Situationskarten für die Dreier-Rotation.",
+              "pfad": "sprechkarten.html",
+              "niveau": "B2–C1",
+              "dauer": "30 Min",
+              "fertigkeiten": [
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Aussprache und Satzmelodie",
+              "beschreibung": "Betonung, Pausen, Fragen ohne Fragewort.",
+              "pfad": "aussprache.html",
+              "niveau": "B2–C1",
+              "dauer": "30 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Hören"
+              ],
+              "status": "in-arbeit"
+            }
           ]
         },
         {
           "titel": "Hören und schreiben",
           "module": [
-            { "titel": "Hören und mitschreiben", "beschreibung": "Telefonnotiz, Durchsage, kurze Besprechung.", "pfad": "hoeren.html", "niveau": "B2–C1", "dauer": "30 Min", "fertigkeiten": ["Hören", "Schreiben"], "status": "in-arbeit" },
-            { "titel": "Schreibwerkstatt", "beschreibung": "Kurze Texte schreiben, überarbeiten, kürzen.", "pfad": "schreibwerkstatt.html", "niveau": "C1", "dauer": "45 Min", "fertigkeiten": ["Schreiben"], "status": "in-arbeit" }
+            {
+              "titel": "Hören und mitschreiben",
+              "beschreibung": "Telefonnotiz, Durchsage, kurze Besprechung.",
+              "pfad": "hoeren.html",
+              "niveau": "B2–C1",
+              "dauer": "30 Min",
+              "fertigkeiten": [
+                "Hören",
+                "Schreiben"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Schreibwerkstatt",
+              "beschreibung": "Kurze Texte schreiben, überarbeiten, kürzen.",
+              "pfad": "schreibwerkstatt.html",
+              "niveau": "C1",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Schreiben"
+              ],
+              "status": "in-arbeit"
+            }
           ]
         },
         {
           "titel": "Spiele",
           "module": [
-            { "titel": "Grammatik-Meisterschaft", "beschreibung": "Quiz mit Punkten und Runden. Allein oder zu dritt.", "pfad": "grammatik-meisterschaft.html", "niveau": "B2–C1", "dauer": "20 Min", "fertigkeiten": ["Üben"], "status": "fertig" },
-            { "titel": "Vokabeltrainer", "beschreibung": "Karteikasten mit Wiederholung nach Abstand.", "pfad": "vokabeltrainer.html", "niveau": "alle", "dauer": "10 Min", "fertigkeiten": ["Üben"], "status": "in-arbeit" }
+            {
+              "titel": "Grammatik-Meisterschaft",
+              "beschreibung": "Quiz in mehreren Runden. Allein oder zu dritt.",
+              "pfad": "grammatik-meisterschaft.html",
+              "niveau": "B2–C1",
+              "dauer": "20 Min",
+              "fertigkeiten": [
+                "Üben"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Vokabeltrainer",
+              "beschreibung": "Karteikasten mit Wiederholung nach Abstand.",
+              "pfad": "vokabeltrainer.html",
+              "niveau": "alle",
+              "dauer": "10 Min",
+              "fertigkeiten": [
+                "Üben"
+              ],
+              "status": "in-arbeit"
+            }
           ]
         }
       ]
     },
-
     {
       "id": "referenz",
       "label": "Nachschlagen",
@@ -193,9 +993,39 @@
         {
           "titel": "Übersichten",
           "module": [
-            { "titel": "Glossar", "beschreibung": "Alle Wörter des Kurses, durchsuchbar.", "pfad": "glossar.html", "niveau": "alle", "dauer": "Nachschlagen", "fertigkeiten": ["Lesen"], "status": "in-arbeit" },
-            { "titel": "Grammatik auf einen Blick", "beschreibung": "Tabellen zu Endungen, Zeiten, Rektion.", "pfad": "grammatik-uebersicht.html", "niveau": "alle", "dauer": "Nachschlagen", "fertigkeiten": ["Lesen"], "status": "in-arbeit" },
-            { "titel": "Hausaufgaben", "beschreibung": "Was diese Woche zu tun ist, nach Thema sortiert.", "pfad": "hausaufgaben.html", "niveau": "alle", "dauer": "Nachschlagen", "fertigkeiten": ["Lesen"], "status": "in-arbeit" }
+            {
+              "titel": "Glossar",
+              "beschreibung": "Alle Wörter des Kurses, durchsuchbar.",
+              "pfad": "glossar.html",
+              "niveau": "alle",
+              "dauer": "Nachschlagen",
+              "fertigkeiten": [
+                "Lesen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Grammatik auf einen Blick",
+              "beschreibung": "Tabellen zu Endungen, Zeiten, Rektion.",
+              "pfad": "grammatik-uebersicht.html",
+              "niveau": "alle",
+              "dauer": "Nachschlagen",
+              "fertigkeiten": [
+                "Lesen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Hausaufgaben",
+              "beschreibung": "Was diese Woche zu tun ist, nach Thema sortiert.",
+              "pfad": "hausaufgaben.html",
+              "niveau": "alle",
+              "dauer": "Nachschlagen",
+              "fertigkeiten": [
+                "Lesen"
+              ],
+              "status": "in-arbeit"
+            }
           ]
         }
       ]
