@@ -40,3 +40,157 @@ textarea.feld:focus-visible { outline: 2px solid var(--rose-tief); outline-offse
 .knopfreihe .knopf { margin-top: 0; }
 
 .stand { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--tinte-weich); margin: 1.2rem 0 0; }
+
+/* ---------- Zuordnen ---------- */
+
+.zuordnung {
+  --paar-aktiv: var(--sand);
+  --paar-aktiv-linie: var(--sand-tief);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1rem;
+  align-items: start;
+  margin: 1rem 0;
+}
+
+.zuordnung-spalte { display: grid; gap: 0.45rem; align-content: start; }
+
+.paarteil {
+  text-align: left;
+  font-family: var(--body);
+  font-size: 0.98rem;
+  line-height: 1.45;
+  color: var(--tinte);
+  background: var(--karte);
+  border: 1px solid var(--linie);
+  border-radius: 6px;
+  padding: 0.55rem 0.8rem;
+  cursor: pointer;
+}
+
+.paarteil:hover:not(:disabled) { border-color: var(--tinte-weich); }
+.paarteil:focus-visible { outline: 2px solid var(--tinte); outline-offset: 2px; }
+.paarteil.aktiv { background: var(--paar-aktiv); border-color: var(--paar-aktiv-linie); }
+.paarteil.richtig { background: var(--salbei); border-color: var(--salbei-tief); }
+.paarteil.falsch { background: var(--rose); border-color: var(--rose-tief); }
+.paarteil:disabled { cursor: default; opacity: 0.85; }
+.paar-links { font-weight: 600; }
+
+@media (max-width: 34rem) {
+  .zuordnung { grid-template-columns: 1fr; gap: 0.35rem; }
+  .zuordnung-spalte:first-child { margin-bottom: 0.6rem; }
+}
+
+/* ---------- Wortbank und Wortmarken ---------- */
+
+.wortbank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.7rem 0.8rem;
+  margin: 0.8rem 0;
+  background: var(--papier);
+  border: 1px dashed var(--linie);
+  border-radius: 8px;
+}
+
+.wortmarke {
+  font-family: var(--body);
+  font-size: 0.95rem;
+  color: var(--tinte);
+  background: var(--karte);
+  border: 1px solid var(--linie);
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  cursor: pointer;
+}
+
+.wortmarke:hover { border-color: var(--tinte-weich); }
+.wortmarke:focus-visible { outline: 2px solid var(--tinte); outline-offset: 2px; }
+.wortmarke.benutzt { opacity: 0.42; }
+.wortmarke.aktiv { background: var(--sand); border-color: var(--sand-tief); }
+.wortmarke.richtig { background: var(--salbei); border-color: var(--salbei-tief); }
+.wortmarke.falsch { background: var(--rose); border-color: var(--rose-tief); }
+
+/* ---------- Gruppieren ---------- */
+
+.gruppier-vorrat {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  min-height: 3.2rem;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding: 0.7rem 0.8rem;
+  margin: 0.8rem 0 1rem;
+  background: var(--papier);
+  border: 1px dashed var(--linie);
+  border-radius: 8px;
+}
+
+.vorrat-leer { margin: 0; font-size: 0.9rem; color: var(--tinte-weich); }
+
+.gruppier-toepfe {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 0.8rem;
+}
+
+.gruppier-topf {
+  display: flex;
+  flex-direction: column;
+  background: var(--karte);
+  border: 1px solid var(--linie);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.topf-kopf {
+  font-family: var(--body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: left;
+  color: var(--tinte);
+  background: var(--sand);
+  border: 0;
+  border-bottom: 1px solid var(--linie);
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+}
+
+.topf-kopf:hover { background: var(--sand-tief); color: var(--papier); }
+.topf-kopf:focus-visible { outline: 2px solid var(--tinte); outline-offset: -2px; }
+
+.topf-inhalt {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 0.35rem;
+  min-height: 4rem;
+  padding: 0.6rem 0.7rem;
+}
+
+/* ---------- Lernabschnitt, der noch nicht gefüllt ist ---------- */
+
+.reiter button:disabled { opacity: 0.5; cursor: default; }
+.reiter button:disabled:hover { background: none; }
+
+.folgt {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-left: 0.4rem;
+  padding: 0.05rem 0.3rem;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+}
+
+.stand-hinweis {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinte-weich);
+  margin: 0 0 1.4rem;
+}

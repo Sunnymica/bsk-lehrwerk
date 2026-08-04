@@ -17,7 +17,7 @@ window.Lehrwerk = (function () {
   const WOERTER = [
     ['die Frist', 'der letzte Termin, bis zu dem etwas erledigt sein muss'],
     ['in Anspruch nehmen', 'etwas nutzen: Urlaub, Beratung, eine Leistung'],
-    ['zeitnah', 'bald – im Büro oft höflicher Ersatz für „sofort"'],
+    ['zeitnah', 'bald – im Büro oft höflicher Ersatz für „sofort“'],
     ['zur Kenntnis nehmen', 'etwas lesen und akzeptieren, ohne zu handeln'],
     ['der Sachverhalt', 'das, worum es geht – die Lage in einer Sache'],
     ['sich beziehen auf', 'sagen, worauf man antwortet'],
@@ -25,7 +25,7 @@ window.Lehrwerk = (function () {
     ['veranlassen', 'dafür sorgen, dass etwas gemacht wird'],
     ['abstimmen mit', 'sich absprechen, bevor man entscheidet'],
     ['der Vorgang', 'ein Fall in der Verwaltung, von Anfang bis Abschluss'],
-    ['erforderlich', 'nötig – das Amtswort für „man braucht es"'],
+    ['erforderlich', 'nötig – das Amtswort für „man braucht es“'],
     ['die Zuständigkeit', 'wer für etwas verantwortlich ist'],
     ['nachfassen', 'noch einmal nachfragen, wenn keine Antwort kam'],
     ['der Entwurf', 'die erste Fassung, die noch geändert wird'],
@@ -198,6 +198,9 @@ window.Lehrwerk = (function () {
        Lehrwerk.reiter()                  – Reiterleiste aktivieren
        Lehrwerk.auswahl('quiz', fragen)   – Auswahlaufgaben bauen
        Lehrwerk.luecken('lt', config)     – Lückentext prüfen
+       Lehrwerk.wortbank('wb', config)    – Lückentext mit sichtbarer Wortbank
+       Lehrwerk.zuordnen('z1', config)    – Paare bilden
+       Lehrwerk.gruppieren('g1', config)  – Wörter in Töpfe sortieren
        Lehrwerk.frei('schreiben')         – freies Schreibfeld (speichert)
        Lehrwerk.abschluss()               – Stand, Kopieren, Zurücksetzen
      ========================================================= */
@@ -260,7 +263,7 @@ window.Lehrwerk = (function () {
             const andere = f.richtig.filter(r => r !== opt);
             text = 'Richtig. ' + (andere.length ? 'Ebenso möglich: ' + andere.join(', ') + '. ' : '') + (f.erklaerung || '');
           } else {
-            text = 'Noch nicht. Richtig ' + (f.richtig.length > 1 ? 'sind: ' + f.richtig.join(', ') : 'ist: „' + f.richtig[0] + '"') + '. ' + (f.erklaerung || '');
+            text = 'Noch nicht. Richtig ' + (f.richtig.length > 1 ? 'sind: ' + f.richtig.join(', ') : 'ist: „' + f.richtig[0] + '“') + '. ' + (f.erklaerung || '');
           }
           rueck.hidden = false;
           rueck.textContent = text;
@@ -309,9 +312,11 @@ window.Lehrwerk = (function () {
       });
       if (rueck) {
         rueck.hidden = false;
+        const mehrdeutig = !config.eindeutig;
         rueck.textContent = richtig === ids.length
-          ? 'Alle richtig. Bei jeder Lücke wären auch andere Wörter möglich gewesen.'
-          : richtig + ' von ' + ids.length + ' richtig. Es gibt jeweils mehrere Möglichkeiten.';
+          ? (mehrdeutig ? 'Alle richtig. Bei jeder Lücke wären auch andere Wörter möglich gewesen.' : 'Alle richtig.')
+          : richtig + ' von ' + ids.length + ' richtig.' +
+            (mehrdeutig ? ' Es gibt jeweils mehrere Möglichkeiten.' : ' Die falschen Felder sind rot markiert.');
       }
       M.stand['_' + name] = richtig;
       speichern();
@@ -331,13 +336,323 @@ window.Lehrwerk = (function () {
     el.addEventListener('input', () => { M.stand[feldId] = el.value; speichern(); });
   }
 
-  function standText() {
-    return M.teile.map(t => {
-      if (t.art === 'auswahl') {
-        const r = t.fragen.filter(f => M.stand[f.id] && f.richtig.includes(M.stand[f.id])).length;
-        return r + ' von ' + t.fragen.length;
+  /* Hilfsfunktion: Reihenfolge mischen, ohne die Vorlage zu verändern. */
+  function mischen(liste) {
+    const a = liste.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const h = a[i]; a[i] = a[j]; a[j] = h;
+    }
+    return a;
+  }
+
+  /* Zuordnen: Paare bilden.
+     config: { paare: [{ id, links, rechts, erklaerung }], rueck: 'absatz-id' }
+     Links steht die Vorgabe in fester Reihenfolge, rechts gemischt.
+     Erst links wählen, dann rechts. Keine Ziehbewegung, damit es auch
+     auf dem Tablet und mit der Tastatur funktioniert. */
+  function zuordnen(zielId, config) {
+    const box = document.getElementById(zielId);
+    if (!box) return;
+    const paare = config.paare || [];
+    M.teile.push({ art: 'zuordnen', name: zielId, anzahl: paare.length });
+
+    const gitter = document.createElement('div');
+    gitter.className = 'zuordnung';
+    const links = document.createElement('div');
+    const rechts = document.createElement('div');
+    links.className = 'zuordnung-spalte';
+    rechts.className = 'zuordnung-spalte';
+    gitter.appendChild(links);
+    gitter.appendChild(rechts);
+
+    const rueck = config.rueck ? document.getElementById(config.rueck) : null;
+    let aktiv = null;
+    let geloest = 0;
+
+    function melden(text) {
+      if (!rueck) return;
+      rueck.hidden = false;
+      rueck.textContent = text;
+    }
+
+    function merken() {
+      M.stand['_' + zielId] = geloest;
+      speichern();
+      standZeigen();
+    }
+
+    function abwaehlen() {
+      if (!aktiv) return;
+      aktiv.classList.remove('aktiv');
+      aktiv.setAttribute('aria-pressed', 'false');
+      aktiv = null;
+    }
+
+    paare.forEach(p => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'paarteil paar-links';
+      b.dataset.paar = p.id;
+      b.textContent = p.links;
+      b.setAttribute('aria-pressed', 'false');
+      b.addEventListener('click', () => {
+        if (aktiv === b) { abwaehlen(); return; }
+        abwaehlen();
+        aktiv = b;
+        b.classList.add('aktiv');
+        b.setAttribute('aria-pressed', 'true');
+      });
+      links.appendChild(b);
+    });
+
+    mischen(paare).forEach(p => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'paarteil paar-rechts';
+      b.dataset.paar = p.id;
+      b.textContent = p.rechts;
+      b.addEventListener('click', () => {
+        if (!aktiv) { melden('Wählen Sie zuerst links einen Begriff aus.'); return; }
+        const id = aktiv.dataset.paar;
+        if (id === p.id) {
+          const treffer = paare.find(x => x.id === id) || {};
+          aktiv.classList.remove('aktiv');
+          aktiv.classList.add('richtig');
+          aktiv.disabled = true;
+          aktiv.setAttribute('aria-pressed', 'false');
+          aktiv = null;
+          b.classList.add('richtig');
+          b.disabled = true;
+          geloest++;
+          M.stand['z-' + id] = true;
+          melden(geloest === paare.length
+            ? 'Alle Paare gefunden. ' + (treffer.erklaerung || '')
+            : 'Richtig. ' + (treffer.erklaerung || ''));
+          merken();
+        } else {
+          b.classList.add('falsch');
+          setTimeout(() => b.classList.remove('falsch'), 700);
+          melden('Das gehört noch nicht zusammen. Lesen Sie beide Seiten noch einmal.');
+        }
+      });
+      rechts.appendChild(b);
+    });
+
+    box.appendChild(gitter);
+
+    paare.forEach(p => {
+      if (!M.stand['z-' + p.id]) return;
+      const l = links.querySelector('[data-paar="' + p.id + '"]');
+      const r = rechts.querySelector('[data-paar="' + p.id + '"]');
+      if (l) { l.classList.add('richtig'); l.disabled = true; }
+      if (r) { r.classList.add('richtig'); r.disabled = true; }
+      geloest++;
+    });
+    if (geloest) merken();
+  }
+
+  /* Lückentext mit Wortbank.
+     config wie bei luecken(), zusätzlich:
+       bank: ['Wort', …]   – die sichtbaren Wörter
+       ziel: 'behaelter-id' – wohin die Wortbank gezeichnet wird
+     Ein Klick auf ein Wort setzt es in das zuletzt berührte oder in das
+     nächste leere Feld. Benutzte Wörter werden blass, bleiben aber klickbar,
+     weil ein Wort mehrfach passen kann. */
+  function wortbank(name, config) {
+    const behaelter = document.getElementById(config.ziel);
+    const ids = Object.keys(config.felder);
+    let zuletzt = null;
+
+    function feld(id) { return document.getElementById(id); }
+
+    function naechstesLeeres() {
+      for (let i = 0; i < ids.length; i++) {
+        const el = feld(ids[i]);
+        if (el && !el.value.trim()) return el;
       }
-      return (M.stand['_' + t.name] || 0) + ' von ' + t.anzahl;
+      return null;
+    }
+
+    function markieren() {
+      if (!behaelter) return;
+      const drin = ids.map(id => ((feld(id) || {}).value || '').trim().toLowerCase());
+      behaelter.querySelectorAll('.wortmarke').forEach(b => {
+        b.classList.toggle('benutzt', drin.indexOf(b.textContent.trim().toLowerCase()) !== -1);
+      });
+    }
+
+    ids.forEach(id => {
+      const el = feld(id);
+      if (!el) return;
+      el.addEventListener('focus', () => { zuletzt = el; });
+      el.addEventListener('input', markieren);
+    });
+
+    if (behaelter) {
+      behaelter.classList.add('wortbank');
+      mischen(config.bank || []).forEach(w => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'wortmarke';
+        b.textContent = w;
+        b.addEventListener('click', () => {
+          const ziel = (zuletzt && !zuletzt.value.trim()) ? zuletzt : naechstesLeeres();
+          if (!ziel) return;
+          ziel.value = w;
+          ziel.classList.remove('richtig', 'falsch');
+          M.stand[ziel.id] = w;
+          speichern();
+          markieren();
+          ziel.focus();
+        });
+        behaelter.appendChild(b);
+      });
+    }
+
+    luecken(name, config);
+    markieren();
+  }
+
+  /* Gruppieren: Wörter in Töpfe sortieren.
+     config: { woerter: [...], gruppen: [{ id, titel, woerter: [...] }],
+               ziel: 'behaelter-id', pruefen: 'knopf-id', rueck: 'absatz-id' }
+     Wort anklicken, dann Topf anklicken. Ein Wort im Topf geht per Klick
+     zurück in den Vorrat. */
+  function gruppieren(zielId, config) {
+    const box = document.getElementById(zielId);
+    if (!box) return;
+    const gruppen = config.gruppen || [];
+    const woerter = mischen(config.woerter || gruppen.reduce((a, g) => a.concat(g.woerter), []));
+    M.teile.push({ art: 'gruppieren', name: zielId, anzahl: woerter.length });
+
+    const schluessel = 'g-' + zielId;
+    const lage = Object.assign({}, M.stand[schluessel] || {});
+    const rueck = config.rueck ? document.getElementById(config.rueck) : null;
+    let aktiv = null;
+
+    const vorrat = document.createElement('div');
+    vorrat.className = 'gruppier-vorrat';
+    vorrat.setAttribute('aria-label', 'Vorrat');
+    const toepfe = document.createElement('div');
+    toepfe.className = 'gruppier-toepfe';
+
+    function abwaehlen() {
+      if (!aktiv) return;
+      aktiv.classList.remove('aktiv');
+      aktiv.setAttribute('aria-pressed', 'false');
+      aktiv = null;
+    }
+
+    function marke(w) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'wortmarke';
+      b.textContent = w;
+      b.dataset.wort = w;
+      b.setAttribute('aria-pressed', 'false');
+      b.addEventListener('click', () => {
+        if (aktiv === b) { abwaehlen(); return; }
+        if (lage[w]) { delete lage[w]; zeichnen(); return; }
+        abwaehlen();
+        aktiv = b;
+        b.classList.add('aktiv');
+        b.setAttribute('aria-pressed', 'true');
+      });
+      return b;
+    }
+
+    function zeichnen() {
+      abwaehlen();
+      vorrat.innerHTML = '';
+      toepfe.innerHTML = '';
+
+      woerter.filter(w => !lage[w]).forEach(w => vorrat.appendChild(marke(w)));
+      if (!vorrat.children.length) {
+        const p = document.createElement('p');
+        p.className = 'vorrat-leer';
+        p.textContent = 'Alle Wörter sind einsortiert.';
+        vorrat.appendChild(p);
+      }
+
+      gruppen.forEach(g => {
+        const topf = document.createElement('div');
+        topf.className = 'gruppier-topf';
+        const kopf = document.createElement('button');
+        kopf.type = 'button';
+        kopf.className = 'topf-kopf';
+        kopf.textContent = g.titel;
+        kopf.addEventListener('click', () => {
+          if (!aktiv) {
+            if (rueck) { rueck.hidden = false; rueck.textContent = 'Wählen Sie zuerst ein Wort aus dem Vorrat.'; }
+            return;
+          }
+          lage[aktiv.dataset.wort] = g.id;
+          M.stand[schluessel] = lage;
+          speichern();
+          zeichnen();
+        });
+        const inhalt = document.createElement('div');
+        inhalt.className = 'topf-inhalt';
+        woerter.filter(w => lage[w] === g.id).forEach(w => inhalt.appendChild(marke(w)));
+        topf.appendChild(kopf);
+        topf.appendChild(inhalt);
+        toepfe.appendChild(topf);
+      });
+    }
+
+    box.appendChild(vorrat);
+    box.appendChild(toepfe);
+    zeichnen();
+
+    const knopf = document.getElementById(config.pruefen);
+    if (knopf) knopf.addEventListener('click', () => {
+      let richtig = 0;
+      gruppen.forEach(g => g.woerter.forEach(w => { if (lage[w] === g.id) richtig++; }));
+      toepfe.querySelectorAll('.wortmarke').forEach(b => {
+        const w = b.dataset.wort;
+        const soll = (gruppen.find(g => g.woerter.indexOf(w) !== -1) || {}).id;
+        b.classList.toggle('richtig', lage[w] === soll);
+        b.classList.toggle('falsch', lage[w] !== soll);
+      });
+      const offen = woerter.length - Object.keys(lage).length;
+      if (rueck) {
+        rueck.hidden = false;
+        rueck.textContent = richtig === woerter.length
+          ? 'Alle Wörter sitzen richtig.'
+          : richtig + ' von ' + woerter.length + ' richtig.' +
+            (offen ? ' ' + offen + ' Wörter liegen noch im Vorrat.' : ' Die falschen sind rot markiert.');
+      }
+      M.stand['_' + zielId] = richtig;
+      speichern();
+      standZeigen();
+    });
+  }
+
+  function teilStand(t) {
+    if (t.art === 'auswahl') {
+      return {
+        richtig: t.fragen.filter(f => M.stand[f.id] && f.richtig.includes(M.stand[f.id])).length,
+        gesamt: t.fragen.length
+      };
+    }
+    return { richtig: M.stand['_' + t.name] || 0, gesamt: t.anzahl };
+  }
+
+  /* Bis zu vier Aufgaben werden einzeln aufgeführt. Danach ist die Kette
+     unlesbar, deshalb erscheint nur noch die Summe. */
+  function standText() {
+    if (M.teile.length > 4) {
+      const summe = M.teile.reduce((a, t) => {
+        const s = teilStand(t);
+        a.richtig += s.richtig; a.gesamt += s.gesamt;
+        return a;
+      }, { richtig: 0, gesamt: 0 });
+      return summe.richtig + ' von ' + summe.gesamt + ' Aufgaben gelöst';
+    }
+    return M.teile.map(t => {
+      const s = teilStand(t);
+      return s.richtig + ' von ' + s.gesamt;
     }).join(' · ');
   }
 
@@ -470,7 +785,7 @@ window.Lehrwerk = (function () {
             haken.type = 'button';
             haken.className = 'haken';
             haken.textContent = '✓';
-            haken.setAttribute('aria-label', 'Modul „' + m.titel + '" als erledigt markieren');
+            haken.setAttribute('aria-label', 'Modul „' + m.titel + '“ als erledigt markieren');
             haken.addEventListener('click', ev => {
               ev.preventDefault(); ev.stopPropagation();
               const liste = erledigt();
@@ -506,5 +821,5 @@ window.Lehrwerk = (function () {
     }).catch(() => fehler(meldung));
   }
 
-  return { bereich, KURS, modul, reiter, auswahl, luecken, frei, abschluss };
+  return { bereich, KURS, modul, reiter, auswahl, luecken, wortbank, zuordnen, gruppieren, frei, abschluss };
 })();
