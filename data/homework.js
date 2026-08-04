@@ -1,13 +1,18 @@
 /* Mit dem Hausaufgaben-Editor erzeugt. */
 window.BSK_HOMEWORK = [
   {
-    "id": "forms-ausfullen-2026-08-04",
-    "titel": "Forms ausfüllen",
-    "beschreibung": "Formular zur Ermittlung des Sprachbedarfs\nhttps://docs.google.com/forms/d/1SxbL1mqoCIhmgzFPav3HJC8_wg3CPNcOZNI6SCMeOuk/edit",
-    "faellig": "",
+    "id": "formular-sprachbedarf-2026-08-28",
+    "titel": "Formular Sprachbedarf",
+    "beschreibung": "Bitte Formular zum Ende der Woche ausfüllen",
+    "faellig": "2026-08-28",
     "aufgaben": [
-      "Formular ausfüllen"
+      "Link anklicken, ausfüllen und fertig"
     ],
-    "links": []
+    "links": [
+      {
+        "label": "Sprachbedarf",
+        "href": "https://docs.google.com/forms/d/e/1FAIpQLSd108ul2rtFjpSbXhFUUzsORhzbUB72HtC3lMnam4v469ldyg/viewform?usp=sharing&ouid=118040984705553612899"
+      }
+    ]
   }
 ];
