@@ -765,6 +765,20 @@
           "titel": "Wortschatz Büro",
           "module": [
             {
+              "titel": "Basiswortschatz",
+              "beschreibung": "Menschen, Orte, Arbeitsmittel und Waren. Der Wortschatz, auf dem alles Weitere steht.",
+              "pfad": "basiswortschatz.html",
+              "niveau": "B2",
+              "dauer": "3 Lernabschnitte",
+              "fertigkeiten": [
+                "Üben",
+                "Lesen",
+                "Schreiben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
               "titel": "Redemittel Büro",
               "beschreibung": "Bausteine nach Situation: bitten, ablehnen, zusagen.",
               "pfad": "redemittel.html",

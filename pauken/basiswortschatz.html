@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Basiswortschatz – Berufssprachkurs</title>
+<link rel="stylesheet" href="../assets/basis.css">
+<link rel="stylesheet" href="../assets/platform.css">
+<link rel="stylesheet" href="../assets/lehrwerk.css">
+<link rel="stylesheet" href="../assets/aufgaben.css">
+<script src="../data/homework.js" defer></script>
+<script src="../assets/platform.js"></script>
+</head>
+<body data-page="module" data-bereich="pauken" data-root="../">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../pauken.html">← Pauken</a>
+    <h1><em>Basiswortschatz</em></h1>
+    <p class="anleitung">Die Wörter, die in jedem Büro vorkommen. Nicht schwer – aber genau. Wer heißt wie, wer darf was, und welches Wort meint eine Person und welches eine Firma?</p>
+  </div>
+</header>
+
+<main class="innen modul modul--breit">
+
+  <div class="reiter" role="tablist">
+    <button role="tab" aria-selected="true"  data-blatt="menschen">Menschen und Rollen</button>
+    <button role="tab" aria-selected="false" data-blatt="orte">Orte und Arbeitsmittel</button>
+    <button role="tab" aria-selected="false" data-blatt="produkte">Produkte und Geschäftsbeziehungen</button>
+    <button role="tab" aria-selected="false" disabled>Einkauf, Verkauf, Zahlung <span class="folgt">folgt</span></button>
+  </div>
+
+  <!-- ============ 1 Menschen, Rollen und Zuständigkeiten ============ -->
+  <section class="blatt" id="blatt-menschen">
+
+    <p class="stand-hinweis">Orientierung für das Selbstlernen: etwa 25 Minuten.</p>
+
+    <p>In diesem Lernabschnitt geht es um die Menschen im Unternehmen. Die Wörter kennen Sie zum Teil schon. Neu ist die Frage, <strong>wer sie benutzt</strong>: Dasselbe Verhältnis heißt von oben anders als von der Seite.</p>
+
+    <div class="kasten">
+      <h3>Unsere Beispielfirma</h3>
+      <p><strong>KONTOR Büro &amp; Logistik GmbH</strong> handelt mit Bürobedarf. Sie kauft bei Herstellern ein, lagert die Ware und verkauft sie an Firmen und Behörden. Im Text nennen wir sie kurz <em>KONTOR</em>. In allen Übungen dieses Lehrwerks arbeiten dieselben fünf Personen.</p>
+      <table>
+        <thead>
+          <tr><th>Person</th><th>Funktion</th><th>Abteilung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Kateryna Melnyk</td><td>Geschäftsführerin</td><td>Geschäftsleitung</td></tr>
+          <tr><td>Samira Haddad</td><td>Leiterin</td><td>Personal und Verwaltung</td></tr>
+          <tr><td>Nora Seidel</td><td>Sachbearbeiterin</td><td>Einkauf</td></tr>
+          <tr><td>Jonas Becker</td><td>Mitarbeiter</td><td>Verkauf und Kundenservice</td></tr>
+          <tr><td>Pawel Nowak</td><td>Teamleiter</td><td>Lager und Versand</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="merker">
+      <span class="marke marke-merker">Perspektive</span>
+      <h3>Mitarbeiterin oder Kollegin?</h3>
+      <p>Beide Wörter bezeichnen dieselbe Person. Was sich unterscheidet, ist der Standpunkt der Sprecherin.</p>
+      <p class="satz"><strong>Frau Melnyk</strong> sagt: „Frau Seidel ist <strong>meine Mitarbeiterin</strong>.“ Sie ist die Vorgesetzte.</p>
+      <p class="satz"><strong>Herr Becker</strong> sagt: „Frau Seidel ist <strong>meine Kollegin</strong>.“ Er steht auf derselben Ebene.</p>
+      <p>Wer nicht weisungsbefugt ist, sagt also nie „meine Mitarbeiterinnen“. Das klingt im Deutschen nicht nur falsch, sondern anmaßend.</p>
+    </div>
+
+    <h2>1. Wer ist wer?</h2>
+    <p>Wählen Sie links einen Begriff und dann rechts die passende Beschreibung.</p>
+    <div id="z-personen"></div>
+    <p class="rueckmeldung" id="z-personen-rueck" hidden></p>
+
+    <h2>2. Wer spricht hier?</h2>
+    <p>Lesen Sie den Satz und entscheiden Sie, wer ihn bei KONTOR sagen kann.</p>
+    <div id="mc-perspektive"></div>
+
+    <h2>3. Zuständig, verantwortlich, weisungsbefugt</h2>
+    <p>Setzen Sie die Wörter aus der Wortbank ein. Ein Klick genügt.</p>
+    <div id="wb-zustaendig-bank"></div>
+    <div class="frage">
+      <p>1. Für die Bestellung von Büromaterial ist Frau Seidel <input class="luecke" id="wb1" size="14">.</p>
+      <p>2. Herr Nowak leitet das Lager. Er ist gegenüber den Lagerkräften <input class="luecke" id="wb2" size="18">.</p>
+      <p>3. Frau Haddad trägt die <input class="luecke" id="wb3" size="16"> für die Personalplanung.</p>
+      <p>4. Alle Beschäftigten zusammen sind die <input class="luecke" id="wb4" size="14"> des Unternehmens.</p>
+      <p>5. Frau Melnyk ist die <input class="luecke" id="wb5" size="16"> von Frau Haddad.</p>
+      <div class="knopfreihe">
+        <button type="button" class="knopf" id="wb-pruefen">Prüfen</button>
+      </div>
+      <p class="rueckmeldung" id="wb-rueck" hidden></p>
+    </div>
+
+    <h2>4. Zum Selberschreiben</h2>
+    <div class="regel">
+      <p>Beschreiben Sie in fünf bis acht Sätzen, wer in <strong>Ihrem</strong> Betrieb, Praktikum oder Wunscharbeitsplatz arbeitet und wer wem gegenüber weisungsbefugt ist. Benutzen Sie mindestens vier Wörter aus diesem Lernabschnitt. Achten Sie auf die Perspektive: Schreiben Sie aus Ihrer eigenen Sicht.</p>
+      <label for="schreiben-team"><strong>Ihr Team</strong></label>
+      <textarea class="feld" id="schreiben-team" rows="8" placeholder="In meinem Betrieb …"></textarea>
+    </div>
+
+    <h2>5. Mündlich: sich und die Abteilung vorstellen</h2>
+    <div class="regel">
+      <p><strong>Situation:</strong> Am ersten Arbeitstag stellt sich eine neue Kollegin vor und fragt, wer wofür zuständig ist.</p>
+      <p><strong>Zu zweit:</strong> Person A ist neu und fragt nach. Person B erklärt die Abteilungen und sagt, an wen man sich womit wendet. Wechseln Sie danach die Rollen.</p>
+      <p><strong>Allein:</strong> Sprechen Sie beide Rollen nacheinander ein. Notieren Sie vorher Stichpunkte in das Feld und nehmen Sie sich nach Möglichkeit auf.</p>
+      <p>Verwenden Sie dabei <em>zuständig für</em>, <em>verantwortlich für</em> und <em>sich wenden an</em>.</p>
+      <label for="sprechen-vorstellen"><strong>Stichpunkte</strong></label>
+      <textarea class="feld" id="sprechen-vorstellen" rows="6" placeholder="Abteilung · Aufgabe · Ansprechperson"></textarea>
+    </div>
+
+  </section>
+
+  <!-- ============ 2 Orte, Arbeitsmittel und digitale Arbeit ============ -->
+  <section class="blatt" id="blatt-orte" hidden>
+
+    <p class="stand-hinweis">Orientierung für das Selbstlernen: etwa 25 Minuten.</p>
+
+    <p>Wo im Unternehmen wird was gemacht, und womit? Der Wortschatz ist konkret, die Schwierigkeit liegt in den festen Verbindungen: Man <em>heftet</em> ein Dokument <em>ab</em>, aber man <em>legt</em> eine Datei <em>ab</em>. Beides heißt auf Deutsch ähnlich und meint etwas anderes.</p>
+
+    <h2>1. Wo ist das bei KONTOR?</h2>
+    <p>Wählen Sie ein Wort aus dem Vorrat und dann den passenden Bereich. Ein Wort im Topf geht mit einem Klick zurück.</p>
+    <div id="g-orte"></div>
+    <div class="knopfreihe">
+      <button type="button" class="knopf" id="g-orte-pruefen">Prüfen</button>
+    </div>
+    <p class="rueckmeldung" id="g-orte-rueck" hidden></p>
+
+    <h2>2. Womit macht man das?</h2>
+    <p>Ordnen Sie das Arbeitsmittel der Tätigkeit zu.</p>
+    <div id="z-mittel"></div>
+    <p class="rueckmeldung" id="z-mittel-rueck" hidden></p>
+
+    <div class="merker">
+      <span class="marke marke-merker">Papier oder Datei</span>
+      <h3>Dieselbe Handlung, zwei Wörter</h3>
+      <table>
+        <thead><tr><th>Auf Papier</th><th>Am Rechner</th></tr></thead>
+        <tbody>
+          <tr><td>ein Schreiben abheften</td><td>eine Datei ablegen oder speichern</td></tr>
+          <tr><td>eine Kopie ziehen</td><td>eine Datei duplizieren</td></tr>
+          <tr><td>einen Vorgang ablegen</td><td>einen Vorgang archivieren</td></tr>
+          <tr><td>etwas anstreichen</td><td>etwas markieren</td></tr>
+          <tr><td>einen Brief zur Post geben</td><td>eine Mail versenden</td></tr>
+        </tbody>
+      </table>
+      <p>Im Schriftverkehr fällt es auf, wenn die Verbindung nicht stimmt. „Ich habe die Datei abgeheftet“ versteht jeder, aber es klingt nach Übersetzung.</p>
+    </div>
+
+    <h2>3. Der Arbeitsplatz von Frau Seidel</h2>
+    <p>Setzen Sie die Wörter aus der Wortbank ein.</p>
+    <div id="wb-arbeitsplatz-bank"></div>
+    <div class="frage">
+      <p>Frau Seidel arbeitet im Einkauf. Eingehende Rechnungen <input class="luecke" id="ap1" size="12"> sie zuerst und legt sie dann im Ordner „Offene Posten“ <input class="luecke" id="ap2" size="8">. Angebote von Lieferanten <input class="luecke" id="ap3" size="10"> sie auf dem gemeinsamen Laufwerk, damit auch Herr Becker sie findet. Wichtige Stellen im Vertrag <input class="luecke" id="ap4" size="10"> sie farbig. Den unterschriebenen Auftrag <input class="luecke" id="ap5" size="10"> sie an den Lieferanten. Für die Ablage im Regal <input class="luecke" id="ap6" size="10"> sie die Blätter vorher.</p>
+      <div class="knopfreihe">
+        <button type="button" class="knopf" id="ap-pruefen">Prüfen</button>
+      </div>
+      <p class="rueckmeldung" id="ap-rueck" hidden></p>
+    </div>
+
+    <h2>4. Zum Selberschreiben</h2>
+    <div class="regel">
+      <p>Beschreiben Sie Ihren eigenen Arbeitsplatz oder den Arbeitsplatz, den Sie anstreben, in sechs bis acht Sätzen: Welche Orte gehören dazu, welche Geräte und Programme benutzen Sie, welche Handlungen kommen täglich vor? Verwenden Sie mindestens drei feste Verbindungen aus dem Merkkasten.</p>
+      <label for="schreiben-arbeitsplatz"><strong>Ihr Arbeitsplatz</strong></label>
+      <textarea class="feld" id="schreiben-arbeitsplatz" rows="8" placeholder="An meinem Arbeitsplatz …"></textarea>
+    </div>
+
+    <h2>5. Mündlich: den Weg erklären</h2>
+    <div class="regel">
+      <p><strong>Situation:</strong> Eine Besucherin steht am Empfang von KONTOR und sucht die Personalabteilung im zweiten Stock.</p>
+      <p><strong>Zu zweit:</strong> Person A fragt nach dem Weg und nach einer Ansprechperson. Person B erklärt den Weg und bietet an, anzurufen. Wechseln Sie danach die Rollen.</p>
+      <p><strong>Allein:</strong> Sprechen Sie beide Rollen nacheinander ein. Notieren Sie vorher Stichpunkte.</p>
+      <label for="sprechen-weg"><strong>Stichpunkte</strong></label>
+      <textarea class="feld" id="sprechen-weg" rows="6" placeholder="Stockwerk · Richtung · Ansprechperson · Angebot"></textarea>
+    </div>
+  </section>
+
+  <!-- ============ 3 Produkte, Waren und Geschäftsbeziehungen ============ -->
+  <section class="blatt" id="blatt-produkte" hidden>
+
+    <p class="stand-hinweis">Orientierung für das Selbstlernen: etwa 20 Minuten.</p>
+
+    <p>KONTOR steht zwischen zwei Seiten: Auf der einen kauft die Firma ein, auf der anderen verkauft sie. Dieselben Wörter bezeichnen dabei einmal eine Firma und einmal einen Menschen.</p>
+
+    <div class="merker">
+      <span class="marke marke-merker">Firma oder Person</span>
+      <h3>Der Lieferant kommt – wer genau?</h3>
+      <p class="satz">„Wir kaufen direkt beim <strong>Hersteller</strong>.“ Gemeint ist die Firma.</p>
+      <p class="satz">„Der <strong>Lieferant</strong> steht mit dem Paket vor der Tür.“ Gemeint ist die Person, die liefert.</p>
+      <p>Bei Firmen benutzt man im Deutschen fast immer die männliche Form als Sammelbegriff: <em>der Lieferant</em>, <em>der Hersteller</em>, <em>der Dienstleister</em>. Bei Menschen wird unterschieden: <em>die Lieferantin</em>, <em>der Lieferant</em>. Wenn Sie unsicher sind, hilft die Frage: Kann diese Person zu spät kommen?</p>
+    </div>
+
+    <h2>1. Firma, Person oder beides?</h2>
+    <p>Sortieren Sie die Wörter danach, was sie bezeichnen können.</p>
+    <div id="g-rollen"></div>
+    <div class="knopfreihe">
+      <button type="button" class="knopf" id="g-rollen-pruefen">Prüfen</button>
+    </div>
+    <p class="rueckmeldung" id="g-rollen-rueck" hidden></p>
+
+    <h2>2. Ware, Güter oder Produkte?</h2>
+    <p>Alle drei Wörter meinen Dinge, die verkauft werden. Sie stehen aber nicht überall.</p>
+    <div id="mc-ware"></div>
+
+    <h2>3. Von der Bestellung bis zur Beschwerde</h2>
+    <p>Ordnen Sie zu, was in welchem Schritt passiert.</p>
+    <div id="z-vorgang"></div>
+    <p class="rueckmeldung" id="z-vorgang-rueck" hidden></p>
+
+    <h2>4. Zum Selberschreiben</h2>
+    <div class="regel">
+      <p>Wer sind die Geschäftspartner Ihres Betriebs oder Ihres Wunschbetriebs? Beschreiben Sie in fünf bis acht Sätzen, was eingekauft und was verkauft oder angeboten wird und wer daran beteiligt ist. Achten Sie darauf, ob Sie von einer Firma oder von einer Person sprechen.</p>
+      <label for="schreiben-partner"><strong>Ihre Geschäftsbeziehungen</strong></label>
+      <textarea class="feld" id="schreiben-partner" rows="8" placeholder="Mein Betrieb kauft …"></textarea>
+    </div>
+  </section>
+
+  <p class="stand" id="stand"></p>
+  <div class="knopfreihe">
+    <button type="button" class="knopf" id="kopieren">Stand kopieren</button>
+    <button type="button" class="knopf" id="zuruecksetzen">Alles zurücksetzen</button>
+  </div>
+
+</main>
+
+<footer class="fuss">Nur für Kursteilnehmerinnen und Kursteilnehmer</footer>
+
+<script src="../assets/lehrwerk.js"></script>
+<script>
+Lehrwerk.modul('basiswortschatz');
+Lehrwerk.reiter();
+
+/* ---------- 1 Menschen, Rollen und Zuständigkeiten ---------- */
+
+Lehrwerk.zuordnen('z-personen', {
+  rueck: 'z-personen-rueck',
+  paare: [
+    { id: 'p1', links: 'die Auszubildende',
+      rechts: 'lernt im Unternehmen einen Beruf und wird dabei angeleitet',
+      erklaerung: 'Kurzform: die Azubi. „Der Lehrling“ ist veraltet und im Schriftverkehr unüblich.' },
+    { id: 'p2', links: 'die Praktikantin',
+      rechts: 'ist für kurze Zeit da, um einen Beruf kennenzulernen',
+      erklaerung: 'Ein Praktikum dient der Orientierung, eine Ausbildung führt zu einem Abschluss.' },
+    { id: 'p3', links: 'die Aushilfe',
+      rechts: 'übernimmt kurzfristig einfache Aufgaben, oft in Stoßzeiten',
+      erklaerung: 'Meist auf Stundenbasis und ohne feste Zuständigkeit.' },
+    { id: 'p4', links: 'die Arbeitnehmerin',
+      rechts: 'ist in einem Unternehmen angestellt und bekommt dafür Lohn oder Gehalt',
+      erklaerung: 'Der Gegenbegriff ist die Arbeitgeberin, also das Unternehmen selbst.' },
+    { id: 'p5', links: 'die Belegschaft',
+      rechts: 'sind alle Beschäftigten eines Betriebs zusammen',
+      erklaerung: 'Sammelbegriff im Singular: Die Belegschaft ist informiert worden.' },
+    { id: 'p6', links: 'die Vorgesetzte',
+      rechts: 'darf Anweisungen geben und trägt die Verantwortung dafür',
+      erklaerung: 'Wer weisungsbefugt ist, sagt „meine Mitarbeiterinnen“ – sonst „meine Kolleginnen“.' }
+  ]
+});
+
+Lehrwerk.auswahl('mc-perspektive', [
+  { id: 'mp1',
+    text: '„Ich bespreche das kurz mit meinen Mitarbeiterinnen und melde mich dann.“ Wer kann das bei KONTOR sagen?',
+    optionen: ['Kateryna Melnyk', 'Nora Seidel', 'Jonas Becker'],
+    richtig: ['Kateryna Melnyk'],
+    erklaerung: 'Nur wer weisungsbefugt ist, spricht von „meinen Mitarbeiterinnen“. Frau Seidel und Herr Becker würden „meine Kolleginnen“ sagen.' },
+
+  { id: 'mp2',
+    text: '„Dafür ist meine Kollegin aus dem Einkauf zuständig, ich verbinde Sie.“ Wer kann das sagen?',
+    optionen: ['Jonas Becker', 'Kateryna Melnyk', 'niemand bei KONTOR'],
+    richtig: ['Jonas Becker'],
+    erklaerung: 'Herr Becker steht auf derselben Ebene wie Frau Seidel. Frau Melnyk könnte es auch sagen, würde damit aber ihre Rolle verschleiern.' },
+
+  { id: 'mp3',
+    text: '„Wenden Sie sich damit bitte an unsere Personalabteilung.“ In welcher Situation passt dieser Satz?',
+    optionen: ['gegenüber einer Bewerberin', 'gegenüber der Geschäftsführerin', 'gegenüber einem Paketboten'],
+    richtig: ['gegenüber einer Bewerberin'],
+    erklaerung: '„Sich wenden an“ verweist höflich weiter. Gegenüber der eigenen Chefin wäre es unpassend, gegenüber dem Paketdienst inhaltlich falsch.' },
+
+  { id: 'mp4',
+    text: 'Frau Haddad schreibt an das ganze Haus. Welche Anrede ist im Deutschen üblich?',
+    optionen: ['Liebe Kolleginnen und Kollegen,', 'Liebe Mitarbeiterinnen und Mitarbeiter,', 'Liebe Belegschaft,'],
+    richtig: ['Liebe Kolleginnen und Kollegen,'],
+    erklaerung: 'Die kollegiale Anrede ist der Normalfall, auch von der Leitung. „Mitarbeiterinnen und Mitarbeiter“ betont die Hierarchie, „Belegschaft“ klingt nach Aushang.' },
+
+  { id: 'mp5',
+    text: 'Welcher Satz stimmt über Frau Seidel und Herrn Nowak?',
+    optionen: [
+      'Sie sind Kollegen, aber in verschiedenen Abteilungen.',
+      'Herr Nowak ist der Vorgesetzte von Frau Seidel.',
+      'Frau Seidel ist die Mitarbeiterin von Herrn Nowak.'
+    ],
+    richtig: ['Sie sind Kollegen, aber in verschiedenen Abteilungen.'],
+    erklaerung: 'Herr Nowak leitet nur das Lager. Über den Einkauf ist er nicht weisungsbefugt.' }
+]);
+
+Lehrwerk.wortbank('wb-zustaendig', {
+  ziel: 'wb-zustaendig-bank',
+  bank: ['zuständig', 'weisungsbefugt', 'Verantwortung', 'Belegschaft', 'Vorgesetzte', 'Kollegin', 'Abteilung'],
+  felder: {
+    wb1: ['zuständig'],
+    wb2: ['weisungsbefugt'],
+    wb3: ['Verantwortung'],
+    wb4: ['Belegschaft'],
+    wb5: ['Vorgesetzte']
+  },
+  eindeutig: true,
+  pruefen: 'wb-pruefen',
+  rueck: 'wb-rueck'
+});
+
+Lehrwerk.frei('schreiben-team');
+Lehrwerk.frei('sprechen-vorstellen');
+
+/* ---------- 2 Orte, Arbeitsmittel und digitale Arbeit ---------- */
+
+Lehrwerk.gruppieren('g-orte', {
+  pruefen: 'g-orte-pruefen',
+  rueck: 'g-orte-rueck',
+  gruppen: [
+    { id: 'verwaltung', titel: 'Verwaltung',
+      woerter: ['das Großraumbüro', 'der Besprechungsraum', 'die Poststelle', 'die Buchhaltung'] },
+    { id: 'lager', titel: 'Lager und Versand',
+      woerter: ['das Warenlager', 'die Werkhalle', 'das Materiallager', 'die Laderampe'] },
+    { id: 'kunden', titel: 'Kundenkontakt',
+      woerter: ['die Rezeption', 'der Verkaufsraum', 'der Messestand'] }
+  ]
+});
+
+Lehrwerk.zuordnen('z-mittel', {
+  rueck: 'z-mittel-rueck',
+  paare: [
+    { id: 'm1', links: 'der Locher', rechts: 'Löcher in Blätter stanzen, damit sie in den Ordner passen' },
+    { id: 'm2', links: 'der Tacker', rechts: 'mehrere Blätter mit einer Klammer verbinden',
+      erklaerung: 'Auch: das Heftgerät. Das Verb ist tackern oder heften.' },
+    { id: 'm3', links: 'der Aktenordner', rechts: 'Schriftstücke geordnet aufbewahren' },
+    { id: 'm4', links: 'die Briefmarke', rechts: 'das Porto für eine Sendung bezahlen',
+      erklaerung: 'Das Verb dazu heißt frankieren.' },
+    { id: 'm5', links: 'der Terminkalender', rechts: 'Besprechungen und Fristen festhalten' },
+    { id: 'm6', links: 'das Tabellenkalkulationsprogramm', rechts: 'Zahlen erfassen, rechnen und auswerten',
+      erklaerung: 'Im Alltag sagt man meist den Produktnamen. Im Schriftverkehr ist der Oberbegriff sicherer.' }
+  ]
+});
+
+Lehrwerk.wortbank('wb-arbeitsplatz', {
+  ziel: 'wb-arbeitsplatz-bank',
+  bank: ['prüft', 'ab', 'speichert', 'markiert', 'versendet', 'locht', 'kopiert', 'archiviert'],
+  felder: {
+    ap1: ['prüft'],
+    ap2: ['ab'],
+    ap3: ['speichert'],
+    ap4: ['markiert'],
+    ap5: ['versendet'],
+    ap6: ['locht']
+  },
+  eindeutig: true,
+  pruefen: 'ap-pruefen',
+  rueck: 'ap-rueck'
+});
+
+Lehrwerk.frei('schreiben-arbeitsplatz');
+Lehrwerk.frei('sprechen-weg');
+
+/* ---------- 3 Produkte, Waren und Geschäftsbeziehungen ---------- */
+
+Lehrwerk.gruppieren('g-rollen', {
+  pruefen: 'g-rollen-pruefen',
+  rueck: 'g-rollen-rueck',
+  gruppen: [
+    { id: 'firma', titel: 'nur eine Firma',
+      woerter: ['der Hersteller', 'der Großhandel', 'die Spedition', 'die Konkurrenz'] },
+    { id: 'person', titel: 'nur ein Mensch',
+      woerter: ['die Sachbearbeiterin', 'der Verbraucher', 'die Ansprechpartnerin'] },
+    { id: 'beides', titel: 'beides möglich',
+      woerter: ['der Lieferant', 'der Kunde', 'die Dienstleisterin', 'der Geschäftspartner'] }
+  ]
+});
+
+Lehrwerk.auswahl('mc-ware', [
+  { id: 'mw1',
+    text: 'Die Lieferung ist beschädigt angekommen. Wir müssen die ____ zurückschicken.',
+    optionen: ['Ware', 'Güter', 'Produktion'],
+    richtig: ['Ware'],
+    erklaerung: '„Ware“ ist der Normalfall im Handel und steht ohne Artikelwort im Plural selten. „Güter“ klingt nach Transport und Statistik.' },
+
+  { id: 'mw2',
+    text: 'Auf der Autobahn werden täglich Millionen Tonnen ____ befördert.',
+    optionen: ['Güter', 'Ware', 'Sortiment'],
+    richtig: ['Güter'],
+    erklaerung: 'In Logistik und Verkehr spricht man von Gütern: Güterverkehr, Gütertransport, Gefahrgut.' },
+
+  { id: 'mw3',
+    text: 'Unser ____ umfasst rund 4000 Artikel.',
+    optionen: ['Sortiment', 'Warenlager', 'Angebot'],
+    richtig: ['Sortiment', 'Angebot'],
+    erklaerung: 'Das Sortiment ist die Gesamtheit der geführten Artikel. „Angebot“ geht hier auch, meint aber im Schriftverkehr meist das einzelne Schreiben an einen Kunden.' },
+
+  { id: 'mw4',
+    text: 'Welches Verb passt zu „eine Anfrage“?',
+    optionen: ['stellen', 'machen', 'geben'],
+    richtig: ['stellen'],
+    erklaerung: 'Eine Anfrage stellt man, ein Angebot unterbreitet oder macht man, einen Auftrag erteilt man.' },
+
+  { id: 'mw5',
+    text: 'Der Kunde ist nicht zufrieden und meldet sich. Was tut er?',
+    optionen: ['Er reklamiert die Lieferung.', 'Er storniert die Ware.', 'Er retourniert die Beschwerde.'],
+    richtig: ['Er reklamiert die Lieferung.'],
+    erklaerung: 'Reklamieren heißt: einen Mangel anzeigen und Abhilfe verlangen. Stornieren heißt: eine Bestellung rückgängig machen.' }
+]);
+
+Lehrwerk.zuordnen('z-vorgang', {
+  rueck: 'z-vorgang-rueck',
+  paare: [
+    { id: 'v1', links: 'die Anfrage', rechts: 'Wir möchten wissen, was es kostet und wann Sie liefern können.' },
+    { id: 'v2', links: 'das Angebot', rechts: 'Wir nennen Ihnen Preis, Menge und Lieferzeit.' },
+    { id: 'v3', links: 'der Auftrag', rechts: 'Wir bestellen verbindlich zu den genannten Bedingungen.' },
+    { id: 'v4', links: 'der Lieferschein', rechts: 'Diese Papiere liegen dem Paket bei und nennen den Inhalt.' },
+    { id: 'v5', links: 'die Rechnung', rechts: 'Bitte überweisen Sie den Betrag bis zum genannten Datum.' },
+    { id: 'v6', links: 'die Reklamation', rechts: 'Die Ware hat einen Mangel, wir bitten um Ersatz.' }
+  ]
+});
+
+Lehrwerk.frei('schreiben-partner');
+
+Lehrwerk.abschluss();
+</script>
+
+</body>
+</html>

@@ -4,6 +4,55 @@ Jede Modulseite liegt unter `<bereich>/<thema>.html`, also zum Beispiel `grammat
 Sie enthält **kein eigenes CSS und keine eigene Schrifteinbindung**. Gemeinsame Funktionen liegen in
 `assets/lehrwerk.js`, nicht in der einzelnen Modulseite.
 
+## Begriffe
+
+Diese vier Wörter sind verbindlich und werden nicht vermischt:
+
+| Begriff | Bedeutung |
+|---|---|
+| **Modul** | große thematische Einheit, eine Seite, eine Karte im Lernbereich |
+| **Lernabschnitt** | ein Reiter innerhalb eines Moduls |
+| **Aufgabe** | eine einzelne Übung innerhalb eines Lernabschnitts |
+| **UE** | Unterrichtseinheit von 45 Minuten, ausschließlich in der Kursplanung der Lehrkraft |
+
+Ein Modul kann sich über mehrere Kursabende erstrecken. Auf der Modulkarte steht deshalb
+keine Minutenangabe. Eine ungefähre Selbstlernzeit gehört an den Anfang eines fertigen
+Lernabschnitts, als `<p class="stand-hinweis">`.
+
+Ein Modul darf schrittweise wachsen. Dann gilt:
+
+- Feststehende Lernabschnitte sind als Reiter von Anfang an sichtbar.
+- Noch nicht gefüllte Reiter tragen `disabled` und `<span class="folgt">folgt</span>`
+  und haben kein zugehöriges `<section class="blatt">`.
+- Steht der Ausbau eines Moduls noch gar nicht fest, erscheinen keine Platzhalter.
+- Das Modul bleibt in `inhalt.json` auf `in-arbeit`, bis alle Lernabschnitte
+  geprüft und freigegeben sind.
+
+## Die Modellfirma
+
+Geschlossene Aufgaben brauchen einen gemeinsamen Kontext, produktive Aufgaben den
+wirklichen Betrieb der Lernenden. Deshalb gilt durchgehend:
+
+> **Geschlossene Aufgaben spielen bei KONTOR. Offene Aufgaben spielen im eigenen
+> Betrieb, Praktikum oder Wunscharbeitsplatz.**
+
+**KONTOR Büro & Logistik GmbH** handelt mit Bürobedarf: Einkauf beim Hersteller,
+Lager und Versand, Verkauf an Firmen und Behörden. Im Fließtext heißt sie kurz
+*KONTOR*, auf Briefköpfen, Rechnungen und Formularen vollständig.
+
+| Person | Funktion | Abteilung |
+|---|---|---|
+| Kateryna Melnyk | Geschäftsführerin | Geschäftsleitung |
+| Samira Haddad | Leiterin | Personal und Verwaltung |
+| Nora Seidel | Sachbearbeiterin | Einkauf |
+| Jonas Becker | Mitarbeiter | Verkauf und Kundenservice |
+| Pawel Nowak | Teamleiter | Lager und Versand |
+
+Diese Besetzung ist verbindlich und wird nicht je Modul neu erfunden. Pawel Nowak
+wird mit lateinischem l geschrieben, damit der Name in Lücken und Zuordnungen
+abtippbar bleibt. Weitere Figuren – Kundinnen, Lieferanten, Bewerberinnen – dürfen
+je Modul hinzukommen und müssen nicht wiederkehren.
+
 ## Stylesheets und Zuständigkeiten
 
 Alle Seiten laden die vier Stylesheets in dieser Reihenfolge:
@@ -144,14 +193,18 @@ Lehrwerk.modul('name')        // Speicherschlüssel, immer als Erstes
 Lehrwerk.reiter()             // aktiviert die Reiterleiste
 Lehrwerk.auswahl(zielId, fragen)
 Lehrwerk.luecken(name, config)
+Lehrwerk.wortbank(name, config)     // Lückentext mit sichtbarer Wortbank
+Lehrwerk.zuordnen(zielId, config)   // Paare bilden
+Lehrwerk.gruppieren(zielId, config) // Wörter in Töpfe sortieren
 Lehrwerk.frei('feld-id')      // Textarea, speichert laufend, wird nicht bewertet
 Lehrwerk.abschluss()          // Stand, #kopieren, #zuruecksetzen; immer als Letztes
 ```
 
 ### Neue Aufgabentypen
 
-Die Vorlage unterstützt derzeit `auswahl`, `luecken` und `frei`. Benötigt ein Modul erstmals
-einen allgemein wiederverwendbaren Typ wie Zuordnen, Satzbauen oder Hören, gilt:
+Die Vorlage unterstützt `auswahl`, `luecken`, `wortbank`, `zuordnen`, `gruppieren` und `frei`.
+Benötigt ein Modul erstmals einen weiteren allgemein wiederverwendbaren Typ wie Satzbauen
+oder Hören, gilt:
 
 1. Die Funktion und das Datenformat werden zentral in `assets/lehrwerk.js` entwickelt.
 2. Die Darstellung kommt in `assets/aufgaben.css`.
@@ -159,6 +212,66 @@ einen allgemein wiederverwendbaren Typ wie Zuordnen, Satzbauen oder Hören, gilt
 4. Globale Design-Tokens stehen in `basis.css`. Responsive Überschreibungen eines bereichseigenen Layout-Tokens dürfen innerhalb der zuständigen Media-Query in `platform.css`, `lehrwerk.css` oder `aufgaben.css` stehen.
 5. Funktion, Datenformat und benötigte Klassen werden sofort hier dokumentiert.
 6. Eine isolierte JavaScript- oder CSS-Lösung nur in der Modulseite ist nicht zulässig.
+
+### Datenformat Zuordnen
+
+```js
+Lehrwerk.zuordnen('z-personen', {
+  rueck: 'z-personen-rueck',        // optionaler Absatz für die Rückmeldung
+  paare: [
+    { id: 'p1',
+      links:  'die Auszubildende',
+      rechts: 'lernt im Unternehmen einen Beruf',
+      erklaerung: 'Ein bis zwei Sätze, warum das zusammengehört.' }
+  ]
+});
+```
+
+Im HTML genügt ein leerer Behälter: `<div id="z-personen"></div>`. Die linke Spalte
+behält die angegebene Reihenfolge, die rechte wird bei jedem Aufruf gemischt.
+Bedient wird mit zwei Klicks – erst links, dann rechts. Ziehen mit der Maus ist
+bewusst nicht vorgesehen, weil es auf dem Tablet und mit der Tastatur scheitert.
+
+### Datenformat Wortbank
+
+```js
+Lehrwerk.wortbank('wb-zustaendig', {
+  ziel: 'wb-zustaendig-bank',       // leerer <div> für die Wortmarken
+  bank: ['zuständig', 'weisungsbefugt', 'Verantwortung', 'Kollegin'],
+  felder: { wb1: ['zuständig'], wb2: ['weisungsbefugt'] },
+  eindeutig: true,                  // nur eine Lösung je Lücke
+  pruefen: 'wb-pruefen',
+  rueck:   'wb-rueck'
+});
+```
+
+Alles außer `bank`, `ziel` und `eindeutig` verhält sich wie bei `luecken`. Die Bank darf
+mehr Wörter enthalten als Lücken; überzählige Wörter sind Ablenkung und erwünscht.
+Ein Klick setzt das Wort in das zuletzt berührte oder in das nächste leere Feld.
+Ohne `eindeutig: true` weist die Rückmeldung auf weitere mögliche Lösungen hin –
+das darf nur stehen, wenn es auch stimmt.
+
+### Datenformat Gruppieren
+
+```js
+Lehrwerk.gruppieren('g-orte', {
+  pruefen: 'g-orte-pruefen',
+  rueck:   'g-orte-rueck',
+  gruppen: [
+    { id: 'verwaltung', titel: 'Verwaltung',
+      woerter: ['das Großraumbüro', 'die Poststelle'] },
+    { id: 'lager', titel: 'Lager und Versand',
+      woerter: ['das Warenlager', 'die Laderampe'] }
+  ]
+});
+```
+
+Im HTML genügt `<div id="g-orte"></div>`. Vorrat und Töpfe zeichnet das Skript.
+Der Vorrat wird gemischt, sonst steht die Lösung in der Reihenfolge. Ein Wort im
+Topf geht mit einem Klick zurück in den Vorrat.
+
+Zwei bis vier Gruppen sind sinnvoll. Bei fünf und mehr wird die Fläche unübersichtlich,
+und die Aufgabe misst dann eher Geduld als Sprache.
 
 ### Datenformat Auswahlaufgaben
 
