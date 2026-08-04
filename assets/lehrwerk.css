@@ -283,7 +283,8 @@ body[data-bereich="referenz"]  .karte { border-left-color: var(--flieder-tief); 
 
 /* ---------- Bausteine für die Modulseiten ---------- */
 
-.modul { max-width: 46rem; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+.modul { max-width: 52rem; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+.modul.modul--breit { max-width: 68rem; }
 .modul h2 { font-family: var(--display); font-size: 1.45rem; margin: 2.5rem 0 0.7rem; }
 @media (prefers-reduced-motion: reduce) {
   .karte:hover, .bereichskarte:hover { transform: none; }
@@ -374,7 +375,20 @@ body[data-bereich="referenz"]  .karte { border-left-color: var(--flieder-tief); 
    ========================================================= */
 
 /* Reiterleiste */
-.reiter { display: flex; flex-wrap: wrap; gap: 0.35rem; border-bottom: 1px solid var(--linie); margin-bottom: 2rem; }
+.reiter {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.35rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+  border-bottom: 1px solid var(--linie);
+  margin-bottom: 2rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.reiter button { flex: 0 0 auto; white-space: nowrap; }
 
 .reiter button {
   font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;

@@ -67,7 +67,7 @@ Wird ein Komponentenwert später systemweit benötigt, kann er nach gemeinsamer 
   </div>
 </header>
 
-<main class="innen modul" style="max-width:52rem">
+<main class="innen modul">
   <div class="reiter" role="tablist">
     <button role="tab" aria-selected="true" data-blatt="regel">Regel</button>
     <button role="tab" aria-selected="false" data-blatt="uebungen">Übungen</button>
@@ -91,6 +91,14 @@ Lehrwerk.abschluss();
 ```
 
 Die Reiter-`id` ist immer `blatt-` plus der Wert von `data-blatt`.
+
+Die Standardbreite eines Moduls beträgt `52rem` und steht zentral in `lehrwerk.css`. Für Bildraster, breite Tabellen, Zuordnungs- oder Gruppieraufgaben kann das Modul ausdrücklich die Klasse `modul--breit` erhalten:
+
+```html
+<main class="innen modul modul--breit">
+```
+
+Breiten werden nicht als Inline-Style in einzelne Modulseiten geschrieben. Die Reiterleiste bleibt einzeilig und kann bei wenig Platz horizontal gescrollt werden.
 
 ## Erlaubte Klassen
 

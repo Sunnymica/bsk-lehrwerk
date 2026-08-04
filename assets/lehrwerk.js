@@ -171,8 +171,9 @@ window.Lehrwerk = (function () {
 
     function anwenden() {
       document.documentElement.style.fontSize = STUFEN[nr].wert;
-      knopf.textContent = 'Aa ' + STUFEN[nr].name;
-      knopf.setAttribute('aria-label', 'Schriftgröße: ' + STUFEN[nr].name + '. Klicken zum Wechseln.');
+      knopf.textContent = 'Aa ' + (nr + 1) + '/' + STUFEN.length;
+      knopf.title = 'Schriftgröße: ' + STUFEN[nr].name;
+      knopf.setAttribute('aria-label', 'Schriftgröße: ' + STUFEN[nr].name + '. Stufe ' + (nr + 1) + ' von ' + STUFEN.length + '. Klicken zum Wechseln.');
       try { localStorage.setItem('bsk-ansicht', nr); } catch (e) {}
     }
 

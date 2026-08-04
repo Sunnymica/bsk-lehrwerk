@@ -1,4 +1,4 @@
-# Deutsch fürs Büro – Job-BSK-Plattform 0.4.2
+# Deutsch fürs Büro – Job-BSK-Plattform 0.4.2 Layoutfix
 
 Diese Fassung ist die technische und redaktionelle Produktionsbasis für das neue Job-BSK-Lehrwerk.
 Sie trennt Plattform, Lehrwerk und Aufgabenarchitektur, ohne die vorhandenen Inhalte oder lokalen
@@ -39,6 +39,17 @@ Komponentenvariablen stehen am jeweiligen Komponentenselektor, nicht auf `:root`
 - Responsive-Prüfung knapp unter und über den Bruchstellen verbindlich gemacht
 - fehlerhafte Schlusszeichen in der Vorlage korrigiert
 - den nicht definierten Farbverweis der Trainingskarte auf die zum Trainingsbereich gehörende Farbe `--salbei-tief` korrigiert und die fehlende Akzentfarbe im Trainings-Hero ergänzt
+
+
+## Layoutkorrekturen nach der Sichtprüfung
+
+- Modulbreiten zentralisiert: `52rem` als gut lesbare Standardbreite, optional `modul--breit` mit `68rem`
+- widersprüchliche Inline-Breiten aus den beiden vorhandenen Modulen und aus `VORLAGE.md` entfernt
+- Reiterleisten bleiben grundsätzlich einzeilig und sind bei wenig Platz horizontal scrollbar
+- Werkzeugknöpfe erhalten eine inhaltsabhängige Breite; „Erledigt“ bleibt vollständig im weißen Feld
+- Unterrichtsansicht kompakt als `Aa 1/3`, `Aa 2/3` oder `Aa 3/3`; der vollständige Stufenname bleibt als Tooltip und für Screenreader erhalten
+
+Diese Fassung ist die bereinigte Layoutbasis für die anschließende 0.4.3 mit neuen Aufgabentypen und dem Modul „Basiswortschatz“.
 
 ## Hausaufgaben veröffentlichen
 
