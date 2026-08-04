@@ -439,3 +439,105 @@ mark { background: var(--sand); padding: 0 0.2rem; border-radius: 3px; }
   .kartei { grid-template-columns: 1fr; }
   .gruppe .deckung { display: none; }
 }
+
+/* =========================================================
+   Sichtbare Einstiege: Organigramm, Grundriss, Vorgangskette
+   Alles aus HTML und CSS, damit die Darstellung mit dem
+   Aa-Knopf mitwächst und vorgelesen werden kann.
+   ========================================================= */
+
+.organigramm { --og-linie: var(--linie); display: grid; gap: 0; margin: 1.4rem 0 1.8rem; }
+
+.og-spitze { display: grid; justify-items: center; }
+.og-spitze::after { content: ""; width: 1px; height: 1.5rem; background: var(--og-linie); }
+
+.og-reihe {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.7rem;
+  padding-top: 1.5rem;
+  position: relative;
+}
+
+.og-reihe::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 12%; right: 12%;
+  height: 1px;
+  background: var(--og-linie);
+}
+
+.og-reihe > * { position: relative; }
+.og-reihe > *::before {
+  content: "";
+  position: absolute;
+  top: -1.5rem; left: 50%;
+  width: 1px; height: 1.5rem;
+  background: var(--og-linie);
+}
+
+.og-karte {
+  background: var(--karte);
+  border: 1px solid var(--og-linie);
+  border-top: 3px solid var(--himmel-tief);
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  text-align: center;
+}
+
+.og-karte strong { display: block; font-size: 0.98rem; }
+.og-karte span { display: block; font-size: 0.85rem; color: var(--tinte-weich); }
+.og-spitze .og-karte { border-top-color: var(--salbei-tief); min-width: 13rem; }
+
+/* ---------- Grundriss ---------- */
+
+.grundriss {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 0.4rem;
+  margin: 1.4rem 0 1.8rem;
+  padding: 0.5rem;
+  border: 1px solid var(--linie);
+  border-radius: 8px;
+  background: var(--papier);
+}
+
+.raum {
+  padding: 1.1rem 0.7rem;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 0.92rem;
+  background: var(--karte);
+  border: 1px solid var(--linie);
+}
+
+.raum small { display: block; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--tinte-weich); margin-bottom: 0.2rem; }
+.raum-verwaltung { background: var(--himmel); }
+.raum-lager      { background: var(--sand); }
+.raum-kunden     { background: var(--salbei); }
+
+/* ---------- Vorgangskette ---------- */
+
+.kette { display: flex; flex-wrap: wrap; align-items: stretch; gap: 0.35rem; margin: 1.4rem 0 1.8rem; }
+
+.kette-schritt {
+  flex: 1 1 8rem;
+  padding: 0.7rem 0.6rem;
+  border: 1px solid var(--linie);
+  border-radius: 6px;
+  background: var(--karte);
+  text-align: center;
+  font-size: 0.93rem;
+}
+
+.kette-schritt small { display: block; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.09em; color: var(--tinte-weich); }
+.kette-pfeil { align-self: center; color: var(--tinte-weich); }
+
+@media (max-width: 34rem) {
+  .kette { flex-direction: column; }
+  .kette-pfeil { transform: rotate(90deg); }
+  .og-reihe::before { display: none; }
+  .og-reihe > *::before { display: none; }
+  .og-reihe { padding-top: 0.4rem; }
+  .og-spitze::after { height: 0.8rem; }
+}

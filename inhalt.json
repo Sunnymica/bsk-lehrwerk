@@ -7,6 +7,75 @@
       "einleitung": "Hier arbeiten wir an dem, was Sie im Büro wirklich brauchen. Jedes Thema hat eine Sprech-, eine Schreib- und eine Leseübung. Fangen Sie mit dem an, was bei Ihnen am häufigsten vorkommt.",
       "gruppen": [
         {
+          "titel": "Arbeiten im Unternehmen",
+          "module": [
+            {
+              "titel": "Im Unternehmen ankommen",
+              "beschreibung": "Basiswortschatz für Büro, Handel und Logistik. Menschen, Orte, Arbeitsmittel und Waren.",
+              "pfad": "im-unternehmen-ankommen.html",
+              "niveau": "B2",
+              "dauer": "3 von 4 Lernabschnitten",
+              "fertigkeiten": [
+                "Üben",
+                "Lesen",
+                "Schreiben",
+                "Sprechen"
+              ],
+              "status": "teilweise"
+            },
+            {
+              "titel": "Kollegen, Kunden und Zahlen",
+              "beschreibung": "Kommunikation im Büro, Telefonieren, Zahlen und Grafiken beschreiben.",
+              "pfad": "kollegen-kunden-zahlen.html",
+              "niveau": "B2",
+              "dauer": "",
+              "fertigkeiten": [
+                "Sprechen",
+                "Hören",
+                "Lesen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Arbeitsplatz und Arbeitsaufgaben",
+              "beschreibung": "Empfang, Termine, Arbeitsaufträge und Anweisungen.",
+              "pfad": "arbeitsplatz-aufgaben.html",
+              "niveau": "B2–C1",
+              "dauer": "",
+              "fertigkeiten": [
+                "Sprechen",
+                "Schreiben"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Besprechungen und Präsentationen",
+              "beschreibung": "Vorbereiten, teilnehmen, vortragen, Nachfragen aushalten.",
+              "pfad": "besprechungen-praesentationen.html",
+              "niveau": "C1",
+              "dauer": "",
+              "fertigkeiten": [
+                "Sprechen",
+                "Hören"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Personalwesen",
+              "beschreibung": "Personalplanung, Bedarf, Stellenanzeige, Bewerbung und Vorstellungsgespräch.",
+              "pfad": "personalwesen.html",
+              "niveau": "C1",
+              "dauer": "",
+              "fertigkeiten": [
+                "Lesen",
+                "Schreiben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            }
+          ]
+        },
+        {
           "titel": "Am Telefon und am Empfang",
           "module": [
             {
@@ -764,20 +833,6 @@
         {
           "titel": "Wortschatz Büro",
           "module": [
-            {
-              "titel": "Basiswortschatz",
-              "beschreibung": "Menschen, Orte, Arbeitsmittel und Waren. Der Wortschatz, auf dem alles Weitere steht.",
-              "pfad": "basiswortschatz.html",
-              "niveau": "B2",
-              "dauer": "3 Lernabschnitte",
-              "fertigkeiten": [
-                "Üben",
-                "Lesen",
-                "Schreiben",
-                "Sprechen"
-              ],
-              "status": "in-arbeit"
-            },
             {
               "titel": "Redemittel Büro",
               "beschreibung": "Bausteine nach Situation: bitten, ablehnen, zusagen.",

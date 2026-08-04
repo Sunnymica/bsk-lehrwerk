@@ -11,6 +11,7 @@ Diese vier Wörter sind verbindlich und werden nicht vermischt:
 | Begriff | Bedeutung |
 |---|---|
 | **Modul** | große thematische Einheit, eine Seite, eine Karte im Lernbereich |
+| **Status** | `in-arbeit` = nicht zugänglich · `teilweise` = zugänglich, wächst noch · `fertig` = vollständig und freigegeben |
 | **Lernabschnitt** | ein Reiter innerhalb eines Moduls |
 | **Aufgabe** | eine einzelne Übung innerhalb eines Lernabschnitts |
 | **UE** | Unterrichtseinheit von 45 Minuten, ausschließlich in der Kursplanung der Lehrkraft |
@@ -25,8 +26,18 @@ Ein Modul darf schrittweise wachsen. Dann gilt:
 - Noch nicht gefüllte Reiter tragen `disabled` und `<span class="folgt">folgt</span>`
   und haben kein zugehöriges `<section class="blatt">`.
 - Steht der Ausbau eines Moduls noch gar nicht fest, erscheinen keine Platzhalter.
-- Das Modul bleibt in `inhalt.json` auf `in-arbeit`, bis alle Lernabschnitte
-  geprüft und freigegeben sind.
+- Sobald mindestens ein Lernabschnitt freigegeben ist, steht das Modul auf
+  `teilweise`. Die Karte ist dann anklickbar und trägt den Hinweis „wächst noch“.
+  Auf `fertig` kommt es erst, wenn alle vorgesehenen Lernabschnitte stehen.
+
+## Wohin ein Modul gehört
+
+Die fünf großen Kursmodule stehen im Bereich **Büro und Verwaltung**, Gruppe
+**Arbeiten im Unternehmen**. Sie trainieren berufliches Handeln, Register,
+Zuständigkeiten, Schreiben und Sprechen.
+
+**Pauken** bleibt kurzen, wiederholbaren Formaten vorbehalten: Wortschatzkarten,
+Kollokationen, Zuordnungsdrills, Artikeltraining, Schnelltests.
 
 ## Die Modellfirma
 
@@ -196,6 +207,7 @@ Lehrwerk.luecken(name, config)
 Lehrwerk.wortbank(name, config)     // Lückentext mit sichtbarer Wortbank
 Lehrwerk.zuordnen(zielId, config)   // Paare bilden
 Lehrwerk.gruppieren(zielId, config) // Wörter in Töpfe sortieren
+Lehrwerk.extern(zielId, config)     // Quizlet, Kahoot oder Video, erst nach Klick
 Lehrwerk.frei('feld-id')      // Textarea, speichert laufend, wird nicht bewertet
 Lehrwerk.abschluss()          // Stand, #kopieren, #zuruecksetzen; immer als Letztes
 ```
@@ -273,6 +285,57 @@ Topf geht mit einem Klick zurück in den Vorrat.
 Zwei bis vier Gruppen sind sinnvoll. Bei fünf und mehr wird die Fläche unübersichtlich,
 und die Aufgabe misst dann eher Geduld als Sprache.
 
+### Datenformat Externer Lernbaustein
+
+```js
+Lehrwerk.extern('x-wortschatz', {
+  anbieter: 'quizlet',          // quizlet | kahoot | video
+  kennung:  '123456789',        // nur die Set-Nummer, ohne Namensteil
+  titel:    'Wortschatz Büro',
+  auftrag:  'Zehn Minuten Karteikarten, dann zurück auf diese Seite.',
+  dauer:    '10 Min',           // optional
+  modus:    'match',            // nur Quizlet: flashcards | learn | match | test
+  fallbackUrl: 'https://quizlet.com/123456789/buero-basis/'
+});
+```
+
+Im HTML genügt `<div id="x-wortschatz"></div>`.
+
+Eingebettet wird bei Quizlet über die reine Set-Nummer: `/123456789/match/embed`.
+Der öffentliche Link enthält zusätzlich den Set-Namen und lässt sich daraus nicht
+erraten – deshalb gehört er als `fallbackUrl` in die Konfiguration. Bei Kahoot und
+Video ist `fallbackUrl` optional.
+
+Die drei Anbieter teilen sich Platzhalter, bewussten Klick und Ausweichlink,
+haben aber jeweils eigene Einbettungsadressen. Diese stehen zentral in `ANBIETER`
+in `lehrwerk.js` und werden nicht im Modul zusammengesetzt.
+
+**Vor dem Klick entsteht keine Verbindung zum Anbieter.** Das ist keine Kosmetik:
+Sonst meldet sich der Browser der Lernenden beim bloßen Öffnen der Seite bei einem
+amerikanischen Dienst. Automatisches Laden ist deshalb nicht vorgesehen.
+
+Für Videos zusätzlich möglich: `start: 30` (Sekunden) und `untertitel: true`.
+Fremde Transkripte werden nicht übernommen; wer Redemittel aus einem Video braucht,
+formuliert eigene Sätze.
+
+Arbeitsteilung: Was reines Benennen ist – Wort zu Bild, Begriff zu Definition,
+Artikel, Plural –, gehört zu Quizlet. Auf der Plattform bleibt, was mehr verlangt:
+Bedeutungsunterschiede, Register, Zuständigkeit, Schreiben, Sprechen und Aufgaben
+mit mehreren vertretbaren Lösungen. Kahoot ist ein Ereignis pro Modul, nicht pro
+Lernabschnitt.
+
+### Sichtbare Einstiege
+
+Für den Einstieg eines Lernabschnitts stehen drei Bausteine aus reinem HTML bereit.
+Sie wachsen mit dem Aa-Knopf mit, lassen sich vorlesen und brauchen kein Bildmaterial:
+
+- `.organigramm` mit `.og-spitze`, `.og-reihe` und `.og-karte`
+- `.grundriss` mit `.raum` und den Zusätzen `.raum-verwaltung`, `.raum-lager`, `.raum-kunden`
+- `.kette` mit `.kette-schritt` und `.kette-pfeil`
+
+Eine leere Fläche mit dem Hinweis, dass hier später ein Bild kommt, gibt es nicht.
+Entweder der Einstieg steht, oder er wird als Aufgabe gebaut.
+
 ### Datenformat Auswahlaufgaben
 
 ```js
@@ -308,6 +371,37 @@ Lehrwerk.luecken('lt', {
 ```
 
 Groß- und Kleinschreibung spielt beim Prüfen keine Rolle.
+
+## Aufbau eines Lernabschnitts
+
+Erst handeln, dann erklären. Nicht umgekehrt.
+
+1. **Sehen und einordnen** – Organigramm, Grundriss, Vorgangskette. Wenig Text.
+2. **Sofort etwas tun** – zuordnen, auswählen, sortieren.
+3. **Den Unterschied entdecken** – ein kurzer Merkkasten, erst *nach* der Aufgabe.
+4. **Bei KONTOR anwenden** – geschlossene Aufgabe mit Rückmeldung.
+5. **In den eigenen Betrieb übertragen** – Schreiben oder Sprechen.
+
+Pro Bildschirm höchstens eine Anweisung und höchstens ein Erklärkasten. Keine drei
+ähnlich aussehenden Textaufgaben hintereinander. Der B2/C1-Anspruch steckt in der
+Entscheidung und der Begründung, nicht in der Textmenge – die Lernenden kommen
+abends von der Arbeit.
+
+## Speicherschlüssel
+
+Jeder Aufgabentyp legt seinen Stand unter einem Schlüssel ab, der den Namen der
+Aufgabe enthält:
+
+| Typ | Schlüssel |
+|---|---|
+| `auswahl` | `zielId:frageId` |
+| `luecken`, `wortbank` | `name:feldId` |
+| `zuordnen` | `z:zielId:paarId` |
+| `gruppieren` | `g:zielId` |
+| Ergebniszahl je Aufgabe | `_name` |
+
+Ein neuer Aufgabentyp muss dieselbe Regel einhalten. Sonst überschreiben sich zwei
+Aufgaben desselben Moduls, sobald beide eine `f1` oder `p1` benutzen.
 
 ## Qualitätsstufen
 
@@ -366,6 +460,12 @@ Hörverstehen Lernziel ist. Die Zahl der Reiter richtet sich nach dem Thema.
 - Stimmen deutsche Anführungszeichen und Halbgeviertstriche? In sichtbarem deutschen Fließtext ausschließlich `„…“` verwenden: öffnend U+201E `„`, schließend U+201C `“`; nicht `“…”` und nicht `"..."`.
 - Bleibt die Seite per Tastatur bedienbar und sind Fokuszustände sichtbar?
 - Wurde das Layout knapp unter und über allen Bruchstellen geprüft: 543/545, 559/561, 819/821 und 1099/1101 Pixel?
+
+## Nicht mitliefern
+
+`data/homework.js` enthält die veröffentlichten Hausaufgaben und wird über den
+Editor unter `/lehrkraft/` gepflegt. Diese Datei gehört in **kein** Aktualisierungs-
+paket. Wer sie mitliefert, löscht beim Hochladen die laufenden Hausaufgaben.
 
 ## Nach dem Bauen
 

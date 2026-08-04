@@ -95,7 +95,11 @@
   async function resolveAvailability(data) {
     const checks = [];
     data.bereiche.forEach(area => area.gruppen.forEach(group => group.module.forEach(module => {
-      if (module.status !== 'fertig') {
+      /* teilweise = zugänglich, wächst aber noch. Ein Modul, das nur
+         intern auf in-arbeit steht, wäre sonst nicht einmal für die
+         Freigabe zu öffnen. */
+      module._teilweise = module.status === 'teilweise';
+      if (module.status !== 'fertig' && module.status !== 'teilweise') {
         module._available = false;
         return;
       }

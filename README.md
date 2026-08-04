@@ -1,4 +1,4 @@
-# Deutsch fürs Büro – Job-BSK-Plattform 0.4.2 Layoutfix
+# Deutsch fürs Büro – Job-BSK-Plattform 0.4.5
 
 Diese Fassung ist die technische und redaktionelle Produktionsbasis für das neue Job-BSK-Lehrwerk.
 Sie trennt Plattform, Lehrwerk und Aufgabenarchitektur, ohne die vorhandenen Inhalte oder lokalen
@@ -29,7 +29,7 @@ Neue wiederverwendbare Aufgabentypen werden zentral in `assets/lehrwerk.js` und
 `assets/aufgaben.css` entwickelt und anschließend in `VORLAGE.md` dokumentiert.
 Komponentenvariablen stehen am jeweiligen Komponentenselektor, nicht auf `:root`. Responsive Überschreibungen bereichseigener Layout-Tokens dürfen in der zuständigen Media-Query stehen.
 
-## Änderungen gegenüber 0.4.1
+## Änderungen gegenüber 0.4.2
 
 - die frühere `assets/style.css` in vier Zuständigkeitsbereiche aufgeteilt
 - alle acht HTML-Seiten auf die neue Ladereihenfolge umgestellt
@@ -49,7 +49,23 @@ Komponentenvariablen stehen am jeweiligen Komponentenselektor, nicht auf `:root`
 - Werkzeugknöpfe erhalten eine inhaltsabhängige Breite; „Erledigt“ bleibt vollständig im weißen Feld
 - Unterrichtsansicht kompakt als `Aa 1/3`, `Aa 2/3` oder `Aa 3/3`; der vollständige Stufenname bleibt als Tooltip und für Screenreader erhalten
 
-Diese Fassung ist die bereinigte Layoutbasis für die anschließende 0.4.3 mit neuen Aufgabentypen und dem Modul „Basiswortschatz“.
+## Änderungen in 0.4.3 bis 0.4.5
+
+- drei neue Aufgabentypen: `zuordnen`, `wortbank`, `gruppieren`
+- externer Lernbaustein für Quizlet, Kahoot und Video, Einbettung erst nach Klick
+- sichtbare Einstiege aus HTML: Organigramm, Grundriss, Vorgangskette
+- neue Gruppe „Arbeiten im Unternehmen“ im Bereich Büro und Verwaltung
+- neues Modul „Im Unternehmen ankommen“ mit drei von vier Lernabschnitten
+- Speicherschlüssel aller Aufgabentypen tragen den Namen der Aufgabe
+- dritter Modulstatus `teilweise`: zugänglich, wächst noch
+- Fertigkeitszähler zählen nur erreichbare Module
+- Minutenangaben verschwinden von den Modulkarten
+- Fortschritt wird je Lernabschnitt gezählt, nicht über das ganze Modul
+
+## Nicht im Paket
+
+`data/homework.js` wird über den Editor unter `/lehrkraft/` gepflegt und gehört
+in kein Aktualisierungspaket. Wer sie mitliefert, löscht die laufenden Hausaufgaben.
 
 ## Hausaufgaben veröffentlichen
 

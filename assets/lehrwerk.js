@@ -201,6 +201,7 @@ window.Lehrwerk = (function () {
        Lehrwerk.wortbank('wb', config)    – Lückentext mit sichtbarer Wortbank
        Lehrwerk.zuordnen('z1', config)    – Paare bilden
        Lehrwerk.gruppieren('g1', config)  – Wörter in Töpfe sortieren
+       Lehrwerk.extern('x1', config)      – Quizlet, Kahoot oder Video, erst nach Klick
        Lehrwerk.frei('schreiben')         – freies Schreibfeld (speichert)
        Lehrwerk.abschluss()               – Stand, Kopieren, Zurücksetzen
      ========================================================= */
@@ -217,6 +218,19 @@ window.Lehrwerk = (function () {
     try { localStorage.setItem(M.schluessel, JSON.stringify(M.stand)); } catch (e) {}
   }
 
+  /* Zu welchem Lernabschnitt gehört eine Aufgabe? Ermittelt über das
+     umgebende .blatt. Ohne Reiter gibt es nur einen Abschnitt. */
+  function blattVon(id) {
+    const el = document.getElementById(id);
+    const sec = el && el.closest ? el.closest('.blatt') : null;
+    return sec ? sec.id : '';
+  }
+
+  function aktivesBlatt() {
+    const offen = [...document.querySelectorAll('.blatt')].find(s => !s.hidden);
+    return offen ? offen.id : '';
+  }
+
   function reiter() {
     const knoepfe = document.querySelectorAll('.reiter button');
     knoepfe.forEach(b => b.addEventListener('click', () => {
@@ -225,6 +239,7 @@ window.Lehrwerk = (function () {
       document.querySelectorAll('.blatt').forEach(s => s.hidden = true);
       const ziel = document.getElementById('blatt-' + b.dataset.blatt);
       if (ziel) ziel.hidden = false;
+      standZeigen();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }));
   }
@@ -234,7 +249,7 @@ window.Lehrwerk = (function () {
   function auswahl(zielId, fragen) {
     const box = document.getElementById(zielId);
     if (!box) return;
-    M.teile.push({ art: 'auswahl', name: zielId, fragen: fragen });
+    M.teile.push({ art: 'auswahl', name: zielId, fragen: fragen, blatt: blattVon(zielId) });
 
     fragen.forEach(f => {
       const div = document.createElement('div');
@@ -267,7 +282,7 @@ window.Lehrwerk = (function () {
           }
           rueck.hidden = false;
           rueck.textContent = text;
-          M.stand[f.id] = opt;
+          M.stand[zielId + ':' + f.id] = opt;
           speichern();
           standZeigen();
         });
@@ -278,8 +293,8 @@ window.Lehrwerk = (function () {
       div.appendChild(rueck);
       box.appendChild(div);
 
-      if (M.stand[f.id]) {
-        const t = [...wahl.querySelectorAll('button')].find(x => x.textContent === M.stand[f.id]);
+      if (M.stand[zielId + ':' + f.id]) {
+        const t = [...wahl.querySelectorAll('button')].find(x => x.textContent === M.stand[zielId + ':' + f.id]);
         if (t) t.click();
       }
     });
@@ -289,13 +304,13 @@ window.Lehrwerk = (function () {
                rueck: 'absatz-id', tipp: 'knopf-id', hinweis: 'absatz-id' } */
   function luecken(name, config) {
     const ids = Object.keys(config.felder);
-    M.teile.push({ art: 'luecken', name: name, anzahl: ids.length });
+    M.teile.push({ art: 'luecken', name: name, anzahl: ids.length, blatt: blattVon(ids[0]) });
 
     ids.forEach(id => {
       const el = document.getElementById(id);
       if (!el) return;
-      if (M.stand[id]) el.value = M.stand[id];
-      el.addEventListener('input', () => { M.stand[id] = el.value; speichern(); });
+      if (M.stand[name + ':' + id]) el.value = M.stand[name + ':' + id];
+      el.addEventListener('input', () => { M.stand[name + ':' + id] = el.value; speichern(); });
     });
 
     const knopf = document.getElementById(config.pruefen);
@@ -355,7 +370,7 @@ window.Lehrwerk = (function () {
     const box = document.getElementById(zielId);
     if (!box) return;
     const paare = config.paare || [];
-    M.teile.push({ art: 'zuordnen', name: zielId, anzahl: paare.length });
+    M.teile.push({ art: 'zuordnen', name: zielId, anzahl: paare.length, blatt: blattVon(zielId) });
 
     const gitter = document.createElement('div');
     gitter.className = 'zuordnung';
@@ -425,7 +440,7 @@ window.Lehrwerk = (function () {
           b.classList.add('richtig');
           b.disabled = true;
           geloest++;
-          M.stand['z-' + id] = true;
+          M.stand['z:' + zielId + ':' + id] = true;
           melden(geloest === paare.length
             ? 'Alle Paare gefunden. ' + (treffer.erklaerung || '')
             : 'Richtig. ' + (treffer.erklaerung || ''));
@@ -442,7 +457,7 @@ window.Lehrwerk = (function () {
     box.appendChild(gitter);
 
     paare.forEach(p => {
-      if (!M.stand['z-' + p.id]) return;
+      if (!M.stand['z:' + zielId + ':' + p.id]) return;
       const l = links.querySelector('[data-paar="' + p.id + '"]');
       const r = rechts.querySelector('[data-paar="' + p.id + '"]');
       if (l) { l.classList.add('richtig'); l.disabled = true; }
@@ -501,7 +516,7 @@ window.Lehrwerk = (function () {
           if (!ziel) return;
           ziel.value = w;
           ziel.classList.remove('richtig', 'falsch');
-          M.stand[ziel.id] = w;
+          M.stand[name + ':' + ziel.id] = w;
           speichern();
           markieren();
           ziel.focus();
@@ -524,9 +539,9 @@ window.Lehrwerk = (function () {
     if (!box) return;
     const gruppen = config.gruppen || [];
     const woerter = mischen(config.woerter || gruppen.reduce((a, g) => a.concat(g.woerter), []));
-    M.teile.push({ art: 'gruppieren', name: zielId, anzahl: woerter.length });
+    M.teile.push({ art: 'gruppieren', name: zielId, anzahl: woerter.length, blatt: blattVon(zielId) });
 
-    const schluessel = 'g-' + zielId;
+    const schluessel = 'g:' + zielId;
     const lage = Object.assign({}, M.stand[schluessel] || {});
     const rueck = config.rueck ? document.getElementById(config.rueck) : null;
     let aktiv = null;
@@ -629,28 +644,131 @@ window.Lehrwerk = (function () {
     });
   }
 
+  /* Externer Lernbaustein: Quizlet, Kahoot oder ein Video.
+     Gemeinsam sind Platzhalter, bewusster Klick und Ausweichlink.
+     Die Einbettungsadresse baut jeder Anbieter anders, deshalb steht die
+     Umrechnung getrennt in ANBIETER.
+
+     config: { anbieter: 'quizlet' | 'kahoot' | 'video',
+               kennung:  Set-, Spiel- oder Video-Kennung,
+               titel:    Überschrift,
+               auftrag:  ein Satz, worauf zu achten ist,
+               dauer:    optional, etwa '5 Min',
+               modus:    optional, nur Quizlet: 'flashcards' | 'learn' | 'match' | 'test' }
+
+     Vor dem Klick wird keine Verbindung zum Anbieter aufgebaut. */
+  function kennung(wert) { return String(wert || '').replace(/[^\w\-]/g, ''); }
+  function nurZiffern(wert) { return String(wert || '').replace(/\D/g, ''); }
+
+  const ANBIETER = {
+    quizlet: {
+      name: 'Quizlet',
+      /* Eingebettet wird über die reine Set-Nummer: /123456789/match/embed.
+         Der öffentliche Link enthält zusätzlich den Set-Namen und lässt sich
+         daraus nicht erraten, deshalb gehört er als fallbackUrl in die Konfiguration. */
+      rahmen: c => 'https://quizlet.com/' + nurZiffern(c.kennung) +
+                   '/' + (c.modus || 'flashcards') + '/embed?i=1&x=1jj1',
+      offen: c => c.fallbackUrl || 'https://quizlet.com/' + nurZiffern(c.kennung),
+      hoehe: 500
+    },
+    kahoot: {
+      name: 'Kahoot',
+      rahmen: c => 'https://embed.kahoot.it/' + kennung(c.kennung),
+      offen: c => c.fallbackUrl || 'https://play.kahoot.it/v2/?quizId=' + kennung(c.kennung),
+      hoehe: 560
+    },
+    video: {
+      name: 'YouTube',
+      /* youtube-nocookie und rel=0: kein Vorschlagskarussell fremder Kanäle */
+      rahmen: c => 'https://www.youtube-nocookie.com/embed/' + kennung(c.kennung) +
+                   '?rel=0&modestbranding=1' + (c.start ? '&start=' + Number(c.start) : '') +
+                   (c.untertitel ? '&cc_load_policy=1&cc_lang_pref=de' : ''),
+      offen: c => c.fallbackUrl || 'https://www.youtube.com/watch?v=' + kennung(c.kennung),
+      hoehe: 0   // 0 bedeutet: Seitenverhältnis 16:9 statt fester Höhe
+    }
+  };
+
+  function extern(zielId, config) {
+    const box = document.getElementById(zielId);
+    if (!box) return;
+    const a = ANBIETER[config.anbieter];
+    if (!a) return;
+
+    box.classList.add('extern');
+    const kopf = document.createElement('div');
+    kopf.className = 'extern-kopf';
+    kopf.innerHTML =
+      '<span class="marke marke-extern">' + a.name + (config.dauer ? ' · ' + config.dauer : '') + '</span>' +
+      '<h3>' + config.titel + '</h3>' +
+      (config.auftrag ? '<p>' + config.auftrag + '</p>' : '');
+
+    const flaeche = document.createElement('div');
+    flaeche.className = 'extern-flaeche' + (a.hoehe ? '' : ' extern-video');
+    if (a.hoehe) flaeche.style.minHeight = a.hoehe + 'px';
+
+    const start = document.createElement('button');
+    start.type = 'button';
+    start.className = 'knopf';
+    start.textContent = 'Bei ' + a.name + ' laden';
+    start.addEventListener('click', () => {
+      const rahmen = document.createElement('iframe');
+      rahmen.src = a.rahmen(config);
+      rahmen.title = config.titel + ' (' + a.name + ')';
+      rahmen.loading = 'lazy';
+      rahmen.setAttribute('allowfullscreen', '');
+      rahmen.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+      flaeche.innerHTML = '';
+      flaeche.appendChild(rahmen);
+    });
+
+    const hinweis = document.createElement('p');
+    hinweis.className = 'extern-hinweis';
+    hinweis.textContent = 'Beim Laden entsteht eine Verbindung zu ' + a.name + '. Vorher passiert nichts.';
+
+    flaeche.appendChild(start);
+    flaeche.appendChild(hinweis);
+
+    const fuss = document.createElement('p');
+    fuss.className = 'extern-fuss';
+    const link = document.createElement('a');
+    link.href = a.offen(config);
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = 'Stattdessen bei ' + a.name + ' öffnen';
+    fuss.appendChild(link);
+
+    box.appendChild(kopf);
+    box.appendChild(flaeche);
+    box.appendChild(fuss);
+  }
+
   function teilStand(t) {
     if (t.art === 'auswahl') {
       return {
-        richtig: t.fragen.filter(f => M.stand[f.id] && f.richtig.includes(M.stand[f.id])).length,
+        richtig: t.fragen.filter(f => M.stand[t.name + ':' + f.id] && f.richtig.includes(M.stand[t.name + ':' + f.id])).length,
         gesamt: t.fragen.length
       };
     }
     return { richtig: M.stand['_' + t.name] || 0, gesamt: t.anzahl };
   }
 
-  /* Bis zu vier Aufgaben werden einzeln aufgeführt. Danach ist die Kette
-     unlesbar, deshalb erscheint nur noch die Summe. */
+  /* Gezählt wird nur der Lernabschnitt, der gerade offen ist. Eine Zahl über
+     das ganze Modul hinweg wäre entmutigend und würde mit jedem neuen
+     Abschnitt größer, ohne dass jemand etwas falsch gemacht hätte.
+     Bis zu vier Aufgaben werden einzeln aufgeführt, danach nur die Summe. */
   function standText() {
-    if (M.teile.length > 4) {
-      const summe = M.teile.reduce((a, t) => {
+    const jetzt = aktivesBlatt();
+    const teile = jetzt ? M.teile.filter(t => t.blatt === jetzt) : M.teile;
+    if (!teile.length) return '';
+    if (teile.length > 4) {
+      const summe = teile.reduce((a, t) => {
         const s = teilStand(t);
         a.richtig += s.richtig; a.gesamt += s.gesamt;
         return a;
       }, { richtig: 0, gesamt: 0 });
-      return summe.richtig + ' von ' + summe.gesamt + ' Aufgaben gelöst';
+      return summe.richtig + ' von ' + summe.gesamt + ' Aufgaben in diesem Lernabschnitt';
     }
-    return M.teile.map(t => {
+    return teile.map(t => {
       const s = teilStand(t);
       return s.richtig + ' von ' + s.gesamt;
     }).join(' · ');
@@ -711,6 +829,14 @@ window.Lehrwerk = (function () {
 
   /* ====== Bereichsseite ====== */
 
+  /* Minutenangaben sagen bei mehrteiligen Modulen nichts Verlässliches und
+     erscheinen deshalb nicht mehr auf der Karte. Andere Angaben, etwa
+     „4 Lernabschnitte“ oder „Nachschlagen“, bleiben stehen. */
+  function umfang(wert) {
+    if (!wert || /^\s*\d+\s*Min\.?\s*$/i.test(wert)) return '';
+    return '<span>' + wert + '</span>';
+  }
+
   function bereich(id) {
     countdown();
 
@@ -744,10 +870,16 @@ window.Lehrwerk = (function () {
           merkenOffen(liste);
         });
 
+        /* Gezählt wird nur, was auch geöffnet werden kann. Sonst verspricht die
+           Zeile Übungen, die es noch nicht gibt. */
         const zaehlung = {};
-        g.module.forEach(m => (m.fertigkeiten || []).forEach(f => zaehlung[f] = (zaehlung[f] || 0) + 1));
-        const deckung = ['Sprechen', 'Schreiben', 'Lesen', 'Hören']
-          .map(f => f + ' ' + (zaehlung[f] || 0)).join(' · ');
+        g.module
+          .filter(m => m._available === true || (id === 'referenz' && m.pfad === 'hausaufgaben.html'))
+          .forEach(m => (m.fertigkeiten || []).forEach(f => zaehlung[f] = (zaehlung[f] || 0) + 1));
+        const deckung = Object.keys(zaehlung).length
+          ? ['Sprechen', 'Schreiben', 'Lesen', 'Hören']
+              .filter(f => zaehlung[f]).map(f => f + ' ' + zaehlung[f]).join(' · ')
+          : 'noch kein Material';
 
         sec.innerHTML = `
           <summary class="kopfzeile">
@@ -777,15 +909,16 @@ window.Lehrwerk = (function () {
           el.innerHTML = `
             <h3>${m.titel}</h3>
             <p class="text">${m.beschreibung}</p>
-            <div class="meta"><span>${m.niveau}</span><span>${m.dauer}</span>${fk}</div>
-            ${offen ? '' : '<span class="status-hinweis">Material wird ergänzt</span>'}`;
+            <div class="meta"><span>${m.niveau}</span>${umfang(m.dauer)}${fk}</div>
+            ${offen ? (m._teilweise ? '<span class="status-hinweis">wächst noch</span>' : '') : '<span class="status-hinweis">Material wird ergänzt</span>'}`;
 
           if (offen && !hausaufgabenBereich) {
             const haken = document.createElement('button');
             haken.type = 'button';
             haken.className = 'haken';
             haken.textContent = '✓';
-            haken.setAttribute('aria-label', 'Modul „' + m.titel + '“ als erledigt markieren');
+            haken.title = m._teilweise ? 'Aktuellen Stand als erledigt markieren' : 'Als erledigt markieren';
+            haken.setAttribute('aria-label', (m._teilweise ? 'Aktuellen Stand von Modul „' : 'Modul „') + m.titel + '“ als erledigt markieren');
             haken.addEventListener('click', ev => {
               ev.preventDefault(); ev.stopPropagation();
               const liste = erledigt();
@@ -821,5 +954,5 @@ window.Lehrwerk = (function () {
     }).catch(() => fehler(meldung));
   }
 
-  return { bereich, KURS, modul, reiter, auswahl, luecken, wortbank, zuordnen, gruppieren, frei, abschluss };
+  return { bereich, KURS, modul, reiter, auswahl, luecken, wortbank, zuordnen, gruppieren, extern, frei, abschluss };
 })();
