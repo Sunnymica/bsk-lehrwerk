@@ -1,16 +1,13 @@
-/*
-  Hausaufgaben veröffentlichen
-  ---------------------------
-  Tragen Sie Aufgaben in die Liste ein und laden Sie die Datei neu zu GitHub hoch.
-  Beispiel:
-
+/* Mit dem Hausaufgaben-Editor erzeugt. */
+window.BSK_HOMEWORK = [
   {
-    id: "konnektoren-01",
-    titel: "Konnektoren wiederholen",
-    beschreibung: "Bearbeiten Sie den Überblick und formulieren Sie vier eigene Bürosätze.",
-    faellig: "2026-09-01",
-    links: [{ label: "Zum Modul", href: "grammatik/konnektoren-ueberblick.html" }],
-    aufgaben: ["Überblick lesen", "Übungen bearbeiten", "Vier eigene Sätze schreiben"]
+    "id": "forms-ausfullen-2026-08-04",
+    "titel": "Forms ausfüllen",
+    "beschreibung": "Formular zur Ermittlung des Sprachbedarfs\nhttps://docs.google.com/forms/d/1SxbL1mqoCIhmgzFPav3HJC8_wg3CPNcOZNI6SCMeOuk/edit",
+    "faellig": "",
+    "aufgaben": [
+      "Formular ausfüllen"
+    ],
+    "links": []
   }
-*/
-window.BSK_HOMEWORK = [];
+];
