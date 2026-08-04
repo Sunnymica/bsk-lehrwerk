@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Hausaufgaben-Editor | Deutsch fürs Büro</title>
+  <link rel="stylesheet" href="../assets/basis.css">
+  <link rel="stylesheet" href="hausaufgaben-editor.css">
+</head>
+<body>
+  <header class="editor-kopf">
+    <div class="kopf-innen">
+      <div>
+        <p class="eyebrow">Lehrkraftbereich · nicht in der Kursnavigation verlinkt</p>
+        <h1>Hausaufgaben-Editor</h1>
+        <p class="kopf-text">Hausaufgaben zusammenstellen, prüfen und als fertige <code>homework.js</code> herunterladen.</p>
+      </div>
+      <div class="kopf-status" id="speicherstatus" role="status" aria-live="polite">Bereit</div>
+    </div>
+  </header>
+
+  <main class="editor-raster">
+    <section class="editor-karte formular-karte" aria-labelledby="formular-titel">
+      <div class="karten-kopf">
+        <div>
+          <p class="eyebrow">Neue oder vorhandene Hausaufgabe</p>
+          <h2 id="formular-titel">Hausaufgabe anlegen</h2>
+        </div>
+        <button class="knopf knopf--ruhig" type="button" id="formular-leeren">Formular leeren</button>
+      </div>
+
+      <form id="hausaufgaben-formular" novalidate>
+        <input type="hidden" id="bearbeitungs-id">
+
+        <div class="feldgruppe feldgruppe--zweispaltig">
+          <label>
+            <span>Titel <strong aria-hidden="true">*</strong></span>
+            <input id="titel" name="titel" type="text" required maxlength="120" placeholder="Zum Beispiel: Konnektoren im Büro">
+          </label>
+          <label>
+            <span>Fällig am</span>
+            <input id="faellig" name="faellig" type="date">
+          </label>
+        </div>
+
+        <label class="feld-voll">
+          <span>Kurze Beschreibung</span>
+          <textarea id="beschreibung" name="beschreibung" rows="3" maxlength="600" placeholder="Was sollen die Teilnehmenden insgesamt tun?"></textarea>
+        </label>
+
+        <section class="listen-block" aria-labelledby="aufgaben-titel">
+          <div class="listen-kopf">
+            <div>
+              <h3 id="aufgaben-titel">Arbeitsschritte</h3>
+              <p>Jeder Schritt erscheint mit einem eigenen Kästchen zum Abhaken.</p>
+            </div>
+            <button class="knopf knopf--sekundaer" type="button" id="aufgabe-hinzufuegen">+ Schritt</button>
+          </div>
+          <div id="aufgaben-liste" class="dynamische-liste"></div>
+        </section>
+
+        <section class="listen-block" aria-labelledby="links-titel">
+          <div class="listen-kopf">
+            <div>
+              <h3 id="links-titel">Links und Materialien</h3>
+              <p>Verlinken Sie Module der Plattform oder eine eigene Internetadresse.</p>
+            </div>
+            <button class="knopf knopf--sekundaer" type="button" id="link-hinzufuegen">+ Link</button>
+          </div>
+          <div id="links-liste" class="dynamische-liste"></div>
+        </section>
+
+        <div class="formular-aktionen">
+          <button class="knopf knopf--primaer" type="submit" id="speichern">Hausaufgabe übernehmen</button>
+          <p class="formular-hinweis">Die Eingaben werden zunächst nur in diesem Browser gespeichert.</p>
+        </div>
+      </form>
+    </section>
+
+    <aside class="seitenleiste-editor">
+      <section class="editor-karte vorschau-karte" aria-labelledby="vorschau-titel">
+        <div class="karten-kopf kompakt">
+          <div>
+            <p class="eyebrow">So erscheint sie ungefähr</p>
+            <h2 id="vorschau-titel">Vorschau</h2>
+          </div>
+        </div>
+        <div id="vorschau" class="vorschau" aria-live="polite"></div>
+      </section>
+
+      <section class="editor-karte verwaltung-karte" aria-labelledby="verwaltung-titel">
+        <div class="karten-kopf kompakt">
+          <div>
+            <p class="eyebrow">Veröffentlichungsdatei</p>
+            <h2 id="verwaltung-titel">Hausaufgaben verwalten</h2>
+          </div>
+          <span class="zaehler" id="hausaufgaben-zaehler">0</span>
+        </div>
+
+        <div id="hausaufgaben-liste" class="hausaufgaben-liste"></div>
+
+        <div class="datei-aktionen">
+          <button class="knopf knopf--primaer knopf--breit" type="button" id="datei-herunterladen">homework.js herunterladen</button>
+          <button class="knopf knopf--ruhig knopf--breit" type="button" id="veroeffentlicht-laden">Veröffentlichte Fassung neu laden</button>
+        </div>
+        <details class="hilfe">
+          <summary>Was mache ich mit der Datei?</summary>
+          <ol>
+            <li>Die heruntergeladene Datei muss <code>homework.js</code> heißen.</li>
+            <li>Bei GitHub im Repo den Ordner <code>data</code> öffnen.</li>
+            <li><strong>Add file → Upload files</strong> wählen und die Datei hochladen.</li>
+            <li>Committen. Nach dem Pages-Build erscheinen die Hausaufgaben auf der Startseite.</li>
+          </ol>
+          <p>Die Datei im Repo wird ersetzt. Im Code müssen Sie nichts ändern.</p>
+        </details>
+      </section>
+    </aside>
+  </main>
+
+  <template id="aufgabe-vorlage">
+    <div class="listen-zeile aufgaben-zeile">
+      <span class="zeilen-symbol" aria-hidden="true">✓</span>
+      <label class="zeilen-feld">
+        <span class="nur-screenreader">Arbeitsschritt</span>
+        <input type="text" maxlength="220" placeholder="Zum Beispiel: Reiter 1 und 2 bearbeiten">
+      </label>
+      <div class="zeilen-aktionen">
+        <button type="button" class="icon-knopf hoch" title="Nach oben" aria-label="Arbeitsschritt nach oben">↑</button>
+        <button type="button" class="icon-knopf runter" title="Nach unten" aria-label="Arbeitsschritt nach unten">↓</button>
+        <button type="button" class="icon-knopf loeschen" title="Löschen" aria-label="Arbeitsschritt löschen">×</button>
+      </div>
+    </div>
+  </template>
+
+  <template id="link-vorlage">
+    <div class="listen-zeile link-zeile">
+      <div class="link-felder">
+        <label>
+          <span>Beschriftung</span>
+          <input class="link-label" type="text" maxlength="100" placeholder="Zum Modul">
+        </label>
+        <label>
+          <span>Plattformmodul auswählen</span>
+          <select class="modul-auswahl">
+            <option value="">Kein Modul ausgewählt</option>
+          </select>
+        </label>
+        <label>
+          <span>Adresse</span>
+          <input class="link-href" type="text" maxlength="500" placeholder="grammatik/modul.html oder https://…">
+        </label>
+      </div>
+      <div class="zeilen-aktionen">
+        <button type="button" class="icon-knopf hoch" title="Nach oben" aria-label="Link nach oben">↑</button>
+        <button type="button" class="icon-knopf runter" title="Nach unten" aria-label="Link nach unten">↓</button>
+        <button type="button" class="icon-knopf loeschen" title="Löschen" aria-label="Link löschen">×</button>
+      </div>
+    </div>
+  </template>
+
+  <script src="../data/homework.js"></script>
+  <script src="hausaufgaben-editor.js"></script>
+</body>
+</html>
