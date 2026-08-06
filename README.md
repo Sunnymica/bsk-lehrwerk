@@ -1,4 +1,4 @@
-# Deutsch fürs Büro – Job-BSK-Plattform 0.4.6
+# Deutsch fürs Büro – Job-BSK-Plattform 0.4.10
 
 Diese Fassung ist die technische und redaktionelle Produktionsbasis für das neue Job-BSK-Lehrwerk.
 Sie trennt Plattform, Lehrwerk und Aufgabenarchitektur, ohne die vorhandenen Inhalte oder lokalen
@@ -28,6 +28,38 @@ Alle HTML-Seiten laden vier gemeinsame Dateien in fester Reihenfolge:
 Neue wiederverwendbare Aufgabentypen werden zentral in `assets/lehrwerk.js` und
 `assets/aufgaben.css` entwickelt und anschließend in `VORLAGE.md` dokumentiert.
 Komponentenvariablen stehen am jeweiligen Komponentenselektor, nicht auf `:root`. Responsive Überschreibungen bereichseigener Layout-Tokens dürfen in der zuständigen Media-Query stehen.
+
+## Änderungen in 0.4.10
+
+- zentraler Urheberhinweis auf Startseite, Bereichsseiten und Modulseiten
+- Trägerkontakt auf der Plattform-FAQ ohne veraltbare Einzeladresse formuliert
+- FAQ-Status bleibt bis zur redaktionellen Freigabe durch Regina auf `in-arbeit`
+- Kennenlernen bleibt bis zur redaktionellen Freigabe auf `teilweise`
+
+## Änderungen in 0.4.9
+
+- Satzbau-Kategorien farblich und textlich eindeutig markiert
+- Direktivergänzung als eigener Typ von Präpositionalergänzung getrennt
+- Objekttraining didaktisch neu geordnet
+- Kontexte und Rückmeldungen in den Mittelfeldaufgaben präzisiert
+- Rückmeldung aus der Pilotprüfung dokumentiert
+
+## Änderungen in 0.4.8
+
+- neue Nachschlagseite „So funktioniert die Plattform“ im Bereich „Unser Kurs“
+- FAQ zu Zugang, lokaler Speicherung, Bedienung, Direktlinks und Kontakt
+- freiwillige WhatsApp-Abfrage ohne Mehrheitszwang
+- technische Aussagen gegen den tatsächlichen Stand von 0.4.7 geprüft und präzisiert
+- Seite bleibt bis zur Ergänzung der Träger-Ansprechperson auf `in-arbeit`
+
+## Änderungen in 0.4.7
+
+- Pilotmigration „Satzbau im Mittelfeld“ mit vier Lernabschnitten und 49 Aufgaben
+- neuer barrierearmer Aufgabentyp `Lehrwerk.satzfolge()` statt reinem Drag-and-drop
+- eigene Bildgrammatik zur Reihenfolge von Dativ und Akkusativ
+- fachliche Trennung von Ergänzungen, Angaben, Präpositional- und Direktivergänzungen
+- TEKAMOLO ausdrücklich als Grundfolge der Angaben, nicht als starre Mittelfeldregel
+- LearningApps als externer Baustein mit Klick-zum-Laden ergänzt
 
 ## Änderungen in 0.4.6
 

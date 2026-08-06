@@ -150,6 +150,8 @@ Wird ein Komponentenwert später systemweit benötigt, kann er nach gemeinsamer 
 
 <footer class="fuss">Nur für Kursteilnehmerinnen und Kursteilnehmer</footer>
 
+Der zentrale Urheberhinweis wird von `assets/platform.js` automatisch als zweite, kleinere Zeile ergänzt. Er darf nicht pro Modul abweichend oder doppelt eingetragen werden.
+
 <script src="../assets/lehrwerk.js"></script>
 <script>
 Lehrwerk.modul('thema');
@@ -209,6 +211,8 @@ Beispielsätze stehen in `<p class="satzbau">`.
 - `.abstimmung` – Zahlenfelder mit gemeinsamem Ergebnisbalken
 - `.raster` / `.raster-feld` – wiederholte Aussage mit Eingabefeld
 - `.formular` / `.formular-feld` – beschriftetes Formularraster
+- `.satzfolge` – klickbares Satzpuzzle mit Vorrat und gebautem Satz
+- `.bildgrammatik` – eigenes erklärendes Schaubild mit Bildunterschrift
 
 Eigene Farben, Schriftgrößen oder `<style>`-Blöcke sind nicht vorgesehen. Einzelne
 `style="…"`-Angaben für Abstände sind geduldet; Farben laufen über bestehende Variablen.
@@ -224,12 +228,43 @@ Lehrwerk.luecken(name, config)
 Lehrwerk.wortbank(name, config)     // Lückentext mit sichtbarer Wortbank
 Lehrwerk.zuordnen(zielId, config)   // Paare bilden
 Lehrwerk.gruppieren(zielId, config) // Wörter in Töpfe sortieren
-Lehrwerk.extern(zielId, config)     // Quizlet, Kahoot oder Video, erst nach Klick
+Lehrwerk.satzfolge(zielId, config)  // Satzbausteine per Klick ordnen
+Lehrwerk.extern(zielId, config)     // Quizlet, Kahoot, LearningApps oder Video, erst nach Klick
 Lehrwerk.frei('feld-id')      // Eingabefeld, speichert laufend, wird nicht bewertet
 Lehrwerk.abstimmung(config)         // lokale Stimmen der Kursleitung visualisieren
 Lehrwerk.ergebnis(config)           // beschriftete Eingaben geordnet kopieren
 Lehrwerk.abschluss()          // Stand, #kopieren, #zuruecksetzen; immer als Letztes
 ```
+
+### Datenformat Satzfolge
+
+Die Satzfolge ersetzt Drag-and-drop. Satzteile werden im Vorrat angeklickt und dadurch
+an den Satz angehängt; ein Klick im Satz legt sie zurück. Das funktioniert mit Maus,
+Touchscreen und Tastatur. Mehrere korrekte Grundfolgen können angegeben werden.
+
+```js
+Lehrwerk.satzfolge('training', {
+  frage: 'Bauen Sie den Satz.',
+  aufgaben: [{
+    id: 'a1',
+    anfang: 'Nora gibt',
+    ende: '.',
+    teile: [
+      { id: 'd', text: 'dem Kunden', typ: 'dativ' },
+      { id: 'a', text: 'die Unterlagen', typ: 'akkusativ' }
+    ],
+    loesungen: [['d', 'a']],
+    erklaerung: 'Bei zwei Nomen steht der Dativ in der neutralen Folge vor dem Akkusativ.'
+  }]
+});
+```
+
+Zulässige `typ`-Werte für die gemeinsame Funktionsmarkierung sind `dativ`,
+`akkusativ`, `temporal`, `kausal`, `modal`, `lokal`, `subjekt`, `verb`, `ergaenzung`,
+`praep` und `direktiv`. Jeder Satzbaustein zeigt zusätzlich zur Farbe eine sichtbare
+Kategoriebezeichnung; die Bedeutung darf nie allein über Farbe vermittelt werden.
+`praep` bezeichnet eine Präpositionalergänzung, `direktiv` eine Direktivergänzung.
+Die Markierung ist Lernhilfe, keine Positionsregel.
 
 ### Datenformat Abstimmung
 
@@ -256,7 +291,8 @@ Lehrwerk.abstimmung({
 ### Datenformat Ergebnis kopieren
 
 Nur Eingabefelder mit `data-ergebnis-label` werden berücksichtigt. Die Ausgabe folgt der
-Reihenfolge im Dokument; leere Felder werden ausgelassen.
+Reihenfolge im Dokument; leere Felder werden ausgelassen. Einzelne Felder werden durch eine
+Leerzeile getrennt. Bei mehrzeiligen Eingaben steht der Inhalt unter der Feldbezeichnung.
 
 ```html
 <input id="name" data-ergebnis-label="Name">
@@ -274,7 +310,7 @@ Lehrwerk.ergebnis({
 
 ### Neue Aufgabentypen
 
-Die Vorlage unterstützt `auswahl`, `luecken`, `wortbank`, `zuordnen`, `gruppieren` und `frei`.
+Die Vorlage unterstützt `auswahl`, `luecken`, `wortbank`, `zuordnen`, `gruppieren`, `satzfolge` und `frei`.
 Benötigt ein Modul erstmals einen weiteren allgemein wiederverwendbaren Typ wie Satzbauen
 oder Hören, gilt:
 
@@ -349,7 +385,7 @@ und die Aufgabe misst dann eher Geduld als Sprache.
 
 ```js
 Lehrwerk.extern('x-wortschatz', {
-  anbieter: 'quizlet',          // quizlet | kahoot | video
+  anbieter: 'quizlet',          // quizlet | kahoot | learningapps | video
   kennung:  '123456789',        // nur die Set-Nummer, ohne Namensteil
   titel:    'Wortschatz Büro',
   auftrag:  'Zehn Minuten Karteikarten, dann zurück auf diese Seite.',
@@ -363,10 +399,10 @@ Im HTML genügt `<div id="x-wortschatz"></div>`.
 
 Eingebettet wird bei Quizlet über die reine Set-Nummer: `/123456789/match/embed`.
 Der öffentliche Link enthält zusätzlich den Set-Namen und lässt sich daraus nicht
-erraten – deshalb gehört er als `fallbackUrl` in die Konfiguration. Bei Kahoot und
+erraten – deshalb gehört er als `fallbackUrl` in die Konfiguration. Bei Kahoot, LearningApps und
 Video ist `fallbackUrl` optional.
 
-Die drei Anbieter teilen sich Platzhalter, bewussten Klick und Ausweichlink,
+Die vier Anbieter teilen sich Platzhalter, bewussten Klick und Ausweichlink,
 haben aber jeweils eigene Einbettungsadressen. Diese stehen zentral in `ANBIETER`
 in `lehrwerk.js` und werden nicht im Modul zusammengesetzt.
 

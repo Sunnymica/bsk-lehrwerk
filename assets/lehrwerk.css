@@ -280,8 +280,15 @@ body[data-bereich="referenz"]  .karte { border-left-color: var(--flieder-tief); 
 
 .fuss {
   border-top: 1px solid var(--linie); padding: 1.5rem;
+  display: grid; gap: 0.42rem;
   text-align: center; font-family: var(--mono);
   font-size: 0.64rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tinte-weich);
+}
+
+.fuss-hauptzeile { display: block; }
+.fuss-urheber {
+  display: block; font-size: 0.82em; line-height: 1.45;
+  letter-spacing: 0.035em; text-transform: none; font-weight: 400;
 }
 
 /* ---------- Bausteine für die Modulseiten ---------- */
@@ -424,6 +431,22 @@ body[data-bereich="referenz"]  .karte { border-left-color: var(--flieder-tief); 
 
 .satz { background: var(--papier); border-left: 3px solid var(--linie); padding: 0.6rem 0.8rem; margin: 0.5rem 0; font-size: 0.97rem; }
 .regel { background: var(--sand); border-radius: 8px; padding: 1rem 1.2rem; margin: 1.2rem 0; }
+
+
+/* Bildgrammatik: eigene Schaubilder, die eine Formbeziehung erklären. */
+.bildgrammatik { margin: 1.4rem 0 1.8rem; }
+.bildgrammatik img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--linie);
+  border-radius: 8px;
+}
+.bildgrammatik figcaption {
+  margin-top: 0.55rem;
+  color: var(--tinte-weich);
+  font-size: 0.88rem;
+}
 
 /* Tabellen */
 .modul table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: 0.95rem; }

@@ -52,6 +52,7 @@
   });
 
   async function init() {
+    addLegalFooter();
     recordActivity();
     if (document.body.dataset.page === 'home') {
       fillSidebar(document.querySelector('#sidebar'), 'home');
@@ -199,6 +200,42 @@
     button.addEventListener('click', () => { sidebar.classList.toggle('open'); backdrop.classList.toggle('show'); });
     backdrop.addEventListener('click', close);
     sidebar.addEventListener('click', event => { if (event.target.closest('a')) close(); });
+  }
+
+  function addLegalFooter() {
+    const participantText = 'Nur für Kursteilnehmerinnen und Kursteilnehmer';
+    const copyrightText = '© Regina Laska. Erstellt für den Berufssprachkurs Bürokommunikation und Verwaltung. Weitergabe, Vervielfältigung und Nutzung in anderen Kursen nur mit schriftlicher Zustimmung.';
+
+    document.querySelectorAll('.fuss').forEach(footer => {
+      if (footer.querySelector('.fuss-urheber')) return;
+      const main = document.createElement('span');
+      main.className = 'fuss-hauptzeile';
+      main.textContent = footer.textContent.trim() || participantText;
+      const legal = document.createElement('small');
+      legal.className = 'fuss-urheber';
+      legal.textContent = copyrightText;
+      footer.replaceChildren(main, legal);
+    });
+
+    const platformFooter = document.querySelector('.platform-footer');
+    if (platformFooter && !platformFooter.querySelector('.fuss-urheber')) {
+      const copy = document.createElement('div');
+      copy.className = 'platform-footer-copy';
+
+      const main = document.createElement('span');
+      main.className = 'fuss-hauptzeile';
+      main.textContent = participantText;
+
+      const legal = document.createElement('small');
+      legal.className = 'fuss-urheber';
+      legal.textContent = copyrightText;
+
+      const version = [...platformFooter.children].find(element => element.tagName === 'SPAN');
+      if (version) version.classList.add('platform-version');
+      copy.append(main, legal);
+      if (version) copy.append(version);
+      platformFooter.prepend(copy);
+    }
   }
 
   function setTopbar() {
