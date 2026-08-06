@@ -5,14 +5,6 @@
 
 window.Lehrwerk = (function () {
 
-  /* ====== EINSTELLUNGEN – nur hier ändern ====== */
-  const KURS = {
-    beginn: '2026-08-25T17:30:00',   // erster Kurstag
-    ende:   null,                    // z. B. '2026-12-22T19:45:00' – dann kommt der Fortschrittsbalken
-    tage:   [1, 2],                  // 1 = Montag, 2 = Dienstag
-    von:    '17:30',
-    bis:    '19:45'
-  };
 
   const WOERTER = [
     ['die Frist', 'der letzte Termin, bis zu dem etwas erledigt sein muss'],
@@ -60,86 +52,112 @@ window.Lehrwerk = (function () {
     return n + ' ' + (n === 1 ? eins : viele);
   }
 
-  /* ====== Countdown ====== */
+  /* ====== Kursdaten und Countdown ====== */
+
+  function kursLaden() {
+    if (window.BSKPlatform && typeof window.BSKPlatform.getCourse === 'function') {
+      return window.BSKPlatform.getCourse();
+    }
+    const wurzel = document.body.dataset.root || '';
+    return fetch(wurzel + 'data/kurs.json', { cache: 'no-store' }).then(r => {
+      if (!r.ok) throw new Error(r.status);
+      return r.json();
+    });
+  }
 
   function countdown() {
     const uhr = document.getElementById('uhr');
     if (!uhr) return;
 
-    const felder = {};
-    uhr.querySelectorAll('.zahl').forEach(el => felder[el.dataset.feld] = el);
-    const titel = document.getElementById('band-titel');
-    const fuss  = document.getElementById('band-fussnote');
+    kursLaden().then(daten => {
+      const config = daten && daten.kurs;
+      if (!config || !config.beginn || !config.von || !Array.isArray(config.tage)) return;
 
-    const beginn = new Date(KURS.beginn);
-    const ende   = KURS.ende ? new Date(KURS.ende) : null;
-    const [std0, min0] = KURS.von.split(':').map(Number);
+      const felder = {};
+      uhr.querySelectorAll('.zahl').forEach(el => felder[el.dataset.feld] = el);
+      const titel = document.getElementById('band-titel');
+      const fuss  = document.getElementById('band-fussnote');
 
-    function datumText(d) {
-      return WOCHENTAG[d.getDay()] + ', ' +
-             d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
-    }
+      const beginn = new Date(config.beginn);
+      const ende   = config.ende ? new Date(config.ende) : null;
+      const [std0, min0] = config.von.split(':').map(Number);
 
-    function naechsteSitzung(jetzt) {
-      for (let i = 0; i < 14; i++) {
-        const t = new Date(jetzt);
-        t.setDate(t.getDate() + i);
-        t.setHours(std0, min0, 0, 0);
-        if (KURS.tage.includes(t.getDay()) && t > jetzt) return t;
+      function datumText(d) {
+        return WOCHENTAG[d.getDay()] + ', ' +
+               d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
       }
-      return null;
-    }
 
-    function ticken() {
-      const jetzt = new Date();
-      let ziel;
-
-      if (jetzt < beginn) {
-        ziel = beginn;
-        titel.textContent = 'Bis zum Kursbeginn';
-        fuss.textContent = 'Erster Kurstag: ' + datumText(beginn) + ', ' + KURS.von + '–' + KURS.bis + ' Uhr';
-      } else if (ende && jetzt > ende) {
-        titel.textContent = 'Kurs abgeschlossen';
-        uhr.hidden = true;
-        fuss.textContent = 'Die Module bleiben abrufbar.';
-        return;
-      } else {
-        ziel = naechsteSitzung(jetzt);
-        titel.textContent = 'Bis zur nächsten Sitzung';
-        fuss.textContent = ziel ? datumText(ziel) + ', ' + KURS.von + '–' + KURS.bis + ' Uhr'
-                                : 'Kein Termin gefunden – Einstellungen prüfen.';
+      function frei(datum) {
+        const iso = datum.getFullYear() + '-' + String(datum.getMonth() + 1).padStart(2, '0') + '-' + String(datum.getDate()).padStart(2, '0');
+        return (daten.freie_tage || []).some(eintrag => {
+          if (eintrag.datum) return eintrag.datum === iso;
+          return eintrag.von && eintrag.bis && iso >= eintrag.von && iso <= eintrag.bis;
+        });
       }
-      if (!ziel) return;
 
-      let rest = Math.max(0, ziel - jetzt) / 1000;
-      const tage = Math.floor(rest / 86400); rest -= tage * 86400;
-      const std  = Math.floor(rest / 3600);  rest -= std * 3600;
-      const min  = Math.floor(rest / 60);
-      const sek  = Math.floor(rest - min * 60);
+      function naechsteSitzung(jetzt) {
+        for (let i = 0; i < 180; i++) {
+          const t = new Date(jetzt);
+          t.setDate(t.getDate() + i);
+          t.setHours(std0, min0, 0, 0);
+          if (config.tage.includes(t.getDay()) && t > jetzt && !frei(t) && (!ende || t <= ende)) return t;
+        }
+        return null;
+      }
 
-      felder.tage.textContent     = tage;
-      felder.stunden.textContent  = String(std).padStart(2, '0');
-      felder.minuten.textContent  = String(min).padStart(2, '0');
-      felder.sekunden.textContent = String(sek).padStart(2, '0');
-    }
+      function ticken() {
+        const jetzt = new Date();
+        let ziel;
 
-    ticken();
-    setInterval(ticken, 1000);
+        if (jetzt < beginn) {
+          ziel = beginn;
+          if (titel) titel.textContent = 'Bis zum Kursbeginn';
+          if (fuss) fuss.textContent = 'Erster Kurstag: ' + datumText(beginn) + ', ' + config.von + '–' + config.bis + ' Uhr';
+        } else if (ende && jetzt > ende) {
+          if (titel) titel.textContent = 'Kurs abgeschlossen';
+          uhr.hidden = true;
+          if (fuss) fuss.textContent = 'Die Module bleiben abrufbar.';
+          return;
+        } else {
+          ziel = naechsteSitzung(jetzt);
+          if (titel) titel.textContent = 'Bis zur nächsten Sitzung';
+          if (fuss) fuss.textContent = ziel ? datumText(ziel) + ', ' + config.von + '–' + config.bis + ' Uhr'
+                                        : 'Kein Termin gefunden – Kursdaten prüfen.';
+        }
+        if (!ziel) return;
 
-    if (ende) {
-      const jetzt = new Date();
-      if (jetzt >= beginn) {
-        const anteil = Math.min(1, (jetzt - beginn) / (ende - beginn));
-        const gesamt = Math.max(1, Math.round((ende - beginn) / (7 * 86400000)));
-        const woche  = Math.min(gesamt, Math.floor((jetzt - beginn) / (7 * 86400000)) + 1);
-        const box = document.getElementById('fortschritt');
-        if (box) {
-          box.hidden = false;
-          document.getElementById('balken').style.width = (anteil * 100).toFixed(1) + '%';
-          document.getElementById('fortschritt-text').textContent = 'Woche ' + woche + ' von ' + gesamt;
+        let rest = Math.max(0, ziel - jetzt) / 1000;
+        const tage = Math.floor(rest / 86400); rest -= tage * 86400;
+        const std  = Math.floor(rest / 3600);  rest -= std * 3600;
+        const min  = Math.floor(rest / 60);
+        const sek  = Math.floor(rest - min * 60);
+
+        if (felder.tage) felder.tage.textContent = tage;
+        if (felder.stunden) felder.stunden.textContent = String(std).padStart(2, '0');
+        if (felder.minuten) felder.minuten.textContent = String(min).padStart(2, '0');
+        if (felder.sekunden) felder.sekunden.textContent = String(sek).padStart(2, '0');
+      }
+
+      ticken();
+      setInterval(ticken, 1000);
+
+      if (ende) {
+        const jetzt = new Date();
+        if (jetzt >= beginn) {
+          const anteil = Math.min(1, (jetzt - beginn) / (ende - beginn));
+          const gesamt = Math.max(1, Math.round((ende - beginn) / (7 * 86400000)));
+          const woche  = Math.min(gesamt, Math.floor((jetzt - beginn) / (7 * 86400000)) + 1);
+          const box = document.getElementById('fortschritt');
+          if (box) {
+            box.hidden = false;
+            const balken = document.getElementById('balken');
+            const text = document.getElementById('fortschritt-text');
+            if (balken) balken.style.width = (anteil * 100).toFixed(1) + '%';
+            if (text) text.textContent = 'Woche ' + woche + ' von ' + gesamt;
+          }
         }
       }
-    }
+    }).catch(() => {});
   }
 
   /* ====== Wort des Tages ====== */
@@ -203,6 +221,8 @@ window.Lehrwerk = (function () {
        Lehrwerk.gruppieren('g1', config)  – Wörter in Töpfe sortieren
        Lehrwerk.extern('x1', config)      – Quizlet, Kahoot oder Video, erst nach Klick
        Lehrwerk.frei('schreiben')         – freies Schreibfeld (speichert)
+       Lehrwerk.abstimmung(config)         – lokale Plenumsabstimmung anzeigen
+       Lehrwerk.ergebnis(config)           – beschriftete Eingaben als Text kopieren
        Lehrwerk.abschluss()               – Stand, Kopieren, Zurücksetzen
      ========================================================= */
 
@@ -232,16 +252,55 @@ window.Lehrwerk = (function () {
   }
 
   function reiter() {
-    const knoepfe = document.querySelectorAll('.reiter button');
-    knoepfe.forEach(b => b.addEventListener('click', () => {
-      knoepfe.forEach(x => x.setAttribute('aria-selected', 'false'));
-      b.setAttribute('aria-selected', 'true');
-      document.querySelectorAll('.blatt').forEach(s => s.hidden = true);
-      const ziel = document.getElementById('blatt-' + b.dataset.blatt);
+    const knoepfe = [...document.querySelectorAll('.reiter button')];
+    if (!knoepfe.length) return;
+
+    function zeigen(knopf, optionen) {
+      if (!knopf || knopf.disabled) return;
+      knoepfe.forEach(x => {
+        const aktiv = x === knopf;
+        x.setAttribute('aria-selected', aktiv ? 'true' : 'false');
+        x.tabIndex = aktiv ? 0 : -1;
+      });
+      document.querySelectorAll('.blatt').forEach(s => { s.hidden = true; });
+      const id = 'blatt-' + knopf.dataset.blatt;
+      const ziel = document.getElementById(id);
       if (ziel) ziel.hidden = false;
+      if (optionen.hash !== false && location.hash !== '#' + id) history.replaceState(null, '', '#' + id);
       standZeigen();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }));
+      if (optionen.scroll !== false) window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    knoepfe.forEach(b => {
+      const id = 'blatt-' + b.dataset.blatt;
+      b.setAttribute('aria-controls', id);
+      b.addEventListener('click', () => zeigen(b, { hash: true, scroll: true }));
+      b.addEventListener('keydown', event => {
+        if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+        event.preventDefault();
+        const aktuelle = knoepfe.indexOf(b);
+        let naechste = aktuelle;
+        if (event.key === 'ArrowLeft') naechste = (aktuelle - 1 + knoepfe.length) % knoepfe.length;
+        if (event.key === 'ArrowRight') naechste = (aktuelle + 1) % knoepfe.length;
+        if (event.key === 'Home') naechste = 0;
+        if (event.key === 'End') naechste = knoepfe.length - 1;
+        knoepfe[naechste].focus();
+        zeigen(knoepfe[naechste], { hash: true, scroll: false });
+      });
+    });
+
+    function ausHash() {
+      const id = location.hash.slice(1);
+      const knopf = knoepfe.find(b => 'blatt-' + b.dataset.blatt === id);
+      if (knopf) zeigen(knopf, { hash: false, scroll: true });
+    }
+
+    if (location.hash) ausHash();
+    else {
+      const aktiv = knoepfe.find(b => b.getAttribute('aria-selected') === 'true') || knoepfe[0];
+      zeigen(aktiv, { hash: false, scroll: false });
+    }
+    window.addEventListener('hashchange', ausHash);
   }
 
   /* fragen: [{ id, text, optionen: [], richtig: [] , erklaerung }]
@@ -349,6 +408,96 @@ window.Lehrwerk = (function () {
     if (!el) return;
     if (M.stand[feldId]) el.value = M.stand[feldId];
     el.addEventListener('input', () => { M.stand[feldId] = el.value; speichern(); });
+  }
+
+
+  /* Lokale Plenumsabstimmung. Die Lehrkraft trägt die gezählten Stimmen ein.
+     config: { felder: [{ id, balken, label }], balken, ergebnis,
+               leer, gleichstand, mehrheit: { feldId: Text } } */
+  function abstimmung(config) {
+    const felder = (config.felder || []).map(f => ({ ...f, el: document.getElementById(f.id), anteil: document.getElementById(f.balken) })).filter(f => f.el);
+    const balken = document.getElementById(config.balken);
+    const ergebnis = document.getElementById(config.ergebnis);
+    if (!felder.length || !balken || !ergebnis) return;
+
+    function zeigen() {
+      const werte = felder.map(f => Math.max(0, parseInt(f.el.value, 10) || 0));
+      const summe = werte.reduce((a, b) => a + b, 0);
+      if (!summe) {
+        balken.hidden = true;
+        ergebnis.textContent = config.leer || 'Noch keine Stimmen eingetragen.';
+        return;
+      }
+      balken.hidden = false;
+      werte.forEach((wert, i) => {
+        const prozent = Math.round(wert / summe * 100);
+        if (felder[i].anteil) {
+          felder[i].anteil.style.width = prozent + '%';
+          felder[i].anteil.textContent = prozent >= 15 ? felder[i].label + ' ' + prozent + ' %' : '';
+        }
+      });
+      const max = Math.max(...werte);
+      const sieger = werte.map((wert, i) => wert === max ? i : -1).filter(i => i >= 0);
+      if (sieger.length !== 1) ergebnis.textContent = config.gleichstand || 'Gleichstand.';
+      else ergebnis.textContent = (config.mehrheit || {})[felder[sieger[0]].id] || felder[sieger[0]].label + ' hat die Mehrheit.';
+    }
+
+    felder.forEach(f => f.el.addEventListener('input', zeigen));
+    zeigen();
+  }
+
+  /* Beschriftete Eingaben in Dokumentreihenfolge als Text kopieren.
+     Berücksichtigt nur Felder mit data-ergebnis-label im Quellbereich. */
+  function ergebnis(config) {
+    const quelle = document.getElementById(config.quelle);
+    const knopf = document.getElementById(config.knopf);
+    if (!quelle || !knopf) return;
+    const standard = knopf.textContent;
+
+    function textBauen() {
+      const gruppen = new Map();
+      quelle.querySelectorAll('[data-ergebnis-label]').forEach(feld => {
+        const label = feld.dataset.ergebnisLabel.trim();
+        let wert = '';
+        if (feld.type === 'checkbox' || feld.type === 'radio') {
+          if (!feld.checked) return;
+          wert = feld.value || 'ja';
+        } else if (feld.tagName === 'SELECT') {
+          wert = feld.selectedOptions[0]?.textContent.trim() || '';
+        } else {
+          wert = feld.value.trim();
+        }
+        if (!label || !wert) return;
+        if (!gruppen.has(label)) gruppen.set(label, []);
+        gruppen.get(label).push(wert);
+      });
+      const zeilen = [...gruppen].map(([label, werte]) => label + ': ' + werte.join(', '));
+      const titel = config.titel || document.title.split(' –')[0];
+      return [titel, ...zeilen].join('\n');
+    }
+
+    knopf.addEventListener('click', () => {
+      const text = textBauen();
+      if (!text.includes('\n')) {
+        knopf.textContent = 'Noch nichts eingetragen';
+        setTimeout(() => { knopf.textContent = standard; }, 1800);
+        return;
+      }
+      const vorher = knopf.textContent;
+      const fertig = () => {
+        knopf.textContent = 'Kopiert';
+        setTimeout(() => { knopf.textContent = vorher; }, 1800);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(fertig, () => {
+          window.prompt('Zum Kopieren markieren:', text);
+          fertig();
+        });
+      } else {
+        window.prompt('Zum Kopieren markieren:', text);
+        fertig();
+      }
+    });
   }
 
   /* Hilfsfunktion: Reihenfolge mischen, ohne die Vorlage zu verändern. */
@@ -912,7 +1061,7 @@ window.Lehrwerk = (function () {
             <div class="meta"><span>${m.niveau}</span>${umfang(m.dauer)}${fk}</div>
             ${offen ? (m._teilweise ? '<span class="status-hinweis">wächst noch</span>' : '') : '<span class="status-hinweis">Material wird ergänzt</span>'}`;
 
-          if (offen && !hausaufgabenBereich) {
+          if (offen && !hausaufgabenBereich && id !== 'kurs') {
             const haken = document.createElement('button');
             haken.type = 'button';
             haken.className = 'haken';
@@ -954,5 +1103,5 @@ window.Lehrwerk = (function () {
     }).catch(() => fehler(meldung));
   }
 
-  return { bereich, KURS, modul, reiter, auswahl, luecken, wortbank, zuordnen, gruppieren, extern, frei, abschluss };
+  return { bereich, modul, reiter, auswahl, luecken, wortbank, zuordnen, gruppieren, extern, frei, abstimmung, ergebnis, abschluss };
 })();

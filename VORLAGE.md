@@ -39,6 +39,17 @@ Zuständigkeiten, Schreiben und Sprechen.
 **Pauken** bleibt kurzen, wiederholbaren Formaten vorbehalten: Wortschatzkarten,
 Kollokationen, Zuordnungsdrills, Artikeltraining, Schnelltests.
 
+## Kursdaten
+
+Kursspezifische Angaben stehen ausschließlich in `data/kurs.json`. Kursbeginn, Kursende,
+Unterrichtstage und Uhrzeiten werden nicht zusätzlich in `lehrwerk.js` oder HTML-Dateien
+geführt. Trägerspezifische Regeln zu Krankmeldung, Fehlzeiten und Kontakten dürfen bis zur
+Bestätigung als `BITTE_PRUEFEN` markiert sein, werden dann aber von keiner sichtbaren Seite
+ausgegeben.
+
+`data/homework.js` bleibt davon getrennt: Kursdaten und Hausaufgaben haben verschiedene
+Aufgaben und werden nicht in einer gemeinsamen Datei gepflegt.
+
 ## Die Modellfirma
 
 Geschlossene Aufgaben brauchen einen gemeinsamen Kontext, produktive Aufgaben den
@@ -128,13 +139,13 @@ Wird ein Komponentenwert später systemweit benötigt, kann er nach gemeinsamer 
 </header>
 
 <main class="innen modul">
-  <div class="reiter" role="tablist">
-    <button role="tab" aria-selected="true" data-blatt="regel">Regel</button>
-    <button role="tab" aria-selected="false" data-blatt="uebungen">Übungen</button>
+  <div class="reiter" role="tablist" aria-label="Lernabschnitte">
+    <button type="button" id="tab-regel" role="tab" aria-selected="true" data-blatt="regel">Regel</button>
+    <button type="button" id="tab-uebungen" role="tab" aria-selected="false" data-blatt="uebungen">Übungen</button>
   </div>
 
-  <section class="blatt" id="blatt-regel">…</section>
-  <section class="blatt" id="blatt-uebungen" hidden>…</section>
+  <section class="blatt" id="blatt-regel" role="tabpanel" aria-labelledby="tab-regel">…</section>
+  <section class="blatt" id="blatt-uebungen" role="tabpanel" aria-labelledby="tab-uebungen" hidden>…</section>
 </main>
 
 <footer class="fuss">Nur für Kursteilnehmerinnen und Kursteilnehmer</footer>
@@ -150,7 +161,9 @@ Lehrwerk.abschluss();
 </html>
 ```
 
-Die Reiter-`id` ist immer `blatt-` plus der Wert von `data-blatt`.
+Die Reiter-`id` ist immer `blatt-` plus der Wert von `data-blatt`. Dadurch sind Direktlinks
+in einen Lernabschnitt möglich, zum Beispiel `thema.html#blatt-uebungen`. Beim Wechsel eines
+Reiters aktualisiert die Plattform die Sprungmarke in der URL.
 
 Die Standardbreite eines Moduls beträgt `52rem` und steht zentral in `lehrwerk.css`. Für Bildraster, breite Tabellen, Zuordnungs- oder Gruppieraufgaben kann das Modul ausdrücklich die Klasse `modul--breit` erhalten:
 
@@ -192,6 +205,10 @@ Beispielsätze stehen in `<p class="satzbau">`.
 - `textarea.feld` – freies Schreibfeld
 - `.knopf` und `.knopfreihe` – Schaltflächen
 - `.stand` – Absatz mit `id="stand"` für die Standanzeige
+- `.auftrag` mit `.auftrag-marke` – Arbeitsauftrag mit Sozialform und Zeitspanne
+- `.abstimmung` – Zahlenfelder mit gemeinsamem Ergebnisbalken
+- `.raster` / `.raster-feld` – wiederholte Aussage mit Eingabefeld
+- `.formular` / `.formular-feld` – beschriftetes Formularraster
 
 Eigene Farben, Schriftgrößen oder `<style>`-Blöcke sind nicht vorgesehen. Einzelne
 `style="…"`-Angaben für Abstände sind geduldet; Farben laufen über bestehende Variablen.
@@ -208,8 +225,51 @@ Lehrwerk.wortbank(name, config)     // Lückentext mit sichtbarer Wortbank
 Lehrwerk.zuordnen(zielId, config)   // Paare bilden
 Lehrwerk.gruppieren(zielId, config) // Wörter in Töpfe sortieren
 Lehrwerk.extern(zielId, config)     // Quizlet, Kahoot oder Video, erst nach Klick
-Lehrwerk.frei('feld-id')      // Textarea, speichert laufend, wird nicht bewertet
+Lehrwerk.frei('feld-id')      // Eingabefeld, speichert laufend, wird nicht bewertet
+Lehrwerk.abstimmung(config)         // lokale Stimmen der Kursleitung visualisieren
+Lehrwerk.ergebnis(config)           // beschriftete Eingaben geordnet kopieren
 Lehrwerk.abschluss()          // Stand, #kopieren, #zuruecksetzen; immer als Letztes
+```
+
+### Datenformat Abstimmung
+
+Die Abstimmung ist kein geräteübergreifendes Voting. Die Kursleitung sammelt die Stimmen
+im Plenum und trägt die Zahlen auf ihrem freigegebenen Bildschirm ein.
+
+```js
+Lehrwerk.abstimmung({
+  felder: [
+    { id: 'stimmen-a', balken: 'balken-a', label: 'Option A' },
+    { id: 'stimmen-b', balken: 'balken-b', label: 'Option B' }
+  ],
+  balken: 'abstimmung-balken',
+  ergebnis: 'abstimmung-ergebnis',
+  leer: 'Noch keine Stimmen eingetragen.',
+  gleichstand: 'Gleichstand.',
+  mehrheit: {
+    'stimmen-a': 'Option A hat die Mehrheit.',
+    'stimmen-b': 'Option B hat die Mehrheit.'
+  }
+});
+```
+
+### Datenformat Ergebnis kopieren
+
+Nur Eingabefelder mit `data-ergebnis-label` werden berücksichtigt. Die Ausgabe folgt der
+Reihenfolge im Dokument; leere Felder werden ausgelassen.
+
+```html
+<input id="name" data-ergebnis-label="Name">
+<textarea id="notiz" data-ergebnis-label="Notiz"></textarea>
+<button class="knopf" id="inhalt-kopieren" type="button">Inhalte kopieren</button>
+```
+
+```js
+Lehrwerk.ergebnis({
+  quelle: 'blatt-interview',
+  knopf: 'inhalt-kopieren',
+  titel: 'Partnerinterview'
+});
 ```
 
 ### Neue Aufgabentypen
@@ -478,9 +538,10 @@ Eintrag in `inhalt.json` ergänzen:
   "status": "in-arbeit" }
 ```
 
-`status` ist `in-arbeit` oder `fertig`:
+`status` ist `in-arbeit`, `teilweise` oder `fertig`:
 
 - `in-arbeit` – nicht veröffentlicht, noch nicht vollständig geprüft oder noch nicht freigegeben
+- `teilweise` – zugänglich und unterrichtlich nutzbar, aber noch nicht mit allen vorgesehenen Lernabschnitten vollständig
 - `fertig` – HTML-Datei vorhanden, gegenseitig geprüft und von Regina redaktionell freigegeben
 
 Bei `status: fertig` prüft die Plattform zusätzlich, ob die zugehörige HTML-Datei vorhanden ist.

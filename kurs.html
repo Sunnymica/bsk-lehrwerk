@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Unser Kurs – Berufssprachkurs</title>
+<link rel="stylesheet" href="assets/basis.css">
+<link rel="stylesheet" href="assets/platform.css">
+<link rel="stylesheet" href="assets/lehrwerk.css">
+<link rel="stylesheet" href="assets/aufgaben.css">
+<script src="data/homework.js" defer></script>
+<script src="assets/platform.js"></script>
+</head>
+<body data-page="area" data-bereich="kurs" data-root="">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="index.html">← Übersicht</a>
+    <h1 id="bereich-titel"><em>Unser Kurs</em></h1>
+    <p class="anleitung" id="bereich-text"></p>
+    <button class="knopf" id="alle-auf" type="button" hidden>Alle aufklappen</button>
+  </div>
+</header>
+
+<main class="innen gruppen" id="gruppen"></main>
+<div class="innen meldung" id="meldung" hidden></div>
+
+<footer class="fuss">Nur für Kursteilnehmerinnen und Kursteilnehmer</footer>
+
+<script src="assets/lehrwerk.js"></script>
+<script>Lehrwerk.bereich('kurs');</script>
+
+</body>
+</html>

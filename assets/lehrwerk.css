@@ -70,6 +70,8 @@
 .hero.bereich-kopf { text-align: left; }
 .hero.bereich-kopf .anleitung { margin: 0; max-width: 42rem; }
 
+body[data-bereich="kurs"]      .hero.bereich-kopf { background: var(--platform-blue-soft); }
+body[data-bereich="kurs"]      .hero.bereich-kopf h1 em { color: var(--platform-blue-dark); }
 body[data-bereich="buero"]     .hero.bereich-kopf { background: var(--himmel); }
 body[data-bereich="buero"]     .hero.bereich-kopf h1 em { color: var(--himmel-tief); }
 body[data-bereich="grammatik"] .hero.bereich-kopf { background: var(--rose); }
@@ -211,6 +213,7 @@ body[data-bereich="referenz"]  .hero.bereich-kopf h1 em { color: var(--flieder-t
 .karte:hover, .karte:focus-visible { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(34,34,43,0.08); }
 .karte:focus-visible { outline: 2px solid var(--tinte); outline-offset: 2px; }
 
+body[data-bereich="kurs"]      .karte { border-left-color: var(--platform-blue); }
 body[data-bereich="buero"]     .karte { border-left-color: var(--himmel-tief); }
 body[data-bereich="grammatik"] .karte { border-left-color: var(--rose-tief); }
 body[data-bereich="pauken"]    .karte { border-left-color: var(--sand-tief); }

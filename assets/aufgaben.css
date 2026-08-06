@@ -238,3 +238,185 @@ textarea.feld:focus-visible { outline: 2px solid var(--rose-tief); outline-offse
 .extern-hinweis { margin: 0; font-size: 0.82rem; color: var(--tinte-weich); }
 
 .extern-fuss { margin: 0; padding: 0.6rem 1rem 0.8rem; font-size: 0.88rem; border-top: 1px solid var(--extern-rand); }
+
+/* ---------- Arbeitsauftrag ----------
+   Sozialform und Zeitspanne über einer Aufgabe. Gedacht für jedes
+   Modul mit Partner- oder Gruppenarbeit, nicht nur für dieses.
+   Bewusst kräftiger abgesetzt als .kasten, weil der Auftrag im
+   Breakout-Raum die Lehrkraft ersetzt und sofort auffallen muss. */
+
+.auftrag {
+  background: var(--karte);
+  border: 1px solid var(--linie);
+  border-left: 4px solid var(--himmel-tief);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  margin: 1.2rem 0;
+}
+
+.auftrag-marke {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--tinte-weich);
+  background: var(--himmel);
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.auftrag h3 {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  margin: 0 0 0.5rem;
+}
+
+.auftrag p:last-child { margin-bottom: 0; }
+
+
+/* ---------- Abstimmung ----------
+   Zwei Zahlenfelder, Ergebnisbalken, Ergebnissatz. Die Lehrkraft
+   trägt die Stimmen ein, während sie den Bildschirm teilt.
+   Die Anzeigelogik gehört nach lehrwerk.js, siehe Übergabehinweis. */
+
+.abstimmung {
+  background: var(--karte);
+  border: 1px solid var(--linie);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  margin: 1.2rem 0;
+}
+
+.abstimmung-felder {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.abstimmung-feld {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.abstimmung-feld input.luecke {
+  min-width: 0;
+  width: 6rem;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.abstimmung-balken {
+  display: flex;
+  height: 2.2rem;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 1rem 0 0.6rem;
+  background: var(--papier);
+}
+
+.balken-anteil {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--tinte);
+  white-space: nowrap;
+  overflow: hidden;
+  transition: width 0.3s ease;
+}
+
+.balken-a { background: var(--salbei); }
+.balken-b { background: var(--himmel); }
+
+.abstimmung-ergebnis {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--tinte-weich);
+}
+
+
+/* ---------- Eingaberaster ----------
+   Aussage plus Eingabefeld, mehrfach nebeneinander. Im Kennenlern-
+   modul das Berufs-Bingo, allgemein für jede Sammelaufgabe brauchbar
+   („Wer im Kurs …“, „Finden Sie ein Beispiel für …“).
+   Bewusst kein starres 3 × 3: bei Bildschirmfreigabe mit großer
+   Schrift bricht ein festes Raster sofort um. */
+
+.raster {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.7rem;
+  margin: 1.2rem 0;
+}
+
+.raster-feld {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: var(--karte);
+  border: 1px solid var(--linie);
+  border-radius: 8px;
+  padding: 0.8rem 0.9rem;
+}
+
+.raster-text {
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.raster-feld input.luecke {
+  min-width: 0;
+  width: 100%;
+  margin-top: auto;
+}
+
+
+/* ---------- Formularraster ----------
+   Beschriftetes Eingaberaster. Im Kennenlernmodul der Steckbrief,
+   allgemein für jede Aufgabe, in der benannte Einzelangaben
+   gesammelt werden – Telefonnotiz, Terminanfrage, Auftragsdaten. */
+
+.formular {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 0.8rem 1.2rem;
+  background: var(--karte);
+  border: 1px solid var(--linie);
+  border-radius: 8px;
+  padding: 1.1rem 1.2rem;
+  margin: 1.2rem 0;
+}
+
+.formular-feld {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.formular-feld > span {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--tinte-weich);
+}
+
+.formular-feld input.luecke {
+  min-width: 0;
+  width: 100%;
+}
+
+
+/* ---------- Schmale Fenster ---------- */
+
+@media (max-width: 559px) {
+  .abstimmung-felder { gap: 0.8rem; }
+  .abstimmung-feld input.luecke { width: 5rem; }
+  .raster { grid-template-columns: 1fr; }
+  .formular { grid-template-columns: 1fr; }
+}

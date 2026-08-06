@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Willkommen im Kurs – Berufssprachkurs</title>
+<link rel="stylesheet" href="../assets/basis.css">
+<link rel="stylesheet" href="../assets/platform.css">
+<link rel="stylesheet" href="../assets/lehrwerk.css">
+<link rel="stylesheet" href="../assets/aufgaben.css">
+<script src="../data/homework.js" defer></script>
+<script src="../assets/platform.js"></script>
+</head>
+<body data-page="module" data-bereich="kurs" data-root="../">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../kurs.html">← Unser Kurs</a>
+    <h1><em>Willkommen</em> im Kurs</h1>
+    <p class="anleitung">Wir klären die Anrede, lernen uns kennen und stellen einander vor. Alles, was Sie hier eintragen, bleibt gespeichert – Sie können die Seite später in Ruhe noch einmal öffnen.</p>
+  </div>
+</header>
+
+<main class="innen modul">
+
+  <div class="reiter" role="tablist" aria-label="Lernabschnitte">
+    <button type="button" id="tab-anrede" role="tab" aria-selected="true"  data-blatt="anrede">Du oder Sie?</button>
+    <button type="button" id="tab-bingo" role="tab" aria-selected="false" data-blatt="bingo">Berufs-Bingo</button>
+    <button type="button" id="tab-interview" role="tab" aria-selected="false" data-blatt="interview">Partnerinterview</button>
+    <button type="button" id="tab-vorstellung" role="tab" aria-selected="false" data-blatt="vorstellung">Vorstellung</button>
+  </div>
+
+  <!-- ============ Du oder Sie? ============ -->
+  <section class="blatt" id="blatt-anrede" role="tabpanel" aria-labelledby="tab-anrede">
+    <p class="stand-hinweis">Im Kurs etwa 15–20 Minuten · zu Hause noch einmal 10 Minuten</p>
+
+    <div class="auftrag">
+      <span class="auftrag-marke">Plenum · ca. 5 Min.</span>
+      <h3>Wie sprechen wir uns im Kurs an?</h3>
+      <p>Bevor wir anfangen, entscheiden wir das gemeinsam. Ihre Kursleiterin fragt in die Runde und trägt das Ergebnis unten ein. Beides ist möglich, und beides ist in Ordnung.</p>
+    </div>
+
+    <div class="abstimmung" id="abstimmung">
+      <div class="abstimmung-felder">
+        <label class="abstimmung-feld">
+          <span>Stimmen für „du“</span>
+          <input class="luecke" id="stimmen-du" type="number" min="0" max="99" inputmode="numeric" value="0">
+        </label>
+        <label class="abstimmung-feld">
+          <span>Stimmen für „Sie“</span>
+          <input class="luecke" id="stimmen-sie" type="number" min="0" max="99" inputmode="numeric" value="0">
+        </label>
+      </div>
+      <div class="abstimmung-balken" id="abstimmung-balken" hidden>
+        <span class="balken-anteil balken-a" id="balken-du"></span>
+        <span class="balken-anteil balken-b" id="balken-sie"></span>
+      </div>
+      <p class="abstimmung-ergebnis" id="abstimmung-ergebnis"></p>
+    </div>
+
+    <div class="frage">
+      <p>Halten Sie fest, was der Kurs entschieden hat. Diesen Satz können Sie später nachlesen.</p>
+      <textarea class="feld" id="anrede-ergebnis" data-ergebnis-label="Unsere Entscheidung" placeholder="Wir haben entschieden: Im Kurs sagen wir …"></textarea>
+    </div>
+
+    <div class="merker">
+      <span class="marke-merker">Anrede im Beruf</span>
+      <h3>Im Kurs entscheiden wir frei – im Betrieb nicht</h3>
+      <p>Im deutschen Berufsalltag ist „Sie“ die sichere Wahl gegenüber Kundschaft, Behörden und allen, die Sie nicht kennen. Innerhalb eines Teams wird oft geduzt, in manchen Branchen im ganzen Haus.</p>
+      <p>Die sicherste Regel lautet: <strong>Warten Sie ab, bis Ihnen das „du“ angeboten wird oder bis klar ist, dass im Unternehmen allgemein geduzt wird.</strong> In klassischen Hierarchien bietet meist die ranghöhere Person das „du“ an; in modernen Teams regelt das häufig die Unternehmenskultur.</p>
+      <p>Ein persönlich angebotenes „du“ gilt zunächst zwischen den beteiligten Personen. Es überträgt sich nicht automatisch auf andere: Sie können mit Nora Seidel per du sein und Frau Melnyk trotzdem siezen.</p>
+    </div>
+
+    <h2>Welche Anrede passt?</h2>
+    <p>Fünf Situationen bei KONTOR Büro &amp; Logistik GmbH. Entscheiden Sie und lesen Sie die Begründung.</p>
+    <div id="mc-anrede"></div>
+
+    <h2>In Ihrem Betrieb</h2>
+    <div class="regel">
+      <p><strong>Sprechen:</strong> Wie ist es an Ihrem Arbeitsplatz, im Praktikum oder an Ihrem Wunscharbeitsplatz? Wen siezen Sie, wen duzen Sie? Gab es einen Moment, in dem gewechselt wurde? Erzählen Sie in zwei bis drei Sätzen.</p>
+      <textarea class="feld" id="anrede-betrieb" data-ergebnis-label="Anrede in meinem Betrieb" placeholder="Bei uns duzen sich … Die Geschäftsführung siezen wir, weil …"></textarea>
+    </div>
+  </section>
+
+  <!-- ============ Berufs-Bingo ============ -->
+  <section class="blatt" id="blatt-bingo" role="tabpanel" aria-labelledby="tab-bingo" hidden>
+    <p class="stand-hinweis">Im Kurs etwa 20–25 Minuten · zu Hause noch einmal 10 Minuten</p>
+
+    <div class="auftrag">
+      <span class="auftrag-marke">Plenum · ca. 15–20 Min.</span>
+      <h3>Finden Sie zu jeder Aussage eine Person im Kurs</h3>
+      <p>Sie fragen reihum in die Runde. Wenn eine Aussage auf jemanden zutrifft, tragen Sie den Namen ein. Mehrere Namen pro Zeile sind erlaubt, leere Zeilen auch.</p>
+      <p>Fragen Sie vollständig und höflich. Es geht nicht um Tempo, sondern darum, dass die Frage sitzt.</p>
+    </div>
+
+    <div class="kasten">
+      <span class="marke">Redemittel</span>
+      <h3>So fragen Sie</h3>
+      <p>– Darf ich Sie etwas fragen?<br>
+         – Haben Sie schon einmal auf Deutsch telefoniert?<br>
+         – Stimmt es, dass Sie drei Sprachen sprechen?<br>
+         – Können Sie mir sagen, ob Sie schon im Büro gearbeitet haben?<br>
+         – Wie war das bei Ihnen?</p>
+    </div>
+
+    <h2>Wer im Kurs …?</h2>
+    <div class="raster" id="bingo">
+      <div class="raster-feld">
+        <span class="raster-text">… hat schon auf Deutsch telefoniert</span>
+        <input class="luecke" aria-label="Wer hat schon auf Deutsch telefoniert" id="bingo1" data-ergebnis-label="Auf Deutsch telefoniert" placeholder="Name">
+      </div>
+      <div class="raster-feld">
+        <span class="raster-text">… hat schon in einem Büro gearbeitet</span>
+        <input class="luecke" aria-label="Wer hat schon in einem Büro gearbeitet" id="bingo2" data-ergebnis-label="Im Büro gearbeitet" placeholder="Name">
+      </div>
+      <div class="raster-feld">
+        <span class="raster-text">… hat schon eine E-Mail auf Deutsch geschrieben</span>
+        <input class="luecke" aria-label="Wer hat schon eine E-Mail auf Deutsch geschrieben" id="bingo3" data-ergebnis-label="E-Mail auf Deutsch" placeholder="Name">
+      </div>
+      <div class="raster-feld">
+        <span class="raster-text">… war schon bei einer Besprechung dabei</span>
+        <input class="luecke" aria-label="Wer war schon bei einer Besprechung dabei" id="bingo4" data-ergebnis-label="Besprechung" placeholder="Name">
+      </div>
+      <div class="raster-feld">
+        <span class="raster-text">… spricht drei oder mehr Sprachen</span>
+        <input class="luecke" aria-label="Wer spricht drei oder mehr Sprachen" id="bingo5" data-ergebnis-label="Drei Sprachen" placeholder="Name">
+      </div>
+      <div class="raster-feld">
+        <span class="raster-text">… hatte schon ein schwieriges Kundengespräch</span>
+        <input class="luecke" aria-label="Wer hatte schon ein schwieriges Kundengespräch" id="bingo6" data-ergebnis-label="Schwieriges Kundengespräch" placeholder="Name">
+      </div>
+      <div class="raster-feld">
+        <span class="raster-text">… findet Small Talk in der Pause leicht</span>
+        <input class="luecke" aria-label="Wer findet Small Talk in der Pause leicht" id="bingo7" data-ergebnis-label="Small Talk" placeholder="Name">
+      </div>
+      <div class="raster-feld">
+        <span class="raster-text">… arbeitet gern am Computer</span>
+        <input class="luecke" aria-label="Wer arbeitet gern am Computer" id="bingo8" data-ergebnis-label="Arbeit am Computer" placeholder="Name">
+      </div>
+      <div class="raster-feld">
+        <span class="raster-text">… sucht gerade eine neue Stelle</span>
+        <input class="luecke" aria-label="Wer sucht gerade eine neue Stelle" id="bingo9" data-ergebnis-label="Sucht eine Stelle" placeholder="Name">
+      </div>
+    </div>
+
+    <h2>Höflich fragen – aber richtig</h2>
+    <p>Drei Fragen aus dem Bingo. Welche Form ist korrekt?</p>
+    <div id="mc-fragen"></div>
+
+    <div class="merker">
+      <span class="marke-merker">Position 2 – immer wieder</span>
+      <h3>Nach „ob“ und „dass“ steht das Verb am Ende</h3>
+      <p>Eine direkte Frage beginnt mit dem konjugierten Verb: <span class="verb">Haben</span> <span class="subj">Sie</span> schon auf Deutsch telefoniert?</p>
+      <p>Sobald Sie die Frage einbetten, wird daraus ein Nebensatz. Die Verbgruppe rutscht ans Ende:</p>
+      <p class="satzbau">Können Sie mir sagen, <span class="kon">ob</span> <span class="subj">Sie</span> schon auf Deutsch <span class="neb">telefoniert haben</span>?</p>
+      <p class="satzbau">Stimmt es, <span class="kon">dass</span> <span class="subj">Sie</span> drei Sprachen <span class="neb">sprechen</span>?</p>
+      <p>Das ist derselbe Bauplan wie bei „weil“ und „obwohl“ – die Subjunktion eröffnet den Nebensatz, das konjugierte Verb steht zuletzt.</p>
+    </div>
+  </section>
+
+  <!-- ============ Partnerinterview ============ -->
+  <section class="blatt" id="blatt-interview" role="tabpanel" aria-labelledby="tab-interview" hidden>
+    <p class="stand-hinweis">Im Kurs etwa 15–20 Minuten · zu Hause noch einmal 15 Minuten</p>
+
+    <div class="auftrag">
+      <span class="auftrag-marke">Partnerarbeit im Breakout-Raum · ca. 15 Min.</span>
+      <h3>Interviewen Sie einander</h3>
+      <p><strong>Wichtig:</strong> Sie füllen den Steckbrief <strong>über Ihre Partnerin oder Ihren Partner</strong> aus, nicht über sich selbst. Ihre Partnerin macht dasselbe mit Ihnen.</p>
+      <p>So läuft es ab:</p>
+      <p>1. Etwa 7 Minuten: Person A fragt, Person B antwortet.<br>
+         2. Dann wechseln Sie.<br>
+         3. Die letzten Minuten ordnen Sie Ihre Notizen.</p>
+      <p>Danach kommen wir zurück ins Plenum, und Sie stellen einander vor. Öffnen Sie dafür schon einmal den Reiter „Vorstellung“.</p>
+    </div>
+
+    <div class="kasten">
+      <span class="marke">Redemittel</span>
+      <h3>Fragen für das Interview</h3>
+      <p>– Woher kommen Sie ursprünglich, und wo wohnen Sie jetzt?<br>
+         – Was haben Sie in Ihrem Beruf gemacht?<br>
+         – Welche Aufgaben hatten Sie dabei?<br>
+         – Was ist für Sie auf Deutsch besonders schwer?<br>
+         – Was möchten Sie in diesem Kurs erreichen?<br>
+         – Habe ich das richtig verstanden: Sie haben …?</p>
+    </div>
+
+    <div class="kasten">
+      <span class="marke">Wortschatz</span>
+      <h3>Aufgaben im Büro – falls Ihnen ein Wort fehlt</h3>
+      <p>Telefonate führen · Kundschaft empfangen · Rechnungen prüfen · die Buchhaltung machen · E-Mails und Briefe schreiben · Daten pflegen · Akten ablegen · Termine koordinieren · an Besprechungen teilnehmen · Protokoll führen · beraten · Angebote erstellen · Bestellungen bearbeiten · Ware annehmen · den Versand organisieren</p>
+    </div>
+
+    <h2>Steckbrief</h2>
+    <p>Über wen? Über Ihre Partnerin oder Ihren Partner.</p>
+    <div class="formular" id="steckbrief">
+      <label class="formular-feld">
+        <span>Name</span>
+        <input class="luecke" id="sb-name" data-ergebnis-label="Name" placeholder="Vor- und Nachname">
+      </label>
+      <label class="formular-feld">
+        <span>Kommt ursprünglich aus</span>
+        <input class="luecke" id="sb-herkunft" data-ergebnis-label="Herkunft" placeholder="Land oder Region">
+      </label>
+      <label class="formular-feld">
+        <span>Wohnt jetzt in</span>
+        <input class="luecke" id="sb-wohnort" data-ergebnis-label="Wohnort" placeholder="Ort">
+      </label>
+      <label class="formular-feld">
+        <span>Beruf oder Ausbildung</span>
+        <input class="luecke" id="sb-beruf" data-ergebnis-label="Beruf" placeholder="z. B. Sachbearbeiterin">
+      </label>
+      <label class="formular-feld">
+        <span>Sprachen</span>
+        <input class="luecke" id="sb-sprachen" data-ergebnis-label="Sprachen" placeholder="z. B. Ukrainisch, Englisch, Deutsch">
+      </label>
+      <label class="formular-feld">
+        <span>Berufliches Ziel</span>
+        <input class="luecke" id="sb-ziel" data-ergebnis-label="Berufliches Ziel" placeholder="z. B. Ausbildung im Einzelhandel">
+      </label>
+    </div>
+
+    <div class="frage">
+      <p><strong>Aufgaben und Erfahrung.</strong> Was hat Ihre Partnerin oder Ihr Partner beruflich gemacht? Schreiben Sie in Stichpunkten oder in ganzen Sätzen.</p>
+      <textarea class="feld" id="interview-aufgaben" data-ergebnis-label="Aufgaben und Erfahrung" placeholder="Hat als … gearbeitet. Zu den Aufgaben gehörte …"></textarea>
+    </div>
+
+    <div class="frage">
+      <p><strong>Sprachlich schwierig.</strong> Was fällt ihr oder ihm auf Deutsch besonders schwer?</p>
+      <textarea class="feld" id="interview-schwierig" data-ergebnis-label="Sprachlich schwierig" placeholder="Besonders schwer findet sie/er …"></textarea>
+    </div>
+
+    <div class="frage">
+      <p><strong>Ziele im Kurs.</strong> Was möchte sie oder er hier erreichen?</p>
+      <textarea class="feld" id="interview-ziele" data-ergebnis-label="Ziele im Kurs" placeholder="Sie/Er möchte …"></textarea>
+    </div>
+
+    <div class="knopfreihe">
+      <button class="knopf" id="interview-kopieren" type="button">Steckbrief kopieren</button>
+    </div>
+    <p class="stand-hinweis">Kopieren Sie den Steckbrief, wenn Sie ihn in den Teams-Chat stellen sollen.</p>
+  </section>
+
+  <!-- ============ Vorstellung ============ -->
+  <section class="blatt" id="blatt-vorstellung" role="tabpanel" aria-labelledby="tab-vorstellung" hidden>
+    <p class="stand-hinweis">Im Kurs etwa 15–20 Minuten · zu Hause noch einmal 20 Minuten</p>
+
+    <div class="auftrag">
+      <span class="auftrag-marke">Plenum · ca. 15–20 Min.</span>
+      <h3>Stellen Sie Ihre Partnerin oder Ihren Partner vor</h3>
+      <p>Sprechen Sie etwa eine Minute frei. Ihr Steckbrief liegt im Reiter „Partnerinterview“ – schauen Sie ruhig hinüber.</p>
+      <p>Sprechen Sie über die Person in der dritten Person: <em>sie</em> oder <em>er</em>, nicht <em>ich</em>.</p>
+    </div>
+
+    <div class="kasten">
+      <span class="marke">Redemittel</span>
+      <h3>So bauen Sie die Vorstellung auf</h3>
+      <p><strong>Anfang:</strong> Ich möchte euch/Ihnen … vorstellen.</p>
+      <p><strong>Person:</strong> Sie heißt … und kommt ursprünglich aus … Jetzt wohnt sie in …</p>
+      <p><strong>Beruf:</strong> In ihrem Heimatland hat sie als … gearbeitet. Zu ihren Aufgaben gehörten …</p>
+      <p><strong>Schwierigkeiten:</strong> Besonders schwer findet sie … Das möchte sie im Kurs verbessern.</p>
+      <p><strong>Ziel:</strong> Ihr Ziel ist es, … Sie möchte gern …</p>
+      <p><strong>Eigener Eindruck:</strong> Interessant fand ich, dass … / Überrascht hat mich, dass …</p>
+    </div>
+
+    <div class="merker">
+      <span class="marke-merker">Häufiger Fehler</span>
+      <h3>„sein“ und „ihr“ richten sich nach dem Besitzer, die Endung nach dem Nomen</h3>
+      <p>Wenn Sie über <strong>eine Frau</strong> sprechen, heißt es <em>ihr</em>. Wenn Sie über <strong>einen Mann</strong> sprechen, <em>sein</em>. Das gilt unabhängig davon, welches Genus das folgende Nomen hat.</p>
+      <p class="satz">Nora Seidel arbeitet im Einkauf. <strong>Ihr</strong> Arbeitsplatz ist im zweiten Stock. <strong>Ihre</strong> Kollegin heißt Samira Haddad.</p>
+      <p class="satz">Jonas Becker arbeitet im Verkauf. <strong>Sein</strong> Arbeitsplatz ist im Erdgeschoss. <strong>Seine</strong> Kollegin sitzt nebenan.</p>
+      <p>Typischer Fehler: „Ihre Ziel ist …“. Richtig ist „<strong>Ihr</strong> Ziel ist …“, weil „Ziel“ sächlich ist.</p>
+    </div>
+
+    <h2>Sein oder ihr?</h2>
+    <div id="lt-possessiv-box">
+      <div class="frage">
+        <p>Ergänzen Sie. Es geht um <strong>Kateryna Melnyk</strong>, die Geschäftsführerin von KONTOR.</p>
+        <p>1. <input class="luecke" id="p1"> Büro liegt im dritten Stock.</p>
+        <p>2. <input class="luecke" id="p2"> Kalender ist bis Freitag voll.</p>
+        <p>3. Wir haben <input class="luecke" id="p3"> Vorschlag angenommen.</p>
+        <p>Jetzt geht es um <strong>Pawel Nowak</strong>, den Teamleiter im Lager.</p>
+        <p>4. <input class="luecke" id="p4"> Team arbeitet in zwei Schichten.</p>
+        <p>5. <input class="luecke" id="p5"> Rückmeldung kam noch am selben Tag.</p>
+        <div class="knopfreihe">
+          <button class="knopf" id="p-pruefen" type="button">Prüfen</button>
+        </div>
+        <p class="rueckmeldung" id="p-rueck" hidden></p>
+      </div>
+    </div>
+
+    <h2>Jetzt sprechen Sie</h2>
+    <div class="regel">
+      <p><strong>Sprechen:</strong> Notieren Sie hier Ihre Stichpunkte – nicht den ganzen Text. Sprechen Sie dann frei nach diesen Stichpunkten.</p>
+      <textarea class="feld" id="sprechen-vorstellung" data-ergebnis-label="Stichpunkte zum Sprechen" placeholder="Name · Herkunft · Beruf · Aufgaben · schwierig · Ziel · mein Eindruck"></textarea>
+    </div>
+
+    <h2>Zur Nachbereitung</h2>
+    <div class="regel">
+      <p><strong>Schreiben:</strong> Schreiben Sie Ihre Vorstellung nach dem Unterricht als zusammenhängenden Text auf, etwa acht bis zehn Sätze. Nutzen Sie die Redemittel oben und achten Sie auf <em>sein</em> und <em>ihr</em>.</p>
+      <p>Diese Aufgabe können Sie in Ruhe zu Hause machen. Der Text bleibt gespeichert.</p>
+      <textarea class="feld" id="schreiben-vorstellung" data-ergebnis-label="Meine Vorstellung" placeholder="Ich möchte euch Olena vorstellen. Sie kommt ursprünglich aus …"></textarea>
+    </div>
+
+    <p class="stand" id="stand"></p>
+    <div class="knopfreihe">
+      <button class="knopf" id="kopieren" type="button">Stand kopieren</button>
+      <button class="knopf" id="zuruecksetzen" type="button">Von vorne beginnen</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="fuss">Nur für Kursteilnehmerinnen und Kursteilnehmer</footer>
+
+<script src="../assets/lehrwerk.js"></script>
+<script>
+Lehrwerk.modul('kennenlernen');
+Lehrwerk.reiter();
+
+Lehrwerk.auswahl('mc-anrede', [
+  {
+    id: 'a1',
+    text: 'Sie schreiben zum ersten Mal an eine Kundin, die Sie nicht kennen. Wie beginnen Sie?',
+    optionen: ['Hallo Frau Weber,', 'Sehr geehrte Frau Weber,', 'Liebe Frau Weber,'],
+    richtig: ['Sehr geehrte Frau Weber,'],
+    erklaerung: 'Beim Erstkontakt nach außen ist „Sehr geehrte“ die sichere Wahl. „Hallo“ und „Liebe“ setzen eine Nähe voraus, die es noch nicht gibt.'
+  },
+  {
+    id: 'a2',
+    text: 'Sie wissen nicht, ob das „du“ üblich ist. Was ist die sicherste Lösung?',
+    optionen: ['Abwarten, bis das „du“ angeboten wird oder eine allgemeine Duzkultur klar ist.', 'Einfach mit „du“ beginnen.', 'Alle Personen im Unternehmen automatisch siezen.'],
+    richtig: ['Abwarten, bis das „du“ angeboten wird oder eine allgemeine Duzkultur klar ist.'],
+    erklaerung: 'So vermeiden Sie, eine Beziehung vorwegzunehmen. In manchen Unternehmen wird grundsätzlich geduzt; andernorts wird das „du“ persönlich angeboten.'
+  },
+  {
+    id: 'a3',
+    text: 'In Ihrem Team duzen sich alle. Sie schreiben zum ersten Mal an einen Kunden. Was gilt?',
+    optionen: ['Sie duzen ihn auch, weil das Team sich duzt.', 'Sie siezen ihn.'],
+    richtig: ['Sie siezen ihn.'],
+    erklaerung: 'Die interne Duzkultur gilt nicht automatisch für Kundinnen und Kunden. Beim Erstkontakt ist „Sie“ die sichere Wahl, solange nichts anderes vereinbart ist.'
+  },
+  {
+    id: 'a4',
+    text: 'Welche Grußformel passt zu „Sehr geehrter Herr Nowak“?',
+    optionen: ['Liebe Grüße', 'Mit freundlichen Grüßen', 'Bis bald'],
+    richtig: ['Mit freundlichen Grüßen'],
+    erklaerung: '„Mit freundlichen Grüßen“ passt eindeutig zum formellen Erstkontakt. „Liebe Grüße“ kann in einer bereits vertrauten Geschäftsbeziehung vorkommen, ist hier aber nicht die sichere Standardform.'
+  },
+  {
+    id: 'a5',
+    text: 'Wie schreibt man die Höflichkeitsform in einer E-Mail?',
+    optionen: ['Sie, Ihnen und Ihr immer groß', 'Sie, Ihnen und Ihr immer klein', 'nur am Satzanfang groß'],
+    richtig: ['Sie, Ihnen und Ihr immer groß'],
+    erklaerung: 'Die Höflichkeitsform wird immer großgeschrieben: „Können Sie mir Ihre Rückmeldung senden?“ Das kleine „sie“ meint dagegen eine Frau oder eine Mehrzahl.'
+  }
+]);
+
+Lehrwerk.auswahl('mc-fragen', [
+  {
+    id: 'f1',
+    text: 'Sie sprechen jemanden im Kurs zum ersten Mal an. Was ist am höflichsten?',
+    optionen: ['Darf ich Sie etwas fragen?', 'Sag mal, hast du schon …?', 'Ich will wissen, ob Sie …'],
+    richtig: ['Darf ich Sie etwas fragen?'],
+    erklaerung: 'Die Frage kündigt an, was kommt, und lässt der anderen Person die Wahl. „Ich will wissen“ klingt fordernd.'
+  },
+  {
+    id: 'f2',
+    text: 'Welcher Satz ist richtig?',
+    optionen: [
+      'Können Sie mir sagen, ob Sie schon einmal auf Deutsch telefoniert haben?',
+      'Können Sie mir sagen, ob haben Sie schon einmal auf Deutsch telefoniert?'
+    ],
+    richtig: ['Können Sie mir sagen, ob Sie schon einmal auf Deutsch telefoniert haben?'],
+    erklaerung: '„Ob“ eröffnet einen Nebensatz. Die Verbgruppe steht am Ende, das konjugierte Verb ganz zuletzt.'
+  },
+  {
+    id: 'f3',
+    text: 'Welcher Satz ist richtig?',
+    optionen: [
+      'Stimmt es, dass Sie drei Sprachen sprechen?',
+      'Stimmt es, dass sprechen Sie drei Sprachen?'
+    ],
+    richtig: ['Stimmt es, dass Sie drei Sprachen sprechen?'],
+    erklaerung: 'Nach „dass“ gilt dieselbe Regel wie nach „ob“, „weil“ und „obwohl“: Das konjugierte Verb steht am Satzende.'
+  }
+]);
+
+Lehrwerk.luecken('p', {
+  felder: {
+    p1: ['ihr'],
+    p2: ['ihr'],
+    p3: ['ihren'],
+    p4: ['sein'],
+    p5: ['seine']
+  },
+  pruefen: 'p-pruefen',
+  rueck: 'p-rueck',
+  eindeutig: true
+});
+
+[
+  'anrede-ergebnis',
+  'anrede-betrieb',
+  'stimmen-du',
+  'stimmen-sie',
+  'bingo1', 'bingo2', 'bingo3', 'bingo4', 'bingo5',
+  'bingo6', 'bingo7', 'bingo8', 'bingo9',
+  'sb-name', 'sb-herkunft', 'sb-wohnort', 'sb-beruf', 'sb-sprachen', 'sb-ziel',
+  'interview-aufgaben',
+  'interview-schwierig',
+  'interview-ziele',
+  'sprechen-vorstellung',
+  'schreiben-vorstellung'
+].forEach(function (id) {
+  Lehrwerk.frei(id);
+});
+
+Lehrwerk.abstimmung({
+  felder: [
+    { id: 'stimmen-du',  balken: 'balken-du',  label: 'du' },
+    { id: 'stimmen-sie', balken: 'balken-sie', label: 'Sie' }
+  ],
+  balken: 'abstimmung-balken',
+  ergebnis: 'abstimmung-ergebnis',
+  leer: 'Noch keine Stimmen eingetragen.',
+  gleichstand: 'Gleichstand. Der Kurs entscheidet gemeinsam, wie es weitergeht.',
+  mehrheit: {
+    'stimmen-du': 'Die Mehrheit ist für „du“. Im Kurs sagen wir also du.',
+    'stimmen-sie': 'Die Mehrheit ist für „Sie“. Im Kurs siezen wir uns also.'
+  }
+});
+
+Lehrwerk.ergebnis({
+  quelle: 'blatt-interview',
+  knopf: 'interview-kopieren',
+  titel: 'Partnerinterview'
+});
+
+Lehrwerk.abschluss();
+</script>
+
+</body>
+</html>

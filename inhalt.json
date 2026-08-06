@@ -1,6 +1,82 @@
 {
   "bereiche": [
     {
+      "id": "kurs",
+      "label": "Unser Kurs",
+      "kurz": "Willkommen, Kennenlernen und alles Organisatorische an einem festen Ort.",
+      "einleitung": "Hier finden Sie den Kursauftakt, wichtige Termine, Regeln für Krankmeldungen und Hilfe zur Technik. Die organisatorischen Seiten werden nach und nach ergänzt.",
+      "gruppen": [
+        {
+          "titel": "Ankommen",
+          "module": [
+            {
+              "titel": "Willkommen im Kurs",
+              "beschreibung": "Anrede klären, einander kennenlernen, interviewen und vorstellen.",
+              "pfad": "kennenlernen.html",
+              "niveau": "B2–C1",
+              "dauer": "4 Lernabschnitte",
+              "fertigkeiten": [
+                "Sprechen",
+                "Schreiben",
+                "Üben"
+              ],
+              "status": "teilweise"
+            }
+          ]
+        },
+        {
+          "titel": "Organisatorisches",
+          "module": [
+            {
+              "titel": "Termine und freie Tage",
+              "beschreibung": "Kurstermine, Kursende und unterrichtsfreie Tage.",
+              "pfad": "termine.html",
+              "niveau": "Kursinfo",
+              "dauer": "Nachschlagen",
+              "fertigkeiten": [
+                "Lesen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Krankmeldung und Fehlzeiten",
+              "beschreibung": "So melden Sie sich ab und reichen Nachweise ein.",
+              "pfad": "krankmeldung.html",
+              "niveau": "Kursinfo",
+              "dauer": "Nachschlagen",
+              "fertigkeiten": [
+                "Lesen",
+                "Schreiben"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Teams und Technik",
+              "beschreibung": "Zugang, Mikrofon, Kamera und Hilfe bei technischen Problemen.",
+              "pfad": "teams.html",
+              "niveau": "Kursinfo",
+              "dauer": "Nachschlagen",
+              "fertigkeiten": [
+                "Lesen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "So funktioniert die Plattform",
+              "beschreibung": "Schriftgröße, Lernstand, Notizen, Hausaufgaben und Direktlinks ausprobieren.",
+              "pfad": "plattform.html",
+              "niveau": "Kursinfo",
+              "dauer": "Interaktive Einführung",
+              "fertigkeiten": [
+                "Üben"
+              ],
+              "status": "in-arbeit"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "buero",
       "label": "Büro und Verwaltung",
       "kurz": "Die Situationen, die im Arbeitsalltag jeden Tag vorkommen: telefonieren, schreiben, besprechen, klären.",

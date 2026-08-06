@@ -10,17 +10,22 @@
     completed: 'bsk-erledigt'
   };
   const AREA_META = {
+    kurs: ['Unser Kurs', '●'],
     buero: ['Büro und Verwaltung', '▤'],
     grammatik: ['Grammatik', 'A'],
     pauken: ['Pauken', '↻'],
     training: ['Training', '▶'],
     referenz: ['Nachschlagen', '?']
   };
+  const NON_LEARNING_AREAS = new Set(['kurs']);
   let contentData = null;
   let contentPromise = null;
+  let courseData = null;
+  let coursePromise = null;
 
   window.BSKPlatform = {
-    getContent: () => loadContent()
+    getContent: () => loadContent(),
+    getCourse: () => loadCourse()
   };
 
   const root = () => document.body.dataset.root || '';
@@ -55,7 +60,7 @@
       bindNotes();
       bindReset();
       bindSectionNavigation();
-      await loadContent();
+      await Promise.all([loadContent(), loadCourse()]);
       renderHome();
     } else {
       buildShell();
@@ -63,7 +68,7 @@
       bindProfile();
       addSharedDialogs();
       if (document.body.dataset.page === 'module') setupModuleTools();
-      await loadContent();
+      await Promise.all([loadContent(), loadCourse()]);
       updateSidebarProgress();
     }
     setTopbar();
@@ -90,6 +95,20 @@
     })();
 
     return contentPromise;
+  }
+
+  async function loadCourse() {
+    if (courseData) return courseData;
+    if (coursePromise) return coursePromise;
+    coursePromise = fetch(root() + 'data/kurs.json', { cache: 'no-store' })
+      .then(response => {
+        if (!response.ok) throw new Error('Kursdatei nicht erreichbar');
+        return response.json();
+      })
+      .then(data => { courseData = data; return courseData; })
+      .catch(error => { console.error(error); return null; })
+      .finally(() => { coursePromise = null; });
+    return coursePromise;
   }
 
   async function resolveAvailability(data) {
@@ -122,14 +141,15 @@
       <a class="brand" href="${base}index.html"><span class="brand-mark">DB</span><span><strong>Deutsch fürs Büro</strong><small>Job-BSK B2/C1</small></span></a>
       <nav class="primary-nav">
         <a class="nav-link ${active === 'home' ? 'active' : ''}" href="${base}index.html#heute">Heute</a>
-        <a class="nav-link ${active === 'areas' ? 'active' : ''}" href="${base}index.html#bereiche">Lernbereiche</a>
+        <a class="nav-link ${document.body.dataset.bereich === 'kurs' ? 'active' : ''}" href="${base}kurs.html">Unser Kurs</a>
+        <a class="nav-link ${active === 'areas' && document.body.dataset.bereich !== 'kurs' ? 'active' : ''}" href="${base}index.html#bereiche">Lernbereiche</a>
         <a class="nav-link" href="${base}index.html#hausaufgaben">Hausaufgaben <b class="homework-badge">0</b></a>
         <a class="nav-link" href="${base}index.html#notizbuch">Notizbuch</a>
         <a class="nav-link" href="${base}index.html#fortschritt">Fortschritt</a>
       </nav>
       <div class="sidebar-areas">
         <span class="nav-caption">Direkt zu</span>
-        ${Object.entries(AREA_META).map(([id, meta]) => `<a class="area-nav ${document.body.dataset.bereich === id ? 'active' : ''}" href="${base}${id}.html"><span>${meta[1]}</span>${meta[0]}</a>`).join('')}
+        ${Object.entries(AREA_META).filter(([id]) => !NON_LEARNING_AREAS.has(id)).map(([id, meta]) => `<a class="area-nav ${document.body.dataset.bereich === id ? 'active' : ''}" href="${base}${id}.html"><span>${meta[1]}</span>${meta[0]}</a>`).join('')}
       </div>
       <div class="sidebar-foot">
         <strong id="sidebar-progress">${completed} Module</strong>
@@ -228,6 +248,7 @@
       return;
     }
     renderNextModule();
+    renderCourseArea();
     renderAreas();
     renderHomework();
     renderNotes();
@@ -238,7 +259,7 @@
 
   function availableModules() {
     if (!contentData) return [];
-    return contentData.bereiche.flatMap(area => area.gruppen.flatMap(group => group.module.map(module => ({ area, group, module })))).filter(item => item.module._available === true);
+    return contentData.bereiche.filter(area => !NON_LEARNING_AREAS.has(area.id)).flatMap(area => area.gruppen.flatMap(group => group.module.map(module => ({ area, group, module })))).filter(item => item.module._available === true);
   }
 
   function completedSet() { return new Set(read(KEYS.completed, [])); }
@@ -260,10 +281,21 @@
     document.querySelector('#continue-button').textContent = done.has(next.area.id + '/' + next.module.pfad) ? 'Noch einmal öffnen' : 'Weiterlernen';
   }
 
+  function renderCourseArea() {
+    const box = document.querySelector('#course-area');
+    if (!box || !contentData) return;
+    const area = contentData.bereiche.find(item => item.id === 'kurs');
+    if (!area) { box.closest('.course-section')?.remove(); return; }
+    const modules = area.gruppen.flatMap(group => group.module);
+    const available = modules.filter(module => module._available === true);
+    const labels = modules.slice(0, 5).map(module => `<span class="${module._available === true ? '' : 'offen'}">${esc(module.titel)}</span>`).join('');
+    box.innerHTML = `<article class="course-card"><div><span class="kicker">Kursauftakt und Organisation</span><h3>${esc(area.label)}</h3><p>${esc(area.kurz)}</p><div class="course-module-list">${labels}</div></div><div class="course-card-actions"><a class="button primary" href="kurs.html">Unser Kurs öffnen</a>${available.length ? `<a class="button secondary" href="kurs/${esc(available[0].pfad)}">Direkt zum Auftakt</a>` : ''}</div></article>`;
+  }
+
   function renderAreas() {
     const grid = document.querySelector('#area-grid');
     const done = completedSet();
-    grid.innerHTML = contentData.bereiche.map(area => {
+    grid.innerHTML = contentData.bereiche.filter(area => !NON_LEARNING_AREAS.has(area.id)).map(area => {
       const all = area.gruppen.flatMap(group => group.module);
       const available = all.filter(module => module._available === true);
       const complete = available.filter(module => done.has(area.id + '/' + module.pfad)).length;
@@ -372,7 +404,7 @@
     if (ring) ring.style.setProperty('--p', percent);
     document.querySelector('#progress-number').textContent = percent + '%';
     const box = document.querySelector('#area-progress');
-    box.innerHTML = contentData.bereiche.map(area => {
+    box.innerHTML = contentData.bereiche.filter(area => !NON_LEARNING_AREAS.has(area.id)).map(area => {
       const available = area.gruppen.flatMap(group => group.module).filter(module => module._available === true);
       const count = available.filter(module => done.has(area.id + '/' + module.pfad)).length;
       const value = available.length ? Math.round(count / available.length * 100) : 0;
@@ -401,40 +433,59 @@
 
   function renderSession() {
     const target = document.querySelector('#next-session');
-    if (!target || !window.Lehrwerk?.KURS) return;
-    const config = Lehrwerk.KURS;
+    const config = courseData && courseData.kurs;
+    if (!target || !config || !config.von || !Array.isArray(config.tage)) return;
     const now = new Date();
+    const begin = config.beginn ? new Date(config.beginn) : now;
+    const end = config.ende ? new Date(config.ende) : null;
     const [hours, minutes] = config.von.split(':').map(Number);
-    let next = null;
-    for (let i = 0; i < 90; i++) {
-      const date = new Date(now); date.setDate(date.getDate() + i); date.setHours(hours, minutes, 0, 0);
-      if (config.tage.includes(date.getDay()) && date > now && date >= new Date(config.beginn)) { next = date; break; }
+
+    function isoDay(date) {
+      return date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0');
     }
-    target.textContent = next ? next.toLocaleDateString('de-DE', {weekday:'long', day:'2-digit', month:'2-digit'}) + ', ' + config.von + ' Uhr' : 'Kein Termin eingetragen';
+    function isFree(date) {
+      const iso = isoDay(date);
+      return (courseData.freie_tage || []).some(item => item.datum === iso || (item.von && item.bis && iso >= item.von && iso <= item.bis));
+    }
+
+    let next = null;
+    for (let i = 0; i < 180; i++) {
+      const date = new Date(now);
+      date.setDate(date.getDate() + i);
+      date.setHours(hours, minutes, 0, 0);
+      if (config.tage.includes(date.getDay()) && date > now && date >= begin && (!end || date <= end) && !isFree(date)) { next = date; break; }
+    }
+    target.textContent = next
+      ? next.toLocaleDateString('de-DE', {weekday:'long', day:'2-digit', month:'2-digit'}) + ', ' + config.von + '–' + config.bis + ' Uhr'
+      : 'Kein Termin eingetragen';
   }
 
   function setupModuleTools() {
     const path = location.pathname.split('/').filter(Boolean).slice(-2).join('/');
     const title = document.querySelector('.hero h1')?.textContent.trim() || document.title.split('–')[0].trim();
     const tools = document.createElement('aside'); tools.className = 'module-tools';
-    tools.innerHTML = `<button data-tool="note">Notiz</button><button data-tool="done">Erledigt</button><button data-tool="focus">Fokus</button>`;
+    const courseModule = document.body.dataset.bereich === 'kurs';
+    tools.innerHTML = `<button data-tool="note">Notiz</button>${courseModule ? '' : '<button data-tool="done">Erledigt</button>'}<button data-tool="focus">Fokus</button>`;
     document.body.appendChild(tools);
-    const completeButton = tools.querySelector('[data-tool="done"]');
-    const sync = () => completeButton.classList.toggle('active', completedSet().has(path));
-    sync();
     tools.querySelector('[data-tool="note"]').addEventListener('click', () => openNote(null, title));
-    completeButton.addEventListener('click', () => {
-      const list = read(KEYS.completed, []); const index = list.indexOf(path);
-      if (index >= 0) list.splice(index, 1); else list.push(path);
-      write(KEYS.completed, list); sync(); updateSidebarProgress(); toast(index >= 0 ? 'Markierung entfernt.' : 'Modul als erledigt markiert.');
-    });
+    const completeButton = tools.querySelector('[data-tool="done"]');
+    if (completeButton) {
+      const sync = () => completeButton.classList.toggle('active', completedSet().has(path));
+      sync();
+      completeButton.addEventListener('click', () => {
+        const list = read(KEYS.completed, []); const index = list.indexOf(path);
+        if (index >= 0) list.splice(index, 1); else list.push(path);
+        write(KEYS.completed, list); sync(); updateSidebarProgress(); toast(index >= 0 ? 'Markierung entfernt.' : 'Modul als erledigt markiert.');
+      });
+    }
     tools.querySelector('[data-tool="focus"]').addEventListener('click', event => {
       document.body.classList.toggle('focus-mode'); event.currentTarget.classList.toggle('active', document.body.classList.contains('focus-mode'));
     });
   }
 
   function updateSidebarProgress() {
-    const count = read(KEYS.completed, []).length;
+    const done = completedSet();
+    const count = contentData ? availableModules().filter(item => done.has(item.area.id + '/' + item.module.pfad)).length : done.size;
     document.querySelectorAll('#sidebar-progress').forEach(el => el.textContent = `${count} ${count === 1 ? 'Modul' : 'Module'}`);
   }
 

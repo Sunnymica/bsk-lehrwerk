@@ -1,0 +1,60 @@
+{
+  "_hinweis": "Kursspezifische Daten. Wird bei jedem neuen Kurs neu gefüllt. Felder, deren Wert mit BITTE_PRUEFEN beginnt, sind noch nicht bestätigt und dürfen so nicht veröffentlicht werden.",
+  "kurs": {
+    "bezeichnung": "Berufssprachkurs B2/C1 · Büro und Verwaltung",
+    "umfang_ue": 150,
+    "ue_pro_abend": 4,
+    "beginn": "2026-08-25T17:30:00",
+    "ende": null,
+    "tage": [
+      1,
+      2
+    ],
+    "von": "17:30",
+    "bis": "20:45",
+    "format": "Online über Microsoft Teams",
+    "pause_minuten": 15
+  },
+  "freie_tage": [],
+  "krankmeldung": {
+    "weg": "BITTE_PRUEFEN – Wie melden sich Teilnehmende krank? E-Mail, Telefon, Teams oder Sekretariat?",
+    "kontakt": "BITTE_PRUEFEN – Name, E-Mail-Adresse und Telefonnummer der zuständigen Stelle",
+    "frist": "BITTE_PRUEFEN – Bis wann muss die Meldung vorliegen? Vor Unterrichtsbeginn oder am selben Tag?",
+    "attest_ab_tag": "BITTE_PRUEFEN – Ab welchem Fehltag ist eine Arbeitsunfähigkeitsbescheinigung nötig?",
+    "attest_wohin": "BITTE_PRUEFEN – An wen wird die Bescheinigung geschickt?"
+  },
+  "fehlzeiten": {
+    "regel": "BITTE_PRUEFEN – Welche Fehlzeitenregel gibt der Träger für diesen Kurs vor?",
+    "teilnahmebestaetigung": "BITTE_PRUEFEN – Welche Voraussetzungen nennt der Träger für die Teilnahmebestätigung? Keine allgemeine BAMF-Faustregel eintragen, sondern die Regel dieses Trägers.",
+    "pruefung": false,
+    "pruefung_hinweis": "Dieser Kurs schließt ohne Prüfung ab."
+  },
+  "technik": {
+    "plattform": "Microsoft Teams",
+    "ansprechperson": "BITTE_PRUEFEN – Wer hilft bei technischen Problemen? Träger, Kursleitung oder eine eigene Stelle?",
+    "kontakt": "BITTE_PRUEFEN – E-Mail-Adresse oder Telefonnummer",
+    "hinweise": [
+      "Kamera und Mikrofon vor Kursbeginn testen.",
+      "Bei Verbindungsproblemen die Kamera ausschalten, das spart Bandbreite.",
+      "Der Kurslink bleibt für den gesamten Kurs gleich."
+    ]
+  },
+  "kursleitung": {
+    "name": "Regina Laska",
+    "kontakt": "BITTE_PRUEFEN – welche Adresse soll den Teilnehmenden genannt werden?",
+    "erreichbarkeit": "BITTE_PRUEFEN – z. B. „per E-Mail, Antwort in der Regel innerhalb eines Werktags“"
+  },
+  "_beispiele_freie_tage": [
+    {
+      "_beispiel": "So wird ein einzelner freier Tag eingetragen. Diesen Beispieleintrag vor der Veröffentlichung löschen.",
+      "datum": "2026-10-03",
+      "anlass": "Tag der Deutschen Einheit"
+    },
+    {
+      "_beispiel": "So wird ein Zeitraum eingetragen. Diesen Beispieleintrag vor der Veröffentlichung löschen.",
+      "von": "2026-12-23",
+      "bis": "2027-01-06",
+      "anlass": "Weihnachtsferien"
+    }
+  ]
+}

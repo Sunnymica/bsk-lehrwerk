@@ -1,4 +1,4 @@
-# Deutsch fürs Büro – Job-BSK-Plattform 0.4.5
+# Deutsch fürs Büro – Job-BSK-Plattform 0.4.6
 
 Diese Fassung ist die technische und redaktionelle Produktionsbasis für das neue Job-BSK-Lehrwerk.
 Sie trennt Plattform, Lehrwerk und Aufgabenarchitektur, ohne die vorhandenen Inhalte oder lokalen
@@ -28,6 +28,16 @@ Alle HTML-Seiten laden vier gemeinsame Dateien in fester Reihenfolge:
 Neue wiederverwendbare Aufgabentypen werden zentral in `assets/lehrwerk.js` und
 `assets/aufgaben.css` entwickelt und anschließend in `VORLAGE.md` dokumentiert.
 Komponentenvariablen stehen am jeweiligen Komponentenselektor, nicht auf `:root`. Responsive Überschreibungen bereichseigener Layout-Tokens dürfen in der zuständigen Media-Query stehen.
+
+## Änderungen in 0.4.6
+
+- eigener Bereich „Unser Kurs“ oberhalb der fünf Lernbereiche
+- `data/kurs.json` als einzige Quelle für Kurszeiten und spätere Organisationsdaten
+- erstes Kursmodul „Willkommen im Kurs“ mit vier getrennten Lernabschnitten
+- Direktlinks auf Reiter über URL-Sprungmarken
+- neue gemeinsame Komponenten für Arbeitsaufträge, Abstimmungen, Eingaberaster und Formularraster
+- freie Ergebnisfelder können als geordneter Text kopiert werden
+- Kursseiten werden nicht in den fachlichen Lernfortschritt eingerechnet
 
 ## Änderungen gegenüber 0.4.2
 
