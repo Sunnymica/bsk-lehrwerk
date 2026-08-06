@@ -142,3 +142,4 @@ Unter **Settings → Pages** den Branch `main` und den Ordner `/ (root)` auswäh
 Lernstand, Notizen und abgehakte Hausaufgaben werden ausschließlich über `localStorage` im
 jeweiligen Browser gespeichert. Es werden keine Schülerdateien hochgeladen und keine Daten an
 einen Server gesendet.
+Aktueller Plattformstand: Version 0.4.10.
