@@ -63,12 +63,13 @@
             },
             {
               "titel": "So funktioniert die Plattform",
-              "beschreibung": "Schriftgröße, Lernstand, Notizen, Hausaufgaben und Direktlinks ausprobieren.",
+              "beschreibung": "Häufige Fragen zu Zugang, Speicherung, Bedienung und Kontakt.",
               "pfad": "plattform.html",
               "niveau": "Kursinfo",
-              "dauer": "Interaktive Einführung",
+              "dauer": "Nachschlagen",
               "fertigkeiten": [
-                "Üben"
+                "Lesen",
+                "Orientierung"
               ],
               "status": "in-arbeit"
             }
@@ -524,16 +525,17 @@
               "status": "in-arbeit"
             },
             {
-              "titel": "Tekamolo",
-              "beschreibung": "Temporal, kausal, modal, lokal. Die Mittelfeldstellung.",
+              "titel": "Satzbau im Mittelfeld",
+              "beschreibung": "Dativ und Akkusativ, Ergänzungen und Angaben, TEKAMOLO und Informationsstruktur.",
               "pfad": "tekamolo.html",
-              "niveau": "B2",
-              "dauer": "45 Min",
+              "niveau": "B2–C1",
+              "dauer": "4 Lernabschnitte",
               "fertigkeiten": [
                 "Üben",
+                "Lesen",
                 "Sprechen"
               ],
-              "status": "in-arbeit"
+              "status": "teilweise"
             },
             {
               "titel": "Negation",

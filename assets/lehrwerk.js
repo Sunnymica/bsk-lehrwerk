@@ -471,9 +471,12 @@ window.Lehrwerk = (function () {
         if (!gruppen.has(label)) gruppen.set(label, []);
         gruppen.get(label).push(wert);
       });
-      const zeilen = [...gruppen].map(([label, werte]) => label + ': ' + werte.join(', '));
+      const abschnitte = [...gruppen].map(([label, werte]) => {
+        const inhalt = werte.join(', ');
+        return inhalt.includes('\n') ? label + ':\n' + inhalt : label + ': ' + inhalt;
+      });
       const titel = config.titel || document.title.split(' –')[0];
-      return [titel, ...zeilen].join('\n');
+      return [titel, ...abschnitte].join('\n\n');
     }
 
     knopf.addEventListener('click', () => {
@@ -483,10 +486,9 @@ window.Lehrwerk = (function () {
         setTimeout(() => { knopf.textContent = standard; }, 1800);
         return;
       }
-      const vorher = knopf.textContent;
       const fertig = () => {
         knopf.textContent = 'Kopiert';
-        setTimeout(() => { knopf.textContent = vorher; }, 1800);
+        setTimeout(() => { knopf.textContent = standard; }, 1800);
       };
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(fertig, () => {
@@ -793,12 +795,260 @@ window.Lehrwerk = (function () {
     });
   }
 
+
+  /* Satzfolge: Satzbausteine per Klick oder Tastatur in eine Reihenfolge setzen.
+     Kein Drag-and-drop: Die Aufgabe funktioniert auch auf Touchgeräten und mit
+     der Tastatur. Ein gesetzter Baustein wandert per Klick zurück in den Vorrat.
+
+     config: {
+       frage: optionale Standardfrage,
+       aufgaben: [{
+         id, frage, kontext, anfang, ende,
+         teile: [{ id, text, typ }],
+         loesungen: [[id, ...], ...],
+         erklaerung
+       }]
+     }
+  */
+  function satzfolge(zielId, config) {
+    const box = document.getElementById(zielId);
+    const aufgaben = (config && config.aufgaben) || [];
+    if (!box || !aufgaben.length) return;
+
+    M.teile.push({ art: 'satzfolge', name: zielId, anzahl: aufgaben.length, blatt: blattVon(zielId) });
+    box.classList.add('satzfolge');
+
+    const kopf = document.createElement('div');
+    kopf.className = 'satzfolge-kopf';
+    const fortschritt = document.createElement('p');
+    fortschritt.className = 'satzfolge-fortschritt';
+    const frage = document.createElement('h3');
+    frage.className = 'satzfolge-frage';
+    kopf.appendChild(fortschritt);
+    kopf.appendChild(frage);
+
+    const kontext = document.createElement('p');
+    kontext.className = 'satzfolge-kontext';
+    const bau = document.createElement('div');
+    bau.className = 'satzfolge-bau';
+    bau.setAttribute('aria-label', 'Gebauter Satz');
+    const bankTitel = document.createElement('p');
+    bankTitel.className = 'satzfolge-bank-titel';
+    bankTitel.textContent = 'Satzbausteine';
+    const bank = document.createElement('div');
+    bank.className = 'satzfolge-bank';
+    bank.setAttribute('aria-label', 'Verfügbare Satzbausteine');
+
+    const knoepfe = document.createElement('div');
+    knoepfe.className = 'knopfreihe';
+    const pruefen = document.createElement('button');
+    pruefen.type = 'button'; pruefen.className = 'knopf'; pruefen.textContent = 'Prüfen';
+    const zurueck = document.createElement('button');
+    zurueck.type = 'button'; zurueck.className = 'knopf'; zurueck.textContent = 'Schritt zurück';
+    const neu = document.createElement('button');
+    neu.type = 'button'; neu.className = 'knopf'; neu.textContent = 'Neu beginnen';
+    const weiter = document.createElement('button');
+    weiter.type = 'button'; weiter.className = 'knopf'; weiter.textContent = 'Nächste Aufgabe';
+    knoepfe.appendChild(pruefen); knoepfe.appendChild(zurueck); knoepfe.appendChild(neu); knoepfe.appendChild(weiter);
+
+    const rueck = document.createElement('p');
+    rueck.className = 'rueckmeldung satzfolge-rueck';
+    rueck.hidden = true;
+    rueck.setAttribute('aria-live', 'polite');
+
+    box.appendChild(kopf);
+    box.appendChild(kontext);
+    box.appendChild(bau);
+    box.appendChild(bankTitel);
+    box.appendChild(bank);
+    box.appendChild(knoepfe);
+    box.appendChild(rueck);
+
+    let index = Math.max(0, Math.min(aufgaben.length - 1, parseInt(M.stand['sfi:' + zielId], 10) || 0));
+    let gelegt = [];
+    let bankfolge = [];
+
+    function aufgabe() { return aufgaben[index]; }
+    function schluessel(art, id) { return 'sf:' + zielId + ':' + art + ':' + id; }
+    function teileMap(a) {
+      const map = {};
+      (a.teile || []).forEach(t => { map[t.id] = t; });
+      return map;
+    }
+    const typNamen = {
+      dativ: 'Dativ',
+      akkusativ: 'Akkusativ',
+      temporal: 'TE · Zeit',
+      kausal: 'KA · Grund',
+      modal: 'MO · Art',
+      lokal: 'LO · Ort',
+      subjekt: 'Subjekt',
+      verb: 'Verb',
+      ergaenzung: 'Ergänzung',
+      praep: 'Präp.-Ergänzung',
+      direktiv: 'Direktiv-Ergänzung'
+    };
+    function typName(typ) {
+      return typNamen[String(typ || '').toLowerCase()] || '';
+    }
+    function klasse(typ) {
+      return 'satzteil' + (typ ? ' satzteil--' + String(typ).replace(/[^a-z0-9\-]/gi, '') : '');
+    }
+    function fertigZahl() {
+      return aufgaben.filter(a => M.stand[schluessel('ok', a.id)] === true).length;
+    }
+    function standSpeichern() {
+      const a = aufgabe();
+      M.stand[schluessel('folge', a.id)] = gelegt.slice();
+      M.stand[schluessel('bank', a.id)] = bankfolge.slice();
+      M.stand['sfi:' + zielId] = index;
+      M.stand['_' + zielId] = fertigZahl();
+      speichern();
+      standZeigen();
+    }
+    function fest(text) {
+      if (!text) return;
+      const span = document.createElement('span');
+      span.className = 'satzfolge-fest' + (/^[,.;:!?]/.test(text) ? ' satzfolge-fest--zeichen' : '');
+      span.textContent = text;
+      bau.appendChild(span);
+    }
+    function baustein(t, gesetzt) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = klasse(t.typ);
+      b.dataset.id = t.id;
+      const text = document.createElement('span');
+      text.className = 'satzteil-text';
+      text.textContent = t.text;
+      b.appendChild(text);
+      const label = typName(t.typ);
+      if (label) {
+        const typ = document.createElement('span');
+        typ.className = 'satzteil-typ';
+        typ.textContent = label;
+        b.appendChild(typ);
+        b.dataset.typLabel = label;
+      }
+      b.title = gesetzt ? 'Zurück in den Vorrat' : 'An den Satz anhängen';
+      b.setAttribute('aria-label', t.text + (label ? ', ' + label : '') + (gesetzt ? ' aus dem Satz entfernen' : ' an den Satz anhängen'));
+      b.addEventListener('click', () => {
+        bau.classList.remove('richtig', 'falsch');
+        rueck.hidden = true;
+        if (gesetzt) gelegt = gelegt.filter(id => id !== t.id);
+        else if (!gelegt.includes(t.id)) gelegt.push(t.id);
+        standSpeichern();
+        zeichnen();
+      });
+      return b;
+    }
+    function zeichnen() {
+      const a = aufgabe();
+      const map = teileMap(a);
+      fortschritt.textContent = 'Aufgabe ' + (index + 1) + ' von ' + aufgaben.length + ' · ' + fertigZahl() + ' gelöst';
+      frage.textContent = a.frage || config.frage || 'Bauen Sie den Satz in der neutralen Grundfolge.';
+      kontext.textContent = a.kontext || '';
+      kontext.hidden = !a.kontext;
+      bau.innerHTML = '';
+      fest(a.anfang);
+      if (!gelegt.length) {
+        const leer = document.createElement('span');
+        leer.className = 'satzfolge-platzhalter';
+        leer.textContent = 'Satzbausteine hier einsetzen';
+        bau.appendChild(leer);
+      } else {
+        gelegt.forEach(id => { if (map[id]) bau.appendChild(baustein(map[id], true)); });
+      }
+      fest(a.ende);
+
+      bank.innerHTML = '';
+      bankfolge.filter(id => !gelegt.includes(id)).forEach(id => {
+        if (map[id]) bank.appendChild(baustein(map[id], false));
+      });
+      if (!bank.children.length) {
+        const leer = document.createElement('span');
+        leer.className = 'satzfolge-platzhalter';
+        leer.textContent = 'Alle Bausteine sind eingesetzt.';
+        bank.appendChild(leer);
+      }
+      weiter.textContent = index === aufgaben.length - 1 ? 'Zur ersten Aufgabe' : 'Nächste Aufgabe';
+    }
+    function laden() {
+      const a = aufgabe();
+      const ids = (a.teile || []).map(t => t.id);
+      const gespeichert = M.stand[schluessel('folge', a.id)];
+      gelegt = Array.isArray(gespeichert) ? gespeichert.filter(id => ids.includes(id)) : [];
+      const gespeicherteBank = M.stand[schluessel('bank', a.id)];
+      bankfolge = Array.isArray(gespeicherteBank) && gespeicherteBank.length === ids.length
+        ? gespeicherteBank.filter(id => ids.includes(id))
+        : mischen(ids);
+      if (bankfolge.length !== ids.length) bankfolge = mischen(ids);
+      bau.classList.remove('richtig', 'falsch');
+      rueck.hidden = true;
+      standSpeichern();
+      zeichnen();
+    }
+
+    pruefen.addEventListener('click', () => {
+      const a = aufgabe();
+      const alle = (a.teile || []).map(t => t.id);
+      if (gelegt.length !== alle.length) {
+        bau.classList.remove('richtig');
+        bau.classList.add('falsch');
+        rueck.hidden = false;
+        rueck.textContent = 'Es fehlen noch ' + (alle.length - gelegt.length) + ' Satzbausteine.';
+        return;
+      }
+      const loesungen = (a.loesungen && a.loesungen.length) ? a.loesungen : [alle];
+      const ok = loesungen.some(l => l.length === gelegt.length && l.every((id, i) => id === gelegt[i]));
+      bau.classList.toggle('richtig', ok);
+      bau.classList.toggle('falsch', !ok);
+      rueck.hidden = false;
+      if (ok) {
+        M.stand[schluessel('ok', a.id)] = true;
+        rueck.textContent = 'Richtig.' + (a.erklaerung ? ' ' + a.erklaerung : '');
+      } else {
+        rueck.textContent = a.hinweis || 'Noch nicht. Prüfen Sie zuerst Pronomen und Ergänzungen; ordnen Sie danach die Angaben.';
+      }
+      standSpeichern();
+      zeichnen();
+      rueck.hidden = false;
+    });
+
+    zurueck.addEventListener('click', () => {
+      bau.classList.remove('richtig', 'falsch');
+      rueck.hidden = true;
+      gelegt.pop();
+      standSpeichern();
+      zeichnen();
+    });
+
+    neu.addEventListener('click', () => {
+      const a = aufgabe();
+      gelegt = [];
+      bankfolge = mischen((a.teile || []).map(t => t.id));
+      delete M.stand[schluessel('ok', a.id)];
+      bau.classList.remove('richtig', 'falsch');
+      rueck.hidden = true;
+      standSpeichern();
+      zeichnen();
+    });
+
+    weiter.addEventListener('click', () => {
+      index = (index + 1) % aufgaben.length;
+      laden();
+      box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    laden();
+  }
+
   /* Externer Lernbaustein: Quizlet, Kahoot oder ein Video.
      Gemeinsam sind Platzhalter, bewusster Klick und Ausweichlink.
      Die Einbettungsadresse baut jeder Anbieter anders, deshalb steht die
      Umrechnung getrennt in ANBIETER.
 
-     config: { anbieter: 'quizlet' | 'kahoot' | 'video',
+     config: { anbieter: 'quizlet' | 'kahoot' | 'learningapps' | 'video',
                kennung:  Set-, Spiel- oder Video-Kennung,
                titel:    Überschrift,
                auftrag:  ein Satz, worauf zu achten ist,
@@ -825,6 +1075,12 @@ window.Lehrwerk = (function () {
       rahmen: c => 'https://embed.kahoot.it/' + kennung(c.kennung),
       offen: c => c.fallbackUrl || 'https://play.kahoot.it/v2/?quizId=' + kennung(c.kennung),
       hoehe: 560
+    },
+    learningapps: {
+      name: 'LearningApps',
+      rahmen: c => 'https://learningapps.org/watch?v=' + kennung(c.kennung),
+      offen: c => c.fallbackUrl || 'https://learningapps.org/watch?v=' + kennung(c.kennung),
+      hoehe: 500
     },
     video: {
       name: 'YouTube',
@@ -1103,5 +1359,5 @@ window.Lehrwerk = (function () {
     }).catch(() => fehler(meldung));
   }
 
-  return { bereich, modul, reiter, auswahl, luecken, wortbank, zuordnen, gruppieren, extern, frei, abstimmung, ergebnis, abschluss };
+  return { bereich, modul, reiter, auswahl, luecken, wortbank, zuordnen, gruppieren, satzfolge, extern, frei, abstimmung, ergebnis, abschluss };
 })();

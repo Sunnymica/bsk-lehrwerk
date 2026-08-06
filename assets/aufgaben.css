@@ -420,3 +420,127 @@ textarea.feld:focus-visible { outline: 2px solid var(--rose-tief); outline-offse
   .raster { grid-template-columns: 1fr; }
   .formular { grid-template-columns: 1fr; }
 }
+
+
+/* ---------- Satzfolge ----------
+   Satzbausteine werden angeklickt, nicht gezogen. Das hält die Aufgabe auf
+   Smartphone, Tablet und mit Tastatur bedienbar. Farben benennen die Funktion
+   eines Bausteins; sie legen nicht allein seine Position fest. */
+
+.satzfolge {
+  --satzfolge-rand: var(--linie);
+  --satzfolge-flaeche: var(--papier);
+  --satzfolge-subjekt: #ECEBE7;
+  --satzfolge-subjekt-tief: #4B4B55;
+  --satzfolge-verb: #4F3F57;
+  --satzfolge-verb-tief: #FFFFFF;
+  --satzfolge-temporal: #E2EEE8;
+  --satzfolge-temporal-tief: #315F50;
+  --satzfolge-kausal: #F5EDDD;
+  --satzfolge-kausal-tief: #6F5320;
+  --satzfolge-modal: #EBE5F1;
+  --satzfolge-modal-tief: #574269;
+  --satzfolge-lokal: #E8EFEF;
+  --satzfolge-lokal-tief: #315E5D;
+  --satzfolge-praep: #FFF0C9;
+  --satzfolge-praep-tief: #74580F;
+  --satzfolge-direktiv: #F6E2D8;
+  --satzfolge-direktiv-tief: #82452F;
+  --satzfolge-ergaenzung: #E2ECE9;
+  --satzfolge-ergaenzung-tief: #315D55;
+  scroll-margin-top: 1rem;
+  margin: 1.2rem 0 1.8rem;
+  padding: 1rem 1.1rem;
+  background: var(--karte);
+  border: 1px solid var(--satzfolge-rand);
+  border-radius: 8px;
+}
+
+.satzfolge-kopf { display: grid; gap: 0.2rem; margin-bottom: 0.7rem; }
+.satzfolge-fortschritt {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--tinte-weich);
+}
+.satzfolge-frage { margin: 0; font-family: var(--display); font-size: 1.08rem; }
+.satzfolge-kontext { margin: 0.4rem 0 0.8rem; color: var(--tinte-weich); }
+
+.satzfolge-bau,
+.satzfolge-bank {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 4.1rem;
+  padding: 0.75rem;
+  border: 1px dashed var(--satzfolge-rand);
+  border-radius: 8px;
+  background: var(--satzfolge-flaeche);
+}
+
+.satzfolge-bau { border-style: solid; margin-bottom: 0.8rem; }
+.satzfolge-bau.richtig { border-color: var(--salbei-tief); background: var(--salbei); }
+.satzfolge-bau.falsch { border-color: var(--rose-tief); background: var(--rose); }
+.satzfolge-bank-titel {
+  margin: 0 0 0.35rem;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinte-weich);
+}
+
+.satzteil,
+.satzfolge-fest {
+  font-family: var(--body);
+  font-size: 0.98rem;
+  line-height: 1.35;
+  color: var(--tinte);
+  border-radius: 6px;
+  padding: 0.42rem 0.65rem;
+}
+
+.satzteil {
+  background: var(--karte);
+  border: 1px solid var(--linie);
+  cursor: pointer;
+  display: inline-grid;
+  gap: 0.08rem;
+  text-align: left;
+}
+.satzteil-text { font-weight: 650; }
+.satzteil-typ {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  line-height: 1.15;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+  opacity: 0.78;
+}
+.satzteil:hover { border-color: var(--tinte-weich); }
+.satzteil:focus-visible { outline: 2px solid var(--tinte); outline-offset: 2px; }
+.satzfolge-fest { padding-inline: 0.25rem; font-weight: 600; }
+.satzfolge-fest--zeichen { margin-left: -0.45rem; padding-left: 0; }
+.satzfolge-platzhalter { color: var(--tinte-weich); font-size: 0.9rem; font-style: italic; }
+.satzfolge-rueck { margin-bottom: 0; }
+
+.satzteil--dativ      { background: var(--rose); border-color: var(--rose-tief); }
+.satzteil--akkusativ  { background: var(--himmel); border-color: var(--himmel-tief); }
+.satzteil--temporal   { background: var(--satzfolge-temporal); border-color: var(--satzfolge-temporal-tief); }
+.satzteil--kausal     { background: var(--satzfolge-kausal); border-color: var(--satzfolge-kausal-tief); }
+.satzteil--modal      { background: var(--satzfolge-modal); border-color: var(--satzfolge-modal-tief); }
+.satzteil--lokal      { background: var(--satzfolge-lokal); border-color: var(--satzfolge-lokal-tief); }
+.satzteil--subjekt    { background: var(--satzfolge-subjekt); border-color: var(--satzfolge-subjekt-tief); }
+.satzteil--verb       { background: var(--satzfolge-verb); border-color: var(--satzfolge-verb); color: var(--satzfolge-verb-tief); }
+.satzteil--ergaenzung { background: var(--satzfolge-ergaenzung); border-color: var(--satzfolge-ergaenzung-tief); }
+.satzteil--praep      { background: var(--satzfolge-praep); border-color: var(--satzfolge-praep-tief); }
+.satzteil--direktiv   { background: var(--satzfolge-direktiv); border-color: var(--satzfolge-direktiv-tief); }
+
+@media (max-width: 34rem) {
+  .satzfolge { padding: 0.85rem; }
+  .satzfolge-bau, .satzfolge-bank { align-items: stretch; }
+  .satzteil { text-align: left; }
+}
