@@ -1,4 +1,4 @@
-# Deutsch fürs Büro – Job-BSK-Plattform 0.4.13
+# Deutsch fürs Büro – Job-BSK-Plattform 0.4.14
 
 Diese Fassung ist die technische und redaktionelle Produktionsbasis für das neue Job-BSK-Lehrwerk.
 Sie trennt Plattform, Lehrwerk und Aufgabenarchitektur, ohne die vorhandenen Inhalte oder lokalen
@@ -29,6 +29,14 @@ Neue wiederverwendbare Aufgabentypen werden zentral in `assets/lehrwerk.js` und
 `assets/aufgaben.css` entwickelt und anschließend in `VORLAGE.md` dokumentiert.
 Komponentenvariablen stehen am jeweiligen Komponentenselektor, nicht auf `:root`. Responsive Überschreibungen bereichseigener Layout-Tokens dürfen in der zuständigen Media-Query stehen.
 
+
+
+## Änderungen in 0.4.14
+
+- Satzbau-Layout finalisiert: Pizza-Grafik verkleinert und zentriert, erklärende HTML-Bildunterschriften verbessert.
+- Mittelfeld-Grafik: Bildunterschrift hervorgehoben, Beispielsatz vergrößert, unnötige Subjektmarkierung entfernt, Dopplung der Mittelfeld-Erklärung beseitigt.
+- Willkommensbild auf der Kennenlernseite sauber auf den Inhaltscontainer begrenzt.
+- Details: `UPDATE-HINWEIS-0.4.14.md`.
 
 ## Änderungen in 0.4.13
 

@@ -570,12 +570,24 @@ mark { background: var(--sand); padding: 0 0.2rem; border-radius: 3px; }
 
 /* Ruhige Bildgrammatik und redaktionelle Kursbilder */
 .bildgrammatik--ruhig img { background: var(--papier); }
-.kursbild { margin: 1.2rem 0 1.6rem; }
+.bildgrammatik--pizza { max-width: 70%; margin-left: auto; margin-right: auto; }
+.bildgrammatik--erklaerend figcaption {
+  margin-top: .7rem;
+  color: var(--tinte);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+.satzbau--beispiel { font-size: 1.08rem; }
+.kursbild { width: 100%; max-width: 100%; margin: 1.2rem 0 1.6rem; overflow: hidden; border-radius: 12px; }
 .kursbild img {
-  display: block; width: 100%; height: auto; max-height: 520px; object-fit: cover;
+  display: block; width: 100%; max-width: 100%; height: auto; max-height: 420px; object-fit: cover;
   border-radius: 12px; border: 1px solid var(--linie);
 }
 .mittelfeld-einstieg { margin-top: 1.1rem; }
+@media (max-width: 700px) {
+  .bildgrammatik--pizza { max-width: 100%; }
+}
 .fokusbeispiele {
   margin: 1rem 0; border: 1px solid var(--linie); border-radius: 10px; overflow: hidden; background: var(--papier);
 }
