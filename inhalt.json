@@ -20,7 +20,7 @@
                 "Schreiben",
                 "Üben"
               ],
-              "status": "teilweise"
+              "status": "fertig"
             }
           ]
         },
@@ -71,7 +71,7 @@
                 "Lesen",
                 "Orientierung"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             }
           ]
         }

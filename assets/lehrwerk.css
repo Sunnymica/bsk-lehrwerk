@@ -567,3 +567,22 @@ mark { background: var(--sand); padding: 0 0.2rem; border-radius: 3px; }
   .og-reihe { padding-top: 0.4rem; }
   .og-spitze::after { height: 0.8rem; }
 }
+
+/* Ruhige Bildgrammatik und redaktionelle Kursbilder */
+.bildgrammatik--ruhig img { background: var(--papier); }
+.kursbild { margin: 1.2rem 0 1.6rem; }
+.kursbild img {
+  display: block; width: 100%; height: auto; max-height: 520px; object-fit: cover;
+  border-radius: 12px; border: 1px solid var(--linie);
+}
+.mittelfeld-einstieg { margin-top: 1.1rem; }
+.fokusbeispiele {
+  margin: 1rem 0; border: 1px solid var(--linie); border-radius: 10px; overflow: hidden; background: var(--papier);
+}
+.fokusbeispiele p { margin: 0; padding: .78rem 1rem; border-bottom: 1px solid var(--linie); }
+.fokusbeispiele p:last-child { border-bottom: 0; }
+.fokuslabel {
+  display: inline-block; min-width: 5.7rem; margin-right: .55rem; font-family: var(--mono);
+  font-size: .72rem; letter-spacing: .04em; text-transform: uppercase; color: var(--tinte-weich);
+}
+.hinweis-klein { color: var(--tinte-weich); font-size: .9rem; }

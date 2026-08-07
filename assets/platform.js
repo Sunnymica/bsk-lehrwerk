@@ -181,7 +181,10 @@
     const frame = document.createElement('div'); frame.className = 'main-frame';
     const topbar = document.createElement('header'); topbar.className = 'topbar';
     const area = AREA_META[body.dataset.bereich] || ['Deutsch fürs Büro', 'DB'];
-    topbar.innerHTML = `<button class="icon-btn mobile-only" id="menu-button" aria-label="Navigation öffnen">☰</button><div><span class="eyebrow" id="date-label">${page === 'module' ? 'Lernmodul' : 'Lernbereich'}</span><strong id="welcome">${esc(area[0])}</strong></div><button class="avatar" id="profile-button" aria-label="Profil öffnen">B2</button>`;
+    const courseArea = body.dataset.bereich === 'kurs';
+    const eyebrow = courseArea ? 'UNSER KURS' : (page === 'module' ? 'Lernmodul' : 'Lernbereich');
+    const profileFallback = courseArea ? '👤' : 'B2';
+    topbar.innerHTML = `<button class="icon-btn mobile-only" id="menu-button" aria-label="Navigation öffnen">☰</button><div><span class="eyebrow" id="date-label">${eyebrow}</span><strong id="welcome">${esc(area[0])}</strong></div><button class="avatar" id="profile-button" aria-label="Profil öffnen">${profileFallback}</button>`;
     frame.appendChild(topbar);
     const content = document.createElement('div'); content.className = 'page-content';
     visual.forEach(el => content.appendChild(el));
@@ -245,7 +248,10 @@
     const welcome = document.querySelector('#welcome');
     const avatar = document.querySelector('#profile-button');
     if (document.body.dataset.page === 'home' && welcome) welcome.textContent = profile.name ? `Willkommen, ${profile.name}.` : 'Willkommen im Kurs.';
-    if (avatar) avatar.textContent = profile.name ? profile.name.trim().charAt(0).toUpperCase() : 'B2';
+    if (avatar) {
+      const fallback = document.body.dataset.bereich === 'kurs' ? '👤' : 'B2';
+      avatar.textContent = profile.name ? profile.name.trim().charAt(0).toUpperCase() : fallback;
+    }
   }
 
   function addSharedDialogs() {

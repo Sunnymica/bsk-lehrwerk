@@ -945,7 +945,7 @@ window.Lehrwerk = (function () {
     function zeichnen() {
       const a = aufgabe();
       const map = teileMap(a);
-      fortschritt.textContent = 'Aufgabe ' + (index + 1) + ' von ' + aufgaben.length + ' · ' + fertigZahl() + ' gelöst';
+      fortschritt.textContent = 'Aufgabe ' + (index + 1) + ' von ' + aufgaben.length + ' · ' + fertigZahl() + ' richtig';
       frage.textContent = a.frage || config.frage || 'Bauen Sie den Satz in der neutralen Grundfolge.';
       kontext.textContent = a.kontext || '';
       kontext.hidden = !a.kontext;
@@ -1184,7 +1184,7 @@ window.Lehrwerk = (function () {
     if (el && M.teile.length) el.textContent = 'Stand: ' + standText();
   }
 
-  /* Erwartet optional die Knöpfe #zuruecksetzen und #kopieren sowie #stand. */
+  /* Erwartet optional die Knöpfe #zuruecksetzen und #kopieren sowie #stand. Einzelne Module können den Kopierknopf weglassen. */
   function abschluss() {
     standZeigen();
 
@@ -1311,10 +1311,11 @@ window.Lehrwerk = (function () {
           const fk = (m.fertigkeiten || [])
             .map(f => '<span class="fk-' + f + '">' + f + '</span>').join('');
 
+          const niveau = id === 'kurs' ? '' : `<span>${m.niveau}</span>`;
           el.innerHTML = `
             <h3>${m.titel}</h3>
             <p class="text">${m.beschreibung}</p>
-            <div class="meta"><span>${m.niveau}</span>${umfang(m.dauer)}${fk}</div>
+            <div class="meta">${niveau}${umfang(m.dauer)}${fk}</div>
             ${offen ? (m._teilweise ? '<span class="status-hinweis">wächst noch</span>' : '') : '<span class="status-hinweis">Material wird ergänzt</span>'}`;
 
           if (offen && !hausaufgabenBereich && id !== 'kurs') {

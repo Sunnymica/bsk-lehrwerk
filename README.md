@@ -1,4 +1,4 @@
-# Deutsch fürs Büro – Job-BSK-Plattform 0.4.10
+# Deutsch fürs Büro – Job-BSK-Plattform 0.4.13
 
 Diese Fassung ist die technische und redaktionelle Produktionsbasis für das neue Job-BSK-Lehrwerk.
 Sie trennt Plattform, Lehrwerk und Aufgabenarchitektur, ohne die vorhandenen Inhalte oder lokalen
@@ -28,6 +28,35 @@ Alle HTML-Seiten laden vier gemeinsame Dateien in fester Reihenfolge:
 Neue wiederverwendbare Aufgabentypen werden zentral in `assets/lehrwerk.js` und
 `assets/aufgaben.css` entwickelt und anschließend in `VORLAGE.md` dokumentiert.
 Komponentenvariablen stehen am jeweiligen Komponentenselektor, nicht auf `:root`. Responsive Überschreibungen bereichseigener Layout-Tokens dürfen in der zuständigen Media-Query stehen.
+
+
+## Änderungen in 0.4.13
+
+- Satzbaumodul in den Reitern „Ergänzungen & Angaben“ und „TEKAMOLO“ final überarbeitet.
+- Finale textfreie Pizza-Grafik für Ergänzungen/Angaben eingebaut; die fachliche Erklärung bleibt als skalierbares, zugängliches HTML.
+- Finale Kassenband-Grafik eingebaut: Verbteile außerhalb des Bandes, nur TE–KA–MO–LO im Mittelfeld.
+- Rechte Satzklammer mit Verbzusatz, Infinitiv und Partizip II erklärt; `weiter` ausdrücklich als Teil von `weiterarbeiten` geklärt.
+- Fokusvarianten im Vorfeld und die Grenzen der TEKAMOLO-Regel präzisiert.
+- Details: `UPDATE-HINWEIS-0.4.13.md`.
+
+## Änderungen in 0.4.12
+
+- Satzbau im Mittelfeld nach der Gegenlese überarbeitet: Mittelfeld kurz eingeführt, Pronomenregel und Dativ-Akkusativ-Grundfolge getrennt, Akkusativfokus als Kontextvariante erklärt.
+- Ergänzungen und Angaben kontrastiver eingeführt: Ergänzungen gehören zum Bauplan des Verbs; Angaben sind freie Zusatzinformationen. Obligatorische und fakultative Ergänzungen bleiben ausdrücklich unterschieden.
+- TEKAMOLO wird als häufige neutrale Grundfolge der Angaben erklärt; der Fachausdruck „unmarkierte Reihenfolge“ entfällt. Fokus, Kontext und Bekanntheit werden als Gründe für andere Reihenfolgen sichtbar gemacht.
+- Vier parallele Fokusbeispiele zeigen, wie unterschiedliche Satzteile ins Vorfeld rücken können.
+- Zwei neue, textarme Bildgrammatiken ergänzt: `mittelfeld-tekamolo.png` (Kassenband/Satzklammer) und `ergaenzungen-angaben.png` (Pizza-Metapher).
+- Satzfolge-Zähler verwendet einheitlich „richtig“. Im Satzbaumodul wurde `Stand kopieren` entfernt; `Von vorne beginnen` bleibt.
+- Willkommensbild unter `assets/img/kurs/willkommen.png` eingebaut.
+- Bildwelt für künftige Bereichsbilder und Bildgrammatiken dokumentiert.
+
+## Änderungen in 0.4.11
+
+- Kursseiten zeigen im Kopf zentral das Etikett `UNSER KURS` statt `LERNMODUL`
+- Kursseiten zeigen keine Niveaumarke; Modulniveau wird im Bereich `kurs` auf den Karten ausgeblendet, der Profilknopf verwendet dort ein neutrales Symbol
+- `kurs/kennenlernen.html` um die Wortschatzklärung `Team` / `Microsoft Teams` sowie `Abteilung`, `Arbeitsgruppe` und `Projektgruppe` ergänzt
+- Formulierung zur Duzkultur im Anrede-Merkkasten präzisiert
+- `Willkommen im Kurs` und `So funktioniert die Plattform` nach redaktioneller Freigabe auf `fertig` gesetzt
 
 ## Änderungen in 0.4.10
 
@@ -142,5 +171,3 @@ Unter **Settings → Pages** den Branch `main` und den Ordner `/ (root)` auswäh
 Lernstand, Notizen und abgehakte Hausaufgaben werden ausschließlich über `localStorage` im
 jeweiligen Browser gespeichert. Es werden keine Schülerdateien hochgeladen und keine Daten an
 einen Server gesendet.
-Aktueller Plattformstand: Version 0.4.10.
-
