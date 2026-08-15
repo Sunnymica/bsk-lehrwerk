@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Dialogkarten: Sicherheit – Berufssprachkurs</title>
+<link rel="stylesheet" href="../assets/basis.css">
+<link rel="stylesheet" href="../assets/platform.css">
+<link rel="stylesheet" href="../assets/lehrwerk.css">
+<link rel="stylesheet" href="../assets/aufgaben.css">
+<script src="../data/homework.js" defer></script>
+<script src="../assets/platform.js"></script>
+<style>
+  .kartenwahl { display: flex; flex-wrap: wrap; gap: .35rem; margin: 1rem 0; }
+  .kartenwahl button[aria-pressed="true"] { outline: 2px solid currentColor; outline-offset: 2px; }
+  .rollen { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; margin: 1rem 0; }
+  .rollen > div { padding: .8rem 1rem; border-radius: .4rem; background: rgba(127,127,127,.08); }
+  .rollen .a { border-left: 3px solid rgba(60,110,165,.8); }
+  .rollen .b { border-left: 3px solid rgba(60,150,90,.8); }
+  .rollen h4 { margin: 0 0 .3rem; }
+  .rollen .wer { font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; opacity: .65; }
+  .bewertung { display: flex; gap: .5rem; flex-wrap: wrap; margin: 1rem 0; }
+  .bewertung button { flex: 1 1 8rem; }
+  @media (max-width: 40rem) { .rollen { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-page="module" data-bereich="buero" data-root="../">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../buero.html">← Büro und Verwaltung</a>
+    <h1><em>Dialogkarten</em>: Sicherheit</h1>
+    <p class="anleitung">Acht Situationen zu zweit durchspielen. Beide Seiten haben eine eigene Aufgabe — und die zweite ist meistens die schwerere.</p>
+  </div>
+</header>
+
+<main class="innen modul">
+
+  <div class="reiter" role="tablist">
+    <button role="tab" aria-selected="true"  data-blatt="karten">Dialogkarten</button>
+    <button role="tab" aria-selected="false" data-blatt="ablauf">Ablauf</button>
+    <button role="tab" aria-selected="false" data-blatt="notiz">Notizen</button>
+  </div>
+
+  <!-- ============ Dialogkarten ============ -->
+  <section class="blatt" id="blatt-karten">
+
+    <nav class="kartenwahl" id="kartenwahl" aria-label="Situation wählen"></nav>
+
+    <div id="karte" aria-live="polite"></div>
+
+  </section>
+
+  <!-- ============ Ablauf ============ -->
+  <section class="blatt" id="blatt-ablauf">
+
+    <h2>Zu zweit oder zu dritt</h2>
+
+    <div class="kasten">
+      <h3>Zu zweit</h3>
+      <p>Eine Person übernimmt A, eine B. Nach dem Durchgang <strong>Rollen tauschen</strong> und dieselbe Situation noch einmal spielen — mit anderen Worten als beim ersten Mal.</p>
+      <p class="satz">Der zweite Durchgang ist der wichtigere. Beim ersten sucht man die Sätze, beim zweiten kann man auf die Wirkung achten.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Zu dritt — mit Beobachtung</h3>
+      <p>Die dritte Person hört zu und achtet auf <strong>eine</strong> Sache, die vorher festgelegt wird:</p>
+      <ul>
+        <li>Wurde die Zielstruktur benutzt? (Modalverb, Imperativ, Passiv)</li>
+        <li>War der Ton angemessen — freundlich, aber bestimmt?</li>
+        <li>Hat B tatsächlich reagiert oder nur zugehört?</li>
+      </ul>
+      <p>Danach eine kurze Rückmeldung: <strong>eine</strong> Sache, die gut war, <strong>eine</strong>, die man anders machen könnte.</p>
+    </div>
+
+    <h2>Rückmeldung der Lehrkraft</h2>
+
+    <div class="kasten">
+      <p>Freies Sprechen lässt sich nicht automatisch bewerten. Die Einschätzung übernimmt die Lehrkraft — mit drei Stufen:</p>
+      <div class="bewertung">
+        <button class="knopf" type="button" onclick="punkte(2)">✓✓ Sehr gut · +2</button>
+        <button class="knopf" type="button" onclick="punkte(1)">✓ Gültig · +1</button>
+        <button class="knopf" type="button" onclick="punkte(0)">↩ Nochmal · ±0</button>
+      </div>
+      <p class="rueckmeldung" id="punktestand" hidden></p>
+      <p class="satz"><em>Gültig</em> heißt: Die Aufgabe ist gelöst, die Sprache trägt. <em>Sehr gut</em> heißt: Es war darüber hinaus treffend oder besonders passend im Ton. <em>Nochmal</em> ist keine Abwertung, sondern ein zweiter Versuch.</p>
+    </div>
+
+  </section>
+
+  <!-- ============ Notizen ============ -->
+  <section class="blatt" id="blatt-notiz">
+
+    <h2>Was ich mir merken will</h2>
+    <p>Notieren Sie nach dem Rollenspiel die Sätze, die Ihnen gefehlt haben — und die, die gut funktioniert haben.</p>
+
+    <div id="notizen"></div>
+
+  </section>
+
+</main>
+
+<script src="../assets/lehrwerk.js"></script>
+<script>
+const KARTEN = [
+  {
+    titel: '🔥 Feueralarm',
+    a: { rolle: 'Mitarbeiterin im Büro',
+         lage: 'Du arbeitest am Computer, als plötzlich der Feueralarm losgeht.',
+         auftrag: ['Reagiere auf den Alarm.', 'Frag die Kollegin, was zu tun ist.', 'Verlasst zusammen das Gebäude.'] },
+    b: { rolle: 'Kollegin, kennt die Regeln',
+         lage: 'Du hörst den Alarm und weißt genau, was zu tun ist.',
+         auftrag: ['Beruhige die Kollegin.', 'Erkläre die Schritte: Rechner sperren, Fenster zu, Tür zu.', 'Zeig den Fluchtweg zum Sammelplatz.'] },
+    hilfe: ['„Was sollen wir jetzt machen?“', '„Bleib ruhig, wir müssen das Gebäude verlassen.“', '„Wo ist der nächste Notausgang?“', '„Folg mir, ich zeige dir den Weg.“', '„Wir treffen uns am Sammelplatz.“'],
+    ziel: 'Modalverben: müssen, dürfen nicht'
+  },
+  {
+    titel: '🔑 Zugangskarte verloren',
+    a: { rolle: 'Mitarbeiterin, Karte verloren',
+         lage: 'Du hast deine Zugangskarte verloren und weißt nicht, wo.',
+         auftrag: ['Melde den Verlust am Empfang.', 'Erkläre, wann du sie zuletzt hattest.', 'Frag, wie es weitergeht.'] },
+    b: { rolle: 'Person am Empfang',
+         lage: 'Eine Kollegin meldet den Verlust ihrer Zugangskarte.',
+         auftrag: ['Nimm die Meldung auf.', 'Erkläre, warum sofort gesperrt werden muss.', 'Sag, wann die neue Karte fertig ist.'] },
+    hilfe: ['„Ich habe meine Zugangskarte verloren.“', '„Wann haben Sie sie zuletzt benutzt?“', '„Ich sperre die Karte sofort.“', '„Die neue Karte ist morgen fertig.“', '„Bis dahin melden Sie sich bitte am Empfang.“'],
+    ziel: 'Perfekt: Wann haben Sie sie zuletzt gesehen?'
+  },
+  {
+    titel: '☕ Die Kaffeemaschine läuft noch',
+    a: { rolle: 'Mitarbeiterin, geht nach Hause',
+         lage: 'Du bist auf dem Weg zur Tür und siehst, dass die Kaffeemaschine noch an ist.',
+         auftrag: ['Sprich die Kollegin an, die noch da ist.', 'Erkläre, warum das ein Problem ist.', 'Klärt, wer sie ausschaltet.'] },
+    b: { rolle: 'Kollegin, noch im Büro',
+         lage: 'Du arbeitest noch eine halbe Stunde.',
+         auftrag: ['Reagiere auf den Hinweis.', 'Sag zu, dass du dich kümmerst.', 'Frag, was sonst noch aus muss.'] },
+    hilfe: ['„Die Kaffeemaschine ist noch an.“', '„Kannst du sie nachher ausschalten?“', '„Mach ich, ich bin sowieso noch da.“', '„Was muss sonst noch aus?“'],
+    ziel: 'Höflich um etwas bitten'
+  },
+  {
+    titel: '💻 Verdächtige E-Mail',
+    a: { rolle: 'Mitarbeiterin, unsicher',
+         lage: 'Du hast eine Mail bekommen: „Ihr Konto wird in 24 Stunden gesperrt. Klicken Sie hier.“',
+         auftrag: ['Beschreibe die Mail.', 'Sag, was dir verdächtig vorkommt.', 'Frag, was du tun sollst.'] },
+    b: { rolle: 'IT-Abteilung',
+         lage: 'Eine Kollegin meldet eine verdächtige Mail.',
+         auftrag: ['Frag nach den Merkmalen: Absender, Link, Anhang.', 'Sag klar, was sie nicht tun soll.', 'Erkläre den weiteren Weg.'] },
+    hilfe: ['„Ich habe eine verdächtige E-Mail bekommen.“', '„Wer ist der Absender?“', '„Klicken Sie auf keinen Fall auf den Link.“', '„Leiten Sie die Mail bitte an it@kontor-ag.de weiter.“', '„Löschen Sie sie erst, wenn wir sie gesehen haben.“'],
+    ziel: 'Imperativ und Verneinung: Klicken Sie nicht …'
+  },
+  {
+    titel: '🚪 Fremde Person im Gebäude',
+    a: { rolle: 'Mitarbeiterin',
+         lage: 'Im dritten Stock steht eine Person ohne Besucherausweis vor den Büros.',
+         auftrag: ['Sprich die Person freundlich an.', 'Finde heraus, zu wem sie will.', 'Begleite sie zum Empfang.'] },
+    b: { rolle: 'Besucherin',
+         lage: 'Du hast einen Termin, bist aber falsch abgebogen und findest das Büro nicht.',
+         auftrag: ['Erkläre, warum du hier bist.', 'Nenne den Namen der Person, mit der du verabredet bist.', 'Nimm die Hilfe an.'] },
+    hilfe: ['„Entschuldigung, kann ich Ihnen helfen?“', '„Zu wem möchten Sie?“', '„Ich bin mit Frau Seidel um zehn verabredet.“', '„Ich bringe Sie zum Empfang.“'],
+    ziel: 'Freundlich nachfragen, ohne zu verhören'
+  },
+  {
+    titel: '⚠️ Stolperfalle im Flur',
+    a: { rolle: 'Mitarbeiterin',
+         lage: 'Im Flur liegt ein Kabel quer über den Weg. Jemand ist beinahe gestürzt.',
+         auftrag: ['Melde die Gefahr.', 'Beschreib genau, wo sie ist.', 'Frag, wann es behoben wird.'] },
+    b: { rolle: 'Hausmeisterei',
+         lage: 'Du bekommst eine Meldung über ein Kabel im Flur.',
+         auftrag: ['Frag nach dem genauen Ort.', 'Sag, was du sofort tun kannst.', 'Nenne einen Termin für die dauerhafte Lösung.'] },
+    hilfe: ['„Im dritten Stock liegt ein Kabel quer über den Flur.“', '„Wo genau?“', '„Ich klebe es sofort ab.“', '„Nächste Woche kommt eine Kabelbrücke.“'],
+    ziel: 'Ort genau angeben: Präpositionen'
+  },
+  {
+    titel: '🚑 Arbeitsunfall',
+    a: { rolle: 'Zeugin',
+         lage: 'Ein Kollege ist im Lager von der Leiter gestürzt. Er ist ansprechbar, kann aber nicht aufstehen.',
+         auftrag: ['Hol Hilfe und beschreibe die Lage.', 'Bleib beim Verletzten und sprich mit ihm.', 'Sag, was du schon getan hast.'] },
+    b: { rolle: 'Ersthelferin',
+         lage: 'Du wirst zu einem Sturz ins Lager gerufen.',
+         auftrag: ['Frag das Nötigste ab: ansprechbar, wo Schmerzen, was passiert ist.', 'Sag, was jetzt geschieht.', 'Weise jemanden an, den Notruf zu übernehmen.'] },
+    hilfe: ['„Ein Kollege ist von der Leiter gestürzt.“', '„Er ist ansprechbar, kann aber nicht aufstehen.“', '„Bewegen Sie sich nicht, bleiben Sie ruhig liegen.“', '„Sie im blauen Pullover: Rufen Sie bitte die 112.“', '„Ich bleibe bei Ihnen, bis Hilfe kommt.“'],
+    ziel: 'Präzise beschreiben unter Zeitdruck'
+  },
+  {
+    titel: '🔒 Unterlagen liegen offen',
+    a: { rolle: 'Mitarbeiterin',
+         lage: 'Auf einem leeren Schreibtisch liegen Personalunterlagen offen, der Rechner ist nicht gesperrt.',
+         auftrag: ['Sprich die Kollegin an, wenn sie zurückkommt.', 'Sag es sachlich, ohne Vorwurf.', 'Schlage etwas vor.'] },
+    b: { rolle: 'Kollegin aus dem Personalbereich',
+         lage: 'Du warst nur kurz beim Drucker und kommst zurück.',
+         auftrag: ['Reagiere auf den Hinweis.', 'Erkläre kurz, wie es dazu kam.', 'Sag, was du künftig anders machst.'] },
+    hilfe: ['„Der Bildschirm war noch offen.“', '„Hier lagen Personalunterlagen offen.“', '„Danke, das war unaufmerksam von mir.“', '„Ich sperre den Rechner ab jetzt auch für zwei Minuten.“'],
+    ziel: 'Kritik äußern, ohne anzugreifen'
+  }
+];
+
+const wahl  = document.getElementById('kartenwahl');
+const karte = document.getElementById('karte');
+
+KARTEN.forEach((k, i) => {
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'knopf';
+  b.textContent = k.titel;
+  b.setAttribute('aria-pressed', 'false');
+  b.addEventListener('click', () => zeigeKarte(i));
+  wahl.appendChild(b);
+});
+
+function zeigeKarte(i) {
+  const k = KARTEN[i];
+  wahl.querySelectorAll('button').forEach((b, j) =>
+    b.setAttribute('aria-pressed', String(i === j)));
+
+  karte.innerHTML =
+    '<h2>' + k.titel + '</h2>' +
+    '<p class="anleitung">Zielstruktur: <strong>' + k.ziel + '</strong></p>' +
+    '<div class="rollen">' +
+      '<div class="a"><div class="wer">Person A</div><h4>' + k.a.rolle + '</h4>' +
+        '<p>' + k.a.lage + '</p><ul><li>' + k.a.auftrag.join('</li><li>') + '</li></ul></div>' +
+      '<div class="b"><div class="wer">Person B</div><h4>' + k.b.rolle + '</h4>' +
+        '<p>' + k.b.lage + '</p><ul><li>' + k.b.auftrag.join('</li><li>') + '</li></ul></div>' +
+    '</div>' +
+    '<div class="kasten"><h3>Wenn ein Satz fehlt</h3><p class="satz">' +
+      k.hilfe.join('<br>') + '</p></div>';
+}
+
+zeigeKarte(0);
+
+let stand = 0;
+function punkte(p) {
+  stand += p;
+  const feld = document.getElementById('punktestand');
+  feld.hidden = false;
+  feld.textContent = p === 0
+    ? 'Nochmal — kein Punktabzug. Stand: ' + stand
+    : (p === 2 ? 'Sehr gut, +2. ' : 'Gültig, +1. ') + 'Stand: ' + stand;
+}
+
+Lehrwerk.modul('sicherheit-dialogkarten');
+Lehrwerk.reiter();
+Lehrwerk.frei('notizen');
+Lehrwerk.abschluss();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Adjektiv-Suffixe – Berufssprachkurs</title>
+<link rel="stylesheet" href="../assets/basis.css">
+<link rel="stylesheet" href="../assets/platform.css">
+<link rel="stylesheet" href="../assets/lehrwerk.css">
+<link rel="stylesheet" href="../assets/aufgaben.css">
+<script src="../data/homework.js" defer></script>
+<script src="../assets/platform.js"></script>
+<style>
+  /* Nur was die Matrix braucht – alles Übrige kommt aus den Basis-Stylesheets. */
+  .suffix-wahl { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1rem 0; }
+  .suffix-wahl .gruppe { flex: 1 1 14rem; }
+  .suffix-wahl h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; margin: 0 0 .35rem; opacity: .7; }
+  .suffix-wahl button { margin: 0 .3rem .3rem 0; }
+  .suffix-wahl button[aria-pressed="true"] { outline: 2px solid currentColor; outline-offset: 2px; }
+  .paar { display: grid; grid-template-columns: 1fr auto 1fr; gap: .5rem; align-items: baseline; }
+  .paar .pfeil { opacity: .5; }
+  .wortgitter { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: .4rem; }
+  .wortgitter > div { padding: .4rem .6rem; border-radius: .3rem; background: rgba(127,127,127,.08); }
+  .falschform { opacity: .75; }
+  .detail { margin-top: .3rem; font-size: .9rem; opacity: .85; }
+</style>
+</head>
+<body data-page="module" data-bereich="grammatik" data-root="../">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../grammatik.html">← Grammatik</a>
+    <h1><em>Adjektiv-Suffixe</em></h1>
+    <p class="anleitung">Zwölf Suffixe, mit denen aus Nomen und Verben Adjektive werden. Entscheidend ist selten die Bildung, sondern der Unterschied: <em>arbeitslos</em> gegen <em>arbeitsfrei</em>, <em>kindlich</em> gegen <em>kindisch</em>.</p>
+  </div>
+</header>
+
+<main class="innen modul">
+
+  <div class="reiter" role="tablist">
+    <button role="tab" aria-selected="true"  data-blatt="nachschlagen">Nachschlagen</button>
+    <button role="tab" aria-selected="false" data-blatt="ueben">Üben</button>
+  </div>
+
+  <!-- ============ Nachschlagen ============ -->
+  <section class="blatt" id="blatt-nachschlagen">
+
+    <p>Wählen Sie ein Suffix. Zu jedem gibt es Beispiele, die unregelmäßigen Fälle und – wo es darauf ankommt – die Gegenüberstellung mit dem Suffix, mit dem es am häufigsten verwechselt wird.</p>
+
+    <nav class="suffix-wahl" id="suffix-wahl" aria-label="Suffix wählen"></nav>
+
+    <div id="suffix-karte" aria-live="polite"></div>
+
+  </section>
+
+  <!-- ============ Üben ============ -->
+  <section class="blatt" id="blatt-ueben">
+
+    <p>Zwei Stufen. Die erste prüft die Bildung, die zweite die Entscheidung zwischen zwei ähnlichen Formen – dort liegt der eigentliche Ertrag.</p>
+
+    <h2>Stufe 1: Die Form bilden</h2>
+    <p>Die Basis steht dabei. Setzen Sie das Adjektiv in den Satz – in der Form, die der Satz verlangt.</p>
+
+    <div id="stufe1"></div>
+
+    <div class="knopfreihe">
+      <button class="knopf" id="s1-pruefen" type="button">Prüfen</button>
+      <button class="knopf" id="s1-tipp" type="button">Tipp</button>
+    </div>
+    <p class="rueckmeldung" id="s1-rueck" hidden></p>
+    <p class="rueckmeldung" id="s1-hinweis" hidden>Achten Sie auf den Umlaut: aus <em>Angst</em> wird <em>ängstlich</em>, aus <em>Vernunft</em> wird <em>vernünftig</em>. Und die Endung richtet sich nach dem Nomen dahinter.</p>
+
+    <h2>Stufe 1b: Hier gilt die Regel nicht</h2>
+    <p>Diese Wörter sehen aus wie die von eben, folgen aber nicht der Regel. Wer sie regelmäßig bildet, liegt zwangsläufig falsch. <strong>Welche Form ist richtig?</strong></p>
+
+    <div id="stufe1b"></div>
+
+    <h2>Stufe 2: Den Unterschied entscheiden</h2>
+    <p>Beide Formen gibt es. Nur eine passt in den Satz.</p>
+
+    <div id="stufe2"></div>
+
+    <h2>Was dieser Teil nicht leistet</h2>
+    <p>Geübt wird die <strong>Bildung</strong> und der Kontrast zwischen zwei Formen, die im Datenbestand als Paar hinterlegt sind. Feine Verwendungsunterschiede wie <em>mangelhaft</em> gegen <em>fehlerhaft</em> gehören nicht dazu – dafür bräuchte es eigens geschriebene Kontexte. Das ist ein eigener, späterer Schritt.</p>
+
+  </section>
+
+</main>
+
+<script src="../assets/lehrwerk.js"></script>
+<script>
+/* =====================================================================
+   Datensatz – übernommen aus dem Altmodul „suffixe adjektive“.
+   Er ist die einzige Quelle: Die Aufgaben unten werden daraus erzeugt,
+   nicht getrennt gepflegt.
+
+   Zwei von Regina freigegebene Korrekturen sind eingearbeitet:
+     · „Zweig → zweifelhaft“ berichtigt zu „Zweifel“
+     · Ausnahmeeintrag „Volk → völkisch“ entfernt
+   ===================================================================== */
+
+const suffixData = {
+  "-ig": {
+    meaning: "bildet Adjektive aus Nomen, drückt „Eigenschaft haben“ aus",
+    examples: [
+      { base: "Salz", result: "salzig", explanation: "hat die Eigenschaft von Salz", sentence: "Die Suppe ist mir zu <strong>salzig</strong>." },
+      { base: "Saft", result: "saftig", explanation: "hat viel Saft", sentence: "Das Steak war schön <strong>saftig</strong>." },
+      { base: "Fleisch", result: "fleischig", explanation: "wie Fleisch, viel Fleisch habend", sentence: "Tomaten haben <strong>fleischige</strong> Früchte." },
+      { base: "Zucker", result: "zuckrig", explanation: "süß wie Zucker", sentence: "Der Teig ist sehr <strong>zuckrig</strong>." },
+      { base: "Erde", result: "erdig", explanation: "nach Erde schmeckend oder riechend", sentence: "Rote Bete hat einen <strong>erdigen</strong> Geschmack." },
+      { base: "Wind", result: "windig", explanation: "mit viel Wind", sentence: "Heute ist es sehr <strong>windig</strong>." },
+      { base: "Wasser", result: "wässrig", explanation: "wie Wasser, zu viel Wasser", sentence: "Die Soße ist zu <strong>wässrig</strong>." },
+      { base: "Öl", result: "ölig", explanation: "fettig wie Öl", sentence: "Meine Haut ist sehr <strong>ölig</strong>." },
+      { base: "Butter", result: "butterig", explanation: "wie Butter", sentence: "Das Croissant schmeckt schön <strong>butterig</strong>." },
+      { base: "Teig", result: "teigig", explanation: "wie Teig, nicht durchgebacken", sentence: "Das Brot ist innen noch <strong>teigig</strong>." },
+      { base: "Milch", result: "milchig", explanation: "wie Milch, trüb", sentence: "Das Glas ist <strong>milchig</strong>." },
+      { base: "Brei", result: "breiig", explanation: "wie Brei", sentence: "Die Banane ist schon ganz <strong>breiig</strong>." },
+      { base: "Mehl", result: "mehlig", explanation: "wie Mehl", sentence: "Diese Kartoffelsorte ist <strong>mehlig</strong>." },
+      { base: "kratzen", result: "kratzig", explanation: "rau, kratzt", sentence: "Der Pullover ist <strong>kratzig</strong>." },
+      { base: "Schmutz", result: "schmutzig", explanation: "mit Schmutz", sentence: "Deine Hände sind <strong>schmutzig</strong>." },
+      { base: "Mut", result: "mutig", explanation: "hat Mut", sentence: "Das war eine <strong>mutige</strong> Entscheidung." },
+      { base: "Geduld", result: "geduldig", explanation: "hat Geduld", sentence: "Bitte seien Sie <strong>geduldig</strong>." },
+      { base: "Vernunft", result: "vernünftig", explanation: "mit Vernunft", sentence: "Das ist ein <strong>vernünftiger</strong> Vorschlag." },
+      { base: "Wahnsinn", result: "wahnsinnig", explanation: "wie im Wahnsinn", sentence: "Das ist <strong>wahnsinnig</strong> kompliziert." },
+      { base: "Glaube", result: "gläubig", explanation: "hat Glauben", sentence: "Sie ist sehr <strong>gläubig</strong>." },
+      { base: "Zeit", result: "zeitig", explanation: "früh, zur rechten Zeit", sentence: "Wir sind <strong>zeitig</strong> losgefahren." },
+      { base: "3 Arme", result: "dreiarmig", uebung: false, grund: "Die Basis ist eine Zahlangabe, keine Wortform – als Aufgabenimpuls nicht lösbar.", explanation: "mit drei Armen", sentence: "Ein <strong>dreiarmiger</strong> Kerzenständer." },
+      { base: "Fuß", result: "leichtfüßig", uebung: false, grund: "Der Bestandteil „leicht“ fehlt in der Basis – aus „Fuß“ ist „leichtfüßig“ nicht ableitbar.", explanation: "mit leichten Füßen", sentence: "Sie tanzt sehr <strong>leichtfüßig</strong>." }
+    ],
+    exceptions: [
+      { base: "Regen", expected: "regnig", actual: "regnerisch", explanation: "Bei Wetter oft -isch statt -ig", sentence: "Das Wetter ist <strong>regnerisch</strong>." },
+      { base: "Sturm", expected: "stürmig", actual: "stürmisch", explanation: "Bei Wetter oft -isch statt -ig", sentence: "Es wird <strong>stürmisch</strong>." },
+      { base: "Schnee", expected: "schneig", actual: "verschneit", explanation: "Partizip statt Suffix", sentence: "Die Landschaft ist <strong>verschneit</strong>." },
+      { base: "schwer", expected: "schwerig", actual: "schwierig", explanation: "Der Stammvokal ändert sich", sentence: "Das ist eine <strong>schwierige</strong> Aufgabe." }
+    ],
+    contrasts: [],
+    tip: "Bei Lebensmitteln und Materialien funktioniert -ig fast immer: Salz → salzig, Öl → ölig. Aber nicht bei Getränken: „kaffeig“ und „teeig“ gibt es nicht."
+  },
+
+  "-lich": {
+    meaning: "sehr produktiv – bedeutet „in der Art von“ oder wirkt abschwächend",
+    examples: [
+      { base: "Freund", result: "freundlich", explanation: "wie ein Freund", sentence: "Sie ist sehr <strong>freundlich</strong>." },
+      { base: "Mann", result: "männlich", explanation: "wie ein Mann", sentence: "Er hat eine <strong>männliche</strong> Stimme." },
+      { base: "Kind", result: "kindlich", explanation: "wie ein Kind, positiv gemeint", sentence: "Sie hat eine <strong>kindliche</strong> Freude." },
+      { base: "Mensch", result: "menschlich", explanation: "wie ein Mensch, human", sentence: "Fehler sind <strong>menschlich</strong>." },
+      { base: "Handwerk", result: "handwerklich", explanation: "das Handwerk betreffend", sentence: "Die <strong>handwerkliche</strong> Qualität ist gut." },
+      { base: "Arzt", result: "ärztlich", explanation: "vom Arzt, medizinisch", sentence: "Sie brauchen <strong>ärztliche</strong> Hilfe." },
+      { base: "Recht", result: "rechtlich", explanation: "das Recht betreffend", sentence: "Das ist <strong>rechtlich</strong> problematisch." },
+      { base: "Bau", result: "baulich", explanation: "den Bau betreffend", sentence: "Der <strong>bauliche</strong> Zustand ist gut." },
+      { base: "verkaufen", result: "verkäuflich", explanation: "kann verkauft werden", sentence: "Ist das Haus <strong>verkäuflich</strong>?" },
+      { base: "Tag", result: "täglich", explanation: "jeden Tag", sentence: "Ich fahre <strong>täglich</strong> zur Arbeit." },
+      { base: "Nacht", result: "nächtlich", explanation: "in der Nacht", sentence: "Der <strong>nächtliche</strong> Lärm stört." },
+      { base: "Morgen", result: "morgendlich", explanation: "am Morgen", sentence: "Die <strong>morgendliche</strong> Routine." },
+      { base: "Sommer", result: "sommerlich", explanation: "wie im Sommer", sentence: "Das Wetter ist <strong>sommerlich</strong>." },
+      { base: "Winter", result: "winterlich", explanation: "wie im Winter", sentence: "Es ist <strong>winterlich</strong> kalt." },
+      { base: "Herbst", result: "herbstlich", explanation: "wie im Herbst", sentence: "Die <strong>herbstliche</strong> Landschaft." },
+      { base: "Gefahr", result: "gefährlich", explanation: "mit Gefahr, riskant", sentence: "Das ist <strong>gefährlich</strong>." },
+      { base: "Angst", result: "ängstlich", explanation: "mit Angst", sentence: "Er ist sehr <strong>ängstlich</strong>." },
+      { base: "Irrtum", result: "irrtümlich", explanation: "durch Irrtum", sentence: "Das war <strong>irrtümlich</strong>." },
+      { base: "Abenteuer", result: "abenteuerlich", explanation: "wie ein Abenteuer", sentence: "Das war <strong>abenteuerlich</strong>." },
+      { base: "krank", result: "kränklich", explanation: "ein bisschen krank, oft krank", sentence: "Er sieht <strong>kränklich</strong> aus." },
+      { base: "klein", result: "kleinlich", explanation: "übertrieben genau, penibel", sentence: "Mein Chef ist <strong>kleinlich</strong>." },
+      { base: "Hof", result: "höflich", explanation: "wie am Königshof", sentence: "Seien Sie bitte <strong>höflich</strong>." },
+      { base: "nied-", result: "niedlich", uebung: false, grund: "Gebundenes Morphem – kommt als eigenes Wort nicht vor.", explanation: "von „nied“ = niedrig, klein", sentence: "Das Baby ist <strong>niedlich</strong>." },
+      { base: "sicher", result: "sicherlich", explanation: "bestimmt, gewiss", sentence: "<strong>Sicherlich</strong> haben Sie recht." },
+      { base: "reich", result: "reichlich", explanation: "nicht reich, sondern: sehr viel", sentence: "Wir haben <strong>reichlich</strong> Zeit." },
+      { base: "arm", result: "ärmlich", explanation: "nicht arm, sondern: wie arm", sentence: "Er kam aus <strong>ärmlichen</strong> Verhältnissen." },
+      { base: "rein", result: "reinlich", explanation: "sauber, auf Sauberkeit bedacht", sentence: "Katzen sind sehr <strong>reinlich</strong>." }
+    ],
+    exceptions: [
+      { base: "Frühling", expected: "frühlingslich", actual: "frühlingshaft", explanation: "die einzige Jahreszeit mit -haft", sentence: "Das Wetter ist <strong>frühlingshaft</strong>." },
+      { base: "Pharmazie", expected: "pharmazeilich", actual: "pharmazeutisch", explanation: "Fremdwörter aus der Wissenschaft bekommen -isch", sentence: "Die <strong>pharmazeutische</strong> Industrie." },
+      { base: "Jura", expected: "juralich", actual: "juristisch", explanation: "Fremdwörter aus der Wissenschaft bekommen -isch", sentence: "Eine <strong>juristische</strong> Frage." },
+      { base: "Psychologie", expected: "psychologielich", actual: "psychologisch", explanation: "Fremdwörter aus der Wissenschaft bekommen -isch", sentence: "Die <strong>psychologische</strong> Beratung." },
+      { base: "Pädagogik", expected: "pädagogiklich", actual: "pädagogisch", explanation: "Fremdwörter aus der Wissenschaft bekommen -isch", sentence: "Das <strong>pädagogische</strong> Konzept." }
+    ],
+    contrasts: [
+      { word1: "kindlich", tone1: "positiv oder neutral", word2: "kindisch", tone2: "negativ", explanation: "kindlich = unschuldig, unbefangen. kindisch = unreif, albern.", sentence1: "Ihre <strong>kindliche</strong> Begeisterung war ansteckend.", sentence2: "Benimm dich nicht so <strong>kindisch</strong>." },
+      { word1: "reichlich", tone1: "= sehr viel", word2: "reich", tone2: "= wohlhabend", explanation: "reichlich ist nicht die Steigerung von reich, sondern bedeutet „in großer Menge“.", sentence1: "Wir haben <strong>reichlich</strong> zu essen.", sentence2: "Er ist <strong>reich</strong> geworden." }
+    ],
+    tip: "Bei Farben wirkt -lich abschwächend: grünlich = „etwas grün“, rötlich = „etwas rot“. Das geht bei den Grundfarben, aber nicht bei Lila, Violett, Orange, Türkis."
+  },
+
+  "-isch": {
+    meaning: "oft Herkunft oder Zugehörigkeit, manchmal leicht abwertend",
+    examples: [
+      { base: "Europa", result: "europäisch", explanation: "aus Europa", sentence: "Die <strong>europäische</strong> Union." },
+      { base: "Spanien", result: "spanisch", explanation: "aus Spanien", sentence: "Die <strong>spanische</strong> Niederlassung." },
+      { base: "Elektrik", result: "elektrisch", explanation: "mit Elektrizität", sentence: "Ein <strong>elektrisches</strong> Auto." },
+      { base: "Neid", result: "neidisch", explanation: "voller Neid", sentence: "Sei nicht so <strong>neidisch</strong>." },
+      { base: "Tücke", result: "tückisch", explanation: "hinterhältig", sentence: "Eine <strong>tückische</strong> Krankheit." },
+      { base: "Laune", result: "launisch", explanation: "mit wechselnder Laune", sentence: "Er ist sehr <strong>launisch</strong>." },
+      { base: "Zank", result: "zänkisch", explanation: "streitsüchtig", sentence: "Eine <strong>zänkische</strong> Nachbarin." },
+      { base: "Tyrann", result: "tyrannisch", explanation: "wie ein Tyrann", sentence: "Ein <strong>tyrannischer</strong> Chef." },
+      { base: "Himmel", result: "himmlisch", explanation: "wie im Himmel", sentence: "Das schmeckt <strong>himmlisch</strong>." },
+      { base: "Hölle", result: "höllisch", explanation: "wie in der Hölle", sentence: "Es war <strong>höllisch</strong> heiß." }
+    ],
+    exceptions: [],
+    contrasts: [
+      { word1: "kindlich", tone1: "positiv", word2: "kindisch", tone2: "negativ", explanation: "-lich ist hier positiv (unbefangen), -isch negativ (unreif).", sentence1: "Sie hat ein <strong>kindliches</strong> Gemüt.", sentence2: "Hör auf, so <strong>kindisch</strong> zu sein." },
+      { word1: "männlich", tone1: "neutral", word2: "herrisch", tone2: "negativ", explanation: "männlich beschreibt, herrisch bewertet: dominant, befehlend.", sentence1: "Eine <strong>männliche</strong> Stimme.", sentence2: "Sein <strong>herrischer</strong> Ton stört im Team." }
+    ],
+    tip: "Wissenschaftliche Fremdwörter bekommen fast immer -isch: pharmazeutisch, juristisch, psychologisch, mathematisch, pädagogisch. Nie -lich."
+  },
+
+  "-bar": {
+    meaning: "drückt Möglichkeit aus: „kann gemacht werden“",
+    examples: [
+      { base: "essen", result: "essbar", explanation: "kann gegessen werden", sentence: "Sind diese Pilze <strong>essbar</strong>?" },
+      { base: "trinken", result: "trinkbar", explanation: "kann getrunken werden", sentence: "Das Wasser ist <strong>trinkbar</strong>." },
+      { base: "machen", result: "machbar", explanation: "kann gemacht werden", sentence: "Das Projekt ist <strong>machbar</strong>." },
+      { base: "erreichen", result: "erreichbar", explanation: "kann erreicht werden", sentence: "Ich bin telefonisch <strong>erreichbar</strong>." },
+      { base: "bezahlen", result: "bezahlbar", explanation: "kann bezahlt werden", sentence: "Die Miete ist kaum <strong>bezahlbar</strong>." },
+      { base: "bemerken", result: "bemerkbar", explanation: "kann bemerkt werden", sentence: "Die Verbesserung ist <strong>bemerkbar</strong>." },
+      { base: "denken", result: "denkbar", explanation: "kann gedacht werden, möglich", sentence: "Das ist durchaus <strong>denkbar</strong>." },
+      { base: "hören", result: "hörbar", explanation: "kann gehört werden", sentence: "Die Durchsage ist kaum <strong>hörbar</strong>." },
+      { base: "sehen", result: "sichtbar", explanation: "kann gesehen werden", sentence: "Der Riss ist kaum <strong>sichtbar</strong>." },
+      { base: "nutzen", result: "nutzbar", explanation: "kann genutzt werden", sentence: "Die Fläche ist <strong>nutzbar</strong>." },
+      { base: "liefern", result: "lieferbar", explanation: "kann geliefert werden", sentence: "Der Artikel ist <strong>lieferbar</strong>." },
+      { base: "danken", result: "dankbar", explanation: "voll Dank", sentence: "Ich bin sehr <strong>dankbar</strong>." },
+      { base: "wundern", result: "wunderbar", uebung: false, grund: "Zur Klärung vorgelegt: Basis ist eher das Nomen „Wunder“; hier liegt das alte -bar im Sinne von „tragend“ vor, nicht Möglichkeit.", explanation: "großartig – nicht: „kann gewundert werden“", sentence: "Das ist <strong>wunderbar</strong>." },
+      { base: "Frucht", result: "fruchtbar", uebung: false, grund: "Ebenfalls altes -bar („Frucht tragend“), keine Möglichkeitsbedeutung – zur Klärung vorgelegt.", explanation: "bringt Frucht", sentence: "Der Boden ist <strong>fruchtbar</strong>." }
+    ],
+    exceptions: [
+      { base: "verstehen", expected: "verstehbar", actual: "verständlich", beideFormen: true, explanation: "Beide Formen gibt es. Üblich ist <em>verständlich</em>; <em>verstehbar</em> kommt vor, klingt aber technisch.", sentence: "Das ist <strong>verständlich</strong>." },
+      { base: "ersetzen", expected: "unersetzbar", actual: "unersetzlich", beideFormen: true, explanation: "Beide Formen gibt es. Üblich ist <em>unersetzlich</em>.", sentence: "Sie ist <strong>unersetzlich</strong>." }
+    ],
+    contrasts: [
+      { word1: "erreichbar", tone1: "= man kann jemanden erreichen", word2: "erreichlich", tone2: "gibt es nicht", explanation: "Für Möglichkeit steht bei Verben -bar. Die -lich-Form ist auf wenige Verben beschränkt (verständlich, unersetzlich).", sentence1: "Ich bin ab neun Uhr <strong>erreichbar</strong>.", sentence2: "" }
+    ],
+    tip: "Im Berufsalltag die wichtigsten: erreichbar, verfügbar, lieferbar, bezahlbar, machbar. Verneinung mit un-: unerreichbar, unbezahlbar."
+  },
+
+  "-sam": {
+    meaning: "drückt eine Eigenschaft oder Neigung aus",
+    examples: [
+      { base: "Arbeit", result: "arbeitsam", explanation: "fleißig, arbeitet gern", sentence: "Sie ist sehr <strong>arbeitsam</strong>." },
+      { base: "Gewalt", result: "gewaltsam", explanation: "mit Gewalt", sentence: "Die <strong>gewaltsame</strong> Auseinandersetzung." },
+      { base: "Furcht", result: "furchtsam", explanation: "voller Furcht", sentence: "Das Kind ist <strong>furchtsam</strong>." },
+      { base: "Mühe", result: "mühsam", explanation: "mit viel Mühe", sentence: "Das war sehr <strong>mühsam</strong>." },
+      { base: "lang", result: "langsam", explanation: "nicht schnell", sentence: "Fahren Sie bitte <strong>langsam</strong>." },
+      { base: "wirken", result: "wirksam", explanation: "hat Wirkung", sentence: "Die Maßnahme ist <strong>wirksam</strong>." },
+      { base: "folgen", result: "folgsam", explanation: "folgt bereitwillig", sentence: "Das Kind ist <strong>folgsam</strong>." },
+      { base: "schweigen", result: "schweigsam", explanation: "schweigt viel", sentence: "Er ist sehr <strong>schweigsam</strong>." },
+      { base: "aufmerken", result: "aufmerksam", explanation: "achtet auf etwas", sentence: "Bitte hören Sie <strong>aufmerksam</strong> zu." },
+      { base: "Bedeutung", result: "bedeutsam", explanation: "von Bedeutung", sentence: "Das ist <strong>bedeutsam</strong>." },
+      { base: "sparen", result: "sparsam", explanation: "spart gern", sentence: "Er ist sehr <strong>sparsam</strong>." },
+      { base: "heilen", result: "heilsam", explanation: "bringt Heilung", sentence: "Eine <strong>heilsame</strong> Erfahrung." },
+      { base: "achten", result: "achtsam", explanation: "mit Achtsamkeit", sentence: "Seien Sie <strong>achtsam</strong>." },
+      { base: "gemein", result: "gemeinsam", uebung: false, grund: "Die Basis ist heute nicht mehr durchsichtig; „gemein“ hat eine andere Bedeutung angenommen.", explanation: "zusammen", sentence: "Wir arbeiten <strong>gemeinsam</strong>." }
+    ],
+    exceptions: [],
+    contrasts: [],
+    tip: "-sam ist nicht mehr produktiv – neue Wörter entstehen damit nicht. Die vorhandenen sind trotzdem wichtig."
+  },
+
+  "-haft": {
+    meaning: "„wie, nach Art von“ – oft mit leicht übertriebenem Ton",
+    examples: [
+      { base: "Meister", result: "meisterhaft", explanation: "wie ein Meister", sentence: "Das war <strong>meisterhaft</strong>." },
+      { base: "Fabel", result: "fabelhaft", explanation: "wie in einer Fabel, großartig", sentence: "Das Essen war <strong>fabelhaft</strong>." },
+      { base: "Märchen", result: "märchenhaft", explanation: "wie im Märchen", sentence: "Eine <strong>märchenhafte</strong> Landschaft." },
+      { base: "Traum", result: "traumhaft", explanation: "wie im Traum", sentence: "Der Urlaub war <strong>traumhaft</strong>." },
+      { base: "Held", result: "heldenhaft", explanation: "wie ein Held", sentence: "Ein <strong>heldenhafter</strong> Einsatz." },
+      { base: "Schmerz", result: "schmerzhaft", explanation: "mit Schmerz", sentence: "Das war <strong>schmerzhaft</strong>." },
+      { base: "Mangel", result: "mangelhaft", explanation: "mit Mängeln", sentence: "Die Note ist <strong>mangelhaft</strong>." },
+      { base: "Fehler", result: "fehlerhaft", explanation: "mit Fehlern", sentence: "Die Lieferung war <strong>fehlerhaft</strong>." },
+      { base: "Zweifel", result: "zweifelhaft", explanation: "voller Zweifel, unsicher", sentence: "Die Angaben sind <strong>zweifelhaft</strong>." },
+      { base: "Scham", result: "schamhaft", explanation: "mit Scham", sentence: "Sie schaute <strong>schamhaft</strong> weg." },
+      { base: "Schüler", result: "schülerhaft", explanation: "wie ein Schüler, oft abwertend", sentence: "Das wirkt <strong>schülerhaft</strong>." },
+      { base: "Frühling", result: "frühlingshaft", explanation: "wie im Frühling", sentence: "Das Wetter ist <strong>frühlingshaft</strong>." },
+      { base: "Kranke", result: "krankhaft", uebung: false, grund: "Zur Klärung vorgelegt: Basis ist vermutlich das Adjektiv „krank“, nicht das nominalisierte „Kranke“.", explanation: "wie krank, ins Übertriebene gehend", sentence: "Sein Ordnungssinn ist fast <strong>krankhaft</strong>." },
+      { base: "Perfidie", result: "perfide", uebung: false, grund: "Im Altdatensatz standen zwei Formen in einem Lösungsfeld („perfide/perfid“); hier auf die häufigere Form gesetzt.", explanation: "hinterhältig", sentence: "Ein <strong>perfider</strong> Plan." }
+    ],
+    exceptions: [],
+    contrasts: [
+      { word1: "meisterhaft", tone1: "positiv", word2: "schülerhaft", tone2: "negativ", explanation: "-haft übernimmt den Ton der Basis: Meister lobt, Schüler setzt herab.", sentence1: "Die <strong>meisterhafte</strong> Ausführung.", sentence2: "Eine <strong>schülerhafte</strong> Arbeit." }
+    ],
+    tip: "„frühlingshaft“ ist die einzige Jahreszeit mit -haft. Die anderen: sommerlich, herbstlich, winterlich."
+  },
+
+  "-los": {
+    meaning: "ohne etwas – drückt das Fehlen aus",
+    examples: [
+      { base: "Arbeit", result: "arbeitslos", explanation: "ohne Arbeit", sentence: "Er ist seit drei Monaten <strong>arbeitslos</strong>." },
+      { base: "Hoffnung", result: "hoffnungslos", explanation: "ohne Hoffnung", sentence: "Die Lage scheint <strong>hoffnungslos</strong>." },
+      { base: "Sinn", result: "sinnlos", explanation: "ohne Sinn", sentence: "Das ist völlig <strong>sinnlos</strong>." },
+      { base: "Ende", result: "endlos", explanation: "ohne Ende", sentence: "Eine <strong>endlose</strong> Diskussion." },
+      { base: "Kosten", result: "kostenlos", explanation: "ohne Kosten", sentence: "Der Eintritt ist <strong>kostenlos</strong>." },
+      { base: "Fehler", result: "fehlerlos", explanation: "ohne Fehler", sentence: "Die Arbeit ist <strong>fehlerlos</strong>." },
+      { base: "Sprache", result: "sprachlos", explanation: "ohne Worte", sentence: "Ich war <strong>sprachlos</strong>." },
+      { base: "Respekt", result: "respektlos", explanation: "ohne Respekt", sentence: "Das war <strong>respektlos</strong>." },
+      { base: "Gnade", result: "gnadenlos", explanation: "ohne Gnade", sentence: "Der Wettbewerb ist <strong>gnadenlos</strong>." },
+      { base: "Obdach", result: "obdachlos", explanation: "ohne Wohnung", sentence: "Er wurde <strong>obdachlos</strong>." },
+      { base: "Schlaf", result: "schlaflos", explanation: "ohne Schlaf", sentence: "Eine <strong>schlaflose</strong> Nacht." },
+      { base: "Furcht", result: "furchtlos", explanation: "ohne Furcht", sentence: "Sie ist <strong>furchtlos</strong>." },
+      { base: "Macht", result: "machtlos", explanation: "ohne Macht", sentence: "Ich fühle mich <strong>machtlos</strong>." }
+    ],
+    exceptions: [],
+    contrasts: [
+      { word1: "arbeitslos", tone1: "-los = ohne, hier negativ", word2: "arbeitsfrei", tone2: "-frei = frei von, hier positiv", explanation: "arbeitslos heißt: keine Stelle haben. arbeitsfrei heißt: ein freier Tag.", sentence1: "Er ist seit Mai <strong>arbeitslos</strong>.", sentence2: "Der Montag ist <strong>arbeitsfrei</strong>." }
+    ],
+    tip: "Im Berufskontext wichtig: arbeitslos, obdachlos, kostenlos. Der Unterschied zu -frei entscheidet über den Ton."
+  },
+
+  "-voll": {
+    meaning: "voll von etwas, mit viel von etwas",
+    examples: [
+      { base: "Sinn", result: "sinnvoll", explanation: "voll Sinn", sentence: "Das ist eine <strong>sinnvolle</strong> Idee." },
+      { base: "Wert", result: "wertvoll", explanation: "voll Wert", sentence: "Der Hinweis war <strong>wertvoll</strong>." },
+      { base: "Hoffnung", result: "hoffnungsvoll", explanation: "voll Hoffnung", sentence: "Wir sind <strong>hoffnungsvoll</strong>." },
+      { base: "Respekt", result: "respektvoll", explanation: "voll Respekt", sentence: "Er war sehr <strong>respektvoll</strong>." },
+      { base: "Kraft", result: "kraftvoll", explanation: "voll Kraft", sentence: "Ein <strong>kraftvoller</strong> Auftritt." },
+      { base: "Gefühl", result: "gefühlvoll", explanation: "voll Gefühl", sentence: "Eine <strong>gefühlvolle</strong> Rede." },
+      { base: "Qual", result: "qualvoll", explanation: "voll Qual", sentence: "Ein <strong>qualvoller</strong> Prozess." },
+      { base: "Reiz", result: "reizvoll", explanation: "voll Reiz", sentence: "Eine <strong>reizvolle</strong> Aufgabe." },
+      { base: "Geschmack", result: "geschmackvoll", explanation: "voll Geschmack", sentence: "Das Büro ist <strong>geschmackvoll</strong> eingerichtet." },
+      { base: "Wunder", result: "wundervoll", explanation: "voll Wunder", sentence: "Das ist <strong>wundervoll</strong>." }
+    ],
+    exceptions: [],
+    contrasts: [
+      { word1: "sinnvoll", tone1: "voll Sinn", word2: "sinnlos", tone2: "ohne Sinn", explanation: "-voll und -los bilden hier ein sauberes Gegensatzpaar.", sentence1: "Eine <strong>sinnvolle</strong> Maßnahme.", sentence2: "Eine <strong>sinnlose</strong> Diskussion." }
+    ],
+    tip: "-voll und -los sind oft Gegensatzpaare: sinnvoll/sinnlos, hoffnungsvoll/hoffnungslos, wertvoll/wertlos."
+  },
+
+  "-reich": {
+    meaning: "-reich = viel von etwas, -arm = wenig von etwas",
+    examples: [
+      { base: "Erfolg", result: "erfolgreich", explanation: "mit viel Erfolg", sentence: "Die Filiale ist <strong>erfolgreich</strong>." },
+      { base: "Zahl", result: "zahlreich", explanation: "in großer Zahl", sentence: "Es kamen <strong>zahlreiche</strong> Rückfragen." },
+      { base: "Abwechslung", result: "abwechslungsreich", explanation: "mit viel Abwechslung", sentence: "Die Stelle ist <strong>abwechslungsreich</strong>." },
+      { base: "Idee", result: "ideenreich", explanation: "voll Ideen", sentence: "Das Team ist <strong>ideenreich</strong>." },
+      { base: "Fantasie", result: "fantasiereich", explanation: "voll Fantasie", sentence: "Ein <strong>fantasiereicher</strong> Entwurf." },
+      { base: "Ereignis", result: "ereignisreich", explanation: "voll Ereignisse", sentence: "Ein <strong>ereignisreicher</strong> Tag." },
+      { base: "Vitamin", result: "vitaminreich", explanation: "voll Vitamine", sentence: "Obst ist <strong>vitaminreich</strong>." },
+      { base: "Kalorien", result: "kalorienarm", explanation: "wenig Kalorien", sentence: "Das Gericht ist <strong>kalorienarm</strong>." },
+      { base: "Fett", result: "fettarm", explanation: "wenig Fett", sentence: "<strong>Fettarme</strong> Milch." },
+      { base: "Kontrast", result: "kontrastarm", explanation: "wenig Kontrast", sentence: "Der Ausdruck ist <strong>kontrastarm</strong>." }
+    ],
+    exceptions: [],
+    contrasts: [
+      { word1: "kalorienreich", tone1: "viel Kalorien", word2: "kalorienarm", tone2: "wenig Kalorien", explanation: "-reich und -arm sind Gegensätze an derselben Basis.", sentence1: "Schokolade ist <strong>kalorienreich</strong>.", sentence2: "Salat ist <strong>kalorienarm</strong>." }
+    ],
+    tip: "Sehr produktiv bei Ernährung und Stellenanzeigen: vitaminreich, kalorienarm, fettarm, abwechslungsreich, verantwortungsvoll."
+  },
+
+  "-frei": {
+    meaning: "frei von etwas – oft positiv",
+    examples: [
+      { base: "Arbeit", result: "arbeitsfrei", explanation: "frei von Arbeit, positiv gemeint", sentence: "Der Brückentag ist <strong>arbeitsfrei</strong>." },
+      { base: "Fehler", result: "fehlerfrei", explanation: "ohne Fehler", sentence: "Die Abrechnung ist <strong>fehlerfrei</strong>." },
+      { base: "Alkohol", result: "alkoholfrei", explanation: "ohne Alkohol", sentence: "Ein <strong>alkoholfreies</strong> Getränk." },
+      { base: "Zucker", result: "zuckerfrei", explanation: "ohne Zucker", sentence: "<strong>Zuckerfreie</strong> Bonbons." },
+      { base: "Stress", result: "stressfrei", explanation: "ohne Stress", sentence: "Ein <strong>stressfreier</strong> Ablauf." },
+      { base: "Barriere", result: "barrierefrei", explanation: "ohne Barrieren", sentence: "Der Zugang ist <strong>barrierefrei</strong>." },
+      { base: "Gebühr", result: "gebührenfrei", explanation: "ohne Gebühren", sentence: "Das Konto ist <strong>gebührenfrei</strong>." },
+      { base: "Sorge", result: "sorgenfrei", explanation: "ohne Sorgen", sentence: "Ein <strong>sorgenfreier</strong> Ruhestand." },
+      { base: "Gluten", result: "glutenfrei", explanation: "ohne Gluten", sentence: "<strong>Glutenfreies</strong> Brot." },
+      { base: "Laktose", result: "laktosefrei", explanation: "ohne Laktose", sentence: "<strong>Laktosefreie</strong> Milch." }
+    ],
+    exceptions: [],
+    contrasts: [
+      { word1: "arbeitsfrei", tone1: "positiv: ein freier Tag", word2: "arbeitslos", tone2: "negativ: keine Stelle", explanation: "-frei ist meist positiv, -los meist negativ. Dieselbe Basis, gegenteiliger Ton.", sentence1: "Montag ist <strong>arbeitsfrei</strong>.", sentence2: "Er ist seit Mai <strong>arbeitslos</strong>." }
+    ],
+    tip: "Im Berufskontext wichtig: barrierefrei (Arbeitsplatz), gebührenfrei (Konto), stressfrei (Ablauf)."
+  },
+
+  "-mäßig": {
+    meaning: "„entsprechend, gemäß, in der Art von“",
+    examples: [
+      { base: "Regel", result: "regelmäßig", explanation: "nach Regeln, wiederkehrend", sentence: "Die Wartung erfolgt <strong>regelmäßig</strong>." },
+      { base: "Plan", result: "planmäßig", explanation: "nach Plan", sentence: "Der Zug fährt <strong>planmäßig</strong>." },
+      { base: "Gesetz", result: "gesetzmäßig", explanation: "dem Gesetz entsprechend", sentence: "Das Verfahren ist <strong>gesetzmäßig</strong>." },
+      { base: "Verhältnis", result: "verhältnismäßig", explanation: "im Verhältnis", sentence: "Das war <strong>verhältnismäßig</strong> einfach." },
+      { base: "Gewohnheit", result: "gewohnheitsmäßig", explanation: "aus Gewohnheit", sentence: "Er prüft das <strong>gewohnheitsmäßig</strong>." },
+      { base: "Verkehr", result: "verkehrsmäßig", explanation: "den Verkehr betreffend", sentence: "Die <strong>verkehrsmäßige</strong> Anbindung ist gut." },
+      { base: "Routine", result: "routinemäßig", explanation: "wie Routine", sentence: "Eine <strong>routinemäßige</strong> Kontrolle." },
+      { base: "Beruf", result: "berufsmäßig", explanation: "wie im Beruf", sentence: "Er macht das <strong>berufsmäßig</strong>." }
+    ],
+    exceptions: [
+      { base: "Ordnung", expected: "ordnungsmäßig", actual: "ordnungsgemäß", beideFormen: true, explanation: "Beide Formen gibt es. Im Alltag steht <em>ordnungsgemäß</em>; <em>ordnungsmäßig</em> ist Fachsprache – „Grundsätze ordnungsmäßiger Buchführung“ (§ 238 HGB).", sentence: "Alles wurde <strong>ordnungsgemäß</strong> abgelegt." }
+    ],
+    contrasts: [],
+    tip: "-mäßig klingt oft umgangssprachlich: „Wettermäßig sieht es gut aus.“ In formellen Texten besser umformulieren: „Das Wetter ist gut.“"
+  },
+
+  "-al/-ell": {
+    meaning: "aus dem Lateinischen, drückt Zugehörigkeit aus",
+    examples: [
+      { base: "Nation", result: "national", explanation: "die Nation betreffend", sentence: "Die <strong>nationale</strong> Regelung." },
+      { base: "Region", result: "regional", explanation: "die Region betreffend", sentence: "<strong>Regionale</strong> Produkte." },
+      { base: "Zentrum", result: "zentral", explanation: "im Zentrum", sentence: "Die <strong>zentrale</strong> Lage." },
+      { base: "Form", result: "formal", explanation: "die Form betreffend", sentence: "Das ist eine <strong>formale</strong> Anforderung." },
+      { base: "Kultur", result: "kulturell", explanation: "die Kultur betreffend", sentence: "Das <strong>kulturelle</strong> Angebot." },
+      { base: "Struktur", result: "strukturell", explanation: "die Struktur betreffend", sentence: "Ein <strong>strukturelles</strong> Problem." },
+      { base: "Finanzen", result: "finanziell", explanation: "die Finanzen betreffend", sentence: "Die <strong>finanzielle</strong> Lage." },
+      { base: "Industrie", result: "industriell", explanation: "die Industrie betreffend", sentence: "Die <strong>industrielle</strong> Fertigung." },
+      { base: "Tradition", result: "traditionell", explanation: "der Tradition entsprechend", sentence: "Ein <strong>traditionelles</strong> Verfahren." }
+    ],
+    exceptions: [],
+    contrasts: [],
+    tip: "Basis endet auf Vokal → meist -ell: Kultur → kulturell, Industrie → industriell. Basis endet auf Konsonant → meist -al: Region → regional, Nation → national."
+  },
+
+  "-iv": {
+    meaning: "aus dem Lateinischen, macht aus Handlungsnomen Adjektive",
+    examples: [
+      { base: "Produkt", result: "produktiv", explanation: "viel hervorbringend", sentence: "Das war ein <strong>produktiver</strong> Tag." },
+      { base: "—", result: "intensiv", uebung: false, grund: "Kein deutsches Basiswort. „Intensität“ ist vom Adjektiv abgeleitet, nicht umgekehrt.", explanation: "stark, tief – aus lat. <em>intensus</em>, im Deutschen nicht ableitbar", sentence: "Eine <strong>intensive</strong> Einarbeitung." },
+      { base: "Attraktion", result: "attraktiv", explanation: "anziehend", sentence: "Ein <strong>attraktives</strong> Angebot." },
+      { base: "Konstruktion", result: "konstruktiv", explanation: "aufbauend", sentence: "<strong>Konstruktive</strong> Kritik." },
+      { base: "Information", result: "informativ", explanation: "informierend", sentence: "Die Schulung war <strong>informativ</strong>." },
+      { base: "Kommunikation", result: "kommunikativ", explanation: "gesprächsbereit", sentence: "Sie ist sehr <strong>kommunikativ</strong>." },
+      { base: "Negation", result: "negativ", explanation: "verneinend", sentence: "Eine <strong>negative</strong> Rückmeldung." },
+      { base: "Qualität", result: "qualitativ", explanation: "die Qualität betreffend", sentence: "Eine <strong>qualitative</strong> Verbesserung." },
+      { base: "—", result: "aktiv", uebung: false, grund: "Synchron keine reguläre Ableitung: „Aktion“ ist nicht die Basis von „aktiv“, beide gehen auf dieselbe lateinische Wurzel zurück.", explanation: "handelnd, sich einbringend", sentence: "Er bringt sich <strong>aktiv</strong> ein." },
+      { base: "—", result: "passiv", uebung: false, grund: "Kein deutsches Basiswort; „Passiv“ als Nomen ist der grammatische Fachbegriff, nicht die Basis.", explanation: "abwartend, nicht handelnd", sentence: "Sie blieb in der Besprechung <strong>passiv</strong>." },
+      { base: "—", result: "kreativ", uebung: false, grund: "Kein deutsches Basiswort. „Kreativität“ ist vom Adjektiv abgeleitet, nicht umgekehrt.", explanation: "schöpferisch – aus lat. <em>creare</em>, im Deutschen nicht ableitbar", sentence: "Ein <strong>kreativer</strong> Vorschlag." }
+    ],
+    exceptions: [],
+    contrasts: [
+      { word1: "aktiv", tone1: "handelnd", word2: "passiv", tone2: "abwartend", explanation: "Das klassische Gegensatzpaar – im Arbeitszeugnis ein deutliches Signal.", sentence1: "Er bringt sich <strong>aktiv</strong> ein.", sentence2: "Sie blieb in der Besprechung <strong>passiv</strong>." }
+    ],
+    tip: "Im Berufskontext lauter positive Eigenschaften: produktiv, kommunikativ, konstruktiv, kooperativ, initiativ."
+  },
+
+  "-ös": {
+    meaning: "aus dem Französischen, oft „voll von, reich an“",
+    examples: [
+      { base: "Nerv", result: "nervös", explanation: "aufgeregt", sentence: "Vor der Prüfung bin ich <strong>nervös</strong>." },
+      { base: "Luxus", result: "luxuriös", explanation: "voll Luxus", sentence: "Ein <strong>luxuriöses</strong> Hotel." },
+      { base: "Ambition", result: "ambitiös", explanation: "ehrgeizig", sentence: "Ein <strong>ambitiöses</strong> Projekt." },
+      { base: "Religion", result: "religiös", explanation: "die Religion betreffend", sentence: "Eine <strong>religiöse</strong> Feiertagsregelung." },
+      { base: "Mysterium", result: "mysteriös", explanation: "geheimnisvoll", sentence: "Ein <strong>mysteriöser</strong> Vorfall." },
+      { base: "—", result: "seriös", uebung: false, grund: "Kein deutsches Basiswort. „Seriosität“ ist vom Adjektiv abgeleitet, nicht umgekehrt.", explanation: "ernsthaft, vertrauenswürdig – aus frz. <em>sérieux</em>", sentence: "Eine <strong>seriöse</strong> Firma." }
+    ],
+    exceptions: [],
+    contrasts: [],
+    tip: "„seriös“ ist im Berufskontext das wichtigste Wort dieser Gruppe: eine seriöse Bewerbung, ein seriöses Unternehmen."
+  },
+
+  "-abel/-ibel": {
+    meaning: "aus dem Lateinischen und Französischen: „kann gemacht werden“ – wie -bar",
+    examples: [
+      { base: "akzeptieren", result: "akzeptabel", explanation: "kann akzeptiert werden", sentence: "Das Ergebnis ist <strong>akzeptabel</strong>." },
+      { base: "reparieren", result: "reparabel", explanation: "kann repariert werden", sentence: "Der Schaden ist <strong>reparabel</strong>." },
+      { base: "praktizieren", result: "praktikabel", explanation: "lässt sich in der Praxis umsetzen", sentence: "Die Lösung ist <strong>praktikabel</strong>." },
+      { base: "variieren", result: "variabel", explanation: "kann variiert werden", sentence: "Die Arbeitszeiten sind <strong>variabel</strong>." },
+      { base: "profitieren", result: "profitabel", explanation: "bringt Profit", sentence: "Der Standort ist <strong>profitabel</strong>." },
+      { base: "disponieren", result: "disponibel", explanation: "verfügbar", sentence: "Sind Sie morgen <strong>disponibel</strong>?" },
+      { base: "—", result: "kompatibel", uebung: false, grund: "Kein deutsches Basiswort. „Kompatibilität“ ist vom Adjektiv abgeleitet, nicht umgekehrt.", explanation: "vereinbar", sentence: "Die Systeme sind <strong>kompatibel</strong>." },
+      { base: "—", result: "flexibel", uebung: false, grund: "Kein deutsches Basiswort – im Altdatensatz stand „flexibel“ als eigene Basis.", explanation: "anpassungsfähig", sentence: "Unsere Arbeitszeiten sind <strong>flexibel</strong>." },
+      { base: "—", result: "sensibel", uebung: false, grund: "Kein deutsches Basiswort – im Altdatensatz stand „sensibel“ als eigene Basis.", explanation: "empfindlich, feinfühlig", sentence: "Das ist ein <strong>sensibles</strong> Thema." },
+      { base: "—", result: "plausibel", uebung: false, grund: "Kein deutsches Basiswort – im Altdatensatz stand „plausibel“ als eigene Basis.", explanation: "einleuchtend", sentence: "Die Begründung klingt <strong>plausibel</strong>." },
+      { base: "—", result: "komfortabel", uebung: false, grund: "Kein deutsches Basiswort – im Altdatensatz stand „komfortabel“ als eigene Basis.", explanation: "bequem", sentence: "Der Bürostuhl ist <strong>komfortabel</strong>." }
+    ],
+    exceptions: [],
+    contrasts: [
+      { word1: "akzeptabel", tone1: "Fremdwortform", word2: "akzeptierbar", tone2: "deutsche Form, seltener", explanation: "-abel und -bar können nebeneinander bestehen. Im Schriftverkehr ist die Fremdwortform üblicher.", sentence1: "Der Vorschlag ist <strong>akzeptabel</strong>.", sentence2: "Der Vorschlag ist <strong>akzeptierbar</strong>." }
+    ],
+    tip: "Im Berufskontext wichtig: flexibel, variabel, kompatibel, praktikabel – alles Wörter für Anpassungsfähigkeit."
+  }
+};
+
+/* =====================================================================
+   Übungstauglichkeit steht am Eintrag, nicht im Generator.
+
+   Wo `uebung: false` gesetzt ist, steht daneben `grund`. Maßstab ist
+   nicht die Zeichenfolge, sondern ob sich das Ziel aus der Basis
+   ableiten lässt: Vernunft → vernünftig besteht diesen Test,
+   Fuß → leichtfüßig nicht.
+
+   Der Generator liest die Markierung nur aus. Eine Heuristik gibt es
+   nicht – sie hätte reguläre Umlautungen mit aussortiert.
+   ===================================================================== */
+
+/* Kontrastpaare, bei denen beide Formen zulässig sind. Sie taugen zum
+   Vergleichen, aber nicht zum Entscheiden – Schlüssel ist das alphabetisch
+   sortierte Wortpaar. */
+const KEIN_ENTSCHEIDUNGSPAAR = {
+  "akzeptabel|akzeptierbar": "Beide Formen sind korrekt; es geht um das Register, nicht um richtig oder falsch."
+};
+
+function markiertesWort(satz) {
+  const treffer = /<strong>(.*?)<\/strong>/.exec(satz || "");
+  return treffer ? treffer[1] : "";
+}
+
+function taugtAlsAufgabe(eintrag) {
+  return eintrag.uebung !== false && !!markiertesWort(eintrag.sentence);
+}
+
+/* =====================================================================
+   Nachschlagen – Suffix wählen, Karte aufbauen
+   ===================================================================== */
+
+const GRUPPEN = [
+  { titel: "Deutsche Suffixe",   suffixe: ["-ig", "-lich", "-isch", "-bar", "-sam", "-haft"] },
+  { titel: "Kompositionsformen", suffixe: ["-los", "-voll", "-reich", "-frei", "-mäßig"] },
+  { titel: "Fremdwortsuffixe",   suffixe: ["-al/-ell", "-iv", "-ös", "-abel/-ibel"] }
+];
+
+const wahl  = document.getElementById("suffix-wahl");
+const karte = document.getElementById("suffix-karte");
+
+GRUPPEN.forEach(g => {
+  const box = document.createElement("div");
+  box.className = "gruppe";
+  const h = document.createElement("h3");
+  h.textContent = g.titel;
+  box.appendChild(h);
+  g.suffixe.forEach(s => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "knopf";
+    b.textContent = s;
+    b.setAttribute("aria-pressed", "false");
+    b.addEventListener("click", () => zeigeSuffix(s));
+    box.appendChild(b);
+  });
+  wahl.appendChild(box);
+});
+
+function zeigeSuffix(suffix) {
+  const d = suffixData[suffix];
+  if (!d) return;
+
+  wahl.querySelectorAll("button").forEach(b =>
+    b.setAttribute("aria-pressed", String(b.textContent === suffix)));
+
+  const teile = [];
+  teile.push('<h2>' + suffix + '</h2>');
+  teile.push('<p class="anleitung">' + d.meaning + '</p>');
+
+  teile.push('<h3>Beispiele</h3><div class="wortgitter">');
+  d.examples.forEach(e => {
+    teile.push('<div><div class="paar"><span>' + e.base +
+               '</span><span class="pfeil">→</span><strong>' + e.result +
+               '</strong></div><div class="detail">' + e.explanation +
+               '<br>' + e.sentence + '</div></div>');
+  });
+  teile.push('</div>');
+
+  if (d.exceptions.length) {
+    teile.push('<h3>Ausnahmen</h3><div class="wortgitter">');
+    d.exceptions.forEach(e => {
+      teile.push('<div><div class="paar"><span>' + e.base +
+                 '</span><span class="pfeil">→</span><span><span class="falschform">' +
+                 e.expected + '</span> → <strong>' + e.actual +
+                 '</strong></span></div><div class="detail">' + e.explanation +
+                 '<br>' + e.sentence + '</div></div>');
+    });
+    teile.push('</div><p class="anleitung">Die blasse Form ist die, die man erwarten würde. Sie steht hier, weil genau sie erfahrungsgemäß gebildet wird.</p>');
+  }
+
+  if (d.contrasts.length) {
+    teile.push('<h3>Der feine Unterschied</h3>');
+    d.contrasts.forEach(c => {
+      teile.push('<div class="kasten"><h4>' + c.word1 + ' gegen ' + c.word2 + '</h4>' +
+                 '<p><strong>' + c.word1 + '</strong> – ' + c.tone1 + '<br>' +
+                 '<strong>' + c.word2 + '</strong> – ' + c.tone2 + '</p>' +
+                 '<p>' + c.explanation + '</p>' +
+                 '<p class="satz">' + c.sentence1 + (c.sentence2 ? '<br>' + c.sentence2 : '') + '</p></div>');
+    });
+  }
+
+  teile.push('<div class="kasten"><h4>Für den Unterricht</h4><p>' + d.tip + '</p></div>');
+
+  karte.innerHTML = teile.join("");
+}
+
+zeigeSuffix("-ig");
+
+/* =====================================================================
+   Üben – Aufgaben werden aus demselben Datensatz erzeugt
+   ===================================================================== */
+
+Lehrwerk.modul("suffixe-adjektive");
+Lehrwerk.reiter();
+
+/* --- Stufe 1: je Suffix der erste taugliche Eintrag ---------------- */
+
+const s1Box    = document.getElementById("stufe1");
+const s1Felder = {};
+let   s1Nummer = 0;
+
+Object.keys(suffixData).forEach(suffix => {
+  const eintrag = suffixData[suffix].examples.find(taugtAlsAufgabe);
+  if (!eintrag) return;
+
+  s1Nummer++;
+  const id   = "s1-" + s1Nummer;
+  const wort = markiertesWort(eintrag.sentence);
+  const satz = eintrag.sentence.replace(/<strong>.*?<\/strong>/,
+                 '<input class="luecke" id="' + id + '" placeholder="Adjektiv" autocomplete="off" aria-label="Lücke ' + s1Nummer + '">');
+
+  /* Zwei Lösungen gelten: die Grundform und die gebeugte Form aus dem
+     Satz. Beide stehen im Datensatz, keine wird zusätzlich gepflegt. */
+  s1Felder[id] = wort.toLowerCase() === eintrag.result.toLowerCase()
+    ? [eintrag.result]
+    : [wort, eintrag.result];
+
+  const div = document.createElement("div");
+  div.className = "frage";
+  div.innerHTML = '<p><strong>' + s1Nummer + '.</strong> Basis: <em>' +
+                  eintrag.base + '</em> · Suffix: <em>' + suffix + '</em></p>' +
+                  '<p>' + satz + '</p>';
+  s1Box.appendChild(div);
+});
+
+Lehrwerk.luecken("s1", {
+  felder:  s1Felder,
+  pruefen: "s1-pruefen",
+  rueck:   "s1-rueck",
+  tipp:    "s1-tipp",
+  hinweis: "s1-hinweis",
+  eindeutig: true
+});
+
+/* --- Stufe 1b: die Ausnahmen, in eigenem Pool ----------------------
+   Ausnahmen dürfen nicht in den Regelpool: Dort legt der Kontext genau
+   die regelmäßige Form nahe – also den Fehler, den das Modul verhindern
+   soll. Sie bekommen deshalb einen eigenen Auftrag und werden als
+   Auswahl gestellt, erwartete Form gegen tatsächliche. */
+
+const s1bFragen = [];
+let   s1bNummer = 0;
+
+Object.keys(suffixData).forEach(suffix => {
+  suffixData[suffix].exceptions.forEach(e => {
+    const wort = markiertesWort(e.sentence);
+    if (!wort || !e.expected || !e.actual) return;
+    if (e.auswahl === false) return;
+
+    /* Wo beide Formen existieren, sind auch beide richtig. Der Ertrag
+       liegt dann nicht im Aussortieren, sondern in Häufigkeit und
+       Register – das steht in der Erklärung. */
+    s1bNummer++;
+    s1bFragen.push({
+      id: "s1b-" + s1bNummer,
+      text: "<em>" + suffix + "</em> · Basis: <em>" + e.base + "</em><br>" +
+            e.sentence.replace(/<strong>.*?<\/strong>/, "____"),
+      optionen: [e.expected, e.actual],
+      richtig: e.beideFormen ? [e.expected, e.actual] : [e.actual],
+      erklaerung: e.beideFormen
+        ? e.explanation
+        : e.explanation + " – Die regelmäßig gebildete Form „" + e.expected +
+          "“ ist nicht gebräuchlich."
+    });
+  });
+});
+
+Lehrwerk.auswahl("stufe1b", s1bFragen);
+
+/* --- Stufe 2: alle Kontrastpaare des Datensatzes ------------------- */
+
+const s2Fragen = [];
+let   s2Nummer = 0;
+const gesehen  = {};
+
+Object.keys(suffixData).forEach(suffix => {
+  suffixData[suffix].contrasts.forEach(c => {
+    if (!c.word1 || !c.word2 || !c.sentence1) return;
+    if (!/<strong>/.test(c.sentence1)) return;
+
+    /* Dasselbe Paar steht bei mehreren Suffixen (kindlich/kindisch).
+       Es soll nur einmal abgefragt werden. */
+    const schluessel = [c.word1, c.word2].sort().join("|");
+    if (gesehen[schluessel]) return;
+    gesehen[schluessel] = true;
+
+    /* Nicht jedes Kontrastpaar ist ein Entscheidungspaar: Wo beide Formen
+       zulässig sind, wäre eine Richtig-falsch-Frage irreführend. Diese
+       Paare bleiben im Nachschlageteil, nur nicht in der Übung. */
+    if (KEIN_ENTSCHEIDUNGSPAAR[schluessel]) return;
+
+    /* Die Auswahl steht in der Grundform, der Satz kann gebeugt sein.
+       Richtig ist deshalb word1 bzw. word2 – nicht das markierte Wort. */
+    s2Nummer++;
+    s2Fragen.push({
+      id: "s2-" + s2Nummer,
+      text: c.sentence1.replace(/<strong>.*?<\/strong>/, "____"),
+      optionen: [c.word1, c.word2],
+      richtig: [c.word1],
+      erklaerung: c.explanation
+    });
+
+    if (c.sentence2 && /<strong>/.test(c.sentence2)) {
+      s2Nummer++;
+      s2Fragen.push({
+        id: "s2-" + s2Nummer,
+        text: c.sentence2.replace(/<strong>.*?<\/strong>/, "____"),
+        optionen: [c.word1, c.word2],
+        richtig: [c.word2],
+        erklaerung: c.explanation
+      });
+    }
+  });
+});
+
+Lehrwerk.auswahl("stufe2", s2Fragen);
+
+Lehrwerk.abschluss();
+</script>
+
+</body>
+</html>

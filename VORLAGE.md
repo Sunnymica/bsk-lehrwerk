@@ -58,9 +58,21 @@ wirklichen Betrieb der Lernenden. Deshalb gilt durchgehend:
 > **Geschlossene Aufgaben spielen bei KONTOR. Offene Aufgaben spielen im eigenen
 > Betrieb, Praktikum oder Wunscharbeitsplatz.**
 
-**KONTOR Büro & Logistik GmbH** handelt mit Bürobedarf: Einkauf beim Hersteller,
-Lager und Versand, Verkauf an Firmen und Behörden. Im Fließtext heißt sie kurz
+**KONTOR AG** handelt mit Bürobedarf: Einkauf beim Hersteller, Lager und
+Versand, Verkauf an Firmen und Behörden. Im Fließtext heißt sie kurz
 *KONTOR*, auf Briefköpfen, Rechnungen und Formularen vollständig.
+
+Sitz ist **Köln**; bundesweit gibt es **35 Filialen**, unter anderem in
+Hamburg, Berlin und München. Der Betrieb ist in sechs Abteilungen
+gegliedert: *Verwaltung & Office-Management*, *Finanzen & Controlling*,
+*Kundenservice*, *Logistik & Lager*, *Vertrieb & Außendienst*,
+*Personal*.
+
+> **Namensentscheidung (Regina, 2026-08-15):** Die frühere Form
+> *KONTOR Büro und Logistik* entfällt ersatzlos. Es gibt nur **KONTOR AG**,
+> kurz **KONTOR**. Grund: Im Altbestand steht der Name 24-mal, in keiner
+> Datei die Langform — und zwei Firmennamen für dieselbe Modellwelt
+> verwirren.
 
 | Person | Funktion | Abteilung |
 |---|---|---|
@@ -69,6 +81,13 @@ Lager und Versand, Verkauf an Firmen und Behörden. Im Fließtext heißt sie kur
 | Nora Seidel | Sachbearbeiterin | Einkauf |
 | Jonas Becker | Mitarbeiter | Verkauf und Kundenservice |
 | Pawel Nowak | Teamleiter | Lager und Versand |
+| Olena Karpenko | Office-Managerin, neu im Betrieb | Verwaltung |
+
+**Olena Karpenko** ist 41, war in der Ukraine Buchhalterin und fängt bei KONTOR
+als Office-Managerin an. Sie ist die einzige Figur, die selbst neu ist — sie darf
+fragen, sich unsicher fühlen und Dinge zum ersten Mal tun. Diese Perspektive
+fehlt sonst im Ensemble und wird für Module gebraucht, in denen etwas erklärt
+oder eingearbeitet wird.
 
 Diese Besetzung ist verbindlich und wird nicht je Modul neu erfunden. Pawel Nowak
 wird mit lateinischem l geschrieben, damit der Name in Lücken und Zuordnungen

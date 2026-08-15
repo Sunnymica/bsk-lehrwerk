@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Projektauftrag: Sicherheits-Intranet – Berufssprachkurs</title>
+<link rel="stylesheet" href="../assets/basis.css">
+<link rel="stylesheet" href="../assets/platform.css">
+<link rel="stylesheet" href="../assets/lehrwerk.css">
+<link rel="stylesheet" href="../assets/aufgaben.css">
+<script src="../data/homework.js" defer></script>
+<script src="../assets/platform.js"></script>
+<style>
+  .auftrag { display: grid; grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr)); gap: .8rem; margin: 1rem 0; }
+  .auftrag > div { padding: .9rem 1.1rem; border-radius: .4rem; background: rgba(127,127,127,.07);
+                   border-left: 3px solid rgba(127,127,127,.4); }
+  .auftrag h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+  .auftrag .was { font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; opacity: .65; margin: 0 0 .3rem; }
+  .auftrag ul { margin: .4rem 0 0; padding-left: 1.1rem; }
+  .uhr { font-size: 2.4rem; font-weight: 700; letter-spacing: .05em; text-align: center; margin: .5rem 0; }
+</style>
+</head>
+<body data-page="module" data-bereich="buero" data-root="../">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../buero.html">← Büro und Verwaltung</a>
+    <h1><em>Projektauftrag</em>: Sicherheits-Intranet</h1>
+    <p class="anleitung">Die KONTOR AG baut ihr Intranet um. Der Bereich Sicherheit ist leer — und Sie füllen ihn. Sechs Aufträge zur Wahl, Paararbeit, Präsentation am Ende der Woche.</p>
+  </div>
+</header>
+
+<main class="innen modul">
+
+  <div class="reiter" role="tablist">
+    <button role="tab" aria-selected="true"  data-blatt="auftrag">Der Auftrag</button>
+    <button role="tab" aria-selected="false" data-blatt="waehlen">Sechs Aufträge</button>
+    <button role="tab" aria-selected="false" data-blatt="sprache">Sprache</button>
+    <button role="tab" aria-selected="false" data-blatt="arbeiten">Arbeitsraum</button>
+  </div>
+
+  <!-- ============ Der Auftrag ============ -->
+  <section class="blatt" id="blatt-auftrag">
+
+    <div class="kasten">
+      <h3>Die Lage</h3>
+      <p>Die Personalabteilung der KONTOR AG hat festgestellt, dass viele Kolleginnen und Kollegen die Sicherheitsregeln zwar einmal im Jahr hören, aber nicht nachlesen können. Das Intranet soll deshalb einen Bereich <strong>Sicherheit</strong> bekommen.</p>
+      <p><strong>Sie schreiben die Inhalte.</strong> Nicht als Übung — als Text, den andere lesen sollen.</p>
+    </div>
+
+    <h2>So läuft es</h2>
+
+    <div class="kasten">
+      <ol>
+        <li><strong>Paare bilden.</strong> Zu zweit, in Ausnahmefällen zu dritt.</li>
+        <li><strong>Einen Auftrag wählen</strong> — sechs stehen zur Auswahl.</li>
+        <li><strong>20 bis 30 Minuten arbeiten.</strong> Wer früh fertig ist, nimmt einen zweiten Auftrag.</li>
+        <li><strong>Ergebnisse notieren</strong> — im Arbeitsraum unten, dort bleiben sie gespeichert.</li>
+        <li><strong>Präsentieren</strong>, drei bis fünf Minuten je Paar.</li>
+      </ol>
+    </div>
+
+    <h2>Timer</h2>
+
+    <div class="kasten">
+      <div class="uhr" id="uhr">30:00</div>
+      <div class="knopfreihe">
+        <button class="knopf" type="button" onclick="starten()">▶ Start</button>
+        <button class="knopf" type="button" onclick="anhalten()">⏸ Pause</button>
+        <button class="knopf" type="button" onclick="stellen(1800)">30 Min</button>
+        <button class="knopf" type="button" onclick="stellen(1200)">20 Min</button>
+      </div>
+    </div>
+
+    <div class="kasten">
+      <h3>Worauf es ankommt</h3>
+      <p>Der Text wird gelesen, nicht gehört — von Menschen, die etwas suchen und wenig Zeit haben. Das ändert die Sprache:</p>
+      <ul>
+        <li><strong>kurze Sätze</strong>, ein Gedanke pro Satz</li>
+        <li><strong>keine Schachtelsätze</strong> — im Zweifel zwei Sätze statt einem</li>
+        <li><strong>Überschriften</strong>, die sagen, was darunter steht</li>
+        <li><strong>Sie-Form</strong> oder unpersönlich, aber einheitlich</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- ============ Sechs Aufträge ============ -->
+  <section class="blatt" id="blatt-waehlen">
+
+    <div class="auftrag">
+
+      <div>
+        <p class="was">Auftrag 1</p>
+        <h3>📋 Checkliste „Sicher durch den Arbeitstag“</h3>
+        <p>Zehn bis zwölf Punkte, von „morgens ankommen“ bis „Feierabend“.</p>
+        <ul>
+          <li>verschiedene Bereiche abdecken, nicht nur IT</li>
+          <li>je ein kurzer Satz, mit Verb</li>
+          <li>in der Reihenfolge des Tages</li>
+        </ul>
+        <p class="satz"><strong>Beispiel:</strong> „Sperren Sie den Bildschirm, wenn Sie den Platz verlassen.“</p>
+      </div>
+
+      <div>
+        <p class="was">Auftrag 2</p>
+        <h3>❓ Fünf häufige Fragen</h3>
+        <p>Fragen, die im Betrieb wirklich gestellt werden, mit Antworten von zwei bis vier Sätzen.</p>
+        <ul>
+          <li>echte Fragen, keine Prüfungsfragen</li>
+          <li>Antwort zuerst, Begründung danach</li>
+          <li>verschiedene Bereiche</li>
+        </ul>
+        <p class="satz"><strong>Beispiel:</strong> „Was mache ich, wenn ich meine Zugangskarte verloren habe?“</p>
+      </div>
+
+      <div>
+        <p class="was">Auftrag 3</p>
+        <h3>🎮 Sicherheits-Quiz</h3>
+        <p>Fünf Fragen mit je drei Antwortmöglichkeiten und einer kurzen Erklärung.</p>
+        <ul>
+          <li>eine Antwort richtig, zwei plausibel falsch</li>
+          <li>die Erklärung sagt <em>warum</em>, nicht nur <em>was</em></li>
+          <li>keine Fangfragen</li>
+        </ul>
+        <p class="satz"><strong>Der schwerste Teil</strong> sind die falschen Antworten: Sie müssen möglich klingen.</p>
+      </div>
+
+      <div>
+        <p class="was">Auftrag 4</p>
+        <h3>🚨 Notfall-Anleitung</h3>
+        <p>Eine Seite: Was tun bei Feuer, Unfall, Stromausfall?</p>
+        <ul>
+          <li>nummerierte Schritte, keine Fließtexte</li>
+          <li>das Wichtigste zuerst</li>
+          <li>Nummern groß und sichtbar</li>
+        </ul>
+        <p class="satz">Diese Seite liest jemand <strong>im Notfall</strong>. Jedes überflüssige Wort kostet Zeit.</p>
+      </div>
+
+      <div>
+        <p class="was">Auftrag 5</p>
+        <h3>💡 Zehn Sicherheitstipps</h3>
+        <p>Kurze, konkrete Tipps — jeder mit einer Begründung in einem Satz.</p>
+        <ul>
+          <li>konkret statt allgemein</li>
+          <li>Begründung, sonst wird es nicht befolgt</li>
+          <li>kein erhobener Zeigefinger</li>
+        </ul>
+        <p class="satz"><strong>Schwach:</strong> „Seien Sie vorsichtig.“ · <strong>Stark:</strong> „Decken Sie Kabel ab — Stürze sind der häufigste Bürounfall.“</p>
+      </div>
+
+      <div>
+        <p class="was">Auftrag 6</p>
+        <h3>📱 Notfall-Karte im Scheckkartenformat</h3>
+        <p>Alles Wichtige auf einer Karte, die in den Ausweishalter passt.</p>
+        <ul>
+          <li>maximal 60 Wörter</li>
+          <li>Nummern, Sammelplatz, drei Verhaltensregeln</li>
+          <li>Vorder- und Rückseite planen</li>
+        </ul>
+        <p class="satz">Die härteste Übung im Kurs: <strong>weglassen</strong>. Was nicht auf die Karte passt, ist nicht das Wichtigste.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ============ Sprache ============ -->
+  <section class="blatt" id="blatt-sprache">
+
+    <h2>Vier Bausteine für Intranet-Texte</h2>
+
+    <div class="kasten">
+      <h3>1. Anweisung: Imperativ in der Sie-Form</h3>
+      <p><em>Sperren Sie den Bildschirm.</em> · <em>Melden Sie den Verlust sofort.</em></p>
+      <p>Kürzer und klarer als „Der Bildschirm sollte gesperrt werden“. Für Checklisten und Anleitungen die erste Wahl.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>2. Regel: Passiv oder Kurzform</h3>
+      <p><em>Fluchtwege sind freizuhalten.</em> · <em>Die Tür darf nicht verkeilt werden.</em></p>
+      <p>Wenn die Regel für alle gilt und niemand persönlich angesprochen wird.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>3. Bedingung: <em>wenn</em> oder <em>bei</em></h3>
+      <p><em>Wenn Sie den Platz verlassen, sperren Sie den Bildschirm.</em><br>
+      <em>Bei Feueralarm verlassen Sie das Gebäude sofort.</em></p>
+      <p class="satz">Die Kurzform mit <em>bei</em> + Nomen spart einen ganzen Nebensatz und steht deshalb auf fast jedem Aushang.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>4. Begründung: <em>weil</em>, <em>damit</em>, <em>sonst</em></h3>
+      <p><em>Decken Sie Kabel ab, <strong>weil</strong> Stürze der häufigste Bürounfall sind.</em><br>
+      <em>Melden Sie den Verlust sofort, <strong>damit</strong> die Karte gesperrt werden kann.</em><br>
+      <em>Schließen Sie die Tür, <strong>sonst</strong> greift das Feuer über.</em></p>
+      <p class="satz">Regeln ohne Begründung werden seltener befolgt. Ein Nebensatz genügt.</p>
+    </div>
+
+  </section>
+
+  <!-- ============ Arbeitsraum ============ -->
+  <section class="blatt" id="blatt-arbeiten">
+
+    <h2>Unser Auftrag</h2>
+    <p>Welchen Auftrag haben Sie gewählt? Wer macht was?</p>
+    <div id="wahl"></div>
+
+    <h2>Unser Text</h2>
+    <p>Hier entsteht der Inhalt. Der Text bleibt gespeichert, auch wenn Sie die Seite schließen.</p>
+    <div id="text"></div>
+
+    <h2>Für die Präsentation</h2>
+    <p>Drei bis fünf Minuten. Was sagen Sie zuerst, was zeigen Sie, wie schließen Sie ab?</p>
+    <div id="praesentation"></div>
+
+  </section>
+
+</main>
+
+<script src="../assets/lehrwerk.js"></script>
+<script>
+let rest = 1800, laeuft = null;
+
+function anzeigen() {
+  const m = String(Math.floor(rest / 60)).padStart(2, '0');
+  const s = String(rest % 60).padStart(2, '0');
+  document.getElementById('uhr').textContent = m + ':' + s;
+}
+function starten() {
+  if (laeuft) return;
+  laeuft = setInterval(() => {
+    if (rest > 0) { rest--; anzeigen(); } else { anhalten(); }
+  }, 1000);
+}
+function anhalten() { clearInterval(laeuft); laeuft = null; }
+function stellen(s) { anhalten(); rest = s; anzeigen(); }
+
+anzeigen();
+
+Lehrwerk.modul('sicherheit-projektauftrag');
+Lehrwerk.reiter();
+Lehrwerk.frei('wahl');
+Lehrwerk.frei('text');
+Lehrwerk.frei('praesentation');
+Lehrwerk.abschluss();
+</script>
+
+</body>
+</html>

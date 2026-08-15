@@ -424,6 +424,121 @@
               "status": "in-arbeit"
             }
           ]
+        },
+        {
+          "titel": "Sicherheit am Arbeitsplatz",
+          "module": [
+            {
+              "titel": "Sicherheit am Arbeitsplatz",
+              "beschreibung": "Die jährliche Unterweisung und ihr Wortschatz: Brandschutz, IT-Sicherheit, Gebäude, Ergonomie, Erste Hilfe.",
+              "pfad": "sicherheit-unterweisung.html",
+              "niveau": "B2",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Lesen",
+                "Nachschlagen"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Redemittel für Notfälle",
+              "beschreibung": "Sätze für Feueralarm, Notruf, Erste Hilfe, Phishing und fremde Personen im Haus — jeweils mit dem Hinweis, wann man sie sagt.",
+              "pfad": "sicherheit-redemittel.html",
+              "niveau": "B2",
+              "dauer": "40 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Lesen",
+                "Üben"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Die Sprache der Sicherheitsvorschriften",
+              "beschreibung": "Modalverben, Imperativ, Passiv und die Kurzform „sind freizuhalten“ — vier Strukturen, die fast jede Vorschrift tragen.",
+              "pfad": "sicherheit-grammatik.html",
+              "niveau": "B2",
+              "dauer": "50 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Lesen",
+                "Schreiben"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Dialogkarten: Sicherheit",
+              "beschreibung": "Acht Situationen zu zweit durchspielen — vom Feueralarm bis zum offen liegenden Personalordner. Mit Zielstruktur und Rückmeldung.",
+              "pfad": "sicherheit-dialogkarten.html",
+              "niveau": "B2",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Sprechen"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Projektauftrag: Sicherheits-Intranet",
+              "beschreibung": "Sechs Schreibaufträge für das Intranet der KONTOR AG — Checkliste, FAQ, Quiz, Notfallanleitung, Tipps, Notfallkarte. Paararbeit mit Präsentation.",
+              "pfad": "sicherheit-projektauftrag.html",
+              "niveau": "B2",
+              "dauer": "90 Min",
+              "fertigkeiten": [
+                "Schreiben",
+                "Sprechen"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Intranet-Builder: Sicherheit",
+              "beschreibung": "Aus den Texten der Paararbeit wird eine Intranet-Seite: eintragen, ansehen, gegenlesen lassen, überarbeiten, als Text herauskopieren.",
+              "pfad": "sicherheit-intranet-builder.html",
+              "niveau": "B2",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Schreiben",
+                "Lesen"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Präsentationsleitfaden",
+              "beschreibung": "Drei bis fünf Minuten zu zweit: Aufbau, Redemittel, Übergabe, Umgang mit Fragen — mit Skriptbaukasten und Probelauf-Timer.",
+              "pfad": "sicherheit-praesentation.html",
+              "niveau": "B2",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Schreiben"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Feedback zu den Präsentationen",
+              "beschreibung": "Beobachtungsaufträge beim Zuhören, Redemittel für Lob und Vorschlag im Konjunktiv II, Bewertungsbogen und Selbsteinschätzung.",
+              "pfad": "sicherheit-feedback.html",
+              "niveau": "B2",
+              "dauer": "40 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Hören",
+                "Schreiben"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Rückblick: Sicherheit am Arbeitsplatz",
+              "beschreibung": "Sprachbilanz der acht Module, vier Reflexionsfragen und vier Fragen für den eigenen Betrieb.",
+              "pfad": "sicherheit-abschluss.html",
+              "niveau": "B2",
+              "dauer": "30 Min",
+              "fertigkeiten": [
+                "Schreiben",
+                "Lesen"
+              ],
+              "status": "fertig"
+            }
+          ]
         }
       ]
     },

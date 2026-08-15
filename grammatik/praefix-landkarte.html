@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Präfix-Landkarte – Berufssprachkurs</title>
+<link rel="stylesheet" href="../assets/basis.css">
+<link rel="stylesheet" href="../assets/platform.css">
+<link rel="stylesheet" href="../assets/lehrwerk.css">
+<link rel="stylesheet" href="../assets/aufgaben.css">
+<script src="../data/homework.js" defer></script>
+<script src="../assets/platform.js"></script>
+<style>
+  .verb-wahl { display: flex; flex-wrap: wrap; gap: .3rem; margin: 1rem 0; }
+  .verb-wahl button[aria-pressed="true"] { outline: 2px solid currentColor; outline-offset: 2px; }
+  .matrix { display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: .4rem; }
+  .zelle { padding: .5rem .7rem; border-radius: .3rem; background: rgba(127,127,127,.08); }
+  .zelle .form { font-weight: 600; }
+  .zelle .art { font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; opacity: .6; }
+  .zelle .detail { font-size: .9rem; opacity: .85; margin-top: .2rem; }
+  .zelle .familie { font-size: .85rem; opacity: .7; margin-top: .2rem; }
+  .art-trennbar { border-left: 3px solid rgba(60,150,90,.7); }
+  .art-untrennbar { border-left: 3px solid rgba(160,90,180,.7); }
+  .art-doppel { border-left: 3px solid rgba(200,140,40,.9); }
+</style>
+</head>
+<body data-page="module" data-bereich="grammatik" data-root="../">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../grammatik.html">← Grammatik</a>
+    <h1><em>Präfix-Landkarte</em></h1>
+    <p class="anleitung">Ein Grundverb, zehn bis zwanzig Präfixe – und jedes verschiebt die Bedeutung woandershin. <em>anstellen</em>, <em>herstellen</em>, <em>feststellen</em>, <em>bestellen</em>: dasselbe Verb, vier Berufe.</p>
+  </div>
+</header>
+
+<main class="innen modul">
+
+  <div class="reiter" role="tablist">
+    <button role="tab" aria-selected="true"  data-blatt="nachschlagen">Nachschlagen</button>
+    <button role="tab" aria-selected="false" data-blatt="ueben">Üben</button>
+  </div>
+
+  <!-- ============ Nachschlagen ============ -->
+  <section class="blatt" id="blatt-nachschlagen">
+
+    <p>Wählen Sie ein Grundverb. Die Karte zeigt alle Präfixe dazu, jeweils mit Bedeutung, Beispiel und – wo vorhanden – der Wortfamilie. Der farbige Rand links zeigt die Trennbarkeit.</p>
+
+    <p class="anleitung">
+      <span class="art-trennbar" style="padding-left:.5rem">trennbar</span> ·
+      <span class="art-untrennbar" style="padding-left:.5rem">untrennbar</span> ·
+      <span class="art-doppel" style="padding-left:.5rem">beides möglich</span>
+    </p>
+
+    <nav class="verb-wahl" id="verb-wahl" aria-label="Grundverb wählen"></nav>
+
+    <div id="verb-karte" aria-live="polite"></div>
+
+  </section>
+
+  <!-- ============ Üben ============ -->
+  <section class="blatt" id="blatt-ueben">
+
+    <p>Beide Stufen sind Auswahlaufgaben. Sie unterscheiden sich nicht im Format, sondern in dem, was geprüft wird: Stufe 1 fragt nach dem Präfix bei gegebener Bedeutung, Stufe 2 nach der Entscheidung zwischen zwei Präfixen im Satz.</p>
+
+    <h2>Stufe 1: Welches Präfix?</h2>
+    <p>Das Grundverb steht fest, die Bedeutung ist beschrieben. Welches Präfix trifft sie? Zur Auswahl stehen nur Präfixe, die es an <em>diesem</em> Verb wirklich gibt.</p>
+
+    <div id="stufe1"></div>
+
+    <h2>Stufe 2: Welches passt in den Satz?</h2>
+    <p>Zwei Verben mit demselben Stamm, zwei verschiedene Bedeutungen. Nur eines passt.</p>
+
+    <div id="stufe2"></div>
+
+    <h2>Stufe 3: Wenn die Regel nicht entscheidet</h2>
+    <p>Einige Präfixe gibt es <strong>trennbar und untrennbar</strong> – mit verschiedener Bedeutung und verschiedener Betonung. Hier hilft die Trennbarkeitsregel nicht weiter, sie führt sogar in die Irre.</p>
+
+    <div id="stufe3"></div>
+
+    <h2>Was dieser Teil nicht leistet</h2>
+    <p>Geübt wird die Zuordnung <strong>Präfix ↔ Bedeutung</strong>. Die Rektion der Verben – welcher Kasus, welche Präposition folgt – gehört nicht dazu; dafür braucht es eigene Kontexte. Das ist ein späterer, eigener Schritt.</p>
+
+  </section>
+
+</main>
+
+<script src="../assets/lehrwerk.js"></script>
+<script>
+/* =====================================================================
+   Datensatz – übernommen aus dem Altmodul „praefixe“ (Präfix-Landkarte).
+   Er ist die einzige Quelle; die Aufgaben werden daraus erzeugt.
+
+   Übertragen sind zunächst zehn berufsnahe Grundverben. Die übrigen zehn
+   des Altmoduls (kommen, ziehen, sprechen, tragen, lassen, schließen,
+   fallen, suchen, teilen, denken) folgen.
+
+   Abweichungen vom Altdatensatz – alle kenntlich, siehe Meldung an Regina:
+     · `type: "doppel"` war dort für jedes über-/um-/unter-Präfix gesetzt,
+       auch wo es nur eine Lesart gibt. Hier steht `doppel` nur, wo beide
+       Lesarten belegt sind; die übrigen sind auf `untrennbar` gesetzt.
+     · Die vier echten Doppelfälle haben ein Feld `lesarten` mit beiden
+       Formen, Bedeutungen und Betonungen.
+     · `fahren/über` hatte „trennbar: übersetzen“ – das gehört zu `setzen`,
+       nicht zu `fahren`. Entfernt.
+     · Drei Beispielsätze ohne Berufsbezug ersetzt (siehe `ersetzt`-Feld).
+   ===================================================================== */
+
+const verbData = {
+  stellen: {
+    meaning: "eine Position geben, platzieren",
+    prefixes: {
+      an:        { type: "trennbar",   meaning: "einstellen, beschäftigen", example: "Die Firma stellt neue Mitarbeiter an.", family: ["Anstellung", "Angestellte/r"] },
+      auf:       { type: "trennbar",   meaning: "vertikal positionieren, errichten", example: "Sie stellt die Leiter auf.", family: ["Aufstellung"] },
+      aus:       { type: "trennbar",   meaning: "zeigen, präsentieren", example: "Das Museum stellt Kunst aus.", family: ["Ausstellung", "Aussteller"] },
+      ein:       { type: "trennbar",   meaning: "regulieren, konfigurieren", example: "Ich stelle den Wecker ein.", family: ["Einstellung", "einstellbar"] },
+      her:       { type: "trennbar",   meaning: "produzieren, fertigen", example: "Die Fabrik stellt Autos her.", family: ["Herstellung", "Hersteller"] },
+      vor:       { type: "trennbar",   meaning: "präsentieren, sich etwas ausmalen", example: "Ich stelle Ihnen das Konzept vor.", family: ["Vorstellung", "vorstellbar"] },
+      ab:        { type: "trennbar",   meaning: "ausschalten, abstellen", example: "Er stellt das Radio ab.", family: ["Abstellung"] },
+      fest:      { type: "trennbar",   meaning: "erkennen, konstatieren", example: "Wir stellen einen Fehler in der Abrechnung fest.", family: ["Feststellung"] },
+      dar:       { type: "trennbar",   meaning: "zeigen, repräsentieren", example: "Die Grafik stellt den Umsatz dar.", family: ["Darstellung", "Darsteller"] },
+      um:        { type: "trennbar",   meaning: "anders anordnen", example: "Wir stellen die Möbel um.", family: ["Umstellung"] },
+      zusammen:  { type: "trennbar",   meaning: "kombinieren, gruppieren", example: "Sie stellt ein Team zusammen.", family: ["Zusammenstellung"] },
+      be:        { type: "untrennbar", meaning: "ordern, einen Auftrag geben", example: "Ich bestelle das Material.", family: ["Bestellung", "Besteller"] },
+      er:        { type: "untrennbar", meaning: "anfertigen, ausarbeiten", example: "Ich erstelle den Quartalsbericht.", family: ["Erstellung"], ersetzt: "Beispielsatz „Gott erstellt die Welt.“ ersetzt – kein Berufsbezug." },
+      ver:       { type: "untrennbar", meaning: "falsch einstellen, verschieben", example: "Jemand hat den Drucker verstellt.", family: ["Verstellung"] },
+      unter:     { type: "doppel",     meaning: "unterstellen – zwei Lesarten", example: "Sie unterstellt ihm böse Absichten.", family: ["Unterstellung"],
+                   lesarten: {
+                     trennbar:   { form: "ÚNTERstellen", bedeutung: "unterbringen, abstellen", beispiel: "Wir stellen die Ware im Lager unter." },
+                     untrennbar: { form: "unterSTÉLLen", bedeutung: "annehmen, jemandem etwas vorwerfen", beispiel: "Sie unterstellt ihm böse Absichten." }
+                   } }
+    }
+  },
+
+  arbeiten: {
+    meaning: "tätig sein, Arbeit verrichten",
+    prefixes: {
+      ab:        { type: "trennbar",   meaning: "erledigen, der Reihe nach durchgehen", example: "Ich arbeite die Liste ab.", family: ["Abarbeitung"] },
+      auf:       { type: "trennbar",   meaning: "nachholen, aufholen", example: "Wir arbeiten den Rückstand auf.", family: ["Aufarbeitung"] },
+      aus:       { type: "trennbar",   meaning: "im Detail entwickeln", example: "Sie arbeitet einen Plan aus.", family: ["Ausarbeitung"] },
+      durch:     { type: "trennbar",   meaning: "ohne Pause weiterarbeiten", example: "Er arbeitet die Nacht durch.", family: [] },
+      ein:       { type: "trennbar",   meaning: "sich oder jemanden einführen", example: "Mein Kollege arbeitet mich ein.", family: ["Einarbeitung"] },
+      mit:       { type: "trennbar",   meaning: "sich beteiligen", example: "Sie arbeitet gut mit.", family: ["Mitarbeiter", "Mitarbeit"] },
+      nach:      { type: "trennbar",   meaning: "später korrigieren oder ergänzen", example: "Ich muss noch nacharbeiten.", family: ["Nacharbeit"] },
+      vor:       { type: "trennbar",   meaning: "im Voraus erledigen", example: "Ich arbeite vor, um Freitag frei zu haben.", family: ["Vorarbeit", "Vorarbeiter"] },
+      zu:        { type: "trennbar",   meaning: "zuliefern, unterstützen", example: "Sie arbeitet ihm zu.", family: ["Zuarbeit"] },
+      zusammen:  { type: "trennbar",   meaning: "kooperieren", example: "Wir arbeiten eng mit dem Einkauf zusammen.", family: ["Zusammenarbeit"] },
+      be:        { type: "untrennbar", meaning: "behandeln, bearbeiten", example: "Ich bearbeite den Antrag.", family: ["Bearbeitung", "Bearbeiter"] },
+      er:        { type: "untrennbar", meaning: "durch Arbeit entwickeln", example: "Wir erarbeiten ein Konzept.", family: ["Erarbeitung"] },
+      ver:       { type: "untrennbar", meaning: "als Material weiterverarbeiten", example: "Die Firma verarbeitet Metall.", family: ["Verarbeitung"] },
+      "über":    { type: "untrennbar", meaning: "revidieren, verbessern", example: "Ich überarbeite den Text.", family: ["Überarbeitung"], korrigiert: "Im Altdatensatz als „doppel“ geführt – es gibt aber nur die untrennbare Lesart." }
+    }
+  },
+
+  führen: {
+    meaning: "leiten, geleiten, lenken",
+    prefixes: {
+      ab:        { type: "trennbar",   meaning: "wegleiten, abgeben", example: "Der Betrieb führt die Steuer ab.", family: ["Abführung"] },
+      an:        { type: "trennbar",   meaning: "leiten, an der Spitze stehen", example: "Sie führt das Team an.", family: ["Anführer", "Anführung"] },
+      auf:       { type: "trennbar",   meaning: "präsentieren, inszenieren", example: "Das Theater führt ein Stück auf.", family: ["Aufführung"] },
+      aus:       { type: "trennbar",   meaning: "realisieren, ausliefern", example: "Wir führen den Auftrag aus.", family: ["Ausführung", "Ausfuhr"] },
+      durch:     { type: "trennbar",   meaning: "vollständig realisieren", example: "Wir führen die Schulung durch.", family: ["Durchführung", "durchführbar"] },
+      ein:       { type: "trennbar",   meaning: "neu einsetzen, importieren", example: "Sie führt ein neues System ein.", family: ["Einführung", "Einfuhr"] },
+      fort:      { type: "trennbar",   meaning: "weitermachen", example: "Wir führen die Zusammenarbeit fort.", family: ["Fortführung"] },
+      hin:       { type: "trennbar",   meaning: "in eine Richtung leiten", example: "Der Weg führt zum Lager hin.", family: ["Hinführung"] },
+      mit:       { type: "trennbar",   meaning: "bei sich haben", example: "Ich führe meinen Ausweis mit.", family: [] },
+      vor:       { type: "trennbar",   meaning: "demonstrieren, zeigen", example: "Er führt das Gerät vor.", family: ["Vorführung"] },
+      weiter:    { type: "trennbar",   meaning: "fortsetzen", example: "Wir führen das Gespräch weiter.", family: ["weiterführend"] },
+      "zurück":  { type: "trennbar",   meaning: "auf eine Ursache beziehen", example: "Das führt auf einen Eingabefehler zurück.", family: ["Rückführung"] },
+      zusammen:  { type: "trennbar",   meaning: "vereinen", example: "Wir führen die beiden Abteilungen zusammen.", family: ["Zusammenführung"] },
+      ent:       { type: "untrennbar", meaning: "entführen, wegbringen", example: "Das Flugzeug wurde entführt.", family: ["Entführung", "Entführer"] },
+      ver:       { type: "untrennbar", meaning: "verleiten, in die Irre führen", example: "Die Werbung verführt zum Kauf.", family: ["Verführung", "verführerisch"] },
+      "über":    { type: "doppel",     meaning: "überführen – zwei Lesarten", example: "Die Polizei überführt den Täter.", family: ["Überführung"],
+                   lesarten: {
+                     trennbar:   { form: "ǗBERführen", bedeutung: "in einen anderen Zustand bringen, transportieren", beispiel: "Wir führen den Betrieb in eine GmbH über." },
+                     untrennbar: { form: "überFǗHRen", bedeutung: "jemandem eine Tat nachweisen", beispiel: "Die Polizei überführt den Täter." }
+                   } }
+    }
+  },
+
+  legen: {
+    meaning: "horizontal platzieren, hinlegen",
+    prefixes: {
+      ab:        { type: "trennbar",   meaning: "entfernen, ablegen", example: "Ich lege den Mantel ab.", family: ["Ablage", "Ableger"] },
+      an:        { type: "trennbar",   meaning: "investieren, in Position bringen", example: "Die Firma legt Rücklagen an.", family: ["Anlage", "Anleger"] },
+      auf:       { type: "trennbar",   meaning: "daraufsetzen, veröffentlichen", example: "Der Verlag legt das Buch neu auf.", family: ["Auflage"] },
+      aus:       { type: "trennbar",   meaning: "deuten, interpretieren", example: "Wie legen Sie diese Klausel aus?", family: ["Auslegung"] },
+      bei:       { type: "trennbar",   meaning: "hinzufügen, beenden", example: "Wir legen den Streit bei.", family: ["Beilage"] },
+      ein:       { type: "trennbar",   meaning: "hineintun, einschieben", example: "Ich lege eine Pause ein.", family: ["Einlage"] },
+      fest:      { type: "trennbar",   meaning: "definieren, verbindlich machen", example: "Wir legen die Regeln fest.", family: ["Festlegung"] },
+      los:       { type: "trennbar",   meaning: "beginnen", example: "Wir legen los.", family: [] },
+      nach:      { type: "trennbar",   meaning: "später mehr hinzufügen", example: "Können Sie Unterlagen nachlegen?", family: [] },
+      nieder:    { type: "trennbar",   meaning: "aufgeben, niederlegen", example: "Er legt sein Amt nieder.", family: ["Niederlegung"] },
+      vor:       { type: "trennbar",   meaning: "präsentieren, einreichen", example: "Ich lege den Plan vor.", family: ["Vorlage"] },
+      zusammen:  { type: "trennbar",   meaning: "kombinieren, zusammenfassen", example: "Wir legen die Termine zusammen.", family: ["Zusammenlegung"] },
+      be:        { type: "untrennbar", meaning: "beweisen, mit Beleg versehen", example: "Können Sie das belegen?", family: ["Beleg", "Belegung"] },
+      ver:       { type: "untrennbar", meaning: "verschieben, publizieren", example: "Wir verlegen den Termin.", family: ["Verlag", "Verleger", "Verlegung"] },
+      unter:     { type: "doppel",     meaning: "unterlegen – zwei Lesarten", example: "Er ist ihr fachlich unterlegen.", family: ["Unterlage"],
+                   lesarten: {
+                     trennbar:   { form: "ÚNTERlegen", bedeutung: "etwas darunter legen", beispiel: "Wir legen dem Antrag eine Kopie unter." },
+                     untrennbar: { form: "unterLÉGen", bedeutung: "schwächer sein als jemand", beispiel: "Er ist ihr fachlich unterlegen." }
+                   } }
+    }
+  },
+
+  setzen: {
+    meaning: "in sitzende Position bringen, platzieren",
+    prefixes: {
+      ab:        { type: "trennbar",   meaning: "absetzen, abnehmen", example: "Ich setze die Brille ab.", family: ["Absatz", "Absetzung"] },
+      an:        { type: "trennbar",   meaning: "beginnen, ansetzen", example: "Wir setzen den Termin für Montag an.", family: ["Ansatz"] },
+      auf:       { type: "trennbar",   meaning: "verfassen, aufsetzen", example: "Sie setzt einen Vertrag auf.", family: ["Aufsatz"] },
+      aus:       { type: "trennbar",   meaning: "aussetzen, exponieren", example: "Er setzt sich der Kritik aus.", family: ["Aussetzung"] },
+      ein:       { type: "trennbar",   meaning: "verwenden, in Betrieb nehmen", example: "Wir setzen neue Technik ein.", family: ["Einsatz"] },
+      fest:      { type: "trennbar",   meaning: "verbindlich bestimmen", example: "Wir setzen einen Termin fest.", family: ["Festsetzung"] },
+      fort:      { type: "trennbar",   meaning: "weitermachen", example: "Wir setzen die Arbeit fort.", family: ["Fortsetzung"] },
+      um:        { type: "trennbar",   meaning: "realisieren, in die Tat umsetzen", example: "Wir setzen den Plan um.", family: ["Umsetzung", "Umsatz"] },
+      zusammen:  { type: "trennbar",   meaning: "sich zusammenfinden, bestehen aus", example: "Das Team setzt sich neu zusammen.", family: ["Zusammensetzung"] },
+      be:        { type: "untrennbar", meaning: "belegen, einnehmen", example: "Alle Plätze sind besetzt.", family: ["Besetzung", "besetzt"] },
+      er:        { type: "untrennbar", meaning: "austauschen, an die Stelle treten", example: "Ich ersetze das alte Teil.", family: ["Ersatz", "ersetzbar"] },
+      ver:       { type: "untrennbar", meaning: "an einen anderen Ort bringen", example: "Man versetzt ihn nach München.", family: ["Versetzung"] },
+      "über":    { type: "doppel",     meaning: "übersetzen – zwei Lesarten", example: "Sie übersetzt den Vertrag.", family: ["Übersetzung", "Übersetzer"],
+                   lesarten: {
+                     trennbar:   { form: "ǗBERsetzen", bedeutung: "ans andere Ufer fahren", beispiel: "Die Fähre setzt jede Stunde über." },
+                     untrennbar: { form: "überSÉTZen", bedeutung: "in eine andere Sprache bringen", beispiel: "Sie übersetzt den Vertrag." }
+                   } }
+    }
+  },
+
+  nehmen: {
+    meaning: "etwas ergreifen, in Besitz nehmen",
+    prefixes: {
+      ab:        { type: "trennbar",   meaning: "reduzieren, abnehmen", example: "Der Umsatz nimmt ab.", family: ["Abnahme"] },
+      an:        { type: "trennbar",   meaning: "akzeptieren", example: "Sie nimmt das Angebot an.", family: ["Annahme"] },
+      auf:       { type: "trennbar",   meaning: "empfangen, aufnehmen", example: "Wir nehmen den Auftrag auf.", family: ["Aufnahme"] },
+      aus:       { type: "trennbar",   meaning: "ausnehmen, ausschließen", example: "Von der Regel nehmen wir Sie aus.", family: ["Ausnahme"] },
+      ein:       { type: "trennbar",   meaning: "einnehmen, erzielen", example: "Der Betrieb nimmt monatlich 40.000 Euro ein.", family: ["Einnahme"] },
+      mit:       { type: "trennbar",   meaning: "mitnehmen", example: "Nehmen Sie die Unterlagen mit.", family: ["Mitnahme"] },
+      teil:      { type: "trennbar",   meaning: "sich beteiligen", example: "Er nimmt am Kurs teil.", family: ["Teilnahme", "Teilnehmer"] },
+      vor:       { type: "trennbar",   meaning: "sich etwas vornehmen, planen", example: "Wir nehmen uns das Projekt vor.", family: ["Vorhaben"] },
+      zu:        { type: "trennbar",   meaning: "zunehmen, mehr werden", example: "Die Zahl der Anfragen nimmt zu.", family: ["Zunahme"] },
+      "zurück":  { type: "trennbar",   meaning: "widerrufen", example: "Ich nehme die Aussage zurück.", family: ["Rücknahme"] },
+      ent:       { type: "untrennbar", meaning: "entnehmen, herauslesen", example: "Ich entnehme dem Schreiben, dass der Termin steht.", family: ["Entnahme"] },
+      ver:       { type: "untrennbar", meaning: "wahrnehmen, hören", example: "Die Polizei vernimmt den Zeugen.", family: ["Vernehmung"] },
+      unter:     { type: "untrennbar", meaning: "unternehmen, aktiv werden", example: "Wir unternehmen etwas gegen die Verzögerung.", family: ["Unternehmen", "Unternehmer"], korrigiert: "Im Altdatensatz als „doppel“ geführt – es gibt nur die untrennbare Lesart." },
+      "über":    { type: "untrennbar", meaning: "übernehmen, Verantwortung bekommen", example: "Sie übernimmt die Abteilung.", family: ["Übernahme"], korrigiert: "Im Altdatensatz als „doppel“ geführt – es gibt nur die untrennbare Lesart." }
+    }
+  },
+
+  geben: {
+    meaning: "jemandem etwas überreichen",
+    prefixes: {
+      ab:        { type: "trennbar",   meaning: "abliefern, einreichen", example: "Ich gebe den Bericht ab.", family: ["Abgabe"] },
+      an:        { type: "trennbar",   meaning: "mitteilen, spezifizieren", example: "Geben Sie bitte Ihre Kundennummer an.", family: ["Angabe"] },
+      auf:       { type: "trennbar",   meaning: "aufhören, aufgeben", example: "Wir geben den Standort auf.", family: ["Aufgabe"] },
+      aus:       { type: "trennbar",   meaning: "ausgeben, verteilen", example: "Die Firma gibt neue Ausweise aus.", family: ["Ausgabe"] },
+      ein:       { type: "trennbar",   meaning: "eintippen, einreichen", example: "Geben Sie das Passwort ein.", family: ["Eingabe"] },
+      nach:      { type: "trennbar",   meaning: "nachgeben, zurückweichen", example: "Der Lieferant gibt beim Preis nach.", family: [] },
+      vor:       { type: "trennbar",   meaning: "vorschreiben, das Tempo bestimmen", example: "Die Zentrale gibt die Frist vor.", family: ["Vorgabe"] },
+      weiter:    { type: "trennbar",   meaning: "weiterleiten", example: "Geben Sie die Information weiter.", family: ["Weitergabe"] },
+      zu:        { type: "trennbar",   meaning: "zugeben, einräumen", example: "Ich gebe zu, dass wir zu spät reagiert haben.", family: ["Zugabe"] },
+      "zurück":  { type: "trennbar",   meaning: "zurückgeben, retournieren", example: "Ich gebe die Ware zurück.", family: ["Rückgabe"] },
+      be:        { type: "untrennbar", meaning: "sich begeben, hingehen", example: "Sie begibt sich zur Baustelle.", family: ["Begebenheit"] },
+      er:        { type: "untrennbar", meaning: "ergeben, als Resultat haben", example: "Die Prüfung ergibt keinen Mangel.", family: ["Ergebnis", "ergiebig"] },
+      ver:       { type: "untrennbar", meaning: "vergeben, zuteilen oder verzeihen", example: "Der Auftrag wird neu vergeben.", family: ["Vergebung"] },
+      um:        { type: "untrennbar", meaning: "umgeben, umringen", example: "Ein Zaun umgibt das Gelände.", family: ["Umgebung"], korrigiert: "Im Altdatensatz als „doppel“ geführt – es gibt nur die untrennbare Lesart." }
+    }
+  },
+
+  halten: {
+    meaning: "festhalten, stoppen, bewahren",
+    prefixes: {
+      ab:        { type: "trennbar",   meaning: "durchführen, veranstalten", example: "Wir halten eine Besprechung ab.", family: ["Abhaltung"] },
+      an:        { type: "trennbar",   meaning: "stoppen", example: "Der Bus hält an.", family: ["Anhaltspunkt"] },
+      auf:       { type: "trennbar",   meaning: "verzögern, offen halten", example: "Die Rückfrage hält das Verfahren auf.", family: ["Aufenthalt"] },
+      aus:       { type: "trennbar",   meaning: "ertragen", example: "Der Lärm ist kaum auszuhalten.", family: [] },
+      ein:       { type: "trennbar",   meaning: "einhalten, sich daran halten", example: "Wir halten die Frist ein.", family: ["Einhaltung"] },
+      fest:      { type: "trennbar",   meaning: "dokumentieren, festhalten", example: "Wir halten das Ergebnis im Protokoll fest.", family: [] },
+      durch:     { type: "trennbar",   meaning: "bis zum Ende aushalten", example: "Wir müssen bis Freitag durchhalten.", family: [] },
+      vor:       { type: "trennbar",   meaning: "jemandem etwas vorwerfen", example: "Sie hält ihm die Verspätung vor.", family: ["Vorhaltung"] },
+      "zurück":  { type: "trennbar",   meaning: "nicht herausgeben", example: "Er hält Informationen zurück.", family: ["Zurückhaltung"] },
+      zusammen:  { type: "trennbar",   meaning: "verbunden bleiben", example: "Die Abteilung hält zusammen.", family: ["Zusammenhalt"] },
+      be:        { type: "untrennbar", meaning: "behalten, nicht weggeben", example: "Wir behalten die Unterlagen zwei Jahre.", family: ["Behälter"] },
+      ent:       { type: "untrennbar", meaning: "enthalten, in sich haben", example: "Das Paket enthält die Ersatzteile.", family: ["Inhalt", "Enthaltung"] },
+      er:        { type: "untrennbar", meaning: "erhalten, bekommen", example: "Ich erhalte die Bestätigung per Mail.", family: ["Erhaltung", "erhältlich"] },
+      ver:       { type: "untrennbar", meaning: "sich verhalten, sich benehmen", example: "Er verhält sich professionell.", family: ["Verhalten", "Verhältnis"] },
+      unter:     { type: "untrennbar", meaning: "unterhalten, betreiben oder amüsieren", example: "Die Firma unterhält drei Filialen.", family: ["Unterhaltung"], korrigiert: "Im Altdatensatz als „doppel“ geführt – es gibt nur die untrennbare Lesart." }
+    }
+  },
+
+  schreiben: {
+    meaning: "Text mit der Hand oder Tastatur erstellen",
+    prefixes: {
+      ab:        { type: "trennbar",   meaning: "kopieren, abschreiben", example: "Er schreibt die Zahlen aus dem Bericht ab.", family: ["Abschrift"] },
+      an:        { type: "trennbar",   meaning: "kontaktieren", example: "Ich schreibe den Lieferanten an.", family: ["Anschreiben"] },
+      auf:       { type: "trennbar",   meaning: "notieren", example: "Schreiben Sie sich den Termin auf.", family: ["Aufschrift"] },
+      aus:       { type: "trennbar",   meaning: "vollständig schreiben, ausschreiben", example: "Wir schreiben die Stelle aus.", family: ["Ausschreibung"] },
+      ein:       { type: "trennbar",   meaning: "eintragen", example: "Ich schreibe mich in die Liste ein.", family: ["Einschreibung"] },
+      mit:       { type: "trennbar",   meaning: "parallel notieren", example: "Schreiben Sie bitte mit.", family: ["Mitschrift"] },
+      um:        { type: "trennbar",   meaning: "neu formulieren", example: "Ich schreibe den Absatz um.", family: ["Umschreibung"] },
+      vor:       { type: "trennbar",   meaning: "verbindlich festlegen", example: "Das Gesetz schreibt die Aufbewahrung vor.", family: ["Vorschrift"] },
+      zu:        { type: "trennbar",   meaning: "zuordnen, zuschreiben", example: "Man schreibt ihm den Erfolg zu.", family: ["Zuschrift"] },
+      be:        { type: "untrennbar", meaning: "beschreiben, darstellen", example: "Das Handbuch beschreibt den Ablauf.", family: ["Beschreibung"] },
+      ver:       { type: "untrennbar", meaning: "verordnen, rezeptieren", example: "Die Ärztin verschreibt ein Medikament.", family: ["Verschreibung"] },
+      unter:     { type: "untrennbar", meaning: "unterschreiben, signieren", example: "Sie unterschreibt den Vertrag.", family: ["Unterschrift"], korrigiert: "Im Altdatensatz als „doppel“ geführt – es gibt nur die untrennbare Lesart; das Datenfeld sagte dort selbst „(untrennbar)“." }
+    }
+  },
+
+  fahren: {
+    meaning: "sich mit einem Fahrzeug bewegen",
+    prefixes: {
+      ab:        { type: "trennbar",   meaning: "losfahren, abfahren", example: "Der Zug fährt um 8 Uhr ab.", family: ["Abfahrt"] },
+      an:        { type: "trennbar",   meaning: "ansteuern, anfahren", example: "Der Lieferwagen fährt drei Filialen an.", family: ["Anfahrt"] },
+      aus:       { type: "trennbar",   meaning: "ausliefern, ausfahren", example: "Wir fahren die Bestellungen morgens aus.", family: ["Ausfahrt"] },
+      ein:       { type: "trennbar",   meaning: "hineinfahren", example: "Der Zug fährt in den Bahnhof ein.", family: ["Einfahrt"] },
+      mit:       { type: "trennbar",   meaning: "mitfahren, begleiten", example: "Fahren Sie mit?", family: ["Mitfahrer"] },
+      vor:       { type: "trennbar",   meaning: "vorfahren", example: "Das Taxi fährt vor.", family: ["Vorfahrt"] },
+      weg:       { type: "trennbar",   meaning: "sich entfernen", example: "Er fährt einfach weg.", family: [] },
+      "zurück":  { type: "trennbar",   meaning: "zurückfahren", example: "Wir fahren morgen zurück.", family: ["Rückfahrt"] },
+      los:       { type: "trennbar",   meaning: "starten, losfahren", example: "Wann fahren wir los?", family: [] },
+      er:        { type: "untrennbar", meaning: "erfahren, in Erfahrung bringen", example: "Sie erfährt den Grund erst später.", family: ["Erfahrung"] },
+      ver:       { type: "untrennbar", meaning: "sich verfahren, falsch fahren", example: "Wir haben uns verfahren.", family: [] },
+      um:        { type: "doppel",     meaning: "umfahren – zwei Lesarten, gegensätzlich", example: "Wir umfahren den Stau.", family: ["Umfahrung"],
+                   lesarten: {
+                     trennbar:   { form: "ÚMfahren", bedeutung: "etwas anfahren und umwerfen", beispiel: "Der Lkw hat den Poller umgefahren." },
+                     untrennbar: { form: "umFÁHRen", bedeutung: "um etwas herumfahren, ausweichen", beispiel: "Wir umfahren den Stau." }
+                   } }
+    }
+  }
+};
+
+/* =====================================================================
+   Nachschlagen
+   ===================================================================== */
+
+const ARTLABEL = { trennbar: "trennbar", untrennbar: "untrennbar", doppel: "beides möglich" };
+
+const vWahl  = document.getElementById("verb-wahl");
+const vKarte = document.getElementById("verb-karte");
+
+Object.keys(verbData).forEach(verb => {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "knopf";
+  b.textContent = verb;
+  b.setAttribute("aria-pressed", "false");
+  b.addEventListener("click", () => zeigeVerb(verb));
+  vWahl.appendChild(b);
+});
+
+function zeigeVerb(verb) {
+  const d = verbData[verb];
+  if (!d) return;
+
+  vWahl.querySelectorAll("button").forEach(b =>
+    b.setAttribute("aria-pressed", String(b.textContent === verb)));
+
+  const teile = [];
+  teile.push('<h2>' + verb + '</h2>');
+  teile.push('<p class="anleitung">Grundbedeutung: ' + d.meaning + '</p>');
+  teile.push('<div class="matrix">');
+
+  Object.keys(d.prefixes).forEach(p => {
+    const z = d.prefixes[p];
+    teile.push('<div class="zelle art-' + z.type + '">' +
+      '<div class="form">' + p + verb + '</div>' +
+      '<div class="art">' + ARTLABEL[z.type] + '</div>' +
+      '<div class="detail">' + z.meaning + '<br>' + z.example + '</div>' +
+      (z.family && z.family.length
+        ? '<div class="familie">Wortfamilie: ' + z.family.join(" · ") + '</div>' : '') +
+      '</div>');
+  });
+
+  teile.push('</div>');
+  vKarte.innerHTML = teile.join("");
+}
+
+zeigeVerb("stellen");
+
+/* =====================================================================
+   Üben – alle drei Stufen als Auswahl.
+   Arbeitsannahme (Leo, 2026-08-15): Reginas Grundschema sieht Stufe 1 als
+   Lückenaufgabe vor. Der Datensatz gibt das nicht her – die Beispielsätze
+   markieren das Zielwort nicht, und bei trennbaren Verben steht es an zwei
+   Stellen im Satz. Die Matrix bietet stattdessen die passendere Frage:
+   Bedeutung gegeben, Präfix gesucht. Endgültige Entscheidung bei Regina.
+   ===================================================================== */
+
+Lehrwerk.modul("praefix-landkarte");
+Lehrwerk.reiter();
+
+/* Deterministische Auswahl der Ablenker: die im Datensatz folgenden
+   Präfixe desselben Verbs. Kein Zufall – sonst passen gespeicherte
+   Antworten nach dem Neuladen nicht mehr zur Anzeige. */
+function ablenker(liste, index, anzahl) {
+  const raus = [];
+  for (let i = 1; raus.length < anzahl && i < liste.length; i++) {
+    raus.push(liste[(index + i) % liste.length]);
+  }
+  return raus;
+}
+
+/* --- Stufe 1: Bedeutung gegeben, Präfix gesucht -------------------- */
+
+const s1Fragen = [];
+let   s1Nummer = 0;
+
+Object.keys(verbData).forEach(verb => {
+  const praefixe = Object.keys(verbData[verb].prefixes);
+  /* Zwei Aufgaben je Verb: eine trennbare, eine untrennbare Bildung. */
+  ["trennbar", "untrennbar"].forEach(art => {
+    const index = praefixe.findIndex(p => verbData[verb].prefixes[p].type === art);
+    if (index < 0) return;
+    const p = praefixe[index];
+    const z = verbData[verb].prefixes[p];
+
+    s1Nummer++;
+    s1Fragen.push({
+      id: "p1-" + s1Nummer,
+      text: "Grundverb <strong>" + verb + "</strong> · Bedeutung: <em>" + z.meaning +
+            "</em><br>Welches Präfix?",
+      optionen: [p].concat(ablenker(praefixe, index, 3)),
+      richtig: [p],
+      erklaerung: z.example + " — " + p + verb + " ist " + ARTLABEL[z.type] + "."
+    });
+  });
+});
+
+Lehrwerk.auswahl("stufe1", s1Fragen);
+
+/* --- Stufe 2: zwei Präfixe desselben Verbs im Satz ----------------- */
+
+const s2Fragen = [];
+let   s2Nummer = 0;
+
+Object.keys(verbData).forEach(verb => {
+  const praefixe = Object.keys(verbData[verb].prefixes)
+    .filter(p => verbData[verb].prefixes[p].type !== "doppel");
+  /* Paare aus benachbarten Präfixen – deterministisch, zwei je Verb. */
+  for (let i = 0; i + 1 < praefixe.length && i < 4; i += 2) {
+    const a = praefixe[i], b = praefixe[i + 1];
+    const za = verbData[verb].prefixes[a];
+
+    s2Nummer++;
+    s2Fragen.push({
+      id: "p2-" + s2Nummer,
+      text: za.example.replace(new RegExp(a + verb + "|" + verb, "i"), "____") +
+            "<br><em>Gemeint ist: " + za.meaning + "</em>",
+      optionen: [a + verb, b + verb],
+      richtig: [a + verb],
+      erklaerung: a + verb + " = " + za.meaning + " · " +
+                  b + verb + " = " + verbData[verb].prefixes[b].meaning
+    });
+  }
+});
+
+Lehrwerk.auswahl("stufe2", s2Fragen);
+
+/* --- Stufe 3: die echten Doppelfälle ------------------------------
+   Nur Einträge mit belegten zwei Lesarten. Im Altdatensatz war `doppel`
+   für jedes über-/um-/unter-Präfix gesetzt, auch ohne zweite Lesart –
+   ein Pool daraus hätte bei 18 von 22 Items nichts zu kontrastieren. */
+
+const s3Fragen = [];
+let   s3Nummer = 0;
+
+Object.keys(verbData).forEach(verb => {
+  const praefixe = verbData[verb].prefixes;
+  Object.keys(praefixe).forEach(p => {
+    const z = praefixe[p];
+    if (z.type !== "doppel" || !z.lesarten) return;
+    const t = z.lesarten.trennbar, u = z.lesarten.untrennbar;
+
+    s3Nummer++;
+    s3Fragen.push({
+      id: "p3-" + s3Nummer,
+      text: t.beispiel.replace(/____/g, "") + "<br><em>Welche Lesart ist das?</em>",
+      optionen: [t.form + " – " + t.bedeutung, u.form + " – " + u.bedeutung],
+      richtig: [t.form + " – " + t.bedeutung],
+      erklaerung: "Trennbar: " + t.form + " (" + t.bedeutung + "). Untrennbar: " +
+                  u.form + " (" + u.bedeutung + "). Die Betonung entscheidet."
+    });
+
+    s3Nummer++;
+    s3Fragen.push({
+      id: "p3-" + s3Nummer,
+      text: u.beispiel + "<br><em>Welche Lesart ist das?</em>",
+      optionen: [t.form + " – " + t.bedeutung, u.form + " – " + u.bedeutung],
+      richtig: [u.form + " – " + u.bedeutung],
+      erklaerung: "Trennbar: " + t.form + " (" + t.bedeutung + "). Untrennbar: " +
+                  u.form + " (" + u.bedeutung + "). Die Betonung entscheidet."
+    });
+  });
+});
+
+Lehrwerk.auswahl("stufe3", s3Fragen);
+
+Lehrwerk.abschluss();
+</script>
+
+</body>
+</html>

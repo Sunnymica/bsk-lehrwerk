@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Intranet-Builder: Sicherheit – Berufssprachkurs</title>
+<link rel="stylesheet" href="../assets/basis.css">
+<link rel="stylesheet" href="../assets/platform.css">
+<link rel="stylesheet" href="../assets/lehrwerk.css">
+<link rel="stylesheet" href="../assets/aufgaben.css">
+<script src="../data/homework.js" defer></script>
+<script src="../assets/platform.js"></script>
+<style>
+  .eingabe { display: grid; gap: .4rem; margin: .6rem 0; }
+  .eingabe input, .eingabe textarea { width: 100%; }
+  .liste { margin: .8rem 0; }
+  .liste li { margin: .3rem 0; }
+  .vorschau { border: 1px solid rgba(127,127,127,.3); border-radius: .4rem; padding: 1rem 1.2rem; margin: 1rem 0; }
+  .vorschau h3 { margin-top: 0; }
+  .leer { opacity: .6; font-style: italic; }
+</style>
+</head>
+<body data-page="module" data-bereich="buero" data-root="../">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../buero.html">← Büro und Verwaltung</a>
+    <h1><em>Intranet-Builder</em>: Sicherheit</h1>
+    <p class="anleitung">Aus den Texten der Paararbeit wird eine Seite. Eintragen, ansehen, überarbeiten — und am Ende als Text herauskopieren.</p>
+  </div>
+</header>
+
+<main class="innen modul">
+
+  <div class="reiter" role="tablist">
+    <button role="tab" aria-selected="true"  data-blatt="bauen">Bauen</button>
+    <button role="tab" aria-selected="false" data-blatt="vorschau">Vorschau</button>
+    <button role="tab" aria-selected="false" data-blatt="pruefen">Gegenlesen</button>
+  </div>
+
+  <!-- ============ Bauen ============ -->
+  <section class="blatt" id="blatt-bauen">
+
+    <p>Tragen Sie ein, was Ihr Paar erarbeitet hat. Alles bleibt gespeichert, auch wenn Sie die Seite schließen.</p>
+
+    <h2>Checkliste</h2>
+    <div class="eingabe">
+      <input id="cl-neu" placeholder="Ein Punkt, ein kurzer Satz mit Verb" autocomplete="off">
+      <div class="knopfreihe"><button class="knopf" type="button" onclick="hinzu('checkliste','cl-neu')">Hinzufügen</button></div>
+    </div>
+    <ul class="liste" id="cl-liste"></ul>
+
+    <h2>Häufige Fragen</h2>
+    <div class="eingabe">
+      <input id="fq-frage" placeholder="Die Frage" autocomplete="off">
+      <textarea id="fq-antwort" rows="3" placeholder="Die Antwort — zuerst die Antwort, dann die Begründung"></textarea>
+      <div class="knopfreihe"><button class="knopf" type="button" onclick="hinzuPaar('fragen','fq-frage','fq-antwort')">Hinzufügen</button></div>
+    </div>
+    <ul class="liste" id="fq-liste"></ul>
+
+    <h2>Tipps mit Begründung</h2>
+    <div class="eingabe">
+      <input id="tp-tipp" placeholder="Der Tipp — konkret, nicht allgemein" autocomplete="off">
+      <input id="tp-grund" placeholder="Warum? Ein Satz." autocomplete="off">
+      <div class="knopfreihe"><button class="knopf" type="button" onclick="hinzuPaar('tipps','tp-tipp','tp-grund')">Hinzufügen</button></div>
+    </div>
+    <ul class="liste" id="tp-liste"></ul>
+
+    <h2>Notfallnummern</h2>
+    <div class="eingabe">
+      <input id="nr-was" placeholder="Wofür? z. B. Feuerwehr" autocomplete="off">
+      <input id="nr-nummer" placeholder="Nummer" autocomplete="off">
+      <div class="knopfreihe"><button class="knopf" type="button" onclick="hinzuPaar('nummern','nr-was','nr-nummer')">Hinzufügen</button></div>
+    </div>
+    <ul class="liste" id="nr-liste"></ul>
+
+    <h2>Anleitung Schritt für Schritt</h2>
+    <div class="eingabe">
+      <input id="sc-titel" placeholder="Wofür? z. B. Bei Feueralarm" autocomplete="off">
+      <input id="sc-schritt" placeholder="Ein Schritt" autocomplete="off">
+      <div class="knopfreihe"><button class="knopf" type="button" onclick="hinzuPaar('schritte','sc-titel','sc-schritt')">Hinzufügen</button></div>
+    </div>
+    <ul class="liste" id="sc-liste"></ul>
+
+  </section>
+
+  <!-- ============ Vorschau ============ -->
+  <section class="blatt" id="blatt-vorschau">
+
+    <p>So sähe die Intranet-Seite aus. Lesen Sie sie wie jemand, der sie zum ersten Mal öffnet und etwas sucht.</p>
+
+    <div class="vorschau" id="vorschau"></div>
+
+    <div class="knopfreihe">
+      <button class="knopf" type="button" onclick="aktualisieren()">Vorschau aktualisieren</button>
+      <button class="knopf" type="button" onclick="kopieren()">Als Text kopieren</button>
+    </div>
+    <p class="rueckmeldung" id="kopiert" hidden></p>
+
+  </section>
+
+  <!-- ============ Gegenlesen ============ -->
+  <section class="blatt" id="blatt-pruefen">
+
+    <h2>Tauschen Sie mit einem anderen Paar</h2>
+    <p>Lesen Sie deren Seite und gehen Sie die fünf Fragen durch. Antworten Sie in ganzen Sätzen — das ist die eigentliche Übung.</p>
+
+    <div class="kasten">
+      <ol>
+        <li><strong>Verständlich?</strong> Gibt es einen Satz, den Sie zweimal lesen mussten?</li>
+        <li><strong>Vollständig?</strong> Fehlt etwas, das Sie erwartet hätten?</li>
+        <li><strong>Kurz genug?</strong> Welcher Satz ließe sich halbieren?</li>
+        <li><strong>Begründet?</strong> Steht bei den Regeln, warum sie gelten?</li>
+        <li><strong>Einheitlich?</strong> Durchgehend Sie-Form oder durchgehend unpersönlich?</li>
+      </ol>
+    </div>
+
+    <h2>Unsere Rückmeldung</h2>
+    <p>Eine Sache, die gut ist. Eine Sache, die Sie ändern würden. Beides mit Begründung.</p>
+    <div id="rueckmeldung"></div>
+
+    <h2>Was wir danach geändert haben</h2>
+    <div id="geaendert"></div>
+
+    <div class="kasten">
+      <h3>Warum das Gegenlesen die wichtigste Phase ist</h3>
+      <p>Beim Schreiben denkt man, der Text sei klar — man weiß ja, was gemeint ist. Erst wer ihn zum ersten Mal liest, merkt, wo er stockt. Genau darum geht es im Beruf: Texte werden für andere geschrieben, nicht für einen selbst.</p>
+    </div>
+
+  </section>
+
+</main>
+
+<script src="../assets/lehrwerk.js"></script>
+<script>
+const SCHLUESSEL = 'bsk-intranet-sicherheit';
+let daten = { checkliste: [], fragen: [], tipps: [], nummern: [], schritte: [] };
+
+try { daten = Object.assign(daten, JSON.parse(localStorage.getItem(SCHLUESSEL)) || {}); } catch (e) {}
+
+function sichern() {
+  try { localStorage.setItem(SCHLUESSEL, JSON.stringify(daten)); } catch (e) {}
+}
+
+function hinzu(feld, id) {
+  const el = document.getElementById(id);
+  const wert = el.value.trim();
+  if (!wert) return;
+  daten[feld].push(wert);
+  el.value = '';
+  sichern(); zeichnen();
+}
+
+function hinzuPaar(feld, idA, idB) {
+  const a = document.getElementById(idA), b = document.getElementById(idB);
+  if (!a.value.trim() || !b.value.trim()) return;
+  daten[feld].push({ a: a.value.trim(), b: b.value.trim() });
+  a.value = ''; b.value = '';
+  sichern(); zeichnen();
+}
+
+function weg(feld, i) { daten[feld].splice(i, 1); sichern(); zeichnen(); }
+
+function liste(feld, ziel, format) {
+  const ul = document.getElementById(ziel);
+  ul.innerHTML = daten[feld].map((e, i) =>
+    '<li>' + format(e) + ' <button class="knopf" type="button" onclick="weg(\'' + feld + '\',' + i + ')">×</button></li>'
+  ).join('');
+}
+
+function zeichnen() {
+  liste('checkliste', 'cl-liste', e => e);
+  liste('fragen',     'fq-liste', e => '<strong>' + e.a + '</strong><br>' + e.b);
+  liste('tipps',      'tp-liste', e => '<strong>' + e.a + '</strong> — ' + e.b);
+  liste('nummern',    'nr-liste', e => e.a + ': <strong>' + e.b + '</strong>');
+  liste('schritte',   'sc-liste', e => '<strong>' + e.a + ':</strong> ' + e.b);
+}
+
+function abschnitt(titel, inhalt) {
+  return inhalt ? '<h3>' + titel + '</h3>' + inhalt : '';
+}
+
+function aktualisieren() {
+  const v = document.getElementById('vorschau');
+  let html = '<h2>Sicherheit bei der KONTOR AG</h2>';
+
+  html += abschnitt('Notfallnummern', daten.nummern.length
+    ? '<ul>' + daten.nummern.map(e => '<li>' + e.a + ': <strong>' + e.b + '</strong></li>').join('') + '</ul>' : '');
+
+  html += abschnitt('Schritt für Schritt', daten.schritte.length
+    ? '<ul>' + daten.schritte.map(e => '<li><strong>' + e.a + ':</strong> ' + e.b + '</li>').join('') + '</ul>' : '');
+
+  html += abschnitt('Checkliste', daten.checkliste.length
+    ? '<ul>' + daten.checkliste.map(e => '<li>' + e + '</li>').join('') + '</ul>' : '');
+
+  html += abschnitt('Häufige Fragen', daten.fragen.length
+    ? daten.fragen.map(e => '<p><strong>' + e.a + '</strong><br>' + e.b + '</p>').join('') : '');
+
+  html += abschnitt('Tipps', daten.tipps.length
+    ? '<ul>' + daten.tipps.map(e => '<li><strong>' + e.a + '</strong> — ' + e.b + '</li>').join('') + '</ul>' : '');
+
+  const leer = !daten.nummern.length && !daten.schritte.length && !daten.checkliste.length
+            && !daten.fragen.length && !daten.tipps.length;
+
+  v.innerHTML = leer
+    ? '<p class="leer">Noch nichts eingetragen. Wechseln Sie zum Reiter „Bauen“.</p>'
+    : html;
+}
+
+function kopieren() {
+  const zeilen = ['SICHERHEIT BEI DER KONTOR AG', ''];
+  if (daten.nummern.length)    { zeilen.push('NOTFALLNUMMERN'); daten.nummern.forEach(e => zeilen.push('  ' + e.a + ': ' + e.b)); zeilen.push(''); }
+  if (daten.schritte.length)   { zeilen.push('SCHRITT FÜR SCHRITT'); daten.schritte.forEach(e => zeilen.push('  ' + e.a + ': ' + e.b)); zeilen.push(''); }
+  if (daten.checkliste.length) { zeilen.push('CHECKLISTE'); daten.checkliste.forEach(e => zeilen.push('  - ' + e)); zeilen.push(''); }
+  if (daten.fragen.length)     { zeilen.push('HÄUFIGE FRAGEN'); daten.fragen.forEach(e => zeilen.push('  ' + e.a + '\n    ' + e.b)); zeilen.push(''); }
+  if (daten.tipps.length)      { zeilen.push('TIPPS'); daten.tipps.forEach(e => zeilen.push('  - ' + e.a + ' — ' + e.b)); }
+
+  const feld = document.getElementById('kopiert');
+  navigator.clipboard.writeText(zeilen.join('\n')).then(
+    () => { feld.hidden = false; feld.textContent = 'In die Zwischenablage kopiert.'; },
+    () => { feld.hidden = false; feld.textContent = 'Kopieren hat nicht geklappt — bitte den Text in der Vorschau markieren.'; }
+  );
+}
+
+zeichnen();
+aktualisieren();
+
+Lehrwerk.modul('sicherheit-intranet-builder');
+Lehrwerk.reiter();
+Lehrwerk.frei('rueckmeldung');
+Lehrwerk.frei('geaendert');
+Lehrwerk.abschluss();
+</script>
+
+</body>
+</html>

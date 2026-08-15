@@ -1,0 +1,11 @@
+altmaterial/
+
+# Arbeitskopie für die Anonymisierung (B4). Enthält personenbezogene Daten
+# von Kursteilnehmenden und darf NICHT versioniert werden. Erst nach
+# abgeschlossener Anonymisierung entscheiden, ob das Ergebnis ins Repo darf.
+arbeitskopie-anonymisierung/
+
+# Vorübergehend: Hilfsskript für die einmalige Anführungszeichen-Korrektur.
+# Kann nicht automatisch gelöscht werden (Session-Sperre). Nach dem manuellen
+# Löschen von fix-quotes.ps1 darf diese Zeile wieder entfernt werden.
+fix-quotes.ps1
