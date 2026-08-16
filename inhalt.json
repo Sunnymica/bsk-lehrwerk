@@ -114,28 +114,68 @@
               "status": "in-arbeit"
             },
             {
-              "titel": "Arbeitsplatz und Arbeitsaufgaben",
-              "beschreibung": "Empfang, Termine, Arbeitsaufträge und Anweisungen.",
-              "pfad": "arbeitsplatz-aufgaben.html",
-              "niveau": "B2–C1",
-              "dauer": "",
+              "titel": "Arbeitsaufträge verstehen",
+              "beschreibung": "Die sechs Fragen eines vollständigen Auftrags, die fünf Auftragskiller, Rückfragen formulieren, vom Zuruf zur E-Mail.",
+              "pfad": "arbeitsauftraege-verstehen.html",
+              "niveau": "B2",
+              "dauer": "90 Min",
               "fertigkeiten": [
+                "Lesen",
                 "Sprechen",
                 "Schreiben"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
-              "titel": "Besprechungen und Präsentationen",
-              "beschreibung": "Vorbereiten, teilnehmen, vortragen, Nachfragen aushalten.",
-              "pfad": "besprechungen-praesentationen.html",
-              "niveau": "C1",
-              "dauer": "",
+              "titel": "Arbeitsaufträge delegieren",
+              "beschreibung": "Eine Aufgabe weitergeben: was, bis wann, wozu. Fünf Bauformen des Infinitivs mit zu, neun Situationskarten.",
+              "pfad": "arbeitsauftraege-delegieren.html",
+              "niveau": "B2/C1",
+              "dauer": "90 Min",
               "fertigkeiten": [
+                "Lesen",
                 "Sprechen",
-                "Hören"
+                "Schreiben"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
+            },
+            {
+              "titel": "Notizzettel verstehen",
+              "beschreibung": "Kurze Zettel schnell erfassen, angemessen reagieren, selbst einen schreiben.",
+              "pfad": "notizzettel-verstehen.html",
+              "niveau": "B1/B2",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Lesen",
+                "Sprechen",
+                "Schreiben"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Das Verb lassen",
+              "beschreibung": "Vier Bedeutungen und die Redemittel, mit denen man im Büro etwas veranlasst statt selbst erledigt.",
+              "pfad": "verb-lassen.html",
+              "niveau": "B1/B2",
+              "dauer": "75 Min",
+              "fertigkeiten": [
+                "Lesen",
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Der Imperativ – Regeln und Brettspiel",
+              "beschreibung": "Die vier Regeln zur Imperativbildung, dann ein Brettspiel mit 21 Aufträgen aus dem Arbeitsalltag.",
+              "pfad": "imperativ-spiel.html",
+              "niveau": "A2/B1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "fertig"
             },
             {
               "titel": "Personalwesen",
@@ -191,6 +231,31 @@
                 "Lesen"
               ],
               "status": "in-arbeit"
+            },
+            {
+              "titel": "Kundengespräche am Telefon",
+              "beschreibung": "Der Gesprächseinstieg, fünf schwierige Verläufe mit Redemitteln, zwölf Videobeispiele als Zwei-Klick-Einbindung.",
+              "pfad": "kundengespraeche-telefon.html",
+              "niveau": "B1/B2",
+              "dauer": "90 Min",
+              "fertigkeiten": [
+                "Hören",
+                "Sprechen",
+                "Schreiben"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Kundengespräche – Sprechtraining",
+              "beschreibung": "Indirekte Fragen, Relativsätze mit Kasuswechsel und zweiteilige Konnektoren — an vier Arbeitsplätzen durchgespielt.",
+              "pfad": "kundengespraeche-sprechen.html",
+              "niveau": "B1/B2",
+              "dauer": "90 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Üben"
+              ],
+              "status": "fertig"
             }
           ]
         },
@@ -212,7 +277,7 @@
             {
               "titel": "Termine und Fristen",
               "beschreibung": "Vorschlagen, verschieben, absagen, einfordern.",
-              "pfad": "termine.html",
+              "pfad": "termine-fristen.html",
               "niveau": "B2",
               "dauer": "45 Min",
               "fertigkeiten": [
@@ -246,16 +311,16 @@
               "status": "in-arbeit"
             },
             {
-              "titel": "Beschwerde und Reklamation",
-              "beschreibung": "Sachlich beanstanden, Lösung anbieten.",
-              "pfad": "beschwerde.html",
-              "niveau": "B2–C1",
-              "dauer": "60 Min",
+              "titel": "Schriftliche Beschwerden",
+              "beschreibung": "Sechs Teile einer Reklamations-E-Mail, formelles und internes Register, drei Musterbriefe — und was in einer Beschwerdemail nie stehen sollte.",
+              "pfad": "beschwerden-schriftlich.html",
+              "niveau": "B1/B2",
+              "dauer": "75 Min",
               "fertigkeiten": [
-                "Schreiben",
-                "Sprechen"
+                "Lesen",
+                "Schreiben"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "Kommasetzung",
@@ -275,16 +340,41 @@
           "titel": "Besprechung und Zusammenarbeit",
           "module": [
             {
-              "titel": "Meetings",
-              "beschreibung": "Wortmeldung, Zustimmung, Einwand, Zusammenfassung.",
-              "pfad": "meetings.html",
-              "niveau": "B2–C1",
+              "titel": "Besprechungen und Meetings",
+              "beschreibung": "Besprechungstypen und Tagesordnung, Redemittel zum Wortergreifen und Moderieren, das Passiv im Protokoll — mit Dreier-Rotation.",
+              "pfad": "besprechungen.html",
+              "niveau": "B2/C1",
+              "dauer": "90 Min",
+              "fertigkeiten": [
+                "Lesen",
+                "Sprechen",
+                "Schreiben"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Das Spontan-Meeting",
+              "beschreibung": "Rollenspiel ohne Vorbereitung: vier Karten, vier Tagesordnungspunkte. Erst spielen, dann analysieren.",
+              "pfad": "spontan-meeting.html",
+              "niveau": "B2/C1",
               "dauer": "60 Min",
               "fertigkeiten": [
                 "Sprechen",
-                "Hören"
+                "Schreiben"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
+            },
+            {
+              "titel": "Jour fixe – das Rollenspiel",
+              "beschreibung": "Zweite Runde mit anspruchsvolleren Karten: andere davon überzeugen, Aufgaben abzugeben.",
+              "pfad": "jour-fixe.html",
+              "niveau": "C1",
+              "dauer": "75 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Schreiben"
+              ],
+              "status": "fertig"
             },
             {
               "titel": "Protokoll und Aktennotiz",
@@ -347,16 +437,50 @@
               "status": "in-arbeit"
             },
             {
-              "titel": "Small Talk",
-              "beschreibung": "Anfangen, dabeibleiben, wieder aussteigen.",
-              "pfad": "smalltalk.html",
-              "niveau": "B2",
-              "dauer": "45 Min",
+              "titel": "Smalltalk – worüber?",
+              "beschreibung": "Welche Themen tragen und welche heikel sind, „mir ist“ gegen „mir geht es“ — und wie man aus einem Gespräch wieder herauskommt.",
+              "pfad": "smalltalk-themen.html",
+              "niveau": "A2/B1",
+              "dauer": "60 Min",
               "fertigkeiten": [
                 "Sprechen",
-                "Hören"
+                "Üben"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
+            },
+            {
+              "titel": "Smalltalk – Redemittel",
+              "beschreibung": "Offene Fragen, der Dreischritt aus Antwort, Zusatz und Gegenfrage, fünf Themenfelder und acht Wendungen.",
+              "pfad": "smalltalk-redemittel.html",
+              "niveau": "A2/B1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Üben"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Smalltalk – Sprechrunden",
+              "beschreibung": "Sechs Runden zu drei Minuten mit wechselndem Gegenüber, Leitfragen und Sprachhilfen, Uhr im Modul.",
+              "pfad": "smalltalk-sprechrunden.html",
+              "niveau": "A2/B1",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Sprechen"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Smalltalk-Bingo",
+              "beschreibung": "Fünf mal fünf Felder, die man nur durch Gespräche füllt — mit Beispielgespräch und Hinweisen für die Kursleitung.",
+              "pfad": "smalltalk-bingo.html",
+              "niveau": "A2/B1",
+              "dauer": "30 Min",
+              "fertigkeiten": [
+                "Sprechen"
+              ],
+              "status": "fertig"
             },
             {
               "titel": "Videokonferenz",
@@ -373,174 +497,11 @@
           ]
         },
         {
-          "titel": "Amt und Bewerbung",
-          "module": [
-            {
-              "titel": "Behördendeutsch",
-              "beschreibung": "Amtssprache entschlüsseln, Anträge ausfüllen.",
-              "pfad": "behoerdendeutsch.html",
-              "niveau": "B2–C1",
-              "dauer": "75 Min",
-              "fertigkeiten": [
-                "Lesen",
-                "Schreiben"
-              ],
-              "status": "in-arbeit"
-            },
-            {
-              "titel": "Bewerbung",
-              "beschreibung": "Anschreiben, Lebenslauf, die Fragen, die kommen.",
-              "pfad": "bewerbung.html",
-              "niveau": "B2–C1",
-              "dauer": "90 Min",
-              "fertigkeiten": [
-                "Schreiben",
-                "Sprechen"
-              ],
-              "status": "in-arbeit"
-            },
-            {
-              "titel": "Register und Stilebenen",
-              "beschreibung": "Dasselbe an die Chefin, die Kollegin, das Amt.",
-              "pfad": "register.html",
-              "niveau": "C1",
-              "dauer": "60 Min",
-              "fertigkeiten": [
-                "Schreiben",
-                "Lesen"
-              ],
-              "status": "in-arbeit"
-            },
-            {
-              "titel": "Argumentieren und erörtern",
-              "beschreibung": "These, Beleg, Gegenargument, Schluss.",
-              "pfad": "argumentieren.html",
-              "niveau": "C1",
-              "dauer": "75 Min",
-              "fertigkeiten": [
-                "Sprechen",
-                "Schreiben"
-              ],
-              "status": "in-arbeit"
-            }
-          ]
-        },
-        {
-          "titel": "Wortschatz",
-          "module": [
-            {
-              "titel": "Basiswortschatz Berufsleben",
-              "beschreibung": "Sieben Felder aus dem Betriebsalltag: Menschen, Aufgaben, Orte, Arbeitsmittel, Waren, Reklamation, Zahlungen — mit Wortbank und Zuordnungsaufgaben.",
-              "pfad": "wortschatz-berufsleben.html",
-              "niveau": "B2",
-              "dauer": "75 Min",
-              "fertigkeiten": [
-                "Üben",
-                "Lesen"
-              ],
-              "status": "fertig"
-            },
-            {
-              "titel": "Ausbildung und Beruf",
-              "beschreibung": "Duales System, Ausbildungsvertrag, Rechte und Pflichten nach BBiG, kaufmännische Berufe und Unternehmensziele — mit Wortbank, Zuordnung und Gruppieraufgabe.",
-              "pfad": "wortschatz-ausbildung-beruf.html",
-              "niveau": "B2",
-              "dauer": "75 Min",
-              "fertigkeiten": [
-                "Üben",
-                "Lesen"
-              ],
-              "status": "fertig"
-            }
-          ]
-        },
-        {
-          "titel": "Smalltalk",
-          "module": [
-            {
-              "titel": "Smalltalk-Bingo",
-              "beschreibung": "Fünf mal fünf Felder, die man nur durch Gespräche füllt — mit Beispielgespräch, Ablauf in fünf Schritten und Hinweisen für die Kursleitung.",
-              "pfad": "smalltalk-bingo.html",
-              "niveau": "A2/B1",
-              "dauer": "30 Min",
-              "fertigkeiten": [
-                "Sprechen"
-              ],
-              "status": "fertig"
-            },
-            {
-              "titel": "Smalltalk – Sprechrunden",
-              "beschreibung": "Sechs Runden zu drei Minuten mit wechselndem Gegenüber, Leitfragen und Sprachhilfen, Uhr im Modul. Die Auswertung ist der Lernteil.",
-              "pfad": "smalltalk-sprechrunden.html",
-              "niveau": "A2/B1",
-              "dauer": "45 Min",
-              "fertigkeiten": [
-                "Sprechen"
-              ],
-              "status": "fertig"
-            },
-            {
-              "titel": "Smalltalk – Redemittel",
-              "beschreibung": "Offene Fragen, der Dreischritt aus Antwort, Zusatz und Gegenfrage, fünf Themenfelder mit fertigen Sätzen und acht umgangssprachliche Wendungen.",
-              "pfad": "smalltalk-redemittel.html",
-              "niveau": "A2/B1",
-              "dauer": "60 Min",
-              "fertigkeiten": [
-                "Sprechen",
-                "Üben"
-              ],
-              "status": "fertig"
-            },
-            {
-              "titel": "Smalltalk – worüber?",
-              "beschreibung": "Welche Themen tragen und welche heikel sind, „mir ist“ gegen „mir geht es“ — und wie man aus einem Gespräch wieder herauskommt.",
-              "pfad": "smalltalk-themen.html",
-              "niveau": "A2/B1",
-              "dauer": "60 Min",
-              "fertigkeiten": [
-                "Sprechen",
-                "Üben"
-              ],
-              "status": "fertig"
-            }
-          ]
-        },
-        {
-          "titel": "Kundengespräche",
-          "module": [
-            {
-              "titel": "Kundengespräche – Sprechtraining",
-              "beschreibung": "Indirekte Fragen, Relativsätze mit Kasuswechsel und zweiteilige Konnektoren — an vier Arbeitsplätzen durchgespielt, mit Sprechkarten und Strichliste.",
-              "pfad": "kundengespraeche-sprechen.html",
-              "niveau": "B1/B2",
-              "dauer": "90 Min",
-              "fertigkeiten": [
-                "Sprechen",
-                "Üben"
-              ],
-              "status": "fertig"
-            },
-            {
-              "titel": "Kundengespräche am Telefon",
-              "beschreibung": "Der Gesprächseinstieg, fünf schwierige Verläufe mit Redemitteln, zwölf Videobeispiele als Zwei-Klick-Einbindung. Funktioniert auch ohne die Videos.",
-              "pfad": "kundengespraeche-telefon.html",
-              "niveau": "B1/B2",
-              "dauer": "90 Min",
-              "fertigkeiten": [
-                "Hören",
-                "Sprechen",
-                "Schreiben"
-              ],
-              "status": "fertig"
-            }
-          ]
-        },
-        {
           "titel": "Beschwerden",
           "module": [
             {
               "titel": "Beschwerden – Einstieg",
-              "beschreibung": "Überblick über den Bereich: sechs Konstellationen, worauf es ankommt, vier Beispieldialoge und Gruppenaufgaben. Von hier führen Links in die sechs Einzelmodule.",
+              "beschreibung": "Überblick: sechs Konstellationen, worauf es ankommt, vier Beispieldialoge und Gruppenaufgaben. Von hier führen Links in die Einzelmodule.",
               "pfad": "beschwerden-einstieg.html",
               "niveau": "B1",
               "dauer": "60 Min",
@@ -551,32 +512,21 @@
               "status": "fertig"
             },
             {
-              "titel": "Wortschatz Beschwerden",
-              "beschreibung": "Sechs Verben mit feinen Unterschieden, die Nomen der Wiedergutmachung, sachliche gegen wertende Adjektive — und drei Eskalationsstufen, von denen die dritte legitim ist.",
-              "pfad": "beschwerden-wortschatz.html",
+              "titel": "Höflich beschweren",
+              "beschreibung": "Fünf Schritte vom Einstieg bis zur Frist, die Wortwahl dazwischen — weich im Ton, hart in der Sache — und vier Rollenspielszenarien mit echter Reibung.",
+              "pfad": "beschwerden-hoeflich.html",
               "niveau": "B1/B2",
-              "dauer": "60 Min",
-              "fertigkeiten": [
-                "Üben",
-                "Lesen"
-              ],
-              "status": "fertig"
-            },
-            {
-              "titel": "Schriftliche Beschwerden",
-              "beschreibung": "Sechs Teile einer Reklamations-E-Mail, formelles und internes Register, drei Musterbriefe — und was in einer Beschwerdemail nie stehen sollte.",
-              "pfad": "beschwerden-schriftlich.html",
-              "niveau": "B1/B2",
-              "dauer": "75 Min",
+              "dauer": "90 Min",
               "fertigkeiten": [
                 "Lesen",
+                "Sprechen",
                 "Schreiben"
               ],
               "status": "fertig"
             },
             {
               "titel": "Beschwerden formulieren",
-              "beschreibung": "Die Sandwich-Technik und ihre Grenzen, dass-Sätze als Leiter von zurückhaltend bis sehr deutlich, und drei Tonlagen je nach Adressat.",
+              "beschreibung": "Die Sandwich-Technik und ihre Grenzen, dass-Sätze als Leiter von zurückhaltend bis sehr deutlich, drei Tonlagen je nach Adressat.",
               "pfad": "beschwerden-formulieren.html",
               "niveau": "B1/B2",
               "dauer": "90 Min",
@@ -601,19 +551,6 @@
               "status": "fertig"
             },
             {
-              "titel": "Höflich beschweren",
-              "beschreibung": "Fünf Schritte vom Einstieg bis zur Frist, die Wortwahl dazwischen — weich im Ton, hart in der Sache — und vier Rollenspielszenarien mit echter Reibung.",
-              "pfad": "beschwerden-hoeflich.html",
-              "niveau": "B1/B2",
-              "dauer": "90 Min",
-              "fertigkeiten": [
-                "Lesen",
-                "Sprechen",
-                "Schreiben"
-              ],
-              "status": "fertig"
-            },
-            {
               "titel": "Konjunktiv II bei Beschwerden",
               "beschreibung": "Die sechs Formen, drei Bauweisen, fünf Verwendungen — und der Konjunktiv II der Vergangenheit, mit dem man Kritik vorbringt, ohne Vorwürfe zu erheben.",
               "pfad": "beschwerden-konjunktiv.html",
@@ -625,115 +562,45 @@
                 "Sprechen"
               ],
               "status": "fertig"
+            },
+            {
+              "titel": "Wortschatz Beschwerden",
+              "beschreibung": "Sechs Verben mit feinen Unterschieden, sachliche gegen wertende Adjektive — und drei Eskalationsstufen, von denen die dritte legitim ist.",
+              "pfad": "beschwerden-wortschatz.html",
+              "niveau": "B1/B2",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Lesen"
+              ],
+              "status": "fertig"
             }
           ]
         },
         {
-          "titel": "Arbeitsaufträge",
+          "titel": "Wortschatz",
           "module": [
             {
-              "titel": "Arbeitsaufträge verstehen",
-              "beschreibung": "Die sechs Fragen eines vollständigen Auftrags, die fünf Auftragskiller, Rückfragen formulieren, Imperativ und Konjunktiv II, vom Zuruf zur E-Mail.",
-              "pfad": "arbeitsauftraege-verstehen.html",
+              "titel": "Basiswortschatz Berufsleben",
+              "beschreibung": "Sieben Felder aus dem Betriebsalltag: Menschen, Aufgaben, Orte, Arbeitsmittel, Waren, Reklamation, Zahlungen — mit Wortbank und Zuordnungsaufgaben.",
+              "pfad": "wortschatz-berufsleben.html",
               "niveau": "B2",
-              "dauer": "90 Min",
-              "fertigkeiten": [
-                "Lesen",
-                "Sprechen",
-                "Schreiben"
-              ],
-              "status": "fertig"
-            },
-            {
-              "titel": "Notizzettel verstehen",
-              "beschreibung": "Kurze Zettel schnell erfassen, angemessen reagieren, selbst einen schreiben. Mit Rollenspielkarten zum Anruf, der aus einem Zettel folgt.",
-              "pfad": "notizzettel-verstehen.html",
-              "niveau": "B1/B2",
-              "dauer": "60 Min",
-              "fertigkeiten": [
-                "Lesen",
-                "Sprechen",
-                "Schreiben"
-              ],
-              "status": "fertig"
-            },
-            {
-              "titel": "Das Verb lassen",
-              "beschreibung": "Vier Bedeutungen, der Doppelinfinitiv im Perfekt, sich lassen als Passiversatz — und die Redemittel, mit denen man im Büro etwas veranlasst statt selbst erledigt.",
-              "pfad": "verb-lassen.html",
-              "niveau": "B1/B2",
               "dauer": "75 Min",
               "fertigkeiten": [
-                "Lesen",
                 "Üben",
-                "Sprechen"
+                "Lesen"
               ],
               "status": "fertig"
             },
             {
-              "titel": "Der Imperativ – Regeln und Brettspiel",
-              "beschreibung": "Die vier Regeln zur Imperativbildung, dann ein Brettspiel mit 21 Aufträgen aus dem Arbeitsalltag. Sie-Form als Voreinstellung, umschaltbar auf du und ihr.",
-              "pfad": "imperativ-spiel.html",
-              "niveau": "A2/B1",
-              "dauer": "60 Min",
-              "fertigkeiten": [
-                "Üben",
-                "Sprechen"
-              ],
-              "status": "fertig"
-            },
-            {
-              "titel": "Arbeitsaufträge delegieren",
-              "beschreibung": "Eine Aufgabe weitergeben: was, bis wann, wozu. Fünf Bauformen des Infinitivs mit zu, neun Situationskarten aus drei Abteilungen.",
-              "pfad": "arbeitsauftraege-delegieren.html",
-              "niveau": "B2/C1",
-              "dauer": "90 Min",
-              "fertigkeiten": [
-                "Lesen",
-                "Sprechen",
-                "Schreiben"
-              ],
-              "status": "fertig"
-            }
-          ]
-        },
-        {
-          "titel": "Besprechungen und Meetings",
-          "module": [
-            {
-              "titel": "Besprechungen und Meetings",
-              "beschreibung": "Besprechungstypen und Tagesordnung, Redemittel zum Wortergreifen und Moderieren, das Passiv im Protokoll — mit Dreier-Rotation zum Moderieren.",
-              "pfad": "besprechungen.html",
-              "niveau": "B2/C1",
-              "dauer": "90 Min",
-              "fertigkeiten": [
-                "Lesen",
-                "Sprechen",
-                "Schreiben"
-              ],
-              "status": "fertig"
-            },
-            {
-              "titel": "Das Spontan-Meeting",
-              "beschreibung": "Rollenspiel ohne Vorbereitung: vier Karten, vier Tagesordnungspunkte. Erst spielen, dann analysieren — die Redemittel kommen bewusst danach.",
-              "pfad": "spontan-meeting.html",
-              "niveau": "B2/C1",
-              "dauer": "60 Min",
-              "fertigkeiten": [
-                "Sprechen",
-                "Schreiben"
-              ],
-              "status": "fertig"
-            },
-            {
-              "titel": "Jour fixe – das Rollenspiel",
-              "beschreibung": "Zweite Runde mit anspruchsvolleren Karten: andere davon überzeugen, Aufgaben abzugeben, und eine offene Diskussion zu einem Ergebnis führen.",
-              "pfad": "jour-fixe.html",
-              "niveau": "C1",
+              "titel": "Ausbildung und Beruf",
+              "beschreibung": "Duales System, Ausbildungsvertrag, Rechte und Pflichten nach BBiG, kaufmännische Berufe und Unternehmensziele.",
+              "pfad": "wortschatz-ausbildung-beruf.html",
+              "niveau": "B2",
               "dauer": "75 Min",
               "fertigkeiten": [
-                "Sprechen",
-                "Schreiben"
+                "Üben",
+                "Lesen"
               ],
               "status": "fertig"
             }
@@ -744,7 +611,7 @@
           "module": [
             {
               "titel": "Sicherheit am Arbeitsplatz",
-              "beschreibung": "Die jährliche Unterweisung und ihr Wortschatz: Brandschutz, IT-Sicherheit, Gebäude, Ergonomie, Erste Hilfe.",
+              "beschreibung": "Die jährliche Unterweisung und ihr Wortschatz: Brandschutz, IT-Sicherheit, Gebäude, Ergonomie, Erste Hilfe, Datenschutz.",
               "pfad": "sicherheit-unterweisung.html",
               "niveau": "B2",
               "dauer": "45 Min",
@@ -793,7 +660,7 @@
             },
             {
               "titel": "Projektauftrag: Sicherheits-Intranet",
-              "beschreibung": "Sechs Schreibaufträge für das Intranet der KONTOR AG — Checkliste, FAQ, Quiz, Notfallanleitung, Tipps, Notfallkarte. Paararbeit mit Präsentation.",
+              "beschreibung": "Sechs Schreibaufträge für das Intranet der KONTOR AG — Checkliste, FAQ, Quiz, Notfallanleitung, Tipps, Notfallkarte.",
               "pfad": "sicherheit-projektauftrag.html",
               "niveau": "B2",
               "dauer": "90 Min",
@@ -851,6 +718,59 @@
                 "Lesen"
               ],
               "status": "fertig"
+            }
+          ]
+        },
+        {
+          "titel": "Amt und Bewerbung",
+          "module": [
+            {
+              "titel": "Behördendeutsch",
+              "beschreibung": "Amtssprache entschlüsseln, Anträge ausfüllen.",
+              "pfad": "behoerdendeutsch.html",
+              "niveau": "B2–C1",
+              "dauer": "75 Min",
+              "fertigkeiten": [
+                "Lesen",
+                "Schreiben"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Bewerbung",
+              "beschreibung": "Anschreiben, Lebenslauf, die Fragen, die kommen.",
+              "pfad": "bewerbung.html",
+              "niveau": "B2–C1",
+              "dauer": "90 Min",
+              "fertigkeiten": [
+                "Schreiben",
+                "Sprechen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Register und Stilebenen",
+              "beschreibung": "Dasselbe an die Chefin, die Kollegin, das Amt.",
+              "pfad": "register.html",
+              "niveau": "C1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Schreiben",
+                "Lesen"
+              ],
+              "status": "in-arbeit"
+            },
+            {
+              "titel": "Argumentieren und erörtern",
+              "beschreibung": "These, Beleg, Gegenargument, Schluss.",
+              "pfad": "argumentieren.html",
+              "niveau": "C1",
+              "dauer": "75 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Schreiben"
+              ],
+              "status": "in-arbeit"
             }
           ]
         }
@@ -931,15 +851,16 @@
             },
             {
               "titel": "Relativsätze",
-              "beschreibung": "Mit Präposition, mit Genitiv, mit was und wo.",
+              "beschreibung": "Genus vom Bezugswort, Kasus aus dem Relativsatz — mit Probe statt Tabelle. Dazu was oder das, wo(r)-, Genitiv und die Verdichtung zum Attribut.",
               "pfad": "relativsaetze.html",
-              "niveau": "B2",
-              "dauer": "45 Min",
+              "niveau": "B2–C1",
+              "dauer": "90 Min",
               "fertigkeiten": [
                 "Üben",
-                "Schreiben"
+                "Schreiben",
+                "Sprechen"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "Infinitivsätze",
@@ -1057,27 +978,16 @@
             },
             {
               "titel": "Modalverben",
-              "beschreibung": "Die normale Bedeutung und die Feinheiten.",
+              "beschreibung": "Grundbedeutungen, die folgenreiche Verneinung (nicht müssen gegen nicht dürfen), Modalverbpassiv und Doppelinfinitiv — dazu der subjektive Gebrauch als Sicherheitsleiter von muss bis mag.",
               "pfad": "modalverben.html",
-              "niveau": "B2",
-              "dauer": "45 Min",
+              "niveau": "B2–C1",
+              "dauer": "90 Min",
               "fertigkeiten": [
                 "Üben",
+                "Schreiben",
                 "Sprechen"
               ],
-              "status": "in-arbeit"
-            },
-            {
-              "titel": "Modalverben subjektiv",
-              "beschreibung": "müsste, dürfte, will, soll: Vermutung und Gerücht.",
-              "pfad": "modalverben-subjektiv.html",
-              "niveau": "C1",
-              "dauer": "45 Min",
-              "fertigkeiten": [
-                "Üben",
-                "Hören"
-              ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "lassen",
@@ -1316,7 +1226,31 @@
               "status": "in-arbeit"
             },
             {
-              "titel": "Vorsilben und Nachsilben",
+              "titel": "Vorsilben — die Landkarte",
+              "beschreibung": "Zehn Verben, ihre Präfixe und die Betonung. Vier Verben haben zwei Lesarten, je nachdem ob getrennt oder nicht getrennt wird.",
+              "pfad": "praefix-landkarte.html",
+              "niveau": "B2–C1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Hören"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Nachsilben bei Adjektiven",
+              "beschreibung": "Zwölf Suffixe mit Bedeutung und Beispielen — einschließlich der Fälle, in denen die regelmäßig gebildete Form nicht gebräuchlich ist.",
+              "pfad": "suffixe-adjektive.html",
+              "niveau": "B2–C1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Lesen"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Vorsilben und Nachsilben im Überblick",
               "beschreibung": "Aus einem Wort werden zwanzig.",
               "pfad": "wortbildung.html",
               "niveau": "C1",
