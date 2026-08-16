@@ -455,6 +455,36 @@
           ]
         },
         {
+          "titel": "Kundengespräche",
+          "module": [
+            {
+              "titel": "Kundengespräche – Sprechtraining",
+              "beschreibung": "Indirekte Fragen, Relativsätze mit Kasuswechsel und zweiteilige Konnektoren — an vier Arbeitsplätzen durchgespielt, mit Sprechkarten und Strichliste.",
+              "pfad": "kundengespraeche-sprechen.html",
+              "niveau": "B1/B2",
+              "dauer": "90 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Üben"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Kundengespräche am Telefon",
+              "beschreibung": "Der Gesprächseinstieg, fünf schwierige Verläufe mit Redemitteln, zwölf Videobeispiele als Zwei-Klick-Einbindung. Funktioniert auch ohne die Videos.",
+              "pfad": "kundengespraeche-telefon.html",
+              "niveau": "B1/B2",
+              "dauer": "90 Min",
+              "fertigkeiten": [
+                "Hören",
+                "Sprechen",
+                "Schreiben"
+              ],
+              "status": "fertig"
+            }
+          ]
+        },
+        {
           "titel": "Beschwerden",
           "module": [
             {
