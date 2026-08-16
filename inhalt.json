@@ -455,6 +455,99 @@
           ]
         },
         {
+          "titel": "Beschwerden",
+          "module": [
+            {
+              "titel": "Beschwerden – Einstieg",
+              "beschreibung": "Überblick über den Bereich: sechs Konstellationen, worauf es ankommt, vier Beispieldialoge und Gruppenaufgaben. Von hier führen Links in die sechs Einzelmodule.",
+              "pfad": "beschwerden-einstieg.html",
+              "niveau": "B1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Lesen",
+                "Sprechen"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Wortschatz Beschwerden",
+              "beschreibung": "Sechs Verben mit feinen Unterschieden, die Nomen der Wiedergutmachung, sachliche gegen wertende Adjektive — und drei Eskalationsstufen, von denen die dritte legitim ist.",
+              "pfad": "beschwerden-wortschatz.html",
+              "niveau": "B1/B2",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Lesen"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Schriftliche Beschwerden",
+              "beschreibung": "Sechs Teile einer Reklamations-E-Mail, formelles und internes Register, drei Musterbriefe — und was in einer Beschwerdemail nie stehen sollte.",
+              "pfad": "beschwerden-schriftlich.html",
+              "niveau": "B1/B2",
+              "dauer": "75 Min",
+              "fertigkeiten": [
+                "Lesen",
+                "Schreiben"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Beschwerden formulieren",
+              "beschreibung": "Die Sandwich-Technik und ihre Grenzen, dass-Sätze als Leiter von zurückhaltend bis sehr deutlich, und drei Tonlagen je nach Adressat.",
+              "pfad": "beschwerden-formulieren.html",
+              "niveau": "B1/B2",
+              "dauer": "90 Min",
+              "fertigkeiten": [
+                "Lesen",
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Beschwerden entgegennehmen",
+              "beschreibung": "Die andere Seite: zuhören, Bedauern ausdrücken, Lösung oder nächsten Schritt zusagen, danken. Mit der Unterscheidung Bedauern gegen Schuldeingeständnis.",
+              "pfad": "beschwerden-entgegennehmen.html",
+              "niveau": "B1/B2",
+              "dauer": "90 Min",
+              "fertigkeiten": [
+                "Hören",
+                "Sprechen",
+                "Schreiben"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Höflich beschweren",
+              "beschreibung": "Fünf Schritte vom Einstieg bis zur Frist, die Wortwahl dazwischen — weich im Ton, hart in der Sache — und vier Rollenspielszenarien mit echter Reibung.",
+              "pfad": "beschwerden-hoeflich.html",
+              "niveau": "B1/B2",
+              "dauer": "90 Min",
+              "fertigkeiten": [
+                "Lesen",
+                "Sprechen",
+                "Schreiben"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Konjunktiv II bei Beschwerden",
+              "beschreibung": "Die sechs Formen, drei Bauweisen, fünf Verwendungen — und der Konjunktiv II der Vergangenheit, mit dem man Kritik vorbringt, ohne Vorwürfe zu erheben.",
+              "pfad": "beschwerden-konjunktiv.html",
+              "niveau": "B1/B2",
+              "dauer": "90 Min",
+              "fertigkeiten": [
+                "Lesen",
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "fertig"
+            }
+          ]
+        },
+        {
           "titel": "Arbeitsaufträge",
           "module": [
             {
