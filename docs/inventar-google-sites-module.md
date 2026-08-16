@@ -187,6 +187,46 @@ liegt und mehrfach verlinkt wird.
 Die letzten vier sind **Versionsartefakte**: Eine „version 2“/„version 3“ ist
 identisch mit ihrer Vorgängerin. Hier ist eine Bereinigung unkritisch.
 
+### Auflösung der sieben Paare — entschieden 2026-08-15
+
+**Schritt 1 der Aufbereitung** (Reihenfolge von Regina freigegeben).
+`altmaterial/` bleibt unverändert; festgelegt wird, **welche Fassung ins
+Lehrwerk geht**.
+
+| # | Paar | Entscheidung | Grund |
+|---|---|---|---|
+| 1 | `Beschwerden/beschwerden_konjunktiv` ↔ `Grammatik/konjunktiv/beschwerden_konjunktiv` | **eine Fassung, zwei Verlinkungen** | Mehrfachablage. Das Modul verbindet Beschwerdesituation und Konjunktiv II — es gehört fachlich in beide Bereiche. Im Lehrwerk liegt es unter `buero/`, die Grammatikseite verlinkt darauf. |
+| 2 | `Beschwerden/beschwerden_wortschatz` ↔ `wortschatz/beschwerden_wortschatz` | **eine Fassung, zwei Verlinkungen** | dasselbe Muster |
+| 3 | `arbeitsauftraege verstehen/Imperativ Spiel` ↔ `Grammatik/Spiele/Imperativ Spiel` | **eine Fassung**, Ablage unter `grammatik/` | Es ist ein Grammatikspiel; der Bezug zu Arbeitsaufträgen ist der Inhalt der Sätze, nicht das Lernziel. **Achtung:** trägt einen D9-Befund (Erstsprachenbezug), vor der Übernahme zu bereinigen. |
+| 4 | `Kundengespraeche/kundengespraeche_sprechen` ↔ `… sprechen 2` | **`sprechen 2` entfällt** | bitidentisch (MD5 `36A934611FBD70F18C56D811C55B2343`). Das Leerzeichen im Dateinamen stört bei Pfadangaben; die unnummerierte Fassung ist der natürlichere Name. **Spart 76 Namensfundstellen.** |
+| 5 | `Konnektoren/C1_Konnektoren_bedingung_folge` ↔ `C1_Konnektoren_version 3` | **`version 3` entfällt** — aber siehe unten | Dreierfall, gesondert behandelt |
+| 6 | `infinitiv mit zu_version 2` ↔ `_version 3` | **`version 3` entfällt** | bitidentisch (MD5 `9624F1E2EF7925DF3ED25226908A27BC`). Beide sind das Modul „mit oder ohne zu“ — **keine Versionsreihe**, sondern ein eigener Block neben `infinitiv mit zu.html`. Beide Module bleiben, nur die Kopie entfällt. |
+| 7 | `bürodeutsch_office-programme` ↔ `_version2` | **`version2` entfällt** | bitidentisch. **Spart 21 Namensfundstellen.** |
+
+#### Sonderfall 5 — der Konnektorenblock hat drei Dateien
+
+| Datei | Inhalt | Entscheidung |
+|---|---|---|
+| `C1_Konnektoren_bedingung_folge` | Erklärmodul, Phasenaufbau, authentische Textsorten | **behalten** als Erklärteil — **enthält den A-Fehler zu `es sei denn`**, vor der Übernahme zu korrigieren |
+| `C1_Konnektoren_version 3` | bitidentisch mit `bedingung_folge` | **entfällt** |
+| `C1_Konnektoren_version 2` | eigenständig: sechs Abschnitte, 34 Übungselemente, KONTOR-Kontext, Schreibaufgabe, **beste Prüffunktion des Blocks** | **behalten** als Übungsteil |
+
+**Der A-Fehler steckt in beiden Kopien.** Wird `version 3` gestrichen und
+`bedingung_folge` korrigiert, ist er einmal behoben statt zweimal — das ist
+der praktische Ertrag dieser Auflösung.
+
+#### Bilanz Schritt 1
+
+| | |
+|---|---|
+| Dateien, die entfallen | **4** (`sprechen 2`, `C1_Konnektoren_version 3`, `infinitiv … _version 3`, `bürodeutsch … _version2`) |
+| Dateien, die einmal liegen und mehrfach verlinkt werden | **3** (Beschwerden-Konjunktiv, Beschwerden-Wortschatz, Imperativ-Spiel) |
+| eingesparte Namensfundstellen | **rund 135** von 919 |
+| eingesparte Doppelkorrekturen | der A-Fehler `es sei denn`, die Perfektregel ist **nicht** betroffen (die beiden Lassen-Spiele sind keine Dubletten) |
+
+**Damit sinkt der Aufbereitungsumfang von 152 auf 148 Dateien**, und drei
+weitere müssen nur einmal bearbeitet werden.
+
 ### Versionsserien — nicht identisch, echte Varianten
 
 | Serie | Dateien | Status |
@@ -1366,3 +1406,81 @@ Entscheidung für Regina.
 
 **Nicht empfohlen:** Bereinigung nach Dateinamen. Der `C1_Konnektoren`-Fall
 zeigt, dass die Benennung in die Irre führt.
+
+---
+
+## 10. Schritt 2 — die beiden `wortschatztraining`-Module, Übertragung je Modul
+
+> **Rahmung nach `docs/klarstellung-personalisierung.md` (verbindlich).**
+> Die Personalisierung der Altmodule war bewusst didaktisch angelegt und ist
+> weder Fehler noch Datenschutzproblem. Was hier steht, ist keine Mängelliste,
+> sondern die Übertragung individueller Konkretheit in die Lehrwerkswelt.
+> Die Spalte „Klasse“ aus den früheren Prüfabschnitten entfällt deshalb hier.
+> Beide Module wurden gemeinsam bearbeitet, weil sie denselben Personenkreis
+> teilen und ein einheitliches Rollenbild bekommen sollen — nicht, um eine
+> „Kette aufzulösen“.
+
+### 10.1 `wortschatztraining_berufsleben.html`
+
+**Ziel:** `buero/wortschatz-berufsleben.html` · registriert unter „Wortschatz“
+
+| Stelle im Altmodul | Übertragung |
+|---|---|
+| Sieben Kontextkästen, an konkrete TN gebunden | nach Rolle und Abteilung neu vergeben, nicht nach Person |
+| Reale Arbeitgeber in den Kästen | KONTOR AG bzw. neutrale Rolle |
+| Abschnitt „Zahlungen“ verband Betriebs- und Privatkonto einer Person | Sie-Form; private Bankgeschäfte sind kein Vorgang der Modellfirma |
+| Speicherschlüssel | `bsk-modul-wortschatz-berufsleben` |
+
+Zuordnung der Kästen: Menschen → neutral · Aufgaben → Frau Karpenko
+(Office-Management, dauerhaft definierte Rolle) · Orte → Einarbeitung
+Karpenko · Arbeitsmittel → neutral · Waren → Frau Seidel (Einkauf) ·
+Reklamation → Herr Becker (Kundenservice) · Zahlungen → neutral.
+
+### 10.2 `wortschatztraining_ausbildung und beruf.html`
+
+**Ziel:** `buero/wortschatz-ausbildung-beruf.html` · registriert unter „Wortschatz“
+
+| Stelle im Altmodul | Übertragung |
+|---|---|
+| Kontextkasten Abschnitt 4: eine namentlich genannte Person, deren Ausbildungsvertrag bereits unterschrieben ist | Die Person entfällt; der Vertrag wird als Dokument behandelt. Die Erklärrolle übernimmt Frau Haddad (Personal) — sachlich ihre dauerhafte Zuständigkeit bei KONTOR, nicht ein Ersatzname für die frühere TN |
+| Kontextkästen der Abschnitte 1, 2, 3, 5, 6 | neutrale berufliche Rahmung bzw. Sie-Form; nur Abschnitt 4 braucht eine feste Figur |
+| Reale Arbeitgeber (Optikerbetrieb, Bäckerei, Finanzdienstleister) | entfallen; Unternehmensziele durchgängig an der KONTOR AG erklärt |
+| Zwei Halbsätze, die Berufsbilder an die Lebensplanung einzelner TN koppelten | gestrichen; die Berufsbeschreibungen stehen für sich |
+| Übung 1a war durchgehend über eine Person formuliert | allgemeine Definitionen |
+| Übung 7b „Alle drei Frauen sprechen über Ausbildung“ — konstruktiv auf drei TN aufgebaut | drei Situationslabel statt drei Personen: „Im zweiten Lehrjahr“ · „Vor der Bewerbung“ · „Am ersten Arbeitstag“. Die persönliche Ich-Perspektive bleibt erhalten, sie hängt nur nicht mehr an konkreten Menschen |
+
+Das ist bewusst **keine** Eins-zu-eins-Ersetzung: Von sieben personengebundenen
+Kästen wird genau einer zu einer festen KONTOR-Figur, weil dort eine
+Zuständigkeit besteht (Personalabteilung erklärt den Ausbildungsvertrag). Die
+übrigen brauchen keine Figur.
+
+**Zwei fachliche Korrekturen, unabhängig von der Übertragung:**
+
+1. Übung 4b führte das Stichwort **„das Schweigen“** mit der Bedeutung „Über
+   Geschäftsgeheimnisse darf man nicht sprechen – Stillschweigen“. Lemma und
+   Bedeutung passten nicht zusammen; im Vertrag steht die
+   **Schweigepflicht**. Korrigiert.
+2. Übung 6a war eine Satz-zu-Kategorie-Zuordnung mit sechs langen Sätzen und
+   nur drei Kategorien — als `zuordnen` nicht abbildbar und didaktisch
+   ungünstig. Umgestellt auf `Lehrwerk.gruppieren` mit neun Verbalphrasen,
+   drei je Topf. Das Lernziel (ökonomisch/ökologisch/sozial unterscheiden)
+   bleibt, die Wortarbeit wird sichtbarer.
+
+**Nicht übernommen:** die Kategorie-Farbmarken (`kan`, `knt`, `kna`) — sie
+kodierten die drei Personen und haben ohne sie keine Funktion.
+
+### 10.3 Bilanz Schritt 2
+
+- 2 Module neu aufgebaut, beide unter „Wortschatz“ im Bereich `buero`
+- 13 personengebundene Kontextkästen übertragen; davon werden **3** zu festen
+  KONTOR-Figuren (Karpenko · Seidel · Becker im Schwestermodul, Haddad hier),
+  die übrigen zu neutralen beruflichen Rollen oder zur Sie-Form
+- reale Arbeitgeber durch die KONTOR AG bzw. neutrale Rahmung ersetzt
+- 2 fachliche Fehler behoben statt ausgefiltert
+- beide Module verwenden nur Aufgabentypen aus `assets/lehrwerk.js`
+- die Altdateien bleiben in `altmaterial/` unverändert erhalten
+
+**Was ausdrücklich erhalten bleibt:** die Konkretheit. Beide Module sprechen
+weiter aus einer Ich- oder Sie-Perspektive, benennen konkrete Abteilungen,
+Aufgaben und Situationen. Was sich ändert, ist nur, woran diese Konkretheit
+hängt — an der Modellfirma statt an einer bestimmten Kursgruppe.

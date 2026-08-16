@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Basiswortschatz Berufsleben – Berufssprachkurs</title>
+<link rel="stylesheet" href="../assets/basis.css">
+<link rel="stylesheet" href="../assets/platform.css">
+<link rel="stylesheet" href="../assets/lehrwerk.css">
+<link rel="stylesheet" href="../assets/aufgaben.css">
+<script src="../data/homework.js" defer></script>
+<script src="../assets/platform.js"></script>
+</head>
+<body data-page="module" data-bereich="buero" data-root="../">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../buero.html">← Büro und Verwaltung</a>
+    <h1><em>Basiswortschatz</em> Berufsleben</h1>
+    <p class="anleitung">Sieben Felder, die in jedem Betrieb vorkommen: Wer arbeitet dort, was wird getan, wo, womit — und was passiert mit Waren, Reklamationen und Zahlungen.</p>
+  </div>
+</header>
+
+<main class="innen modul">
+
+  <div class="reiter" role="tablist">
+    <button role="tab" aria-selected="true"  data-blatt="menschen">Menschen</button>
+    <button role="tab" aria-selected="false" data-blatt="aufgaben">Aufgaben</button>
+    <button role="tab" aria-selected="false" data-blatt="orte">Orte</button>
+    <button role="tab" aria-selected="false" data-blatt="mittel">Arbeitsmittel</button>
+    <button role="tab" aria-selected="false" data-blatt="waren">Waren</button>
+    <button role="tab" aria-selected="false" data-blatt="reklamation">Reklamation</button>
+    <button role="tab" aria-selected="false" data-blatt="zahlungen">Zahlungen</button>
+  </div>
+
+  <!-- ============ 1 Menschen ============ -->
+  <section class="blatt" id="blatt-menschen">
+
+    <p>Die KONTOR AG hat rund 800 Mitarbeitende in sechs Abteilungen. Wer macht was?</p>
+
+    <h2>Wer ist wer?</h2>
+    <div id="z1"></div>
+    <p class="rueckmeldung" id="z1-rueck" hidden></p>
+
+    <h2>Die Abteilungsleiterin spricht</h2>
+    <div id="b1-bank"></div>
+    <p class="lueckentext">
+      „Ich bin die <input class="luecke" id="l1a" size="16" autocomplete="off"> der Verwaltung.
+      Über mir steht die <input class="luecke" id="l1b" size="16" autocomplete="off">, sie leitet das ganze Unternehmen.
+      In meinem Team arbeiten sechs <input class="luecke" id="l1c" size="16" autocomplete="off">.
+      Eine <input class="luecke" id="l1d" size="16" autocomplete="off"> unterstützt mich bei der Organisation.
+      Wenn jemand neu anfängt, übernimmt die <input class="luecke" id="l1e" size="16" autocomplete="off"> die Einarbeitung."
+    </p>
+    <div class="knopfreihe">
+      <button class="knopf" id="b1-pruefen" type="button">Prüfen</button>
+      <button class="knopf" id="b1-tipp" type="button">Tipp</button>
+    </div>
+    <p class="rueckmeldung" id="b1-rueck" hidden></p>
+    <p class="rueckmeldung" id="b1-hinweis" hidden>Alle fünf Wörter enden auf <em>-in</em>. Achten Sie auf den Artikel: Es heißt immer <em>die</em>.</p>
+
+  </section>
+
+  <!-- ============ 2 Aufgaben ============ -->
+  <section class="blatt" id="blatt-aufgaben">
+
+    <div class="kasten">
+      <h3>Neu im Office-Management</h3>
+      <p>Frau Karpenko hat gerade in der Verwaltung angefangen. Sie übernimmt nach und nach die Aufgaben, die zum Office-Management gehören.</p>
+    </div>
+
+    <h2>Welches Verb passt?</h2>
+    <div id="z2"></div>
+    <p class="rueckmeldung" id="z2-rueck" hidden></p>
+
+    <h2>Drei Wörter, eine Bedeutung</h2>
+    <p>Verbinden Sie die Begriffe, die dasselbe meinen.</p>
+    <div id="z2b"></div>
+    <p class="rueckmeldung" id="z2b-rueck" hidden></p>
+
+  </section>
+
+  <!-- ============ 3 Orte ============ -->
+  <section class="blatt" id="blatt-orte">
+
+    <div class="kasten">
+      <h3>Rundgang durch das Gebäude</h3>
+      <p>Am ersten Tag zeigt eine Kollegin Frau Karpenko das Haus.</p>
+    </div>
+
+    <div id="b3-bank"></div>
+    <p class="lueckentext">
+      „Willkommen bei KONTOR. Hier vorne ist die <input class="luecke" id="l3a" size="14" autocomplete="off"> — da melden sich alle Besucher an.
+      Rechts ist der <input class="luecke" id="l3b" size="14" autocomplete="off"> für Besprechungen.
+      Pakete gehen durch die <input class="luecke" id="l3c" size="14" autocomplete="off">.
+      Im Erdgeschoss ist unser <input class="luecke" id="l3d" size="14" autocomplete="off">.
+      Zum Mittagessen gehen wir in die <input class="luecke" id="l3e" size="14" autocomplete="off">.
+      Und hier ist der <input class="luecke" id="l3f" size="14" autocomplete="off"> — da gibt es Kaffee."
+    </p>
+    <div class="knopfreihe">
+      <button class="knopf" id="b3-pruefen" type="button">Prüfen</button>
+      <button class="knopf" id="b3-tipp" type="button">Tipp</button>
+    </div>
+    <p class="rueckmeldung" id="b3-rueck" hidden></p>
+    <p class="rueckmeldung" id="b3-hinweis" hidden>Die Reihenfolge folgt dem Weg durch das Gebäude: erst der Eingang, dann die Räume dahinter, zuletzt die Pause.</p>
+
+  </section>
+
+  <!-- ============ 4 Arbeitsmittel ============ -->
+  <section class="blatt" id="blatt-mittel">
+
+    <h2>Welches Arbeitsmittel ist das?</h2>
+    <div id="z4"></div>
+    <p class="rueckmeldung" id="z4-rueck" hidden></p>
+
+    <h2>Was kann man mit einer Datei machen?</h2>
+    <div id="b4-bank"></div>
+    <p class="lueckentext">
+      Eine Mitarbeiterin schickt einer Kundin ein Dokument. Zuerst muss sie die Datei
+      <input class="luecke" id="l4a" size="18" autocomplete="off">.
+      Dann macht sie Änderungen und muss die Datei
+      <input class="luecke" id="l4b" size="18" autocomplete="off">.
+      Die Kundin braucht eine Kopie auf Papier — sie muss das Dokument also
+      <input class="luecke" id="l4c" size="18" autocomplete="off">.
+      Sie kann die Datei auch
+      <input class="luecke" id="l4d" size="20" autocomplete="off">.
+      Die Kundin kann sie dann auf ihrem Computer
+      <input class="luecke" id="l4e" size="18" autocomplete="off">.
+    </p>
+    <div class="knopfreihe">
+      <button class="knopf" id="b4-pruefen" type="button">Prüfen</button>
+      <button class="knopf" id="b4-tipp" type="button">Tipp</button>
+    </div>
+    <p class="rueckmeldung" id="b4-rueck" hidden></p>
+    <p class="rueckmeldung" id="b4-hinweis" hidden>Die Reihenfolge ist der Arbeitsablauf: erst öffnen, dann ändern und sichern, dann weitergeben.</p>
+
+  </section>
+
+  <!-- ============ 5 Waren ============ -->
+  <section class="blatt" id="blatt-waren">
+
+    <div class="kasten">
+      <h3>Vom Hersteller ins Lager</h3>
+      <p>Der Einkauf bestellt, das Lager nimmt an, der Verkauf gibt weiter. Der Wortschatz dazu ist in jedem Handelsbetrieb derselbe.</p>
+    </div>
+
+    <h2>Was passiert mit den Waren?</h2>
+    <div id="b5-bank"></div>
+    <p class="lueckentext">
+      Ein Hersteller <input class="luecke" id="l5a" size="14" autocomplete="off"> die Produkte.
+      KONTOR kann sie beim Lieferanten <input class="luecke" id="l5b" size="14" autocomplete="off">.
+      Der Lieferant muss die Ware dann <input class="luecke" id="l5c" size="14" autocomplete="off">.
+      Wenn die Lieferung ankommt, muss das Lager die Pakete <input class="luecke" id="l5d" size="14" autocomplete="off">.
+      Wenn ein Produkt beschädigt ist, muss der Lieferant es <input class="luecke" id="l5e" size="14" autocomplete="off">.
+    </p>
+    <div class="knopfreihe">
+      <button class="knopf" id="b5-pruefen" type="button">Prüfen</button>
+      <button class="knopf" id="b5-tipp" type="button">Tipp</button>
+    </div>
+    <p class="rueckmeldung" id="b5-rueck" hidden></p>
+    <p class="rueckmeldung" id="b5-hinweis" hidden>Achten Sie darauf, wer handelt: Hersteller, Lieferant, Lager. Jeder Satz hat ein anderes Subjekt.</p>
+
+    <h2>Der Einkauf: in welcher Reihenfolge?</h2>
+    <div class="kasten">
+      <p>Frau Seidel arbeitet im Einkauf. So läuft eine Bestellung ab.</p>
+    </div>
+    <div id="b5b-bank"></div>
+    <p class="lueckentext">
+      Zuerst prüft sie den <input class="luecke" id="l5f" size="16" autocomplete="off">.
+      Dann bittet sie zwei Lieferanten um ein <input class="luecke" id="l5g" size="16" autocomplete="off">.
+      Sie erteilt dem besten Lieferanten den <input class="luecke" id="l5h" size="16" autocomplete="off">.
+      Die Lieferung kommt mit einem <input class="luecke" id="l5i" size="16" autocomplete="off">.
+      Danach wird die Rechnung bezahlt.
+    </p>
+    <div class="knopfreihe">
+      <button class="knopf" id="b5b-pruefen" type="button">Prüfen</button>
+    </div>
+    <p class="rueckmeldung" id="b5b-rueck" hidden></p>
+
+  </section>
+
+  <!-- ============ 6 Reklamation ============ -->
+  <section class="blatt" id="blatt-reklamation">
+
+    <div class="kasten">
+      <h3>Eine Kundin ist unzufrieden</h3>
+      <p>Herr Becker arbeitet im Kundenservice. Eine Lieferung ist beschädigt angekommen.</p>
+    </div>
+
+    <h2>Der Vorgang</h2>
+    <div id="b6-bank"></div>
+    <p class="lueckentext">
+      Die Kundin hat eine Lieferung bekommen, aber es gab einen
+      <input class="luecke" id="l6a" size="14" autocomplete="off"> — zwei Kartons waren beschädigt.
+      Sie möchte eine <input class="luecke" id="l6b" size="14" autocomplete="off"> machen.
+      Herr Becker hat den Vorgang sofort <input class="luecke" id="l6c" size="14" autocomplete="off">.
+      Er hat eine <input class="luecke" id="l6d" size="14" autocomplete="off"> Lieferung festgestellt
+      und bietet als Lösung einen <input class="luecke" id="l6e" size="14" autocomplete="off"> an.
+      Die Versandkosten muss die Kundin nicht <input class="luecke" id="l6f" size="14" autocomplete="off">.
+    </p>
+    <div class="knopfreihe">
+      <button class="knopf" id="b6-pruefen" type="button">Prüfen</button>
+      <button class="knopf" id="b6-tipp" type="button">Tipp</button>
+    </div>
+    <p class="rueckmeldung" id="b6-rueck" hidden></p>
+    <p class="rueckmeldung" id="b6-hinweis" hidden>Ein Wort steht als Adjektiv vor dem Nomen und braucht eine Endung: <em>eine … Lieferung</em>.</p>
+
+    <h2>Was passt zusammen?</h2>
+    <div id="z6"></div>
+    <p class="rueckmeldung" id="z6-rueck" hidden></p>
+
+  </section>
+
+  <!-- ============ 7 Zahlungen ============ -->
+  <section class="blatt" id="blatt-zahlungen">
+
+    <p>Diese Begriffe braucht man im Betrieb <strong>und</strong> privat — beim Gehalt, bei der Miete, beim Einkauf.</p>
+
+    <h2>Ein Tag mit Zahlungen</h2>
+    <div id="b7-bank"></div>
+    <p class="lueckentext">
+      Sie haben ein <input class="luecke" id="l7a" size="16" autocomplete="off"> bei der Bank.
+      Heute öffnen Sie den <input class="luecke" id="l7b" size="16" autocomplete="off">
+      und sehen eine <input class="luecke" id="l7c" size="16" autocomplete="off"> von 50 Euro.
+      Sie möchten Geld überweisen und füllen ein <input class="luecke" id="l7d" size="20" autocomplete="off"> aus.
+      Im Supermarkt bekommen Sie einen <input class="luecke" id="l7e" size="16" autocomplete="off">.
+      Am Abend sehen Sie: Eine <input class="luecke" id="l7f" size="16" autocomplete="off"> für die Miete wurde abgebucht.
+    </p>
+    <div class="knopfreihe">
+      <button class="knopf" id="b7-pruefen" type="button">Prüfen</button>
+      <button class="knopf" id="b7-tipp" type="button">Tipp</button>
+    </div>
+    <p class="rueckmeldung" id="b7-rueck" hidden></p>
+    <p class="rueckmeldung" id="b7-hinweis" hidden><em>Gutschrift</em> ist Geld, das ankommt. <em>Lastschrift</em> ist Geld, das abgeht. Beides steht auf dem Kontoauszug.</p>
+
+    <h2>Was bedeutet dasselbe?</h2>
+    <div id="z7"></div>
+    <p class="rueckmeldung" id="z7-rueck" hidden></p>
+
+  </section>
+
+</main>
+
+<script src="../assets/lehrwerk.js"></script>
+<script>
+Lehrwerk.modul('wortschatz-berufsleben');
+Lehrwerk.reiter();
+
+/* ---- 1 Menschen ---- */
+Lehrwerk.zuordnen('z1', {
+  rueck: 'z1-rueck',
+  paare: [
+    { id: 'p1', links: 'Sie leitet das gesamte Unternehmen.', rechts: 'die Geschäftsführerin' },
+    { id: 'p2', links: 'Sie leitet eine Abteilung und ist Vorgesetzte mehrerer Mitarbeitender.', rechts: 'die Abteilungsleiterin' },
+    { id: 'p3', links: 'Sie unterstützt die Leitung bei organisatorischen Aufgaben.', rechts: 'die Assistentin' },
+    { id: 'p4', links: 'Sie ist angestellt und erledigt ihre täglichen Aufgaben.', rechts: 'die Mitarbeiterin' }
+  ]
+});
+
+Lehrwerk.wortbank('b1', {
+  ziel: 'b1-bank',
+  bank: ['Abteilungsleiterin', 'Geschäftsführerin', 'Mitarbeiterinnen', 'Assistentin', 'Personalleiterin'],
+  felder: {
+    l1a: ['Abteilungsleiterin'],
+    l1b: ['Geschäftsführerin'],
+    l1c: ['Mitarbeiterinnen'],
+    l1d: ['Assistentin'],
+    l1e: ['Personalleiterin']
+  },
+  pruefen: 'b1-pruefen', rueck: 'b1-rueck', tipp: 'b1-tipp', hinweis: 'b1-hinweis', eindeutig: true
+});
+
+/* ---- 2 Aufgaben ---- */
+Lehrwerk.zuordnen('z2', {
+  rueck: 'z2-rueck',
+  paare: [
+    { id: 'v1', links: 'ein Team …', rechts: 'leiten' },
+    { id: 'v2', links: 'Mitarbeitende …', rechts: 'anweisen' },
+    { id: 'v3', links: 'Aufgaben …', rechts: 'planen' },
+    { id: 'v4', links: 'Kundinnen und Kunden …', rechts: 'beraten' },
+    { id: 'v5', links: 'an einer Besprechung …', rechts: 'teilnehmen' },
+    { id: 'v6', links: 'Ergebnisse …', rechts: 'präsentieren' },
+    { id: 'v7', links: 'Aufträge …', rechts: 'erledigen' }
+  ]
+});
+
+Lehrwerk.zuordnen('z2b', {
+  rueck: 'z2b-rueck',
+  paare: [
+    { id: 's1', links: 'erledigen', rechts: 'bearbeiten · abwickeln' },
+    { id: 's2', links: 'anweisen', rechts: 'beauftragen · auffordern' },
+    { id: 's3', links: 'beraten', rechts: 'unterstützen · begleiten' },
+    { id: 's4', links: 'planen', rechts: 'vorbereiten · organisieren' }
+  ]
+});
+
+/* ---- 3 Orte ---- */
+Lehrwerk.wortbank('b3', {
+  ziel: 'b3-bank',
+  bank: ['Rezeption', 'Konferenzraum', 'Poststelle', 'Warenlager', 'Kantine', 'Pausenraum'],
+  felder: {
+    l3a: ['Rezeption'], l3b: ['Konferenzraum'], l3c: ['Poststelle'],
+    l3d: ['Warenlager'], l3e: ['Kantine'], l3f: ['Pausenraum']
+  },
+  pruefen: 'b3-pruefen', rueck: 'b3-rueck', tipp: 'b3-tipp', hinweis: 'b3-hinweis', eindeutig: true
+});
+
+/* ---- 4 Arbeitsmittel ---- */
+Lehrwerk.zuordnen('z4', {
+  rueck: 'z4-rueck',
+  paare: [
+    { id: 'm1', links: 'Damit schreibt man auf Papier — auch „Kuli“ genannt.', rechts: 'der Kugelschreiber' },
+    { id: 'm2', links: 'Damit rechnet man schnell.', rechts: 'der Taschenrechner' },
+    { id: 'm3', links: 'Darauf notiert man Nummern und Aufgaben.', rechts: 'der Notizblock' },
+    { id: 'm4', links: 'Damit schneidet man Papier.', rechts: 'die Schere' },
+    { id: 'm5', links: 'Darin steckt man Briefe und Dokumente.', rechts: 'der Briefumschlag' },
+    { id: 'm6', links: 'Darauf speichert man Dateien — klein, aber praktisch.', rechts: 'der USB-Stick' }
+  ]
+});
+
+Lehrwerk.wortbank('b4', {
+  ziel: 'b4-bank',
+  bank: ['öffnen', 'speichern', 'ausdrucken', 'per E-Mail versenden', 'herunterladen'],
+  felder: {
+    l4a: ['öffnen'], l4b: ['speichern'], l4c: ['ausdrucken'],
+    l4d: ['per E-Mail versenden'], l4e: ['herunterladen']
+  },
+  pruefen: 'b4-pruefen', rueck: 'b4-rueck', tipp: 'b4-tipp', hinweis: 'b4-hinweis', eindeutig: true
+});
+
+/* ---- 5 Waren ---- */
+Lehrwerk.wortbank('b5', {
+  ziel: 'b5-bank',
+  bank: ['herstellen', 'bestellen', 'versenden', 'annehmen', 'ersetzen'],
+  felder: {
+    l5a: ['stellt … her', 'stellt her', 'herstellen'],
+    l5b: ['bestellen'], l5c: ['versenden'], l5d: ['annehmen'], l5e: ['ersetzen']
+  },
+  pruefen: 'b5-pruefen', rueck: 'b5-rueck', tipp: 'b5-tipp', hinweis: 'b5-hinweis'
+});
+
+Lehrwerk.wortbank('b5b', {
+  ziel: 'b5b-bank',
+  bank: ['Warenbestand', 'Angebot', 'Auftrag', 'Lieferschein'],
+  felder: { l5f: ['Warenbestand'], l5g: ['Angebot'], l5h: ['Auftrag'], l5i: ['Lieferschein'] },
+  pruefen: 'b5b-pruefen', rueck: 'b5b-rueck', eindeutig: true
+});
+
+/* ---- 6 Reklamation ---- */
+Lehrwerk.wortbank('b6', {
+  ziel: 'b6-bank',
+  bank: ['Mangel', 'Reklamation', 'überprüft', 'mangelhafte', 'Ersatz', 'bezahlen'],
+  felder: {
+    l6a: ['Mangel'], l6b: ['Reklamation'], l6c: ['überprüft'],
+    l6d: ['mangelhafte'], l6e: ['Ersatz'], l6f: ['bezahlen']
+  },
+  pruefen: 'b6-pruefen', rueck: 'b6-rueck', tipp: 'b6-tipp', hinweis: 'b6-hinweis', eindeutig: true
+});
+
+Lehrwerk.zuordnen('z6', {
+  rueck: 'z6-rueck',
+  paare: [
+    { id: 'r1', links: 'Das Produkt ist kaputt oder beschädigt — es ist …', rechts: 'mangelhafte Ware' },
+    { id: 'r2', links: 'Die Kundin ist unzufrieden und möchte …', rechts: 'eine Reklamation einreichen' },
+    { id: 'r3', links: 'Die Firma bedauert den Fehler und gibt …', rechts: 'eine Entschuldigung ab' },
+    { id: 'r4', links: 'Die Firma schickt neue Ware — das ist …', rechts: 'eine Ersatzlieferung' }
+  ]
+});
+
+/* ---- 7 Zahlungen ---- */
+Lehrwerk.wortbank('b7', {
+  ziel: 'b7-bank',
+  bank: ['Konto', 'Kontoauszug', 'Gutschrift', 'Überweisungsformular', 'Kassenbon', 'Lastschrift'],
+  felder: {
+    l7a: ['Konto'], l7b: ['Kontoauszug'], l7c: ['Gutschrift'],
+    l7d: ['Überweisungsformular'], l7e: ['Kassenbon'], l7f: ['Lastschrift']
+  },
+  pruefen: 'b7-pruefen', rueck: 'b7-rueck', tipp: 'b7-tipp', hinweis: 'b7-hinweis', eindeutig: true
+});
+
+Lehrwerk.zuordnen('z7', {
+  rueck: 'z7-rueck',
+  paare: [
+    { id: 'g1', links: 'die Lastschrift', rechts: 'der Zahlungsausgang' },
+    { id: 'g2', links: 'die Gutschrift', rechts: 'der Zahlungseingang' },
+    { id: 'g3', links: 'die Zahlungserinnerung', rechts: 'die Mahnung' },
+    { id: 'g4', links: 'das Zahlungsziel', rechts: 'die Zahlungsfrist' }
+  ]
+});
+
+Lehrwerk.abschluss();
+</script>
+
+</body>
+</html>

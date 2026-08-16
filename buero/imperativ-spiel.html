@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Imperativ – Regeln und Brettspiel – Berufssprachkurs</title>
+<link rel="stylesheet" href="../assets/basis.css">
+<link rel="stylesheet" href="../assets/platform.css">
+<link rel="stylesheet" href="../assets/lehrwerk.css">
+<link rel="stylesheet" href="../assets/aufgaben.css">
+<script src="../data/homework.js" defer></script>
+<script src="../assets/platform.js"></script>
+<style>
+  .brett { display: grid; grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr)); gap: 0.4rem; margin: 1rem 0; }
+  .feld { border: 1px solid var(--linie, #ccc); padding: 0.5rem; min-height: 4.2rem; position: relative; font-size: 0.82rem; }
+  .feld.start, .feld.ziel { font-weight: 600; }
+  .feld.hier { outline: 2px solid var(--rose-tief, #a33); outline-offset: 1px; }
+  .feld-nr { position: absolute; top: 0.2rem; right: 0.35rem; font-size: 0.7rem; opacity: 0.55; }
+  .figuren { margin-top: 0.3rem; font-size: 0.95rem; letter-spacing: 0.1rem; }
+  .wuerfel { font-size: 2.2rem; line-height: 1; margin: 0.3rem 0; }
+  .spielstand { font-weight: 600; margin-bottom: 0.4rem; }
+  .formwahl button[aria-pressed="true"] { font-weight: 700; text-decoration: underline; }
+</style>
+</head>
+<body data-page="module" data-bereich="buero" data-root="../">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../buero.html">← Büro und Verwaltung</a>
+    <h1>Der <em>Imperativ</em> — Regeln und Brettspiel</h1>
+    <p class="anleitung">Im Betrieb ist der Imperativ fast immer die Sie-Form. Erst die vier Regeln, die man dafür braucht — dann das Spielbrett mit 21 Aufträgen aus dem Arbeitsalltag.</p>
+  </div>
+</header>
+
+<main class="innen modul">
+
+  <div class="reiter" role="tablist">
+    <button role="tab" aria-selected="true"  data-blatt="regeln">Regeln</button>
+    <button role="tab" aria-selected="false" data-blatt="ueben">Üben</button>
+    <button role="tab" aria-selected="false" data-blatt="spiel">Brettspiel</button>
+  </div>
+
+  <!-- ============ Regeln ============ -->
+  <section class="blatt" id="blatt-regeln">
+
+    <div class="merker">
+      <p><strong>Zuerst das Wichtigste:</strong> Im Beruf sprechen Sie fast immer die <strong>Sie-Form</strong>. Sie ist außerdem die einfachste — sie sieht genauso aus wie der Infinitiv, nur mit nachgestelltem <em>Sie</em>.</p>
+      <p class="satz">arbeiten → <strong>Arbeiten Sie</strong> bitte mit der Vorlage.</p>
+      <p>Die Formen <em>du</em> und <em>ihr</em> brauchen Sie im Betrieb dort, wo geduzt wird — in vielen Firmen im Team, kaum je nach oben. Für sie gelten die vier Regeln unten.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>1 · Die Sie-Form — Infinitiv plus <em>Sie</em></h3>
+      <table>
+        <thead><tr><th>Infinitiv</th><th>Imperativ</th></tr></thead>
+        <tbody>
+          <tr><td>prüfen</td><td>Prüfen <strong>Sie</strong> bitte die Rechnung.</td></tr>
+          <tr><td>anrufen</td><td>Rufen <strong>Sie</strong> bitte den Lieferanten <strong>an</strong>.</td></tr>
+          <tr><td>sein</td><td><strong>Seien Sie</strong> pünktlich. <span class="marke">einzige Ausnahme</span></td></tr>
+        </tbody>
+      </table>
+      <p class="marke">Trennbare Verben trennen sich auch hier: das Präfix wandert ans Satzende.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>2 · Die du-Form — Stamm, meist ohne Endung</h3>
+      <p>Man nimmt die <em>du</em>-Form des Präsens und streicht <em>-st</em> und das <em>du</em>:</p>
+      <p class="satz">du prüf<strong>st</strong> → <strong>Prüf</strong> die Rechnung! · du komm<strong>st</strong> → <strong>Komm</strong>!</p>
+      <p>Ein angehängtes <em>-e</em> (<em>Prüfe!</em>) ist ebenfalls korrekt, klingt aber schriftsprachlicher.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>3 · Wann das <em>-e</em> stehen <strong>muss</strong></h3>
+      <p>Endet der Stamm auf <strong>-t</strong>, <strong>-d</strong> oder auf Konsonant + <strong>-n</strong> / <strong>-m</strong>, ist das <em>-e</em> Pflicht — sonst kann man es nicht aussprechen:</p>
+      <table>
+        <thead><tr><th>Verb</th><th>richtig</th><th>falsch</th></tr></thead>
+        <tbody>
+          <tr><td>antworten</td><td>Antwort<strong>e</strong>!</td><td>Antwort!</td></tr>
+          <tr><td>arbeiten</td><td>Arbeit<strong>e</strong>!</td><td>Arbeit!</td></tr>
+          <tr><td>rechnen</td><td>Rechn<strong>e</strong>!</td><td>Rechn!</td></tr>
+          <tr><td>öffnen</td><td>Öffn<strong>e</strong>!</td><td>Öffn!</td></tr>
+          <tr><td>atmen</td><td>Atm<strong>e</strong>!</td><td>Atm!</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="kasten">
+      <h3>4 · Starke Verben mit e → i: kein Umlaut, kein <em>-e</em></h3>
+      <p>Verben, die in der <em>du</em>-Form ihr <em>e</em> zu <em>i</em> oder <em>ie</em> wechseln, behalten diesen Wechsel im Imperativ — und bekommen <strong>nie</strong> ein <em>-e</em>:</p>
+      <table>
+        <thead><tr><th>Infinitiv</th><th>du-Form</th><th>Imperativ</th></tr></thead>
+        <tbody>
+          <tr><td>lesen</td><td>du l<strong>ie</strong>st</td><td>L<strong>ie</strong>s den Bericht!</td></tr>
+          <tr><td>nehmen</td><td>du n<strong>i</strong>mmst</td><td>N<strong>i</strong>mm Platz!</td></tr>
+          <tr><td>geben</td><td>du g<strong>i</strong>bst</td><td>G<strong>i</strong>b mir die Mappe!</td></tr>
+          <tr><td>helfen</td><td>du h<strong>i</strong>lfst</td><td>H<strong>i</strong>lf ihr kurz!</td></tr>
+          <tr><td>sprechen</td><td>du spr<strong>i</strong>chst</td><td>Spr<strong>i</strong>ch langsamer!</td></tr>
+          <tr><td>vergessen</td><td>du verg<strong>i</strong>sst</td><td>Verg<strong>i</strong>ss den Termin nicht!</td></tr>
+        </tbody>
+      </table>
+      <p class="satz"><strong>Wichtig zur Abgrenzung:</strong> Verben mit <em>a → ä</em> verlieren den Umlaut im Imperativ wieder: <em>du f<strong>ä</strong>hrst</em>, aber <em>F<strong>a</strong>hr vorsichtig!</em> — <em>du l<strong>ä</strong>ufst</em>, aber <em>L<strong>au</strong>f!</em></p>
+    </div>
+
+    <div class="kasten">
+      <h3>Die ihr-Form</h3>
+      <p>Immer identisch mit der <em>ihr</em>-Form des Präsens, ohne <em>ihr</em>. Keine Vokalwechsel, keine Ausnahmen — außer <em>sein</em>:</p>
+      <p class="satz">Prüf<strong>t</strong> die Rechnung! · Les<strong>t</strong> den Bericht! · Antwort<strong>et</strong> bitte! · <strong>Seid</strong> pünktlich!</p>
+    </div>
+
+    <div class="merker">
+      <p><strong>Höflichkeit.</strong> Der Imperativ mit <em>bitte</em> ist im Berufsalltag völlig normal, auch von der Leitung nach unten. Was ihn schroff macht, ist das fehlende <em>bitte</em> und der Ton — nicht die Form. Wer stattdessen alles in „Könnten Sie vielleicht …“ verpackt, wirkt nicht höflicher, sondern unsicher.</p>
+    </div>
+
+  </section>
+
+  <!-- ============ Üben ============ -->
+  <section class="blatt" id="blatt-ueben">
+
+    <h2>Welche Form ist richtig?</h2>
+    <div id="a1"></div>
+
+    <h2>Von der Sie-Form zur du-Form</h2>
+    <p class="anleitung">Alle sechs Verben wechseln <em>e</em> zu <em>i</em> oder <em>ie</em>. Denken Sie daran: kein <em>-e</em> am Ende.</p>
+    <div id="w-bank"></div>
+    <p class="lueckentext">
+      1. Lesen Sie den Bericht! → <input class="luecke" id="w1" size="8" autocomplete="off"> den Bericht!<br>
+      2. Nehmen Sie Platz! → <input class="luecke" id="w2" size="8" autocomplete="off"> Platz!<br>
+      3. Geben Sie mir die Mappe! → <input class="luecke" id="w3" size="8" autocomplete="off"> mir die Mappe!<br>
+      4. Helfen Sie ihr kurz! → <input class="luecke" id="w4" size="8" autocomplete="off"> ihr kurz!<br>
+      5. Sprechen Sie langsamer! → <input class="luecke" id="w5" size="8" autocomplete="off"> langsamer!<br>
+      6. Vergessen Sie den Termin nicht! → <input class="luecke" id="w6" size="8" autocomplete="off"> den Termin nicht!
+    </p>
+    <div class="knopfreihe">
+      <button class="knopf" id="w-pruefen" type="button">Prüfen</button>
+      <button class="knopf" id="w-tipp" type="button">Tipp</button>
+    </div>
+    <p class="rueckmeldung" id="w-rueck" hidden></p>
+    <p class="rueckmeldung" id="w-hinweis" hidden>Nehmen Sie die <em>du</em>-Form des Präsens und streichen Sie <em>-st</em>: du liest → Lies. Der Vokalwechsel bleibt, ein <em>-e</em> kommt nicht dazu.</p>
+
+    <h2>Muss hier ein <em>-e</em> stehen?</h2>
+    <div id="a2"></div>
+
+  </section>
+
+  <!-- ============ Brettspiel ============ -->
+  <section class="blatt" id="blatt-spiel">
+
+    <div class="kasten">
+      <h3>So wird gespielt</h3>
+      <p>Zwei bis sechs Personen. Wer dran ist, würfelt und rückt vor. Auf dem Feld stehen ein Verb und ein Kontext — sagen Sie den Auftrag in der eingestellten Form <strong>laut</strong>, bevor Sie die Lösung aufdecken.</p>
+      <p>Voreingestellt ist die <strong>Sie-Form</strong>, weil sie im Betrieb gilt. Für einen zweiten Durchgang können Sie auf <em>du</em> oder <em>ihr</em> umstellen — dann werden die Regeln 2 bis 4 aus dem ersten Reiter geprüft.</p>
+      <p class="marke">Wer die Lösung aufdeckt, ohne vorher laut gesprochen zu haben, übt nichts. Das ist die einzige Spielregel, die zählt.</p>
+    </div>
+
+    <div class="kasten">
+      <p class="spielstand" id="stand">Wer ist dran? — Spielerzahl wählen und würfeln.</p>
+      <div class="knopfreihe" role="group" aria-label="Spielerzahl">
+        <button class="knopf" type="button" data-anzahl="2">2 Spielende</button>
+        <button class="knopf" type="button" data-anzahl="3">3</button>
+        <button class="knopf" type="button" data-anzahl="4">4</button>
+        <button class="knopf" type="button" data-anzahl="5">5</button>
+        <button class="knopf" type="button" data-anzahl="6">6</button>
+      </div>
+      <p class="wuerfel" id="wuerfel" aria-live="polite">🎲</p>
+      <div class="knopfreihe">
+        <button class="knopf" id="wuerfeln" type="button">Würfeln</button>
+        <button class="knopf" id="neu" type="button">Neues Spiel</button>
+      </div>
+    </div>
+
+    <div class="kasten">
+      <h3 id="auftrag-titel">Auftrag</h3>
+      <p id="auftrag" aria-live="polite">Würfeln Sie, um auf ein Feld zu ziehen.</p>
+      <div class="knopfreihe formwahl" role="group" aria-label="Anredeform">
+        <button class="knopf" type="button" data-form="Sie" aria-pressed="true">Sie</button>
+        <button class="knopf" type="button" data-form="du" aria-pressed="false">du</button>
+        <button class="knopf" type="button" data-form="ihr" aria-pressed="false">ihr</button>
+      </div>
+      <div class="knopfreihe">
+        <button class="knopf" id="loesung" type="button">Lösung zeigen</button>
+      </div>
+      <p class="rueckmeldung" id="loesung-text" hidden></p>
+    </div>
+
+    <div class="brett" id="brett"></div>
+
+  </section>
+
+</main>
+
+<script src="../assets/lehrwerk.js"></script>
+<script>
+Lehrwerk.modul('imperativ-spiel');
+Lehrwerk.reiter();
+
+/* ---------- Üben ---------- */
+Lehrwerk.auswahl('a1', [
+  {
+    id: 'i1',
+    text: 'Sie schreiben einer Kundin. Welche Form ist im Betrieb der Normalfall?',
+    optionen: [
+      'Senden Sie uns bitte den Beleg zu.',
+      'Send uns bitte den Beleg zu.',
+      'Sendet uns bitte den Beleg zu.',
+      'Zu senden ist uns der Beleg.'
+    ],
+    richtig: ['Senden Sie uns bitte den Beleg zu.'],
+    erklaerung: 'Die Sie-Form: Infinitiv plus <em>Sie</em>, das trennbare Präfix <em>zu</em> ans Satzende. Gegenüber Kundschaft ist alles andere unpassend.'
+  },
+  {
+    id: 'i2',
+    text: 'Welche du-Form ist richtig gebildet?',
+    optionen: [
+      'Lies den Vertrag genau!',
+      'Lese den Vertrag genau!',
+      'Liese den Vertrag genau!',
+      'Läs den Vertrag genau!'
+    ],
+    richtig: ['Lies den Vertrag genau!'],
+    erklaerung: '<em>Lesen</em> wechselt e → ie: du liest → Lies! Verben mit Vokalwechsel bekommen nie ein <em>-e</em> — deshalb ist „Lese!“ falsch.'
+  },
+  {
+    id: 'i3',
+    text: 'Welche zwei Formen sind richtig?',
+    optionen: [
+      'Fahr bitte vorsichtig!',
+      'Sei bitte pünktlich!',
+      'Fähr bitte vorsichtig!',
+      'Bist bitte pünktlich!'
+    ],
+    richtig: ['Fahr bitte vorsichtig!', 'Sei bitte pünktlich!'],
+    erklaerung: 'Der Umlaut <em>a → ä</em> gilt nur im Präsens (du fährst), nicht im Imperativ: <em>Fahr!</em> — <em>Sein</em> ist unregelmäßig: Sei! / Seid! / Seien Sie!'
+  }
+]);
+
+Lehrwerk.wortbank('w', {
+  ziel: 'w-bank',
+  bank: ['Lies', 'Nimm', 'Gib', 'Hilf', 'Sprich', 'Vergiss'],
+  felder: {
+    w1: ['Lies'], w2: ['Nimm'], w3: ['Gib'],
+    w4: ['Hilf'], w5: ['Sprich'], w6: ['Vergiss']
+  },
+  pruefen: 'w-pruefen', rueck: 'w-rueck', tipp: 'w-tipp', hinweis: 'w-hinweis', eindeutig: true
+});
+
+Lehrwerk.auswahl('a2', [
+  {
+    id: 'e1',
+    text: 'Bei welchen Verben ist das <em>-e</em> in der du-Form Pflicht? Wählen Sie alle zutreffenden.',
+    optionen: ['antworten', 'arbeiten', 'öffnen', 'prüfen', 'kommen'],
+    richtig: ['antworten', 'arbeiten', 'öffnen'],
+    erklaerung: 'Pflicht bei Stamm auf <em>-t</em>, <em>-d</em> oder Konsonant + <em>-n</em>/<em>-m</em>: Antworte! Arbeite! Öffne! — Bei <em>prüfen</em> und <em>kommen</em> ist das <em>-e</em> möglich, aber nicht nötig: Prüf! Komm!'
+  },
+  {
+    id: 'e2',
+    text: 'Warum heißt es „Vergiss den Termin nicht!“ und nicht „Vergisse …“?',
+    optionen: [
+      'Weil das Verb den Vokalwechsel e → i hat — solche Verben bekommen nie ein -e.',
+      'Weil der Stamm auf -ss endet.',
+      'Weil es ein trennbares Verb ist.',
+      'Weil es eine Verneinung ist.'
+    ],
+    richtig: ['Weil das Verb den Vokalwechsel e → i hat — solche Verben bekommen nie ein -e.'],
+    erklaerung: 'du vergisst → Vergiss! Der Wechsel und das <em>-e</em> schließen sich aus. Dieselbe Regel bei lies, nimm, gib, hilf, sprich.'
+  }
+]);
+
+/* ---------- Brettspiel ---------- */
+var FELDER = [
+  { verb: 'START', kontext: '', loesung: null },
+  { verb: 'prüfen', kontext: 'die Rechnung', loesung: { Sie: 'Prüfen Sie bitte die Rechnung!', du: 'Prüf die Rechnung!', ihr: 'Prüft die Rechnung!' } },
+  { verb: 'öffnen', kontext: 'das Fenster', loesung: { Sie: 'Öffnen Sie bitte das Fenster!', du: 'Öffne das Fenster!', ihr: 'Öffnet das Fenster!' } },
+  { verb: 'lesen', kontext: 'den Bericht sorgfältig', loesung: { Sie: 'Lesen Sie den Bericht sorgfältig!', du: 'Lies den Bericht sorgfältig!', ihr: 'Lest den Bericht sorgfältig!' } },
+  { verb: 'anrufen', kontext: 'den Lieferanten', loesung: { Sie: 'Rufen Sie bitte den Lieferanten an!', du: 'Ruf den Lieferanten an!', ihr: 'Ruft den Lieferanten an!' } },
+  { verb: 'sprechen', kontext: 'bitte langsamer', loesung: { Sie: 'Sprechen Sie bitte langsamer!', du: 'Sprich bitte langsamer!', ihr: 'Sprecht bitte langsamer!' } },
+  { verb: 'nehmen', kontext: 'Platz', loesung: { Sie: 'Nehmen Sie bitte Platz!', du: 'Nimm bitte Platz!', ihr: 'Nehmt bitte Platz!' } },
+  { verb: 'geben', kontext: 'mir die Unterlagen', loesung: { Sie: 'Geben Sie mir bitte die Unterlagen!', du: 'Gib mir die Unterlagen!', ihr: 'Gebt mir die Unterlagen!' } },
+  { verb: 'helfen', kontext: 'der neuen Kollegin', loesung: { Sie: 'Helfen Sie bitte der neuen Kollegin!', du: 'Hilf der neuen Kollegin!', ihr: 'Helft der neuen Kollegin!' } },
+  { verb: 'erklären', kontext: 'den Vorgang', loesung: { Sie: 'Erklären Sie bitte den Vorgang!', du: 'Erklär den Vorgang!', ihr: 'Erklärt den Vorgang!' } },
+  { verb: 'wiederholen', kontext: 'die Kundennummer', loesung: { Sie: 'Wiederholen Sie bitte die Kundennummer!', du: 'Wiederhol die Kundennummer!', ihr: 'Wiederholt die Kundennummer!' } },
+  { verb: 'weiterleiten', kontext: 'die Reklamation', loesung: { Sie: 'Leiten Sie bitte die Reklamation weiter!', du: 'Leite die Reklamation weiter!', ihr: 'Leitet die Reklamation weiter!' } },
+  { verb: 'sich setzen', kontext: 'bitte', loesung: { Sie: 'Setzen Sie sich bitte!', du: 'Setz dich bitte!', ihr: 'Setzt euch bitte!' } },
+  { verb: 'zuhören', kontext: 'genau', loesung: { Sie: 'Hören Sie genau zu!', du: 'Hör genau zu!', ihr: 'Hört genau zu!' } },
+  { verb: 'antworten', kontext: 'bis Freitag', loesung: { Sie: 'Antworten Sie bitte bis Freitag!', du: 'Antworte bis Freitag!', ihr: 'Antwortet bis Freitag!' } },
+  { verb: 'arbeiten', kontext: 'mit der Vorlage', loesung: { Sie: 'Arbeiten Sie bitte mit der Vorlage!', du: 'Arbeite mit der Vorlage!', ihr: 'Arbeitet mit der Vorlage!' } },
+  { verb: 'rechnen', kontext: 'mit einer Verzögerung', loesung: { Sie: 'Rechnen Sie mit einer Verzögerung!', du: 'Rechne mit einer Verzögerung!', ihr: 'Rechnet mit einer Verzögerung!' } },
+  { verb: 'mitbringen', kontext: 'die Unterlagen', loesung: { Sie: 'Bringen Sie bitte die Unterlagen mit!', du: 'Bring die Unterlagen mit!', ihr: 'Bringt die Unterlagen mit!' } },
+  { verb: 'vergessen', kontext: 'den Termin nicht', loesung: { Sie: 'Vergessen Sie den Termin nicht!', du: 'Vergiss den Termin nicht!', ihr: 'Vergesst den Termin nicht!' } },
+  { verb: 'sein', kontext: 'pünktlich', loesung: { Sie: 'Seien Sie bitte pünktlich!', du: 'Sei pünktlich!', ihr: 'Seid pünktlich!' } },
+  { verb: 'haben', kontext: 'etwas Geduld', loesung: { Sie: 'Haben Sie bitte etwas Geduld!', du: 'Hab etwas Geduld!', ihr: 'Habt etwas Geduld!' } },
+  { verb: 'sich melden', kontext: 'bei Rückfragen', loesung: { Sie: 'Melden Sie sich bei Rückfragen!', du: 'Meld dich bei Rückfragen!', ihr: 'Meldet euch bei Rückfragen!' } },
+  { verb: 'ZIEL', kontext: '', loesung: null }
+];
+
+var MARKEN = ['🔴', '🔵', '🟢', '🟡', '🟣', '🟠'];
+var anzahl = 2;
+var wo = [0, 0, 0, 0, 0, 0];
+var dran = 0;
+var form = 'Sie';
+var feldJetzt = null;
+var fertig = false;
+
+var brett = document.getElementById('brett');
+var stand = document.getElementById('stand');
+var auftrag = document.getElementById('auftrag');
+var auftragTitel = document.getElementById('auftrag-titel');
+var loesungText = document.getElementById('loesung-text');
+
+function zeichnen() {
+  brett.innerHTML = '';
+  FELDER.forEach(function (f, i) {
+    var d = document.createElement('div');
+    d.className = 'feld' + (i === 0 ? ' start' : '') + (i === FELDER.length - 1 ? ' ziel' : '');
+    var figuren = '';
+    for (var s = 0; s < anzahl; s++) { if (wo[s] === i) figuren += MARKEN[s]; }
+    if (feldJetzt === i) d.className += ' hier';
+    d.innerHTML = '<span class="feld-nr">' + i + '</span><strong>' + f.verb + '</strong>' +
+      (f.kontext ? '<br>' + f.kontext : '') +
+      '<div class="figuren">' + figuren + '</div>';
+    brett.appendChild(d);
+  });
+  standSetzen();
+}
+
+function standSetzen() {
+  if (fertig) return;
+  stand.textContent = MARKEN[dran] + ' Spieler ' + (dran + 1) + ' ist dran.';
+}
+
+function wuerfeln() {
+  if (fertig) return;
+  var augen = 1 + Math.floor(Math.random() * 6);
+  document.getElementById('wuerfel').textContent = ['⚀','⚁','⚂','⚃','⚄','⚅'][augen - 1];
+  var ziel = wo[dran] + augen;
+  if (ziel >= FELDER.length - 1) {
+    wo[dran] = FELDER.length - 1;
+    fertig = true;
+    stand.textContent = MARKEN[dran] + ' Spieler ' + (dran + 1) + ' ist im Ziel. Glückwunsch!';
+    feldJetzt = null;
+    auftragTitel.textContent = 'Auftrag';
+    auftrag.textContent = 'Spiel beendet.';
+    loesungText.hidden = true;
+    zeichnen();
+    return;
+  }
+  wo[dran] = ziel;
+  feldJetzt = ziel;
+  auftragSetzen(ziel);
+  zeichnen();
+  dran = (dran + 1) % anzahl;
+  standSetzen();
+}
+
+function auftragSetzen(i) {
+  var f = FELDER[i];
+  auftragTitel.textContent = 'Feld ' + i + ' · ' + f.verb;
+  auftrag.textContent = 'Bilden Sie den Auftrag: ' + f.verb +
+    (f.kontext ? ' — ' + f.kontext : '') + ' (Form: ' + form + '). Erst laut sprechen, dann aufdecken.';
+  loesungText.hidden = true;
+  loesungText.textContent = '';
+}
+
+document.getElementById('wuerfeln').addEventListener('click', wuerfeln);
+
+document.getElementById('neu').addEventListener('click', function () {
+  wo = [0, 0, 0, 0, 0, 0];
+  dran = 0; fertig = false; feldJetzt = null;
+  document.getElementById('wuerfel').textContent = '🎲';
+  auftragTitel.textContent = 'Auftrag';
+  auftrag.textContent = 'Würfeln Sie, um auf ein Feld zu ziehen.';
+  loesungText.hidden = true;
+  zeichnen();
+});
+
+document.getElementById('loesung').addEventListener('click', function () {
+  if (feldJetzt === null || !FELDER[feldJetzt].loesung) {
+    loesungText.textContent = 'Für dieses Feld gibt es keinen Auftrag.';
+  } else {
+    loesungText.textContent = FELDER[feldJetzt].loesung[form];
+  }
+  loesungText.hidden = false;
+});
+
+[].forEach.call(document.querySelectorAll('.formwahl button'), function (b) {
+  b.addEventListener('click', function () {
+    form = b.dataset.form;
+    [].forEach.call(document.querySelectorAll('.formwahl button'), function (x) {
+      x.setAttribute('aria-pressed', String(x === b));
+    });
+    if (feldJetzt !== null) auftragSetzen(feldJetzt);
+  });
+});
+
+[].forEach.call(document.querySelectorAll('[data-anzahl]'), function (b) {
+  b.addEventListener('click', function () {
+    anzahl = Number(b.dataset.anzahl);
+    wo = [0, 0, 0, 0, 0, 0];
+    dran = 0; fertig = false; feldJetzt = null;
+    zeichnen();
+  });
+});
+
+zeichnen();
+
+Lehrwerk.abschluss();
+</script>
+
+</body>
+</html>

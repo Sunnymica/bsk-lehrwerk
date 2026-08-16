@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Besprechungen und Meetings – Berufssprachkurs</title>
+<link rel="stylesheet" href="../assets/basis.css">
+<link rel="stylesheet" href="../assets/platform.css">
+<link rel="stylesheet" href="../assets/lehrwerk.css">
+<link rel="stylesheet" href="../assets/aufgaben.css">
+<script src="../data/homework.js" defer></script>
+<script src="../assets/platform.js"></script>
+</head>
+<body data-page="module" data-bereich="buero" data-root="../">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../buero.html">← Büro und Verwaltung</a>
+    <h1><em>Besprechungen</em> und Meetings</h1>
+    <p class="anleitung">Besprechungstypen und Tagesordnung, Redemittel zum Wortergreifen und Moderieren, das Passiv im Protokoll — und eine Rotation, in der jede und jeder einmal moderiert.</p>
+  </div>
+</header>
+
+<main class="innen modul">
+
+  <div class="reiter" role="tablist">
+    <button role="tab" aria-selected="true"  data-blatt="theorie">Typen &amp; Agenda</button>
+    <button role="tab" aria-selected="false" data-blatt="redemittel">Redemittel</button>
+    <button role="tab" aria-selected="false" data-blatt="teilnehmen">Teilnehmen</button>
+    <button role="tab" aria-selected="false" data-blatt="leiten">Leiten</button>
+    <button role="tab" aria-selected="false" data-blatt="passiv">Passiv</button>
+    <button role="tab" aria-selected="false" data-blatt="protokoll">Protokoll</button>
+    <button role="tab" aria-selected="false" data-blatt="sprechen">Sprechen</button>
+  </div>
+
+  <!-- ============ 1 Typen und Agenda ============ -->
+  <section class="blatt" id="blatt-theorie">
+
+    <p>Im deutschen Büroalltag gibt es viele Arten von Besprechungen — mit unterschiedlichen Zielen, Teilnehmenden und Strukturen. Wer den Unterschied kennt, ist besser vorbereitet.</p>
+
+    <h2>Welcher Besprechungstyp ist das?</h2>
+    <div id="z1"></div>
+    <p class="rueckmeldung" id="z1-rueck" hidden></p>
+
+    <div class="kasten">
+      <h3>Die Tagesordnung — das Rückgrat jeder Besprechung</h3>
+      <p>Eine gut vorbereitete Tagesordnung gibt der Besprechung Struktur. Sie wird <strong>vor</strong> dem Meeting verteilt, damit sich alle vorbereiten können. Ohne Tagesordnung droht das Meeting ein Gespräch ohne Ergebnis zu werden.</p>
+      <p>Achtung bei der Präposition: Etwas steht <strong>auf</strong> der Tagesordnung.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Tagesordnung · Jour fixe Logistik</h3>
+      <p class="marke">Mittwoch, 25. März · 10:00–11:00 Uhr · Konferenzraum 2, KONTOR AG Köln<br>
+      Teilnehmende: Team Logistik · Moderation: Herr Nowak</p>
+      <ol>
+        <li>Begrüßung und Genehmigung des letzten Protokolls <span class="marke">5 Min.</span></li>
+        <li>Statusbericht: Lieferengpässe beim Lieferanten Brandt <span class="marke">15 Min.</span></li>
+        <li>Neues EDV-System: Einführung und Schulungsplan <span class="marke">20 Min.</span></li>
+        <li>Urlaubsplanung Q2 — Abstimmung im Team <span class="marke">10 Min.</span></li>
+        <li>Verschiedenes <span class="marke">10 Min.</span></li>
+      </ol>
+    </div>
+
+    <div class="merker">
+      <p><strong>Verschiedenes</strong> ist der letzte Punkt fast jeder Tagesordnung. Hier können Themen eingebracht werden, die nicht auf der Agenda standen. Andere Bezeichnungen: <em>Sonstiges</em> oder — aus dem Englischen übernommen — <em>AOB</em> („Any Other Business“).</p>
+    </div>
+
+    <h2>Die Tagesordnung in Sätzen</h2>
+    <div id="b1-bank"></div>
+    <p class="lueckentext">
+      Alle Punkte, die heute besprochen werden, stehen <input class="luecke" id="l1a" size="6" autocomplete="off"> der Tagesordnung.
+      Der erste Punkt ist immer die <input class="luecke" id="l1b" size="12" autocomplete="off">.
+      Danach wird das Protokoll der letzten Sitzung <input class="luecke" id="l1c" size="12" autocomplete="off">.
+      Für jeden Punkt ist eine bestimmte <input class="luecke" id="l1d" size="10" autocomplete="off"> vorgesehen.
+      Wer die Besprechung leitet, ist die <input class="luecke" id="l1e" size="12" autocomplete="off">.
+      Am Schluss steht der Punkt <input class="luecke" id="l1f" size="14" autocomplete="off">.
+    </p>
+    <div class="knopfreihe">
+      <button class="knopf" id="b1-pruefen" type="button">Prüfen</button>
+      <button class="knopf" id="b1-tipp" type="button">Tipp</button>
+    </div>
+    <p class="rueckmeldung" id="b1-rueck" hidden></p>
+    <p class="rueckmeldung" id="b1-hinweis" hidden>Die erste Lücke ist eine Präposition — und zwar nicht <em>in</em>.</p>
+
+  </section>
+
+  <!-- ============ 2 Redemittel ============ -->
+  <section class="blatt" id="blatt-redemittel">
+
+    <p>Diese Redemittel sind das Handwerkszeug für jede Besprechung — ob als Teilnehmende oder als Moderation.</p>
+
+    <div class="kasten">
+      <h3>Das Wort ergreifen</h3>
+      <p class="satz">„Darf ich da kurz einhaken?“ <span class="marke">höfliche Unterbrechung, funktioniert fast immer</span></p>
+      <p class="satz">„Dürfte ich kurz etwas dazu sagen?“ <span class="marke">sehr höflich, Konjunktiv II</span></p>
+      <p class="satz">„Ich würde gerne einen Punkt ergänzen.“ <span class="marke">wenn man etwas hinzufügen möchte</span></p>
+      <p class="satz">„Wenn ich kurz das Wort haben darf …“ <span class="marke">formeller Einstieg</span></p>
+      <p class="satz">„Ich möchte auf Punkt drei kurz eingehen.“ <span class="marke">Bezug auf die Tagesordnung</span></p>
+      <p class="satz">„Darf ich da kurz eine Zwischenfrage stellen?“ <span class="marke">nachfragen, ohne zu unterbrechen</span></p>
+    </div>
+
+    <div class="kasten">
+      <h3>Beim Thema bleiben</h3>
+      <p class="satz">„Entschuldigung, ich verstehe das anders.“ <span class="marke">widersprechen ohne Angriff</span></p>
+      <p class="satz">„Könnten wir beim Thema bleiben?“ <span class="marke">wenn das Gespräch abschweift</span></p>
+      <p class="satz">„Das ist ein wichtiger Punkt — können wir ihn unter ‚Verschiedenes‘ notieren?“ <span class="marke">ein Thema parken, ohne es abzuwürgen</span></p>
+      <p class="satz">„Dazu würde ich gerne später Stellung nehmen.“ <span class="marke">Zeit gewinnen, höflich</span></p>
+    </div>
+
+    <div class="kasten">
+      <h3>Meinung ausdrücken</h3>
+      <p class="satz">„Meiner Meinung nach …“ <span class="marke">klassisch, immer korrekt</span></p>
+      <p class="satz">„Ich bin der Ansicht, dass …“ <span class="marke">etwas formeller</span></p>
+      <p class="satz">„Aus meiner Sicht spricht dafür, dass …“ <span class="marke">argumentierend</span></p>
+      <p class="satz">„Ich sehe das etwas anders: …“ <span class="marke">sanfter Widerspruch</span></p>
+      <p class="satz">„Das überzeugt mich noch nicht, weil …“ <span class="marke">kritisch, aber sachlich</span></p>
+      <p class="satz">„Ich verstehe Ihren Punkt — trotzdem …“ <span class="marke">Zugeständnis plus Gegenmeinung</span></p>
+    </div>
+
+    <div class="kasten">
+      <h3>Zusammenfassen und abschließen</h3>
+      <p class="satz">„Wenn ich kurz zusammenfassen darf …“</p>
+      <p class="satz">„Also: Wir sind uns einig, dass …“</p>
+      <p class="satz">„Als nächster Schritt wird … bis … von … übernommen.“</p>
+      <p class="satz">„Gibt es noch offene Punkte?“</p>
+      <p class="satz">„Ich fasse die Ergebnisse kurz zusammen: …“</p>
+    </div>
+
+    <h2>Welches Redemittel passt in welche Situation?</h2>
+    <div id="a2"></div>
+
+    <div class="merker">
+      <p>Auf höherem Niveau wird erwartet, dass Sie <strong>nicht nur reagieren</strong>, sondern das Gespräch mitgestalten: eigene Punkte einbringen, Meinungen begründen, höflich aber klar widersprechen.</p>
+    </div>
+
+  </section>
+
+  <!-- ============ 3 Teilnehmen ============ -->
+  <section class="blatt" id="blatt-teilnehmen">
+
+    <p>Aktive Teilnahme bedeutet mehr als Zuhören. In deutschen Meetings wird erwartet, dass man vorbereitet ist, eigene Ideen einbringt und bei Bedarf einen kurzen Beitrag liefert.</p>
+
+    <div class="kasten">
+      <h3>Vor dem Meeting</h3>
+      <p>Tagesordnung lesen und Punkte vorbereiten · Unterlagen, Zahlen und Beispiele parat haben · eigene Fragen notieren · Position zu strittigen Punkten überlegen</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Im Meeting</h3>
+      <p>Aktiv zuhören und Blickkontakt halten · Notizen machen · nicht gleichzeitig mit anderen sprechen · auf andere Bezug nehmen: „Wie Herr Nowak bereits erwähnte …“</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Einen kurzen Beitrag präsentieren — drei Schritte</h3>
+      <p><strong>1 Ankündigung:</strong> „Ich möchte kurz über den Stand der Lieferengpässe berichten.“</p>
+      <p><strong>2 Inhalt:</strong> Hauptpunkt — Zahlen und Fakten — Konsequenzen</p>
+      <p><strong>3 Abschluss:</strong> „Das war mein Kurzbericht. Gibt es dazu Fragen oder Anmerkungen?“</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Szene aus dem Jour fixe</h3>
+      <p><strong>Herr Nowak (Moderation):</strong> „Frau Seidel, Sie haben den Kontakt zum Lieferanten Brandt übernommen. Können Sie kurz berichten, wie der Stand ist?“</p>
+      <p><strong>Frau Seidel (Einkauf):</strong> „Gerne. Ich habe Herrn Brandt gestern telefonisch erreicht. Er hat bestätigt, dass die Lieferung bis Ende April eingeht. Allerdings fehlen noch die Zolldokumente. Ich habe darum gebeten, diese bis Freitag zuzuschicken. Soweit mein Bericht — gibt es dazu Fragen?“</p>
+    </div>
+
+    <div class="merker">
+      <p>Formulierungen, die einen Beitrag gliedern:
+      „Zunächst zur Ausgangslage: …“ · „Das bedeutet konkret: …“ · „Als Ergebnis lässt sich festhalten: …“ · „Meine Empfehlung wäre: …“ · „Ich komme zum Schluss: …“</p>
+    </div>
+
+  </section>
+
+  <!-- ============ 4 Leiten ============ -->
+  <section class="blatt" id="blatt-leiten">
+
+    <p>Die Moderation sorgt dafür, dass das Meeting strukturiert abläuft, alle zu Wort kommen und am Ende konkrete Ergebnisse feststehen.</p>
+
+    <div class="kasten">
+      <h3>Eröffnung</h3>
+      <p class="satz">„Guten Morgen zusammen — ich eröffne unsere heutige Besprechung.“</p>
+      <p class="satz">„Ich begrüße Sie alle herzlich zu unserem Jour fixe.“</p>
+      <p class="satz">„Auf unserer Tagesordnung stehen heute folgende Punkte: …“</p>
+      <p class="satz">„Unser Ziel für heute ist … Dafür haben wir 60 Minuten.“</p>
+      <p class="satz">„Bevor wir beginnen: Hat jemand Ergänzungen zur Tagesordnung?“</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Das Protokoll vergeben</h3>
+      <p class="satz">„Frau Haddad, wären Sie so freundlich, das Protokoll zu führen?“</p>
+      <p class="satz">„Könnten Sie bitte unsere heutige Besprechung protokollieren?“</p>
+      <p class="satz">„Möchte sich jemand bereit erklären, das Protokoll zu führen?“</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Steuerung und Übergabe</h3>
+      <p class="satz">„Kommen wir jetzt zu Punkt zwei der Tagesordnung.“</p>
+      <p class="satz">„Frau Seidel, das Wort haben Sie.“</p>
+      <p class="satz">„Wer möchte sich zu diesem Punkt äußern?“</p>
+      <p class="satz">„Vielleicht könnten Sie dazu etwas sagen, Frau Karpenko.“</p>
+      <p class="satz">„Wir sollten beim Thema bleiben — das andere notieren wir unter ‚Verschiedenes‘.“</p>
+      <p class="satz">„Wir haben noch zehn Minuten für diesen Punkt.“</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Konsens herstellen</h3>
+      <p class="satz">„Können wir uns darauf einigen, dass …?“</p>
+      <p class="satz">„Ich höre zwei verschiedene Positionen. Gibt es einen Kompromiss?“</p>
+      <p class="satz">„Was wäre für alle akzeptabel?“</p>
+      <p class="satz">„Wir entscheiden: … Sind alle einverstanden?“</p>
+      <p class="satz">„Das halten wir so fest.“</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Abschluss und Aufgabenverteilung</h3>
+      <p class="satz">„Ich fasse die Ergebnisse kurz zusammen: …“</p>
+      <p class="satz">„Wer übernimmt welche Aufgabe bis wann?“</p>
+      <p class="satz">„Wir sollten diese Punkte schriftlich festhalten.“</p>
+      <p class="satz">„Das Protokoll geht Ihnen bis morgen Mittag zu.“</p>
+      <p class="satz">„Unser nächster Termin ist am … Ich bedanke mich und schließe die Sitzung.“</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Moderationssequenz</h3>
+      <p><strong>Herr Nowak:</strong> „So, wir kommen jetzt zu Punkt drei: das neue EDV-System. Frau Karpenko, Sie haben sich damit beschäftigt — bitte.“</p>
+      <p><strong>Frau Karpenko:</strong> „Danke. Ich habe das System letzte Woche getestet und möchte kurz drei Punkte ansprechen …“</p>
+      <p><strong>Herr Nowak (nach der Diskussion):</strong> „Gut. Wir halten fest: Die Schulung findet in der zweiten Aprilwoche statt. Frau Haddad koordiniert die Anmeldungen bis Freitag. Sind alle einverstanden? … Sehr gut.“</p>
+    </div>
+
+    <h2>Welche Aufgabe der Moderation ist das?</h2>
+    <div id="z4"></div>
+    <p class="rueckmeldung" id="z4-rueck" hidden></p>
+
+    <div class="kasten">
+      <h3>Checkliste für die Moderation</h3>
+      <p>Punkt ankündigen und Ziel benennen · das Wort vergeben und Teilnehmende einbeziehen · bei Bedarf unterbrechen und fokussieren · Ergebnis festhalten und Aufgabe zuweisen · Übergang zum nächsten Punkt</p>
+    </div>
+
+  </section>
+
+  <!-- ============ 5 Passiv ============ -->
+  <section class="blatt" id="blatt-passiv">
+
+    <p>Im Protokoll steht fast immer das Passiv — denn es geht um Ergebnisse und Entscheidungen, nicht um einzelne Personen. Das Passiv rückt die Handlung in den Vordergrund.</p>
+
+    <div class="kasten">
+      <h3>Bildung: Vorgangspassiv</h3>
+      <p><strong>werden + Partizip II</strong></p>
+      <p>Aktiv: „Die Abteilung bestellt das Material.“<br>
+      Passiv: „Das Material <strong>wird bestellt</strong>.“ (Präsens)<br>
+      Passiv: „Das Material <strong>wurde bestellt</strong>.“ (Präteritum)</p>
+      <p>Wer handelt, kann mit <strong>von</strong> ergänzt werden — muss aber nicht:
+      „Das Material wurde <strong>von der Abteilung</strong> bestellt.“</p>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>Zeitform</th><th>Bildung</th><th>Beispiel aus dem Protokoll</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Präsens</td><td>wird/werden + Partizip II</td><td>„Der Termin wird bestätigt.“</td></tr>
+        <tr><td>Präteritum</td><td>wurde/wurden + Partizip II</td><td>„Die Entscheidung wurde getroffen.“</td></tr>
+        <tr><td>Perfekt</td><td>ist/sind + Partizip II + worden</td><td>„Der Auftrag ist vergeben worden.“</td></tr>
+        <tr><td>Futur I</td><td>wird + Partizip II + werden</td><td>„Die Unterlagen werden zugeschickt werden.“</td></tr>
+      </tbody>
+    </table>
+
+    <div class="merker">
+      <p><strong>Zum Futur I Passiv:</strong> Die Form ist korrekt, aber im Protokoll und im gesprochenen Deutsch sehr selten — sie klingt schwerfällig. Für Zukünftiges nimmt man in der Regel das <strong>Präsens</strong>, oft mit einer Zeitangabe: <em>„Die Unterlagen werden bis Freitag zugeschickt.“</em> Sie sollten die Form erkennen; verwenden müssen Sie sie nicht.</p>
+    </div>
+
+    <h2>Aktiv wird Passiv</h2>
+    <p class="anleitung">Schreiben Sie die Sätze im Protokollstil um. Verwenden Sie das <strong>Passiv im Präteritum</strong>.</p>
+    <p class="lueckentext">
+      1. „Herr Nowak eröffnete die Sitzung.“ →<br>
+      Die Sitzung <input class="luecke" id="p1" size="10" autocomplete="off"> von Herrn Nowak <input class="luecke" id="p2" size="12" autocomplete="off">.<br><br>
+      2. „Das Team beschloss den neuen Schulungsplan.“ →<br>
+      Der neue Schulungsplan <input class="luecke" id="p3" size="10" autocomplete="off"> vom Team <input class="luecke" id="p4" size="14" autocomplete="off">.<br><br>
+      3. „Frau Haddad übernahm die Koordination.“ →<br>
+      Die Koordination <input class="luecke" id="p5" size="10" autocomplete="off"> von Frau Haddad <input class="luecke" id="p6" size="14" autocomplete="off">.<br><br>
+      4. „Die Abteilung forderte die Zolldokumente an.“ →<br>
+      Die Zolldokumente <input class="luecke" id="p7" size="10" autocomplete="off"> von der Abteilung <input class="luecke" id="p8" size="14" autocomplete="off">.
+    </p>
+    <div class="knopfreihe">
+      <button class="knopf" id="p-pruefen" type="button">Prüfen</button>
+      <button class="knopf" id="p-tipp" type="button">Tipp</button>
+    </div>
+    <p class="rueckmeldung" id="p-rueck" hidden></p>
+    <p class="rueckmeldung" id="p-hinweis" hidden>In die erste Lücke kommt <em>wurde</em> oder <em>wurden</em> — achten Sie auf den Numerus des Subjekts. In die zweite kommt das Partizip II. Bei trennbaren Verben wandert das Präfix an den Anfang: <em>anfordern → angefordert</em>.</p>
+
+    <div class="merker">
+      <p>Im Protokoll ist das <strong>Präteritum</strong> des Passivs die Normalform: <em>wurde beschlossen</em>, <em>wurde vereinbart</em>, <em>wurde festgehalten</em>. Das klingt sachlich und professionell.</p>
+    </div>
+
+  </section>
+
+  <!-- ============ 6 Protokoll ============ -->
+  <section class="blatt" id="blatt-protokoll">
+
+    <p>Ein Protokoll hält fest, was besprochen und entschieden wurde. Es ist <strong>kein Wortprotokoll</strong> — also keine Mitschrift Wort für Wort —, sondern ein Ergebnisprotokoll.</p>
+
+    <div class="kasten">
+      <h3>KONTOR AG · Protokoll</h3>
+      <p class="marke">25. März · 10:00–11:05 Uhr · Konferenzraum 2, Köln<br>
+      Protokoll: S. Haddad · Moderation: P. Nowak<br>
+      Anwesend: P. Nowak, N. Seidel, O. Karpenko, S. Haddad · H. Brandt (telefonisch)</p>
+
+      <p><strong>TOP 1 — Begrüßung und Protokollgenehmigung</strong><br>
+      Die Sitzung <em>wurde</em> von Herrn Nowak um 10:00 Uhr <em>eröffnet</em>. Das Protokoll der letzten Sitzung <em>wurde genehmigt</em>.</p>
+
+      <p><strong>TOP 2 — Lieferengpässe beim Lieferanten Brandt</strong><br>
+      Frau Seidel berichtete über den Stand. Es <em>wurde festgestellt</em>, dass die Lieferung bis Ende April eingeht. Die fehlenden Zolldokumente <em>wurden angefordert</em> (Frist: 28. März).<br>
+      <strong>Aufgabe:</strong> Frau Seidel prüft den Eingang der Dokumente bis 29. März.</p>
+
+      <p><strong>TOP 3 — Neues EDV-System</strong><br>
+      Frau Karpenko präsentierte die Testergebnisse. Nach Diskussion <em>wurde beschlossen</em>, die Schulung in der zweiten Aprilwoche durchzuführen. Die Anmeldungen <em>werden</em> von Frau Haddad <em>koordiniert</em> (bis 28. März).</p>
+
+      <p><strong>TOP 4 — Urlaubsplanung Q2</strong><br>
+      Die Urlaubswünsche <em>wurden gesammelt</em>. Ein abgestimmter Plan <em>wird</em> bis 1. April <em>erstellt</em>.</p>
+
+      <p><strong>Nächster Termin</strong><br>
+      Mittwoch, 1. April · 10:00 Uhr · Konferenzraum 2. Die Sitzung <em>wurde</em> um 11:05 Uhr <em>geschlossen</em>.</p>
+    </div>
+
+    <div class="merker">
+      <p>Sehen Sie sich die kursiv gesetzten Stellen an. Bei <strong>abgeschlossenen</strong> Vorgängen steht das Präteritum (<em>wurde eröffnet</em>, <em>wurden angefordert</em>). Bei Aufgaben, die noch <strong>bevorstehen</strong>, steht das Präsens mit Zeitangabe (<em>wird bis 1. April erstellt</em>) — nicht das Futur.</p>
+    </div>
+
+    <h2>Was bedeutet die Protokollformulierung?</h2>
+    <div id="z6"></div>
+    <p class="rueckmeldung" id="z6-rueck" hidden></p>
+
+    <div class="kasten">
+      <h3>Typische Formulierungen im Protokoll</h3>
+      <p class="satz">„Es wurde beschlossen, dass …“</p>
+      <p class="satz">„Es wurde vereinbart, dass …“</p>
+      <p class="satz">„Es wurde festgestellt, dass …“</p>
+      <p class="satz">„… wurde beauftragt, …“</p>
+      <p class="satz">„Die Sitzung wurde um … Uhr eröffnet beziehungsweise geschlossen.“</p>
+      <p class="satz">„Als nächster Schritt wurde vereinbart: …“</p>
+    </div>
+
+  </section>
+
+  <!-- ============ 7 Sprechen ============ -->
+  <section class="blatt" id="blatt-sprechen">
+
+    <div class="kasten">
+      <h3>Dreier-Rotation</h3>
+      <p>Sie arbeiten zu dritt. Jede und jeder übernimmt <strong>einmal die Moderation</strong> für einen Tagesordnungspunkt — die beiden anderen sind Teilnehmende. Nach jedem Punkt wird gewechselt, bis alle einmal moderiert haben.</p>
+      <p>Die Szene ist der Jour fixe der KONTOR AG am 25. März. Die Tagesordnung finden Sie im ersten Reiter, die Redemittel im zweiten und vierten.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Moderationskarte 1 · TOP 2 — Lieferengpässe</h3>
+      <p><strong>Ihre Lage:</strong> Sie haben den Lieferanten Brandt telefonisch erreicht und einen Kurzbericht vorbereitet. Die Lieferung kommt bis Ende April, die Zolldokumente fehlen noch.</p>
+      <p><strong>Ihr Auftrag:</strong> Eröffnen Sie den Punkt. Berichten Sie in der Reihenfolge Ausgangslage → aktueller Stand → nächster Schritt. Stellen Sie eine Frage ans Team und weisen Sie am Ende eine Aufgabe mit Frist zu.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Moderationskarte 2 · TOP 3 — Neues EDV-System</h3>
+      <p><strong>Ihre Lage:</strong> Sie haben das neue System getestet. Drei Dinge sind Ihnen aufgefallen — zwei davon sprechen dafür, eines dagegen.</p>
+      <p><strong>Ihr Auftrag:</strong> Präsentieren Sie Ihre drei Punkte. Moderieren Sie anschließend die Diskussion, führen Sie einen Beschluss über die Schulung herbei und verteilen Sie die Aufgaben.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Moderationskarte 3 · TOP 4 — Urlaubsplanung</h3>
+      <p><strong>Ihre Lage:</strong> Zwei Personen im Team haben denselben Zeitraum beantragt. Beide haben gute Gründe.</p>
+      <p><strong>Ihr Auftrag:</strong> Stellen Sie das Problem sachlich vor. Lassen Sie beide Positionen zu Wort kommen, achten Sie darauf, dass niemand übergangen wird — und führen Sie zu einem Ergebnis, das Sie protokollreif festhalten.</p>
+    </div>
+
+    <div class="merker">
+      <p>Wer welche Karte übernimmt, entscheiden Sie in der Gruppe. Die Karten beschreiben eine <strong>Rolle im Meeting</strong>, keine Person — Sie bringen Ihre eigene Berufserfahrung ein, so viel oder so wenig Sie möchten.</p>
+    </div>
+
+    <h2>Nach dem Durchgang: Protokoll schreiben</h2>
+    <p class="anleitung">Schreiben Sie das Protokoll zu dem Punkt, den Sie moderiert haben. Verwenden Sie mindestens vier Passiv-Konstruktionen und die typischen Formulierungen aus dem Reiter „Protokoll“.</p>
+    <textarea class="feld" id="protokoll-frei" placeholder="TOP … — …&#10;&#10;Es wurde …"></textarea>
+
+  </section>
+
+</main>
+
+<script src="../assets/lehrwerk.js"></script>
+<script>
+Lehrwerk.modul('besprechungen');
+Lehrwerk.reiter();
+
+/* ---- 1 Typen und Agenda ---- */
+Lehrwerk.zuordnen('z1', {
+  rueck: 'z1-rueck',
+  paare: [
+    { id: 't1', links: 'Regelmäßige, oft wöchentliche Besprechung desselben Teams. Fester Termin, feste Agenda.', rechts: 'der Jour fixe' },
+    { id: 't2', links: 'Besprechung zu einem konkreten Vorhaben — Statusupdates, Entscheidungen, nächste Schritte.', rechts: 'das Projektmeeting' },
+    { id: 't3', links: 'Informationsaustausch innerhalb einer Abteilung, oft ohne Entscheidungsbefugnis.', rechts: 'die Teambesprechung' },
+    { id: 't4', links: 'Langfristige Planung mit Führungskräften. Formeller, oft mit Präsentationen.', rechts: 'das Strategiemeeting' },
+    { id: 't5', links: 'Sehr kurze tägliche Runde, höchstens 15 Minuten: Was habe ich gemacht, was plane ich, wo hakt es?', rechts: 'das Daily' },
+    { id: 't6', links: 'Besprechung mit externen Partnern. Höflicherer Ton, formellere Struktur.', rechts: 'das Kundengespräch' }
+  ]
+});
+
+Lehrwerk.wortbank('b1', {
+  ziel: 'b1-bank',
+  bank: ['auf', 'Begrüßung', 'genehmigt', 'Zeit', 'Moderation', 'Verschiedenes'],
+  felder: {
+    l1a: ['auf'],
+    l1b: ['Begrüßung'],
+    l1c: ['genehmigt'],
+    l1d: ['Zeit'],
+    l1e: ['Moderation'],
+    l1f: ['Verschiedenes']
+  },
+  pruefen: 'b1-pruefen', rueck: 'b1-rueck', tipp: 'b1-tipp', hinweis: 'b1-hinweis', eindeutig: true
+});
+
+/* ---- 2 Redemittel ---- */
+Lehrwerk.auswahl('a2', [
+  {
+    id: 'r1',
+    text: 'Eine Kollegin spricht seit fünf Minuten. Sie haben eine wichtige Ergänzung und möchten kurz dazwischen. Was sagen Sie?',
+    optionen: [
+      'Darf ich da kurz einhaken?',
+      'Stopp, ich muss etwas sagen.',
+      'Sie haben jetzt lange genug gesprochen.',
+      'Entschuldigung, das ist falsch.'
+    ],
+    richtig: ['Darf ich da kurz einhaken?'],
+    erklaerung: 'Die Formel signalisiert, dass die Unterbrechung kurz bleibt, und greift das Gesagte nicht an. Die anderen drei sind inhaltlich verständlich, aber im Meeting unhöflich.'
+  },
+  {
+    id: 'r2',
+    text: 'Das Gespräch ist vom Thema abgekommen. Was ist die freundlichste Rückführung?',
+    optionen: [
+      'Könnten wir beim Thema bleiben?',
+      'Das gehört hier nicht her.',
+      'Wir reden schon wieder über etwas anderes.',
+      'Zurück zur Tagesordnung, bitte.'
+    ],
+    richtig: ['Könnten wir beim Thema bleiben?'],
+    erklaerung: 'Der Konjunktiv II macht aus der Aufforderung eine Bitte. „Zurück zur Tagesordnung“ ist nicht falsch, aber deutlich schärfer.'
+  },
+  {
+    id: 'r3',
+    text: 'Sie sind anderer Meinung, wollen die Person aber nicht vor den Kopf stoßen. Welche zwei Formulierungen eignen sich?',
+    optionen: [
+      'Ich sehe das etwas anders: …',
+      'Ich verstehe Ihren Punkt — trotzdem …',
+      'Da irren Sie sich.',
+      'Das ist Unsinn.'
+    ],
+    richtig: ['Ich sehe das etwas anders: …', 'Ich verstehe Ihren Punkt — trotzdem …'],
+    erklaerung: 'Beide markieren den Widerspruch als eigene Sicht statt als Urteil über die andere Person. Die zweite macht zusätzlich ein Zugeständnis, bevor sie widerspricht.'
+  },
+  {
+    id: 'r4',
+    text: 'Jemand bringt ein wichtiges Thema ein, das nicht auf der Tagesordnung steht und heute keine Zeit hat. Was sagen Sie?',
+    optionen: [
+      'Das ist ein wichtiger Punkt — können wir ihn unter „Verschiedenes“ notieren?',
+      'Dazu haben wir heute keine Zeit.',
+      'Das steht nicht auf der Tagesordnung.',
+      'Bitte melden Sie sich damit später bei mir.'
+    ],
+    richtig: ['Das ist ein wichtiger Punkt — können wir ihn unter „Verschiedenes“ notieren?'],
+    erklaerung: 'Das Thema wird gewürdigt und bekommt einen Platz, statt abgewiesen zu werden. Genau dafür gibt es den Punkt „Verschiedenes“.'
+  }
+]);
+
+/* ---- 4 Leiten ---- */
+Lehrwerk.zuordnen('z4', {
+  rueck: 'z4-rueck',
+  paare: [
+    { id: 'm1', links: '„Bevor wir beginnen: Hat jemand Ergänzungen zur Tagesordnung?“', rechts: 'eröffnen' },
+    { id: 'm2', links: '„Wären Sie so freundlich, das Protokoll zu führen?“', rechts: 'das Protokoll vergeben' },
+    { id: 'm3', links: '„Frau Seidel, das Wort haben Sie.“', rechts: 'das Wort vergeben' },
+    { id: 'm4', links: '„Wir haben noch zehn Minuten für diesen Punkt.“', rechts: 'die Zeit im Blick behalten' },
+    { id: 'm5', links: '„Ich höre zwei verschiedene Positionen. Gibt es einen Kompromiss?“', rechts: 'Konsens herstellen' },
+    { id: 'm6', links: '„Wer übernimmt welche Aufgabe bis wann?“', rechts: 'Aufgaben verteilen' },
+    { id: 'm7', links: '„Ich bedanke mich und schließe die Sitzung.“', rechts: 'abschließen' }
+  ]
+});
+
+/* ---- 5 Passiv ---- */
+Lehrwerk.luecken('p', {
+  felder: {
+    p1: ['wurde'],
+    p2: ['eröffnet'],
+    p3: ['wurde'],
+    p4: ['beschlossen'],
+    p5: ['wurde'],
+    p6: ['übernommen'],
+    p7: ['wurden'],
+    p8: ['angefordert']
+  },
+  pruefen: 'p-pruefen', rueck: 'p-rueck', tipp: 'p-tipp', hinweis: 'p-hinweis'
+});
+
+/* ---- 6 Protokoll ---- */
+Lehrwerk.zuordnen('z6', {
+  rueck: 'z6-rueck',
+  paare: [
+    { id: 'q1', links: '„Es wurde beschlossen, dass …“', rechts: 'Eine formelle Entscheidung ist gefallen.' },
+    { id: 'q2', links: '„Es wurde vereinbart, dass …“', rechts: 'Man hat sich auf etwas geeinigt.' },
+    { id: 'q3', links: '„Es wurde festgestellt, dass …“', rechts: 'Ein Sachverhalt wurde geklärt — ohne Wertung.' },
+    { id: 'q4', links: '„Frau Seidel wurde beauftragt, …“', rechts: 'Eine Person hat eine konkrete Aufgabe bekommen.' },
+    { id: 'q5', links: '„Der Plan wird bis 1. April erstellt.“', rechts: 'Die Aufgabe steht noch bevor.' },
+    { id: 'q6', links: '„Die Sitzung wurde um 11:05 Uhr geschlossen.“', rechts: 'Das Meeting ist beendet — Schlussformel.' }
+  ]
+});
+
+/* ---- 7 Sprechen ---- */
+Lehrwerk.frei('protokoll-frei');
+
+Lehrwerk.abschluss();
+</script>
+
+</body>
+</html>

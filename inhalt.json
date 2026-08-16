@@ -426,6 +426,146 @@
           ]
         },
         {
+          "titel": "Wortschatz",
+          "module": [
+            {
+              "titel": "Basiswortschatz Berufsleben",
+              "beschreibung": "Sieben Felder aus dem Betriebsalltag: Menschen, Aufgaben, Orte, Arbeitsmittel, Waren, Reklamation, Zahlungen — mit Wortbank und Zuordnungsaufgaben.",
+              "pfad": "wortschatz-berufsleben.html",
+              "niveau": "B2",
+              "dauer": "75 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Lesen"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Ausbildung und Beruf",
+              "beschreibung": "Duales System, Ausbildungsvertrag, Rechte und Pflichten nach BBiG, kaufmännische Berufe und Unternehmensziele — mit Wortbank, Zuordnung und Gruppieraufgabe.",
+              "pfad": "wortschatz-ausbildung-beruf.html",
+              "niveau": "B2",
+              "dauer": "75 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Lesen"
+              ],
+              "status": "fertig"
+            }
+          ]
+        },
+        {
+          "titel": "Arbeitsaufträge",
+          "module": [
+            {
+              "titel": "Arbeitsaufträge verstehen",
+              "beschreibung": "Die sechs Fragen eines vollständigen Auftrags, die fünf Auftragskiller, Rückfragen formulieren, Imperativ und Konjunktiv II, vom Zuruf zur E-Mail.",
+              "pfad": "arbeitsauftraege-verstehen.html",
+              "niveau": "B2",
+              "dauer": "90 Min",
+              "fertigkeiten": [
+                "Lesen",
+                "Sprechen",
+                "Schreiben"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Notizzettel verstehen",
+              "beschreibung": "Kurze Zettel schnell erfassen, angemessen reagieren, selbst einen schreiben. Mit Rollenspielkarten zum Anruf, der aus einem Zettel folgt.",
+              "pfad": "notizzettel-verstehen.html",
+              "niveau": "B1/B2",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Lesen",
+                "Sprechen",
+                "Schreiben"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Das Verb lassen",
+              "beschreibung": "Vier Bedeutungen, der Doppelinfinitiv im Perfekt, sich lassen als Passiversatz — und die Redemittel, mit denen man im Büro etwas veranlasst statt selbst erledigt.",
+              "pfad": "verb-lassen.html",
+              "niveau": "B1/B2",
+              "dauer": "75 Min",
+              "fertigkeiten": [
+                "Lesen",
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Der Imperativ – Regeln und Brettspiel",
+              "beschreibung": "Die vier Regeln zur Imperativbildung, dann ein Brettspiel mit 21 Aufträgen aus dem Arbeitsalltag. Sie-Form als Voreinstellung, umschaltbar auf du und ihr.",
+              "pfad": "imperativ-spiel.html",
+              "niveau": "A2/B1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Arbeitsaufträge delegieren",
+              "beschreibung": "Eine Aufgabe weitergeben: was, bis wann, wozu. Fünf Bauformen des Infinitivs mit zu, neun Situationskarten aus drei Abteilungen.",
+              "pfad": "arbeitsauftraege-delegieren.html",
+              "niveau": "B2/C1",
+              "dauer": "90 Min",
+              "fertigkeiten": [
+                "Lesen",
+                "Sprechen",
+                "Schreiben"
+              ],
+              "status": "fertig"
+            }
+          ]
+        },
+        {
+          "titel": "Besprechungen und Meetings",
+          "module": [
+            {
+              "titel": "Besprechungen und Meetings",
+              "beschreibung": "Besprechungstypen und Tagesordnung, Redemittel zum Wortergreifen und Moderieren, das Passiv im Protokoll — mit Dreier-Rotation zum Moderieren.",
+              "pfad": "besprechungen.html",
+              "niveau": "B2/C1",
+              "dauer": "90 Min",
+              "fertigkeiten": [
+                "Lesen",
+                "Sprechen",
+                "Schreiben"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Das Spontan-Meeting",
+              "beschreibung": "Rollenspiel ohne Vorbereitung: vier Karten, vier Tagesordnungspunkte. Erst spielen, dann analysieren — die Redemittel kommen bewusst danach.",
+              "pfad": "spontan-meeting.html",
+              "niveau": "B2/C1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Schreiben"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Jour fixe – das Rollenspiel",
+              "beschreibung": "Zweite Runde mit anspruchsvolleren Karten: andere davon überzeugen, Aufgaben abzugeben, und eine offene Diskussion zu einem Ergebnis führen.",
+              "pfad": "jour-fixe.html",
+              "niveau": "C1",
+              "dauer": "75 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Schreiben"
+              ],
+              "status": "fertig"
+            }
+          ]
+        },
+        {
           "titel": "Sicherheit am Arbeitsplatz",
           "module": [
             {
