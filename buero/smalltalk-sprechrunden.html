@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Smalltalk – Sprechrunden – Berufssprachkurs</title>
+<link rel="stylesheet" href="../assets/basis.css">
+<link rel="stylesheet" href="../assets/platform.css">
+<link rel="stylesheet" href="../assets/lehrwerk.css">
+<link rel="stylesheet" href="../assets/aufgaben.css">
+<script src="../data/homework.js" defer></script>
+<script src="../assets/platform.js"></script>
+<style>
+  .uhr { font-size: 2.6rem; font-variant-numeric: tabular-nums; line-height: 1.1; margin: 0.4rem 0; }
+  .uhr.aus { opacity: 0.45; }
+</style>
+</head>
+<body data-page="module" data-bereich="buero" data-root="../">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../buero.html">← Büro und Verwaltung</a>
+    <h1>Smalltalk — <em>Sprechrunden</em></h1>
+    <p class="anleitung">Sechs Runden zu je drei Minuten, jedes Mal mit neuem Gegenüber. Kurz genug, dass niemand ins Schwitzen kommt — lang genug, dass man den Dreischritt wirklich braucht.</p>
+  </div>
+</header>
+
+<main class="innen modul">
+
+  <div class="reiter" role="tablist">
+    <button role="tab" aria-selected="true"  data-blatt="ablauf">Ablauf</button>
+    <button role="tab" aria-selected="false" data-blatt="runden">Die sechs Runden</button>
+    <button role="tab" aria-selected="false" data-blatt="hilfen">Sprachhilfen</button>
+    <button role="tab" aria-selected="false" data-blatt="auswertung">Auswertung</button>
+  </div>
+
+  <!-- ============ Ablauf ============ -->
+  <section class="blatt" id="blatt-ablauf">
+
+    <div class="kasten">
+      <h3>So läuft es</h3>
+      <p><strong>1</strong> Zwei Reihen gegenüber, oder Paare im Raum verteilt.</p>
+      <p><strong>2</strong> Die Leitfrage der Runde wird vorgelesen. Beide Seiten kennen sie.</p>
+      <p><strong>3</strong> Drei Minuten sprechen. <strong>Beide</strong> müssen drankommen — wer nur antwortet, hat die Runde nicht genutzt.</p>
+      <p><strong>4</strong> Wechsel: Eine Reihe rückt einen Platz weiter. Neue Runde, neue Frage, neues Gegenüber.</p>
+      <p class="marke">Sechs Runden ergeben etwa 20 Minuten. Danach die Auswertung — die ist der eigentliche Lernteil.</p>
+    </div>
+
+    <div class="merker">
+      <h3>Die drei Regeln, jede Runde</h3>
+      <p><strong>1 · Offene Fragen</strong> — wie, was, wo, warum.</p>
+      <p><strong>2 · In jeder Runde eine Gegenfrage</strong> — „Und Sie?“ reicht. Für die Übung nehmen Sie sich das jedes Mal vor, damit es sich einschleift; im wirklichen Gespräch ist auch bloßes Zuhören richtig.</p>
+      <p><strong>3 · Nachfragen statt weiterziehen</strong> — wenn etwas interessant klingt, haken Sie nach. Genau daraus entstehen echte Gespräche.</p>
+      <p class="satz">Und über allem der Dreischritt aus dem Redemittel-Modul: <strong>antworten — etwas hinzufügen — zurückfragen.</strong></p>
+    </div>
+
+    <div class="kasten">
+      <h3>Uhr</h3>
+      <div class="uhr" id="uhr" aria-live="off">03:00</div>
+      <div class="knopfreihe">
+        <button class="knopf" id="start" type="button">Start</button>
+        <button class="knopf" id="pause" type="button">Pause</button>
+        <button class="knopf" id="zurueck" type="button">Zurücksetzen</button>
+      </div>
+      <p class="marke">Die Uhr läuft nur im Browser mit — sie merkt sich nichts und meldet auch nichts weiter.</p>
+    </div>
+
+    <div class="merker">
+      <p><strong>Für die Kursleitung:</strong> Drei Minuten wirken kurz und sind für Ungeübte trotzdem lang. Wenn eine Gruppe deutlich früher verstummt, ist das kein Scheitern — dann folgt eine kurze Zwischenauswertung: Woran ist es gestockt? Meist fehlt die Gegenfrage.</p>
+    </div>
+
+  </section>
+
+  <!-- ============ Runden ============ -->
+  <section class="blatt" id="blatt-runden">
+
+    <div class="kasten">
+      <h3>Runde 1 · Wochenende</h3>
+      <p class="satz"><strong>Leitfrage:</strong> „Was haben Sie am Wochenende gemacht?“</p>
+      <p><strong>Antworten:</strong> „Am Wochenende war ich zu Hause / unterwegs / bei Freunden.“ · „Ich habe mich ausgeruht.“ · „Es war sehr gemütlich.“ · „Ziemlich ereignisreich, ehrlich gesagt.“</p>
+      <p><strong>Gegenfragen:</strong> „Und Sie, was haben Sie gemacht?“ · „Waren Sie auch unterwegs?“ · „Wie sieht es bei Ihnen aus?“</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Runde 2 · Wochenstart</h3>
+      <p class="satz"><strong>Leitfrage:</strong> „Wie sind Sie in die Woche gestartet?“</p>
+      <p><strong>Antworten:</strong> „Ganz gut, es ist aber viel zu tun.“ · „Meine Liste ist lang, aber ich bin guter Dinge.“ · „Ruhig — das ist auch mal schön.“</p>
+      <p><strong>Gegenfragen:</strong> „Was steht bei Ihnen diese Woche an?“ · „Und wie ist es bei Ihnen losgegangen?“</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Runde 3 · Freizeit</h3>
+      <p class="satz"><strong>Leitfrage:</strong> „Was machen Sie gern in Ihrer Freizeit?“</p>
+      <p><strong>Antworten:</strong> „Am liebsten verbringe ich Zeit mit meiner Familie.“ · „Ich lese gern Krimis.“ · „Ich bin ehrlich gesagt ein ziemlicher Sportmuffel.“</p>
+      <p><strong>Nachfragen:</strong> „Was lesen Sie gerade?“ · „Wie lange machen Sie das schon?“ · „Wie sind Sie dazu gekommen?“</p>
+      <p class="marke">In dieser Runde lohnt das Nachfragen besonders — hier finden sich am ehesten Gemeinsamkeiten.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Runde 4 · Essen und Trinken</h3>
+      <p class="satz"><strong>Leitfrage:</strong> „Was essen oder trinken Sie am liebsten?“</p>
+      <p><strong>Antworten:</strong> „Ich koche gern, komme aber selten dazu.“ · „Mittags meistens etwas Schnelles.“ · „Ohne Kaffee geht bei mir gar nichts.“</p>
+      <p><strong>Nachfragen:</strong> „Kochen Sie selbst?“ · „Können Sie hier in der Nähe etwas empfehlen?“</p>
+      <p class="marke">Die leichteste Runde — gut geeignet, um mit einer neuen Person warm zu werden.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Runde 5 · Reisen</h3>
+      <p class="satz"><strong>Leitfrage:</strong> „Waren Sie in letzter Zeit weg?“</p>
+      <p><strong>Antworten:</strong> „Wir waren an der Ostsee.“ · „Nichts Wildes, ich arbeite gerade viel.“ · „Ich würde gern mal nach Island.“</p>
+      <p><strong>Nachfragen:</strong> „Wie war es dort?“ · „Würden Sie noch einmal hinfahren?“ · „Was hat Ihnen am besten gefallen?“</p>
+      <p class="marke">Vorsicht bei dieser Runde: Nicht alle reisen, und nicht alle reisen gern über Fragen zur Herkunft. Bleiben Sie bei dem, was Ihr Gegenüber selbst anbietet.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Runde 6 · Freie Wahl</h3>
+      <p class="satz"><strong>Keine Leitfrage.</strong> Sie beginnen selbst.</p>
+      <p>Das ist die schwerste Runde, weil der Anfang fehlt. Genau darum geht es: Im Alltag gibt Ihnen niemand eine Frage vor.</p>
+      <p><strong>Einstiege, die immer gehen:</strong> „Und, viel zu tun bei Ihnen?“ · „Sind Sie auch bei der Fortbildung dabei?“ · „Ganz schön voll heute hier.“ · „Wie kommen Sie eigentlich her — mit dem Rad?“</p>
+    </div>
+
+  </section>
+
+  <!-- ============ Hilfen ============ -->
+  <section class="blatt" id="blatt-hilfen">
+
+    <div class="kasten">
+      <h3>Für jede Runde brauchbar</h3>
+      <p><strong>Interesse zeigen:</strong> „Ach, wirklich?“ · „Das klingt gut.“ · „Das kann ich mir vorstellen.“ · „Oh, das wusste ich nicht.“</p>
+      <p><strong>Nachfragen:</strong> „Und wie war das?“ · „Wie meinen Sie das?“ · „Erzählen Sie mal.“ · „Wie lange machen Sie das schon?“</p>
+      <p><strong>Gegenfragen:</strong> „Und Sie?“ · „Wie sieht es bei Ihnen aus?“ · „Und wie machen Sie das?“</p>
+      <p><strong>Wenn Ihnen nichts einfällt:</strong> „Da muss ich kurz überlegen.“ · „Gute Frage.“ · „Puh, spontan …“</p>
+    </div>
+
+    <div class="merker">
+      <h3>Die Pause ist erlaubt</h3>
+      <p>„Da muss ich kurz überlegen“ ist ein vollwertiger Beitrag. Er kauft Zeit, wirkt nachdenklich statt unsicher — und ist tausendmal besser als ein hastiges Füllwort.</p>
+      <p class="satz">Auch Schweigen von zwei Sekunden ist normal. Es fühlt sich nur für die Person lang an, die spricht.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Wenn Sie eine Frage nicht beantworten möchten</h3>
+      <p class="satz">„Darüber rede ich nicht so gern — aber wie ist das bei Ihnen?“</p>
+      <p class="satz">„Ach, das ist eine lange Geschichte.“</p>
+      <p>Beides ist völlig in Ordnung und beendet das Gespräch nicht. Sie schulden niemandem eine Antwort, auch nicht in einer Übung.</p>
+    </div>
+
+    <h2>Welche Reaktion hält das Gespräch am Laufen?</h2>
+    <div id="a1"></div>
+
+  </section>
+
+  <!-- ============ Auswertung ============ -->
+  <section class="blatt" id="blatt-auswertung">
+
+    <div class="kasten">
+      <h3>Nach den sechs Runden</h3>
+      <p>▸ In welcher Runde lief es am besten? Woran lag das — am Thema oder am Gegenüber?</p>
+      <p>▸ Wo ist ein Gespräch ins Stocken geraten? Was war der letzte Satz davor?</p>
+      <p>▸ Haben Sie in jeder Runde eine Gegenfrage gestellt? Ehrlich?</p>
+      <p>▸ Welche Frage hat Ihr Gegenüber gestellt, die Sie sich merken wollen?</p>
+      <p>▸ Was war schwerer — anfangen oder aufhören?</p>
+    </div>
+
+    <div class="merker">
+      <p>Die häufigste Beobachtung nach solchen Runden: Es hakt fast nie am Wortschatz. Es hakt daran, dass niemand zurückfragt. Zwei Menschen beantworten abwechselnd Fragen, und nach vier Zügen ist Stille.</p>
+      <p class="satz">Wenn Sie aus diesem Modul einen Satz mitnehmen, dann diesen: <strong>„Und Sie?“</strong></p>
+    </div>
+
+    <h2>Meine Auswertung</h2>
+    <textarea class="feld" id="auswertung-frei"></textarea>
+
+    <h2>Drei Sätze für das nächste Mal</h2>
+    <p class="anleitung">Ein Einstieg, eine Nachfrage, ein Ausstieg — in Ihren eigenen Worten.</p>
+    <textarea class="feld" id="drei-frei"></textarea>
+
+  </section>
+
+</main>
+
+<script src="../assets/lehrwerk.js"></script>
+<script>
+Lehrwerk.modul('smalltalk-sprechrunden');
+Lehrwerk.reiter();
+
+Lehrwerk.auswahl('a1', [
+  {
+    id: 'h1',
+    text: 'Ihr Gegenüber sagt: „Ich war am Wochenende wandern.“ Welche zwei Reaktionen führen weiter?',
+    optionen: [
+      'Ach, wirklich? Wo waren Sie denn?',
+      'Wie sind Sie dazu gekommen?',
+      'Schön.',
+      'Ich wandere nicht gern.'
+    ],
+    richtig: ['Ach, wirklich? Wo waren Sie denn?', 'Wie sind Sie dazu gekommen?'],
+    erklaerung: 'Beide fragen nach und geben der anderen Person etwas zu erzählen. „Schön“ ist freundlich, aber eine Sackgasse — und die vierte Antwort beendet das Thema, ohne ein neues anzubieten.'
+  },
+  {
+    id: 'h2',
+    text: 'Ihnen fällt gerade nichts ein. Was sagen Sie?',
+    optionen: [
+      'Da muss ich kurz überlegen.',
+      'Ähm … ähm …',
+      'Nichts, und hoffen, dass die andere Person weiterredet.',
+      'Keine Ahnung.'
+    ],
+    richtig: ['Da muss ich kurz überlegen.'],
+    erklaerung: 'Ein vollwertiger Beitrag: Er kauft Zeit und wirkt nachdenklich statt unsicher. Zwei Sekunden Stille sind ohnehin normal — sie fühlen sich nur für die sprechende Person lang an.'
+  },
+  {
+    id: 'h3',
+    text: 'Woran scheitern Sprechrunden erfahrungsgemäß am häufigsten?',
+    optionen: [
+      'Es wird nicht zurückgefragt.',
+      'Der Wortschatz reicht nicht.',
+      'Die Themen sind zu schwer.',
+      'Drei Minuten sind zu lang.'
+    ],
+    richtig: ['Es wird nicht zurückgefragt.'],
+    erklaerung: 'Ohne Gegenfrage beantworten zwei Menschen abwechselnd Fragen, und nach vier Zügen ist Stille. Am Wortschatz liegt es fast nie.'
+  }
+]);
+
+Lehrwerk.frei('auswertung-frei');
+Lehrwerk.frei('drei-frei');
+
+/* ---- Uhr ---- */
+var REST = 180, rest = REST, laeuft = null;
+var anzeige = document.getElementById('uhr');
+
+function zeigen() {
+  var m = Math.floor(rest / 60), s = rest % 60;
+  anzeige.textContent = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+  anzeige.classList.toggle('aus', rest === 0);
+}
+
+document.getElementById('start').addEventListener('click', function () {
+  if (laeuft) return;
+  anzeige.setAttribute('aria-live', 'off');
+  laeuft = setInterval(function () {
+    if (rest > 0) { rest--; zeigen(); }
+    if (rest === 0) {
+      clearInterval(laeuft); laeuft = null;
+      anzeige.setAttribute('aria-live', 'polite');
+      anzeige.textContent = '00:00 — Wechsel!';
+    }
+  }, 1000);
+});
+
+document.getElementById('pause').addEventListener('click', function () {
+  if (laeuft) { clearInterval(laeuft); laeuft = null; }
+});
+
+document.getElementById('zurueck').addEventListener('click', function () {
+  if (laeuft) { clearInterval(laeuft); laeuft = null; }
+  rest = REST; zeigen();
+});
+
+zeigen();
+
+Lehrwerk.abschluss();
+</script>
+
+</body>
+</html>

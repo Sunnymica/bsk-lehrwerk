@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Smalltalk-Bingo – Berufssprachkurs</title>
+<link rel="stylesheet" href="../assets/basis.css">
+<link rel="stylesheet" href="../assets/platform.css">
+<link rel="stylesheet" href="../assets/lehrwerk.css">
+<link rel="stylesheet" href="../assets/aufgaben.css">
+<script src="../data/homework.js" defer></script>
+<script src="../assets/platform.js"></script>
+<style>
+  .bingo { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.35rem; margin: 1rem 0; }
+  .zelle { border: 1px solid var(--linie, #ccc); padding: 0.45rem; min-height: 6.2rem;
+           font-size: 0.78rem; line-height: 1.35; display: flex; flex-direction: column;
+           justify-content: space-between; background: none; text-align: left; cursor: pointer; }
+  .zelle.markiert { background: var(--rose-hell, #f6e9ec); font-weight: 600; }
+  .zelle.mitte { font-style: italic; }
+  .zelle input { width: 100%; margin-top: 0.3rem; font-size: 0.72rem; padding: 0.15rem 0.25rem; }
+  .bingo-stand { font-weight: 600; }
+  @media (max-width: 40rem) { .zelle { min-height: 7.5rem; font-size: 0.72rem; } }
+</style>
+</head>
+<body data-page="module" data-bereich="buero" data-root="../">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../buero.html">← Büro und Verwaltung</a>
+    <h1><em>Smalltalk</em>-Bingo</h1>
+    <p class="anleitung">Fünf mal fünf Felder, und auf jedem steht etwas, das auf jemanden im Raum zutreffen könnte. Herausfinden können Sie das nur auf eine Art: fragen.</p>
+  </div>
+</header>
+
+<main class="innen modul">
+
+  <div class="reiter" role="tablist">
+    <button role="tab" aria-selected="true"  data-blatt="spiel">Spielfeld</button>
+    <button role="tab" aria-selected="false" data-blatt="regeln">Regeln</button>
+    <button role="tab" aria-selected="false" data-blatt="danach">Danach</button>
+  </div>
+
+  <!-- ============ Spielfeld ============ -->
+  <section class="blatt" id="blatt-spiel">
+
+    <div class="kasten">
+      <p class="bingo-stand" id="stand">Noch kein Feld markiert.</p>
+      <div class="knopfreihe">
+        <button class="knopf" id="neu" type="button">Neue Karte</button>
+      </div>
+    </div>
+
+    <div class="bingo" id="bingo"></div>
+
+    <div class="merker">
+      <p><strong>In einem Satz:</strong> Auf jedem Feld steht etwas. Finden Sie jemanden im Raum, auf den es zutrifft — dann klicken Sie das Feld an. Fünf in einer Reihe, fertig.</p>
+      <p><strong>Zum Eintragen:</strong> Sie können hineinschreiben, wer es war — <strong>freiwillig</strong>. Ein Vorname genügt, ein Kürzel auch, oder ein erfundener Name. Nichts davon wird gespeichert: Beim Neuladen der Seite ist es weg.</p>
+      <p class="satz">Und umgekehrt: Niemand muss Ihnen sagen, ob etwas auf ihn zutrifft. „Das verrate ich nicht“ ist eine gültige Antwort.</p>
+    </div>
+
+  </section>
+
+  <!-- ============ Regeln ============ -->
+  <section class="blatt" id="blatt-regeln">
+
+    <div class="kasten">
+      <h3>Worum geht es überhaupt?</h3>
+      <p>Auf Ihrer Karte stehen 24 Aussagen, zum Beispiel <em>„trinkt morgens Kaffee“</em> oder <em>„spielt ein Instrument“</em>. Auf irgendeine Person im Raum trifft jede davon zu — Sie wissen nur nicht, auf welche.</p>
+      <p><strong>Herausfinden können Sie das nur, indem Sie mit den Leuten sprechen.</strong> Das ist der ganze Zweck: Das Bingo ist ein Anlass zum Reden, kein Wissensspiel.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Ablauf in fünf Schritten</h3>
+      <p><strong>1</strong> Jede Person öffnet das Modul und bekommt eine eigene, zufällige Karte. Die Karten sind unterschiedlich.</p>
+      <p><strong>2</strong> Alle stehen auf und gehen durch den Raum. Suchen Sie sich jemanden und beginnen Sie ein Gespräch.</p>
+      <p><strong>3</strong> Wenn dabei herauskommt, dass eine Ihrer Aussagen auf diese Person zutrifft: Feld anklicken, den Namen dazuschreiben, wenn Sie mögen.</p>
+      <p><strong>4</strong> Weiter zur nächsten Person. Pro Gespräch schaffen Sie oft zwei oder drei Felder.</p>
+      <p><strong>5</strong> Wer fünf Felder in einer Reihe hat — waagerecht, senkrecht oder diagonal —, ruft „Bingo“. Danach wird weitergespielt, bis alle eine Reihe haben.</p>
+      <p class="marke">Das Feld in der Mitte ist geschenkt und zählt immer mit. So ist es beim Bingo üblich.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>So sieht das konkret aus</h3>
+      <p>Auf Ihrer Karte steht unter anderem <em>„trinkt morgens Kaffee“</em>, <em>„kommt mit dem Rad zur Arbeit“</em> und <em>„schaut gerade eine Serie“</em>. Sie sprechen jemanden an:</p>
+      <p class="satz"><strong>Sie:</strong> „Darf ich Sie was fragen? Wie kommen Sie morgens eigentlich in Gang?“</p>
+      <p class="satz"><strong>Die Person:</strong> „Ohne Kaffee gar nicht. Und danach die zwanzig Minuten mit dem Rad — das wacht mich auf.“</p>
+      <p class="satz"><strong>Sie:</strong> „Zwanzig Minuten, das ist ordentlich. Und abends? Ich hänge gerade an einer Serie fest.“</p>
+      <p class="satz"><strong>Die Person:</strong> „Bei mir eher Podcasts, ehrlich gesagt.“</p>
+      <p><strong>Ergebnis:</strong> zwei Felder markiert — Kaffee und Rad. Das Serien-Feld nicht, dafür wissen Sie jetzt, dass diese Person für <em>„hört Podcasts“</em> in Frage kommt.</p>
+      <p class="marke">Beachten Sie: Es wurde kein einziges Feld vorgelesen. Eine offene Frage hat zwei Treffer auf einmal gebracht.</p>
+    </div>
+
+    <div class="merker">
+      <h3>Die einzige Regel, die zählt</h3>
+      <p><strong>Nicht das Feld vorlesen.</strong> „Trinken Sie gern Kaffee?“ bringt ein Ja und sonst nichts — dann hätten Sie eine Liste abgearbeitet statt Smalltalk geführt.</p>
+      <p class="satz">Stattdessen: „Ich hole mir gleich noch einen Kaffee — trinken Sie auch welchen?“ Oder gleich offen: <em>„Wie kommen Sie eigentlich morgens in Gang?“</em></p>
+      <p>Aus einer offenen Frage bekommen Sie oft gleich zwei oder drei Felder auf einmal. Wer nur abfragt, braucht doppelt so lang.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Wenn es stockt</h3>
+      <p class="satz">„Darf ich Sie was fragen?“ <span class="marke">immer ein guter Anfang</span></p>
+      <p class="satz">„Ach, wirklich? Erzählen Sie mal.“</p>
+      <p class="satz">„Und Sie? Was steht auf Ihrer Karte?“</p>
+      <p class="satz">„Danke — dann suche ich mal weiter. Bis später!“ <span class="marke">der Ausstieg, auch hier</span></p>
+    </div>
+
+    <div class="kasten">
+      <h3>Für die Kursleitung</h3>
+      <p><strong>Zeit:</strong> etwa 15 Minuten Spiel, 5 Minuten Auswertung. Kürzer lohnt sich nicht, länger ermüdet.</p>
+      <p><strong>Was vorher gesagt werden muss</strong> — sonst startet die Gruppe nicht:</p>
+      <p>▸ Jede Person hat eine <strong>andere</strong> Karte.<br>
+      ▸ Es geht ums Reden, nicht ums Abfragen — Felder nicht vorlesen.<br>
+      ▸ Die Mitte ist geschenkt.<br>
+      ▸ Namen eintragen ist freiwillig, erfundene Namen sind ausdrücklich erlaubt.<br>
+      ▸ Niemand muss etwas über sich sagen.</p>
+      <p><strong>Der häufigste Startfehler:</strong> Alle setzen sich hin und lesen ihre Karte durch. Besser gleich aufstehen lassen — das Spiel funktioniert nur im Stehen und in Bewegung.</p>
+      <p><strong>Wenn es stockt:</strong> Nach fünf Minuten kurz unterbrechen und fragen, wer schon drei Felder hat und wie. Meist stellt sich heraus, dass die Schnellen offene Fragen stellen und die Langsamen die Felder vorlesen.</p>
+      <p><strong>Variante ohne Bewegung:</strong> zu zweit am Platz, jede Person füllt ihre Karte mit dem, was auf das Gegenüber zutrifft. Dann gibt es kein Bingo, aber ein längeres Gespräch.</p>
+      <p class="marke">Die Felder sind bewusst harmlos: Keines verlangt Auskunft über Herkunft, Familie, Gesundheit oder Geld.</p>
+    </div>
+
+  </section>
+
+  <!-- ============ Danach ============ -->
+  <section class="blatt" id="blatt-danach">
+
+    <div class="kasten">
+      <h3>Auswertung</h3>
+      <p>▸ Welches Feld war am schwersten zu füllen? Warum?</p>
+      <p>▸ Haben Sie die Felder vorgelesen oder gefragt? Ehrlich?</p>
+      <p>▸ Bei wem hat sich aus dem Bingo ein richtiges Gespräch entwickelt?</p>
+      <p>▸ Was haben Sie über jemanden erfahren, das Sie überrascht hat?</p>
+      <p>▸ Wie sind Sie wieder aus den Gesprächen herausgekommen?</p>
+    </div>
+
+    <h2>Was ich erfahren habe</h2>
+    <p class="anleitung">Zwei oder drei Dinge, die Sie über andere gelernt haben — und die Sie beim nächsten Mal als Gesprächsanfang nutzen könnten.</p>
+    <textarea class="feld" id="erfahren-frei"></textarea>
+
+    <div class="merker">
+      <p>Das Bingo ist ein Vorwand. Der Zweck ist nicht die Reihe, sondern dass Sie mit zehn Menschen gesprochen haben, mit denen Sie sonst vielleicht nur „Morgen“ gesagt hätten.</p>
+      <p class="satz">Genau so funktioniert Smalltalk im Betrieb auch: Der Inhalt ist beliebig, die Wirkung nicht.</p>
+    </div>
+
+    <h2>Zur Erinnerung: die drei Regeln</h2>
+    <div id="a1"></div>
+
+  </section>
+
+</main>
+
+<script src="../assets/lehrwerk.js"></script>
+<script>
+Lehrwerk.modul('smalltalk-bingo');
+Lehrwerk.reiter();
+
+Lehrwerk.auswahl('a1', [
+  {
+    id: 'b1',
+    text: 'Warum soll man die Felder nicht vorlesen?',
+    optionen: [
+      'Aus einer offenen Frage bekommt man oft mehrere Felder auf einmal — und ein Gespräch dazu.',
+      'Weil es gegen die Spielregeln verstößt.',
+      'Weil es zu laut wird.',
+      'Weil die anderen dann abschreiben können.'
+    ],
+    richtig: ['Aus einer offenen Frage bekommt man oft mehrere Felder auf einmal — und ein Gespräch dazu.'],
+    erklaerung: '„Trinken Sie gern Kaffee?“ bringt ein Ja und sonst nichts. „Wie kommen Sie morgens in Gang?“ bringt drei Felder und eine Anschlussfrage.'
+  },
+  {
+    id: 'b2',
+    text: 'Jemand möchte auf eine Frage nicht antworten. Was gilt?',
+    optionen: [
+      'Das ist in Ordnung — niemand muss Auskunft geben, auch nicht im Spiel.',
+      'Im Spiel muss man antworten.',
+      'Man sollte nachhaken.',
+      'Dann ist das Feld verloren.'
+    ],
+    richtig: ['Das ist in Ordnung — niemand muss Auskunft geben, auch nicht im Spiel.'],
+    erklaerung: '„Das verrate ich nicht“ ist eine gültige Antwort. Sie suchen dann einfach jemand anderen — Felder gibt es genug.'
+  }
+]);
+
+Lehrwerk.frei('erfahren-frei');
+
+/* ---- Bingo ---- */
+var FELDER = [
+  'trinkt morgens Kaffee', 'trinkt keinen Kaffee', 'kommt mit dem Rad zur Arbeit',
+  'war letztes Jahr im Urlaub', 'liest gern', 'mag Sport',
+  'spricht mehr als zwei Sprachen', 'spielt ein Instrument', 'kocht gern selbst',
+  'geht gern spazieren', 'schaut gerade eine Serie', 'hört Podcasts',
+  'arbeitet lieber im Team als allein', 'war am Wochenende unterwegs',
+  'ist am Wochenende zu Hause geblieben', 'freut sich aufs Wochenende',
+  'hat diese Woche viel vor', 'isst gern Pizza', 'ist neu hier',
+  'fährt gern mit dem Zug', 'geht gern ins Kino', 'entspannt am liebsten zu Hause',
+  'steht gern früh auf', 'ist eher ein Morgenmuffel'
+];
+
+var bingo = document.getElementById('bingo');
+var stand = document.getElementById('stand');
+var karte = [], markiert = [];
+
+function mischen(liste) {
+  var a = liste.slice();
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+
+function reihen() {
+  var r = [];
+  for (var i = 0; i < 5; i++) {
+    r.push([0,1,2,3,4].map(function (k) { return i * 5 + k; }));
+    r.push([0,1,2,3,4].map(function (k) { return k * 5 + i; }));
+  }
+  r.push([0, 6, 12, 18, 24]);
+  r.push([4, 8, 12, 16, 20]);
+  return r;
+}
+
+function standSetzen() {
+  var anzahl = markiert.filter(Boolean).length - 1;
+  var voll = reihen().filter(function (r) {
+    return r.every(function (i) { return markiert[i]; });
+  }).length;
+  if (voll > 0) {
+    stand.textContent = 'Bingo! ' + voll + (voll === 1 ? ' volle Reihe' : ' volle Reihen') +
+      ' · ' + anzahl + ' Felder gefunden.';
+  } else if (anzahl > 0) {
+    stand.textContent = anzahl + (anzahl === 1 ? ' Feld' : ' Felder') + ' gefunden.';
+  } else {
+    stand.textContent = 'Noch kein Feld markiert.';
+  }
+}
+
+function zeichnen() {
+  bingo.innerHTML = '';
+  karte.forEach(function (text, i) {
+    var z = document.createElement('button');
+    z.type = 'button';
+    z.className = 'zelle' + (markiert[i] ? ' markiert' : '') + (i === 12 ? ' mitte' : '');
+    z.setAttribute('aria-pressed', String(!!markiert[i]));
+
+    var span = document.createElement('span');
+    span.textContent = text;
+    z.appendChild(span);
+
+    if (i !== 12) {
+      var feld = document.createElement('input');
+      feld.type = 'text';
+      feld.placeholder = 'wer? (freiwillig)';
+      feld.setAttribute('aria-label', 'Wer war das? Freiwillig, zu „' + text + '“');
+      feld.autocomplete = 'off';
+      feld.addEventListener('click', function (e) { e.stopPropagation(); });
+      feld.addEventListener('keydown', function (e) { e.stopPropagation(); });
+      z.appendChild(feld);
+    }
+
+    z.addEventListener('click', function () {
+      if (i === 12) return;
+      markiert[i] = !markiert[i];
+      z.classList.toggle('markiert', markiert[i]);
+      z.setAttribute('aria-pressed', String(markiert[i]));
+      standSetzen();
+    });
+
+    bingo.appendChild(z);
+  });
+  standSetzen();
+}
+
+function neueKarte() {
+  var g = mischen(FELDER).slice(0, 24);
+  karte = g.slice(0, 12).concat(['frei — dieses Feld zählt immer']).concat(g.slice(12));
+  markiert = new Array(25).fill(false);
+  markiert[12] = true;
+  zeichnen();
+}
+
+document.getElementById('neu').addEventListener('click', neueKarte);
+
+neueKarte();
+
+Lehrwerk.abschluss();
+</script>
+
+</body>
+</html>

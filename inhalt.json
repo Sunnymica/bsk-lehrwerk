@@ -455,6 +455,57 @@
           ]
         },
         {
+          "titel": "Smalltalk",
+          "module": [
+            {
+              "titel": "Smalltalk-Bingo",
+              "beschreibung": "Fünf mal fünf Felder, die man nur durch Gespräche füllt — mit Beispielgespräch, Ablauf in fünf Schritten und Hinweisen für die Kursleitung.",
+              "pfad": "smalltalk-bingo.html",
+              "niveau": "A2/B1",
+              "dauer": "30 Min",
+              "fertigkeiten": [
+                "Sprechen"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Smalltalk – Sprechrunden",
+              "beschreibung": "Sechs Runden zu drei Minuten mit wechselndem Gegenüber, Leitfragen und Sprachhilfen, Uhr im Modul. Die Auswertung ist der Lernteil.",
+              "pfad": "smalltalk-sprechrunden.html",
+              "niveau": "A2/B1",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Sprechen"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Smalltalk – Redemittel",
+              "beschreibung": "Offene Fragen, der Dreischritt aus Antwort, Zusatz und Gegenfrage, fünf Themenfelder mit fertigen Sätzen und acht umgangssprachliche Wendungen.",
+              "pfad": "smalltalk-redemittel.html",
+              "niveau": "A2/B1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Üben"
+              ],
+              "status": "fertig"
+            },
+            {
+              "titel": "Smalltalk – worüber?",
+              "beschreibung": "Welche Themen tragen und welche heikel sind, „mir ist“ gegen „mir geht es“ — und wie man aus einem Gespräch wieder herauskommt.",
+              "pfad": "smalltalk-themen.html",
+              "niveau": "A2/B1",
+              "dauer": "60 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Üben"
+              ],
+              "status": "fertig"
+            }
+          ]
+        },
+        {
           "titel": "Kundengespräche",
           "module": [
             {
