@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Partizipien – Berufssprachkurs</title>
+<link rel="stylesheet" href="../assets/basis.css">
+<link rel="stylesheet" href="../assets/platform.css">
+<link rel="stylesheet" href="../assets/lehrwerk.css">
+<link rel="stylesheet" href="../assets/aufgaben.css">
+<script src="../data/homework.js" defer></script>
+<script src="../assets/platform.js"></script>
+</head>
+<body data-page="module" data-bereich="grammatik" data-root="../">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../grammatik.html">← Grammatik</a>
+    <h1><em>Partizipien</em></h1>
+    <p class="anleitung">Ein <em>laufender</em> Vorgang läuft noch. Ein <em>abgeschlossener</em> ist fertig. Mit zwei Formen sagt man im Büro, in welchem Zustand eine Sache ist — kürzer geht es nicht.</p>
+  </div>
+</header>
+
+<main class="innen modul">
+
+  <div class="reiter" role="tablist">
+    <button role="tab" aria-selected="true"  data-blatt="bildung">Bildung</button>
+    <button role="tab" aria-selected="false" data-blatt="bedeutung">Was sie bedeuten</button>
+    <button role="tab" aria-selected="false" data-blatt="status">Statuswörter</button>
+    <button role="tab" aria-selected="false" data-blatt="wendungen">Feste Wendungen</button>
+    <button role="tab" aria-selected="false" data-blatt="ueben">Üben</button>
+  </div>
+
+  <!-- ============ Bildung ============ -->
+  <section class="blatt" id="blatt-bildung">
+
+    <div class="kasten">
+      <h3>Partizip I — Infinitiv plus <em>d</em></h3>
+      <p class="satz">laufen → lauf<strong>end</strong> · steigen → steig<strong>end</strong> · betreffen → betreff<strong>end</strong> · entsprechen → entsprech<strong>end</strong></p>
+      <p>Eine einzige Regel, keine Ausnahmen. Das ist die leichteste Form im ganzen deutschen Verbsystem.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Partizip II — vier Fälle</h3>
+      <table>
+        <thead><tr><th>Verbtyp</th><th>Bildung</th><th>Beispiele</th></tr></thead>
+        <tbody>
+          <tr><td>schwach</td><td><em>ge-</em> + Stamm + <em>-t</em></td><td>geprüft, gebucht, gemeldet</td></tr>
+          <tr><td>stark</td><td><em>ge-</em> + Stamm + <em>-en</em></td><td>geschrieben, gegeben, gefunden</td></tr>
+          <tr><td>trennbar</td><td>Präfix + <em>ge-</em> + …</td><td>eingegangen, abgeschlossen, freigegeben</td></tr>
+          <tr><td>untrennbar oder auf <em>-ieren</em></td><td><strong>ohne</strong> <em>ge-</em></td><td>bearbeitet, erhalten, verschickt · informiert, storniert, reklamiert</td></tr>
+        </tbody>
+      </table>
+      <p class="marke">Die letzte Zeile ist die Fehlerquelle: <s>gebearbeitet</s>, <s>geinformiert</s>. Untrennbare Präfixe und die Endung <em>-ieren</em> schließen das <em>ge-</em> aus.</p>
+    </div>
+
+    <div class="merker">
+      <h3>Partizipien werden dekliniert wie Adjektive</h3>
+      <p>Sobald sie vor einem Nomen stehen, bekommen sie eine Endung — genau die, die ein Adjektiv dort bekäme.</p>
+      <p class="satz">ein <strong>laufendes</strong> Projekt · die <strong>laufenden</strong> Projekte · bei <strong>laufendem</strong> Betrieb</p>
+      <p class="satz">der <strong>eingegangene</strong> Auftrag · die <strong>eingegangenen</strong> Aufträge</p>
+      <p class="marke">✗ <s>ein laufend Projekt</s> — ohne Endung geht es nur, wenn kein Nomen folgt.</p>
+    </div>
+
+    <h2>Partizip II bilden</h2>
+    <div id="b-bank"></div>
+    <p class="lueckentext">
+      1. prüfen → der <input class="luecke" id="b1" size="12" autocomplete="off"> Vorgang<br><br>
+      2. bearbeiten → der <input class="luecke" id="b2" size="12" autocomplete="off"> Antrag<br><br>
+      3. eingehen → die <input class="luecke" id="b3" size="14" autocomplete="off"> Unterlagen<br><br>
+      4. stornieren → die <input class="luecke" id="b4" size="12" autocomplete="off"> Bestellung<br><br>
+      5. abschließen → das <input class="luecke" id="b5" size="16" autocomplete="off"> Projekt
+    </p>
+    <div class="knopfreihe">
+      <button class="knopf" id="b-pruefen" type="button">Prüfen</button>
+      <button class="knopf" id="b-tipp" type="button">Tipp</button>
+    </div>
+    <p class="rueckmeldung" id="b-rueck" hidden></p>
+    <p class="rueckmeldung" id="b-hinweis" hidden>Denken Sie an die Endung — die Partizipien stehen hier vor einem Nomen. Und an das fehlende <em>ge-</em> bei zwei der fünf Verben.</p>
+
+  </section>
+
+  <!-- ============ Bedeutung ============ -->
+  <section class="blatt" id="blatt-bedeutung">
+
+    <div class="merker">
+      <h3>Der eine Unterschied, auf den es ankommt</h3>
+      <table>
+        <thead><tr><th>Form</th><th>Richtung</th><th>Zeit</th><th>Testfrage</th></tr></thead>
+        <tbody>
+          <tr><td>Partizip I</td><td>aktiv</td><td>gleichzeitig, läuft noch</td><td>Tut es das gerade selbst?</td></tr>
+          <tr><td>Partizip II bei transitiven Verben</td><td>passiv</td><td>abgeschlossen</td><td>Hat jemand das damit gemacht?</td></tr>
+          <tr><td>Partizip II bei <em>sein</em>-Verben</td><td>aktiv</td><td>abgeschlossen</td><td>Ist es das selbst geworden?</td></tr>
+        </tbody>
+      </table>
+      <p class="satz">die <strong>steigende</strong> Nachfrage — sie steigt gerade<br>
+      die <strong>gestiegene</strong> Nachfrage — sie ist gestiegen, jetzt ist sie hoch<br>
+      der <strong>geprüfte</strong> Antrag — jemand hat ihn geprüft</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Vier Paare, die man auseinanderhalten muss</h3>
+      <table>
+        <thead><tr><th>Partizip I</th><th>Partizip II</th></tr></thead>
+        <tbody>
+          <tr><td>die steigenden Kosten <span class="marke">steigen gerade</span></td><td>die gestiegenen Kosten <span class="marke">sind schon oben</span></td></tr>
+          <tr><td>der laufende Vertrag <span class="marke">gilt noch</span></td><td>der gelaufene Vertrag <span class="marke">ungebräuchlich — sagt man nicht</span></td></tr>
+          <tr><td>die eingehenden Aufträge <span class="marke">kommen gerade herein</span></td><td>die eingegangenen Aufträge <span class="marke">sind da</span></td></tr>
+          <tr><td>die betreffende Abteilung <span class="marke">um die es geht</span></td><td>die betroffene Abteilung <span class="marke">die etwas abbekommen hat</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="merker">
+      <h3><em>betreffend</em> gegen <em>betroffen</em> — der folgenreichste Fehler</h3>
+      <p><strong>betreffend</strong> ist neutral: die Abteilung, <em>um die es geht</em>.<br>
+      <strong>betroffen</strong> heißt, dass jemand etwas Unangenehmes abbekommen hat — oder emotional berührt ist.</p>
+      <p class="satz">✓ „Bitte informieren Sie die <strong>betreffende</strong> Abteilung.“ — die zuständige<br>
+      ✗ „Bitte informieren Sie die <strong>betroffene</strong> Abteilung.“ — klingt, als sei dort etwas passiert</p>
+      <p class="marke">In Protokollen und Rundmails ist fast immer <em>betreffend</em> gemeint. <em>Betroffen</em> gehört dorthin, wo tatsächlich jemand Nachteile hat — „die vom Ausfall betroffenen Kundinnen“.</p>
+    </div>
+
+    <h2>Welche Form ist gemeint?</h2>
+    <div id="a1"></div>
+
+  </section>
+
+  <!-- ============ Statuswörter ============ -->
+  <section class="blatt" id="blatt-status">
+
+    <p>Im Büro tragen Partizipien vor allem eine Aufgabe: Sie sagen in einem Wort, <strong>in welchem Zustand</strong> eine Sache ist. Wer diese zwölf kennt, versteht jede Statusmeldung.</p>
+
+    <div class="kasten">
+      <h3>Läuft noch — Partizip I</h3>
+      <table>
+        <thead><tr><th>Wort</th><th>Bedeutung</th><th>Beispiel</th></tr></thead>
+        <tbody>
+          <tr><td>laufend</td><td>in Bearbeitung</td><td>die laufenden Vorgänge</td></tr>
+          <tr><td>ausstehend</td><td>noch nicht da</td><td>die ausstehende Zahlung</td></tr>
+          <tr><td>anstehend</td><td>kommt als Nächstes</td><td>die anstehenden Termine</td></tr>
+          <tr><td>betreffend</td><td>um das es geht</td><td>der betreffende Auftrag</td></tr>
+          <tr><td>bestehend</td><td>vorhanden</td><td>der bestehende Vertrag</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="kasten">
+      <h3>Abgeschlossen — Partizip II</h3>
+      <table>
+        <thead><tr><th>Wort</th><th>Bedeutung</th><th>Beispiel</th></tr></thead>
+        <tbody>
+          <tr><td>abgeschlossen</td><td>fertig</td><td>der abgeschlossene Vorgang</td></tr>
+          <tr><td>eingegangen</td><td>angekommen</td><td>die eingegangenen Unterlagen</td></tr>
+          <tr><td>erledigt</td><td>fertig</td><td>die erledigten Aufgaben</td></tr>
+          <tr><td>freigegeben</td><td>genehmigt</td><td>das freigegebene Budget</td></tr>
+          <tr><td>beauftragt</td><td>in Auftrag gegeben</td><td>die beauftragte Firma</td></tr>
+          <tr><td>storniert</td><td>zurückgenommen</td><td>die stornierte Bestellung</td></tr>
+          <tr><td>betroffen</td><td>hat Nachteile</td><td>die betroffenen Kundinnen</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="merker">
+      <p><strong>Wozu das gut ist:</strong> Eine Statusliste ohne Partizipien braucht ganze Sätze — „Die Vorgänge, die noch bearbeitet werden", „Die Zahlungen, die noch nicht eingegangen sind". Mit Partizipien wird daraus <em>laufende Vorgänge</em> und <em>ausstehende Zahlungen</em>.</p>
+      <p class="satz">Genau deshalb stehen sie in jeder Tabelle, jeder Betreffzeile und jedem Protokoll.</p>
+    </div>
+
+    <h2>Statuswörter zuordnen</h2>
+    <div id="z1"></div>
+    <p class="rueckmeldung" id="z1-rueck" hidden></p>
+
+  </section>
+
+  <!-- ============ Wendungen ============ -->
+  <section class="blatt" id="blatt-wendungen">
+
+    <div class="kasten">
+      <h3>Feste Wendungen der Korrespondenz</h3>
+      <p>Alle bestehen aus einem Partizip II und stehen ohne Verb. Sie sparen jeweils einen ganzen Nebensatz.</p>
+      <table>
+        <thead><tr><th>Wendung</th><th>wofür</th></tr></thead>
+        <tbody>
+          <tr><td>wie <strong>besprochen</strong></td><td>Bezug auf ein Gespräch</td></tr>
+          <tr><td>wie <strong>vereinbart</strong></td><td>Bezug auf eine Abmachung</td></tr>
+          <tr><td>wie telefonisch <strong>angekündigt</strong></td><td>Bezug auf ein Telefonat</td></tr>
+          <tr><td>wie <strong>gewünscht</strong></td><td>Erfüllung einer Bitte</td></tr>
+          <tr><td>wie <strong>erwartet</strong></td><td>Bestätigung einer Prognose</td></tr>
+          <tr><td><strong>beigefügt</strong> / anbei</td><td>Anlage</td></tr>
+          <tr><td>oben <strong>genannt</strong> / unten <strong>stehend</strong></td><td>Verweis im Text</td></tr>
+        </tbody>
+      </table>
+      <p class="satz">„Wie besprochen sende ich Ihnen die Unterlagen.“ statt „Wie wir es besprochen haben, sende ich …“</p>
+      <p class="satz">„Beigefügt finden Sie die Rechnung.“ statt „Die Rechnung, die ich beigefügt habe, finden Sie …“</p>
+    </div>
+
+    <div class="merker">
+      <p><strong>Achtung bei „wie besprochen“:</strong> Es setzt voraus, dass tatsächlich gesprochen wurde. Wer es schreibt, ohne dass es ein Gespräch gab, erzeugt Verwirrung — die andere Seite sucht dann in ihren Notizen.</p>
+      <p class="satz">Wenn Sie sich auf eine E-Mail beziehen, heißt es <em>wie geschrieben</em> oder <em>mit Bezug auf Ihre Mail vom …</em></p>
+    </div>
+
+    <h2>Welche Wendung passt?</h2>
+    <div id="a2"></div>
+
+  </section>
+
+  <!-- ============ Üben ============ -->
+  <section class="blatt" id="blatt-ueben">
+
+    <h2>Partizip I oder II?</h2>
+    <div id="p-bank"></div>
+    <p class="lueckentext">
+      1. Die Kosten sind gestiegen — wir sprechen also über die <input class="luecke" id="p1" size="14" autocomplete="off"> Kosten.<br><br>
+      2. Die Kosten steigen gerade — also die <input class="luecke" id="p2" size="14" autocomplete="off"> Kosten.<br><br>
+      3. Der Vertrag gilt noch — der <input class="luecke" id="p3" size="14" autocomplete="off"> Vertrag.<br><br>
+      4. Die Zahlung ist noch nicht da — die <input class="luecke" id="p4" size="14" autocomplete="off"> Zahlung.<br><br>
+      5. Die Abteilung, um die es geht — die <input class="luecke" id="p5" size="14" autocomplete="off"> Abteilung.
+    </p>
+    <div class="knopfreihe">
+      <button class="knopf" id="p-pruefen" type="button">Prüfen</button>
+      <button class="knopf" id="p-tipp" type="button">Tipp</button>
+    </div>
+    <p class="rueckmeldung" id="p-rueck" hidden></p>
+    <p class="rueckmeldung" id="p-hinweis" hidden>Testfrage: Läuft es noch, oder ist es abgeschlossen? Und vergessen Sie die Adjektivendung nicht.</p>
+
+    <h2>Fehler finden</h2>
+    <div id="a3"></div>
+
+    <h2>Eine Statusliste schreiben</h2>
+    <p class="anleitung">Schreiben Sie fünf Zeilen für eine Statusübersicht aus Ihrem Arbeitsbereich — je eine mit <em>laufend</em>, <em>ausstehend</em>, <em>abgeschlossen</em>, <em>freigegeben</em> und <em>betreffend</em>. Kurze Zeilen, keine ganzen Sätze; so sieht eine echte Liste aus.</p>
+    <textarea class="feld" id="status-frei"></textarea>
+
+    <div class="merker">
+      <p>Wenn Sie ein Partizip nicht sicher bilden können, gibt es immer den Umweg über den Nebensatz: <em>„die Unterlagen, die eingegangen sind“</em> statt <em>„die eingegangenen Unterlagen“</em>. Das ist länger, aber richtig — und im Gespräch fällt es kaum auf.</p>
+    </div>
+
+  </section>
+
+</main>
+
+<script src="../assets/lehrwerk.js"></script>
+<script>
+Lehrwerk.modul('partizipien');
+Lehrwerk.reiter();
+
+/* ---- Bildung ---- */
+Lehrwerk.wortbank('b', {
+  ziel: 'b-bank',
+  bank: ['geprüfte', 'bearbeitete', 'eingegangenen', 'stornierte', 'abgeschlossene'],
+  felder: {
+    b1: ['geprüfte'],
+    b2: ['bearbeitete'],
+    b3: ['eingegangenen'],
+    b4: ['stornierte'],
+    b5: ['abgeschlossene']
+  },
+  pruefen: 'b-pruefen', rueck: 'b-rueck', tipp: 'b-tipp', hinweis: 'b-hinweis', eindeutig: true
+});
+
+/* ---- Bedeutung ---- */
+Lehrwerk.auswahl('a1', [
+  {
+    id: 'm1',
+    text: 'Die Nachfrage ist im letzten Quartal gestiegen und jetzt hoch. Wie sagen Sie das?',
+    optionen: [
+      'die gestiegene Nachfrage',
+      'die steigende Nachfrage',
+      'die gestiegende Nachfrage',
+      'die steigte Nachfrage'
+    ],
+    richtig: ['die gestiegene Nachfrage'],
+    erklaerung: 'Abgeschlossener Vorgang, also Partizip II. „Steigend“ hieße, dass sie gerade noch steigt. Die dritte Form gibt es nicht — sie mischt beide Partizipien.'
+  },
+  {
+    id: 'm2',
+    text: 'Sie schreiben eine Rundmail und meinen die Abteilung, um die es geht. Welches Wort?',
+    optionen: [
+      'die betreffende Abteilung',
+      'die betroffene Abteilung',
+      'die betreffte Abteilung',
+      'die betroffende Abteilung'
+    ],
+    richtig: ['die betreffende Abteilung'],
+    erklaerung: '<em>Betreffend</em> ist neutral — „um die es geht“. <em>Betroffen</em> heißt, dass jemand Nachteile hat oder emotional berührt ist; das erzeugt hier einen falschen Eindruck.'
+  },
+  {
+    id: 'm3',
+    text: 'Was bedeutet „der geprüfte Antrag“?',
+    optionen: [
+      'Jemand hat den Antrag geprüft — passiv, abgeschlossen.',
+      'Der Antrag prüft gerade etwas.',
+      'Der Antrag wird gerade geprüft.',
+      'Der Antrag muss geprüft werden.'
+    ],
+    richtig: ['Jemand hat den Antrag geprüft — passiv, abgeschlossen.'],
+    erklaerung: 'Bei transitiven Verben ist das Partizip II passiv: Die Sache hat es nicht selbst getan. Testfrage: „Hat jemand das damit gemacht?“'
+  }
+]);
+
+/* ---- Statuswörter ---- */
+Lehrwerk.zuordnen('z1', {
+  rueck: 'z1-rueck',
+  paare: [
+    { id: 's1', links: 'in Bearbeitung, noch nicht fertig', rechts: 'laufend' },
+    { id: 's2', links: 'noch nicht eingegangen', rechts: 'ausstehend' },
+    { id: 's3', links: 'kommt als Nächstes', rechts: 'anstehend' },
+    { id: 's4', links: 'fertig, kein weiterer Schritt nötig', rechts: 'abgeschlossen' },
+    { id: 's5', links: 'genehmigt, darf verwendet werden', rechts: 'freigegeben' },
+    { id: 's6', links: 'zurückgenommen, findet nicht statt', rechts: 'storniert' },
+    { id: 's7', links: 'hat Nachteile abbekommen', rechts: 'betroffen' }
+  ]
+});
+
+/* ---- Wendungen ---- */
+Lehrwerk.auswahl('a2', [
+  {
+    id: 'w1',
+    text: 'Sie schicken Unterlagen, die im Telefonat vereinbart wurden. Welche Wendung?',
+    optionen: [
+      'Wie besprochen sende ich Ihnen die Unterlagen.',
+      'Wie erwartet sende ich Ihnen die Unterlagen.',
+      'Beigefügt sende ich Ihnen die Unterlagen.',
+      'Wie oben genannt sende ich Ihnen die Unterlagen.'
+    ],
+    richtig: ['Wie besprochen sende ich Ihnen die Unterlagen.'],
+    erklaerung: '<em>Wie besprochen</em> nimmt Bezug auf ein Gespräch. Es setzt allerdings voraus, dass es dieses Gespräch gab — sonst sucht die andere Seite in ihren Notizen.'
+  },
+  {
+    id: 'w2',
+    text: 'Sie beziehen sich auf eine E-Mail, nicht auf ein Gespräch. Was passt <strong>nicht</strong>?',
+    optionen: [
+      'Wie besprochen',
+      'Wie geschrieben',
+      'Mit Bezug auf Ihre Mail vom 12. März',
+      'Wie in Ihrer Nachricht angekündigt'
+    ],
+    richtig: ['Wie besprochen'],
+    erklaerung: '„Besprochen“ heißt gesprochen. Bei schriftlichem Bezug wirkt es falsch und kann Verwirrung stiften — die Empfängerin fragt sich, wann telefoniert wurde.'
+  }
+]);
+
+/* ---- Üben ---- */
+Lehrwerk.wortbank('p', {
+  ziel: 'p-bank',
+  bank: ['gestiegenen', 'steigenden', 'laufende', 'ausstehende', 'betreffende'],
+  felder: {
+    p1: ['gestiegenen'],
+    p2: ['steigenden'],
+    p3: ['laufende'],
+    p4: ['ausstehende'],
+    p5: ['betreffende']
+  },
+  pruefen: 'p-pruefen', rueck: 'p-rueck', tipp: 'p-tipp', hinweis: 'p-hinweis', eindeutig: true
+});
+
+Lehrwerk.auswahl('a3', [
+  {
+    id: 'f1',
+    text: 'Welche zwei Partizipien sind falsch gebildet?',
+    optionen: [
+      'gebearbeitet',
+      'geinformiert',
+      'eingegangen',
+      'freigegeben'
+    ],
+    richtig: ['gebearbeitet', 'geinformiert'],
+    erklaerung: 'Untrennbare Präfixe (<em>be-</em>) und die Endung <em>-ieren</em> schließen das <em>ge-</em> aus: <em>bearbeitet</em>, <em>informiert</em>. Bei trennbaren Verben steht es dagegen in der Mitte.'
+  },
+  {
+    id: 'f2',
+    text: 'Welcher Satz ist richtig?',
+    optionen: [
+      'Wir haben drei laufende Projekte.',
+      'Wir haben drei laufend Projekte.',
+      'Wir haben drei laufenden Projekte.',
+      'Wir haben drei laufendes Projekte.'
+    ],
+    richtig: ['Wir haben drei laufende Projekte.'],
+    erklaerung: 'Vor einem Nomen wird das Partizip dekliniert wie ein Adjektiv. Nach <em>drei</em> ohne Artikel steht die starke Endung <em>-e</em> im Akkusativ Plural.'
+  },
+  {
+    id: 'f3',
+    text: 'Ihnen fällt das Partizip gerade nicht ein. Was tun Sie im Gespräch?',
+    optionen: [
+      'Den Umweg über den Nebensatz nehmen: „die Unterlagen, die eingegangen sind“.',
+      'Das Wort weglassen.',
+      'Das Partizip raten.',
+      'Auf Englisch ausweichen.'
+    ],
+    richtig: ['Den Umweg über den Nebensatz nehmen: „die Unterlagen, die eingegangen sind“.'],
+    erklaerung: 'Länger, aber richtig — und im Gespräch fällt es kaum auf. Nur im Schriftlichen wirkt die Partizipform deutlich kompakter.'
+  }
+]);
+
+Lehrwerk.frei('status-frei');
+
+Lehrwerk.abschluss();
+</script>
+
+</body>
+</html>

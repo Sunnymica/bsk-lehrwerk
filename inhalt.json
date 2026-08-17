@@ -941,16 +941,17 @@
               "status": "in-arbeit"
             },
             {
-              "titel": "Passiv und Passiversatz",
-              "beschreibung": "Vorgang, Zustand, sein-zu, sich lassen, -bar.",
+              "titel": "Passiv",
+              "beschreibung": "Formen und Zeiten, der Agensanschluss mit von, durch und mit, Vorgang gegen Zustand — dazu Dativverben, unpersönliches Passiv und die Frage, wen man weglässt.",
               "pfad": "passiv.html",
               "niveau": "B2–C1",
-              "dauer": "60 Min",
+              "dauer": "90 Min",
               "fertigkeiten": [
                 "Üben",
-                "Lesen"
+                "Lesen",
+                "Schreiben"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "Konjunktiv II",
@@ -1079,16 +1080,30 @@
               "status": "in-arbeit"
             },
             {
-              "titel": "Partizipialattribute",
-              "beschreibung": "Erweitertes Attribut lesen und auflösen.",
-              "pfad": "partizipialattribute.html",
-              "niveau": "C1",
-              "dauer": "60 Min",
+              "titel": "Partizipien",
+              "beschreibung": "Bildung beider Partizipien, der Unterschied zwischen laufend und gelaufen, zwölf Statuswörter aus dem Büro und die festen Wendungen der Korrespondenz.",
+              "pfad": "partizipien.html",
+              "niveau": "B2–C1",
+              "dauer": "90 Min",
               "fertigkeiten": [
                 "Üben",
-                "Lesen"
+                "Lesen",
+                "Schreiben"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
+            },
+            {
+              "titel": "Partizipialattribute",
+              "beschreibung": "Die Lesestrategie in drei Schritten, die Fünferreihe zum selben Verb, die Grenzen der Umwandlung — und wann man im Gespräch besser beim Relativsatz bleibt.",
+              "pfad": "partizipialattribute.html",
+              "niveau": "C1",
+              "dauer": "90 Min",
+              "fertigkeiten": [
+                "Lesen",
+                "Üben",
+                "Schreiben"
+              ],
+              "status": "fertig"
             },
             {
               "titel": "Nominalstil",
@@ -1101,6 +1116,19 @@
                 "Schreiben"
               ],
               "status": "in-arbeit"
+            },
+            {
+              "titel": "Satzverdichtung",
+              "beschreibung": "Sechs Stufen von zwei Hauptsätzen bis zum Kompositum, was auf jeder verloren geht, fünf Kontrollfragen — und wie viel Verdichtung welche Textsorte verträgt.",
+              "pfad": "satzverdichtung.html",
+              "niveau": "C1",
+              "dauer": "90 Min",
+              "fertigkeiten": [
+                "Lesen",
+                "Schreiben",
+                "Üben"
+              ],
+              "status": "fertig"
             }
           ]
         },
@@ -1186,15 +1214,16 @@
             },
             {
               "titel": "Verben mit Präposition",
-              "beschreibung": "Die Rektion, die man nicht ableiten kann.",
+              "beschreibung": "Die zwanzig wichtigsten Verbindungen mit Kasus, da(r)- und wo(r)-, das Korrelat vor Nebensätzen — dazu Adjektive und Nomen, die dieselbe Präposition behalten.",
               "pfad": "verben-mit-praeposition.html",
               "niveau": "B2–C1",
-              "dauer": "60 Min",
+              "dauer": "90 Min",
               "fertigkeiten": [
                 "Üben",
+                "Schreiben",
                 "Sprechen"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "Adjektive und Nomen mit Präposition",

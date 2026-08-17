@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Passiv – Berufssprachkurs</title>
+<link rel="stylesheet" href="../assets/basis.css">
+<link rel="stylesheet" href="../assets/platform.css">
+<link rel="stylesheet" href="../assets/lehrwerk.css">
+<link rel="stylesheet" href="../assets/aufgaben.css">
+<script src="../data/homework.js" defer></script>
+<script src="../assets/platform.js"></script>
+</head>
+<body data-page="module" data-bereich="grammatik" data-root="../">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../grammatik.html">← Grammatik</a>
+    <h1>Das <em>Passiv</em></h1>
+    <p class="anleitung">„Der Antrag wird geprüft." Wer prüft, steht nicht da — und das ist der Zweck. Im Betrieb geht es oft um den Vorgang, nicht um die Person, die ihn ausführt.</p>
+  </div>
+</header>
+
+<main class="innen modul">
+
+  <div class="reiter" role="tablist">
+    <button role="tab" aria-selected="true"  data-blatt="formen">Formen</button>
+    <button role="tab" aria-selected="false" data-blatt="agens">Wer war es?</button>
+    <button role="tab" aria-selected="false" data-blatt="zustand">Vorgang oder Zustand</button>
+    <button role="tab" aria-selected="false" data-blatt="sonder">Sonderfälle</button>
+    <button role="tab" aria-selected="false" data-blatt="ueben">Üben</button>
+  </div>
+
+  <!-- ============ Formen ============ -->
+  <section class="blatt" id="blatt-formen">
+
+    <div class="merker">
+      <h3>Die Grundform</h3>
+      <p><strong>werden + Partizip II</strong> — mehr ist es nicht.</p>
+      <p class="satz">Aktiv: „Die Kollegin <em>prüft</em> den Antrag.“<br>
+      Passiv: „Der Antrag <strong>wird geprüft</strong>.“</p>
+      <p>Das Akkusativobjekt des Aktivsatzes wird zum Subjekt. Wer handelt, verschwindet — oder wird angehängt, wenn es wichtig ist.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Die Zeiten</h3>
+      <table>
+        <thead><tr><th>Zeit</th><th>Bildung</th><th>Beispiel</th></tr></thead>
+        <tbody>
+          <tr><td>Präsens</td><td>wird + P II</td><td>Der Antrag <strong>wird</strong> geprüft.</td></tr>
+          <tr><td>Präteritum</td><td>wurde + P II</td><td>Der Antrag <strong>wurde</strong> geprüft.</td></tr>
+          <tr><td>Perfekt</td><td>ist + P II + <strong>worden</strong></td><td>Der Antrag <strong>ist</strong> geprüft <strong>worden</strong>.</td></tr>
+          <tr><td>mit Modalverb</td><td>Modalverb + P II + werden</td><td>Der Antrag <strong>muss</strong> geprüft <strong>werden</strong>.</td></tr>
+        </tbody>
+      </table>
+      <p class="marke">Im Perfekt heißt es <strong>worden</strong>, nicht <em>geworden</em>: ✗ <s>„Der Antrag ist geprüft geworden.“</s> Das <em>ge-</em> fällt weg, weil schon ein Partizip dasteht.</p>
+    </div>
+
+    <div class="merker">
+      <h3>Warum das Passiv im Betrieb so häufig ist</h3>
+      <p>Es erlaubt, über einen <strong>Vorgang</strong> zu sprechen, ohne eine Person zu nennen. Das ist in drei Lagen genau richtig:</p>
+      <p>▸ <strong>Wenn es niemanden interessiert, wer.</strong> „Die Rechnung wird morgen verschickt“ — wer sie in den Umschlag steckt, ist nebensächlich.</p>
+      <p>▸ <strong>Wenn man niemanden bloßstellen will.</strong> „Bei der Buchung wurde eine falsche Nummer verwendet“ statt „Sie haben sich vertippt“.</p>
+      <p>▸ <strong>Wenn man es nicht weiß.</strong> „Die Unterlagen sind nicht eingegangen“ — vielleicht wurden sie nie verschickt, vielleicht sind sie verloren gegangen.</p>
+      <p class="satz">Deshalb steht das Passiv in Protokollen, Arbeitsanweisungen und Reklamationen fast durchgehend.</p>
+    </div>
+
+    <h2>Aktiv wird Passiv</h2>
+    <div id="f-bank"></div>
+    <p class="lueckentext">
+      1. „Die Kollegin prüft den Antrag.“ → Der Antrag <input class="luecke" id="f1" size="14" autocomplete="off">.<br><br>
+      2. „Wir haben die Rechnung verschickt.“ → Die Rechnung <input class="luecke" id="f2" size="26" autocomplete="off">.<br><br>
+      3. „Man muss die Daten löschen.“ → Die Daten <input class="luecke" id="f3" size="24" autocomplete="off">.<br><br>
+      4. „Der Betriebsrat genehmigte den Plan.“ → Der Plan <input class="luecke" id="f4" size="16" autocomplete="off">.
+    </p>
+    <div class="knopfreihe">
+      <button class="knopf" id="f-pruefen" type="button">Prüfen</button>
+      <button class="knopf" id="f-tipp" type="button">Tipp</button>
+    </div>
+    <p class="rueckmeldung" id="f-rueck" hidden></p>
+    <p class="rueckmeldung" id="f-hinweis" hidden>Satz 2 steht im Perfekt — dort heißt es <em>worden</em>. Satz 3 hat ein Modalverb: Am Ende steht <em>werden</em>.</p>
+
+  </section>
+
+  <!-- ============ Agens ============ -->
+  <section class="blatt" id="blatt-agens">
+
+    <p>Wenn doch gesagt werden soll, wer oder was gehandelt hat, gibt es drei Anschlüsse.</p>
+
+    <div class="kasten">
+      <h3><em>von</em>, <em>durch</em>, <em>mit</em></h3>
+      <table>
+        <thead><tr><th>Anschluss</th><th>wofür</th><th>Beispiel</th></tr></thead>
+        <tbody>
+          <tr><td><strong>von</strong> + Dativ</td><td>der Urheber — Person oder Institution</td><td>vom Betriebsrat genehmigt</td></tr>
+          <tr><td><strong>durch</strong> + Akkusativ</td><td>Mittel, Ursache, Weg</td><td>durch einen Softwarefehler ausgelöst</td></tr>
+          <tr><td><strong>mit</strong> + Dativ</td><td>Werkzeug</td><td>mit einem Scanner erfasst</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="merker">
+      <h3><em>von</em> gegen <em>durch</em> — keine scharfe Grenze</h3>
+      <p>Bei Personen und Institutionen sind beide möglich, mit unterschiedlichem Akzent:</p>
+      <p class="satz">„<strong>vom</strong> Betriebsrat genehmigt“ — er ist der Handelnde.<br>
+      „<strong>durch</strong> den Betriebsrat genehmigt“ — er ist die Instanz, über die der Vorgang lief.</p>
+      <p>Das ist keine Entweder-oder-Frage, sondern eine Akzentfrage. Wo eine Person klar handelt, ist <em>von</em> der Normalfall; wo es um einen Weg oder ein Verfahren geht, <em>durch</em>.</p>
+      <p class="satz">Eindeutig ist nur die Ursache: „<em>durch</em> einen Stromausfall unterbrochen“ — dort geht <em>von</em> nicht.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Meistens lässt man es weg</h3>
+      <p>In den allermeisten Passivsätzen steht gar kein Agens — das ist der Punkt der Konstruktion. Wer es nennt, tut das aus einem Grund.</p>
+      <p class="satz">Ohne Agens: „Der Antrag wurde abgelehnt.“<br>
+      Mit Agens: „Der Antrag wurde <strong>von der Fachabteilung</strong> abgelehnt.“ — jetzt ist wichtig, wer.</p>
+      <p class="marke">Ein Agens hinzuzufügen, verschiebt die Aufmerksamkeit. Überlegen Sie deshalb kurz, ob Sie das wollen.</p>
+    </div>
+
+    <h2>Welcher Anschluss?</h2>
+    <div id="a1"></div>
+
+  </section>
+
+  <!-- ============ Vorgang oder Zustand ============ -->
+  <section class="blatt" id="blatt-zustand">
+
+    <div class="merker">
+      <h3>Zwei Passive, ein Unterschied</h3>
+      <table>
+        <thead><tr><th></th><th>Bildung</th><th>Bedeutung</th></tr></thead>
+        <tbody>
+          <tr><td>Vorgangspassiv</td><td><strong>werden</strong> + P II</td><td>etwas geschieht gerade oder geschah</td></tr>
+          <tr><td>Zustandspassiv</td><td><strong>sein</strong> + P II</td><td>das Ergebnis liegt vor</td></tr>
+        </tbody>
+      </table>
+      <p class="satz">„Die Tür <strong>wird</strong> geschlossen.“ — jemand schließt sie gerade.<br>
+      „Die Tür <strong>ist</strong> geschlossen.“ — sie ist zu.</p>
+      <p class="satz">„Der Antrag <strong>wird</strong> bearbeitet.“ — man arbeitet daran.<br>
+      „Der Antrag <strong>ist</strong> bearbeitet.“ — er ist fertig.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Woran man es erkennt</h3>
+      <p>▸ <em>wird</em> oder <em>wurde</em> plus Partizip II → <strong>Vorgang</strong></p>
+      <p>▸ <em>ist</em> oder <em>war</em> plus Partizip II, <strong>ohne</strong> <em>worden</em> → <strong>Zustand</strong></p>
+      <p>▸ <em>worden</em> im Satz → <strong>immer</strong> Vorgangspassiv, nie Zustand</p>
+      <p class="marke">Das dritte Merkmal ist das sicherste: Wo <em>worden</em> steht, ist es Vorgang. Deshalb lohnt es sich, dieses eine Wort genau zu beachten.</p>
+    </div>
+
+    <div class="merker">
+      <h3>Der Fehler, der eine Anweisung entwertet</h3>
+      <p class="satz">✗ „Die Daten müssen gelöscht <strong>sein</strong>.“ — als Anweisung gemeint<br>
+      ✓ „Die Daten müssen gelöscht <strong>werden</strong>.“</p>
+      <p>Die erste Fassung beschreibt einen <em>Zustand</em>, der vorliegen soll — sie sagt nicht, dass jemand etwas tun muss. Als Arbeitsanweisung ist sie unbrauchbar.</p>
+      <p class="satz">Umgekehrt ist der Zustand manchmal genau richtig: „Bis Freitag muss alles vorbereitet sein.“ Dort geht es tatsächlich um das Ergebnis.</p>
+    </div>
+
+    <h2>Vorgang oder Zustand?</h2>
+    <div id="a2"></div>
+
+  </section>
+
+  <!-- ============ Sonderfälle ============ -->
+  <section class="blatt" id="blatt-sonder">
+
+    <div class="kasten">
+      <h3>Verben mit Dativ behalten den Dativ</h3>
+      <p>Bei <em>danken, helfen, antworten, kündigen, zusagen</em> und den anderen Dativverben gibt es kein Akkusativobjekt, das zum Subjekt werden könnte. Der Dativ bleibt stehen.</p>
+      <p class="satz">Aktiv: „Der Chef dankt <strong>dem Team</strong>.“<br>
+      Passiv: „<strong>Dem Team</strong> wird gedankt.“ oder „Es wird <strong>dem Team</strong> gedankt.“</p>
+      <p class="satz">✗ <s>„Der Kunde wird geantwortet.“</s> · ✓ „<strong>Dem Kunden</strong> wird geantwortet.“</p>
+      <p class="marke">Das ist ein häufiger Fehler, weil man den Dativ automatisch zum Subjekt macht. Er bleibt aber im Dativ.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Das unpersönliche Passiv</h3>
+      <p>Manche Sätze haben gar kein Objekt. Trotzdem geht Passiv — mit <em>es</em> als Platzhalter oder ganz ohne Subjekt.</p>
+      <p class="satz">„Wir arbeiten hier samstags.“ → „Samstags <strong>wird</strong> hier <strong>gearbeitet</strong>.“<br>
+      „Man diskutiert viel.“ → „<strong>Es wird</strong> viel <strong>diskutiert</strong>.“</p>
+      <p><strong>Wichtig:</strong> Das <em>es</em> steht nur am Satzanfang. Rückt etwas anderes nach vorn, fällt es weg.</p>
+      <p class="satz">✓ „Es wird viel diskutiert.“ · ✓ „Bei uns wird viel diskutiert.“<br>
+      ✗ <s>„Bei uns es wird viel diskutiert.“</s></p>
+      <p class="marke">Diese Form steht in Aushängen und Hausordnungen: „In den Büros wird nicht geraucht.“ Sie richtet sich an alle, ohne jemanden anzusprechen.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Das <em>bekommen</em>-Passiv</h3>
+      <p>Umgangssprachlich verbreitet und im Beruf oft zu hören: Der Dativ wird zum Subjekt, das Verb ist <em>bekommen</em> oder <em>kriegen</em>.</p>
+      <p class="satz">„Mir wurde die Auskunft verweigert.“ → „Ich <strong>habe</strong> die Auskunft <strong>verweigert bekommen</strong>.“<br>
+      „Ihm wurde gekündigt.“ → „Er <strong>hat gekündigt bekommen</strong>.“</p>
+      <p class="marke">Verstehen sollten Sie es. Im formellen Schreiben bleiben Sie besser beim normalen Passiv.</p>
+    </div>
+
+    <p class="marke">Ersatzformen wie <em>sich lassen</em>, <em>sein + zu</em> und <em>-bar</em> stehen im Modul <a href="../buero/verb-lassen.html">Das Verb lassen</a> und im Themenbereich Passiversatz.</p>
+
+    <h2>Welche Form ist richtig?</h2>
+    <div id="a3"></div>
+
+  </section>
+
+  <!-- ============ Üben ============ -->
+  <section class="blatt" id="blatt-ueben">
+
+    <h2>Fehler finden</h2>
+    <div id="a4"></div>
+
+    <h2>Eine Arbeitsanweisung schreiben</h2>
+    <p class="anleitung">Formulieren Sie fünf Regeln für Ihren Arbeitsbereich im Passiv — je eine im Präsens, eine mit Modalverb, eine verneint, eine im unpersönlichen Passiv und eine im Zustandspassiv. Achten Sie bei den letzten beiden besonders darauf, dass die Form zum Gemeinten passt.</p>
+    <textarea class="feld" id="anweisung-frei"></textarea>
+
+    <h2>Umschreiben, ohne jemanden zu beschuldigen</h2>
+    <p class="anleitung">Schreiben Sie die drei Sätze so um, dass der Vorgang im Vordergrund steht und keine Person beschuldigt wird.</p>
+    <p class="satz">1. „Sie haben bei der Buchung eine falsche Kontonummer eingetragen.“<br>
+    2. „Der Kollege hat vergessen, die Kundin zu informieren.“<br>
+    3. „Ihr Team hat die Frist versäumt.“</p>
+    <textarea class="feld" id="neutral-frei"></textarea>
+
+    <div class="merker">
+      <p><strong>Ein Wort zur Vorsicht:</strong> Das Passiv verdeckt, wer gehandelt hat. Das ist oft nützlich und manchmal ein Problem — in einem Protokoll kann „Es wurde beschlossen“ verschleiern, wer die Entscheidung getroffen hat.</p>
+      <p class="satz">Fragen Sie sich deshalb beim Schreiben: <strong>Lasse ich die Person weg, weil sie unwichtig ist — oder weil ich sie nicht nennen möchte?</strong> Beides ist zulässig. Man sollte nur wissen, was man tut.</p>
+    </div>
+
+  </section>
+
+</main>
+
+<script src="../assets/lehrwerk.js"></script>
+<script>
+Lehrwerk.modul('passiv');
+Lehrwerk.reiter();
+
+/* ---- Formen ---- */
+Lehrwerk.wortbank('f', {
+  ziel: 'f-bank',
+  bank: [
+    'wird geprüft',
+    'ist verschickt worden',
+    'müssen gelöscht werden',
+    'wurde genehmigt'
+  ],
+  felder: {
+    f1: ['wird geprüft'],
+    f2: ['ist verschickt worden'],
+    f3: ['müssen gelöscht werden'],
+    f4: ['wurde genehmigt']
+  },
+  pruefen: 'f-pruefen', rueck: 'f-rueck', tipp: 'f-tipp', hinweis: 'f-hinweis', eindeutig: true
+});
+
+/* ---- Agens ---- */
+Lehrwerk.auswahl('a1', [
+  {
+    id: 'ag1',
+    text: 'Ein Stromausfall hat die Bearbeitung unterbrochen. Welcher Anschluss?',
+    optionen: [
+      'Die Bearbeitung wurde durch einen Stromausfall unterbrochen.',
+      'Die Bearbeitung wurde von einem Stromausfall unterbrochen.',
+      'Die Bearbeitung wurde mit einem Stromausfall unterbrochen.',
+      'Die Bearbeitung wurde bei einem Stromausfall unterbrochen.'
+    ],
+    richtig: ['Die Bearbeitung wurde durch einen Stromausfall unterbrochen.'],
+    erklaerung: 'Bei einer <strong>Ursache</strong> steht <em>durch</em> mit Akkusativ. <em>Von</em> geht nur bei Handelnden — ein Stromausfall handelt nicht.'
+  },
+  {
+    id: 'ag2',
+    text: 'Welche zwei Sätze sind beide möglich?',
+    optionen: [
+      'Der Plan wurde vom Betriebsrat genehmigt.',
+      'Der Plan wurde durch den Betriebsrat genehmigt.',
+      'Der Plan wurde mit dem Betriebsrat genehmigt.',
+      'Der Plan wurde bei dem Betriebsrat genehmigt.'
+    ],
+    richtig: [
+      'Der Plan wurde vom Betriebsrat genehmigt.',
+      'Der Plan wurde durch den Betriebsrat genehmigt.'
+    ],
+    erklaerung: 'Bei Institutionen sind beide möglich, mit unterschiedlichem Akzent: <em>von</em> stellt den Betriebsrat als Handelnden dar, <em>durch</em> als Instanz, über die der Vorgang lief. Keine Entweder-oder-Frage.'
+  },
+  {
+    id: 'ag3',
+    text: 'In den meisten Passivsätzen steht kein Agens. Warum?',
+    optionen: [
+      'Weil es meistens nicht wichtig ist, wer gehandelt hat — das ist der Zweck der Konstruktion.',
+      'Weil das Agens grammatisch nicht erlaubt ist.',
+      'Weil es den Satz zu lang machen würde.',
+      'Weil man es im Deutschen nicht anschließen kann.'
+    ],
+    richtig: ['Weil es meistens nicht wichtig ist, wer gehandelt hat — das ist der Zweck der Konstruktion.'],
+    erklaerung: 'Ein Agens hinzuzufügen verschiebt die Aufmerksamkeit auf die handelnde Person. Wer es nennt, tut das aus einem Grund — und sollte sich dessen bewusst sein.'
+  }
+]);
+
+/* ---- Vorgang oder Zustand ---- */
+Lehrwerk.auswahl('a2', [
+  {
+    id: 'z1',
+    text: '„Der Antrag ist bearbeitet worden.“ — Vorgang oder Zustand?',
+    optionen: [
+      'Vorgang — wegen worden.',
+      'Zustand — wegen ist.',
+      'Beides möglich.',
+      'Weder noch.'
+    ],
+    richtig: ['Vorgang — wegen worden.'],
+    erklaerung: 'Wo <em>worden</em> steht, ist es <strong>immer</strong> Vorgangspassiv. Das ist das sicherste Erkennungsmerkmal. „Der Antrag ist bearbeitet“ ohne <em>worden</em> wäre der Zustand.'
+  },
+  {
+    id: 'z2',
+    text: 'Sie schreiben eine Arbeitsanweisung. Welcher Satz sagt, dass jemand etwas tun muss?',
+    optionen: [
+      'Die Daten müssen gelöscht werden.',
+      'Die Daten müssen gelöscht sein.',
+      'Die Daten sind gelöscht.',
+      'Die Daten wurden gelöscht.'
+    ],
+    richtig: ['Die Daten müssen gelöscht werden.'],
+    erklaerung: 'Nur das Vorgangspassiv fordert eine Handlung. „Müssen gelöscht sein“ beschreibt einen Zustand, der vorliegen soll — als Anweisung ist das unbrauchbar.'
+  },
+  {
+    id: 'z3',
+    text: 'Wann ist das Zustandspassiv die richtige Wahl?',
+    optionen: [
+      'Wenn es um das Ergebnis geht: „Bis Freitag muss alles vorbereitet sein.“',
+      'Immer, wenn etwas abgeschlossen ist.',
+      'In Arbeitsanweisungen.',
+      'Nie — es ist umgangssprachlich.'
+    ],
+    richtig: ['Wenn es um das Ergebnis geht: „Bis Freitag muss alles vorbereitet sein.“'],
+    erklaerung: 'Dort geht es tatsächlich um den Zustand am Stichtag, nicht darum, wer wann was tut. Beide Passive haben ihren Platz — man muss nur wissen, welches man meint.'
+  }
+]);
+
+/* ---- Sonderfälle ---- */
+Lehrwerk.auswahl('a3', [
+  {
+    id: 'so1',
+    text: '„Der Chef dankt dem Team.“ — Wie lautet das Passiv?',
+    optionen: [
+      'Dem Team wird gedankt.',
+      'Das Team wird gedankt.',
+      'Dem Team wird bedankt.',
+      'Das Team wird gedankt worden.'
+    ],
+    richtig: ['Dem Team wird gedankt.'],
+    erklaerung: '<em>Danken</em> steht mit Dativ, und der Dativ bleibt im Passiv erhalten — er wird nicht zum Subjekt. Dasselbe bei <em>helfen, antworten, kündigen, zusagen</em>.'
+  },
+  {
+    id: 'so2',
+    text: 'Welcher Satz ist richtig?',
+    optionen: [
+      'Bei uns wird viel diskutiert.',
+      'Bei uns es wird viel diskutiert.',
+      'Es wird bei uns viel diskutiert wird.',
+      'Bei uns wird es viel diskutiert.'
+    ],
+    richtig: ['Bei uns wird viel diskutiert.'],
+    erklaerung: 'Beim unpersönlichen Passiv steht <em>es</em> nur am Satzanfang. Rückt etwas anderes nach vorn, fällt es weg. „Es wird viel diskutiert“ allein wäre ebenfalls richtig.'
+  },
+  {
+    id: 'so3',
+    text: 'Wo begegnet Ihnen das unpersönliche Passiv im Betrieb am häufigsten?',
+    optionen: [
+      'In Aushängen und Hausordnungen: „In den Büros wird nicht geraucht.“',
+      'In E-Mails an Kundinnen.',
+      'In Bewerbungsschreiben.',
+      'In Protokollen.'
+    ],
+    richtig: ['In Aushängen und Hausordnungen: „In den Büros wird nicht geraucht.“'],
+    erklaerung: 'Die Form richtet sich an alle, ohne jemanden anzusprechen. Genau deshalb steht sie dort, wo eine Regel für das ganze Haus gilt.'
+  }
+]);
+
+/* ---- Üben ---- */
+Lehrwerk.auswahl('a4', [
+  {
+    id: 'u1',
+    text: 'Welcher Satz ist falsch?',
+    optionen: [
+      'Der Antrag ist geprüft geworden.',
+      'Der Antrag ist geprüft worden.',
+      'Der Antrag wurde geprüft.',
+      'Der Antrag muss geprüft werden.'
+    ],
+    richtig: ['Der Antrag ist geprüft geworden.'],
+    erklaerung: 'Im Passivperfekt heißt es <em>worden</em>, nicht <em>geworden</em>. Das <em>ge-</em> fällt weg, weil im Satz schon ein Partizip steht.'
+  },
+  {
+    id: 'u2',
+    text: 'Sie wollen einen Fehler ansprechen, ohne jemanden bloßzustellen. Welche Formulierung?',
+    optionen: [
+      'Bei der Buchung wurde eine falsche Kontonummer verwendet.',
+      'Sie haben eine falsche Kontonummer eingetragen.',
+      'Da hat jemand nicht aufgepasst.',
+      'Die Kontonummer ist falsch.'
+    ],
+    richtig: ['Bei der Buchung wurde eine falsche Kontonummer verwendet.'],
+    erklaerung: 'Das Passiv rückt den Vorgang in den Vordergrund und lässt die Person weg. Antwort 4 nennt zwar auch niemanden, sagt aber nicht, was passiert ist.'
+  },
+  {
+    id: 'u3',
+    text: 'Was sollte man sich beim Schreiben eines Protokolls bewusst machen?',
+    optionen: [
+      'Ob die Person weggelassen wird, weil sie unwichtig ist — oder weil man sie nicht nennen möchte.',
+      'Dass Passiv immer besser ist als Aktiv.',
+      'Dass Protokolle nur im Passiv geschrieben werden dürfen.',
+      'Dass das Agens immer genannt werden muss.'
+    ],
+    richtig: ['Ob die Person weggelassen wird, weil sie unwichtig ist — oder weil man sie nicht nennen möchte.'],
+    erklaerung: 'Beides ist zulässig. „Es wurde beschlossen“ kann sachlich sein oder verschleiern, wer entschieden hat — man sollte nur wissen, was man tut.'
+  }
+]);
+
+Lehrwerk.frei('anweisung-frei');
+Lehrwerk.frei('neutral-frei');
+
+Lehrwerk.abschluss();
+</script>
+
+</body>
+</html>
