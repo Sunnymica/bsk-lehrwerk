@@ -23,6 +23,14 @@ Hier ist die Übertragung erledigt. Die Altmodule bleiben Archiv.
 | `konjunktiv/beschwerden_konjunktiv.html` | `konjunktiv-ii.md` | `buero/beschwerden-konjunktiv.html` |
 | `Spiele/lassen_passiv.html` (2 Fassungen) | `passiversatzformen.md` | `buero/verb-lassen.html` |
 | `infinitiv mit zu/` (3 Fassungen) | `infinitiv-mit-zu.md` | teilweise in `buero/arbeitsauftraege-delegieren.html` |
+| `Relativsatz/` — 5 Dateien | `relativsaetze.md` | `grammatik/relativsaetze.html` |
+| `Modalverben/subjektive modalverben.html`, `verben/modalverben_interaktiv.html` | `modalverben.md` | `grammatik/modalverben.html` — objektiv und subjektiv zusammengeführt |
+| `verben/trennbare_untrennbare.html` | `trennbare-untrennbare-verben.md` | `grammatik/trennbare-verben.html` |
+| `praepositionen/feste_praepositionen.html`, `pronominaladverbien_wofür_womit/` | `verben-mit-praepositionen.md` | `grammatik/verben-mit-praeposition.html` — beide Altmodule abgedeckt |
+| `partizipien als adjektive/` | `partizipien.md`, `partizipialattribute.md` | `grammatik/partizipien.html` **und** `grammatik/partizipialattribute.html` — zwei Module, weil B2-Grundlage und C1-Verdichtung |
+| `verb_werden/verb werden.html` | `passiv.md` | `grammatik/passiv.html` |
+| `ellipsen.html` | `stilistische-satzverdichtung.md` | `grammatik/satzverdichtung.html` |
+| `satzstellung/mittelfeld.html`, `ergaenzungen und angaben.html`, `dativ_akkusativ_stellung.html` | `tekamolo-satzbau.md` | `grammatik/tekamolo.html` — alle drei in vier Reitern zusammengeführt |
 
 **Anmerkung zu `infinitiv mit zu`:** Das Delegieren-Modul deckt die fünf
 Konstruktionen und die Subjektfrage ab, aber nicht den vollen Umfang des
@@ -35,20 +43,14 @@ Pakets. Ein eigenes Grammatikmodul bleibt sinnvoll.
 Das sind die dankbarsten Fälle: Die fachliche Aufbereitung ist fertig, es fehlt
 nur die Umsetzung als Modul.
 
+**Stand nach dem Commit `d2e15a1`: 8 von 12 gebaut.** Es verbleiben:
+
 | Altmodul(e) | Paket | Bemerkung |
 |---|---|---|
-| `Relativsatz/` — 5 Dateien | `relativsaetze.md` | Kasus, Präpositionen, Sprechen; Grundlagen stecken schon in `kundengespraeche-sprechen.html` |
-| `Modalverben/subjektive modalverben.html`, `verben/modalverben_interaktiv.html` | `modalverben.md` | subjektiver Gebrauch ist C1-Stoff |
-| `verben/trennbare_untrennbare.html` | `trennbare-untrennbare-verben.md` | Landkarte deckt Präfixe ab, nicht die Systematik |
-| `praepositionen/feste_praepositionen.html` | `verben-mit-praepositionen.md` | |
-| `pronominaladverbien_wofür_womit/` | `verben-mit-praepositionen.md` | gehört sachlich dazu |
-| `partizipien als adjektive/` | `partizipien.md`, `partizipialattribute.md` | zwei Pakete, ein Altmodul |
-| `ellipsen.html` | `stilistische-satzverdichtung.md` | |
-| `satzstellung/mittelfeld.html`, `ergaenzungen und angaben.html`, `dativ_akkusativ_stellung.html` | `informationsstruktur.md`, `tekamolo-satzbau.md` | eng verwandt, ggf. ein Modul |
 | `Konnektoren/doppelte konnektoren/` (2) | `konnektoren.md` | zweiteilige Konnektoren; Grundlagen in `kundengespraeche-sprechen.html` |
 | `Konnektoren/C1_Konnektoren_bedingung_folge.html` | `konnektoren.md` | **A-Fehler dokumentiert** — vor dem Bau prüfen |
-| `konjunktiv/konjunktiv.html` | `konjunktiv-ii.md` | allgemeiner als das Beschwerdemodul |
-| `verb_werden/verb werden.html` | `passiv.md` | drei Verwendungen von *werden* |
+| `konjunktiv/konjunktiv.html` | `konjunktiv-ii.md` | allgemeiner als `buero/beschwerden-konjunktiv.html` |
+| `satzstellung/satzstellung.html` (2 Fassungen), `Spiele/verposition.html` | `informationsstruktur.md` | **noch nicht zugeordnet gewesen** — Vorfeld, Thema und Rhema. Eigener Gegenstand, nicht Teil der Mittelfeldfrage; grenzt an `tekamolo.html` und muss dort abgegrenzt werden |
 
 ---
 

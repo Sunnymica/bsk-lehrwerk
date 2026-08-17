@@ -876,7 +876,7 @@
             },
             {
               "titel": "Satzbau im Mittelfeld",
-              "beschreibung": "Dativ und Akkusativ, Ergänzungen und Angaben, TEKAMOLO und Informationsstruktur.",
+              "beschreibung": "Dativ und Akkusativ, Ergänzungen und Angaben, TEKAMOLO und das Zusammenwirken der Ordnungsprinzipien — mit Tendenzen statt starrer Regeln.",
               "pfad": "tekamolo.html",
               "niveau": "B2–C1",
               "dauer": "4 Lernabschnitte",
@@ -885,7 +885,7 @@
                 "Lesen",
                 "Sprechen"
               ],
-              "status": "teilweise"
+              "status": "fertig"
             },
             {
               "titel": "Negation",
