@@ -1215,15 +1215,16 @@
           "module": [
             {
               "titel": "Trennbar oder untrennbar",
-              "beschreibung": "übersetzen und übersetzen. Betonung entscheidet.",
+              "beschreibung": "Die Betonung entscheidet: drei Präfixgruppen, das Verb in sieben Satzstellungen, die Grundbedeutungen der häufigsten Präfixe und die sechs Wechselpräfixe.",
               "pfad": "trennbare-verben.html",
-              "niveau": "B2",
-              "dauer": "45 Min",
+              "niveau": "B2–C1",
+              "dauer": "90 Min",
               "fertigkeiten": [
                 "Üben",
-                "Hören"
+                "Hören",
+                "Schreiben"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "Vorsilben — die Landkarte",

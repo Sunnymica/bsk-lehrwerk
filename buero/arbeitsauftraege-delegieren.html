@@ -29,6 +29,7 @@
     <button role="tab" aria-selected="false" data-blatt="grammatik">Infinitiv mit zu</button>
     <button role="tab" aria-selected="false" data-blatt="ueben">Üben</button>
     <button role="tab" aria-selected="false" data-blatt="karten">Situationskarten</button>
+    <button role="tab" aria-selected="false" data-blatt="schnellfeuer">Sofort reagieren</button>
     <button role="tab" aria-selected="false" data-blatt="abschluss">Abschluss</button>
   </div>
 
@@ -280,6 +281,66 @@
 
   </section>
 
+  <!-- ============ Schnellfeuer ============ -->
+  <section class="blatt" id="blatt-schnellfeuer">
+
+    <div class="merker">
+      <h3>Wozu noch eine Sprechübung?</h3>
+      <p>Die Situationskarten im vorigen Reiter geben Ihnen einen Kontext und Bedenkzeit — dort geht es um <strong>Genauigkeit</strong>: die passende Konstruktion für die passende Lage.</p>
+      <p>Hier geht es um <strong>Tempo</strong>. Acht Satzanfänge, feste Reihenfolge, reihum, jede Person ergänzt sofort. Kein Kontext, keine Vorbereitung, etwa fünf Sekunden.</p>
+      <p class="satz">Beides braucht man. Wer eine Konstruktion nur mit Nachdenken bildet, greift im Gespräch zur einfacheren Form — und delegiert dann ungenau.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>So läuft es</h3>
+      <p><strong>1</strong> Reihenfolge festlegen. Nummer 1 beginnt.</p>
+      <p><strong>2</strong> Der Satzanfang wird vorgelesen. Die Person ergänzt <strong>sofort</strong> — ein Satz, nicht mehr.</p>
+      <p><strong>3</strong> Wer zusätzlich die verwendete Konstruktion benennen kann, bekommt einen Bonuspunkt.</p>
+      <p><strong>4</strong> Weiter zur nächsten Person mit dem nächsten Anfang.</p>
+      <p><strong>5</strong> Erst nach der Runde werden die Lösungsvorschläge aufgedeckt.</p>
+      <p class="marke">Es gibt keine falschen Antworten, solange der Satz grammatisch aufgeht und einen Auftrag enthält. Stocken ist erlaubt — Abwarten nicht.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Die acht Anfänge</h3>
+
+      <p><strong>1 ·</strong> „Ich bitte Sie, …“</p>
+      <details><summary>möglich</summary><p class="satz">„… die Unterlagen bis Freitag einzureichen.“ — zu-Infinitiv beim Objekt</p></details>
+
+      <p><strong>2 ·</strong> „Es wäre gut, …“</p>
+      <details><summary>möglich</summary><p class="satz">„… das noch heute abzustimmen.“ — <em>Es ist</em> plus Adjektiv plus zu</p></details>
+
+      <p><strong>3 ·</strong> „Könnten Sie das bitte …“</p>
+      <details><summary>möglich</summary><p class="satz">„… von der Fachabteilung prüfen lassen?“ — Konjunktiv II plus <em>lassen</em></p></details>
+
+      <p><strong>4 ·</strong> „Ich rufe an, um …“</p>
+      <details><summary>möglich</summary><p class="satz">„… den Termin zu bestätigen.“ — <em>um … zu</em>, Ziel</p></details>
+
+      <p><strong>5 ·</strong> „Es gilt jetzt, …“</p>
+      <details><summary>möglich</summary><p class="satz">„… schnell eine Lösung zu finden.“ — feste Wendung, dringlich</p></details>
+
+      <p><strong>6 ·</strong> „Die Rechnung wurde bezahlt, ohne …“</p>
+      <details><summary>möglich</summary><p class="satz">„… geprüft worden zu sein.“ oder „… dass sie geprüft wurde.“ — <em>ohne … zu</em>, hier im Passiv</p></details>
+
+      <p><strong>7 ·</strong> „Statt zu warten, …“</p>
+      <details><summary>möglich</summary><p class="satz">„… habe ich direkt angerufen.“ — <em>statt … zu</em>, Alternative</p></details>
+
+      <p><strong>8 ·</strong> <strong>Freie Runde.</strong> Bringen Sie einen Satzanfang aus Ihrem eigenen Arbeitsbereich mit. Die anderen ergänzen.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Abschlussaufgabe</h3>
+      <p>Zum Schluss formuliert jede Person <strong>einen einzigen Satz mit zwei verschiedenen Konstruktionen</strong>. Die anderen benennen beide.</p>
+      <p class="satz">Beispiel: „Ich bitte Sie, die Liste zu prüfen, <em>um</em> die Doppelbestellung <em>zu vermeiden</em>.“ — zu-Infinitiv beim Objekt <strong>und</strong> <em>um … zu</em>.</p>
+      <p class="marke">Das ist die schwerste Aufgabe des Moduls und zugleich die realistischste: Im Beruf steht selten nur eine Konstruktion im Satz.</p>
+    </div>
+
+    <h2>Meine Sätze aus der Runde</h2>
+    <p class="anleitung">Notieren Sie Ihren besten Satz — und den, bei dem Sie gestockt haben.</p>
+    <textarea class="feld" id="schnell-frei"></textarea>
+
+  </section>
+
   <!-- ============ Abschluss ============ -->
   <section class="blatt" id="blatt-abschluss">
 
@@ -436,6 +497,7 @@ Lehrwerk.auswahl('a3', [
   }
 ]);
 
+Lehrwerk.frei('schnell-frei');
 Lehrwerk.frei('abschluss-satz');
 
 Lehrwerk.abschluss();

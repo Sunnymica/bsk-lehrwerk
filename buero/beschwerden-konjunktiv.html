@@ -30,6 +30,7 @@
     <button role="tab" aria-selected="false" data-blatt="ueben">Üben</button>
     <button role="tab" aria-selected="false" data-blatt="vergangenheit">Vergangenheit</button>
     <button role="tab" aria-selected="false" data-blatt="sprechen">Sprechen</button>
+    <button role="tab" aria-selected="false" data-blatt="roulette">Roulette</button>
   </div>
 
   <!-- ============ Formen ============ -->
@@ -224,6 +225,53 @@
 
   </section>
 
+  <!-- ============ Roulette ============ -->
+  <section class="blatt" id="blatt-roulette">
+
+    <div class="merker">
+      <h3>Wozu das Ziehen?</h3>
+      <p>Bei den Sprechkarten im vorigen Reiter wissen Sie, was kommt, und können sich vorbereiten. Hier nicht: Die Aufgabe erscheint erst beim Ziehen, und Sie formulieren <strong>sofort</strong>.</p>
+      <p class="satz">Genau darum geht es. Im Ernstfall haben Sie auch keine Bedenkzeit — und wer den Konjunktiv nur mit Vorlauf bildet, greift im Gespräch zur direkten Form.</p>
+      <p><strong>Die Regel:</strong> erst laut sprechen, dann die Musterformulierungen aufdecken. Wer umgekehrt vorgeht, liest nur ab.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Zeitstufe wählen</h3>
+      <div class="knopfreihe formwahl" role="group" aria-label="Zeitstufe">
+        <button class="knopf" type="button" data-modus="gegenwart" aria-pressed="true">Gegenwart</button>
+        <button class="knopf" type="button" data-modus="vergangenheit" aria-pressed="false">Vergangenheit</button>
+      </div>
+      <p class="marke" id="modus-hinweis">Gegenwart: Bitten, Vorschläge, vorsichtige Behauptungen. Die leichtere Stufe.</p>
+      <div class="knopfreihe">
+        <button class="knopf" id="ziehen" type="button">Ziehen</button>
+      </div>
+    </div>
+
+    <div class="kasten">
+      <h3 id="karte-titel">Noch keine Aufgabe</h3>
+      <p id="karte-text" aria-live="polite">Wählen Sie eine Zeitstufe und ziehen Sie.</p>
+      <div class="knopfreihe">
+        <button class="knopf" id="loesung" type="button">Musterformulierungen zeigen</button>
+      </div>
+      <p class="rueckmeldung" id="loesung-text" hidden></p>
+    </div>
+
+    <div class="kasten">
+      <h3>So läuft eine Runde</h3>
+      <p><strong>1</strong> Eine Person zieht.<br>
+      <strong>2</strong> Sie formuliert sofort — ein oder zwei Sätze, mehr nicht.<br>
+      <strong>3</strong> Die Gruppe sagt, welche Form verwendet wurde.<br>
+      <strong>4</strong> Erst dann werden die Musterformulierungen aufgedeckt.<br>
+      <strong>5</strong> Die nächste Person zieht.</p>
+      <p class="marke">Aufgaben können mehrfach kommen — das ist Absicht. Beim zweiten Mal formuliert man anders, und genau das ist der Übungswert.</p>
+    </div>
+
+    <h2>Was ich mir merken will</h2>
+    <p class="anleitung">Die Formulierung, die Ihnen am besten gelungen ist — und die, bei der Sie gehakt haben.</p>
+    <textarea class="feld" id="roulette-frei"></textarea>
+
+  </section>
+
 </main>
 
 <script src="../assets/lehrwerk.js"></script>
@@ -359,6 +407,97 @@ Lehrwerk.auswahl('a3', [
 
 Lehrwerk.frei('diplo-frei');
 Lehrwerk.frei('sprech-frei');
+Lehrwerk.frei('roulette-frei');
+
+/* ---- Roulette ---- */
+var KARTEN = {
+  gegenwart: [
+    { lage: 'Eine Lieferung ist unvollständig. Sie rufen beim Lieferanten an und wollen wissen, woran es liegt.',
+      muster: ['Könnten Sie mir sagen, woran das liegt?', 'Ich hätte gerne eine verbindliche Auskunft.', 'Wäre es möglich, das heute noch zu klären?'] },
+    { lage: 'Eine Kollegin liefert Ihnen Zahlen regelmäßig zu spät. Sie sprechen sie an.',
+      muster: ['Könnten wir uns auf Donnerstag einigen?', 'Es wäre für mich hilfreich, die Zahlen früher zu bekommen.', 'Ich würde vorschlagen, dass wir einen festen Termin festlegen.'] },
+    { lage: 'Auf einer Rechnung stehen Positionen, die Sie nicht bestellt haben. Sie melden sich schriftlich.',
+      muster: ['Da müsste ein Fehler vorliegen.', 'Ich hätte gerne eine korrigierte Rechnung.', 'Könnten Sie das bitte prüfen lassen?'] },
+    { lage: 'Sie brauchen von Ihrer Vorgesetzten eine Entscheidung, die seit zwei Wochen aussteht.',
+      muster: ['Hätten Sie kurz Zeit für eine Rückfrage?', 'Könnten Sie mir sagen, bis wann ich mit einer Entscheidung rechnen kann?', 'Es wäre gut, das diese Woche zu klären.'] },
+    { lage: 'Eine Kundin fragt nach einer Auskunft, die Sie nicht haben.',
+      muster: ['Das müsste ich prüfen lassen.', 'Ich könnte mich morgen bei Ihnen melden.', 'Wäre Ihnen mit einer Rückmeldung bis Freitag geholfen?'] },
+    { lage: 'Ein Termin passt Ihnen nicht. Sie möchten ihn verschieben.',
+      muster: ['Wäre es möglich, den Termin auf Donnerstag zu verlegen?', 'Ich würde den Termin gerne verschieben.', 'Könnten wir einen anderen Zeitpunkt finden?'] },
+    { lage: 'Sie haben zu viel auf dem Tisch und bekommen eine weitere Aufgabe.',
+      muster: ['Das könnte ich erst morgen früh übernehmen.', 'Ich müsste dafür die Auswertung verschieben — wäre das in Ordnung?', 'Es wäre mir lieber, das nach der Besprechung anzugehen.'] },
+    { lage: 'Die Technik funktioniert seit Tagen nicht. Sie melden sich zum dritten Mal bei der EDV.',
+      muster: ['Ich würde ungern drängen, aber es hält mich auf.', 'Könnten Sie mir sagen, wann jemand vorbeikommen kann?', 'Es wäre hilfreich, wenn ich einen ungefähren Termin hätte.'] }
+  ],
+  vergangenheit: [
+    { lage: 'Sie wurden über eine Terminverschiebung nicht informiert und haben umsonst gewartet.',
+      muster: ['Ich hätte das gerne früher gewusst.', 'Es wäre hilfreich gewesen, vorher Bescheid zu bekommen.', 'Mir wäre es lieber gewesen, das rechtzeitig zu erfahren.'] },
+    { lage: 'Eine Zusage wurde nicht eingehalten — der versprochene Rückruf kam nie.',
+      muster: ['Ich hätte mit einem Rückruf gerechnet.', 'Es wäre gut gewesen, wenn sich jemand gemeldet hätte.', 'Da hätte ich mir eine kurze Nachricht gewünscht.'] },
+    { lage: 'Eine Lieferung kam beschädigt an, weil sie schlecht verpackt war.',
+      muster: ['Die Ware hätte sicherer verpackt werden müssen.', 'Es wäre besser gewesen, die Kartons zu polstern.', 'Da wäre eine stabilere Verpackung nötig gewesen.'] },
+    { lage: 'Ein Fehler in Ihrer Abteilung wäre vermeidbar gewesen. Sie sprechen darüber, ohne jemanden bloßzustellen.',
+      muster: ['Das hätte uns auffallen können.', 'Es wäre gut gewesen, den Vorgang gegenlesen zu lassen.', 'Beim nächsten Mal sollten wir das zu zweit prüfen.'] },
+    { lage: 'Sie haben eine Frist verpasst, weil Ihnen eine Information fehlte.',
+      muster: ['Ich hätte die Unterlagen früher gebraucht.', 'Ohne die Angaben hätte ich die Frist nicht halten können.', 'Es wäre nötig gewesen, mich rechtzeitig einzubinden.'] },
+    { lage: 'Eine Entscheidung wurde ohne Sie getroffen, obwohl Sie zuständig sind.',
+      muster: ['Ich hätte gerne mitgeredet.', 'Es wäre sinnvoll gewesen, mich vorher zu fragen.', 'Da hätte ich etwas beitragen können.'] },
+    { lage: 'Eine Reklamation wurde bearbeitet, aber niemand hat die Kundin informiert.',
+      muster: ['Die Kundin hätte informiert werden müssen.', 'Es wäre gut gewesen, ihr kurz Bescheid zu geben.', 'Da hätte eine Mail genügt.'] },
+    { lage: 'Sie haben eine Aufgabe übernommen, die eigentlich nicht Ihre war, und sind jetzt im Rückstand.',
+      muster: ['Ich hätte das nicht zusagen sollen.', 'Es wäre besser gewesen, gleich nachzufragen.', 'Rückblickend hätte ich die Priorität klären müssen.'] }
+  ]
+};
+
+var modus = 'gegenwart';
+var karteJetzt = null;
+var dreht = false;
+
+var kTitel = document.getElementById('karte-titel');
+var kText = document.getElementById('karte-text');
+var kLoesung = document.getElementById('loesung-text');
+var kHinweis = document.getElementById('modus-hinweis');
+
+[].forEach.call(document.querySelectorAll('[data-modus]'), function (b) {
+  b.addEventListener('click', function () {
+    modus = b.dataset.modus;
+    [].forEach.call(document.querySelectorAll('[data-modus]'), function (x) {
+      x.setAttribute('aria-pressed', String(x === b));
+    });
+    kHinweis.textContent = modus === 'gegenwart'
+      ? 'Gegenwart: Bitten, Vorschläge, vorsichtige Behauptungen. Die leichtere Stufe.'
+      : 'Vergangenheit: Kritik an Vergangenem, ohne Vorwurf. Achten Sie auf hätte oder wäre plus Partizip II.';
+    kTitel.textContent = 'Noch keine Aufgabe';
+    kText.textContent = 'Ziehen Sie eine Aufgabe.';
+    kLoesung.hidden = true;
+    karteJetzt = null;
+  });
+});
+
+document.getElementById('ziehen').addEventListener('click', function () {
+  if (dreht) return;
+  dreht = true;
+  kLoesung.hidden = true;
+  kTitel.textContent = 'Wird gezogen …';
+  kText.textContent = '…';
+  setTimeout(function () {
+    var stapel = KARTEN[modus];
+    var i = Math.floor(Math.random() * stapel.length);
+    karteJetzt = stapel[i];
+    kTitel.textContent = (modus === 'gegenwart' ? 'Gegenwart' : 'Vergangenheit') + ' · Aufgabe ' + (i + 1);
+    kText.textContent = karteJetzt.lage + ' — Formulieren Sie jetzt laut.';
+    dreht = false;
+  }, 1000);
+});
+
+document.getElementById('loesung').addEventListener('click', function () {
+  if (!karteJetzt) {
+    kLoesung.textContent = 'Ziehen Sie zuerst eine Aufgabe.';
+  } else {
+    kLoesung.textContent = karteJetzt.muster.join('  ·  ');
+  }
+  kLoesung.hidden = false;
+});
 
 Lehrwerk.abschluss();
 </script>
