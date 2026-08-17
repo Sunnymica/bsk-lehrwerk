@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Informationsstruktur – Berufssprachkurs</title>
+<link rel="stylesheet" href="../assets/basis.css">
+<link rel="stylesheet" href="../assets/platform.css">
+<link rel="stylesheet" href="../assets/lehrwerk.css">
+<link rel="stylesheet" href="../assets/aufgaben.css">
+<script src="../data/homework.js" defer></script>
+<script src="../assets/platform.js"></script>
+</head>
+<body data-page="module" data-bereich="grammatik" data-root="../">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../grammatik.html">← Grammatik</a>
+    <h1><em>Informationsstruktur</em></h1>
+    <p class="anleitung">„Zwölf Anfragen sind gestern eingegangen" und „Gestern sind zwölf Anfragen eingegangen" enthalten dieselben Wörter. Sie sagen trotzdem Verschiedenes — weil die Stellung mitbestimmt, worauf die Aufmerksamkeit fällt.</p>
+  </div>
+</header>
+
+<main class="innen modul">
+
+  <div class="reiter" role="tablist">
+    <button role="tab" aria-selected="true"  data-blatt="stellen">Zwei starke Stellen</button>
+    <button role="tab" aria-selected="false" data-blatt="kette">Die Textkette</button>
+    <button role="tab" aria-selected="false" data-blatt="partikeln">Fokuspartikeln</button>
+    <button role="tab" aria-selected="false" data-blatt="hervorheben">Hervorheben</button>
+    <button role="tab" aria-selected="false" data-blatt="ueben">Üben</button>
+  </div>
+
+  <!-- ============ Zwei starke Stellen ============ -->
+  <section class="blatt" id="blatt-stellen">
+
+    <div class="merker">
+      <h3>Worum es hier geht — und worum nicht</h3>
+      <p>Dieses Modul behandelt <strong>nicht</strong>, welche Stellung grammatisch möglich ist. Das steht im Modul <a href="tekamolo.html">Satzbau im Mittelfeld</a> — Objektfolge, Ergänzungen und Angaben, TEKAMOLO.</p>
+      <p>Hier geht es um die Frage danach: <strong>Welche der möglichen Stellungen wähle ich, und was bewirkt sie?</strong></p>
+    </div>
+
+    <div class="kasten">
+      <h3>Ein deutscher Satz hat zwei starke Stellen</h3>
+      <table>
+        <thead><tr><th>Stelle</th><th>Funktion</th><th>Was dort hingehört</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Position 1</strong> — das Vorfeld</td><td>Anschluss, Ausgangspunkt</td><td>Bekanntes, das Thema, ein Kontrastglied</td></tr>
+          <tr><td><strong>Ende des Mittelfelds</strong></td><td>Betonung</td><td>die eigentliche Neuigkeit</td></tr>
+        </tbody>
+      </table>
+      <p class="satz">Der Grundzug lautet: <strong>Bekanntes nach vorn, Neues nach hinten.</strong></p>
+    </div>
+
+    <div class="merker">
+      <h3>Warum das praktisch zählt</h3>
+      <p class="satz">„Zwölf Anfragen sind gestern eingegangen.“<br>
+      „Gestern sind zwölf Anfragen eingegangen.“</p>
+      <p>Im ersten Satz steht <em>zwölf Anfragen</em> vorn — er klingt, als sei bereits über diese Anfragen gesprochen worden, und die Neuigkeit wäre der Zeitpunkt.</p>
+      <p>Im zweiten Satz steht die Zahl hinten. Er meldet etwas Neues, und genau das will man meistens.</p>
+      <p class="satz">Beide Sätze sind grammatisch einwandfrei. Der Unterschied liegt allein darin, was betont wird — und das kann man steuern.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Das Vorfeld-<em>es</em></h3>
+      <p>Manchmal soll das Neue hinten stehen, aber das Vorfeld ist leer. Dann springt <em>es</em> ein — als reiner Platzhalter.</p>
+      <table>
+        <thead><tr><th>Satz</th><th>Funktion des <em>es</em></th></tr></thead>
+        <tbody>
+          <tr><td><strong>Es</strong> sind zwölf Anfragen eingegangen.</td><td>Platzhalter — damit „zwölf Anfragen“ hinten steht</td></tr>
+          <tr><td>Gestern sind zwölf Anfragen eingegangen.</td><td><em>es</em> entfällt, das Vorfeld ist besetzt</td></tr>
+          <tr><td><strong>Es</strong> wird noch geprüft.</td><td>unpersönliches Passiv</td></tr>
+          <tr><td><strong>Es</strong> regnet.</td><td>echtes Subjekt, kein Platzhalter</td></tr>
+        </tbody>
+      </table>
+      <p class="marke">Das Platzhalter-<em>es</em> steht <strong>nur</strong> im Vorfeld. Rückt etwas anderes nach vorn, fällt es weg — genau wie beim unpersönlichen Passiv.</p>
+    </div>
+
+    <h2>Welche Stellung passt?</h2>
+    <div id="a1"></div>
+
+  </section>
+
+  <!-- ============ Textkette ============ -->
+  <section class="blatt" id="blatt-kette">
+
+    <div class="merker">
+      <h3>Sätze hängen aneinander — über das Vorfeld</h3>
+      <p>Das Vorfeld eines Satzes greift auf, was im vorigen Satz stand. So entsteht ein Text statt einer Aufzählung.</p>
+      <p class="satz">„Wir haben Ihre Anfrage erhalten. <strong>Sie</strong> liegt beim Einkauf. <strong>Von dort</strong> bekommen Sie bis Freitag Bescheid.“</p>
+      <p>Jeder Satz beginnt mit etwas Bekanntem und endet mit etwas Neuem. Das Neue wird zum Bekannten des nächsten Satzes.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Was passiert, wenn man das nicht tut</h3>
+      <p class="satz">✗ „Ich habe Ihre Mail erhalten. Ich habe sie weitergeleitet. Ich melde mich.“</p>
+      <p>Dreimal <em>ich</em> im Vorfeld. Grammatisch richtig, aber es entsteht keine Verbindung — die Sätze stehen nebeneinander wie Stichpunkte.</p>
+      <p class="satz">✓ „<strong>Ihre Mail</strong> habe ich erhalten und weitergeleitet. <strong>Rückmeldung</strong> folgt bis Freitag.“</p>
+      <p>Jetzt beginnt der Text bei dem, was die Empfängerin geschrieben hat, und endet bei dem, was sie wissen will.</p>
+      <p class="marke">Das ist einer der wirksamsten Eingriffe überhaupt: <strong>Nicht jeder Satz muss mit <em>ich</em> anfangen.</strong> Oft steht dort besser das, worum es geht.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Was sich fürs Vorfeld eignet</h3>
+      <p>▸ ein Pronomen, das auf den vorigen Satz zeigt — <em>sie, das, dabei, dafür</em></p>
+      <p>▸ eine Zeit- oder Ortsangabe — <em>gestern, im Lager, nach der Prüfung</em></p>
+      <p>▸ das Thema, über das gerade gesprochen wird — <em>Ihre Anfrage, den Termin</em></p>
+      <p>▸ ein Kontrastglied — <em>Die erste Lieferung war pünktlich. <strong>Die zweite</strong> kam zu spät.</em></p>
+      <p class="marke">Nicht ins Vorfeld gehört das, was die eigentliche Neuigkeit ist. Die gehört ans Ende.</p>
+    </div>
+
+    <h2>Vorfeld verbessern</h2>
+    <p class="anleitung">Schreiben Sie die drei Textstücke so um, dass die Sätze aneinander anschließen. Beginnen Sie nicht jeden Satz mit dem Subjekt.</p>
+    <p class="satz">1. „Ich habe die Rechnung geprüft. Ich habe einen Fehler gefunden. Ich schicke Ihnen eine Korrektur."<br>
+    2. „Die Lieferung kam am Dienstag. Zwei Kartons waren beschädigt. Wir haben Fotos gemacht."<br>
+    3. „Wir haben die Schulung geplant. Die Schulung findet im Mai statt. Alle Teilnehmenden bekommen eine Einladung."</p>
+    <textarea class="feld" id="kette-frei"></textarea>
+
+  </section>
+
+  <!-- ============ Fokuspartikeln ============ -->
+  <section class="blatt" id="blatt-partikeln">
+
+    <div class="kasten">
+      <h3>Acht kleine Wörter, die den Schwerpunkt setzen</h3>
+      <table>
+        <thead><tr><th>Partikel</th><th>Bedeutung</th><th>Beispiel</th></tr></thead>
+        <tbody>
+          <tr><td>nur</td><td>Einschränkung</td><td>Wir liefern <strong>nur</strong> die Ersatzteile.</td></tr>
+          <tr><td>auch</td><td>Hinzufügung</td><td><strong>Auch</strong> die Zentrale ist informiert.</td></tr>
+          <tr><td>sogar</td><td>Steigerung, unerwartet</td><td>Der Kunde hat <strong>sogar</strong> zugestimmt.</td></tr>
+          <tr><td>erst</td><td>später als erwartet</td><td>Die Antwort kam <strong>erst</strong> heute.</td></tr>
+          <tr><td>schon</td><td>früher als erwartet</td><td>Die Ware ist <strong>schon</strong> raus.</td></tr>
+          <tr><td>noch</td><td>Fortdauer, Rest</td><td>Zwei Vorgänge sind <strong>noch</strong> offen.</td></tr>
+          <tr><td>ausgerechnet</td><td>Auffälligkeit, oft ärgerlich</td><td><strong>Ausgerechnet</strong> am Quartalsende.</td></tr>
+          <tr><td>vor allem</td><td>Gewichtung</td><td><strong>Vor allem</strong> die Frist ist kritisch.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="merker">
+      <h3>Die Partikel bezieht sich auf das, was ihr folgt</h3>
+      <p>Wer sie verschiebt, ändert die Aussage — und zwar erheblich.</p>
+      <p class="satz">„Ich habe <strong>nur</strong> den Bericht gelesen.“ — sonst nichts gelesen, andere Texte nicht.<br>
+      „Ich habe den Bericht <strong>nur</strong> gelesen.“ — gelesen ja, aber nicht bearbeitet.</p>
+      <p class="satz">„<strong>Auch</strong> Frau Seidel hat zugestimmt.“ — außer anderen auch sie.<br>
+      „Frau Seidel hat <strong>auch</strong> zugestimmt.“ — sie hat noch etwas anderes getan, und zusätzlich zugestimmt.</p>
+      <p class="marke">Diese Verschiebungen sind eine häufige Missverständnisquelle in E-Mails, weil man beim Lesen keine Betonung hört. Im Schriftlichen zählt allein die Stellung.</p>
+    </div>
+
+    <h2>Was ist gemeint?</h2>
+    <div id="a2"></div>
+
+  </section>
+
+  <!-- ============ Hervorheben ============ -->
+  <section class="blatt" id="blatt-hervorheben">
+
+    <div class="kasten">
+      <h3>Sechs Möglichkeiten, dasselbe hervorzuheben</h3>
+      <table>
+        <thead><tr><th>Struktur</th><th>Beispiel</th><th>wo passend</th></tr></thead>
+        <tbody>
+          <tr><td>Vorfeldstellung</td><td><strong>Den Termin</strong> verschieben wir.</td><td>überall, neutral</td></tr>
+          <tr><td>Spaltsatz</td><td><strong>Es ist der Termin, den</strong> wir verschieben.</td><td>schriftlich, stark</td></tr>
+          <tr><td><em>was …, ist …</em></td><td><strong>Was wir verschieben, ist</strong> der Termin.</td><td>schriftlich, gut im Feedback</td></tr>
+          <tr><td>Linksherausstellung</td><td><strong>Der Termin</strong> — den verschieben wir.</td><td>mündlich</td></tr>
+          <tr><td>Nachtrag</td><td>Den verschieben wir — <strong>den Termin</strong>.</td><td>mündlich</td></tr>
+          <tr><td>Passiv</td><td>Der Termin <strong>wird verschoben</strong>.</td><td>sachlich, Person tritt zurück</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="merker">
+      <h3>Die stärkeren Mittel brauchen einen Grund</h3>
+      <p>Der Spaltsatz und <em>was …, ist …</em> heben so deutlich hervor, dass sie einen <strong>Kontrast</strong> voraussetzen. Ohne Gegenteil wirken sie sonderbar.</p>
+      <p class="satz">✗ „Es ist der Kunde, der angerufen hat.“ — ohne Kontrast einfach umständlich<br>
+      ✓ „Der Kunde hat angerufen.“</p>
+      <p class="satz">✓ „Es war <em>nicht</em> die Lieferung, die zu spät kam — es war die Rechnung.“ — hier trägt der Kontrast</p>
+      <p><strong>Faustregel für den Zweifelsfall:</strong> die Vorfeldstellung. Sie hebt hervor, ohne aufzufallen, und passt schriftlich wie mündlich.</p>
+    </div>
+
+    <div class="kasten">
+      <h3><em>was …, ist …</em> im Feedback</h3>
+      <p>Diese Struktur ist besonders nützlich, wenn man etwas Kritisches sagen und zugleich präzise bleiben will.</p>
+      <p class="satz">„<strong>Was mir gefehlt hat, ist</strong> die Zeitangabe.“ statt „Die Zeitangabe hat gefehlt.“</p>
+      <p class="satz">„<strong>Was hier gut funktioniert, ist</strong> der Einstieg.“</p>
+      <p class="marke">Sie kündigt an, dass eine Bewertung kommt, und gibt dem Gegenüber einen Moment Zeit. Deshalb wirkt sie weniger abrupt als die direkte Aussage.</p>
+    </div>
+
+    <h2>Welche Struktur?</h2>
+    <div id="a3"></div>
+
+  </section>
+
+  <!-- ============ Üben ============ -->
+  <section class="blatt" id="blatt-ueben">
+
+    <h2>Fokuspartikel setzen</h2>
+    <p class="anleitung">Setzen Sie die Partikel so, dass die angegebene Bedeutung herauskommt.</p>
+    <div id="p-bank"></div>
+    <p class="lueckentext">
+      1. Gelesen ja, bearbeitet nicht: Ich habe den Bericht <input class="luecke" id="p1" size="8" autocomplete="off"> gelesen.<br><br>
+      2. Sonst nichts gelesen: Ich habe <input class="luecke" id="p2" size="8" autocomplete="off"> den Bericht gelesen.<br><br>
+      3. Später als erwartet: Die Antwort kam <input class="luecke" id="p3" size="8" autocomplete="off"> heute.<br><br>
+      4. Früher als erwartet: Die Ware ist <input class="luecke" id="p4" size="8" autocomplete="off"> raus.
+    </p>
+    <div class="knopfreihe">
+      <button class="knopf" id="p-pruefen" type="button">Prüfen</button>
+      <button class="knopf" id="p-tipp" type="button">Tipp</button>
+    </div>
+    <p class="rueckmeldung" id="p-rueck" hidden></p>
+    <p class="rueckmeldung" id="p-hinweis" hidden>Die Partikel bezieht sich auf das, was ihr <strong>folgt</strong>. Prüfen Sie also, was nach der Lücke steht.</p>
+
+    <h2>Fehler finden</h2>
+    <div id="a4"></div>
+
+    <h2>Eine Mail umstellen</h2>
+    <p class="anleitung">Schreiben Sie den Text so um, dass die Sätze aneinander anschließen und die Neuigkeit jeweils am Ende steht. Nichts weglassen, nur umstellen.</p>
+    <p class="satz">„Ich habe Ihre Anfrage vom 12. März bekommen. Ich habe sie an den Einkauf weitergeleitet. Der Einkauf prüft die Verfügbarkeit. Sie bekommen bis Freitag eine Rückmeldung. Ich melde mich, wenn es Probleme gibt."</p>
+    <textarea class="feld" id="mail-frei"></textarea>
+
+    <div class="merker">
+      <p>Wenn Sie einen eigenen Text prüfen wollen, lesen Sie nur die <strong>ersten drei Wörter jedes Satzes</strong>. Stehen dort immer dieselben — meist <em>ich</em> oder <em>wir</em> —, hängen die Sätze nicht zusammen. Das sieht man in zehn Sekunden, ohne den Text zu verstehen.</p>
+    </div>
+
+  </section>
+
+</main>
+
+<script src="../assets/lehrwerk.js"></script>
+<script>
+Lehrwerk.modul('informationsstruktur');
+Lehrwerk.reiter();
+
+/* ---- Zwei starke Stellen ---- */
+Lehrwerk.auswahl('a1', [
+  {
+    id: 's1',
+    text: 'Sie melden eine Neuigkeit: gestern kamen zwölf Anfragen. Welche Stellung?',
+    optionen: [
+      'Gestern sind zwölf Anfragen eingegangen.',
+      'Zwölf Anfragen sind gestern eingegangen.',
+      'Eingegangen sind gestern zwölf Anfragen.',
+      'Zwölf Anfragen gestern sind eingegangen.'
+    ],
+    richtig: ['Gestern sind zwölf Anfragen eingegangen.'],
+    erklaerung: 'Die Neuigkeit ist die Zahl — sie gehört ans Ende. Antwort 2 ist ebenfalls korrekt, klingt aber, als sei über diese Anfragen schon gesprochen worden und der Zeitpunkt sei das Neue.'
+  },
+  {
+    id: 's2',
+    text: 'Wozu dient das <em>es</em> in „Es sind zwölf Anfragen eingegangen“?',
+    optionen: [
+      'Es hält das Vorfeld besetzt, damit die Neuigkeit hinten stehen kann.',
+      'Es ist das Subjekt des Satzes.',
+      'Es macht den Satz höflicher.',
+      'Es ersetzt eine Zeitangabe.'
+    ],
+    richtig: ['Es hält das Vorfeld besetzt, damit die Neuigkeit hinten stehen kann.'],
+    erklaerung: 'Reiner Platzhalter. Subjekt sind <em>zwölf Anfragen</em> — deshalb heißt es <em>sind</em>, nicht <em>ist</em>. Rückt etwas anderes ins Vorfeld, fällt das <em>es</em> weg.'
+  },
+  {
+    id: 's3',
+    text: 'Was unterscheidet dieses Modul vom Modul „Satzbau im Mittelfeld“?',
+    optionen: [
+      'Dort geht es darum, welche Stellung möglich ist — hier darum, welche man wählt und warum.',
+      'Dort geht es um Nebensätze, hier um Hauptsätze.',
+      'Dort um B2, hier um C1.',
+      'Es gibt keinen Unterschied.'
+    ],
+    richtig: ['Dort geht es darum, welche Stellung möglich ist — hier darum, welche man wählt und warum.'],
+    erklaerung: 'Objektfolge, Ergänzungen und TEKAMOLO legen den Rahmen fest. Innerhalb dieses Rahmens bleibt fast immer eine Wahl — und die trifft man nach der Information, nicht nach der Grammatik.'
+  }
+]);
+
+/* ---- Fokuspartikeln ---- */
+Lehrwerk.auswahl('a2', [
+  {
+    id: 'fp1',
+    text: '„Ich habe den Bericht nur gelesen.“ — Was heißt das?',
+    optionen: [
+      'Gelesen ja, aber nicht bearbeitet.',
+      'Ich habe sonst nichts gelesen.',
+      'Ich habe ihn nur einmal gelesen.',
+      'Nur ich habe ihn gelesen.'
+    ],
+    richtig: ['Gelesen ja, aber nicht bearbeitet.'],
+    erklaerung: '<em>Nur</em> bezieht sich auf <em>gelesen</em>, also auf das, was folgt. „Ich habe <em>nur den Bericht</em> gelesen“ hieße dagegen: sonst nichts gelesen.'
+  },
+  {
+    id: 'fp2',
+    text: 'Warum sind Fokuspartikeln in E-Mails eine besondere Fehlerquelle?',
+    optionen: [
+      'Beim Lesen hört man keine Betonung — es zählt allein die Stellung.',
+      'Sie sind umgangssprachlich.',
+      'Sie werden oft falsch geschrieben.',
+      'Sie fehlen im Schriftdeutsch.'
+    ],
+    richtig: ['Beim Lesen hört man keine Betonung — es zählt allein die Stellung.'],
+    erklaerung: 'Mündlich kann man eine falsch gestellte Partikel durch Betonung ausgleichen. Schriftlich nicht — dort trägt die Stellung die ganze Bedeutung.'
+  },
+  {
+    id: 'fp3',
+    text: 'Welche zwei Sätze bedeuten Verschiedenes?',
+    optionen: [
+      'Auch Frau Seidel hat zugestimmt.',
+      'Frau Seidel hat auch zugestimmt.',
+      'Frau Seidel hat zugestimmt.',
+      'Zugestimmt hat Frau Seidel.'
+    ],
+    richtig: ['Auch Frau Seidel hat zugestimmt.', 'Frau Seidel hat auch zugestimmt.'],
+    erklaerung: 'Der erste heißt: außer anderen hat auch sie zugestimmt. Der zweite: Sie hat noch etwas anderes getan und zusätzlich zugestimmt. Ein Wortplatz, zwei Aussagen.'
+  }
+]);
+
+/* ---- Hervorheben ---- */
+Lehrwerk.auswahl('a3', [
+  {
+    id: 'h1',
+    text: 'Sie wollen im Gespräch etwas hervorheben und sind unsicher. Welches Mittel?',
+    optionen: [
+      'Die Vorfeldstellung: „Den Termin verschieben wir.“',
+      'Den Spaltsatz: „Es ist der Termin, den wir verschieben.“',
+      'Den Nachtrag.',
+      'Das Passiv.'
+    ],
+    richtig: ['Die Vorfeldstellung: „Den Termin verschieben wir.“'],
+    erklaerung: 'Sie hebt hervor, ohne aufzufallen, und passt schriftlich wie mündlich. Der Spaltsatz ist schriftsprachlich und setzt einen Kontrast voraus.'
+  },
+  {
+    id: 'h2',
+    text: 'Wann ist der Spaltsatz „Es ist …, der/die/das …“ angebracht?',
+    optionen: [
+      'Wenn ein Kontrast im Spiel ist: „Es war nicht die Lieferung, die zu spät kam — es war die Rechnung.“',
+      'Immer, wenn man etwas betonen will.',
+      'In Gesprächen.',
+      'Wenn der Satz sonst zu kurz wäre.'
+    ],
+    richtig: ['Wenn ein Kontrast im Spiel ist: „Es war nicht die Lieferung, die zu spät kam — es war die Rechnung.“'],
+    erklaerung: 'Ohne Gegenteil wirkt die Struktur umständlich: „Es ist der Kunde, der angerufen hat“ sagt nicht mehr als „Der Kunde hat angerufen“.'
+  },
+  {
+    id: 'h3',
+    text: 'Warum eignet sich „Was mir gefehlt hat, ist …“ gut für Feedback?',
+    optionen: [
+      'Sie kündigt die Bewertung an und gibt dem Gegenüber einen Moment Zeit.',
+      'Sie ist höflicher als andere Formen.',
+      'Sie vermeidet Kritik.',
+      'Sie ist kürzer.'
+    ],
+    richtig: ['Sie kündigt die Bewertung an und gibt dem Gegenüber einen Moment Zeit.'],
+    erklaerung: 'Deshalb wirkt sie weniger abrupt als „Die Zeitangabe hat gefehlt“ — der Inhalt ist derselbe, die Ankündigung macht den Unterschied.'
+  }
+]);
+
+/* ---- Üben ---- */
+Lehrwerk.wortbank('p', {
+  ziel: 'p-bank',
+  bank: ['nur', 'nur', 'erst', 'schon'],
+  felder: {
+    p1: ['nur'],
+    p2: ['nur'],
+    p3: ['erst'],
+    p4: ['schon']
+  },
+  pruefen: 'p-pruefen', rueck: 'p-rueck', tipp: 'p-tipp', hinweis: 'p-hinweis'
+});
+
+Lehrwerk.auswahl('a4', [
+  {
+    id: 'e1',
+    text: 'Was ist an diesem Textstück ungeschickt? „Ich habe Ihre Mail erhalten. Ich habe sie weitergeleitet. Ich melde mich.“',
+    optionen: [
+      'Dreimal dasselbe Wort im Vorfeld — die Sätze schließen nicht aneinander an.',
+      'Die Sätze sind zu kurz.',
+      'Es fehlt die Anrede.',
+      'Der Ton ist zu direkt.'
+    ],
+    richtig: ['Dreimal dasselbe Wort im Vorfeld — die Sätze schließen nicht aneinander an.'],
+    erklaerung: 'Grammatisch ist alles richtig, aber es entsteht kein Text, sondern eine Liste. Besser: „Ihre Mail habe ich erhalten und weitergeleitet. Rückmeldung folgt bis Freitag.“'
+  },
+  {
+    id: 'e2',
+    text: 'Wie prüfen Sie einen eigenen Text schnell auf diesen Fehler?',
+    optionen: [
+      'Nur die ersten drei Wörter jedes Satzes lesen.',
+      'Den Text laut vorlesen.',
+      'Die Satzlängen zählen.',
+      'Nach Passivkonstruktionen suchen.'
+    ],
+    richtig: ['Nur die ersten drei Wörter jedes Satzes lesen.'],
+    erklaerung: 'Stehen dort immer dieselben Wörter, hängen die Sätze nicht zusammen. Das sieht man in zehn Sekunden, ohne den Inhalt zu prüfen.'
+  },
+  {
+    id: 'e3',
+    text: 'Was gehört <strong>nicht</strong> ins Vorfeld?',
+    optionen: [
+      'Die eigentliche Neuigkeit des Satzes.',
+      'Ein Pronomen, das auf den vorigen Satz zeigt.',
+      'Eine Zeitangabe.',
+      'Ein Kontrastglied.'
+    ],
+    richtig: ['Die eigentliche Neuigkeit des Satzes.'],
+    erklaerung: 'Die gehört ans Ende, wo die Betonung liegt. Ins Vorfeld kommt der Anschluss an das Vorherige — Bekanntes, Thema, Kontrast.'
+  }
+]);
+
+Lehrwerk.frei('kette-frei');
+Lehrwerk.frei('mail-frei');
+
+Lehrwerk.abschluss();
+</script>
+
+</body>
+</html>

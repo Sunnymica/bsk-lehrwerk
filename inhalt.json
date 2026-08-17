@@ -839,15 +839,16 @@
             },
             {
               "titel": "Zweiteilige Konnektoren",
-              "beschreibung": "je desto, entweder oder, nicht nur sondern auch.",
+              "beschreibung": "Sieben Paare mit ihrer Satzstellung, die Stolperstellen bei weder–noch und sondern — und was zwar–aber mit einem Lob macht.",
               "pfad": "zweiteilige-konnektoren.html",
-              "niveau": "C1",
-              "dauer": "45 Min",
+              "niveau": "B2–C1",
+              "dauer": "75 Min",
               "fertigkeiten": [
                 "Üben",
-                "Sprechen"
+                "Sprechen",
+                "Schreiben"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "Relativsätze",
@@ -873,6 +874,19 @@
                 "Sprechen"
               ],
               "status": "in-arbeit"
+            },
+            {
+              "titel": "Informationsstruktur",
+              "beschreibung": "Die zwei starken Stellen im Satz, die Textkette über das Vorfeld, acht Fokuspartikeln und sechs Wege, etwas hervorzuheben.",
+              "pfad": "informationsstruktur.html",
+              "niveau": "B2–C1",
+              "dauer": "90 Min",
+              "fertigkeiten": [
+                "Schreiben",
+                "Üben",
+                "Lesen"
+              ],
+              "status": "fertig"
             },
             {
               "titel": "Satzbau im Mittelfeld",
@@ -955,15 +969,16 @@
             },
             {
               "titel": "Konjunktiv II",
-              "beschreibung": "Höflichkeit, Wunsch, Irreales. Zwei Zeitstufen.",
+              "beschreibung": "Acht echte Formen und würde für den Rest, sieben Funktionen, irreale Bedingung mit und ohne wenn, als ob und die Beinahe-Fälle — dazu die Höflichkeitsabstufung.",
               "pfad": "konjunktiv-2.html",
               "niveau": "B2–C1",
-              "dauer": "60 Min",
+              "dauer": "90 Min",
               "fertigkeiten": [
                 "Üben",
-                "Sprechen"
+                "Sprechen",
+                "Schreiben"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "Konjunktiv I",
