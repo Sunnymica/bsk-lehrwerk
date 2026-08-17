@@ -838,6 +838,19 @@
               "status": "in-arbeit"
             },
             {
+              "titel": "Bedingung und Ausnahme",
+              "beschreibung": "wenn, falls, sofern — und der Sonderfall es sei denn, der als einziger einen Hauptsatz einleitet. Mit Kontrastaufgabe zu außer wenn.",
+              "pfad": "bedingung-ausnahme.html",
+              "niveau": "B2–C1",
+              "dauer": "75 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Lesen",
+                "Schreiben"
+              ],
+              "status": "fertig"
+            },
+            {
               "titel": "Zweiteilige Konnektoren",
               "beschreibung": "Sieben Paare mit ihrer Satzstellung, die Stolperstellen bei weder–noch und sondern — und was zwar–aber mit einem Lob macht.",
               "pfad": "zweiteilige-konnektoren.html",

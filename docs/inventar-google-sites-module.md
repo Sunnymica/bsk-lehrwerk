@@ -215,6 +215,40 @@ Lehrwerk geht**.
 `bedingung_folge` korrigiert, ist er einmal behoben statt zweimal — das ist
 der praktische Ertrag dieser Auflösung.
 
+##### Der A-Fehler, verifiziert
+
+**Fundstelle:** `C1_Konnektoren_bedingung_folge.html`, **Zeile 355**.
+
+> „**Merkhilfe:** *außer wenn* und *es sei denn* = Nebensatz-Konnektoren
+> (Verb am Ende). *Andernfalls, folglich, somit* = Adverbien.“
+
+**Falsch für `es sei denn`.** Der Ausdruck leitet keinen Nebensatz ein,
+sondern einen **Hauptsatz mit Verbzweitstellung**. Nur `außer wenn` ist eine
+Subjunktion mit Verbendstellung. Die Merkhilfe wirft beide zusammen.
+
+**Das Modul widerlegt sich in den eigenen Beispielen.** In den Zeilen 296,
+382, 405 und 438 steht durchgehend die richtige Form:
+
+> „Der Vertrag wird automatisch verlängert, es sei denn, **Sie kündigen**
+> schriftlich bis zum 15. des Monats.“
+> „…, es sei denn, **jemand springt** ein.“
+
+Verb an Position 2, nicht am Ende. Nur der Merksatz behauptet das Gegenteil.
+
+**Warum das als A eingestuft ist:** Wer die Merkhilfe lernt und die Beispiele
+danach nachbaut, produziert Falsches — „…, es sei denn, Sie schriftlich
+kündigen“. Und wer aufmerksam liest, bemerkt den Widerspruch und verliert das
+Vertrauen in das Modul. Beides ist schwerer als eine bloße Auslassung.
+
+**Im Themenpaket bereits gelöst.** `docs/aufbereitung-grammatik/konnektoren.md`
+führt den Fall unter „Sonderfall `es sei denn` — nicht mit den Subjunktionen
+zusammenwerfen“ mit eigener Tabellenzeile: *Hauptsatz, Verb an Position 2*.
+
+**Für den Neubau:** Der Kontrast `außer wenn` gegen `es sei denn` ist
+didaktisch wertvoll, gerade weil beide dasselbe bedeuten und sich nur im
+Satzbau unterscheiden. Er gehört als eigene Aufgabe ins Modul, nicht als
+stillschweigende Korrektur.
+
 #### Bilanz Schritt 1
 
 | | |

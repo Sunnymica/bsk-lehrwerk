@@ -11,6 +11,12 @@
 <link rel="stylesheet" href="../assets/aufgaben.css">
 <script src="../data/homework.js" defer></script>
 <script src="../assets/platform.js"></script>
+<style>
+  .interview-uhr {
+    font-size: 2.4rem; font-variant-numeric: tabular-nums;
+    line-height: 1.1; margin: 0.4rem 0;
+  }
+</style>
 </head>
 <body data-page="module" data-bereich="kurs" data-root="../">
 
@@ -276,6 +282,19 @@
       <button class="knopf" id="interview-kopieren" type="button">Steckbrief kopieren</button>
     </div>
     <p class="stand-hinweis">Kopieren Sie den Steckbrief, wenn Sie ihn in den Teams-Chat stellen sollen.</p>
+
+    <div class="auftrag">
+      <span class="auftrag-marke">Uhr für den Rollenwechsel</span>
+      <h3>Sieben Minuten pro Person</h3>
+      <p>Damit beide gleich viel Zeit haben: Uhr starten, nach sieben Minuten wechseln. Wer zuerst interviewt wird, entscheiden Sie selbst.</p>
+      <p class="interview-uhr" id="uhr" aria-live="off">07:00</p>
+      <div class="knopfreihe">
+        <button class="knopf" id="uhr-start" type="button">Start</button>
+        <button class="knopf" id="uhr-pause" type="button">Pause</button>
+        <button class="knopf" id="uhr-zurueck" type="button">Zurücksetzen</button>
+      </div>
+      <p class="stand-hinweis">Die Uhr läuft nur in diesem Browserfenster und merkt sich nichts.</p>
+    </div>
   </section>
 
   <!-- ============ Vorstellung ============ -->
@@ -473,6 +492,39 @@ Lehrwerk.ergebnis({
   knopf: 'interview-kopieren',
   titel: 'Partnerinterview'
 });
+
+/* ---- Uhr fuer das Partnerinterview ---- */
+var UHR_REST = 420, uhrRest = UHR_REST, uhrLaeuft = null;
+var uhrAnzeige = document.getElementById('uhr');
+
+function uhrZeigen() {
+  var m = Math.floor(uhrRest / 60), s = uhrRest % 60;
+  uhrAnzeige.textContent = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+}
+
+document.getElementById('uhr-start').addEventListener('click', function () {
+  if (uhrLaeuft) return;
+  uhrAnzeige.setAttribute('aria-live', 'off');
+  uhrLaeuft = setInterval(function () {
+    if (uhrRest > 0) { uhrRest--; uhrZeigen(); }
+    if (uhrRest === 0) {
+      clearInterval(uhrLaeuft); uhrLaeuft = null;
+      uhrAnzeige.setAttribute('aria-live', 'polite');
+      uhrAnzeige.textContent = '00:00 — Wechsel!';
+    }
+  }, 1000);
+});
+
+document.getElementById('uhr-pause').addEventListener('click', function () {
+  if (uhrLaeuft) { clearInterval(uhrLaeuft); uhrLaeuft = null; }
+});
+
+document.getElementById('uhr-zurueck').addEventListener('click', function () {
+  if (uhrLaeuft) { clearInterval(uhrLaeuft); uhrLaeuft = null; }
+  uhrRest = UHR_REST; uhrZeigen();
+});
+
+uhrZeigen();
 
 Lehrwerk.abschluss();
 </script>
