@@ -25,6 +25,7 @@
   .kkz-woertersalat{margin:1.4rem 0;padding:1.25rem 1.35rem;border:1px solid #ead7c2;border-radius:14px;background:linear-gradient(135deg,#fff6e9,#fffdf9)}.kkz-woertersalat h3{margin:.2rem 0 .75rem;color:#8a5f38}.kkz-chips{display:flex;flex-wrap:wrap;gap:.45rem;margin:.7rem 0 1rem}.kkz-chips span{padding:.35rem .65rem;border-radius:999px;background:#fff;border:1px solid #ead7c2;font-weight:600}
   .kkz-verlauf{display:grid;gap:.55rem;margin:1rem 0}.kkz-verlauf div{display:grid;grid-template-columns:8rem 1fr;gap:.8rem;align-items:center;padding:.7rem .85rem;border:1px solid var(--linie);border-radius:10px;background:#fff}.kkz-verlauf strong{color:var(--salbei-tief)}
   .kkz-szenen{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin:1rem 0 1.25rem}.kkz-szene{padding:1rem 1.05rem;border:1px solid var(--linie);border-radius:12px;background:#fff}.kkz-szene h3{margin:.1rem 0 .55rem;color:var(--rose-tief)}.kkz-szene p{margin:.35rem 0;font-size:.92rem}.kkz-szene strong{color:var(--tinte)}
+  .kkz-vertiefung{margin-top:1rem;padding:.9rem 1rem;border:1px dashed #b7c6d8;border-radius:10px;background:#fff}.kkz-vertiefung strong{display:block;margin-bottom:.2rem}.kkz-vertiefung span{color:var(--tinte-weich)}
   @media(max-width:48rem){.kkz-einstieg__kopf{display:block}.kkz-modus{display:inline-block;margin-top:.55rem}.kkz-grid,.kkz-redemittel,.kkz-szenen{grid-template-columns:1fr}.kkz-zahlen{grid-template-columns:1fr}.kkz-verlauf div{grid-template-columns:1fr}}
 </style>
 </head>
@@ -66,13 +67,7 @@
     <div class="kkz-grammatik">
       <h3>Passende Grammatik: indirekte Fragen</h3>
       <p>Im Berufsalltag klingen indirekte Fragen oft kooperativer und höflicher. Sie müssen nicht immer mit <em>Wissen Sie …?</em> beginnen.</p>
-      <div class="kkz-frageanfang">
-        <span>Könnten Sie mir sagen, …?</span>
-        <span>Haben Sie eine Idee, …?</span>
-        <span>Wissen Sie zufällig, …?</span>
-        <span>Darf ich kurz fragen, ob …?</span>
-        <span>Können Sie mir sagen, ob …?</span>
-      </div>
+      <div class="kkz-frageanfang"><span>Könnten Sie mir sagen, …?</span><span>Haben Sie eine Idee, …?</span><span>Wissen Sie zufällig, …?</span><span>Darf ich kurz fragen, ob …?</span><span>Können Sie mir sagen, ob …?</span></div>
       <p class="formel">Direkt: Wann kommt die Ware? → Indirekt: Könnten Sie mir sagen, wann die Ware kommt?</p>
       <p class="formel">Direkt: Hat Pawel die Liste? → Indirekt: Darf ich kurz fragen, ob Pawel die Liste hat?</p>
       <p><strong>Merke:</strong> Bei einer Frage mit Fragewort bleibt das Fragewort erhalten. Bei einer Ja-/Nein-Frage steht <em>ob</em>. Das konjugierte Verb steht am Ende.</p>
@@ -80,11 +75,7 @@
 
     <h2>Aus einer direkten Frage wird eine indirekte</h2>
     <div id="z-indirekt"></div><p class="rueckmeldung" id="z-indirekt-rueck" hidden></p>
-
-    <div class="regel">
-      <p><strong>Zu zweit:</strong> Person A braucht eine Information. Person B kennt die Antwort nicht sicher und verweist an eine andere Person. Danach Rollen tauschen.</p>
-      <textarea class="feld" id="kkz-kollegen-transfer" rows="5" placeholder="Könnten Sie mir sagen, …? · Wissen Sie zufällig, ob …? · Darf ich kurz fragen, …? · Fragen Sie am besten …"></textarea>
-    </div>
+    <div class="regel"><p><strong>Zu zweit:</strong> Person A braucht eine Information. Person B kennt die Antwort nicht sicher und verweist an eine andere Person. Danach Rollen tauschen.</p><textarea class="feld" id="kkz-kollegen-transfer" rows="5" placeholder="Könnten Sie mir sagen, …? · Wissen Sie zufällig, ob …? · Darf ich kurz fragen, …? · Fragen Sie am besten …"></textarea></div>
   </section>
 
   <section class="blatt" id="blatt-kunden" hidden>
@@ -103,31 +94,14 @@
     </section>
 
     <h2>Vier Schritte für ein Anliegen</h2>
-    <div class="kkz-redemittel">
-      <div><strong>1 · Anliegen aufnehmen</strong>Worum geht es genau? · Was kann ich für Sie tun?</div>
-      <div><strong>2 · Klären</strong>Darf ich kurz nachfragen, ob …? · Können Sie mir bitte … nennen?</div>
-      <div><strong>3 · Nächsten Schritt nennen</strong>Ich prüfe das kurz. · Ich gebe das an … weiter.</div>
-      <div><strong>4 · Abschluss sichern</strong>Sie erhalten bis … eine Rückmeldung. · Ist damit alles geklärt?</div>
-    </div>
+    <div class="kkz-redemittel"><div><strong>1 · Anliegen aufnehmen</strong>Worum geht es genau? · Was kann ich für Sie tun?</div><div><strong>2 · Klären</strong>Darf ich kurz nachfragen, ob …? · Können Sie mir bitte … nennen?</div><div><strong>3 · Nächsten Schritt nennen</strong>Ich prüfe das kurz. · Ich gebe das an … weiter.</div><div><strong>4 · Abschluss sichern</strong>Sie erhalten bis … eine Rückmeldung. · Ist damit alles geklärt?</div></div>
     <div id="mc-kunden"></div>
 
-    <div class="kkz-woertersalat">
-      <span class="marke">Wörtersalat – was passt wann?</span>
-      <h3>sagen · nennen · mitteilen · angeben</h3>
-      <div class="kkz-chips"><span>sagen</span><span>nennen</span><span>mitteilen</span><span>angeben</span></div>
-      <p><strong>sagen</strong> ist allgemein: „Können Sie mir sagen, wann Sie kommen?“</p>
-      <p><strong>nennen</strong> passt zu einzelnen Informationen: „Nennen Sie mir bitte Ihre Kundennummer.“</p>
-      <p><strong>mitteilen</strong> ist formeller und bedeutet informieren: „Bitte teilen Sie uns Ihre neue Adresse mit.“</p>
-      <p><strong>angeben</strong> wird oft bei Daten und Formularen verwendet: „Bitte geben Sie die Rechnungsnummer an.“</p>
-    </div>
+    <div class="kkz-woertersalat"><span class="marke">Wörtersalat – was passt wann?</span><h3>sagen · nennen · mitteilen · angeben</h3><div class="kkz-chips"><span>sagen</span><span>nennen</span><span>mitteilen</span><span>angeben</span></div><p><strong>sagen</strong> ist allgemein: „Können Sie mir sagen, wann Sie kommen?“</p><p><strong>nennen</strong> passt zu einzelnen Informationen: „Nennen Sie mir bitte Ihre Kundennummer.“</p><p><strong>mitteilen</strong> ist formeller und bedeutet informieren: „Bitte teilen Sie uns Ihre neue Adresse mit.“</p><p><strong>angeben</strong> wird oft bei Daten und Formularen verwendet: „Bitte geben Sie die Rechnungsnummer an.“</p></div>
 
     <h2>Drei Szenen fürs Rollenspiel</h2>
     <p>Wählen Sie eine Karte. Person A ist Kunde oder Geschäftspartner, Person B nimmt das Anliegen auf. Klären Sie mindestens zwei Informationen und nennen Sie einen konkreten nächsten Schritt. Danach Rollen tauschen.</p>
-    <div class="kkz-szenen">
-      <article class="kkz-szene"><h3>1 · Lieferung verspätet</h3><p><strong>Anliegen:</strong> Eine Bestellung ist noch nicht angekommen.</p><p><strong>Klären:</strong> Auftragsnummer, erwarteter Liefertermin.</p><p><strong>Weiter an:</strong> Lager oder Versand.</p></article>
-      <article class="kkz-szene"><h3>2 · Rechnung unklar</h3><p><strong>Anliegen:</strong> Der Rechnungsbetrag scheint nicht zu stimmen.</p><p><strong>Klären:</strong> Rechnungsnummer, welcher Betrag oder Posten unklar ist.</p><p><strong>Weiter an:</strong> Buchhaltung.</p></article>
-      <article class="kkz-szene"><h3>3 · Ware beschädigt</h3><p><strong>Anliegen:</strong> Ein gelieferter Artikel ist beschädigt.</p><p><strong>Klären:</strong> Auftragsnummer, welcher Artikel und welcher Schaden.</p><p><strong>Weiter an:</strong> Verkauf/Kundenservice oder Reklamation.</p></article>
-    </div>
+    <div class="kkz-szenen"><article class="kkz-szene"><h3>1 · Lieferung verspätet</h3><p><strong>Anliegen:</strong> Eine Bestellung ist noch nicht angekommen.</p><p><strong>Klären:</strong> Auftragsnummer, erwarteter Liefertermin.</p><p><strong>Weiter an:</strong> Lager oder Versand.</p></article><article class="kkz-szene"><h3>2 · Rechnung unklar</h3><p><strong>Anliegen:</strong> Der Rechnungsbetrag scheint nicht zu stimmen.</p><p><strong>Klären:</strong> Rechnungsnummer, welcher Betrag oder Posten unklar ist.</p><p><strong>Weiter an:</strong> Buchhaltung.</p></article><article class="kkz-szene"><h3>3 · Ware beschädigt</h3><p><strong>Anliegen:</strong> Ein gelieferter Artikel ist beschädigt.</p><p><strong>Klären:</strong> Auftragsnummer, welcher Artikel und welcher Schaden.</p><p><strong>Weiter an:</strong> Verkauf/Kundenservice oder Reklamation.</p></article></div>
     <div class="regel"><p><strong>Rollenspiel:</strong> Nehmen Sie das Anliegen auf, klären Sie zwei Informationen und nennen Sie den nächsten Schritt.</p><textarea class="feld" id="kkz-kunden-transfer" rows="5" placeholder="Worum geht es genau? · Könnten Sie mir bitte sagen, wie …? · Darf ich kurz fragen, ob …? · Ich gebe das weiter an …"></textarea></div>
   </section>
 
@@ -135,6 +109,7 @@
     <p class="stand-hinweis">Kernteil etwa 20–25 Minuten · Transfer noch einmal 15–20 Minuten</p>
     <section class="kkz-einstieg">
       <div class="kkz-einstieg__kopf"><h2>Welche Zahlen müssen Sie bei der Arbeit sicher verstehen?</h2><span class="kkz-modus">allein · zu zweit · Kleingruppe</span></div>
+      <p>Am Telefon, bei Bestellungen, Rechnungen, Terminen oder Mengen kann eine falsch verstandene Zahl sofort praktische Folgen haben – deshalb üben wir hier genaues Hören, Sprechen und Absichern.</p>
       <div class="kkz-grid">
         <div class="kkz-feld"><label for="kkz-z1">Welche Zahlen kommen häufig vor?</label><textarea class="feld" id="kkz-z1" rows="2" placeholder="Preise, Mengen, Telefonnummern, Termine …"></textarea></div>
         <div class="kkz-feld"><label for="kkz-z2">Welche Zahlen sind für Sie schwierig?</label><textarea class="feld" id="kkz-z2" rows="2" placeholder="z. B. 13/30, 14/40, große Zahlen …"></textarea></div>
@@ -148,9 +123,11 @@
       <div class="kkz-zahl"><strong>1.480,50 €</strong><span>ein­tausend­vier­hundert­achtzig Euro fünfzig</span></div>
       <div class="kkz-zahl"><strong>7,5 %</strong><span>sieben Komma fünf Prozent</span></div>
       <div class="kkz-zahl"><strong>040 / 58 31 27</strong><span>Telefonnummern in sinnvollen Gruppen sprechen</span></div>
-      <div class="kkz-zahl"><strong>18.09.2026</strong><span>am achtzehnten September zweitausendsechsundzwanzig</span></div>
+      <div class="kkz-zahl"><strong>18.09.2026</strong><span>achtzehnter September zweitausendsechsundzwanzig</span></div>
+      <div class="kkz-zahl"><strong>am 18.09.2026</strong><span>am achtzehnten September zweitausendsechsundzwanzig</span></div>
       <div class="kkz-zahl"><strong>2.750 Stück</strong><span>zweitausendsiebenhundertfünfzig Stück</span></div>
       <div class="kkz-zahl"><strong>3 : 1</strong><span>drei zu eins</span></div>
+      <div class="kkz-zahl"><strong>½ · ⅓ · ¼</strong><span>die Hälfte · ein Drittel · ein Viertel</span></div>
     </div>
     <div id="mc-zahlen"></div>
 
@@ -161,6 +138,7 @@
     <p class="stand-hinweis">Kernteil etwa 25–30 Minuten · Transfer noch einmal 15–20 Minuten</p>
     <section class="kkz-einstieg">
       <div class="kkz-einstieg__kopf"><h2>Wo vergleichen Sie bei der Arbeit Zahlen?</h2><span class="kkz-modus">allein · zu zweit · Kleingruppe</span></div>
+      <p>Ob Preise, Stückzahlen, Bearbeitungszeiten oder Umsätze: Sobald zwei Werte nebeneinanderstehen, müssen wir sagen können, was gleich ist, was sich verändert und welcher Wert am höchsten oder niedrigsten ist.</p>
       <div class="kkz-grid">
         <div class="kkz-feld"><label for="kkz-g1">Was wird verglichen?</label><textarea class="feld" id="kkz-g1" rows="2" placeholder="Umsatz, Preise, Stückzahlen, Arbeitszeiten …"></textarea></div>
         <div class="kkz-feld"><label for="kkz-g2">Womit wird verglichen?</label><textarea class="feld" id="kkz-g2" rows="2" placeholder="Vormonat, Vorjahr, Angebot A/B …"></textarea></div>
@@ -170,30 +148,22 @@
     </section>
 
     <h2>Eine kleine Monatsauswertung</h2>
-    <div class="kkz-verlauf">
-      <div><strong>Bestellungen</strong><span>Juni: 820 · Juli: 910 · August: 1.040</span></div>
-      <div><strong>Reklamationen</strong><span>Juni: 34 · Juli: 29 · August: 21</span></div>
-      <div><strong>Ø Lieferzeit</strong><span>Juni: 4,8 Tage · Juli: 4,2 Tage · August: 3,9 Tage</span></div>
-    </div>
+    <div class="kkz-verlauf"><div><strong>Bestellungen</strong><span>Juni: 820 · Juli: 910 · August: 1.040</span></div><div><strong>Reklamationen</strong><span>Juni: 34 · Juli: 29 · August: 21</span></div><div><strong>Ø Lieferzeit</strong><span>Juni: 4,8 Tage · Juli: 4,2 Tage · August: 3,9 Tage</span></div></div>
     <div id="mc-vergleich"></div>
 
     <div class="kkz-grammatik">
       <h3>Passende Grammatik: Vergleichen</h3>
-      <p class="formel">mehr / weniger als · höher / niedriger als · genauso hoch wie</p>
-      <p class="formel">von 820 auf 1.040 steigen · um 220 steigen · gegenüber Juni zunehmen</p>
+      <p><strong>Positiv:</strong> genauso hoch wie · so niedrig wie · nicht so hoch wie</p>
+      <p><strong>Komparativ:</strong> höher als · niedriger als · mehr als · weniger als</p>
+      <p><strong>Superlativ:</strong> am höchsten · am niedrigsten · die meisten · die wenigsten</p>
+      <p class="formel">Die Bestellungen steigen von 820 auf 1.040. · Sie steigen um 220. · Sie nehmen gegenüber Juni zu.</p>
       <p><strong>Merke:</strong> <em>um</em> nennt die Veränderung, <em>auf</em> nennt den neuen Wert.</p>
+      <div class="kkz-vertiefung"><strong>Grammatik genauer ansehen</strong><span>Positiv, Komparativ und Superlativ werden als eigenes Grammatikmodul verlinkt, sobald der vorhandene Materialstand geprüft ist.</span></div>
     </div>
 
-    <div class="kkz-woertersalat">
-      <span class="marke">Wörtersalat – was passt wann?</span>
-      <h3>steigen · zunehmen · erhöhen · wachsen</h3>
-      <p><strong>steigen</strong>: eine Zahl oder ein Wert wird höher – „Die Bestellungen steigen.“</p>
-      <p><strong>zunehmen</strong>: Menge oder Häufigkeit wird größer – „Die Nachfrage nimmt zu.“</p>
-      <p><strong>erhöhen</strong>: jemand macht etwas höher – „Der Lieferant erhöht den Preis.“</p>
-      <p><strong>wachsen</strong>: eher längerfristige Entwicklung – „Das Unternehmen wächst.“</p>
-    </div>
+    <div class="kkz-woertersalat"><span class="marke">Wörtersalat – was passt wann?</span><h3>steigen · zunehmen · erhöhen · wachsen</h3><p><strong>steigen</strong>: eine Zahl oder ein Wert wird höher – „Die Bestellungen steigen.“</p><p><strong>zunehmen</strong>: Menge oder Häufigkeit wird größer – „Die Nachfrage nimmt zu.“</p><p><strong>erhöhen</strong>: jemand macht etwas höher – „Der Lieferant erhöht den Preis.“</p><p><strong>wachsen</strong>: eher längerfristige Entwicklung – „Das Unternehmen wächst.“</p></div>
 
-    <div class="regel"><p><strong>Mini-Präsentation:</strong> Beschreiben Sie die drei Entwicklungen bei KONTOR in 60–90 Sekunden. Nennen Sie mindestens einen Vergleich und eine Veränderung mit <em>von … auf</em> oder <em>um …</em>.</p><textarea class="feld" id="kkz-grafik-transfer" rows="6" placeholder="Im August … · Gegenüber Juni … · Die Zahl ist um … gestiegen …"></textarea></div>
+    <div class="regel"><p><strong>1 · Schreiben:</strong> Formulieren Sie 4–6 Sätze zu den drei Entwicklungen. Verwenden Sie mindestens einen Komparativ und einmal <em>von … auf</em> oder <em>um …</em>.</p><textarea class="feld" id="kkz-grafik-transfer" rows="6" placeholder="Im August … · Gegenüber Juni … · Die Zahl ist um … gestiegen …"></textarea><p><strong>2 · Sprechen:</strong> Legen Sie Ihren Text weg und erklären Sie die Entwicklungen in 60–90 Sekunden. Sie dürfen dabei auf die Zahlen oben schauen.</p></div>
   </section>
 
   <p class="stand" id="stand"></p>
@@ -226,14 +196,16 @@ Lehrwerk.auswahl('mc-kunden',[
 Lehrwerk.auswahl('mc-zahlen',[
   {id:'z1',text:'Wie liest man 7,5 %?',optionen:['sieben Punkt fünf Prozent','sieben Komma fünf Prozent','sieben und fünf Prozent'],richtig:['sieben Komma fünf Prozent'],erklaerung:'Das Dezimaltrennzeichen wird im Deutschen als Komma gesprochen.'},
   {id:'z2',text:'Welche Rückfrage sichert eine wichtige Zahl am besten ab?',optionen:['Wie war das?','Habe ich richtig verstanden: 1.480 Euro und 50 Cent?','Noch mal!'],richtig:['Habe ich richtig verstanden: 1.480 Euro und 50 Cent?'],erklaerung:'Wichtige Zahlen sollte man vollständig zurücklesen.'},
-  {id:'z3',text:'Wie sagt man 3 : 1?',optionen:['drei gegen eins','drei zu eins','drei durch eins'],richtig:['drei zu eins'],erklaerung:'Verhältnisse werden mit zu gesprochen.'}
+  {id:'z3',text:'Wie sagt man 3 : 1?',optionen:['drei gegen eins','drei zu eins','drei durch eins'],richtig:['drei zu eins'],erklaerung:'Verhältnisse werden mit zu gesprochen.'},
+  {id:'z4',text:'Welche Datumsform passt in den Satz „Die Lieferung kommt …“?',optionen:['achtzehnter September','am achtzehnten September','am achtzehnter September'],richtig:['am achtzehnten September'],erklaerung:'Nach am (= an dem) steht der Dativ: am achtzehnten September.'}
 ]);
 
 Lehrwerk.auswahl('mc-vergleich',[
   {id:'v1',text:'Die Bestellungen gehen von 820 auf 1.040. Welche Aussage stimmt?',optionen:['Sie steigen um 220.','Sie steigen auf 220.','Sie erhöhen sich von 220.'],richtig:['Sie steigen um 220.'],erklaerung:'um nennt die Veränderung: 1.040 minus 820 = 220.'},
   {id:'v2',text:'Die Reklamationen gehen von 34 auf 21. Welche Formulierung passt?',optionen:['Die Reklamationen nehmen ab.','Die Reklamationen erhöhen sich.','Die Reklamationen wachsen.'],richtig:['Die Reklamationen nehmen ab.'],erklaerung:'Wenn die Zahl kleiner wird, nimmt sie ab oder sinkt.'},
   {id:'v3',text:'August: 3,9 Tage; Juni: 4,8 Tage. Welche Aussage ist korrekt?',optionen:['Die Lieferzeit ist im August niedriger als im Juni.','Die Lieferzeit ist im August mehr als im Juni.','Die Lieferzeit ist im August höher wie im Juni.'],richtig:['Die Lieferzeit ist im August niedriger als im Juni.'],erklaerung:'Beim Komparativ steht als: niedriger als.'},
-  {id:'v4',text:'Wer macht aktiv einen Preis höher?',optionen:['Der Preis steigt.','Der Lieferant erhöht den Preis.','Der Preis nimmt den Lieferanten zu.'],richtig:['Der Lieferant erhöht den Preis.'],erklaerung:'erhöhen ist transitiv: Jemand erhöht etwas.'}
+  {id:'v4',text:'Welche Formulierung sagt, dass jemand den Preis aktiv verändert?',optionen:['Der Preis steigt.','Der Lieferant erhöht den Preis.','Der Preis nimmt zu.'],richtig:['Der Lieferant erhöht den Preis.'],erklaerung:'steigen und zunehmen beschreiben eine Entwicklung. erhöhen braucht jemanden, der etwas aktiv höher macht.'},
+  {id:'v5',text:'In welchem Monat ist die Lieferzeit am niedrigsten?',optionen:['im Juni','im Juli','im August'],richtig:['im August'],erklaerung:'3,9 Tage ist der niedrigste der drei Werte; deshalb steht der Superlativ am niedrigsten.'}
 ]);
 
 ['kkz-k1','kkz-k2','kkz-k3','kkz-k4','kkz-kollegen-transfer','kkz-ku1','kkz-ku2','kkz-ku3','kkz-ku4','kkz-kunden-fragen','kkz-kunden-transfer','kkz-z1','kkz-z2','kkz-z3','kkz-z4','kkz-zahlen-transfer','kkz-g1','kkz-g2','kkz-g3','kkz-g4','kkz-grafik-transfer'].forEach(id=>Lehrwerk.frei(id));
