@@ -253,3 +253,63 @@ window.BSK_HOMEWORK = [
     ['orte-erster-weg','orte-abteilung','orte-material','orte-fragen','orte-schwierig','orte-hilfe'].forEach(id => Lehrwerk.frei(id));
   }
 })();
+
+/* KONTOR: persönlicher Einstieg in Produkte und Geschäftsbeziehungen. */
+(function () {
+  if (!/\/buero\/im-unternehmen-ankommen\.html$/.test(location.pathname)) return;
+
+  const blatt = document.getElementById('blatt-produkte');
+  if (!blatt || document.getElementById('kontor-produkte-einstieg')) return;
+
+  const ersterTitel = Array.from(blatt.querySelectorAll('h2')).find(el => el.textContent.trim() === 'So läuft ein Auftrag durch KONTOR');
+  if (!ersterTitel) return;
+
+  const style = document.createElement('style');
+  style.textContent = `
+    .kontor-produkte-einstieg{margin:1.2rem 0 2rem;padding:1.5rem;border:1px solid #ead7c2;border-radius:16px;background:linear-gradient(135deg,#fff6e9 0%,#fffdf9 72%)}
+    .kontor-produkte-einstieg__kopf{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.55rem}
+    .kontor-produkte-einstieg__kopf h2{margin:0;color:#8a5f38}
+    .kontor-produkte-einstieg__modus{flex:0 0 auto;padding:.32rem .65rem;border-radius:999px;background:#fff;border:1px solid rgba(34,34,43,.1);font-family:var(--mono);font-size:.66rem;letter-spacing:.04em;color:var(--tinte-weich)}
+    .kontor-produkte-einstieg__hinweis{margin:.35rem 0 1rem;color:var(--tinte-weich)}
+    .kontor-produkte-einstieg__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem 1rem}
+    .kontor-produkte-einstieg__feld{display:grid;gap:.3rem}
+    .kontor-produkte-einstieg__feld label{font-weight:600;font-size:.9rem}
+    .kontor-produkte-einstieg__feld textarea{min-height:3.2rem;resize:vertical;margin:0}
+    .kontor-produkte-einstieg__sprechauftrag{margin:1.1rem 0 0;padding:1rem 1.05rem;border-radius:12px;background:rgba(255,255,255,.78);border-left:4px solid #b07d4f}
+    .kontor-produkte-einstieg__sprechauftrag strong{display:block;margin-bottom:.3rem}
+    @media(max-width:42rem){.kontor-produkte-einstieg__kopf{display:block}.kontor-produkte-einstieg__modus{display:inline-block;margin-top:.55rem}.kontor-produkte-einstieg__grid{grid-template-columns:1fr}}
+  `;
+  document.head.appendChild(style);
+
+  const einstieg = document.createElement('section');
+  einstieg.className = 'kontor-produkte-einstieg';
+  einstieg.id = 'kontor-produkte-einstieg';
+  einstieg.innerHTML = `
+    <div class="kontor-produkte-einstieg__kopf">
+      <h2>Was passiert in Ihrer Firma, wenn ein Kunde oder ein Geschäftspartner etwas möchte?</h2>
+      <span class="kontor-produkte-einstieg__modus">allein · zu zweit · Kleingruppe</span>
+    </div>
+    <p class="kontor-produkte-einstieg__hinweis">Denken Sie an einen typischen Vorgang in Ihrem Betrieb. Das kann eine Ware oder eine Dienstleistung sein. Notieren Sie nur Stichwörter.</p>
+    <div class="kontor-produkte-einstieg__grid">
+      <div class="kontor-produkte-einstieg__feld"><label for="produkte-wunsch">Was möchte der Kunde oder Geschäftspartner?</label><textarea class="feld" id="produkte-wunsch" rows="2" placeholder="z. B. Ware kaufen, Geld überweisen, etwas bestellen …"></textarea></div>
+      <div class="kontor-produkte-einstieg__feld"><label for="produkte-kontakt">Wer nimmt die Anfrage oder den Wunsch entgegen?</label><textarea class="feld" id="produkte-kontakt" rows="2" placeholder="Person, Team oder Abteilung"></textarea></div>
+      <div class="kontor-produkte-einstieg__feld"><label for="produkte-schritt">Was passiert als Nächstes?</label><textarea class="feld" id="produkte-schritt" rows="2" placeholder="z. B. prüfen, beraten, vorbereiten, bestellen …"></textarea></div>
+      <div class="kontor-produkte-einstieg__feld"><label for="produkte-bearbeitung">Wer bearbeitet den Vorgang weiter?</label><textarea class="feld" id="produkte-bearbeitung" rows="2" placeholder="Person, Team oder Abteilung"></textarea></div>
+      <div class="kontor-produkte-einstieg__feld"><label for="produkte-ergebnis">Was bekommt der Kunde oder Geschäftspartner am Ende?</label><textarea class="feld" id="produkte-ergebnis" rows="2" placeholder="z. B. Ware, Dienstleistung, Auszahlung, Bestätigung …"></textarea></div>
+      <div class="kontor-produkte-einstieg__feld"><label for="produkte-beleg">Gibt es eine Rechnung, einen Beleg oder eine Bestätigung?</label><textarea class="feld" id="produkte-beleg" rows="2" placeholder="Was bekommt oder unterschreibt die Person?"></textarea></div>
+    </div>
+    <div class="kontor-produkte-einstieg__sprechauftrag">
+      <strong>Jetzt sprechen</strong>
+      Vergleichen Sie Ihre Abläufe zu zweit oder in einer kleinen Gruppe. Was ist ähnlich, was läuft anders? Stellen Sie anschließend einen typischen Ablauf aus Ihrer Gruppe kurz im Kurs vor.
+    </div>`;
+
+  ersterTitel.before(einstieg);
+  ersterTitel.textContent = 'So läuft ein Auftrag bei KONTOR';
+  const intro = document.createElement('p');
+  intro.textContent = 'Jetzt schauen Sie sich den Ablauf bei KONTOR an: von der ersten Anfrage bis zur Rechnung.';
+  ersterTitel.after(intro);
+
+  if (window.Lehrwerk && typeof Lehrwerk.frei === 'function') {
+    ['produkte-wunsch','produkte-kontakt','produkte-schritt','produkte-bearbeitung','produkte-ergebnis','produkte-beleg'].forEach(id => Lehrwerk.frei(id));
+  }
+})();
