@@ -124,3 +124,65 @@ window.BSK_HOMEWORK = [
     });
   }
 })();
+
+/* KONTOR: persönlicher Transfer nach der Rollenübung. */
+(function () {
+  if (!/\/buero\/im-unternehmen-ankommen\.html$/.test(location.pathname)) return;
+
+  const blatt = document.getElementById('blatt-menschen');
+  if (!blatt || document.getElementById('kontor-transfer')) return;
+
+  const rollenTitel = Array.from(blatt.querySelectorAll('h2')).find(el => el.textContent.trim() === 'Rollen im Unternehmen');
+  if (!rollenTitel) return;
+
+  const rollenText = rollenTitel.nextElementSibling;
+  const rollenUebung = rollenText && rollenText.nextElementSibling;
+  const rollenRueck = rollenUebung && rollenUebung.nextElementSibling;
+  const anker = rollenRueck && rollenRueck.id === 'z-personen-rueck' ? rollenRueck : rollenUebung;
+  if (!anker) return;
+
+  const style = document.createElement('style');
+  style.textContent = `
+    .kontor-transfer{margin:2rem 0;padding:1.45rem 1.5rem 1.35rem;border:1px solid #cadfda;border-radius:16px;background:linear-gradient(135deg,#edf6f3 0%,#fbfdfc 72%)}
+    .kontor-transfer__kopf{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.5rem}
+    .kontor-transfer__kopf h2{margin:0;color:var(--salbei-tief)}
+    .kontor-transfer__modus{flex:0 0 auto;padding:.32rem .65rem;border-radius:999px;background:#fff;border:1px solid rgba(34,34,43,.1);font-family:var(--mono);font-size:.66rem;letter-spacing:.04em;color:var(--tinte-weich)}
+    .kontor-transfer__hinweis{margin:.4rem 0 1rem;color:var(--tinte-weich)}
+    .kontor-transfer__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem 1rem}
+    .kontor-transfer__feld{display:grid;gap:.3rem}
+    .kontor-transfer__feld label{font-weight:600;font-size:.9rem}
+    .kontor-transfer__feld textarea{min-height:3.2rem;resize:vertical;margin:0}
+    .kontor-transfer__sprechauftrag{margin:1.1rem 0 0;padding:1rem 1.05rem;border-radius:12px;background:rgba(255,255,255,.72);border-left:4px solid var(--salbei-tief)}
+    .kontor-transfer__sprechauftrag strong{display:block;margin-bottom:.3rem}
+    @media(max-width:42rem){.kontor-transfer__kopf{display:block}.kontor-transfer__modus{display:inline-block;margin-top:.55rem}.kontor-transfer__grid{grid-template-columns:1fr}}
+  `;
+  document.head.appendChild(style);
+
+  const transfer = document.createElement('section');
+  transfer.className = 'kontor-transfer';
+  transfer.id = 'kontor-transfer';
+  transfer.innerHTML = `
+    <div class="kontor-transfer__kopf">
+      <h2>Und bei Ihnen im Betrieb?</h2>
+      <span class="kontor-transfer__modus">allein · zu zweit · Kleingruppe</span>
+    </div>
+    <p class="kontor-transfer__hinweis">Notieren Sie zuerst nur Stichwörter. Wenn Sie gerade nicht arbeiten, wählen Sie einen früheren Betrieb, ein Praktikum oder Ihren Wunscharbeitsplatz.</p>
+    <div class="kontor-transfer__grid">
+      <div class="kontor-transfer__feld"><label for="transfer-rolle">Meine Rolle / Tätigkeit</label><textarea class="feld" id="transfer-rolle" rows="2" placeholder="z. B. Sachbearbeiterin, Fahrer, Verkäuferin …"></textarea></div>
+      <div class="kontor-transfer__feld"><label for="transfer-bereich">Meine Abteilung / mein Bereich</label><textarea class="feld" id="transfer-bereich" rows="2" placeholder="z. B. Einkauf, Lager, Verwaltung …"></textarea></div>
+      <div class="kontor-transfer__feld"><label for="transfer-zustaendig">Dafür bin ich zuständig</label><textarea class="feld" id="transfer-zustaendig" rows="2" placeholder="z. B. Bestellungen prüfen, Kunden beraten …"></textarea></div>
+      <div class="kontor-transfer__feld"><label for="transfer-ansprechperson">Meine direkte Ansprechperson</label><textarea class="feld" id="transfer-ansprechperson" rows="2" placeholder="Name oder Funktion"></textarea></div>
+      <div class="kontor-transfer__feld"><label for="transfer-vorgesetzt">Meine Vorgesetzte / mein Vorgesetzter</label><textarea class="feld" id="transfer-vorgesetzt" rows="2" placeholder="Name oder Funktion"></textarea></div>
+      <div class="kontor-transfer__feld"><label for="transfer-kollegen">Mit diesen Kolleginnen und Kollegen arbeite ich oft zusammen</label><textarea class="feld" id="transfer-kollegen" rows="2" placeholder="Personen, Teams oder Abteilungen"></textarea></div>
+    </div>
+    <div class="kontor-transfer__sprechauftrag">
+      <strong>Jetzt sprechen</strong>
+      Tauschen Sie sich zu zweit oder in einer kleinen Gruppe aus. Nutzen Sie Ihre Notizen, aber lesen Sie nicht nur vor. Stellen Sie anschließend sich selbst oder eine Person aus Ihrer Gruppe kurz im Kurs vor.
+    </div>`;
+
+  anker.after(transfer);
+
+  if (window.Lehrwerk && typeof Lehrwerk.frei === 'function') {
+    ['transfer-rolle','transfer-bereich','transfer-zustaendig','transfer-ansprechperson','transfer-vorgesetzt','transfer-kollegen'].forEach(id => Lehrwerk.frei(id));
+  }
+})();
