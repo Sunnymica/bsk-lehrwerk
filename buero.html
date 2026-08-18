@@ -29,7 +29,44 @@
 <footer class="fuss">Nur für Kursteilnehmerinnen und Kursteilnehmer</footer>
 
 <script src="assets/lehrwerk.js"></script>
-<script>Lehrwerk.bereich('buero');</script>
+<script>
+/* Aktueller Freigabestand des Blocks „Arbeiten im Unternehmen“.
+   Die Angaben werden hier ergänzt, bis die Inhaltsdatei beim nächsten
+   redaktionellen Durchgang zentral konsolidiert wird. */
+(function () {
+  if (!window.BSKPlatform || typeof window.BSKPlatform.getContent !== 'function') return;
+  const originalGetContent = window.BSKPlatform.getContent;
+  window.BSKPlatform.getContent = function () {
+    return originalGetContent().then(data => {
+      if (!data || !Array.isArray(data.bereiche)) return data;
+      const buero = data.bereiche.find(b => b.id === 'buero');
+      const gruppe = buero && (buero.gruppen || []).find(g => g.titel === 'Arbeiten im Unternehmen');
+      if (!gruppe) return data;
+
+      const ankommen = (gruppe.module || []).find(m => m.pfad === 'im-unternehmen-ankommen.html');
+      if (ankommen) {
+        ankommen.beschreibung = 'Menschen und Rollen, Orte und Arbeitsmittel, Produkte und Geschäftsbeziehungen sowie Einkauf, Verkauf und Zahlung.';
+        ankommen.dauer = '4 Lernabschnitte';
+        ankommen.status = 'fertig';
+        ankommen._teilweise = false;
+        ankommen._available = true;
+      }
+
+      const kollegen = (gruppe.module || []).find(m => m.pfad === 'kollegen-kunden-zahlen.html');
+      if (kollegen) {
+        kollegen.beschreibung = 'Mit Kollegen und Kunden kommunizieren, Zahlen sicher weitergeben und Entwicklungen vergleichen.';
+        kollegen.dauer = '4 Lernabschnitte';
+        kollegen.status = 'fertig';
+        kollegen._teilweise = false;
+        kollegen._available = true;
+      }
+      return data;
+    });
+  };
+})();
+
+Lehrwerk.bereich('buero');
+</script>
 
 </body>
 </html>
