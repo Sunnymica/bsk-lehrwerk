@@ -313,3 +313,94 @@ window.BSK_HOMEWORK = [
     ['produkte-wunsch','produkte-kontakt','produkte-schritt','produkte-bearbeitung','produkte-ergebnis','produkte-beleg'].forEach(id => Lehrwerk.frei(id));
   }
 })();
+
+/* KONTOR: vierter Reiter Einkauf, Verkauf und Zahlung. */
+(function () {
+  if (!/\/buero\/im-unternehmen-ankommen\.html$/.test(location.pathname)) return;
+  if (document.getElementById('blatt-zahlung')) return;
+
+  const reiter = document.querySelector('.reiter');
+  const knopf = reiter && reiter.querySelector('button[disabled]');
+  const produkte = document.getElementById('blatt-produkte');
+  if (!reiter || !knopf || !produkte) return;
+
+  knopf.disabled = false;
+  knopf.dataset.blatt = 'zahlung';
+  knopf.setAttribute('aria-controls','blatt-zahlung');
+  knopf.innerHTML = 'Einkauf, Verkauf, Zahlung';
+
+  const style = document.createElement('style');
+  style.textContent = `
+    .kontor-zahlung-einstieg{margin:1.2rem 0 2rem;padding:1.5rem;border:1px solid #cadfda;border-radius:16px;background:linear-gradient(135deg,#edf6f3 0%,#fbfdfc 72%)}
+    .kontor-zahlung-einstieg__kopf{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.55rem}.kontor-zahlung-einstieg__kopf h2{margin:0;color:var(--salbei-tief)}
+    .kontor-zahlung-einstieg__modus{flex:0 0 auto;padding:.32rem .65rem;border-radius:999px;background:#fff;border:1px solid rgba(34,34,43,.1);font-family:var(--mono);font-size:.66rem;letter-spacing:.04em;color:var(--tinte-weich)}
+    .kontor-zahlung-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem 1rem}.kontor-zahlung-feld{display:grid;gap:.3rem}.kontor-zahlung-feld label{font-weight:600;font-size:.9rem}.kontor-zahlung-feld textarea{min-height:3.2rem;resize:vertical;margin:0}
+    .kontor-zahlung-sprechen{margin:1.1rem 0 0;padding:1rem 1.05rem;border-radius:12px;background:rgba(255,255,255,.76);border-left:4px solid var(--salbei-tief)}.kontor-zahlung-sprechen strong{display:block;margin-bottom:.3rem}
+    .kontor-fall{margin:1.7rem 0;padding:1.25rem 1.35rem;border:1px solid #d9e1e8;border-radius:14px;background:linear-gradient(135deg,#eef4f8,#fff)}.kontor-fall h3{margin-top:0}.kontor-ablauf{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem;margin:1rem 0}.kontor-ablauf span{flex:1 1 8rem;padding:.7rem .6rem;border:1px solid var(--linie);border-radius:8px;background:#fff;text-align:center;font-size:.9rem}.kontor-ablauf b{color:var(--tinte-weich)}
+    .kontor-begriffe{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin:1rem 0}.kontor-begriff{padding:.9rem 1rem;border:1px solid var(--linie);border-radius:10px;background:var(--karte)}.kontor-begriff strong{display:block;margin-bottom:.2rem}.kontor-begriff span{color:var(--tinte-weich);font-size:.9rem}
+    .kontor-transfer-zahlung{margin:1.7rem 0;padding:1.25rem 1.35rem;border:1px solid #ead7c2;border-radius:14px;background:linear-gradient(135deg,#fff6e9,#fffdf9)}
+    @media(max-width:42rem){.kontor-zahlung-einstieg__kopf{display:block}.kontor-zahlung-einstieg__modus{display:inline-block;margin-top:.55rem}.kontor-zahlung-grid,.kontor-begriffe{grid-template-columns:1fr}.kontor-ablauf{flex-direction:column}.kontor-ablauf b{transform:rotate(90deg)}}
+  `;
+  document.head.appendChild(style);
+
+  const blatt = document.createElement('section');
+  blatt.className = 'blatt';
+  blatt.id = 'blatt-zahlung';
+  blatt.hidden = true;
+  blatt.innerHTML = `
+    <p class="stand-hinweis">Kernteil etwa 25–30 Minuten · Transfer noch einmal 15–20 Minuten</p>
+    <section class="kontor-zahlung-einstieg">
+      <div class="kontor-zahlung-einstieg__kopf"><h2>Einkaufen, verkaufen, bezahlen – wie läuft das bei Ihnen?</h2><span class="kontor-zahlung-einstieg__modus">allein · zu zweit · Kleingruppe</span></div>
+      <p>Notieren Sie Stichwörter zu einem typischen Vorgang in Ihrem Betrieb.</p>
+      <div class="kontor-zahlung-grid">
+        <div class="kontor-zahlung-feld"><label for="zahlung-einkauf">Was kauft Ihre Firma ein?</label><textarea class="feld" id="zahlung-einkauf" rows="2" placeholder="Waren, Material oder Dienstleistungen"></textarea></div>
+        <div class="kontor-zahlung-feld"><label for="zahlung-verkauf">Was verkauft oder bietet Ihre Firma an?</label><textarea class="feld" id="zahlung-verkauf" rows="2" placeholder="Produkte oder Dienstleistungen"></textarea></div>
+        <div class="kontor-zahlung-feld"><label for="zahlung-besteller">Wer darf bestellen oder einen Auftrag auslösen?</label><textarea class="feld" id="zahlung-besteller" rows="2" placeholder="Person, Funktion oder Abteilung"></textarea></div>
+        <div class="kontor-zahlung-feld"><label for="zahlung-zahlungsart">Wie wird normalerweise bezahlt?</label><textarea class="feld" id="zahlung-zahlungsart" rows="2" placeholder="z. B. Überweisung, Karte, bar, Rechnung …"></textarea></div>
+        <div class="kontor-zahlung-feld"><label for="zahlung-pruefer">Wer prüft Rechnungen oder Zahlungen?</label><textarea class="feld" id="zahlung-pruefer" rows="2" placeholder="Person, Funktion oder Abteilung"></textarea></div>
+        <div class="kontor-zahlung-feld"><label for="zahlung-fehlt">Was passiert, wenn eine Zahlung fehlt?</label><textarea class="feld" id="zahlung-fehlt" rows="2" placeholder="z. B. erinnern, nachfragen, mahnen …"></textarea></div>
+      </div>
+      <div class="kontor-zahlung-sprechen"><strong>Jetzt sprechen</strong>Vergleichen Sie Ihre Abläufe. Wo ähneln sich Einkauf, Verkauf und Zahlung – und wo unterscheiden sie sich? Stellen Sie anschließend einen Ablauf kurz vor.</div>
+    </section>
+
+    <h2>Ein Einkauf bei KONTOR</h2>
+    <div class="kontor-fall"><h3>40 neue Bürostühle</h3><p>Bei KONTOR werden 40 neue Bürostühle gebraucht. Nora Seidel kümmert sich um den Einkauf. Was passiert von der Bedarfsmeldung bis zur Zahlung?</p><div class="kontor-ablauf"><span><small>1</small><br>Bedarf</span><b>→</b><span><small>2</small><br>Angebote</span><b>→</b><span><small>3</small><br>Bestellung</span><b>→</b><span><small>4</small><br>Lieferung</span><b>→</b><span><small>5</small><br>Rechnung</span><b>→</b><span><small>6</small><br>Zahlung</span></div></div>
+
+    <h2>Was passiert in welcher Reihenfolge?</h2>
+    <div id="z-zahlungsablauf"></div><p class="rueckmeldung" id="z-zahlungsablauf-rueck" hidden></p>
+
+    <h2>Wörter, die man auseinanderhalten muss</h2>
+    <div class="kontor-begriffe">
+      <div class="kontor-begriff"><strong>bestellen ↔ liefern</strong><span>Der Kunde bestellt. Der Lieferant liefert.</span></div>
+      <div class="kontor-begriff"><strong>kaufen ↔ verkaufen</strong><span>Dieselbe Ware – aber aus zwei verschiedenen Perspektiven.</span></div>
+      <div class="kontor-begriff"><strong>Rechnung ↔ Beleg</strong><span>Die Rechnung fordert eine Zahlung; der Beleg dokumentiert einen Vorgang oder eine Zahlung.</span></div>
+      <div class="kontor-begriff"><strong>bezahlen ↔ überweisen</strong><span>Bezahlen ist allgemein; überweisen ist eine konkrete Zahlungsart.</span></div>
+      <div class="kontor-begriff"><strong>Preis ↔ Betrag</strong><span>Der Preis gehört zur Ware oder Leistung; der Betrag ist die konkrete Geldsumme.</span></div>
+      <div class="kontor-begriff"><strong>Kunde ↔ Lieferant</strong><span>Der Kunde kauft oder beauftragt; der Lieferant liefert Ware oder Leistung.</span></div>
+    </div>
+
+    <h2>Welche Formulierung passt?</h2><div id="mc-zahlung"></div>
+
+    <section class="kontor-transfer-zahlung"><h2>Und bei Ihnen?</h2><p>Beschreiben Sie einen echten oder typischen Vorgang in Ihrem Betrieb: vom Bedarf oder Kundenwunsch bis zur Zahlung oder Bestätigung.</p><textarea class="feld" id="zahlung-transfer" rows="6" placeholder="Zuerst … Danach … Anschließend … Zum Schluss …"></textarea><div class="kontor-zahlung-sprechen"><strong>Im Kurs</strong>Erklären Sie den Ablauf mündlich. Die anderen hören zu und stellen anschließend eine Rückfrage.</div></section>`;
+
+  produkte.after(blatt);
+
+  if (window.Lehrwerk) {
+    if (typeof Lehrwerk.zuordnen === 'function') Lehrwerk.zuordnen('z-zahlungsablauf',{rueck:'z-zahlungsablauf-rueck',paare:[
+      {id:'za1',links:'1 · Bedarf',rechts:'KONTOR stellt fest: 40 neue Bürostühle werden gebraucht.'},
+      {id:'za2',links:'2 · Angebote',rechts:'Nora vergleicht Preise, Lieferzeiten und Bedingungen.'},
+      {id:'za3',links:'3 · Bestellung',rechts:'KONTOR bestellt verbindlich beim ausgewählten Lieferanten.'},
+      {id:'za4',links:'4 · Lieferung',rechts:'Die Stühle kommen an und werden auf Menge und Zustand geprüft.'},
+      {id:'za5',links:'5 · Rechnung',rechts:'Der Lieferant fordert den vereinbarten Betrag.'},
+      {id:'za6',links:'6 · Zahlung',rechts:'Nach der Prüfung wird der Rechnungsbetrag überwiesen.'}
+    ]});
+    if (typeof Lehrwerk.auswahl === 'function') Lehrwerk.auswahl('mc-zahlung',[
+      {id:'zz1',text:'KONTOR möchte 40 Bürostühle verbindlich kaufen. Welches Verb passt?',optionen:['bestellen','liefern','mahnen'],richtig:['bestellen'],erklaerung:'Der Käufer bestellt; der Lieferant liefert.'},
+      {id:'zz2',text:'Der Lieferant schickt die Stühle und später die Rechnung. Was macht KONTOR mit der Rechnung zuerst?',optionen:['prüfen','verkaufen','liefern'],richtig:['prüfen'],erklaerung:'Vor der Zahlung wird geprüft, ob Rechnung und Lieferung zusammenpassen.'},
+      {id:'zz3',text:'KONTOR zahlt den Rechnungsbetrag per Bank. Welches Verb ist am genauesten?',optionen:['überweisen','verkaufen','bestellen'],richtig:['überweisen'],erklaerung:'Überweisen bezeichnet die konkrete Zahlungsart.'},
+      {id:'zz4',text:'Ein Kunde hat eine fällige Rechnung noch nicht bezahlt. Was passt als erster professioneller Schritt?',optionen:['freundlich erinnern oder nachfragen','sofort die Lieferung zurückholen','die Rechnung löschen'],richtig:['freundlich erinnern oder nachfragen'],erklaerung:'Im Geschäftsalltag beginnt man meist mit einer sachlichen Zahlungserinnerung oder Rückfrage.'},
+      {id:'zz5',text:'Auf dem Angebot steht 18,50 € pro Stuhl. Auf der Rechnung stehen insgesamt 740 €. Was ist 18,50 €?',optionen:['der Preis','der Gesamtbetrag','der Beleg'],richtig:['der Preis'],erklaerung:'Preis bezeichnet hier den Preis pro Einheit; 740 € ist der Gesamtbetrag.'}
+    ]);
+    if (typeof Lehrwerk.frei === 'function') ['zahlung-einkauf','zahlung-verkauf','zahlung-besteller','zahlung-zahlungsart','zahlung-pruefer','zahlung-fehlt','zahlung-transfer'].forEach(id=>Lehrwerk.frei(id));
+  }
+})();
