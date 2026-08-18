@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Kollegen, Kunden und Zahlen – Berufssprachkurs</title>
+<link rel="stylesheet" href="../assets/basis.css">
+<link rel="stylesheet" href="../assets/platform.css">
+<link rel="stylesheet" href="../assets/lehrwerk.css">
+<link rel="stylesheet" href="../assets/aufgaben.css">
+<script src="../data/homework.js" defer></script>
+<script src="../assets/platform.js"></script>
+<style>
+  .kkz-einstieg{margin:1.2rem 0 2rem;padding:1.45rem 1.5rem;border:1px solid var(--linie);border-radius:16px;background:linear-gradient(135deg,#f7f1f4 0%,#fff 72%)}
+  .kkz-einstieg__kopf{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}.kkz-einstieg__kopf h2{margin:0;color:var(--rose-tief)}
+  .kkz-modus{flex:0 0 auto;padding:.32rem .65rem;border:1px solid rgba(34,34,43,.1);border-radius:999px;background:#fff;font-family:var(--mono);font-size:.66rem;color:var(--tinte-weich)}
+  .kkz-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem 1rem;margin-top:1rem}.kkz-feld{display:grid;gap:.3rem}.kkz-feld label{font-weight:600;font-size:.9rem}.kkz-feld textarea{min-height:3.1rem;margin:0;resize:vertical}
+  .kkz-sprechen{margin:1.1rem 0 0;padding:1rem 1.05rem;border-radius:12px;background:rgba(255,255,255,.78);border-left:4px solid var(--rose-tief)}.kkz-sprechen strong{display:block;margin-bottom:.25rem}
+  .kkz-fall{margin:1.4rem 0;padding:1.2rem 1.3rem;border:1px solid var(--linie);border-radius:14px;background:var(--karte)}.kkz-fall h3{margin-top:0}
+  .kkz-redemittel{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin:1rem 0}.kkz-redemittel div{padding:.85rem 1rem;border:1px solid var(--linie);border-radius:10px;background:#fff}.kkz-redemittel strong{display:block;margin-bottom:.2rem;color:var(--rose-tief)}
+  .kkz-zahlen{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;margin:1rem 0}.kkz-zahl{padding:1rem;border:1px solid var(--linie);border-radius:12px;background:#fff;text-align:center}.kkz-zahl strong{display:block;font-size:1.25rem;margin-bottom:.3rem}.kkz-zahl span{font-size:.88rem;color:var(--tinte-weich)}
+  .kkz-grammatik{margin:1.4rem 0;padding:1.2rem 1.3rem;border:1px solid #d5dfeb;border-radius:14px;background:linear-gradient(135deg,#eff4f9,#fff)}.kkz-grammatik h3{margin-top:0}.kkz-grammatik .formel{font-family:var(--mono);font-size:.9rem;padding:.55rem .7rem;border-radius:8px;background:#fff;border:1px solid var(--linie)}
+  .kkz-woertersalat{margin:1.4rem 0;padding:1.25rem 1.35rem;border:1px solid #ead7c2;border-radius:14px;background:linear-gradient(135deg,#fff6e9,#fffdf9)}.kkz-woertersalat h3{margin:.2rem 0 .75rem;color:#8a5f38}.kkz-chips{display:flex;flex-wrap:wrap;gap:.45rem;margin:.7rem 0 1rem}.kkz-chips span{padding:.35rem .65rem;border-radius:999px;background:#fff;border:1px solid #ead7c2;font-weight:600}
+  .kkz-verlauf{display:grid;gap:.55rem;margin:1rem 0}.kkz-verlauf div{display:grid;grid-template-columns:8rem 1fr;gap:.8rem;align-items:center;padding:.7rem .85rem;border:1px solid var(--linie);border-radius:10px;background:#fff}.kkz-verlauf strong{color:var(--salbei-tief)}
+  @media(max-width:48rem){.kkz-einstieg__kopf{display:block}.kkz-modus{display:inline-block;margin-top:.55rem}.kkz-grid,.kkz-redemittel{grid-template-columns:1fr}.kkz-zahlen{grid-template-columns:1fr}.kkz-verlauf div{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="module" data-bereich="buero" data-root="../">
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../buero.html">← Büro und Verwaltung</a>
+    <h1><em>Kollegen, Kunden und Zahlen</em></h1>
+    <p class="anleitung">Im Arbeitsalltag sicher sprechen: intern klären, Kundenanliegen aufnehmen, Zahlen verstehen und Entwicklungen beschreiben.</p>
+  </div>
+</header>
+<main class="innen modul modul--breit">
+  <div class="reiter" role="tablist">
+    <button role="tab" aria-selected="true" data-blatt="kollegen">Mit Kolleginnen und Kollegen</button>
+    <button role="tab" aria-selected="false" data-blatt="kunden">Mit Kunden und Geschäftspartnern</button>
+    <button role="tab" aria-selected="false" data-blatt="zahlen">Zahlen, Daten, Beträge</button>
+    <button role="tab" aria-selected="false" data-blatt="grafiken">Zahlen vergleichen und beschreiben</button>
+  </div>
+
+  <section class="blatt" id="blatt-kollegen">
+    <p class="stand-hinweis">Kernteil etwa 20–25 Minuten · Transfer noch einmal 15–20 Minuten</p>
+    <section class="kkz-einstieg">
+      <div class="kkz-einstieg__kopf"><h2>Was müssen Sie mit Kolleginnen und Kollegen häufig klären?</h2><span class="kkz-modus">allein · zu zweit · Kleingruppe</span></div>
+      <p>Notieren Sie nur Stichwörter. Denken Sie an Ihren aktuellen, früheren oder gewünschten Arbeitsplatz.</p>
+      <div class="kkz-grid">
+        <div class="kkz-feld"><label for="kkz-k1">Worum geht es häufig?</label><textarea class="feld" id="kkz-k1" rows="2" placeholder="Aufgaben, Termine, Zuständigkeiten …"></textarea></div>
+        <div class="kkz-feld"><label for="kkz-k2">Wen fragen Sie?</label><textarea class="feld" id="kkz-k2" rows="2" placeholder="Kollegin, Teamleitung, andere Abteilung …"></textarea></div>
+        <div class="kkz-feld"><label for="kkz-k3">Was ist sprachlich schwierig?</label><textarea class="feld" id="kkz-k3" rows="2" placeholder="nachfragen, widersprechen, etwas erklären …"></textarea></div>
+        <div class="kkz-feld"><label for="kkz-k4">Was sagen Sie, wenn Sie etwas nicht verstanden haben?</label><textarea class="feld" id="kkz-k4" rows="2" placeholder="Könnten Sie …?"></textarea></div>
+      </div>
+      <div class="kkz-sprechen"><strong>Jetzt sprechen</strong>Vergleichen Sie zu zweit oder in einer kleinen Gruppe: Welche Situationen kommen bei mehreren Personen vor?</div>
+    </section>
+
+    <h2>Ein kurzer Büroalltag bei KONTOR</h2>
+    <div class="kkz-fall"><h3>Nora braucht eine Information</h3><p>Nora Seidel aus dem Einkauf braucht die aktuelle Lieferzeit für einen Kundenauftrag. Sie weiß nicht, ob Jonas Becker oder Pawel Nowak die Information hat.</p></div>
+    <div id="mc-kollegen"></div>
+
+    <div class="kkz-grammatik">
+      <h3>Passende Grammatik: indirekte Fragen</h3>
+      <p>Im Berufsalltag klingen indirekte Fragen oft kooperativer und höflicher.</p>
+      <p class="formel">Direkt: Wann kommt die Ware? → Indirekt: Wissen Sie, wann die Ware kommt?</p>
+      <p class="formel">Direkt: Hat Pawel die Liste? → Indirekt: Wissen Sie, ob Pawel die Liste hat?</p>
+    </div>
+
+    <h2>Aus einer direkten Frage wird eine indirekte</h2>
+    <div id="z-indirekt"></div><p class="rueckmeldung" id="z-indirekt-rueck" hidden></p>
+
+    <div class="regel">
+      <p><strong>Zu zweit:</strong> Person A braucht eine Information. Person B kennt die Antwort nicht sicher und verweist an eine andere Person. Danach Rollen tauschen.</p>
+      <textarea class="feld" id="kkz-kollegen-transfer" rows="5" placeholder="Wissen Sie, ob …? · Können Sie mir sagen, wann …? · Fragen Sie am besten …"></textarea>
+    </div>
+  </section>
+
+  <section class="blatt" id="blatt-kunden" hidden>
+    <p class="stand-hinweis">Kernteil etwa 20–25 Minuten · Transfer noch einmal 15–20 Minuten</p>
+    <section class="kkz-einstieg">
+      <div class="kkz-einstieg__kopf"><h2>Was möchten Kunden oder Geschäftspartner von Ihnen?</h2><span class="kkz-modus">allein · zu zweit · Kleingruppe</span></div>
+      <div class="kkz-grid">
+        <div class="kkz-feld"><label for="kkz-ku1">Welche Anliegen kommen häufig vor?</label><textarea class="feld" id="kkz-ku1" rows="2" placeholder="Information, Bestellung, Termin, Problem …"></textarea></div>
+        <div class="kkz-feld"><label for="kkz-ku2">Was müssen Sie zuerst klären?</label><textarea class="feld" id="kkz-ku2" rows="2" placeholder="Name, Kundennummer, Termin, Produkt …"></textarea></div>
+        <div class="kkz-feld"><label for="kkz-ku3">Wann müssen Sie weiterleiten?</label><textarea class="feld" id="kkz-ku3" rows="2" placeholder="An welche Person oder Abteilung?"></textarea></div>
+        <div class="kkz-feld"><label for="kkz-ku4">Was ist bei schwierigen Gesprächen wichtig?</label><textarea class="feld" id="kkz-ku4" rows="2" placeholder="ruhig bleiben, nachfragen …"></textarea></div>
+      </div>
+      <div class="kkz-sprechen"><strong>Jetzt sprechen</strong>Vergleichen Sie typische Kundenkontakte. Welche Fragen braucht man fast überall?</div>
+    </section>
+
+    <h2>Vier Schritte für ein Anliegen</h2>
+    <div class="kkz-redemittel">
+      <div><strong>1 · Anliegen aufnehmen</strong>Worum geht es genau? · Was kann ich für Sie tun?</div>
+      <div><strong>2 · Klären</strong>Darf ich kurz nachfragen, ob …? · Können Sie mir bitte … nennen?</div>
+      <div><strong>3 · Nächsten Schritt nennen</strong>Ich prüfe das kurz. · Ich gebe das an … weiter.</div>
+      <div><strong>4 · Abschluss sichern</strong>Sie erhalten bis … eine Rückmeldung. · Ist damit alles geklärt?</div>
+    </div>
+    <div id="mc-kunden"></div>
+
+    <div class="kkz-woertersalat">
+      <span class="marke">Wörtersalat – was passt wann?</span>
+      <h3>sagen · nennen · mitteilen · angeben</h3>
+      <div class="kkz-chips"><span>sagen</span><span>nennen</span><span>mitteilen</span><span>angeben</span></div>
+      <p><strong>sagen</strong> ist allgemein: „Können Sie mir sagen, wann Sie kommen?“</p>
+      <p><strong>nennen</strong> passt zu einzelnen Informationen: „Nennen Sie mir bitte Ihre Kundennummer.“</p>
+      <p><strong>mitteilen</strong> ist formeller und bedeutet informieren: „Bitte teilen Sie uns Ihre neue Adresse mit.“</p>
+      <p><strong>angeben</strong> wird oft bei Daten und Formularen verwendet: „Bitte geben Sie die Rechnungsnummer an.“</p>
+    </div>
+
+    <div class="regel"><p><strong>Rollenspiel:</strong> Ein Kunde hat ein Anliegen, das Sie nicht selbst lösen können. Nehmen Sie es auf, klären Sie zwei Informationen und nennen Sie den nächsten Schritt.</p><textarea class="feld" id="kkz-kunden-transfer" rows="5" placeholder="Worum geht es genau? · Können Sie mir bitte … nennen? · Ich gebe das weiter an …"></textarea></div>
+  </section>
+
+  <section class="blatt" id="blatt-zahlen" hidden>
+    <p class="stand-hinweis">Kernteil etwa 20–25 Minuten · Transfer noch einmal 15–20 Minuten</p>
+    <section class="kkz-einstieg">
+      <div class="kkz-einstieg__kopf"><h2>Welche Zahlen müssen Sie bei der Arbeit sicher verstehen?</h2><span class="kkz-modus">allein · zu zweit · Kleingruppe</span></div>
+      <div class="kkz-grid">
+        <div class="kkz-feld"><label for="kkz-z1">Welche Zahlen kommen häufig vor?</label><textarea class="feld" id="kkz-z1" rows="2" placeholder="Preise, Mengen, Telefonnummern, Termine …"></textarea></div>
+        <div class="kkz-feld"><label for="kkz-z2">Welche Zahlen sind für Sie schwierig?</label><textarea class="feld" id="kkz-z2" rows="2" placeholder="z. B. 13/30, 14/40, große Zahlen …"></textarea></div>
+        <div class="kkz-feld"><label for="kkz-z3">Wann müssen Sie eine Zahl wiederholen?</label><textarea class="feld" id="kkz-z3" rows="2" placeholder="am Telefon, bei Bestellungen …"></textarea></div>
+        <div class="kkz-feld"><label for="kkz-z4">Wie sichern Sie wichtige Zahlen ab?</label><textarea class="feld" id="kkz-z4" rows="2" placeholder="wiederholen, buchstabieren, schriftlich bestätigen …"></textarea></div>
+      </div>
+    </section>
+
+    <h2>Zahlen bei KONTOR</h2>
+    <div class="kkz-zahlen">
+      <div class="kkz-zahl"><strong>1.480,50 €</strong><span>ein­tausend­vier­hundert­achtzig Euro fünfzig</span></div>
+      <div class="kkz-zahl"><strong>7,5 %</strong><span>sieben Komma fünf Prozent</span></div>
+      <div class="kkz-zahl"><strong>040 / 58 31 27</strong><span>Telefonnummern in sinnvollen Gruppen sprechen</span></div>
+      <div class="kkz-zahl"><strong>18.09.2026</strong><span>am achtzehnten September zweitausendsechsundzwanzig</span></div>
+      <div class="kkz-zahl"><strong>2.750 Stück</strong><span>zweitausendsiebenhundertfünfzig Stück</span></div>
+      <div class="kkz-zahl"><strong>3 : 1</strong><span>drei zu eins</span></div>
+    </div>
+    <div id="mc-zahlen"></div>
+
+    <div class="regel"><p><strong>Partnerdiktat:</strong> Notieren Sie fünf echte Zahlen aus Ihrem Arbeitsalltag. Lesen Sie sie vor. Die andere Person schreibt mit und liest anschließend zurück. Kontrollieren Sie gemeinsam.</p><textarea class="feld" id="kkz-zahlen-transfer" rows="6" placeholder="1. …\n2. …\n3. …\n4. …\n5. …"></textarea></div>
+  </section>
+
+  <section class="blatt" id="blatt-grafiken" hidden>
+    <p class="stand-hinweis">Kernteil etwa 25–30 Minuten · Transfer noch einmal 15–20 Minuten</p>
+    <section class="kkz-einstieg">
+      <div class="kkz-einstieg__kopf"><h2>Wo vergleichen Sie bei der Arbeit Zahlen?</h2><span class="kkz-modus">allein · zu zweit · Kleingruppe</span></div>
+      <div class="kkz-grid">
+        <div class="kkz-feld"><label for="kkz-g1">Was wird verglichen?</label><textarea class="feld" id="kkz-g1" rows="2" placeholder="Umsatz, Preise, Stückzahlen, Arbeitszeiten …"></textarea></div>
+        <div class="kkz-feld"><label for="kkz-g2">Womit wird verglichen?</label><textarea class="feld" id="kkz-g2" rows="2" placeholder="Vormonat, Vorjahr, Angebot A/B …"></textarea></div>
+        <div class="kkz-feld"><label for="kkz-g3">Welche Entwicklung ist gut?</label><textarea class="feld" id="kkz-g3" rows="2" placeholder="mehr Bestellungen, weniger Fehler …"></textarea></div>
+        <div class="kkz-feld"><label for="kkz-g4">Welche Entwicklung wäre problematisch?</label><textarea class="feld" id="kkz-g4" rows="2" placeholder="höhere Kosten, längere Wartezeit …"></textarea></div>
+      </div>
+    </section>
+
+    <h2>Eine kleine Monatsauswertung</h2>
+    <div class="kkz-verlauf">
+      <div><strong>Bestellungen</strong><span>Juni: 820 · Juli: 910 · August: 1.040</span></div>
+      <div><strong>Reklamationen</strong><span>Juni: 34 · Juli: 29 · August: 21</span></div>
+      <div><strong>Ø Lieferzeit</strong><span>Juni: 4,8 Tage · Juli: 4,2 Tage · August: 3,9 Tage</span></div>
+    </div>
+    <div id="mc-vergleich"></div>
+
+    <div class="kkz-grammatik">
+      <h3>Passende Grammatik: Vergleichen</h3>
+      <p class="formel">mehr / weniger als · höher / niedriger als · genauso hoch wie</p>
+      <p class="formel">von 820 auf 1.040 steigen · um 220 steigen · gegenüber Juni zunehmen</p>
+      <p><strong>Merke:</strong> <em>um</em> nennt die Veränderung, <em>auf</em> nennt den neuen Wert.</p>
+    </div>
+
+    <div class="kkz-woertersalat">
+      <span class="marke">Wörtersalat – was passt wann?</span>
+      <h3>steigen · zunehmen · erhöhen · wachsen</h3>
+      <p><strong>steigen</strong>: eine Zahl oder ein Wert wird höher – „Die Bestellungen steigen.“</p>
+      <p><strong>zunehmen</strong>: Menge oder Häufigkeit wird größer – „Die Nachfrage nimmt zu.“</p>
+      <p><strong>erhöhen</strong>: jemand macht etwas höher – „Der Lieferant erhöht den Preis.“</p>
+      <p><strong>wachsen</strong>: eher längerfristige Entwicklung – „Das Unternehmen wächst.“</p>
+    </div>
+
+    <div class="regel"><p><strong>Mini-Präsentation:</strong> Beschreiben Sie die drei Entwicklungen bei KONTOR in 60–90 Sekunden. Nennen Sie mindestens einen Vergleich und eine Veränderung mit <em>von … auf</em> oder <em>um …</em>.</p><textarea class="feld" id="kkz-grafik-transfer" rows="6" placeholder="Im August … · Gegenüber Juni … · Die Zahl ist um … gestiegen …"></textarea></div>
+  </section>
+
+  <p class="stand" id="stand"></p>
+  <div class="knopfreihe"><button type="button" class="knopf" id="kopieren">Stand kopieren</button><button type="button" class="knopf" id="zuruecksetzen">Alles zurücksetzen</button></div>
+</main>
+<footer class="fuss">Nur für Kursteilnehmerinnen und Kursteilnehmer</footer>
+<script src="../assets/lehrwerk.js"></script>
+<script>
+Lehrwerk.modul('kollegen-kunden-zahlen');
+Lehrwerk.reiter();
+
+Lehrwerk.auswahl('mc-kollegen',[
+  {id:'kk1',text:'Nora möchte höflich wissen, wann die Ware kommt. Was passt am besten?',optionen:['Wann kommt die Ware?','Können Sie mir sagen, wann die Ware kommt?','Sie sagen mir jetzt die Lieferzeit.'],richtig:['Können Sie mir sagen, wann die Ware kommt?'],erklaerung:'Die indirekte Frage ist höflich und kooperativ.'},
+  {id:'kk2',text:'Nora weiß nicht, ob Pawel die Information hat. Welche Frage passt?',optionen:['Wissen Sie, ob Pawel die aktuelle Lieferzeit kennt?','Wissen Sie, wann kennt Pawel die Lieferzeit?','Kennt ob Pawel die Lieferzeit?'],richtig:['Wissen Sie, ob Pawel die aktuelle Lieferzeit kennt?'],erklaerung:'Bei einer indirekten Ja-/Nein-Frage steht ob; das konjugierte Verb steht am Ende.'},
+  {id:'kk3',text:'Jonas kann nicht helfen. Was ist eine gute Reaktion?',optionen:['Keine Ahnung.','Dafür ist vermutlich Pawel zuständig. Fragen Sie ihn am besten kurz.','Das ist nicht mein Problem.'],richtig:['Dafür ist vermutlich Pawel zuständig. Fragen Sie ihn am besten kurz.'],erklaerung:'Die Antwort nennt einen nächsten Schritt statt nur die eigene Unzuständigkeit.'}
+]);
+Lehrwerk.zuordnen('z-indirekt',{rueck:'z-indirekt-rueck',paare:[
+  {id:'ki1',links:'Wann kommt die Lieferung?',rechts:'Können Sie mir sagen, wann die Lieferung kommt?'},
+  {id:'ki2',links:'Ist die Rechnung schon geprüft?',rechts:'Wissen Sie, ob die Rechnung schon geprüft ist?'},
+  {id:'ki3',links:'Wer ist dafür zuständig?',rechts:'Können Sie mir sagen, wer dafür zuständig ist?'},
+  {id:'ki4',links:'Hat der Kunde schon geantwortet?',rechts:'Wissen Sie, ob der Kunde schon geantwortet hat?'}
+]});
+
+Lehrwerk.auswahl('mc-kunden',[
+  {id:'ku1',text:'Ein Kunde sagt nur: „Es geht um meine Bestellung.“ Was tun Sie zuerst?',optionen:['Sofort weiterverbinden','Das Anliegen genauer klären','Eine neue Bestellung anlegen'],richtig:['Das Anliegen genauer klären'],erklaerung:'Zuerst braucht man genug Informationen, um zuständig zu handeln oder richtig weiterzuleiten.'},
+  {id:'ku2',text:'Welche Formulierung passt zu einer Kundennummer?',optionen:['Sagen Sie die Kundennummer irgendwie.','Nennen Sie mir bitte Ihre Kundennummer.','Erzählen Sie Ihre Kundennummer.'],richtig:['Nennen Sie mir bitte Ihre Kundennummer.'],erklaerung:'nennen passt gut zu einer einzelnen konkreten Information.'},
+  {id:'ku3',text:'Sie können das Problem nicht selbst lösen. Was ist professionell?',optionen:['Da bin ich nicht zuständig.','Ich gebe Ihr Anliegen an die zuständige Kollegin weiter. Sie erhalten bis morgen eine Rückmeldung.','Rufen Sie später noch einmal an.'],richtig:['Ich gebe Ihr Anliegen an die zuständige Kollegin weiter. Sie erhalten bis morgen eine Rückmeldung.'],erklaerung:'Die Formulierung verbindet Weiterleitung mit einem klaren nächsten Schritt.'}
+]);
+
+Lehrwerk.auswahl('mc-zahlen',[
+  {id:'z1',text:'Wie liest man 7,5 %?',optionen:['sieben Punkt fünf Prozent','sieben Komma fünf Prozent','sieben und fünf Prozent'],richtig:['sieben Komma fünf Prozent'],erklaerung:'Das Dezimaltrennzeichen wird im Deutschen als Komma gesprochen.'},
+  {id:'z2',text:'Welche Rückfrage sichert eine wichtige Zahl am besten ab?',optionen:['Wie war das?','Habe ich richtig verstanden: 1.480 Euro und 50 Cent?','Noch mal!'],richtig:['Habe ich richtig verstanden: 1.480 Euro und 50 Cent?'],erklaerung:'Wichtige Zahlen sollte man vollständig zurücklesen.'},
+  {id:'z3',text:'Wie sagt man 3 : 1?',optionen:['drei gegen eins','drei zu eins','drei durch eins'],richtig:['drei zu eins'],erklaerung:'Verhältnisse werden mit zu gesprochen.'}
+]);
+
+Lehrwerk.auswahl('mc-vergleich',[
+  {id:'v1',text:'Die Bestellungen gehen von 820 auf 1.040. Welche Aussage stimmt?',optionen:['Sie steigen um 220.','Sie steigen auf 220.','Sie erhöhen sich von 220.'],richtig:['Sie steigen um 220.'],erklaerung:'um nennt die Veränderung: 1.040 minus 820 = 220.'},
+  {id:'v2',text:'Die Reklamationen gehen von 34 auf 21. Welche Formulierung passt?',optionen:['Die Reklamationen nehmen ab.','Die Reklamationen erhöhen sich.','Die Reklamationen wachsen.'],richtig:['Die Reklamationen nehmen ab.'],erklaerung:'Wenn die Zahl kleiner wird, nimmt sie ab oder sinkt.'},
+  {id:'v3',text:'August: 3,9 Tage; Juni: 4,8 Tage. Welche Aussage ist korrekt?',optionen:['Die Lieferzeit ist im August niedriger als im Juni.','Die Lieferzeit ist im August mehr als im Juni.','Die Lieferzeit ist im August höher wie im Juni.'],richtig:['Die Lieferzeit ist im August niedriger als im Juni.'],erklaerung:'Beim Komparativ steht als: niedriger als.'},
+  {id:'v4',text:'Wer macht aktiv einen Preis höher?',optionen:['Der Preis steigt.','Der Lieferant erhöht den Preis.','Der Preis nimmt den Lieferanten zu.'],richtig:['Der Lieferant erhöht den Preis.'],erklaerung:'erhöhen ist transitiv: Jemand erhöht etwas.'}
+]);
+
+['kkz-k1','kkz-k2','kkz-k3','kkz-k4','kkz-kollegen-transfer','kkz-ku1','kkz-ku2','kkz-ku3','kkz-ku4','kkz-kunden-transfer','kkz-z1','kkz-z2','kkz-z3','kkz-z4','kkz-zahlen-transfer','kkz-g1','kkz-g2','kkz-g3','kkz-g4','kkz-grafik-transfer'].forEach(id=>Lehrwerk.frei(id));
+Lehrwerk.abschluss();
+</script>
+</body>
+</html>
