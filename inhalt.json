@@ -1049,15 +1049,16 @@
           "module": [
             {
               "titel": "Adjektivendungen",
-              "beschreibung": "Bis sie automatisch kommen, nicht nur richtig sind.",
+              "beschreibung": "Fünf Endungen, ein Kennbuchstabe, drei Situationen — mit Genitiv, den Mengenwörtern viele und alle und dem artikellosen Nominalstil der Geschäftssprache.",
               "pfad": "adjektivendungen.html",
-              "niveau": "B2",
-              "dauer": "45 Min",
+              "niveau": "B2–C1",
+              "dauer": "90 Min",
               "fertigkeiten": [
                 "Üben",
-                "Sprechen"
+                "Sprechen",
+                "Schreiben"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "Nullartikel",

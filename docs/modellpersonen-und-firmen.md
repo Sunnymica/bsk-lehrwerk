@@ -489,7 +489,7 @@ etwas, wir setzen etwas an die Stelle. Die 919 Fundstellen werden nach einem
 |---|---|---|
 | `KONTOR AG` | 24 | bleibt (Standard, siehe Abschnitt 5) |
 | `KONTOR AG · Hamburg / Berlin / München` | mehrere Kopfzeilen | bleibt |
-| `KONTOR Büro und Logistik` | 0 | nur Leitlinie — dort anzupassen |
+| `KONTOR Büro und Logistik` | 0 | nur Leitlinie — **am 2026-08-18 dort nachgezogen, Punkt erledigt** |
 | `JBSKK26_1` | **27** | **streichen** |
 
 Die beiden Mengen überschneiden sich weitgehend, sind aber nicht identisch:

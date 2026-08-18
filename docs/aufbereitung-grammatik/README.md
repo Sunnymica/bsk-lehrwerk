@@ -40,9 +40,18 @@ Jedes Paket folgt der 14-Punkte-Struktur aus dem Gesamtauftrag (Abschnitt
 | 21 | Partizipialattribute | [partizipialattribute.md](partizipialattribute.md) | fertig |
 | 22 | Nominalisierung und Verbalisierung | [nominalisierung-verbalisierung.md](nominalisierung-verbalisierung.md) | fertig |
 | 23 | Stilistische Satzverdichtung | [stilistische-satzverdichtung.md](stilistische-satzverdichtung.md) | fertig |
+| 24 | Adjektivdeklination | [adjektivdeklination.md](adjektivdeklination.md) | fertig |
 
 Die Themenliste des Auftrags ist ausdrücklich nicht abschließend. Weitere
 Dateien werden nach fachlichem Bedarf ergänzt.
+
+**Nachtrag 2026-08-18 — Paket 24.** Die Adjektivdeklination war in der
+ursprünglichen Themenliste nicht enthalten, weil das Inventar sie als Thema
+ohne Eigenmaterial führte. Mit dem Google-Sites-Bestand liegen dazu **drei
+eigene Module** vor; die Matrix des Grammatikblocks weist das Thema als
+größte Lücke aus. Das Paket schließt sie und ergänzt gegenüber dem
+Altbestand Genitiv, Mengenwörter, substantivierte Adjektive und den
+artikellosen Nominalstil.
 
 ---
 
@@ -50,8 +59,9 @@ Dateien werden nach fachlichem Bedarf ergänzt.
 
 Die Pakete verlinken untereinander. **Alle Querverweise sind aufgelöst** —
 geprüft am 2026-08-14: 190 interne Verweise, alle 23 Zielpfade existieren,
-kein toter Link. Diese Tabelle bleibt die maßgebliche Auskunft darüber, was
-existiert.
+kein toter Link. Nachgeprüft am 2026-08-18 für Paket 24: sechs weitere
+Verweise, alle Ziele vorhanden. Diese Tabelle bleibt die maßgebliche Auskunft
+darüber, was existiert.
 
 Die Verweise sind nicht dekorativ: Sie markieren fachliche Abhängigkeiten und
 sind bei der Kursplanung zu beachten. Drei Reihenfolgen sind zwingend:

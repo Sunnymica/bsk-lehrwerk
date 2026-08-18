@@ -5,7 +5,7 @@ werden, die inhaltlich schon durch ein Themenpaket abgedeckt sind — und
 umgekehrt sichtbar zu machen, wo weder Paket noch Modul existiert.
 
 **Stand der Zählung:** 56 HTML-Dateien in `altmaterial/google-sites-module/Grammatik/`,
-23 Themenpakete in `docs/aufbereitung-grammatik/`, 5 produktive Module in `grammatik/`.
+24 Themenpakete in `docs/aufbereitung-grammatik/`, 18 produktive Module in `grammatik/`.
 
 ---
 
@@ -43,14 +43,15 @@ Pakets. Ein eigenes Grammatikmodul bleibt sinnvoll.
 Das sind die dankbarsten Fälle: Die fachliche Aufbereitung ist fertig, es fehlt
 nur die Umsetzung als Modul.
 
-**Stand nach dem Commit `d2e15a1`: 8 von 12 gebaut.** Es verbleiben:
+**Abschnitt abgeschlossen: 12 von 12 gebaut** (Stand `856f3d4` zuzüglich des
+laufenden Adjektivendungs-Commits). Die vier zuletzt offenen Fälle:
 
-| Altmodul(e) | Paket | Bemerkung |
+| Altmodul(e) | Paket | produktives Modul |
 |---|---|---|
-| `Konnektoren/doppelte konnektoren/` (2) | `konnektoren.md` | zweiteilige Konnektoren; Grundlagen in `kundengespraeche-sprechen.html` |
-| `Konnektoren/C1_Konnektoren_bedingung_folge.html` | `konnektoren.md` | **A-Fehler dokumentiert** — vor dem Bau prüfen |
-| `konjunktiv/konjunktiv.html` | `konjunktiv-ii.md` | allgemeiner als `buero/beschwerden-konjunktiv.html` |
-| `satzstellung/satzstellung.html` (2 Fassungen), `Spiele/verposition.html` | `informationsstruktur.md` | **noch nicht zugeordnet gewesen** — Vorfeld, Thema und Rhema. Eigener Gegenstand, nicht Teil der Mittelfeldfrage; grenzt an `tekamolo.html` und muss dort abgegrenzt werden |
+| `Konnektoren/doppelte konnektoren/` (2) | `konnektoren.md` | `grammatik/zweiteilige-konnektoren.html` |
+| `Konnektoren/C1_Konnektoren_bedingung_folge.html` | `konnektoren.md` | `grammatik/bedingung-ausnahme.html` — A-Fehler vor dem Bau geprüft und dokumentiert |
+| `konjunktiv/konjunktiv.html` | `konjunktiv-ii.md` | `grammatik/konjunktiv-2.html` |
+| `satzstellung/satzstellung.html` (2 Fassungen), `Spiele/verposition.html` | `informationsstruktur.md` | `grammatik/informationsstruktur.html` — Abgrenzung zu `tekamolo.html` dort vorgenommen |
 
 ---
 
@@ -61,8 +62,8 @@ ohne Grundlage.
 
 | Altmodul(e) | Thema | Einschätzung |
 |---|---|---|
-| `adjektivendungen/` — 3 Dateien | Adjektivdeklination | **die größte Lücke.** Kernthema B1/B2, drei Altmodule, kein Paket |
-| `kasus/4 faelle.html` | Kasus | Grundlagenthema, liegt unter fast allem anderen |
+| ~~`adjektivendungen/` — 3 Dateien~~ | ~~Adjektivdeklination~~ | **erledigt** — Paket [aufbereitung-grammatik/adjektivdeklination.md](aufbereitung-grammatik/adjektivdeklination.md), Modul `grammatik/adjektivendungen.html` |
+| `kasus/4 faelle.html` | Kasus | Grundlagenthema, liegt unter fast allem anderen — **jetzt der nächste Fall**, weil das Adjektivmodul sichere Kasuszuweisung voraussetzt |
 | `das wort es/` — 3 Dateien | Funktionen von *es* | anspruchsvoll, im Paketbestand gar nicht vertreten |
 | `Reflexive Verben/reflexive verben.html` | Reflexive Verben | kein Paket |
 | `nullartikel/nullartikel.html` | Nullartikel | kein Paket |
@@ -132,6 +133,11 @@ zügig und liefert schnell nutzbare Module. Innerhalb davon zuerst
 **Dann Abschnitt 3**, aber jeweils mit vorgeschalteter Aufbereitung. Zuerst
 **Adjektivendungen** — Kernthema, drei Altmodule, keine Grundlage. Danach
 **Kasus**, weil es unter fast allem anderen liegt.
+
+*Stand 2026-08-18:* Abschnitt 2 ist abgearbeitet, Adjektivendungen ebenfalls.
+Als Nächstes steht **Kasus** an. Das ist keine freie Wahl mehr, sondern eine
+Abhängigkeit: Das Adjektivmodul verlangt sichere Kasuszuweisung, und solange
+dazu kein Modul existiert, muss die Lehrkraft den Fall selbst vorschalten.
 
 **Abschnitt 4 zuletzt.** Neubau ohne Vorlage ist der aufwendigste Fall und
 sollte warten, bis der Bestand gesichert ist.

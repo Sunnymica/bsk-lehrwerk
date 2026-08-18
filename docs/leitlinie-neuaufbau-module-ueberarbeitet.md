@@ -362,7 +362,9 @@ Bei der Neuaufbereitung:
 
 Wenn die Personalisierung Teil eines starken didaktischen Konzepts ist, soll nicht das alte Modul übernommen, sondern das **Konzept neu aufgebaut** werden.
 
-Als bestehender Modellrahmen ist die bereits definierte Modellfirma **KONTOR Büro und Logistik** mit ihren vorhandenen Modellpersonen zu verwenden. Nicht ohne fachlichen Grund neue Modellfirmen oder weitere Personen erfinden.
+Als bestehender Modellrahmen ist die bereits definierte Modellfirma **KONTOR AG** — im Fließtext kurz **KONTOR** — mit ihren vorhandenen Modellpersonen zu verwenden. Nicht ohne fachlichen Grund neue Modellfirmen oder weitere Personen erfinden.
+
+> **Nachtrag 2026-08-18:** Hier stand bis zuletzt die Langform *KONTOR Büro und Logistik*. Sie ist mit Reginas Entscheidung vom 2026-08-15 ersatzlos entfallen; verbindlich ist allein `KONTOR AG`. Maßgebliche Quelle für Firma und Modellpersonen ist [modellpersonen-und-firmen.md](modellpersonen-und-firmen.md).
 
 ### Die tragende Regel: allgemeine Aufgabe, persönliche Antwort
 
