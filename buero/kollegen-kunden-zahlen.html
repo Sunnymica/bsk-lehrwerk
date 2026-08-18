@@ -21,9 +21,11 @@
   .kkz-redemittel{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin:1rem 0}.kkz-redemittel div{padding:.85rem 1rem;border:1px solid var(--linie);border-radius:10px;background:#fff}.kkz-redemittel strong{display:block;margin-bottom:.2rem;color:var(--rose-tief)}
   .kkz-zahlen{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;margin:1rem 0}.kkz-zahl{padding:1rem;border:1px solid var(--linie);border-radius:12px;background:#fff;text-align:center}.kkz-zahl strong{display:block;font-size:1.25rem;margin-bottom:.3rem}.kkz-zahl span{font-size:.88rem;color:var(--tinte-weich)}
   .kkz-grammatik{margin:1.4rem 0;padding:1.2rem 1.3rem;border:1px solid #d5dfeb;border-radius:14px;background:linear-gradient(135deg,#eff4f9,#fff)}.kkz-grammatik h3{margin-top:0}.kkz-grammatik .formel{font-family:var(--mono);font-size:.9rem;padding:.55rem .7rem;border-radius:8px;background:#fff;border:1px solid var(--linie)}
+  .kkz-frageanfang{display:flex;flex-wrap:wrap;gap:.45rem;margin:.8rem 0}.kkz-frageanfang span{padding:.4rem .65rem;border-radius:999px;background:#fff;border:1px solid #d5dfeb;font-size:.88rem}
   .kkz-woertersalat{margin:1.4rem 0;padding:1.25rem 1.35rem;border:1px solid #ead7c2;border-radius:14px;background:linear-gradient(135deg,#fff6e9,#fffdf9)}.kkz-woertersalat h3{margin:.2rem 0 .75rem;color:#8a5f38}.kkz-chips{display:flex;flex-wrap:wrap;gap:.45rem;margin:.7rem 0 1rem}.kkz-chips span{padding:.35rem .65rem;border-radius:999px;background:#fff;border:1px solid #ead7c2;font-weight:600}
   .kkz-verlauf{display:grid;gap:.55rem;margin:1rem 0}.kkz-verlauf div{display:grid;grid-template-columns:8rem 1fr;gap:.8rem;align-items:center;padding:.7rem .85rem;border:1px solid var(--linie);border-radius:10px;background:#fff}.kkz-verlauf strong{color:var(--salbei-tief)}
-  @media(max-width:48rem){.kkz-einstieg__kopf{display:block}.kkz-modus{display:inline-block;margin-top:.55rem}.kkz-grid,.kkz-redemittel{grid-template-columns:1fr}.kkz-zahlen{grid-template-columns:1fr}.kkz-verlauf div{grid-template-columns:1fr}}
+  .kkz-szenen{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin:1rem 0 1.25rem}.kkz-szene{padding:1rem 1.05rem;border:1px solid var(--linie);border-radius:12px;background:#fff}.kkz-szene h3{margin:.1rem 0 .55rem;color:var(--rose-tief)}.kkz-szene p{margin:.35rem 0;font-size:.92rem}.kkz-szene strong{color:var(--tinte)}
+  @media(max-width:48rem){.kkz-einstieg__kopf{display:block}.kkz-modus{display:inline-block;margin-top:.55rem}.kkz-grid,.kkz-redemittel,.kkz-szenen{grid-template-columns:1fr}.kkz-zahlen{grid-template-columns:1fr}.kkz-verlauf div{grid-template-columns:1fr}}
 </style>
 </head>
 <body data-page="module" data-bereich="buero" data-root="../">
@@ -46,6 +48,7 @@
     <p class="stand-hinweis">Kernteil etwa 20–25 Minuten · Transfer noch einmal 15–20 Minuten</p>
     <section class="kkz-einstieg">
       <div class="kkz-einstieg__kopf"><h2>Was müssen Sie mit Kolleginnen und Kollegen häufig klären?</h2><span class="kkz-modus">allein · zu zweit · Kleingruppe</span></div>
+      <p>Ein Termin verschiebt sich, eine Aufgabe ist unklar oder eine Information fehlt – solche kleinen Abstimmungen gehören in vielen Betrieben fast jeden Tag zur Arbeit.</p>
       <p>Notieren Sie nur Stichwörter. Denken Sie an Ihren aktuellen, früheren oder gewünschten Arbeitsplatz.</p>
       <div class="kkz-grid">
         <div class="kkz-feld"><label for="kkz-k1">Worum geht es häufig?</label><textarea class="feld" id="kkz-k1" rows="2" placeholder="Aufgaben, Termine, Zuständigkeiten …"></textarea></div>
@@ -53,7 +56,7 @@
         <div class="kkz-feld"><label for="kkz-k3">Was ist sprachlich schwierig?</label><textarea class="feld" id="kkz-k3" rows="2" placeholder="nachfragen, widersprechen, etwas erklären …"></textarea></div>
         <div class="kkz-feld"><label for="kkz-k4">Was sagen Sie, wenn Sie etwas nicht verstanden haben?</label><textarea class="feld" id="kkz-k4" rows="2" placeholder="Könnten Sie …?"></textarea></div>
       </div>
-      <div class="kkz-sprechen"><strong>Jetzt sprechen</strong>Vergleichen Sie zu zweit oder in einer kleinen Gruppe: Welche Situationen kommen bei mehreren Personen vor?</div>
+      <div class="kkz-sprechen"><strong>Jetzt sprechen</strong>Erklären Sie einander zwei typische Situationen: Was muss geklärt werden, wen fragen Sie und was könnten Sie sagen? Wählen Sie anschließend eine Situation aus Ihrer Gruppe und nennen Sie zwei passende Sätze.</div>
     </section>
 
     <h2>Ein kurzer Büroalltag bei KONTOR</h2>
@@ -62,9 +65,17 @@
 
     <div class="kkz-grammatik">
       <h3>Passende Grammatik: indirekte Fragen</h3>
-      <p>Im Berufsalltag klingen indirekte Fragen oft kooperativer und höflicher.</p>
-      <p class="formel">Direkt: Wann kommt die Ware? → Indirekt: Wissen Sie, wann die Ware kommt?</p>
-      <p class="formel">Direkt: Hat Pawel die Liste? → Indirekt: Wissen Sie, ob Pawel die Liste hat?</p>
+      <p>Im Berufsalltag klingen indirekte Fragen oft kooperativer und höflicher. Sie müssen nicht immer mit <em>Wissen Sie …?</em> beginnen.</p>
+      <div class="kkz-frageanfang">
+        <span>Könnten Sie mir sagen, …?</span>
+        <span>Haben Sie eine Idee, …?</span>
+        <span>Wissen Sie zufällig, …?</span>
+        <span>Darf ich kurz fragen, ob …?</span>
+        <span>Können Sie mir sagen, ob …?</span>
+      </div>
+      <p class="formel">Direkt: Wann kommt die Ware? → Indirekt: Könnten Sie mir sagen, wann die Ware kommt?</p>
+      <p class="formel">Direkt: Hat Pawel die Liste? → Indirekt: Darf ich kurz fragen, ob Pawel die Liste hat?</p>
+      <p><strong>Merke:</strong> Bei einer Frage mit Fragewort bleibt das Fragewort erhalten. Bei einer Ja-/Nein-Frage steht <em>ob</em>. Das konjugierte Verb steht am Ende.</p>
     </div>
 
     <h2>Aus einer direkten Frage wird eine indirekte</h2>
@@ -72,7 +83,7 @@
 
     <div class="regel">
       <p><strong>Zu zweit:</strong> Person A braucht eine Information. Person B kennt die Antwort nicht sicher und verweist an eine andere Person. Danach Rollen tauschen.</p>
-      <textarea class="feld" id="kkz-kollegen-transfer" rows="5" placeholder="Wissen Sie, ob …? · Können Sie mir sagen, wann …? · Fragen Sie am besten …"></textarea>
+      <textarea class="feld" id="kkz-kollegen-transfer" rows="5" placeholder="Könnten Sie mir sagen, …? · Wissen Sie zufällig, ob …? · Darf ich kurz fragen, …? · Fragen Sie am besten …"></textarea>
     </div>
   </section>
 
@@ -80,13 +91,15 @@
     <p class="stand-hinweis">Kernteil etwa 20–25 Minuten · Transfer noch einmal 15–20 Minuten</p>
     <section class="kkz-einstieg">
       <div class="kkz-einstieg__kopf"><h2>Was möchten Kunden oder Geschäftspartner von Ihnen?</h2><span class="kkz-modus">allein · zu zweit · Kleingruppe</span></div>
+      <p>Ein Kunde ruft an, ein Geschäftspartner schreibt eine E-Mail oder jemand steht am Empfang – oft müssen Sie zuerst herausfinden, worum es genau geht und wer weiterhelfen kann.</p>
       <div class="kkz-grid">
         <div class="kkz-feld"><label for="kkz-ku1">Welche Anliegen kommen häufig vor?</label><textarea class="feld" id="kkz-ku1" rows="2" placeholder="Information, Bestellung, Termin, Problem …"></textarea></div>
         <div class="kkz-feld"><label for="kkz-ku2">Was müssen Sie zuerst klären?</label><textarea class="feld" id="kkz-ku2" rows="2" placeholder="Name, Kundennummer, Termin, Produkt …"></textarea></div>
-        <div class="kkz-feld"><label for="kkz-ku3">Wann müssen Sie weiterleiten?</label><textarea class="feld" id="kkz-ku3" rows="2" placeholder="An welche Person oder Abteilung?"></textarea></div>
+        <div class="kkz-feld"><label for="kkz-ku3">Welche Anliegen müssen Sie weiterleiten?</label><textarea class="feld" id="kkz-ku3" rows="2" placeholder="z. B. Reklamation, Rechnung, technische Frage …"></textarea></div>
         <div class="kkz-feld"><label for="kkz-ku4">Was ist bei schwierigen Gesprächen wichtig?</label><textarea class="feld" id="kkz-ku4" rows="2" placeholder="ruhig bleiben, nachfragen …"></textarea></div>
       </div>
-      <div class="kkz-sprechen"><strong>Jetzt sprechen</strong>Vergleichen Sie typische Kundenkontakte. Welche Fragen braucht man fast überall?</div>
+      <div class="kkz-sprechen"><strong>Jetzt sprechen</strong>Vergleichen Sie typische Kundenkontakte. Sammelt gemeinsam drei Fragen, die man in vielen Betrieben brauchen kann – zum Beispiel zu Name, Auftrag, Termin oder Problem.</div>
+      <div class="kkz-feld" style="margin-top:1rem"><label for="kkz-kunden-fragen">Unsere drei Fragen</label><textarea class="feld" id="kkz-kunden-fragen" rows="3" placeholder="1. Worum geht es genau?\n2. Könnten Sie mir bitte sagen, …?\n3. Darf ich kurz fragen, ob …?"></textarea></div>
     </section>
 
     <h2>Vier Schritte für ein Anliegen</h2>
@@ -108,7 +121,14 @@
       <p><strong>angeben</strong> wird oft bei Daten und Formularen verwendet: „Bitte geben Sie die Rechnungsnummer an.“</p>
     </div>
 
-    <div class="regel"><p><strong>Rollenspiel:</strong> Ein Kunde hat ein Anliegen, das Sie nicht selbst lösen können. Nehmen Sie es auf, klären Sie zwei Informationen und nennen Sie den nächsten Schritt.</p><textarea class="feld" id="kkz-kunden-transfer" rows="5" placeholder="Worum geht es genau? · Können Sie mir bitte … nennen? · Ich gebe das weiter an …"></textarea></div>
+    <h2>Drei Szenen fürs Rollenspiel</h2>
+    <p>Wählen Sie eine Karte. Person A ist Kunde oder Geschäftspartner, Person B nimmt das Anliegen auf. Klären Sie mindestens zwei Informationen und nennen Sie einen konkreten nächsten Schritt. Danach Rollen tauschen.</p>
+    <div class="kkz-szenen">
+      <article class="kkz-szene"><h3>1 · Lieferung verspätet</h3><p><strong>Anliegen:</strong> Eine Bestellung ist noch nicht angekommen.</p><p><strong>Klären:</strong> Auftragsnummer, erwarteter Liefertermin.</p><p><strong>Weiter an:</strong> Lager oder Versand.</p></article>
+      <article class="kkz-szene"><h3>2 · Rechnung unklar</h3><p><strong>Anliegen:</strong> Der Rechnungsbetrag scheint nicht zu stimmen.</p><p><strong>Klären:</strong> Rechnungsnummer, welcher Betrag oder Posten unklar ist.</p><p><strong>Weiter an:</strong> Buchhaltung.</p></article>
+      <article class="kkz-szene"><h3>3 · Ware beschädigt</h3><p><strong>Anliegen:</strong> Ein gelieferter Artikel ist beschädigt.</p><p><strong>Klären:</strong> Auftragsnummer, welcher Artikel und welcher Schaden.</p><p><strong>Weiter an:</strong> Verkauf/Kundenservice oder Reklamation.</p></article>
+    </div>
+    <div class="regel"><p><strong>Rollenspiel:</strong> Nehmen Sie das Anliegen auf, klären Sie zwei Informationen und nennen Sie den nächsten Schritt.</p><textarea class="feld" id="kkz-kunden-transfer" rows="5" placeholder="Worum geht es genau? · Könnten Sie mir bitte sagen, wie …? · Darf ich kurz fragen, ob …? · Ich gebe das weiter an …"></textarea></div>
   </section>
 
   <section class="blatt" id="blatt-zahlen" hidden>
@@ -186,20 +206,20 @@ Lehrwerk.modul('kollegen-kunden-zahlen');
 Lehrwerk.reiter();
 
 Lehrwerk.auswahl('mc-kollegen',[
-  {id:'kk1',text:'Nora möchte höflich wissen, wann die Ware kommt. Was passt am besten?',optionen:['Wann kommt die Ware?','Können Sie mir sagen, wann die Ware kommt?','Sie sagen mir jetzt die Lieferzeit.'],richtig:['Können Sie mir sagen, wann die Ware kommt?'],erklaerung:'Die indirekte Frage ist höflich und kooperativ.'},
-  {id:'kk2',text:'Nora weiß nicht, ob Pawel die Information hat. Welche Frage passt?',optionen:['Wissen Sie, ob Pawel die aktuelle Lieferzeit kennt?','Wissen Sie, wann kennt Pawel die Lieferzeit?','Kennt ob Pawel die Lieferzeit?'],richtig:['Wissen Sie, ob Pawel die aktuelle Lieferzeit kennt?'],erklaerung:'Bei einer indirekten Ja-/Nein-Frage steht ob; das konjugierte Verb steht am Ende.'},
+  {id:'kk1',text:'Nora möchte höflich wissen, wann die Ware kommt. Was passt am besten?',optionen:['Wann kommt die Ware?','Könnten Sie mir sagen, wann die Ware kommt?','Sie sagen mir jetzt die Lieferzeit.'],richtig:['Könnten Sie mir sagen, wann die Ware kommt?'],erklaerung:'Die indirekte Frage ist höflich und kooperativ.'},
+  {id:'kk2',text:'Nora weiß nicht, ob Pawel die Information hat. Welche Frage passt?',optionen:['Wissen Sie zufällig, ob Pawel die aktuelle Lieferzeit kennt?','Wissen Sie, wann kennt Pawel die Lieferzeit?','Kennt ob Pawel die Lieferzeit?'],richtig:['Wissen Sie zufällig, ob Pawel die aktuelle Lieferzeit kennt?'],erklaerung:'Bei einer indirekten Ja-/Nein-Frage steht ob; das konjugierte Verb steht am Ende.'},
   {id:'kk3',text:'Jonas kann nicht helfen. Was ist eine gute Reaktion?',optionen:['Keine Ahnung.','Dafür ist vermutlich Pawel zuständig. Fragen Sie ihn am besten kurz.','Das ist nicht mein Problem.'],richtig:['Dafür ist vermutlich Pawel zuständig. Fragen Sie ihn am besten kurz.'],erklaerung:'Die Antwort nennt einen nächsten Schritt statt nur die eigene Unzuständigkeit.'}
 ]);
 Lehrwerk.zuordnen('z-indirekt',{rueck:'z-indirekt-rueck',paare:[
-  {id:'ki1',links:'Wann kommt die Lieferung?',rechts:'Können Sie mir sagen, wann die Lieferung kommt?'},
-  {id:'ki2',links:'Ist die Rechnung schon geprüft?',rechts:'Wissen Sie, ob die Rechnung schon geprüft ist?'},
-  {id:'ki3',links:'Wer ist dafür zuständig?',rechts:'Können Sie mir sagen, wer dafür zuständig ist?'},
-  {id:'ki4',links:'Hat der Kunde schon geantwortet?',rechts:'Wissen Sie, ob der Kunde schon geantwortet hat?'}
+  {id:'ki1',links:'Wann kommt die Lieferung?',rechts:'Könnten Sie mir sagen, wann die Lieferung kommt?'},
+  {id:'ki2',links:'Ist die Rechnung schon geprüft?',rechts:'Darf ich kurz fragen, ob die Rechnung schon geprüft ist?'},
+  {id:'ki3',links:'Wer ist dafür zuständig?',rechts:'Haben Sie eine Idee, wer dafür zuständig ist?'},
+  {id:'ki4',links:'Hat der Kunde schon geantwortet?',rechts:'Wissen Sie zufällig, ob der Kunde schon geantwortet hat?'}
 ]});
 
 Lehrwerk.auswahl('mc-kunden',[
   {id:'ku1',text:'Ein Kunde sagt nur: „Es geht um meine Bestellung.“ Was tun Sie zuerst?',optionen:['Sofort weiterverbinden','Das Anliegen genauer klären','Eine neue Bestellung anlegen'],richtig:['Das Anliegen genauer klären'],erklaerung:'Zuerst braucht man genug Informationen, um zuständig zu handeln oder richtig weiterzuleiten.'},
-  {id:'ku2',text:'Welche Formulierung passt zu einer Kundennummer?',optionen:['Sagen Sie die Kundennummer irgendwie.','Nennen Sie mir bitte Ihre Kundennummer.','Erzählen Sie Ihre Kundennummer.'],richtig:['Nennen Sie mir bitte Ihre Kundennummer.'],erklaerung:'nennen passt gut zu einer einzelnen konkreten Information.'},
+  {id:'ku2',text:'Welche Formulierung passt zu einer Kundennummer?',optionen:['Sagen Sie die Kundennummer irgendwie.','Könnten Sie mir bitte sagen, wie Ihre Kundennummer lautet?','Erzählen Sie Ihre Kundennummer.'],richtig:['Könnten Sie mir bitte sagen, wie Ihre Kundennummer lautet?'],erklaerung:'Die indirekte Frage ist höflich; für einzelne konkrete Informationen passt außerdem nennen: „Nennen Sie mir bitte Ihre Kundennummer.“'},
   {id:'ku3',text:'Sie können das Problem nicht selbst lösen. Was ist professionell?',optionen:['Da bin ich nicht zuständig.','Ich gebe Ihr Anliegen an die zuständige Kollegin weiter. Sie erhalten bis morgen eine Rückmeldung.','Rufen Sie später noch einmal an.'],richtig:['Ich gebe Ihr Anliegen an die zuständige Kollegin weiter. Sie erhalten bis morgen eine Rückmeldung.'],erklaerung:'Die Formulierung verbindet Weiterleitung mit einem klaren nächsten Schritt.'}
 ]);
 
@@ -216,7 +236,7 @@ Lehrwerk.auswahl('mc-vergleich',[
   {id:'v4',text:'Wer macht aktiv einen Preis höher?',optionen:['Der Preis steigt.','Der Lieferant erhöht den Preis.','Der Preis nimmt den Lieferanten zu.'],richtig:['Der Lieferant erhöht den Preis.'],erklaerung:'erhöhen ist transitiv: Jemand erhöht etwas.'}
 ]);
 
-['kkz-k1','kkz-k2','kkz-k3','kkz-k4','kkz-kollegen-transfer','kkz-ku1','kkz-ku2','kkz-ku3','kkz-ku4','kkz-kunden-transfer','kkz-z1','kkz-z2','kkz-z3','kkz-z4','kkz-zahlen-transfer','kkz-g1','kkz-g2','kkz-g3','kkz-g4','kkz-grafik-transfer'].forEach(id=>Lehrwerk.frei(id));
+['kkz-k1','kkz-k2','kkz-k3','kkz-k4','kkz-kollegen-transfer','kkz-ku1','kkz-ku2','kkz-ku3','kkz-ku4','kkz-kunden-fragen','kkz-kunden-transfer','kkz-z1','kkz-z2','kkz-z3','kkz-z4','kkz-zahlen-transfer','kkz-g1','kkz-g2','kkz-g3','kkz-g4','kkz-grafik-transfer'].forEach(id=>Lehrwerk.frei(id));
 Lehrwerk.abschluss();
 </script>
 </body>
