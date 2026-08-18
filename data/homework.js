@@ -186,3 +186,70 @@ window.BSK_HOMEWORK = [
     ['transfer-rolle','transfer-bereich','transfer-zustaendig','transfer-ansprechperson','transfer-vorgesetzt','transfer-kollegen'].forEach(id => Lehrwerk.frei(id));
   }
 })();
+
+/* KONTOR: persönlicher Einstieg in Orte und Arbeitsmittel. */
+(function () {
+  if (!/\/buero\/im-unternehmen-ankommen\.html$/.test(location.pathname)) return;
+
+  const blatt = document.getElementById('blatt-orte');
+  if (!blatt || document.getElementById('kontor-orte-einstieg')) return;
+
+  const ersterTitel = Array.from(blatt.querySelectorAll('h2')).find(el => el.textContent.trim() === 'So ist KONTOR aufgeteilt');
+  if (!ersterTitel) return;
+
+  const style = document.createElement('style');
+  style.textContent = `
+    .kontor-orte-einstieg{margin:1.2rem 0 2rem;padding:1.5rem;border:1px solid #d8d1e8;border-radius:16px;background:linear-gradient(135deg,#f4f0fa 0%,#fdfcff 72%)}
+    .kontor-orte-einstieg__kopf{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.55rem}
+    .kontor-orte-einstieg__kopf h2{margin:0;color:#62517b}
+    .kontor-orte-einstieg__modus{flex:0 0 auto;padding:.32rem .65rem;border-radius:999px;background:#fff;border:1px solid rgba(34,34,43,.1);font-family:var(--mono);font-size:.66rem;letter-spacing:.04em;color:var(--tinte-weich)}
+    .kontor-orte-einstieg__hinweis{margin:.35rem 0 1rem;color:var(--tinte-weich)}
+    .kontor-orte-einstieg__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem 1rem}
+    .kontor-orte-einstieg__feld{display:grid;gap:.3rem}
+    .kontor-orte-einstieg__feld label{font-weight:600;font-size:.9rem}
+    .kontor-orte-einstieg__feld textarea{min-height:3.2rem;resize:vertical;margin:0}
+    .kontor-orte-einstieg__sprechauftrag{margin:1.1rem 0 0;padding:1rem 1.05rem;border-radius:12px;background:rgba(255,255,255,.78);border-left:4px solid #7d6b98}
+    .kontor-orte-einstieg__sprechauftrag strong{display:block;margin-bottom:.3rem}
+    @media(max-width:42rem){.kontor-orte-einstieg__kopf{display:block}.kontor-orte-einstieg__modus{display:inline-block;margin-top:.55rem}.kontor-orte-einstieg__grid{grid-template-columns:1fr}}
+  `;
+  document.head.appendChild(style);
+
+  const einstieg = document.createElement('section');
+  einstieg.className = 'kontor-orte-einstieg';
+  einstieg.id = 'kontor-orte-einstieg';
+  einstieg.innerHTML = `
+    <div class="kontor-orte-einstieg__kopf">
+      <h2>Neu bei der Arbeit – wie war das bei Ihnen?</h2>
+      <span class="kontor-orte-einstieg__modus">allein · zu zweit · Kleingruppe</span>
+    </div>
+    <p class="kontor-orte-einstieg__hinweis">Erinnern Sie sich an Ihren ersten Tag bei einem Arbeitgeber. Notieren Sie nur Stichwörter.</p>
+    <div class="kontor-orte-einstieg__grid">
+      <div class="kontor-orte-einstieg__feld"><label for="orte-erster-weg">Wohin mussten Sie am ersten Tag zuerst?</label><textarea class="feld" id="orte-erster-weg" rows="2" placeholder="z. B. Personalabteilung, Empfang, Büro …"></textarea></div>
+      <div class="kontor-orte-einstieg__feld"><label for="orte-abteilung">Welche Abteilung mussten Sie finden?</label><textarea class="feld" id="orte-abteilung" rows="2" placeholder="Abteilung oder Bereich"></textarea></div>
+      <div class="kontor-orte-einstieg__feld"><label for="orte-material">Wo bekamen Sie Arbeitsmaterial oder Unterlagen?</label><textarea class="feld" id="orte-material" rows="2" placeholder="z. B. im Büro, im Lager, bei …"></textarea></div>
+      <div class="kontor-orte-einstieg__feld"><label for="orte-fragen">Wen konnten Sie fragen?</label><textarea class="feld" id="orte-fragen" rows="2" placeholder="Person oder Funktion"></textarea></div>
+      <div class="kontor-orte-einstieg__feld"><label for="orte-schwierig">Was war am Anfang schwierig?</label><textarea class="feld" id="orte-schwierig" rows="2" placeholder="z. B. Räume finden, Namen merken …"></textarea></div>
+      <div class="kontor-orte-einstieg__feld"><label for="orte-hilfe">Was hat Ihnen geholfen?</label><textarea class="feld" id="orte-hilfe" rows="2" placeholder="z. B. Kolleginnen, Plan, Nachfragen …"></textarea></div>
+    </div>
+    <div class="kontor-orte-einstieg__sprechauftrag">
+      <strong>Jetzt sprechen</strong>
+      Vergleichen Sie Ihre Erfahrungen zu zweit oder in einer kleinen Gruppe. Stellen Sie anschließend kurz vor, wie der Einstieg bei Ihnen oder bei einer Person aus Ihrer Gruppe war.
+    </div>`;
+
+  ersterTitel.before(einstieg);
+  ersterTitel.textContent = 'Sie sind neu bei KONTOR. Wo finden Sie wen?';
+  const p = ersterTitel.nextElementSibling;
+  if (p && p.classList && p.classList.contains('grundriss')) {
+    // kein Begleittext vorhanden
+  } else if (p && p.tagName === 'P') {
+    p.textContent = 'Jetzt wechseln Sie zu KONTOR: Welche Räume und Bereiche brauchen Sie am ersten Arbeitstag?';
+  } else {
+    const intro = document.createElement('p');
+    intro.textContent = 'Jetzt wechseln Sie zu KONTOR: Welche Räume und Bereiche brauchen Sie am ersten Arbeitstag?';
+    ersterTitel.after(intro);
+  }
+
+  if (window.Lehrwerk && typeof Lehrwerk.frei === 'function') {
+    ['orte-erster-weg','orte-abteilung','orte-material','orte-fragen','orte-schwierig','orte-hilfe'].forEach(id => Lehrwerk.frei(id));
+  }
+})();
