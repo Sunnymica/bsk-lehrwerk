@@ -1061,6 +1061,20 @@
               "status": "fertig"
             },
             {
+              "titel": "Positiv, Komparativ und Superlativ",
+              "beschreibung": "Vergleichen im Beruf: so … wie, -er … als und am …-sten – mit dem Kontrast wie oder als, den unregelmäßigen Formen und der Endung, die vor dem Nomen dazukommt.",
+              "pfad": "steigerung-vergleich.html",
+              "niveau": "B2",
+              "dauer": "5 Lernabschnitte",
+              "fertigkeiten": [
+                "Üben",
+                "Lesen",
+                "Schreiben",
+                "Sprechen"
+              ],
+              "status": "fertig"
+            },
+            {
               "titel": "Nullartikel",
               "beschreibung": "Wann gar kein Artikel steht, und warum.",
               "pfad": "nullartikel.html",
