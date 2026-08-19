@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Personalwesen – Berufssprachkurs</title>
+<link rel="stylesheet" href="../assets/basis.css">
+<link rel="stylesheet" href="../assets/platform.css">
+<link rel="stylesheet" href="../assets/lehrwerk.css">
+<link rel="stylesheet" href="../assets/aufgaben.css">
+<script src="../data/homework.js" defer></script>
+<script src="../assets/platform.js"></script>
+</head>
+<body data-page="module" data-bereich="buero" data-root="../">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../buero.html">← Büro und Verwaltung</a>
+    <h1><em>Personal</em>wesen</h1>
+    <p class="anleitung">Eine Stelle besetzen – aus Sicht des Unternehmens. Sie klären den Bedarf, schreiben ein Profil, formulieren die Anzeige, vergleichen Bewerbungen und bereiten die Entscheidung vor.</p>
+  </div>
+</header>
+
+<main class="innen modul">
+
+  <div class="reiter" role="tablist" aria-label="Lernabschnitte">
+    <button type="button" id="tab-bedarf" role="tab" aria-selected="true" data-blatt="bedarf">Bedarf und Stellenprofil</button>
+    <button type="button" id="tab-anzeige" role="tab" aria-selected="false" data-blatt="anzeige">Anzeige und Kriterien</button>
+    <button type="button" id="tab-auswahl" role="tab" aria-selected="false" data-blatt="auswahl">Bewerbungen vergleichen</button>
+    <button type="button" id="tab-gespraech" role="tab" aria-selected="false" data-blatt="gespraech">Gespräch und Entscheidung</button>
+  </div>
+
+  <!-- ============ Bedarf und Stellenprofil ============ -->
+  <section class="blatt" id="blatt-bedarf" role="tabpanel" aria-labelledby="tab-bedarf">
+    <p class="stand-hinweis">Richtwert: 30–35 Minuten · Kernteil und Transfer</p>
+
+    <p class="anleitung">In diesem Modul stehen Sie auf der <strong>Arbeitgeberseite</strong>. Sie schreiben keine Bewerbung – Sie entscheiden, wen das Unternehmen sucht, und begründen das schriftlich und mündlich.</p>
+
+    <h2>So läuft eine Stellenbesetzung bei KONTOR</h2>
+    <div class="kette">
+      <div class="kette-schritt"><small>Schritt 1</small>Bedarf klären</div>
+      <span class="kette-pfeil" aria-hidden="true">→</span>
+      <div class="kette-schritt"><small>Schritt 2</small>Profil festlegen</div>
+      <span class="kette-pfeil" aria-hidden="true">→</span>
+      <div class="kette-schritt"><small>Schritt 3</small>Stelle ausschreiben</div>
+      <span class="kette-pfeil" aria-hidden="true">→</span>
+      <div class="kette-schritt"><small>Schritt 4</small>Bewerbungen sichten</div>
+      <span class="kette-pfeil" aria-hidden="true">→</span>
+      <div class="kette-schritt"><small>Schritt 5</small>Gespräche führen</div>
+      <span class="kette-pfeil" aria-hidden="true">→</span>
+      <div class="kette-schritt"><small>Schritt 6</small>Entscheiden und einstellen</div>
+    </div>
+
+    <div class="kasten">
+      <h3>Der Fall</h3>
+      <p>Im Kundenservice von KONTOR geht Frau Aydin für 18 Monate in Elternzeit. Gleichzeitig sind die Auftragszahlen gestiegen: Jonas Becker bearbeitet seit dem Frühjahr deutlich mehr Reklamationen als früher. <strong>Samira Haddad</strong>, Leiterin Personal und Verwaltung, soll die Besetzung vorbereiten und der Geschäftsführerin <strong>Kateryna Melnyk</strong> einen Vorschlag machen.</p>
+      <p class="marke">Zwei Fragen stehen ganz am Anfang – und sie werden im Betrieb häufig übersprungen: <strong>Brauchen wir wirklich eine neue Stelle? Und wenn ja: für wie lange und mit welchem Umfang?</strong></p>
+      <p><strong>Die Entscheidung der Geschäftsführung:</strong> Hier treffen zwei verschiedene Bedarfe aufeinander – ein befristeter Vertretungsbedarf und ein dauerhafter Zusatzbedarf. Frau Melnyk schreibt zunächst nur die Vertretung aus: Die Vertretung ist ab November zwingend, für die zweite Stelle fehlt bis zum Quartalsabschluss die Zahlengrundlage. Der Zusatzbedarf bleibt als eigener Vorgang offen; in der Anzeige steht deshalb der Hinweis auf eine mögliche Weiterbeschäftigung.</p>
+      <p class="marke">Zwei Bedarfe, zwei Entscheidungen: Die Vertretung wird jetzt ausgeschrieben. Ob KONTOR zusätzlich dauerhaft eine zweite Stelle braucht, wird später entschieden.</p>
+    </div>
+
+    <div class="merker">
+      <h3>Woher der Bedarf kommt</h3>
+      <table>
+        <thead><tr><th>Art</th><th>Grund</th><th>typische Folge</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Ersatzbedarf</strong></td><td>Jemand kündigt oder geht in Rente.</td><td>Die Stelle wird neu besetzt.</td></tr>
+          <tr><td><strong>Vertretungsbedarf</strong></td><td>Elternzeit, lange Krankheit, Sabbatical.</td><td>befristete Stelle für die Dauer der Abwesenheit</td></tr>
+          <tr><td><strong>Zusatzbedarf</strong></td><td>Das Geschäft wächst, Aufgaben kommen dazu.</td><td>neue, oft unbefristete Stelle</td></tr>
+          <tr><td><strong>kein Bedarf</strong></td><td>Die Aufgaben lassen sich anders verteilen.</td><td>Umverteilung statt Ausschreibung</td></tr>
+        </tbody>
+      </table>
+      <p>Dazu kommt die Form der Beschäftigung: <strong>unbefristet oder befristet</strong>, <strong>Vollzeit oder Teilzeit</strong>, dazu Ausbildung, Praktikum oder Werkstudententätigkeit. Der Umfang wird in <strong>Wochenstunden</strong> angegeben: <em>30 Stunden pro Woche</em>.</p>
+    </div>
+
+    <h2>Wie würden Sie den Fall einordnen?</h2>
+    <div id="mc-bedarf"></div>
+
+    <div class="kasten">
+      <span class="marke">Wörtersalat – was passt wann?</span>
+      <h3>einstellen · anstellen · beschäftigen · besetzen</h3>
+      <p>Vier Wörter für dieselbe Gegend – aber sie haben verschiedene Objekte. Achten Sie darauf, <strong>wer oder was</strong> hinter dem Verb steht.</p>
+      <table>
+        <thead><tr><th>Verb</th><th>Was steht dahinter?</th><th>Beispiel</th></tr></thead>
+        <tbody>
+          <tr><td><strong>einstellen</strong></td><td>eine <strong>Person</strong>; der Moment des Vertragsabschlusses</td><td>Wir stellen zum 1. November eine Sachbearbeiterin ein.</td></tr>
+          <tr><td><strong>anstellen</strong></td><td>eine <strong>Person</strong>; betont das Angestelltenverhältnis, oft im Partizip</td><td>Sie ist bei KONTOR fest angestellt.</td></tr>
+          <tr><td><strong>beschäftigen</strong></td><td>eine <strong>Person</strong>; der laufende Zustand, oft mit Zahlen</td><td>Im Kundenservice beschäftigt KONTOR sieben Personen.</td></tr>
+          <tr><td><strong>besetzen</strong></td><td>eine <strong>Stelle</strong>, nie eine Person</td><td>Die Stelle soll zum 1. November besetzt werden.</td></tr>
+        </tbody>
+      </table>
+      <p class="satz">✗ <s>Wir besetzen Frau Aydin.</s> → ✓ Wir besetzen <strong>die Stelle</strong>. · ✓ Wir stellen <strong>Frau Aydin</strong> ein.</p>
+      <p class="marke">Merken Sie sich das Paar: <strong>Personen stellt man ein, Stellen besetzt man.</strong> <em>beschäftigen</em> beantwortet dagegen die Frage „Wie viele arbeiten hier?“.</p>
+    </div>
+
+    <h2>Die vier Verben im Text</h2>
+    <p class="anleitung">Klicken Sie ein Wort in der Bank an; es springt in das nächste freie Feld. Jede Lücke hat genau eine Lösung, und die Bank enthält mehr Formen, als Sie brauchen.</p>
+    <div id="wb-verben-bank"></div>
+    <p class="lueckentext">
+      Der Kundenservice wächst: KONTOR <input class="luecke" id="v1" size="14" autocomplete="off"> im Kundenservice inzwischen sieben Personen. Die Stelle von Frau Aydin soll ab dem 1. November für 18 Monate <input class="luecke" id="v2" size="14" autocomplete="off"> werden. Wenn sich eine geeignete Bewerberin findet, möchte Frau Haddad sie möglichst zum Monatsanfang <input class="luecke" id="v3" size="14" autocomplete="off">. Jonas Becker ist seit acht Jahren bei KONTOR fest <input class="luecke" id="v4" size="14" autocomplete="off"> und übernimmt die Einarbeitung.
+    </p>
+    <div class="knopfreihe">
+      <button class="knopf" id="wb-verben-pruefen" type="button">Prüfen</button>
+    </div>
+    <p class="rueckmeldung" id="wb-verben-rueck" hidden></p>
+
+    <div class="merker">
+      <h3>Muss oder Kann?</h3>
+      <p>Ein Stellenprofil trennt zwei Sorten von Kriterien. Diese Trennung entscheidet später über die Auswahl – wer sie nicht vorher festlegt, entscheidet nach Gefühl.</p>
+      <p><strong>Muss-Kriterien</strong> sind für die Aufgabe zwingend nötig. Wer sie nicht erfüllt, kann die Arbeit nicht leisten.<br>
+      <strong>Kann-Kriterien</strong> sind willkommen und geben bei ähnlichen Bewerbungen den Ausschlag.</p>
+      <p class="marke">Private Merkmale sind keine Auswahlkriterien: Alter, Familienstand, Herkunft, Religion oder die Frage nach Kindern haben ohne konkreten, rechtlich tragfähigen Bezug zur Tätigkeit im Profil nichts zu suchen. Ein Bewerbungsfoto ist freiwillig und sagt nichts über die Eignung.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Eine zweite Stelle – dieselbe Frage, andere Antwort</h3>
+      <p>Damit die Trennung sichtbar wird, hier eine andere Ausschreibung von KONTOR aus demselben Jahr:</p>
+      <p class="satz"><strong>Office-Manager/in Frankreich (m/w/d)</strong><br>
+      Köln · Vollzeit · unbefristet</p>
+      <p><strong>Ihre Aufgaben:</strong> Sie organisieren Termine und Besprechungen, führen die Korrespondenz und stehen täglich mit unserer französischen Niederlassung und mit französischen Geschäftspartnern in Kontakt.</p>
+      <p><strong>Wir erwarten:</strong> sehr gutes Deutsch, Französisch auf mindestens B2, sichere Office-Kenntnisse und Erfahrung in der Organisation von Abläufen.</p>
+      <p><strong>Von Vorteil:</strong> Erfahrung im Handel und Kenntnisse in einem Warenwirtschaftssystem.</p>
+    </div>
+
+    <h2>Das Profil dieser Stelle sortieren</h2>
+    <p class="anleitung">Sortieren Sie die Kriterien für die Stelle <strong>Office-Management Frankreich</strong>. Wort auswählen, dann den Topf anklicken. Ein Wort im Topf geht mit einem Klick zurück.</p>
+    <div id="g-profil"></div>
+    <div class="knopfreihe">
+      <button type="button" class="knopf" id="g-profil-pruefen">Prüfen</button>
+    </div>
+    <p class="rueckmeldung" id="g-profil-rueck" hidden></p>
+
+    <div class="merker">
+      <h3>Muss oder Kann hängt an der Stelle, nicht am Kriterium</h3>
+      <p>Französisch ist hier ein <strong>Muss</strong> – ohne Französisch funktioniert der tägliche Kontakt mit der Niederlassung nicht. In der Ausschreibung für den Kundenservice wäre dasselbe Kriterium bestenfalls ein Kann.</p>
+      <p>Umgekehrt gilt dasselbe: Kenntnisse im Warenwirtschaftssystem sind hier „von Vorteil“. Für eine Stelle in der Auftragserfassung, in der den ganzen Tag nichts anderes gemacht wird, wären sie ein Muss-Kriterium.</p>
+      <p class="marke">Deshalb wird das Profil <strong>je Stelle</strong> festgelegt und nicht aus der letzten Ausschreibung kopiert. Wer die Trennung übernimmt, ohne sie zu prüfen, sucht am Bedarf vorbei.</p>
+    </div>
+
+    <div class="regel">
+      <p><strong>Kurz schreiben:</strong> Formulieren Sie drei Zeilen des Anforderungsprofils für die Stelle im Kundenservice – zwei Muss-Kriterien, ein Kann-Kriterium. Schreiben Sie in ganzen Sätzen, nicht in Stichworten.</p>
+      <textarea class="feld" id="p-profil" rows="4" placeholder="Muss: Sie bearbeiten Reklamationen selbstständig … · Kann: Erfahrung mit einem Warenwirtschaftssystem ist von Vorteil …"></textarea>
+    </div>
+
+  </section>
+
+  <!-- ============ Anzeige und Kriterien ============ -->
+  <section class="blatt" id="blatt-anzeige" role="tabpanel" aria-labelledby="tab-anzeige" hidden>
+    <p class="stand-hinweis">Richtwert: 30–35 Minuten · lesen, formulieren, prüfen</p>
+
+    <div class="kasten">
+      <h3>Fünf Bausteine, immer dieselben</h3>
+      <p>Fast jede Stellenanzeige folgt demselben Bauplan. Wer ihn kennt, liest schneller – und schreibt schneller.</p>
+      <table>
+        <thead><tr><th>Baustein</th><th>Frage der Lesenden</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Über uns</strong></td><td>Wer sucht hier?</td></tr>
+          <tr><td><strong>Ihre Aufgaben</strong></td><td>Was werde ich tun?</td></tr>
+          <tr><td><strong>Ihr Profil</strong></td><td>Was muss ich mitbringen?</td></tr>
+          <tr><td><strong>Wir bieten</strong></td><td>Was habe ich davon?</td></tr>
+          <tr><td><strong>Ihr Kontakt</strong></td><td>Wie und bis wann bewerbe ich mich?</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Welcher Satz gehört in welchen Baustein?</h2>
+    <p class="anleitung">Erst links anklicken, dann rechts.</p>
+    <div id="z-anzeige"></div>
+    <p class="rueckmeldung" id="z-anzeige-rueck" hidden></p>
+
+    <div class="kasten">
+      <h3>Die Anzeige der KONTOR AG</h3>
+      <p class="satz"><strong>Sachbearbeitung Kundenservice (m/w/d)</strong><br>
+      Köln · 30 Stunden pro Woche · befristet auf 18 Monate · ab 1. November</p>
+      <p><strong>Über uns:</strong> Die KONTOR AG handelt mit Bürobedarf und beliefert Firmen und Behörden. Die Verwaltung sitzt in Köln; dort ist auch der Kundenservice angesiedelt.</p>
+      <p><strong>Ihre Aufgaben:</strong> Sie nehmen Kundenanliegen telefonisch und schriftlich auf, bearbeiten Reklamationen, stimmen sich mit Lager und Versand ab und pflegen die Vorgänge im Warenwirtschaftssystem.</p>
+      <p><strong>Ihr Profil:</strong> Sie bearbeiten Reklamationen selbstständig und sind ab dem 1. November verfügbar. Am Telefon und in E-Mails drücken Sie sich sicher und verständlich aus. Sie haben eine kaufmännische Ausbildung oder vergleichbare Erfahrung im Kundenkontakt und bleiben auch bei hohem Aufkommen freundlich. Kenntnisse in einem Warenwirtschaftssystem sind von Vorteil.</p>
+      <p><strong>Wir bieten:</strong> eine strukturierte Einarbeitung, feste Arbeitszeiten ohne Schichtdienst und 30 Urlaubstage. Je nach Entwicklung des Personalbedarfs besteht möglicherweise eine Perspektive auf Weiterbeschäftigung.</p>
+      <p><strong>Ihr Kontakt:</strong> Samira Haddad, Personal und Verwaltung. Bewerbungen bis zum 30. September.</p>
+    </div>
+
+    <div class="merker">
+      <h3>Sachlich formulieren – und rechtlich sauber</h3>
+      <p>Eine Anzeige beschreibt <strong>die Aufgabe</strong>, nicht die Person. Drei Punkte fallen sofort auf, wenn sie fehlen oder schiefgehen:</p>
+      <p><strong>1. Geschlecht:</strong> Ausgeschrieben wird geschlechtsneutral. Der Zusatz <em>(m/w/d)</em> ist dafür die übliche, aber nicht die gesetzlich vorgeschriebene Formulierung – eine neutrale Bezeichnung wie <em>Sachbearbeitung</em> statt <em>Sachbearbeiterin</em> leistet dasselbe.<br>
+      <strong>2. Alter, Herkunft, Familienstand:</strong> gehören ohne konkreten, rechtlich tragfähigen Bezug zur Tätigkeit nicht in die Anzeige. <em>Wir suchen eine junge Kollegin</em> ist keine Anforderung, sondern eine Benachteiligung. Ein Bewerbungsfoto ist freiwillig und kein Eignungskriterium.<br>
+      <strong>3. Sprache:</strong> Nicht <em>Muttersprache Deutsch</em>, sondern das, was die Aufgabe wirklich verlangt: <em>sehr gute Deutschkenntnisse in Wort und Schrift</em>.</p>
+      <p class="marke">Dieses Modul ist ein Sprachkurs und keine Rechtsberatung. Für den Alltag reicht die Faustregel: <strong>Was nichts mit der Aufgabe zu tun hat, kommt nicht in die Anzeige.</strong></p>
+    </div>
+
+    <h2>Welche Formulierung geht so durch?</h2>
+    <div id="mc-anzeige"></div>
+
+    <div class="merker">
+      <h3>Passende Grammatik: Relativsätze im Profil</h3>
+      <p>Der Abschnitt <em>Ihr Profil</em> lebt von Relativsätzen: Sie hängen eine Anforderung an das Nomen, ohne einen neuen Satz zu beginnen.</p>
+      <p class="satz">Wir suchen eine Person, <strong>die</strong> auch bei hohem Aufkommen freundlich bleibt.<br>
+      Sie arbeiten in einem Team, <strong>das</strong> sich täglich kurz abstimmt.<br>
+      Sie betreuen Kundinnen und Kunden, <strong>denen</strong> Sie schnell eine Rückmeldung geben.</p>
+      <p><strong>Die Probe in zwei Schritten:</strong> Das Geschlecht kommt vom Bezugswort, der Fall aus dem Relativsatz. Ausführlich steht das im Grammatikmodul <a href="../grammatik/relativsaetze.html">Relativsätze</a>.</p>
+    </div>
+
+    <h2>Das Profil vervollständigen</h2>
+    <p class="anleitung">Ergänzen Sie das Relativpronomen. Fragen Sie sich zuerst: Worauf bezieht es sich – und welchen Fall verlangt das Verb im Relativsatz?</p>
+    <p class="lueckentext">
+      Wir suchen Verstärkung für ein Aufgabengebiet, <input class="luecke" id="r1" size="7" autocomplete="off"> viel Kundenkontakt mit sich bringt.<br><br>
+      Sie betreuen Kundinnen und Kunden, <input class="luecke" id="r2" size="7" autocomplete="off"> Fragen zu Lieferungen und Rechnungen haben.<br><br>
+      Sie bearbeiten Reklamationen, <input class="luecke" id="r3" size="7" autocomplete="off"> telefonisch oder schriftlich eingehen.<br><br>
+      Sie arbeiten mit einem Warenwirtschaftssystem, <input class="luecke" id="r4" size="7" autocomplete="off"> wir im Frühjahr eingeführt haben.<br><br>
+      Sie stimmen sich eng mit Kolleginnen und Kollegen ab, <input class="luecke" id="r5" size="7" autocomplete="off"> Sie im Tagesgeschäft zuarbeiten.<br><br>
+      Wir bieten eine Einarbeitung, in <input class="luecke" id="r6" size="7" autocomplete="off"> Sie alle Abläufe von Grund auf kennenlernen.<br><br>
+      Sie berichten an eine Teamleitung, <input class="luecke" id="r7" size="7" autocomplete="off"> Sie in den ersten Wochen eng begleitet.<br><br>
+      Wir sind ein Unternehmen, <input class="luecke" id="r8" size="7" autocomplete="off"> seinen Kundenservice gerade ausbaut.
+    </p>
+    <div class="knopfreihe">
+      <button class="knopf" id="r-pruefen" type="button">Prüfen</button>
+      <button class="knopf" id="r-tipp" type="button">Tipp</button>
+    </div>
+    <p class="rueckmeldung" id="r-rueck" hidden></p>
+    <p class="rueckmeldung" id="r-hinweis" hidden>Suchen Sie zuerst das Bezugswort und merken Sie sich dessen Geschlecht. Bilden Sie dann den Relativsatz als eigenen Satz: <em>Wir haben das System eingeführt</em> → Akkusativ neutral → <em>das</em>. Steht eine Präposition davor, entscheidet sie über den Fall.</p>
+
+    <div class="regel">
+      <p><strong>Schreiben:</strong> Formulieren Sie für eine Stelle in <strong>Ihrem eigenen Betrieb</strong> – oder in Ihrem Wunschbetrieb – drei Zeilen für <em>Ihre Aufgaben</em> und zwei Zeilen für <em>Ihr Profil</em>. Verwenden Sie dabei mindestens zwei Relativsätze.</p>
+      <textarea class="feld" id="p-anzeige" rows="6" placeholder="Ihre Aufgaben: Sie … · Ihr Profil: Sie sind eine Person, die …"></textarea>
+    </div>
+
+  </section>
+
+  <!-- ============ Bewerbungen vergleichen ============ -->
+  <section class="blatt" id="blatt-auswahl" role="tabpanel" aria-labelledby="tab-auswahl" hidden>
+    <p class="stand-hinweis">Richtwert: 30–40 Minuten · vergleichen, einladen, absagen</p>
+
+    <div class="kasten">
+      <h3>Drei Bewerbungen auf die Stelle im Kundenservice</h3>
+      <p>Von 22 Bewerbungen bleiben nach der ersten Sichtung drei übrig. Samira Haddad legt sie Kateryna Melnyk vor.</p>
+      <table>
+        <thead><tr><th></th><th>Frau Kovač</th><th>Herr Terzi</th><th>Frau Lindner</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Ausbildung</strong></td><td>Kauffrau für Büromanagement</td><td>Einzelhandelskaufmann</td><td>keine kaufmännische Ausbildung</td></tr>
+          <tr><td><strong>Kundenkontakt</strong></td><td>5 Jahre, telefonisch und schriftlich</td><td>7 Jahre, überwiegend im Verkauf</td><td>3 Jahre in einer Hotline</td></tr>
+          <tr><td><strong>Reklamationen</strong></td><td>selbstständig bearbeitet</td><td>an die Leitung weitergegeben</td><td>selbstständig bearbeitet</td></tr>
+          <tr><td><strong>Warenwirtschaft</strong></td><td>Grundkenntnisse</td><td>sehr sicher</td><td>keine Kenntnisse</td></tr>
+          <tr><td><strong>Deutsch im Beruf</strong></td><td>sicher</td><td>sehr sicher</td><td>sicher</td></tr>
+          <tr><td><strong>Verfügbar ab</strong></td><td>1. November</td><td>1. Januar</td><td>sofort</td></tr>
+        </tbody>
+      </table>
+      <p class="marke">Die drei Muss-Kriterien lauteten: Reklamationen selbstständig bearbeiten, ab dem 1. November verfügbar sein und sich am Telefon und in E-Mails sicher ausdrücken. Alles andere – Ausbildung, Warenwirtschaft, Branchenerfahrung – war Kann-Kriterium.</p>
+    </div>
+
+    <h2>Die Sichtung nachvollziehen</h2>
+    <div id="mc-vergleich"></div>
+
+    <div class="kasten">
+      <span class="marke">Wörtersalat – wer tut hier eigentlich was?</span>
+      <h3>sich bewerben · jemanden einstellen · eine Stelle antreten</h3>
+      <p>Über genau diesen Vorgang müssen Sie jetzt schreiben und sprechen – und dabei gerät leicht durcheinander, wer handelt. Die drei Ausdrücke beschreiben denselben Vorgang aus <strong>drei Perspektiven</strong>.</p>
+      <table>
+        <thead><tr><th>Ausdruck</th><th>Wer handelt?</th><th>Beispiel</th></tr></thead>
+        <tbody>
+          <tr><td><strong>sich bewerben</strong> (auf eine Stelle, bei einem Unternehmen)</td><td>die bewerbende Person</td><td>Frau Kovač bewirbt sich auf die Stelle im Kundenservice.</td></tr>
+          <tr><td><strong>jemanden einstellen</strong></td><td>das Unternehmen</td><td>KONTOR stellt Frau Kovač zum 1. November ein.</td></tr>
+          <tr><td><strong>eine Stelle antreten</strong></td><td>die eingestellte Person am ersten Arbeitstag</td><td>Sie tritt die Stelle am 1. November an.</td></tr>
+        </tbody>
+      </table>
+      <p class="satz">✗ <s>KONTOR bewirbt sich um eine Sachbearbeiterin.</s> · ✗ <s>Frau Kovač stellt sich zum 1. November ein.</s></p>
+      <p class="marke">Zwei Präpositionen lohnen sich: Man bewirbt sich <strong>auf</strong> eine Stelle und <strong>bei</strong> einem Unternehmen. Und: <em>eine Stelle antreten</em> ist der erste Arbeitstag, <em>eine Stelle annehmen</em> ist die Zusage davor.</p>
+    </div>
+
+    <div class="merker">
+      <h3>Passende Grammatik: Konjunktiv II im Personalkontakt</h3>
+      <p>Einladung, Rückfrage und Absage sind heikle Nachrichten. Der Konjunktiv II nimmt ihnen die Schärfe, ohne unklar zu werden.</p>
+      <table>
+        <thead><tr><th>direkt</th><th>mit Konjunktiv II</th></tr></thead>
+        <tbody>
+          <tr><td>Kommen Sie am Dienstag um 10 Uhr.</td><td><strong>Könnten</strong> Sie am Dienstag um 10 Uhr kommen?</td></tr>
+          <tr><td>Wir wollen Sie kennenlernen.</td><td>Wir <strong>würden</strong> Sie gern kennenlernen.</td></tr>
+          <tr><td>Bringen Sie die Zeugnisse mit.</td><td><strong>Könnten</strong> Sie bitte Ihre Zeugnisse mitbringen?</td></tr>
+          <tr><td>Ein anderer Termin ist auch möglich.</td><td>Ein anderer Termin <strong>wäre</strong> ebenfalls möglich.</td></tr>
+          <tr><td>Wir haben die Unterlagen nicht geprüft.</td><td>Die Unterlagen <strong>hätten</strong> noch <strong>geprüft werden müssen</strong>.</td></tr>
+        </tbody>
+      </table>
+      <p>Die letzte Zeile ist der Rückblick auf einen Fehler – im Personalbereich der häufigste Anlass für den Konjunktiv II. Am Satzende stehen dabei drei Verben: <em>geprüft werden müssen</em>. Solche Ketten sind zum Erkennen wichtiger als zum Bilden; im Zweifel formulieren Sie schlicht: <em>Wir hätten die Unterlagen noch prüfen müssen.</em></p>
+      <p><strong>Vorsicht bei der Absage:</strong> Dort ist der Konjunktiv fehl am Platz. <em>Wir würden Ihnen leider absagen</em> klingt unentschlossen – richtig ist der Indikativ: <em>Wir haben uns für eine andere Bewerbung entschieden.</em> Alle Formen und die Stellung im Nebensatz stehen im Grammatikmodul <a href="../grammatik/konjunktiv-2.html">Konjunktiv II</a>; ein eigenes Vertiefungsmodul zu drei und vier Verben am Satzende ist in Vorbereitung.</p>
+    </div>
+
+    <h2>Höflicher formulieren</h2>
+    <p class="anleitung">Sagen Sie dasselbe mit Konjunktiv II. Sprechen Sie die Sätze laut, bevor Sie sie aufschreiben – zwei Möglichkeiten pro Satz genügen.</p>
+    <div class="regel">
+      <p>1. „Schicken Sie uns die Unterlagen bis Freitag.“<br>
+      2. „Wir wollen den Termin verschieben.“<br>
+      3. „Ein zweites Gespräch ist möglich.“<br>
+      4. „Wir haben die Referenzen nicht geprüft.“ <span class="marke">Rückblick auf einen Fehler</span></p>
+      <textarea class="feld" id="p-hoeflich" rows="5" placeholder="1. Könnten Sie uns … · 2. Wir würden … · 3. Ein zweites Gespräch wäre … · 4. Die Referenzen hätten …"></textarea>
+    </div>
+
+    <h2>Die Einladung schreiben</h2>
+    <p class="anleitung">Ergänzen Sie die passende Konjunktiv-II-Form von <em>werden</em>, <em>können</em> oder <em>sein</em>.</p>
+    <p class="lueckentext">
+      <strong>Betreff: Ihre Bewerbung – Einladung zum Gespräch</strong><br><br>
+      Sehr geehrte Frau Kovač,<br><br>
+      vielen Dank für Ihre Bewerbung auf die Stelle im Kundenservice. Ihre Unterlagen haben uns überzeugt, und wir <input class="luecke" id="k1" size="9" autocomplete="off"> Sie gern persönlich kennenlernen.<br><br>
+      <input class="luecke" id="k2" size="9" autocomplete="off"> Sie am Dienstag, dem 8. Oktober, um 10 Uhr zu uns nach Köln kommen? Sollte Ihnen dieser Termin nicht passen, <input class="luecke" id="k3" size="9" autocomplete="off"> auch der Mittwochvormittag möglich.<br><br>
+      <input class="luecke" id="k4" size="9" autocomplete="off"> Sie bitte Ihre Zeugnisse im Original mitbringen? Es <input class="luecke" id="k5" size="9" autocomplete="off"> hilfreich, wenn Sie zehn Minuten früher da wären – am Empfang bekommen Sie einen Besucherausweis.<br><br>
+      Wir <input class="luecke" id="k6" size="9" autocomplete="off"> uns freuen, wenn Sie uns bis Freitag kurz Bescheid geben.<br><br>
+      Mit freundlichen Grüßen<br>
+      Samira Haddad, Personal und Verwaltung
+    </p>
+    <div class="knopfreihe">
+      <button class="knopf" id="k-pruefen" type="button">Prüfen</button>
+      <button class="knopf" id="k-tipp" type="button">Tipp</button>
+    </div>
+    <p class="rueckmeldung" id="k-rueck" hidden></p>
+    <p class="rueckmeldung" id="k-hinweis" hidden>Vier Verben reichen für fast jede höfliche Nachricht: <em>würde</em> (für den Wunsch), <em>könnte</em> (für die Bitte), <em>wäre</em> (für Möglichkeiten und Bewertungen) und <em>hätte</em> (für den Rückblick auf etwas Versäumtes). Achten Sie auf die Personalform: <em>wir würden</em>, <em>Sie könnten</em>, <em>es wäre</em>.</p>
+
+    <div class="regel">
+      <p><strong>Schreiben:</strong> Herr Terzi bekommt eine Absage – er ist erst zum 1. Januar verfügbar, gebraucht wird die Verstärkung aber ab dem 1. November. Schreiben Sie diese Absage in fünf bis sechs Sätzen.</p>
+      <p>Verlangt sind: eine Anrede, ein Dank für die Bewerbung, eine <strong>sachliche</strong> Begründung ohne Bewertung der Person, ein freundlicher Schluss – und der Indikativ, kein Konjunktiv.</p>
+      <textarea class="feld" id="p-absage" rows="7" placeholder="Sehr geehrter Herr Terzi,&#10;vielen Dank für Ihre Bewerbung …"></textarea>
+    </div>
+
+  </section>
+
+  <!-- ============ Gespräch und Entscheidung ============ -->
+  <section class="blatt" id="blatt-gespraech" role="tabpanel" aria-labelledby="tab-gespraech" hidden>
+    <p class="stand-hinweis">Richtwert: 35–45 Minuten · Rollenspiel, Entscheidung, Transfer</p>
+
+    <div class="kasten">
+      <h3>Der Leitfaden – fünf Phasen</h3>
+      <p>Ein Vorstellungsgespräch ohne Leitfaden wird ein nettes Gespräch, aber keine Auswahl. Diese fünf Phasen tragen etwa 45 Minuten.</p>
+      <table>
+        <thead><tr><th>Phase</th><th>Was passiert?</th><th>Sprachliches Mittel</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1 · Ankommen</strong></td><td>Begrüßung, Vorstellung der Anwesenden, Ablauf nennen</td><td>Schön, dass Sie da sind. Wir haben etwa 45 Minuten eingeplant.</td></tr>
+          <tr><td><strong>2 · Unternehmen</strong></td><td>Betrieb, Abteilung und Stelle knapp vorstellen</td><td>Die Stelle ist im Kundenservice angesiedelt und zunächst befristet.</td></tr>
+          <tr><td><strong>3 · Fragen</strong></td><td>Werdegang, Aufgaben, Beispiele aus der Praxis</td><td>Erzählen Sie von einer schwierigen Reklamation. Wie sind Sie vorgegangen?</td></tr>
+          <tr><td><strong>4 · Rückfragen</strong></td><td>Die bewerbende Person fragt, das Unternehmen antwortet ehrlich</td><td>Welche Fragen haben Sie an uns?</td></tr>
+          <tr><td><strong>5 · Ausblick</strong></td><td>Nächster Schritt und Zeitpunkt verbindlich nennen</td><td>Sie hören bis Ende der Woche von uns.</td></tr>
+        </tbody>
+      </table>
+      <p class="marke">Phase 5 wird häufig vergessen. Ein klarer Rückmeldetermin schafft Verbindlichkeit. Wenn sich der Termin verschiebt, sollte das Unternehmen die Bewerbenden rechtzeitig informieren.</p>
+    </div>
+
+    <div class="merker">
+      <h3>Was Sie fragen dürfen – und was nicht</h3>
+      <p>Die Grenze verläuft entlang der Tätigkeit: <strong>Fragen müssen mit der Aufgabe zu tun haben.</strong> Private Fragen sind grundsätzlich unzulässig, wenn kein konkreter Bezug zur Tätigkeit besteht; Ausnahmen sind rechtlich eng begrenzt. Auf eine unzulässige Frage muss niemand wahrheitsgemäß antworten.</p>
+      <p class="marke">Auch das ist hier Sprachtraining und keine Rechtsberatung. Im Zweifel gilt im Betrieb: erst mit der Personalabteilung klären, dann fragen.</p>
+    </div>
+
+    <h2>Zulässig oder nicht?</h2>
+    <p class="anleitung">Sortieren Sie die Fragen aus einem Vorstellungsgespräch.</p>
+    <div id="g-fragen"></div>
+    <div class="knopfreihe">
+      <button type="button" class="knopf" id="g-fragen-pruefen">Prüfen</button>
+    </div>
+    <p class="rueckmeldung" id="g-fragen-rueck" hidden></p>
+
+    <h2>Nach dem Gespräch</h2>
+    <div id="mc-entscheidung"></div>
+
+    <div class="kasten">
+      <h3>Das Gespräch führen <span class="marke">Dreiergruppe, KONTOR AG</span></h3>
+      <p>Verteilen Sie die Rollen: <strong>A</strong> ist Samira Haddad aus dem Personalbereich, <strong>B</strong> ist Jonas Becker aus dem Kundenservice und fragt fachlich, <strong>C</strong> bewirbt sich auf die Stelle.</p>
+      <p>Führen Sie die Phasen 1 bis 4 in acht bis zehn Minuten. A eröffnet und schließt, B stellt mindestens zwei fachliche Fragen zu Reklamationen und Abstimmung mit dem Lager, C fragt in Phase 4 nach Einarbeitung und Befristung.</p>
+      <p class="satz">B: „Ein Kunde reklamiert zum zweiten Mal dieselbe Lieferung. Wie gehen Sie vor?“<br>
+      C: „Zuerst würde ich den Vorgang im System aufrufen, damit ich den Stand kenne.“<br>
+      A: „Sie hören bis Ende der Woche von uns – wir melden uns in jedem Fall.“</p>
+      <p class="marke">Tauschen Sie danach die Rollen, damit jede Person einmal auf der Arbeitgeberseite gefragt hat. Genau das ist die ungewohnte Seite.</p>
+    </div>
+
+    <div class="kasten">
+      <h3>Die Entscheidungsrunde <span class="marke">Kleingruppe</span></h3>
+      <p>Sie sitzen als Auswahlteam zusammen und müssen sich auf eine Person einigen. Jede Person nennt eine Empfehlung <strong>und</strong> ein Gegenargument – begründet wird ausschließlich mit den Kriterien aus dem Profil, nicht mit Sympathie.</p>
+      <p class="satz">„Ich <strong>würde</strong> Frau Kovač nehmen, weil sie Reklamationen selbstständig bearbeitet hat.“<br>
+      „Es <strong>wäre</strong> auch denkbar, Frau Lindner einzuarbeiten – dann <strong>bräuchten</strong> wir aber länger.“<br>
+      „An Ihrer Stelle <strong>würde</strong> ich noch einmal nachfragen, ob Herr Terzi früher anfangen kann.“</p>
+      <p>Halten Sie am Ende fest: Wer bekommt die Stelle, wer bekommt eine Absage, und was passiert, wenn die erste Wahl absagt?</p>
+    </div>
+
+    <div class="regel">
+      <p><strong>Schreiben:</strong> Verfassen Sie den kurzen Entscheidungsvermerk für Kateryna Melnyk – vier bis fünf Sätze.</p>
+      <p>Verlangt sind: die Empfehlung, zwei Begründungen mit Bezug auf die Muss-Kriterien, ein Hinweis auf die zweite Wahl für den Fall einer Absage und der nächste Schritt mit Datum.</p>
+      <textarea class="feld" id="p-vermerk" rows="6" placeholder="Empfehlung: … · Begründung: … · Zweite Wahl: … · Nächster Schritt: …"></textarea>
+    </div>
+
+    <h2>In Ihrem Betrieb</h2>
+    <p class="anleitung">Wie läuft eine Einstellung dort, wo Sie arbeiten, gearbeitet haben oder arbeiten möchten? Notieren Sie Stichwörter und sprechen Sie anschließend zwei Minuten frei darüber.</p>
+    <div class="regel">
+      <p>1. Wer entscheidet über eine neue Stelle – Fachabteilung, Personal, Geschäftsführung?<br>
+      2. Wird intern zuerst ausgeschrieben?<br>
+      3. Wer führt die Gespräche, und wie viele Runden gibt es?<br>
+      4. Was läuft dort besser oder anders als bei KONTOR?</p>
+      <textarea class="feld" id="p-transfer" rows="6" placeholder="Bei uns … · Zuerst … · Danach … · Anders als bei KONTOR …"></textarea>
+    </div>
+
+    <p class="stand" id="stand"></p>
+    <div class="knopfreihe">
+      <button class="knopf" id="kopieren" type="button">Stand kopieren</button>
+      <button class="knopf" id="zuruecksetzen" type="button">Von vorne beginnen</button>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="fuss">Nur für Kursteilnehmerinnen und Kursteilnehmer</footer>
+
+<script src="../assets/lehrwerk.js"></script>
+<script>
+Lehrwerk.modul('personalwesen');
+Lehrwerk.reiter();
+
+/* ---- Bedarf und Stellenprofil ---- */
+Lehrwerk.auswahl('mc-bedarf', [
+  {
+    id: 'be1',
+    text: 'Frau Aydin geht für 18 Monate in Elternzeit. Wie heißt dieser Bedarf?',
+    optionen: ['Ersatzbedarf', 'Zusatzbedarf', 'Vertretungsbedarf', 'kein Bedarf'],
+    richtig: ['Vertretungsbedarf'],
+    erklaerung: 'Die Stelle bleibt bestehen, die Person kommt zurück. Deshalb wird befristet ausgeschrieben – für die Dauer der Abwesenheit.'
+  },
+  {
+    id: 'be2',
+    text: 'Welche Vertragsform passt zu einer Elternzeitvertretung?',
+    optionen: [
+      'unbefristet in Vollzeit',
+      'befristet auf die Dauer der Elternzeit',
+      'unbefristet in Teilzeit',
+      'Praktikum für 18 Monate'
+    ],
+    richtig: ['befristet auf die Dauer der Elternzeit'],
+    erklaerung: 'Der Grund für die Befristung ist die Rückkehr von Frau Aydin. Ein Praktikum ist keine Vertretung, sondern eine Ausbildungssituation.'
+  },
+  {
+    id: 'be3',
+    text: 'Die Auftragszahlen sind dauerhaft gestiegen und Jonas Becker arbeitet seit Monaten über seine Kapazität. Was liegt hier vor?',
+    optionen: ['Vertretungsbedarf', 'Ersatzbedarf', 'kein Bedarf', 'Zusatzbedarf'],
+    richtig: ['Zusatzbedarf'],
+    erklaerung: 'Hier fällt niemand aus – es kommt Arbeit dazu. Ein dauerhafter Zusatzbedarf spricht für eine unbefristete Stelle, nicht für eine Vertretung.'
+  },
+  {
+    id: 'be4',
+    text: 'Welche Angabe gehört zwingend in die Bedarfsmeldung an die Geschäftsführung?',
+    optionen: [
+      'Umfang in Wochenstunden und gewünschter Eintrittstermin',
+      'Alter der gesuchten Person',
+      'Familienstand der ausfallenden Kollegin',
+      'ein Foto für die Personalakte'
+    ],
+    richtig: ['Umfang in Wochenstunden und gewünschter Eintrittstermin'],
+    erklaerung: 'Die Geschäftsführung entscheidet über Kosten und Zeitpunkt. Alter, Familienstand und Foto sagen nichts über die Aufgabe und haben in der Personalplanung nichts zu suchen.'
+  }
+]);
+
+Lehrwerk.wortbank('wb-verben', {
+  ziel: 'wb-verben-bank',
+  eindeutig: true,
+  bank: ['beschäftigt', 'besetzt', 'einstellen', 'angestellt', 'besetzen', 'beschäftigen', 'bewerben'],
+  felder: {
+    v1: ['beschäftigt'],
+    v2: ['besetzt'],
+    v3: ['einstellen'],
+    v4: ['angestellt']
+  },
+  pruefen: 'wb-verben-pruefen',
+  rueck: 'wb-verben-rueck'
+});
+
+Lehrwerk.gruppieren('g-profil', {
+  pruefen: 'g-profil-pruefen',
+  rueck: 'g-profil-rueck',
+  gruppen: [
+    { id: 'muss', titel: 'Muss-Kriterium',
+      woerter: ['Französisch auf mindestens B2', 'sehr gutes Deutsch', 'sichere Office-Kenntnisse', 'Erfahrung in der Organisation von Abläufen'] },
+    { id: 'kann', titel: 'Kann-Kriterium',
+      woerter: ['Erfahrung im Handel', 'Kenntnisse im Warenwirtschaftssystem'] },
+    { id: 'nein', titel: 'kein Auswahlkriterium',
+      woerter: ['Alter unter 35', 'Bewerbungsfoto', 'Familienstand'] }
+  ]
+});
+
+Lehrwerk.frei('p-profil');
+
+/* ---- Anzeige und Kriterien ---- */
+Lehrwerk.zuordnen('z-anzeige', {
+  rueck: 'z-anzeige-rueck',
+  paare: [
+    { id: 'an1',
+      links: 'Über uns',
+      rechts: 'Die KONTOR AG handelt mit Bürobedarf und beliefert Firmen und Behörden.',
+      erklaerung: 'Dieser Abschnitt beantwortet nur eine Frage: Wer sucht hier? Zwei bis drei Sätze reichen.' },
+    { id: 'an2',
+      links: 'Ihre Aufgaben',
+      rechts: 'Sie nehmen Kundenanliegen auf und bearbeiten Reklamationen.',
+      erklaerung: 'Aufgaben stehen im Präsens und in der Sie-Form – so kann sich die lesende Person den Arbeitstag vorstellen.' },
+    { id: 'an3',
+      links: 'Ihr Profil',
+      rechts: 'Sie haben eine kaufmännische Ausbildung oder vergleichbare Erfahrung.',
+      erklaerung: 'Hier stehen die Anforderungen. Muss-Kriterien zuerst, Kann-Kriterien danach mit einer Abstufung wie „von Vorteil“.' },
+    { id: 'an4',
+      links: 'Wir bieten',
+      rechts: 'eine strukturierte Einarbeitung und feste Arbeitszeiten ohne Schichtdienst',
+      erklaerung: 'Hier steht die Gegenleistung. Konkrete Angaben wirken stärker als Wörter wie „spannend“ oder „vielseitig“.' },
+    { id: 'an5',
+      links: 'Ihr Kontakt',
+      rechts: 'Bewerbungen bis zum 30. September an Samira Haddad, Personal und Verwaltung.',
+      erklaerung: 'Ansprechperson, Weg und Frist gehören zusammen. Ohne Frist bleibt offen, wie lange das Verfahren läuft.' }
+  ]
+});
+
+Lehrwerk.auswahl('mc-anzeige', [
+  {
+    id: 'az1',
+    text: 'Welche Überschrift ist so ausschreibbar?',
+    optionen: [
+      'Sachbearbeiterin Kundenservice gesucht',
+      'Sachbearbeitung Kundenservice (m/w/d)',
+      'Junger Sachbearbeiter für unser Team',
+      'Kundenservice-Mitarbeiterin, gern Muttersprachlerin'
+    ],
+    richtig: ['Sachbearbeitung Kundenservice (m/w/d)'],
+    erklaerung: 'Die Ausschreibung muss geschlechtsneutral sein. „Sachbearbeitung“ plus (m/w/d) erfüllt das; die anderen drei grenzen nach Geschlecht, Alter oder Herkunft ein.'
+  },
+  {
+    id: 'az2',
+    text: 'Die Stelle verlangt viel Telefon- und E-Mail-Kontakt. Wie formulieren Sie die Sprachanforderung?',
+    optionen: [
+      'Deutsch als Muttersprache',
+      'akzentfreies Deutsch',
+      'Deutsch auf dem Niveau einer Muttersprachlerin',
+      'sehr gute Deutschkenntnisse in Wort und Schrift'
+    ],
+    richtig: ['sehr gute Deutschkenntnisse in Wort und Schrift'],
+    erklaerung: 'Gefordert werden darf, was die Aufgabe verlangt – ein Sprachniveau. Die Herkunft der Sprachkenntnisse ist dafür ohne Bedeutung.'
+  },
+  {
+    id: 'az3',
+    text: 'Welcher Satz gehört in den Abschnitt „Ihre Aufgaben“?',
+    optionen: [
+      'Sie sind teamfähig und belastbar.',
+      'Wir bieten 30 Urlaubstage.',
+      'Sie stimmen sich täglich mit Lager und Versand ab.',
+      'Wir freuen uns auf Ihre Bewerbung.'
+    ],
+    richtig: ['Sie stimmen sich täglich mit Lager und Versand ab.'],
+    erklaerung: 'Aufgaben sind Tätigkeiten. „teamfähig und belastbar“ ist eine Eigenschaft und gehört ins Profil – am besten als überprüfbare Formulierung.'
+  },
+  {
+    id: 'az4',
+    text: 'Warum ist „Wir suchen eine belastbare Kollegin bis 35 Jahre“ problematisch?',
+    optionen: [
+      'Die Altersgrenze benachteiligt ältere Bewerbende und sagt nichts über die Eignung.',
+      'Der Satz ist zu lang für eine Anzeige.',
+      '„belastbar“ darf in Anzeigen nicht vorkommen.',
+      'Es fehlt nur die Angabe der Wochenstunden.'
+    ],
+    richtig: ['Die Altersgrenze benachteiligt ältere Bewerbende und sagt nichts über die Eignung.'],
+    erklaerung: 'Das Alter ist kein Leistungsmerkmal. Zusätzlich grenzt „Kollegin“ auf ein Geschlecht ein – beides gehört nicht in eine Ausschreibung.'
+  }
+]);
+
+Lehrwerk.luecken('r', {
+  eindeutig: true,
+  felder: {
+    r1: ['das'],
+    r2: ['die'],
+    r3: ['die'],
+    r4: ['das'],
+    r5: ['denen'],
+    r6: ['der'],
+    r7: ['die'],
+    r8: ['das']
+  },
+  pruefen: 'r-pruefen', rueck: 'r-rueck', tipp: 'r-tipp', hinweis: 'r-hinweis'
+});
+
+Lehrwerk.frei('p-anzeige');
+
+/* ---- Bewerbungen vergleichen ---- */
+Lehrwerk.auswahl('mc-vergleich', [
+  {
+    id: 've1',
+    text: 'Wer erfüllt alle drei Muss-Kriterien – Reklamationen selbstständig bearbeiten, ab 1. November verfügbar und sicher im Ausdruck?',
+    optionen: [
+      'Frau Kovač und Frau Lindner',
+      'nur Frau Kovač',
+      'Herr Terzi und Frau Kovač',
+      'alle drei'
+    ],
+    richtig: ['Frau Kovač und Frau Lindner'],
+    erklaerung: 'Beide Frauen erfüllen alle drei Kriterien. Herr Terzi hat Reklamationen weitergegeben und ist erst zum 1. Januar verfügbar – damit scheidet er an zwei der drei Muss-Kriterien aus, obwohl er die meiste Erfahrung und die besten Systemkenntnisse mitbringt.'
+  },
+  {
+    id: 've2',
+    text: 'Herr Terzi ist im Warenwirtschaftssystem sehr sicher. Wie wirkt sich das aus?',
+    optionen: [
+      'Es gleicht die fehlende Verfügbarkeit aus.',
+      'Es ersetzt die Erfahrung mit Reklamationen.',
+      'Gar nicht, solange die Muss-Kriterien nicht erfüllt sind.',
+      'Es macht ihn automatisch zur ersten Wahl.'
+    ],
+    richtig: ['Gar nicht, solange die Muss-Kriterien nicht erfüllt sind.'],
+    erklaerung: 'Kann-Kriterien entscheiden erst zwischen Bewerbungen, die die Muss-Kriterien erfüllen. Genau dafür wird die Trennung vorher festgelegt.'
+  },
+  {
+    id: 've3',
+    text: 'Frau Lindner hat keine kaufmännische Ausbildung. Was folgt daraus?',
+    optionen: [
+      'Sie muss aussortiert werden, weil die Ausbildung fehlt.',
+      'Sie kann nur als Praktikantin eingestellt werden.',
+      'Sie muss die Ausbildung nachholen, bevor sie anfängt.',
+      'Nichts Zwingendes – im Profil stand „oder vergleichbare Erfahrung im Kundenkontakt“.'
+    ],
+    richtig: ['Nichts Zwingendes – im Profil stand „oder vergleichbare Erfahrung im Kundenkontakt“.'],
+    erklaerung: 'Man prüft gegen das eigene Profil, nicht gegen ein Ideal. Drei Jahre Hotline mit selbstständiger Reklamationsbearbeitung sind genau diese vergleichbare Erfahrung.'
+  },
+  {
+    id: 've4',
+    text: 'Welche Notiz gehört nicht in die Auswahlunterlagen?',
+    optionen: [
+      'Bearbeitet Reklamationen seit fünf Jahren selbstständig.',
+      'Verfügbar ab 1. November, Wunsch nach 30 Stunden.',
+      'Wirkte am Telefon sehr sympathisch, zwei kleine Kinder.',
+      'Grundkenntnisse im Warenwirtschaftssystem, Einarbeitung nötig.'
+    ],
+    richtig: ['Wirkte am Telefon sehr sympathisch, zwei kleine Kinder.'],
+    erklaerung: 'Die Familiensituation ist kein Auswahlkriterium und darf nicht dokumentiert werden. Auch ein pauschaler Eindruck wie „sympathisch“ trägt keine Entscheidung – Beobachtungen gehören an Kriterien gebunden.'
+  },
+  {
+    id: 've5',
+    text: 'Was passiert mit den 19 Bewerbungen, die nicht in die engere Wahl kommen?',
+    optionen: [
+      'Sie bekommen erst nach der Einstellung eine Rückmeldung.',
+      'Sie bekommen zeitnah eine sachliche Absage.',
+      'Sie bekommen gar keine Antwort, wenn viele Bewerbungen eingehen.',
+      'Sie werden ohne Rückmeldung in die Kartei aufgenommen.'
+    ],
+    richtig: ['Sie bekommen zeitnah eine sachliche Absage.'],
+    erklaerung: 'Eine Rückmeldung gehört zum Verfahren und wirkt auf den Ruf des Betriebs. Für die Unterlagen gilt: Sie dürfen für das Verfahren und eine begrenzte Nachlaufzeit gespeichert werden. Wer sie darüber hinaus in einem Bewerberpool behalten möchte, braucht dafür eine eigene Rechtsgrundlage – in der Regel die Einwilligung der Person.'
+  }
+]);
+
+Lehrwerk.luecken('k', {
+  eindeutig: true,
+  felder: {
+    k1: ['würden'],
+    k2: ['könnten'],
+    k3: ['wäre'],
+    k4: ['könnten'],
+    k5: ['wäre'],
+    k6: ['würden']
+  },
+  pruefen: 'k-pruefen', rueck: 'k-rueck', tipp: 'k-tipp', hinweis: 'k-hinweis'
+});
+
+Lehrwerk.frei('p-hoeflich');
+Lehrwerk.frei('p-absage');
+
+/* ---- Gespräch und Entscheidung ---- */
+Lehrwerk.gruppieren('g-fragen', {
+  pruefen: 'g-fragen-pruefen',
+  rueck: 'g-fragen-rueck',
+  gruppen: [
+    { id: 'ja', titel: 'zulässig – hat mit der Aufgabe zu tun',
+      woerter: ['Wie gehen Sie mit einer schwierigen Reklamation um?', 'Ab wann könnten Sie bei uns anfangen?', 'Mit welchen Systemen haben Sie bisher gearbeitet?', 'Wie sicher fühlen Sie sich beim Schreiben von Kundenmails?'] },
+    { id: 'nein', titel: 'nicht zulässig – Privatsache',
+      woerter: ['Sind Sie schwanger?', 'Wie alt sind Sie?', 'Haben Sie Kinder?', 'Sind Sie in einer Gewerkschaft?'] }
+  ]
+});
+
+Lehrwerk.auswahl('mc-entscheidung', [
+  {
+    id: 'en1',
+    text: 'Worauf stützen Sie die Entscheidung nach vier Gesprächen?',
+    optionen: [
+      'auf den Gesamteindruck der Gesprächsrunde',
+      'auf die Reihenfolge der Gespräche',
+      'auf die Empfehlung der Geschäftsführung',
+      'auf Notizen zu den vorher festgelegten Kriterien'
+    ],
+    richtig: ['auf Notizen zu den vorher festgelegten Kriterien'],
+    erklaerung: 'Ohne Notizen entscheidet die Erinnerung – und die bevorzugt das letzte Gespräch. Deshalb wird während oder direkt nach jedem Gespräch je Kriterium notiert.'
+  },
+  {
+    id: 'en2',
+    text: 'Die erste Wahl sagt ab. Was ist der professionelle nächste Schritt?',
+    optionen: [
+      'Sofort neu ausschreiben.',
+      'Die zweite Wahl ansprechen, bevor die Absagen verschickt sind.',
+      'Die Stelle unbesetzt lassen und die Arbeit verteilen.',
+      'Der ersten Wahl ein höheres Gehalt anbieten.'
+    ],
+    richtig: ['Die zweite Wahl ansprechen, bevor die Absagen verschickt sind.'],
+    erklaerung: 'Deshalb legt das Auswahlteam vorher eine zweite Wahl fest und verschickt die Absagen erst, wenn die Zusage angenommen ist.'
+  },
+  {
+    id: 'en3',
+    text: 'Wie formulieren Sie den Ausblick am Ende des Gesprächs?',
+    optionen: [
+      'Sie hören bis Ende der Woche von uns – wir melden uns in jedem Fall.',
+      'Wir melden uns, wenn es klappt.',
+      'Sie hören von uns, sobald wir Zeit haben.',
+      'Bewerben Sie sich gern in einem halben Jahr noch einmal.'
+    ],
+    richtig: ['Sie hören bis Ende der Woche von uns – wir melden uns in jedem Fall.'],
+    erklaerung: 'Der Ausblick nennt einen Zeitpunkt und gilt für beide Ausgänge. „Wir melden uns, wenn es klappt“ lässt die Person im Ungewissen und wird als Absage gelesen.'
+  }
+]);
+
+Lehrwerk.frei('p-vermerk');
+Lehrwerk.frei('p-transfer');
+
+Lehrwerk.abschluss();
+</script>
+
+</body>
+</html>

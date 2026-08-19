@@ -179,16 +179,17 @@
             },
             {
               "titel": "Personalwesen",
-              "beschreibung": "Personalplanung, Bedarf, Stellenanzeige, Bewerbung und Vorstellungsgespräch.",
+              "beschreibung": "Eine Stelle besetzen – aus Sicht des Unternehmens: Bedarf klären, Profil und Anzeige formulieren, Bewerbungen an Muss- und Kann-Kriterien vergleichen, das Gespräch führen und die Entscheidung begründen.",
               "pfad": "personalwesen.html",
-              "niveau": "C1",
-              "dauer": "",
+              "niveau": "B2–C1",
+              "dauer": "4 Lernabschnitte",
               "fertigkeiten": [
                 "Lesen",
                 "Schreiben",
-                "Sprechen"
+                "Sprechen",
+                "Üben"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             }
           ]
         },
