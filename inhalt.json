@@ -1020,6 +1020,19 @@
               "status": "fertig"
             },
             {
+              "titel": "Drei und vier Verben am Satzende",
+              "beschreibung": "Lange Verbketten lesen, bilden und verständlich vereinfachen: Modalverbpassiv, Ersatzinfinitiv und die besondere Wortstellung im Nebensatz.",
+              "pfad": "verbketten.html",
+              "niveau": "C1",
+              "dauer": "5 Lernabschnitte",
+              "fertigkeiten": [
+                "Üben",
+                "Schreiben",
+                "Sprechen"
+              ],
+              "status": "fertig"
+            },
+            {
               "titel": "lassen",
               "beschreibung": "Zulassen, veranlassen, sich lassen. Alle Formen.",
               "pfad": "lassen.html",
