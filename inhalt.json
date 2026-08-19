@@ -787,16 +787,17 @@
           "titel": "Satzbau",
           "module": [
             {
-              "titel": "Haupt- und Nebensatz",
-              "beschreibung": "Satzklammer, Verbstellung, Nebensatzarten.",
+              "titel": "Satzbau: Das Verb gibt den Takt",
+              "beschreibung": "Aussage, Frage, Satzklammer, Vorfeld und Verbposition im Nebensatz.",
               "pfad": "satzbau.html",
-              "niveau": "B2",
-              "dauer": "60 Min",
+              "niveau": "B1–B2",
+              "dauer": "4 Lernabschnitte",
               "fertigkeiten": [
                 "Üben",
+                "Schreiben",
                 "Sprechen"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "Konnektoren – der Überblick",
@@ -879,15 +880,16 @@
             },
             {
               "titel": "Infinitivsätze",
-              "beschreibung": "zu, um zu, ohne zu, statt zu.",
+              "beschreibung": "Infinitiv mit zu, um, ohne und statt sowie wichtige Formen ohne zu.",
               "pfad": "infinitivsaetze.html",
-              "niveau": "B2–C1",
-              "dauer": "45 Min",
+              "niveau": "B1–B2",
+              "dauer": "4 Lernabschnitte",
               "fertigkeiten": [
                 "Üben",
+                "Schreiben",
                 "Sprechen"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "Informationsstruktur",
@@ -945,28 +947,30 @@
           "titel": "Verben in allen Zeiten",
           "module": [
             {
-              "titel": "Zeiten und Zeitenfolge",
-              "beschreibung": "Plusquamperfekt, Futur I und II, Vorzeitigkeit.",
+              "titel": "Zeitformen im Beruf",
+              "beschreibung": "Präsens, Perfekt, Präteritum, Plusquamperfekt und Futur I nach Funktion.",
               "pfad": "zeiten.html",
-              "niveau": "B2",
-              "dauer": "60 Min",
+              "niveau": "B1–B2",
+              "dauer": "4 Lernabschnitte",
               "fertigkeiten": [
                 "Üben",
-                "Schreiben"
+                "Schreiben",
+                "Sprechen"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "Präteritum oder Perfekt",
-              "beschreibung": "Was man spricht und was man schreibt.",
+              "beschreibung": "Vergangenheit in Gesprächen, E-Mails und sachlichen Berichten.",
               "pfad": "praeteritum-perfekt.html",
-              "niveau": "B2",
-              "dauer": "30 Min",
+              "niveau": "B1–B2",
+              "dauer": "4 Lernabschnitte",
               "fertigkeiten": [
                 "Üben",
-                "Schreiben"
+                "Schreiben",
+                "Sprechen"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "Passiv",
@@ -1259,15 +1263,16 @@
           "module": [
             {
               "titel": "Präpositionen und Kasus",
-              "beschreibung": "Feste Fälle, Wechselpräpositionen, Genitiv.",
+              "beschreibung": "Fester Kasus, Wechselpräpositionen, Ort, Richtung und Kurzformen.",
               "pfad": "praepositionen.html",
-              "niveau": "B2",
-              "dauer": "60 Min",
+              "niveau": "B1–B2",
+              "dauer": "4 Lernabschnitte",
               "fertigkeiten": [
                 "Üben",
+                "Schreiben",
                 "Sprechen"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "Verben mit Präposition",
