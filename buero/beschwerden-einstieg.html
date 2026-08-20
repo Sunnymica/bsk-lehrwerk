@@ -44,6 +44,30 @@
     </div>
 
     <div class="kasten">
+      <span class="marke">Vorentlastung · 5 Minuten</span>
+      <h3>Zehn Wörter rund um die Beschwerde</h3>
+      <table>
+        <thead><tr><th>Wort</th><th>einfach gesagt</th><th>im Satz</th></tr></thead>
+        <tbody>
+          <tr><td>sich beschweren <strong>über</strong></td><td>sagen, dass etwas nicht in Ordnung ist</td><td>Ich beschwere mich über die Wartezeit.</td></tr>
+          <tr><td>die Reklamation, -en</td><td>Beschwerde über eine mangelhafte Ware oder Dienstleistung</td><td>Die Reklamation ist berechtigt.</td></tr>
+          <tr><td>der Mangel, die Mängel</td><td>was fehlt oder kaputt ist</td><td>Die Lieferung hat einen Mangel.</td></tr>
+          <tr><td>berechtigt</td><td>mit gutem Grund</td><td>Ihre Kritik ist berechtigt.</td></tr>
+          <tr><td>die Frist, -en</td><td>Zeit, die man einräumt</td><td>Wir setzen eine Frist bis Freitag.</td></tr>
+          <tr><td>Abhilfe schaffen</td><td>das Problem beseitigen</td><td>Wir schaffen bis Montag Abhilfe.</td></tr>
+          <tr><td>sich entschuldigen <strong>für</strong></td><td>um Verzeihung bitten</td><td>Ich entschuldige mich für die Verzögerung.</td></tr>
+          <tr><td>der Ersatz</td><td>neue Ware statt der schlechten</td><td>Wir schicken Ihnen Ersatz.</td></tr>
+          <tr><td>die Verzögerung, -en</td><td>etwas dauert länger als geplant</td><td>Es kam zu einer Verzögerung.</td></tr>
+          <tr><td>eine Lösung finden</td><td>gemeinsam klären, wie es weitergeht</td><td>Wir finden sicher eine Lösung.</td></tr>
+        </tbody>
+      </table>
+      <p class="marke">Achten Sie auf die zwei Präpositionen: sich beschweren <strong>über</strong> etwas – sich entschuldigen <strong>für</strong> etwas. Beide stehen mit Akkusativ.</p>
+    </div>
+
+    <h2>Kurzer Verständnischeck</h2>
+    <div id="check-beschwerde"></div>
+
+    <div class="kasten">
       <h3>Sechs Konstellationen</h3>
       <p><strong>Als Kundin oder Kunde</strong> — defekte Ware, falsche Rechnung, lange Wartezeit. Hier sind Sie in der stärksten Position.</p>
       <p><strong>Gegenüber Vorgesetzten</strong> — unklare Aufträge, zu viel auf einmal, fehlende Information. Hier gilt der vorsichtigste Ton.</p>
@@ -172,6 +196,13 @@
     </div>
 
     <h2>Meine Notizen aus der Gruppenarbeit</h2>
+    <div class="kasten">
+      <span class="marke">Satzstarter</span>
+      <p class="satz">In unserer Gruppe ging es um … · Am schwierigsten fanden wir … · Wir waren uns einig, dass … · Eine Kollegin hat gesagt, dass … · Ich nehme mit, dass …</p>
+    </div>
+    <p><strong>Start:</strong> vier Sätze mit den Satzstartern.<br>
+    <strong>Weiter:</strong> zusätzlich ein Beispiel aus der Gruppe mit Grund (<em>weil …</em>).<br>
+    <strong>Herausforderung:</strong> notieren Sie zwei Positionen, die sich widersprochen haben, und wie Sie selbst entscheiden würden.</p>
     <textarea class="feld" id="gruppe-frei"></textarea>
 
   </section>
@@ -205,6 +236,33 @@
 <script src="../assets/lehrwerk.js"></script>
 <script>
 Lehrwerk.modul('beschwerden-einstieg');
+
+Lehrwerk.auswahl('check-beschwerde', [
+  {
+    id: 'cb1',
+    text: 'Welcher Satz ist richtig?',
+    optionen: [
+      'Ich beschwere mich für die lange Wartezeit.',
+      'Ich beschwere mich über die lange Wartezeit.',
+      'Ich beschwere mich an die lange Wartezeit.',
+      'Ich beschwere mich wegen der lange Wartezeit.'
+    ],
+    richtig: ['Ich beschwere mich über die lange Wartezeit.'],
+    erklaerung: 'sich beschweren steht mit „über“ und Akkusativ. Mit „für“ verbindet sich dagegen sich entschuldigen: Ich entschuldige mich für die Verzögerung.'
+  },
+  {
+    id: 'cb2',
+    text: 'Eine Kundin schreibt: „Die Lieferung weist einen Mangel auf. Bitte schaffen Sie bis Freitag Abhilfe.“ Was möchte sie?',
+    optionen: [
+      'Sie möchte sich für etwas entschuldigen.',
+      'Sie möchte die Lieferung zurückschicken.',
+      'Sie möchte, dass das Problem bis Freitag behoben wird.',
+      'Sie möchte eine längere Frist bekommen.'
+    ],
+    richtig: ['Sie möchte, dass das Problem bis Freitag behoben wird.'],
+    erklaerung: '„Abhilfe schaffen“ heißt: das Problem beseitigen. Die Frist bis Freitag sagt, bis wann das geschehen soll – ob die Ware zurückgeht, steht dort noch nicht.'
+  }
+]);
 Lehrwerk.reiter();
 
 Lehrwerk.auswahl('a1', [

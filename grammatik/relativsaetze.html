@@ -37,6 +37,26 @@
   <!-- ============ Regel ============ -->
   <section class="blatt" id="blatt-regel">
 
+    <div class="kasten">
+      <span class="marke">Start · der einfachste Relativsatz</span>
+      <h3>Wenn die Person oder Sache selbst handelt</h3>
+      <p>Fangen Sie mit dem Fall an, der am häufigsten vorkommt: Das Bezugswort ist im Relativsatz das <strong>Subjekt</strong>. Dann sieht das Relativpronomen genauso aus wie der Artikel.</p>
+      <table>
+        <thead><tr><th>Bezugswort</th><th>Relativpronomen</th><th>Beispiel</th></tr></thead>
+        <tbody>
+          <tr><td><strong>der</strong> Kollege</td><td>der</td><td>Der Kollege, <strong>der</strong> im Lager arbeitet, …</td></tr>
+          <tr><td><strong>die</strong> Rechnung</td><td>die</td><td>Die Rechnung, <strong>die</strong> gestern kam, …</td></tr>
+          <tr><td><strong>das</strong> Formular</td><td>das</td><td>Das Formular, <strong>das</strong> auf dem Tisch liegt, …</td></tr>
+          <tr><td><strong>die</strong> Unterlagen</td><td>die</td><td>Die Unterlagen, <strong>die</strong> noch fehlen, …</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Zwei Dinge sind dabei immer gleich:</strong> Vor dem Relativsatz steht ein Komma, und das konjugierte Verb steht am Ende des Relativsatzes.</p>
+      <p class="marke">Erst wenn dieser Fall sitzt, lohnt sich der nächste Schritt: Bezugswort als Objekt – dann ändert sich die Form, und dafür ist die Probe unten da.</p>
+    </div>
+
+    <h2>Kurzer Verständnischeck</h2>
+    <div id="check-relativ"></div>
+
     <div class="merker">
       <h3>Die zentrale Regel — sie passt in einen Satz</h3>
       <p>Das Relativpronomen richtet sich in <strong>Genus und Numerus nach dem Bezugswort</strong>, im <strong>Kasus nach seiner Rolle im Relativsatz</strong>.</p>
@@ -248,6 +268,28 @@
 <script>
 Lehrwerk.modul('relativsaetze');
 Lehrwerk.reiter();
+
+Lehrwerk.auswahl('check-relativ', [
+  {
+    id: 'cre1',
+    text: 'Welcher Satz ist richtig?',
+    optionen: [
+      'Die Rechnung, die gestern gekommen ist, liegt auf dem Tisch.',
+      'Die Rechnung, der gestern gekommen ist, liegt auf dem Tisch.',
+      'Die Rechnung, die ist gestern gekommen, liegt auf dem Tisch.',
+      'Die Rechnung, das gestern gekommen ist, liegt auf dem Tisch.'
+    ],
+    richtig: ['Die Rechnung, die gestern gekommen ist, liegt auf dem Tisch.'],
+    erklaerung: 'Die Rechnung ist feminin und im Relativsatz das Subjekt – also „die“. Das konjugierte Verb steht am Ende des Relativsatzes: gekommen ist.'
+  },
+  {
+    id: 'cre2',
+    text: 'Welches Pronomen passt? „Der Auftrag, ___ wir gestern bekommen haben, ist dringend.“',
+    optionen: ['der', 'den', 'dem', 'das'],
+    richtig: ['den'],
+    erklaerung: 'Probe mit einem eigenen Satz: „Wir haben ihn bekommen“ – Akkusativ maskulin, also „den“. Wäre der Auftrag selbst das Subjekt, hieße es „der“.'
+  }
+]);
 
 /* ---- Kasus ---- */
 Lehrwerk.auswahl('a1', [

@@ -65,6 +65,29 @@
   <section class="blatt" id="blatt-regeln">
 
     <div class="kasten">
+      <span class="marke">Vorentlastung · 5 Minuten</span>
+      <h3>Neun Wörter, die auf der Karte und in den Regeln vorkommen</h3>
+      <table>
+        <thead><tr><th>Wort</th><th>einfach gesagt</th><th>im Satz</th></tr></thead>
+        <tbody>
+          <tr><td>zutreffen <strong>auf</strong></td><td>für jemanden richtig sein</td><td>Das Feld trifft auf meine Kollegin zu.</td></tr>
+          <tr><td>ein Feld markieren</td><td>anklicken, weil es passt</td><td>Ich markiere das Feld.</td></tr>
+          <tr><td>die Reihe, -n</td><td>fünf Felder nebeneinander</td><td>Wer eine Reihe hat, ruft „Bingo“.</td></tr>
+          <tr><td>waagerecht · senkrecht · diagonal</td><td>quer · von oben nach unten · schräg</td><td>Die Reihe darf auch diagonal sein.</td></tr>
+          <tr><td>freiwillig</td><td>man darf, man muss aber nicht</td><td>Der Name ist freiwillig.</td></tr>
+          <tr><td>etwas verraten</td><td>etwas sagen, das man auch für sich behalten könnte</td><td>„Das verrate ich nicht.“</td></tr>
+          <tr><td>in Gang kommen</td><td>morgens wach und aktiv werden</td><td>Wie kommen Sie morgens in Gang?</td></tr>
+          <tr><td>der Morgenmuffel, -</td><td>jemand, der morgens ungern redet</td><td>Ich bin ein ziemlicher Morgenmuffel.</td></tr>
+          <tr><td>der Vorwand, die Vorwände</td><td>ein Grund, der nur nach außen der Grund ist</td><td>Das Bingo ist ein Vorwand zum Reden.</td></tr>
+        </tbody>
+      </table>
+      <p class="marke">Merken Sie sich die Präposition: etwas trifft <strong>auf</strong> jemanden zu – mit Akkusativ.</p>
+    </div>
+
+    <h2>Kurzer Verständnischeck</h2>
+    <div id="check-bingo"></div>
+
+    <div class="kasten">
       <h3>Worum geht es überhaupt?</h3>
       <p>Auf Ihrer Karte stehen 24 Aussagen, zum Beispiel <em>„trinkt morgens Kaffee“</em> oder <em>„spielt ein Instrument“</em>. Auf irgendeine Person im Raum trifft jede davon zu — Sie wissen nur nicht, auf welche.</p>
       <p><strong>Herausfinden können Sie das nur, indem Sie mit den Leuten sprechen.</strong> Das ist der ganze Zweck: Das Bingo ist ein Anlass zum Reden, kein Wissensspiel.</p>
@@ -78,6 +101,21 @@
       <p><strong>4</strong> Weiter zur nächsten Person. Pro Gespräch schaffen Sie oft zwei oder drei Felder.</p>
       <p><strong>5</strong> Wer fünf Felder in einer Reihe hat — waagerecht, senkrecht oder diagonal —, ruft „Bingo“. Danach wird weitergespielt, bis alle eine Reihe haben.</p>
       <p class="marke">Das Feld in der Mitte ist geschenkt und zählt immer mit. So ist es beim Bingo üblich.</p>
+    </div>
+
+    <p><strong>Start:</strong> drei Felder füllen, jedes mit einer offenen Frage aus dem Kasten „Wenn es stockt“.<br>
+    <strong>Weiter:</strong> eine ganze Reihe — und pro Gespräch mindestens zwei Felder aus einer einzigen Frage.<br>
+    <strong>Herausforderung:</strong> eine Reihe, ohne ein Feld vorzulesen, und jedes Gespräch mit einem eigenen Ausstiegssatz beenden.</p>
+
+    <div class="merker">
+      <span class="marke marke-merker">Grammatik in einem Kasten</span>
+      <h3><em>gern – lieber – am liebsten</em></h3>
+      <p>Fast jedes Feld auf der Karte lässt sich mit diesen drei Wörtern beantworten. Sie sind die Steigerung von <em>gern</em> — unregelmäßig, deshalb lernt man sie als Dreiergruppe.</p>
+      <p class="satz">Ich trinke <strong>gern</strong> Kaffee.<br>
+      Ich trinke <strong>lieber</strong> Tee <strong>als</strong> Kaffee.<br>
+      <strong>Am liebsten</strong> entspanne ich zu Hause.</p>
+      <p><strong>Der Vergleich läuft mit <em>als</em>:</strong> lieber Tee <strong>als</strong> Kaffee, lieber im Team <strong>als</strong> allein.</p>
+      <p class="marke">Achtung: <em>gerner</em> gibt es nicht. Mehr dazu in <a href="../grammatik/steigerung-vergleich.html">Positiv, Komparativ und Superlativ</a>.</p>
     </div>
 
     <div class="kasten">
@@ -137,6 +175,13 @@
 
     <h2>Was ich erfahren habe</h2>
     <p class="anleitung">Zwei oder drei Dinge, die Sie über andere gelernt haben — und die Sie beim nächsten Mal als Gesprächsanfang nutzen könnten.</p>
+    <div class="kasten">
+      <span class="marke">Satzstarter</span>
+      <p class="satz">Ich habe erfahren, dass … · Überrascht hat mich, dass … · Auf … trifft zu, dass … · Beim nächsten Mal frage ich … · Am schwersten war das Feld …, weil …</p>
+    </div>
+    <p><strong>Start:</strong> zwei Sätze nach den Satzstartern.<br>
+    <strong>Weiter:</strong> zusätzlich zu jedem Punkt die Frage notieren, mit der Sie darauf gekommen sind.<br>
+    <strong>Herausforderung:</strong> schreiben Sie zu zwei Personen je einen Gesprächsanfang für das nächste Mal — mit <em>gern</em>, <em>lieber</em> oder <em>am liebsten</em>.</p>
     <textarea class="feld" id="erfahren-frei"></textarea>
 
     <div class="merker">
@@ -154,6 +199,33 @@
 <script src="../assets/lehrwerk.js"></script>
 <script>
 Lehrwerk.modul('smalltalk-bingo');
+
+Lehrwerk.auswahl('check-bingo', [
+  {
+    id: 'csb1',
+    text: 'Welcher Satz ist richtig?',
+    optionen: [
+      'Das Feld trifft auf meine Kollegin zu.',
+      'Das Feld trifft für meine Kollegin zu.',
+      'Das Feld trifft an meine Kollegin zu.',
+      'Das Feld trifft meiner Kollegin zu.'
+    ],
+    richtig: ['Das Feld trifft auf meine Kollegin zu.'],
+    erklaerung: 'zutreffen steht mit „auf“ und Akkusativ. Das Verb ist trennbar: das „zu“ rutscht ans Satzende – es trifft zu.'
+  },
+  {
+    id: 'csb2',
+    text: 'Wie heißt die Steigerung von gern?',
+    optionen: [
+      'gern – lieber – am liebsten',
+      'gern – gerner – am gernsten',
+      'gern – mehr gern – am meisten gern',
+      'gern – besser – am besten'
+    ],
+    richtig: ['gern – lieber – am liebsten'],
+    erklaerung: 'gern wird unregelmäßig gesteigert, deshalb lernt man die drei Formen zusammen. „Gerner“ gibt es nicht, und „besser“ gehört zu gut.'
+  }
+]);
 Lehrwerk.reiter();
 
 Lehrwerk.auswahl('a1', [

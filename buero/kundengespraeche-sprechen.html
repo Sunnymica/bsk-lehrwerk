@@ -35,6 +35,29 @@
   <section class="blatt" id="blatt-werkzeuge">
 
     <div class="kasten">
+      <span class="marke">Vorentlastung · 5 Minuten</span>
+      <h3>Zehn Wörter aus dem Kundenkontakt</h3>
+      <table>
+        <thead><tr><th>Wort</th><th>einfach gesagt</th><th>im Satz</th></tr></thead>
+        <tbody>
+          <tr><td>das Anliegen</td><td>das, was jemand von mir möchte</td><td>Worum geht es bei Ihrem Anliegen?</td></tr>
+          <tr><td>die Reklamation, -en</td><td>Beschwerde über eine Ware</td><td>Die Reklamation liegt uns vor.</td></tr>
+          <tr><td>weiterleiten <strong>an</strong></td><td>an die richtige Stelle geben</td><td>Ich leite das an den Versand weiter.</td></tr>
+          <tr><td>klären</td><td>herausfinden und entscheiden</td><td>Das kläre ich bis morgen.</td></tr>
+          <tr><td>sich kümmern <strong>um</strong></td><td>die Sache übernehmen</td><td>Ich kümmere mich darum.</td></tr>
+          <tr><td>prüfen</td><td>genau nachsehen</td><td>Ich prüfe den Vorgang im System.</td></tr>
+          <tr><td>zusagen</td><td>fest versprechen</td><td>Das kann ich Ihnen zusagen.</td></tr>
+          <tr><td>verbindlich</td><td>sicher, gilt wirklich</td><td>Ist der Termin verbindlich?</td></tr>
+          <tr><td>die Rückmeldung, -en</td><td>Antwort auf eine Frage</td><td>Sie bekommen bis Freitag eine Rückmeldung.</td></tr>
+          <tr><td>der Verbleib</td><td>Wo ist die Sache gerade?</td><td>Er fragt nach dem Verbleib der Lieferung.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Kurzer Verständnischeck</h2>
+    <div id="check-kunden"></div>
+
+    <div class="kasten">
       <h3>1 · Indirekte Fragen</h3>
       <table>
         <thead><tr><th>direkt</th><th>indirekt</th></tr></thead>
@@ -52,6 +75,8 @@
     <div class="merker">
       <p><strong>Direkte Fragen sind nicht unhöflich.</strong> „Wann kommt die Lieferung?“ ist im Berufsalltag völlig normal. Die indirekte Form ist <em>weicher</em> — man nimmt sie, wenn die Frage heikel ist, wenn man jemanden unterbricht, gegenüber Kundschaft und Vorgesetzten, und schriftlich.</p>
       <p class="satz">Wer <em>jede</em> Frage indirekt stellt, klingt umständlich. Eine Reihe von fünf „Könnten Sie mir sagen, ob …“ hintereinander ermüdet — dann lieber mischen.</p>
+      <p><strong>Wenn die indirekte Form noch nicht sitzt:</strong> Bleiben Sie bei der direkten Frage und setzen Sie <em>bitte</em> oder eine kurze Einleitung davor. Das ist im Betrieb völlig üblich und wirkt nicht unhöflich.</p>
+      <p class="satz">Eine kurze Frage: Wann kommt die Lieferung? · Darf ich kurz fragen: Wo finde ich das Formular? · Können Sie mir bitte die Auftragsnummer nennen?</p>
     </div>
 
     <div class="kasten">
@@ -229,6 +254,17 @@
 
     <h2>Strichliste und Notizen</h2>
     <p class="anleitung">Welches Werkzeug haben Sie am häufigsten benutzt, welches gar nicht? Und welcher Satz ist Ihnen besonders gut gelungen?</p>
+    <div class="kasten">
+      <span class="marke">Satzstarter für die Karten</span>
+      <p class="satz"><strong>Anliegen aufnehmen:</strong> Worum geht es genau? · Darf ich kurz fragen, …?<br>
+      <strong>Zeit gewinnen:</strong> Ich prüfe das kurz im System. · Einen Moment bitte, ich sehe nach.<br>
+      <strong>Weiterleiten:</strong> Dafür ist … zuständig, ich leite es weiter.<br>
+      <strong>Zusagen:</strong> Ich kümmere mich darum und melde mich bis …<br>
+      <strong>Einschränken:</strong> Zwar kann ich …, aber … · Entweder … oder …</p>
+    </div>
+    <p><strong>Start:</strong> zwei Karten spielen und dabei die Satzstarter benutzen.<br>
+    <strong>Weiter:</strong> in jedem Gespräch mindestens eine indirekte Frage und einen Relativsatz.<br>
+    <strong>Herausforderung:</strong> zusätzlich zwei zweiteilige Konnektoren einbauen – und am Ende ohne Notizen zusammenfassen, was vereinbart wurde.</p>
     <textarea class="feld" id="sprech-frei"></textarea>
 
     <div class="merker">
@@ -242,6 +278,28 @@
 <script src="../assets/lehrwerk.js"></script>
 <script>
 Lehrwerk.modul('kundengespraeche-sprechen');
+
+Lehrwerk.auswahl('check-kunden', [
+  {
+    id: 'ck1',
+    text: 'Welcher Satz ist richtig gebaut?',
+    optionen: [
+      'Könnten Sie mir sagen, wann kommt die Lieferung?',
+      'Könnten Sie mir sagen, wann die Lieferung kommt?',
+      'Könnten Sie mir sagen, wann die Lieferung kommen?',
+      'Könnten Sie mir sagen, kommt die Lieferung wann?'
+    ],
+    richtig: ['Könnten Sie mir sagen, wann die Lieferung kommt?'],
+    erklaerung: 'In der indirekten Frage steht das konjugierte Verb am Ende. Das Fragewort bleibt erhalten; bei einer Ja-Nein-Frage stünde dort „ob“.'
+  },
+  {
+    id: 'ck2',
+    text: 'Welches Relativpronomen passt? „Der Ordner, ___ Sie suchen, steht im Regal.“',
+    optionen: ['der', 'den', 'dem', 'dessen'],
+    richtig: ['den'],
+    erklaerung: 'Probe mit einem eigenen Satz: „Sie suchen ihn“ – Akkusativ maskulin, also „den“. Das Geschlecht kommt vom Ordner, der Fall aus dem Relativsatz.'
+  }
+]);
 Lehrwerk.reiter();
 
 Lehrwerk.wortbank('i', {

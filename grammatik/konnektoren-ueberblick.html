@@ -36,6 +36,27 @@
   <section class="blatt" id="blatt-gruppen">
     <p>Konnektoren verbinden Wörter, Satzteile oder ganze Sätze. Für den ersten Überblick stellen wir uns vier <strong>Konnektoren-Familien</strong> vor. Danach sprechen wir genauer von vier Gruppen.</p>
 
+    <div class="kasten">
+      <span class="marke">Vorentlastung · 5 Minuten</span>
+      <h3>Sechs Verbindungen, die Sie schon kennen</h3>
+      <p>Bevor es um vier Familien geht: Mit diesen sechs Wörtern kommen Sie durch fast jede E-Mail. Wichtig ist nur, was danach mit dem Verb passiert.</p>
+      <table>
+        <thead><tr><th>Wort</th><th>wofür</th><th>Beispiel</th><th>Verb steht …</th></tr></thead>
+        <tbody>
+          <tr><td><strong>und</strong></td><td>Aufzählung</td><td>Ich prüfe die Rechnung und ich lege sie ab.</td><td>wie immer auf Position 2</td></tr>
+          <tr><td><strong>aber</strong></td><td>Gegensatz</td><td>Ich habe angerufen, aber niemand war da.</td><td>wie immer auf Position 2</td></tr>
+          <tr><td><strong>oder</strong></td><td>Auswahl</td><td>Sie senden es heute oder Sie bringen es vorbei.</td><td>wie immer auf Position 2</td></tr>
+          <tr><td><strong>denn</strong></td><td>Grund</td><td>Wir warten noch, denn der Lieferschein fehlt.</td><td>wie immer auf Position 2</td></tr>
+          <tr><td><strong>weil</strong></td><td>Grund</td><td>Wir warten noch, weil der Lieferschein <strong>fehlt</strong>.</td><td>ganz am Ende</td></tr>
+          <tr><td><strong>deshalb</strong></td><td>Folge</td><td>Der Lieferschein fehlt. Deshalb <strong>warten</strong> wir noch.</td><td>direkt nach dem Konnektor</td></tr>
+        </tbody>
+      </table>
+      <p class="marke">Genau hier entscheidet sich fast alles: <em>denn</em> ändert nichts, <em>weil</em> schickt das Verb ans Ende, <em>deshalb</em> zieht es nach vorn. Die drei sagen inhaltlich dasselbe.</p>
+    </div>
+
+    <h2>Kurzer Verständnischeck</h2>
+    <div id="check-konnektoren"></div>
+
     <p>In den Beispielsätzen ist alles gleich gekennzeichnet – auf dieser Seite und in allen anderen Modulen:</p>
     <p class="legende">
       <span><span class="kon">Konnektor</span></span>
@@ -405,6 +426,10 @@
     <div class="frage">
       <p>Erklären Sie einer Kollegin in etwa sechs Sätzen, warum ein Vorgang bei Ihnen länger dauert und was als Nächstes geschieht. Verwenden Sie mindestens vier verschiedene Konnektoren aus drei Gruppen.</p>
       <p>Notieren Sie nur Stichworte. Sprechen Sie anschließend frei und nehmen Sie sich nach Möglichkeit auf.</p>
+      <p><strong>Satzstarter:</strong> <em>Der Vorgang dauert länger, weil … · Deshalb kann ich … erst … · Zwar liegt … schon vor, aber … · Sobald … vorliegt, … · Als Nächstes …</em></p>
+      <p><strong>Start:</strong> sechs Sätze mit <em>weil</em>, <em>deshalb</em> und <em>aber</em>.<br>
+      <strong>Weiter:</strong> vier verschiedene Konnektoren aus drei Gruppen, wie oben verlangt.<br>
+      <strong>Herausforderung:</strong> zusätzlich ein zweiteiliger Konnektor (<em>zwar … aber</em>, <em>nicht nur … sondern auch</em>) und ein Satz, der mit einem Nebensatz beginnt.</p>
       <textarea class="feld" id="hausaufgabe-sprechen" placeholder="Vorgang · Grund · Folge · Gegensatz · nächster Schritt"></textarea>
       <p class="rueckmeldung">Kontrollieren Sie anschließend: Steht nach „deshalb“, „daher“, „folglich“ oder „trotzdem“ direkt das konjugierte Verb? Steht im Nebensatz die Verbgruppe am Ende?</p>
     </div>
@@ -521,6 +546,45 @@
 <script>
 Lehrwerk.modul('konnektoren-ueberblick');
 Lehrwerk.reiter();
+
+Lehrwerk.auswahl('check-konnektoren', [
+  {
+    id: 'ck1',
+    text: 'Welcher Satz ist richtig?',
+    optionen: [
+      'Wir warten noch, weil der Lieferschein fehlt.',
+      'Wir warten noch, weil fehlt der Lieferschein.',
+      'Wir warten noch, weil der Lieferschein fehlen.',
+      'Wir warten noch, weil fehlt noch der Lieferschein.'
+    ],
+    richtig: ['Wir warten noch, weil der Lieferschein fehlt.'],
+    erklaerung: 'Nach „weil“ beginnt ein Nebensatz: erst das Subjekt, das konjugierte Verb ganz am Ende. Mit „denn“ bliebe die normale Reihenfolge: denn der Lieferschein fehlt noch.'
+  },
+  {
+    id: 'ck2',
+    text: 'Welcher Satz ist richtig?',
+    optionen: [
+      'Deshalb wir verschieben die Besprechung.',
+      'Deshalb die Besprechung verschieben wir.',
+      'Deshalb verschieben wir die Besprechung.',
+      'Wir deshalb verschieben die Besprechung.'
+    ],
+    richtig: ['Deshalb verschieben wir die Besprechung.'],
+    erklaerung: '„deshalb“ besetzt Position 1. Danach kommt sofort das konjugierte Verb, erst dann das Subjekt – das ist der häufigste Fehler bei dieser Gruppe.'
+  },
+  {
+    id: 'ck3',
+    text: 'Welche drei Sätze sagen inhaltlich dasselbe?',
+    optionen: [
+      'denn / weil / deshalb',
+      'und / oder / aber',
+      'obwohl / trotzdem / und',
+      'sondern / oder / dass'
+    ],
+    richtig: ['denn / weil / deshalb'],
+    erklaerung: 'Alle drei verbinden Grund und Folge – sie unterscheiden sich nur in der Satzstellung. Deshalb lohnt es sich, genau diese drei zuerst sicher zu beherrschen.'
+  }
+]);
 
 Lehrwerk.auswahl('detektiv', [
   {

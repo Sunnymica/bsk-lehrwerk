@@ -100,6 +100,9 @@
       <p><strong>Vorsicht bei „Ich habe den Eindruck, dass …“</strong> Das ist zurückhaltend formuliert, aber inhaltlich oft ein Vorwurf: „Ich habe den Eindruck, dass Sie meine Mails nicht lesen.“ Die Verpackung ist weich, der Inhalt hart. Das ist manchmal genau richtig — man sollte es nur wissen.</p>
     </div>
 
+    <h2>Kurzer Verständnischeck</h2>
+    <div id="check-dass"></div>
+
     <h2>Direkt oder indirekt?</h2>
     <div id="z1"></div>
     <p class="rueckmeldung" id="z1-rueck" hidden></p>
@@ -164,6 +167,16 @@
     <h2>Welche Stufe passt?</h2>
     <div id="a2"></div>
 
+    <div class="kasten">
+      <span class="marke">Satzstarter nach Adressat</span>
+      <p class="satz"><strong>Kollegin:</strong> Mir ist aufgefallen, dass … · Können wir kurz klären, wie wir …?<br>
+      <strong>Vorgesetzte:</strong> Ich wollte ansprechen, dass … · Mir wäre wichtig, dass …<br>
+      <strong>Lieferant:</strong> Ich möchte darauf hinweisen, dass … · Ich bitte Sie, … bis … zu …</p>
+    </div>
+    <p><strong>Start:</strong> je zwei Sätze pro Adressat mit den Satzstartern.<br>
+    <strong>Weiter:</strong> je drei Sätze, dabei die Leiter der Einleitungen bewusst wechseln.<br>
+    <strong>Herausforderung:</strong> begründen Sie schriftlich, warum Sie bei welchem Adressaten welche Stufe gewählt haben.</p>
+
     <h2>Dieselbe Sache, drei Adressaten</h2>
     <p class="anleitung">Die Unterlagen, die Sie brauchen, kommen seit Wochen zu spät. Formulieren Sie die Beschwerde dreimal: an die Kollegin, an die Abteilungsleitung, an einen externen Dienstleister.</p>
     <textarea class="feld" id="drei-frei"></textarea>
@@ -217,6 +230,33 @@
 <script src="../assets/lehrwerk.js"></script>
 <script>
 Lehrwerk.modul('beschwerden-formulieren');
+
+Lehrwerk.auswahl('check-dass', [
+  {
+    id: 'cd1',
+    text: 'Welcher Satz ist richtig gebaut?',
+    optionen: [
+      'Mir ist aufgefallen, dass kam die Lieferung später.',
+      'Mir ist aufgefallen, dass die Lieferung später gekommen ist.',
+      'Mir ist aufgefallen, dass die Lieferung ist später gekommen.',
+      'Mir ist aufgefallen, die Lieferung später gekommen ist.'
+    ],
+    richtig: ['Mir ist aufgefallen, dass die Lieferung später gekommen ist.'],
+    erklaerung: 'Nach „dass“ folgt zuerst das Subjekt, das konjugierte Verb steht ganz am Ende – bei zwei Verbteilen also hinter dem Partizip: „gekommen ist“.'
+  },
+  {
+    id: 'cd2',
+    text: 'Welche Einleitung ist von diesen vier Möglichkeiten am zurückhaltendsten formuliert?',
+    optionen: [
+      'Ich erwarte, dass …',
+      'Ich muss leider feststellen, dass …',
+      'Mir ist aufgefallen, dass …',
+      'Ich möchte darauf hinweisen, dass …'
+    ],
+    richtig: ['Mir ist aufgefallen, dass …'],
+    erklaerung: '„Mir ist aufgefallen, dass …“ benennt zunächst eine Beobachtung und wirkt hier am zurückhaltendsten. „Ich möchte darauf hinweisen, dass …“ ist ebenfalls eine sachliche, angemessene Einleitung, hebt den Hinweis aber etwas stärker hervor.'
+  }
+]);
 Lehrwerk.reiter();
 
 /* ---- Sandwich ---- */

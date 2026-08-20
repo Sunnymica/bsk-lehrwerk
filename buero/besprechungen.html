@@ -39,6 +39,40 @@
 
     <p>Im deutschen Büroalltag gibt es viele Arten von Besprechungen — mit unterschiedlichen Zielen, Teilnehmenden und Strukturen. Wer den Unterschied kennt, ist besser vorbereitet.</p>
 
+    <div class="kasten">
+      <span class="marke">Vorentlastung · 5 Minuten</span>
+      <h3>Zehn Wörter aus jeder Besprechung</h3>
+      <table>
+        <thead><tr><th>Wort</th><th>einfach gesagt</th><th>im Satz</th></tr></thead>
+        <tbody>
+          <tr><td>die Tagesordnung</td><td>Liste der Themen</td><td>Das steht auf der Tagesordnung.</td></tr>
+          <tr><td>der Tagesordnungspunkt (TOP)</td><td>ein einzelnes Thema</td><td>Wir kommen zu TOP 3.</td></tr>
+          <tr><td>die Moderation</td><td>Person, die durch das Meeting führt</td><td>Die Moderation hat Herr Nowak.</td></tr>
+          <tr><td>das Protokoll, -e</td><td>schriftliche Mitschrift</td><td>Wer führt das Protokoll?</td></tr>
+          <tr><td>etwas festhalten</td><td>schriftlich notieren</td><td>Das halten wir im Protokoll fest.</td></tr>
+          <tr><td>vertagen</td><td>auf einen späteren Termin schieben</td><td>Wir vertagen den Punkt.</td></tr>
+          <tr><td>abstimmen <strong>über</strong></td><td>gemeinsam entscheiden lassen</td><td>Wir stimmen über den Vorschlag ab.</td></tr>
+          <tr><td>der Beschluss, die Beschlüsse</td><td>das Ergebnis der Entscheidung</td><td>Der Beschluss ist einstimmig.</td></tr>
+          <tr><td>zuständig sein <strong>für</strong></td><td>diese Aufgabe übernehmen</td><td>Frau Seidel ist dafür zuständig.</td></tr>
+          <tr><td>bis wann · Frist</td><td>Zeitpunkt der Erledigung</td><td>Erledigt bis Freitag, 12 Uhr.</td></tr>
+        </tbody>
+      </table>
+      <p class="marke">Vorsicht bei zwei Präpositionen: Etwas steht <strong>auf</strong> der Tagesordnung, und man stimmt <strong>über</strong> einen Vorschlag ab.</p>
+    </div>
+
+    <h2>Kurzer Verständnischeck</h2>
+    <div id="check-besprechung"></div>
+
+    <div class="merker">
+      <span class="marke marke-merker">Grammatik in einem Kasten</span>
+      <h3>Zwei Formen, die jede Besprechung begleiten</h3>
+      <p><strong>1 · Im Protokoll steht das Passiv.</strong> Es zählt das Ergebnis, nicht die Person: <em>werden</em> plus Partizip II, im Protokoll meist im Präteritum.</p>
+      <p class="satz">Der Vorschlag <strong>wurde angenommen</strong>. · Der Punkt <strong>wurde vertagt</strong>.</p>
+      <p><strong>2 · Im Gespräch bittet man mit <em>könnten</em> oder <em>würden</em>.</strong> Das zweite Verb steht im Infinitiv am Satzende.</p>
+      <p class="satz"><strong>Könnten</strong> wir den Punkt kurz <strong>zurückstellen</strong>? · <strong>Würden</strong> Sie das bitte im Protokoll <strong>festhalten</strong>?</p>
+      <p class="marke">Ausführlich im Reiter „Passiv“ und in den Vertiefungsmodulen <a href="../grammatik/passiv.html">Das Passiv</a> und <a href="../grammatik/konjunktiv-2.html">Konjunktiv II</a>.</p>
+    </div>
+
     <h2>Welcher Besprechungstyp ist das?</h2>
     <div id="z1"></div>
     <p class="rueckmeldung" id="z1-rueck" hidden></p>
@@ -375,6 +409,17 @@
 
     <h2>Nach dem Durchgang: Protokoll schreiben</h2>
     <p class="anleitung">Schreiben Sie das Protokoll zu dem Punkt, den Sie moderiert haben. Verwenden Sie mindestens vier Passiv-Konstruktionen und die typischen Formulierungen aus dem Reiter „Protokoll“.</p>
+    <div class="kasten">
+      <span class="marke">Satzstarter fürs Protokoll</span>
+      <p class="satz">TOP 3 – Neues EDV-System<br>
+      Frau Haddad berichtete über …<br>
+      Es wurde darauf hingewiesen, dass …<br>
+      Der Vorschlag wurde einstimmig angenommen. · Der Punkt wurde vertagt.<br>
+      <strong>Zuständig:</strong> Herr Nowak · <strong>Bis:</strong> Freitag, 12 Uhr</p>
+    </div>
+    <p><strong>Start:</strong> vier Zeilen – Thema, ein Ergebnis, zuständige Person, Frist.<br>
+    <strong>Weiter:</strong> ein zusammenhängender Absatz mit mindestens vier Passivsätzen.<br>
+    <strong>Herausforderung:</strong> zusätzlich einen strittigen Punkt so festhalten, dass beide Positionen erkennbar sind, ohne dass das Protokoll Partei ergreift.</p>
     <textarea class="feld" id="protokoll-frei" placeholder="TOP … — …&#10;&#10;Es wurde …"></textarea>
 
     <div class="kasten">
@@ -389,6 +434,33 @@
 <script src="../assets/lehrwerk.js"></script>
 <script>
 Lehrwerk.modul('besprechungen');
+
+Lehrwerk.auswahl('check-besprechung', [
+  {
+    id: 'cbe1',
+    text: 'Welcher Satz ist richtig?',
+    optionen: [
+      'Der Punkt steht in der Tagesordnung.',
+      'Der Punkt steht an der Tagesordnung.',
+      'Der Punkt steht auf der Tagesordnung.',
+      'Der Punkt steht zur Tagesordnung.'
+    ],
+    richtig: ['Der Punkt steht auf der Tagesordnung.'],
+    erklaerung: 'Feste Verbindung: etwas steht auf der Tagesordnung, etwas wird auf die Tagesordnung gesetzt. Andere Präpositionen sind hier nicht üblich.'
+  },
+  {
+    id: 'cbe2',
+    text: 'Im Protokoll steht: „Der Punkt wurde vertagt.“ Was heißt das?',
+    optionen: [
+      'Der Punkt wurde entschieden.',
+      'Der Punkt wurde auf einen späteren Termin verschoben.',
+      'Der Punkt wurde gestrichen.',
+      'Der Punkt wurde an eine andere Abteilung gegeben.'
+    ],
+    richtig: ['Der Punkt wurde auf einen späteren Termin verschoben.'],
+    erklaerung: '„vertagen“ heißt verschieben, nicht streichen – der Punkt kommt beim nächsten Mal wieder auf die Tagesordnung. Entschieden wäre er erst mit einem Beschluss.'
+  }
+]);
 Lehrwerk.reiter();
 
 /* ---- 1 Typen und Agenda ---- */

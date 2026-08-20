@@ -35,6 +35,25 @@
   <!-- ============ Formen ============ -->
   <section class="blatt" id="blatt-formen">
 
+    <div class="kasten">
+      <span class="marke">Start · zwei Bausteine</span>
+      <h3>Was Sie vorher sicher können müssen</h3>
+      <p><strong>1 · <em>werden</em> beugen.</strong> Es ist unregelmäßig – und ohne diese Formen gibt es kein Passiv.</p>
+      <table>
+        <thead><tr><th>ich</th><th>du</th><th>er/sie/es</th><th>wir/sie/Sie</th></tr></thead>
+        <tbody>
+          <tr><td>werde</td><td>wirst</td><td><strong>wird</strong></td><td><strong>werden</strong></td></tr>
+        </tbody>
+      </table>
+      <p><strong>2 · Das Partizip II bilden.</strong> Bei den meisten Bürowörtern ist es regelmäßig.</p>
+      <p class="satz">prüfen → ge<strong>prüft</strong> · bestellen → be<strong>stellt</strong> <span class="marke">kein ge- bei be-, ver-, er-</span><br>
+      informieren → informier<strong>t</strong> <span class="marke">kein ge- bei -ieren</span> · schicken → ge<strong>schickt</strong> · senden → ge<strong>sandt</strong></p>
+      <p class="marke">Wer diese beiden Bausteine hat, baut jedes Passiv aus zwei Teilen zusammen: <em>wird</em> + Partizip II. Alles Weitere auf dieser Seite sind Varianten davon.</p>
+    </div>
+
+    <h2>Kurzer Verständnischeck</h2>
+    <div id="check-passiv"></div>
+
     <div class="merker">
       <h3>Die Grundform</h3>
       <p><strong>werden + Partizip II</strong> — mehr ist es nicht.</p>
@@ -229,6 +248,33 @@
 <script>
 Lehrwerk.modul('passiv');
 Lehrwerk.reiter();
+
+Lehrwerk.auswahl('check-passiv', [
+  {
+    id: 'cpa1',
+    text: 'Wie heißt „Die Kollegin bestellt das Papier“ im Passiv?',
+    optionen: [
+      'Das Papier wird bestellt.',
+      'Das Papier wird gebestellt.',
+      'Das Papier ist bestellt worden.',
+      'Das Papier wird bestellen.'
+    ],
+    richtig: ['Das Papier wird bestellt.'],
+    erklaerung: 'Passiv Präsens ist „wird“ plus Partizip II. Bei Verben mit be-, ver- oder er- fällt das ge- weg: bestellt, nicht gebestellt.'
+  },
+  {
+    id: 'cpa2',
+    text: 'Welche Form ist richtig?',
+    optionen: [
+      'Die Kundin wird informiert.',
+      'Die Kundin werden informiert.',
+      'Die Kundin wird geinformiert.',
+      'Die Kundin wird informieren.'
+    ],
+    richtig: ['Die Kundin wird informiert.'],
+    erklaerung: '„werden“ richtet sich nach dem Subjekt: die Kundin – wird. Verben auf -ieren bilden das Partizip ohne ge-: informiert, reklamiert, kontrolliert.'
+  }
+]);
 
 /* ---- Formen ---- */
 Lehrwerk.wortbank('f', {

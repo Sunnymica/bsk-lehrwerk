@@ -40,6 +40,42 @@
     </div>
 
     <div class="kasten">
+      <span class="marke">Vorentlastung · 5 Minuten</span>
+      <h3>Zehn wichtige Wörter für Telefongespräche</h3>
+      <table>
+        <thead><tr><th>Wort</th><th>einfach gesagt</th><th>im Satz</th></tr></thead>
+        <tbody>
+          <tr><td>sich melden</td><td>anrufen oder ans Telefon gehen</td><td>Ich melde mich morgen früh.</td></tr>
+          <tr><td>verbinden <strong>mit</strong></td><td>das Gespräch weitergeben</td><td>Ich verbinde Sie mit dem Lager.</td></tr>
+          <tr><td>durchstellen</td><td>dasselbe, im Betrieb sehr üblich</td><td>Ich stelle Sie durch.</td></tr>
+          <tr><td>etwas ausrichten</td><td>eine Nachricht weitergeben</td><td>Kann ich etwas ausrichten?</td></tr>
+          <tr><td>zurückrufen</td><td>später selbst anrufen</td><td>Frau Seidel ruft Sie zurück.</td></tr>
+          <tr><td>die Durchwahl</td><td>direkte Nummer einer Person</td><td>Meine Durchwahl ist die 214.</td></tr>
+          <tr><td>besetzt</td><td>Die Leitung ist gerade belegt.</td><td>Der Anschluss ist besetzt.</td></tr>
+          <tr><td>in der Leitung sein</td><td>gerade telefonieren</td><td>Herr Becker ist noch in der Leitung.</td></tr>
+          <tr><td>Bescheid geben</td><td>informieren</td><td>Ich gebe Ihnen bis Freitag Bescheid.</td></tr>
+          <tr><td>das Anliegen</td><td>der Grund des Anrufs</td><td>Worum geht es bei Ihrem Anliegen?</td></tr>
+        </tbody>
+      </table>
+      <p class="marke">Diese zehn hört man in jedem zweiten Anruf. Wer sie sicher versteht, muss am Telefon deutlich weniger nachfragen.</p>
+    </div>
+
+    <h2>Kurzer Verständnischeck</h2>
+    <div id="check-telefon"></div>
+
+    <div class="merker">
+      <span class="marke marke-merker">Grammatik in einem Kasten</span>
+      <h3>Zwei Sätze, die jedes Telefonat tragen</h3>
+      <p><strong>1 · Den Grund nennen mit <em>weil</em>.</strong> Nach <em>weil</em> steht das konjugierte Verb ganz am Ende.</p>
+      <p class="satz">Ich rufe an, <strong>weil</strong> die Lieferung sich <strong>verschiebt</strong>.<br>
+      Ich melde mich, <strong>weil</strong> wir noch eine Unterschrift <strong>brauchen</strong>.</p>
+      <p><strong>2 · Höflich bitten mit <em>könnten</em> oder <em>würden</em>.</strong> Das zweite Verb steht im Infinitiv am Satzende.</p>
+      <p class="satz"><strong>Könnten</strong> Sie mir die Auftragsnummer <strong>nennen</strong>?<br>
+      <strong>Würden</strong> Sie mir das kurz schriftlich <strong>bestätigen</strong>?</p>
+      <p class="marke">Mehr dazu in <a href="../grammatik/konnektoren-ueberblick.html">Konnektoren – der Überblick</a> und <a href="../grammatik/konjunktiv-2.html">Konjunktiv II</a>.</p>
+    </div>
+
+    <div class="kasten">
       <h3>Redemittel für den Einstieg</h3>
       <p class="satz"><strong>Vorstellung:</strong> „Guten Tag, mein Name ist … von der KONTOR AG.“</p>
       <p class="satz"><strong>Grund nennen:</strong> „Ich rufe an, weil …“</p>
@@ -189,10 +225,20 @@
 
     <h2>Der eigene Gesprächseinstieg</h2>
     <p class="anleitung">Schreiben Sie Ihren Einstieg für einen Anruf bei einer Kundin: Vorstellung, Grund, Zeitfrage. Drei bis vier Sätze — und dann die Anschlussfrage für den Fall, dass es gerade nicht passt.</p>
+    <div class="kasten">
+      <span class="marke">Satzstarter</span>
+      <p class="satz">Guten Tag, mein Name ist … von der KONTOR AG. · Ich rufe an, weil … · Haben Sie gerade einen Moment Zeit? · Das verstehe ich. Wann passt es Ihnen besser – heute Nachmittag oder morgen früh?</p>
+    </div>
+    <p><strong>Start:</strong> vier Sätze nach den Satzstartern, dazu die Anschlussfrage mit zwei Terminvorschlägen.<br>
+    <strong>Weiter:</strong> zusätzlich in einem Satz sagen, wie lange das Gespräch dauern wird und was Sie brauchen.<br>
+    <strong>Herausforderung:</strong> schreiben Sie zwei Fassungen desselben Einstiegs – eine für eine langjährige Kundin, eine für einen Erstkontakt – und benennen Sie, was Sie geändert haben.</p>
     <textarea class="feld" id="einstieg-frei"></textarea>
 
     <h2>Nach den Rollenspielen</h2>
     <p class="anleitung">Welcher der fünf Verläufe fällt Ihnen am schwersten? Und welchen Satz nehmen Sie mit?</p>
+    <p><strong>Start:</strong> ein Verlauf, ein Satz, ein Grund.<br>
+    <strong>Weiter:</strong> zusätzlich der Satz, der Ihnen in der Rolle B am schwersten fiel – und warum.<br>
+    <strong>Herausforderung:</strong> formulieren Sie für Ihren schwierigsten Verlauf drei eigene Sätze, die Sie beim nächsten Mal ausprobieren.</p>
     <textarea class="feld" id="reflex-frei"></textarea>
 
   </section>
@@ -202,6 +248,33 @@
 <script src="../assets/lehrwerk.js"></script>
 <script>
 Lehrwerk.modul('kundengespraeche-telefon');
+
+Lehrwerk.auswahl('check-telefon', [
+  {
+    id: 'ct1',
+    text: 'Herr Becker telefoniert gerade. Was sagen Sie der anrufenden Person?',
+    optionen: [
+      'Herr Becker ist besetzt.',
+      'Herr Becker ist noch in der Leitung. Soll er Sie zurückrufen?',
+      'Herr Becker stellt gerade durch.',
+      'Herr Becker richtet gerade aus.'
+    ],
+    richtig: ['Herr Becker ist noch in der Leitung. Soll er Sie zurückrufen?'],
+    erklaerung: '„Herr Becker ist gerade besetzt“ ist korrekt und üblich. Hier ist „in der Leitung sein“ noch genauer, weil es ausdrücklich sagt, dass Herr Becker gerade telefoniert; dazu passt das Angebot eines Rückrufs.'
+  },
+  {
+    id: 'ct2',
+    text: 'Welcher Satz nennt den Grund des Anrufs richtig?',
+    optionen: [
+      'Ich rufe an, weil die Lieferung verschiebt sich.',
+      'Ich rufe an, weil verschiebt sich die Lieferung.',
+      'Ich rufe an, weil sich die Lieferung verschiebt.',
+      'Ich rufe an, weil sich verschiebt die Lieferung.'
+    ],
+    richtig: ['Ich rufe an, weil sich die Lieferung verschiebt.'],
+    erklaerung: 'Nach „weil“ steht das konjugierte Verb am Satzende. Das Reflexivpronomen „sich“ rutscht dabei nach vorn, direkt hinter den Konnektor oder hinter das Subjekt.'
+  }
+]);
 Lehrwerk.reiter();
 
 /* ---- Einstieg ---- */

@@ -36,6 +36,28 @@
   <!-- ============ Grundbedeutungen ============ -->
   <section class="blatt" id="blatt-grund">
 
+    <div class="kasten">
+      <span class="marke">Start · Formen und Satzbau</span>
+      <h3>Die Endungen und die Satzklammer</h3>
+      <p>Modalverben werden anders gebeugt als andere Verben: <strong>ich</strong> und <strong>er/sie/es</strong> haben dieselbe Form und <strong>keine Endung</strong>.</p>
+      <table>
+        <thead><tr><th></th><th>können</th><th>müssen</th><th>dürfen</th><th>sollen</th></tr></thead>
+        <tbody>
+          <tr><td>ich</td><td>kann</td><td>muss</td><td>darf</td><td>soll</td></tr>
+          <tr><td>du</td><td>kannst</td><td>musst</td><td>darfst</td><td>sollst</td></tr>
+          <tr><td>er/sie/es</td><td>kann</td><td>muss</td><td>darf</td><td>soll</td></tr>
+          <tr><td>wir/sie/Sie</td><td>können</td><td>müssen</td><td>dürfen</td><td>sollen</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Und der Satzbau:</strong> Das Modalverb steht auf Position 2, das zweite Verb im Infinitiv ganz am Ende.</p>
+      <p class="satzbau"><span class="subj">Wir</span> <span class="verb">müssen</span> den Antrag bis Freitag <strong>prüfen</strong>.</p>
+      <p class="satz">✗ <s>Wir müssen prüfen den Antrag.</s> · ✗ <s>Wir müssen den Antrag prüfen bis Freitag.</s></p>
+      <p class="marke">Diese beiden Punkte tragen das ganze Modul. Alles Weitere – Verneinung, Passiv, Vergangenheit, Vermutung – setzt darauf auf.</p>
+    </div>
+
+    <h2>Kurzer Verständnischeck</h2>
+    <div id="check-modal"></div>
+
     <table>
       <thead><tr><th>Modalverb</th><th>Bedeutung</th><th>Im Betrieb</th></tr></thead>
       <tbody>
@@ -263,6 +285,33 @@
 <script>
 Lehrwerk.modul('modalverben');
 Lehrwerk.reiter();
+
+Lehrwerk.auswahl('check-modal', [
+  {
+    id: 'cmo1',
+    text: 'Welche Form ist richtig?',
+    optionen: [
+      'Die Kollegin musst den Antrag prüfen.',
+      'Die Kollegin muss den Antrag prüfen.',
+      'Die Kollegin müsst den Antrag prüfen.',
+      'Die Kollegin mussen den Antrag prüfen.'
+    ],
+    richtig: ['Die Kollegin muss den Antrag prüfen.'],
+    erklaerung: 'Bei er, sie und es steht das Modalverb ohne Endung – genau wie bei ich. Das ist der häufigste Formfehler bei Modalverben.'
+  },
+  {
+    id: 'cmo2',
+    text: 'Welcher Satzbau stimmt?',
+    optionen: [
+      'Wir können liefern bis Freitag.',
+      'Wir können bis Freitag liefern.',
+      'Wir bis Freitag können liefern.',
+      'Wir können bis Freitag geliefert.'
+    ],
+    richtig: ['Wir können bis Freitag liefern.'],
+    erklaerung: 'Das Modalverb steht auf Position 2, der Infinitiv ganz am Ende. Alle Angaben stehen dazwischen – das ist die Satzklammer.'
+  }
+]);
 
 /* ---- Grundbedeutungen ---- */
 Lehrwerk.auswahl('a1', [

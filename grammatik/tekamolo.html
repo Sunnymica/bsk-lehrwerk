@@ -36,6 +36,24 @@
 
   <section class="blatt" id="blatt-objekte" role="tabpanel" aria-labelledby="tab-objekte">
     <p class="stand-hinweis">Richtwert: 20–30 Minuten · Einzelarbeit oder gemeinsames Training</p>
+    <div class="kasten">
+      <span class="marke">Vorentlastung · 5 Minuten</span>
+      <h3>Erst die Frage, dann die Form</h3>
+      <p>Bevor Sie Objekte ordnen können, müssen Sie sie erkennen. Dafür genügen zwei Fragen und eine kleine Tabelle.</p>
+      <table>
+        <thead><tr><th>Frage</th><th>Fall</th><th>maskulin</th><th>neutral</th><th>feminin</th><th>Plural</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Wen oder was?</strong></td><td>Akkusativ</td><td>den Auftrag</td><td>das Angebot</td><td>die Rechnung</td><td>die Unterlagen</td></tr>
+          <tr><td><strong>Wem?</strong></td><td>Dativ</td><td>dem Kunden</td><td>dem Lager</td><td>der Kollegin</td><td>den Kolleginnen</td></tr>
+        </tbody>
+      </table>
+      <p class="satz">Nora schickt <strong>dem Lieferanten</strong> (wem?) <strong>die Bestellung</strong> (wen oder was?).</p>
+      <p class="marke">Typische Verben mit beiden Objekten im Büro: <em>schicken, geben, zeigen, erklären, schreiben, mitteilen, zusenden</em>. Sie fragen alle: <em>wem</em> und <em>was</em>.</p>
+    </div>
+
+    <h2>Kurzer Verständnischeck</h2>
+    <div id="check-objekte"></div>
+
     <h2>Wem? Wen oder was?</h2>
     <p>Stehen Dativ- und Akkusativobjekt zusammen im Mittelfeld, wirken zwei Regeln: die Grundfolge bei zwei Nomen und die besondere Stellung von Pronomen.</p>
 
@@ -223,9 +241,22 @@
       <p>Person A nennt vier bis sechs Satzbausteine aus dem eigenen Arbeitsalltag. Person B bildet einen neutralen Satz und erklärt: Was ist Pronomen oder Ergänzung? Welche Angaben folgen TEKAMOLO? Danach wechseln Sie.</p>
     </div>
 
+    <div class="kasten">
+      <span class="marke">Satzstarter</span>
+      <h3>Bausteine für Ihre eigenen Sätze</h3>
+      <p class="satz"><strong>Subjekt:</strong> Ich · Meine Kollegin · Das Lager · Die Buchhaltung<br>
+      <strong>Verb:</strong> schickt · gibt · erklärt · bringt · legt<br>
+      <strong>Wem?</strong> dem Kunden · der Teamleitung · mir<br>
+      <strong>Wen oder was?</strong> die Unterlagen · den Lieferschein · es<br>
+      <strong>Angaben:</strong> heute Morgen (TE) · wegen der Reklamation (KA) · schriftlich (MO) · ins Lager (LO)</p>
+    </div>
+
     <div class="frage">
       <p>Notieren Sie drei Sätze aus Ihrem Betrieb oder Wunscharbeitsplatz. Markieren Sie anschließend, welches Ordnungsprinzip jeweils wichtig war.</p>
-      <textarea class="feld" id="eigene-saetze" placeholder="1. …\n2. …\n3. …"></textarea>
+      <p><strong>Start:</strong> drei Sätze mit Subjekt, Verb und zwei Objekten aus den Bausteinen.<br>
+      <strong>Weiter:</strong> drei Sätze mit je zwei Angaben in neutraler Folge, dazu die Kürzel TE, KA, MO, LO dahinterschreiben.<br>
+      <strong>Herausforderung:</strong> schreiben Sie zu einem Satz zusätzlich eine Fokusvariante und erklären Sie, was sich an der Aussage ändert.</p>
+      <textarea class="feld" id="eigene-saetze" placeholder="1. …&#10;2. …&#10;3. …"></textarea>
     </div>
   </section>
 
@@ -241,6 +272,28 @@
 <script>
 Lehrwerk.modul('satzbau-mittelfeld');
 Lehrwerk.reiter();
+
+Lehrwerk.auswahl('check-objekte', [
+  {
+    id: 'co1',
+    text: 'Welcher Satzteil antwortet auf die Frage „wem?“ – „Nora zeigt der Kollegin den neuen Ablaufplan.“',
+    optionen: ['den neuen Ablaufplan', 'Nora', 'der Kollegin', 'zeigt'],
+    richtig: ['der Kollegin'],
+    erklaerung: 'Die Frage „wem?“ führt zum Dativobjekt: der Kollegin. „Wen oder was zeigt sie?“ – den neuen Ablaufplan, das ist der Akkusativ.'
+  },
+  {
+    id: 'co2',
+    text: 'Welche Reihenfolge ist die neutrale Grundfolge?',
+    optionen: [
+      'Ich schicke die Bestellung dem Lieferanten.',
+      'Ich schicke dem Lieferanten die Bestellung.',
+      'Ich schicke dem Lieferanten sie.',
+      'Ich schicke die Bestellung ihm.'
+    ],
+    richtig: ['Ich schicke dem Lieferanten die Bestellung.'],
+    erklaerung: 'Bei zwei Nomen steht der Dativ vor dem Akkusativ. Sobald ein Pronomen dabei ist, rutscht es nach vorn: „Ich schicke sie dem Lieferanten“ oder „Ich schicke ihm die Bestellung“.'
+  }
+]);
 
 const T = (id, text, typ) => ({ id, text, typ });
 

@@ -36,6 +36,21 @@
   <section class="blatt" id="blatt-system">
 
     <div class="kasten">
+      <span class="marke">Start · wenn noch nichts sitzt</span>
+      <h3>Zwei Regeln, die schon die Hälfte retten</h3>
+      <p>Bevor Sie das ganze System lesen: Mit diesen zwei Sätzen liegen Sie in den meisten Nomengruppen richtig.</p>
+      <p class="satz"><strong>1 · Nach <em>sein</em>, <em>werden</em> und <em>bleiben</em>: gar keine Endung.</strong><br>
+      Der Auftrag ist <strong>dringend</strong>. · Die Frist bleibt <strong>kurz</strong>. · Die Lage wird <strong>schwierig</strong>.</p>
+      <p class="satz"><strong>2 · Nach <em>der, die, das</em> im Nominativ: <em>-e</em>, sonst <em>-en</em>.</strong><br>
+      der neu<strong>e</strong> Plan · die neu<strong>e</strong> Frist · das neu<strong>e</strong> Formular<br>
+      mit dem neu<strong>en</strong> Plan · für die neu<strong>en</strong> Fristen</p>
+      <p class="marke">Damit ist ein großer Teil des Alltags abgedeckt. Alles Weitere auf dieser Seite baut genau darauf auf – arbeiten Sie es Schritt für Schritt durch, nicht auf einmal.</p>
+    </div>
+
+    <h2>Kurzer Verständnischeck</h2>
+    <div id="check-adjektiv"></div>
+
+    <div class="kasten">
       <h3>Fünf Endungen, mehr gibt es nicht</h3>
       <p class="satz"><strong>-e · -en · -em · -er · -es</strong></p>
       <p>Jede beginnt mit <em>-e</em>. Die Frage ist deshalb nie „welche von vielen?“, sondern nur: <strong>Bleibt es beim <em>-e</em>, oder kommt ein Kennbuchstabe dazu — und welcher?</strong></p>
@@ -356,6 +371,33 @@
 <script>
 Lehrwerk.modul('adjektivendungen');
 Lehrwerk.reiter();
+
+Lehrwerk.auswahl('check-adjektiv', [
+  {
+    id: 'cad1',
+    text: 'Welcher Satz ist richtig?',
+    optionen: [
+      'Der Auftrag ist dringender.',
+      'Der Auftrag ist dringende.',
+      'Der Auftrag ist dringend.',
+      'Der Auftrag ist dringenden.'
+    ],
+    richtig: ['Der Auftrag ist dringend.'],
+    erklaerung: 'Nach sein, werden und bleiben steht das Adjektiv ohne Endung. Endungen bekommt es nur direkt vor einem Nomen: der dringende Auftrag.'
+  },
+  {
+    id: 'cad2',
+    text: 'Wie heißt es richtig?',
+    optionen: [
+      'Wir arbeiten mit der neue Software.',
+      'Wir arbeiten mit der neuen Software.',
+      'Wir arbeiten mit der neuer Software.',
+      'Wir arbeiten mit die neue Software.'
+    ],
+    richtig: ['Wir arbeiten mit der neuen Software.'],
+    erklaerung: 'Nach „mit“ steht der Dativ, und im Dativ heißt es nach dem bestimmten Artikel immer -en. Das -e gibt es nur im Nominativ und im Akkusativ bei neutral und feminin.'
+  }
+]);
 
 /* ---- Das System ---- */
 Lehrwerk.auswahl('a1', [

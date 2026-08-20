@@ -65,6 +65,25 @@
       <strong>ablehnen</strong> — „Wir müssen die Reklamation leider ablehnen.“</p>
     </div>
 
+    <div class="merker">
+      <span class="marke marke-merker">Grammatik in einem Kasten</span>
+      <h3>Was hinter dem Verb steht</h3>
+      <p>Die Verben unterscheiden sich nicht nur im Ton, sondern auch im Bau. Genau daran scheitern die Sätze am häufigsten.</p>
+      <table>
+        <thead><tr><th>Verb</th><th>Bau</th><th>Beispiel</th></tr></thead>
+        <tbody>
+          <tr><td>sich beschweren</td><td><strong>über</strong> + Akkusativ · <strong>bei</strong> + Dativ</td><td>Ich beschwere mich <strong>über die Wartezeit bei der Leitung</strong>.</td></tr>
+          <tr><td>reklamieren</td><td>Akkusativ, ohne Präposition</td><td>Wir reklamieren <strong>die Lieferung</strong>.</td></tr>
+          <tr><td>beanstanden</td><td>Akkusativ, ohne Präposition</td><td>Wir beanstanden <strong>die Positionen 4 und 7</strong>.</td></tr>
+          <tr><td>sich entschuldigen</td><td><strong>für</strong> + Akkusativ · <strong>bei</strong> + Dativ</td><td>Ich entschuldige mich <strong>für den Fehler bei Ihnen</strong>.</td></tr>
+        </tbody>
+      </table>
+      <p class="marke">Faustregel: <em>über</em> sagt, worum es geht – <em>bei</em> sagt, wem Sie es sagen. Mehr Verbindungen dieser Art im Modul <a href="../grammatik/verben-mit-praeposition.html">Verben mit Präposition</a>.</p>
+    </div>
+
+    <h2>Kurzer Verständnischeck</h2>
+    <div id="check-wortschatz"></div>
+
     <h2>Welches Verb passt?</h2>
     <div id="a1"></div>
 
@@ -178,6 +197,13 @@
     2. „Das dauert ja ewig.“<br>
     3. „Die Verpackung war schlampig.“<br>
     4. „Das ist unverschämt.“</p>
+    <div class="kasten">
+      <span class="marke">Satzstarter</span>
+      <p class="satz">Von … Kartons waren … beschädigt. · Die Bearbeitung dauert inzwischen … Tage. · Die Ware war ohne Polsterung verpackt. · Die Rechnung enthält Positionen, die wir nicht bestellt haben.</p>
+    </div>
+    <p><strong>Start:</strong> jeden Satz mit einer Zahl oder einem Datum beschreiben.<br>
+    <strong>Weiter:</strong> zusätzlich sagen, welche Folge das für Ihre Arbeit hat.<br>
+    <strong>Herausforderung:</strong> ergänzen Sie zu jedem Satz eine Bitte im Konjunktiv II, ohne die Sachlage abzuschwächen.</p>
     <textarea class="feld" id="sachlich-frei"></textarea>
 
     <h2>Dieselbe Sache auf drei Stufen</h2>
@@ -193,6 +219,33 @@
 <script src="../assets/lehrwerk.js"></script>
 <script>
 Lehrwerk.modul('beschwerden-wortschatz');
+
+Lehrwerk.auswahl('check-wortschatz', [
+  {
+    id: 'cw1',
+    text: 'Sie melden einen Mangel an einer gelieferten Ware. Welches Verb ist im Geschäftsverkehr üblich?',
+    optionen: [
+      'Wir meckern über die Lieferung.',
+      'Wir kritisieren die Lieferung.',
+      'Wir reklamieren die Lieferung.',
+      'Wir monieren uns über die Lieferung.'
+    ],
+    richtig: ['Wir reklamieren die Lieferung.'],
+    erklaerung: '„reklamieren“ ist das sachliche Wort für Ware und Rechnung und steht ohne Präposition mit Akkusativ. „kritisieren“ zielt oft auf Personen, „meckern“ ist abwertend.'
+  },
+  {
+    id: 'cw2',
+    text: 'Welcher Satz ist richtig gebaut?',
+    optionen: [
+      'Ich beschwere mich bei die Teamleitung über der Wartezeit.',
+      'Ich beschwere mich über die Wartezeit bei der Teamleitung.',
+      'Ich beschwere mich für die Wartezeit bei der Teamleitung.',
+      'Ich beschwere mich die Wartezeit bei der Teamleitung.'
+    ],
+    richtig: ['Ich beschwere mich über die Wartezeit bei der Teamleitung.'],
+    erklaerung: '„über“ nennt die Sache und steht mit Akkusativ, „bei“ nennt die Person und steht mit Dativ. „für“ gehört zu sich entschuldigen.'
+  }
+]);
 Lehrwerk.reiter();
 
 /* ---- Verben ---- */
