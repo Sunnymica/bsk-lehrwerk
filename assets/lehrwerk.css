@@ -598,3 +598,80 @@ mark { background: var(--sand); padding: 0 0.2rem; border-radius: 3px; }
   font-size: .72rem; letter-spacing: .04em; text-transform: uppercase; color: var(--tinte-weich);
 }
 .hinweis-klein { color: var(--tinte-weich); font-size: .9rem; }
+
+/* ---------- Differenzierung B1 -> B2 ---------- */
+
+.differenzierung {
+  margin: 1rem 0;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--linie);
+  border-left: 4px solid var(--tinte-weich);
+  border-radius: 8px;
+  background: var(--karte);
+}
+
+.differenzierung--start { border-left-color: #63856d; background: var(--salbei); }
+.differenzierung--weiter { border-left-color: #527c99; background: var(--himmel); }
+.differenzierung--herausforderung { border-left-color: #9b695e; background: var(--rose); }
+
+.differenzierung__stufe {
+  display: block;
+  margin-bottom: .35rem;
+  font-family: var(--mono);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.wortschatz-vorab,
+.redemittel-box {
+  margin: 1rem 0;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--linie);
+  border-radius: 8px;
+}
+
+.wortschatz-vorab { background: var(--sand); }
+.redemittel-box { background: var(--himmel); }
+.wortschatz-vorab > :first-child,
+.redemittel-box > :first-child { margin-top: 0; }
+.wortschatz-vorab > :last-child,
+.redemittel-box > :last-child { margin-bottom: 0; }
+
+.wortschatz-vorab dl,
+.redemittel-box dl {
+  display: grid;
+  grid-template-columns: minmax(8rem, auto) 1fr;
+  gap: .35rem 1rem;
+}
+
+.wortschatz-vorab dt,
+.redemittel-box dt { font-weight: 700; }
+.wortschatz-vorab dd,
+.redemittel-box dd { margin: 0; }
+
+.optionale-hilfe {
+  margin: .8rem 0;
+  border: 1px solid var(--linie);
+  border-radius: 8px;
+  background: var(--karte);
+}
+
+.optionale-hilfe > summary {
+  padding: .75rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.optionale-hilfe[open] > summary { border-bottom: 1px solid var(--linie); }
+.optionale-hilfe__inhalt { padding: .8rem 1rem; }
+.optionale-hilfe__inhalt > :first-child { margin-top: 0; }
+.optionale-hilfe__inhalt > :last-child { margin-bottom: 0; }
+
+@media (max-width: 34rem) {
+  .wortschatz-vorab dl,
+  .redemittel-box dl { grid-template-columns: 1fr; }
+  .wortschatz-vorab dd,
+  .redemittel-box dd { margin-bottom: .5rem; }
+}
