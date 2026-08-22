@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>2-Minuten-Drill – Deutsch fürs Büro</title>
+  <link rel="stylesheet" href="../assets/basis.css">
+  <link rel="stylesheet" href="../assets/platform.css">
+  <link rel="stylesheet" href="../assets/lehrwerk.css">
+  <link rel="stylesheet" href="../assets/aufgaben.css">
+  <script src="../assets/platform.js"></script>
+  <style>
+    .drill-wrap{max-width:42rem;margin:0 auto;padding-bottom:4rem}
+    .drill-kopf{text-align:center;margin:1.4rem 0}
+    .drill-kopf h2{margin-bottom:.35rem}
+    .drill-tage{display:flex;gap:.45rem;flex-wrap:wrap;justify-content:center;margin:1rem 0 1.4rem}
+    .drill-tage button{min-width:3.1rem}
+    .drill-tage button[aria-pressed="true"]{outline:3px solid currentColor;outline-offset:2px}
+    .drill-karte{min-height:15rem;display:flex;flex-direction:column;justify-content:center;text-align:center;padding:1.5rem;margin:1rem 0;border:1px solid var(--linie);border-radius:14px;background:var(--karte)}
+    .drill-label{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tinte-weich);margin-bottom:.8rem}
+    .drill-impuls{font-size:clamp(1.5rem,6vw,2.6rem);line-height:1.2;font-weight:700;margin:.4rem 0}
+    .drill-hilfe{font-size:1rem;color:var(--tinte-weich);margin-top:1rem}
+    .drill-timer{font-family:var(--mono);font-size:2rem;text-align:center;margin:.8rem 0}
+    .drill-fortschritt{height:.7rem;background:var(--linie);border-radius:999px;overflow:hidden;margin:0 auto 1rem;max-width:28rem}
+    .drill-fortschritt span{display:block;height:100%;width:100%;background:currentColor;transform-origin:left center}
+    .drill-knopfreihe{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+    .drill-hinweis{text-align:center;font-size:.95rem;color:var(--tinte-weich)}
+    @media (max-width:34rem){.drill-karte{min-height:18rem}.drill-knopfreihe .knopf{width:100%}}
+  </style>
+</head>
+<body data-page="module" data-bereich="training" data-root="../">
+<header class="hero bereich-kopf"><div class="innen">
+  <a class="zurueck" id="drill-zurueck" href="../grammatik/satzbau.html">← Satzbau</a>
+  <h1><em>2-Minuten-Drill:</em> <span id="drill-thema">Satzbau</span></h1>
+  <p class="anleitung" id="drill-anleitung">Zwei Minuten. Nicht schreiben. Nur denken oder sprechen, bis die Verbposition automatisch kommt.</p>
+</div></header>
+<main class="innen modul drill-wrap">
+  <div class="drill-kopf">
+    <h2>Heute nur eine Sache</h2>
+    <p id="tagesziel">Tag 1: Hauptsatz immer neu beginnen. Das Verb bleibt auf Position 2.</p>
+  </div>
+
+  <div class="drill-tage" id="drill-tage" role="group" aria-label="Trainingstag wählen"></div>
+
+  <div class="drill-karte" aria-live="polite">
+    <div class="drill-label" id="drill-label">Position 2</div>
+    <div class="drill-impuls" id="drill-impuls">Heute · Nora · die Rechnung prüfen</div>
+    <div class="drill-hilfe" id="drill-hilfe">Sagen Sie sofort einen vollständigen Satz.</div>
+  </div>
+
+  <div class="drill-timer" id="drill-timer">2:00</div>
+  <div class="drill-fortschritt" aria-hidden="true"><span id="drill-balken"></span></div>
+  <div class="drill-knopfreihe">
+    <button class="knopf" type="button" id="drill-start">2 Minuten starten</button>
+    <button class="knopf" type="button" id="drill-naechster">Nächster Impuls</button>
+    <button class="knopf" type="button" id="drill-pause" disabled>Pause</button>
+  </div>
+  <p class="drill-hinweis" id="drill-status">Während der zwei Minuten erscheint automatisch alle 10 Sekunden ein neuer Impuls.</p>
+
+  <div class="merker">
+    <span class="marke-merker">WICHTIG</span>
+    <p>Sie müssen keinen neuen Inhalt erfinden. Verwenden Sie nur die Wörter auf der Karte und konzentrieren Sie sich auf die Verbposition.</p>
+  </div>
+</main>
+<footer class="fuss">Nur für Kursteilnehmerinnen und Kursteilnehmer</footer>
+<script>
+(() => {
+  /* Ein Eintrag pro Thema. Neue Drills brauchen nur einen weiteren Schlüssel hier
+     und einen Link mit ?set=<schluessel>. Fehlt der Parameter oder ist er
+     unbekannt, läuft der Satzbau-Drill wie bisher. */
+  const themen = {
+   satzbau: {
+    titel:'Satzbau',
+    zurueck:{ href:'../grammatik/satzbau.html', text:'← Satzbau' },
+    anleitung:'Zwei Minuten. Nicht schreiben. Nur denken oder sprechen, bis die Verbposition automatisch kommt.',
+    tage: {
+    1: {
+      ziel:'Tag 1: Hauptsatz immer neu beginnen. Das Verb bleibt auf Position 2.', label:'Position 2',
+      hilfe:'Sagen Sie sofort einen vollständigen Hauptsatz.',
+      items:[
+        'Heute · Nora · die Rechnung prüfen','Im Büro · Jonas · den Kunden anrufen','Nach der Pause · wir · die Besprechung beginnen','Wegen der Inventur · wir · heute im Lager arbeiten','Die Rechnung · Nora · heute schicken','Um 14 Uhr · der Fahrer · kommen','Den Kunden · Jonas · später informieren','Morgen · die Lieferung · nach Berlin gehen','Nach der Besprechung · Kateryna · das Team informieren','Im Lager · die Ware · seit gestern stehen'
+      ]
+    },
+    2: {
+      ziel:'Tag 2: Aussage → geschlossene Frage → W-Frage.', label:'Fragen',
+      hilfe:'Bilden Sie die verlangte Frage laut.',
+      items:[
+        'Geschlossene Frage · die Lieferung / heute kommen','W-Frage mit Wann · die Lieferung / kommen','Geschlossene Frage · Sie / die Rechnung erhalten','W-Frage mit Warum · die Bearbeitung / so lange dauern','Geschlossene Frage · Nora / heute zurückrufen können','W-Frage mit Bis wann · Sie / die Unterlagen brauchen','Geschlossene Frage · der Termin / noch stehen','W-Frage mit Wo · der Vorgang / liegen','Geschlossene Frage · Jonas / den Kunden angerufen haben','W-Frage mit Wie oft · der Lieferdienst / kommen'
+      ]
+    },
+    3: {
+      ziel:'Tag 3: Hauptsatz + weil-Satz. Im Nebensatz steht das Verb an der letzten Position.', label:'Nebensatz hinten',
+      hilfe:'Ergänzen Sie den Hauptsatz mit einem weil-Satz.',
+      items:[
+        'Wir warten, weil · die Freigabe / noch fehlen','Ich rufe später an, weil · ich / in einer Besprechung sein','Der Termin verschiebt sich, weil · der Kunde / absagen','Wir schicken noch nicht, weil · die Rechnung / fehlen','Nora prüft noch einmal, weil · die Zahl / nicht stimmen','Jonas ruft zurück, weil · der Kunde / angerufen haben','Wir können noch nicht beginnen, weil · die Unterlagen / fehlen','Die Lieferung kommt später, weil · der Fahrer / warten müssen','Ich schreibe eine Mail, weil · der Termin / geändert werden','Wir bleiben im Büro, weil · die Besprechung / länger dauern'
+      ]
+    },
+    4: {
+      ziel:'Tag 4: Nebensatz vorne. Nach dem Komma kommt sofort das konjugierte Verb des Hauptsatzes.', label:'Nebensatz vorne',
+      hilfe:'Sprechen Sie zuerst den Nebensatz und beginnen Sie danach sofort mit dem Hauptverb.',
+      items:[
+        'Wenn die Lieferung kommt, · wir / sie sofort prüfen','Weil die Freigabe fehlt, · wir / warten','Wenn ich eine Antwort habe, · ich / Sie anrufen','Weil der Kunde abgesagt hat, · wir / den Termin ändern','Wenn die Rechnung da ist, · Nora / sie prüfen','Weil die Besprechung länger dauert, · ich / später kommen','Wenn der Fahrer anruft, · Jonas / die Nummer notieren','Weil die Ware beschädigt ist, · wir / sie zurückschicken','Wenn die Unterlagen vollständig sind, · wir / beginnen','Weil heute Inventur ist, · das Team / im Lager arbeiten'
+      ]
+    },
+    5: {
+      ziel:'Tag 5: Zwei Verbteile. Position 2 + zweiter Verbteil am Ende.', label:'Verbklammer',
+      hilfe:'Sprechen Sie den ganzen Satz und schließen Sie die Verbklammer.',
+      items:[
+        'Heute · Nora · muss · die Bestellung · prüfen','Jonas · ruft · den Kunden heute · an','Wir · haben · die Rechnung gestern · geschickt','Morgen · wird · Jonas den Kunden · anrufen','Nora · hatte · die Bestellung schon · geprüft','Nach der Pause · müssen · wir die Besprechung · fortsetzen','Im Büro · hat · Kateryna die Änderung · erklärt','Der Fahrer · will · morgen früher · kommen','Heute Nachmittag · rufe · ich den Kunden · zurück','Die Rechnung · wird · Jonas morgen · schicken'
+      ]
+    }
+    }
+   },
+  praepositionen: {
+    titel:'Präpositionen und Kasus',
+    zurueck:{ href:'../grammatik/praepositionen.html', text:'← Präpositionen' },
+    anleitung:'Zwei Minuten. Ordnen Sie Präposition, Bedeutung und Kasus so schnell zu, dass die passende Form automatisch kommt.',
+    merker:'Sprechen Sie immer die ganze Wortgruppe oder den ganzen Satz. So lernen Sie Präposition, Artikel und Kasus als Einheit.',
+    tage: {
+      1: {
+        ziel:'Tag 1: Präpositionen mit festem Akkusativ.', label:'Akkusativ',
+        hilfe:'Ergänzen Sie den passenden bestimmten Artikel und sprechen Sie die ganze Wortgruppe.',
+        items:[
+          'für · der Kunde','ohne · der Lieferschein','durch · das Lager','gegen · die Entscheidung','um · der Termin','für · die Bestellung','ohne · die Freigabe','durch · der Eingang','gegen · das Angebot','um · die Ecke'
+        ]
+      },
+      2: {
+        ziel:'Tag 2: Präpositionen mit festem Dativ.', label:'Dativ',
+        hilfe:'Ergänzen Sie den passenden bestimmten Artikel und sprechen Sie die ganze Wortgruppe.',
+        items:[
+          'mit · der Lieferant','bei · die Kundin','aus · das Lager','nach · die Besprechung','seit · der Montag','von · die Filiale','zu · der Termin','mit · die Kolleginnen','bei · das Unternehmen','aus · die Abteilung'
+        ]
+      },
+      3: {
+        ziel:'Tag 3: Wo? bedeutet Position und verlangt bei Wechselpräpositionen den Dativ.', label:'Wo? + Dativ',
+        hilfe:'Bilden Sie sofort einen Wo-Satz mit der passenden Form.',
+        items:[
+          'die Akte · auf · der Tisch','der Karton · neben · die Tür','die Ware · in · das Lager','der Kalender · an · die Wand','die Rechnung · unter · der Ordner','der Fahrer · vor · das Gebäude','die Palette · hinter · die Tür','der Drucker · zwischen · die Schränke','die Lampe · über · der Tisch','Nora · an · der Empfang'
+        ]
+      },
+      4: {
+        ziel:'Tag 4: Wohin? bedeutet Ziel und verlangt bei Wechselpräpositionen den Akkusativ.', label:'Wohin? + Akkusativ',
+        hilfe:'Bilden Sie sofort einen Wohin-Satz mit der passenden Form.',
+        items:[
+          'Nora legt die Akte · auf · der Tisch','Jonas stellt den Karton · neben · die Tür','Wir bringen die Ware · in · das Lager','Nora hängt den Kalender · an · die Wand','Er legt die Rechnung · unter · der Ordner','Der Fahrer fährt · vor · das Gebäude','Sie stellt die Palette · hinter · die Tür','Wir stellen den Drucker · zwischen · die Schränke','Jonas hängt die Lampe · über · der Tisch','Nora · an · der Empfang'
+        ]
+      },
+      5: {
+        ziel:'Tag 5: Kurzformen im Berufsalltag.', label:'Kurzformen',
+        hilfe:'Ersetzen Sie die Langform durch die übliche Kurzform und sprechen Sie die ganze Wendung.',
+        items:[
+          'an dem Empfang','bei dem Kunden','in dem Lager','in das Lager','von dem Lieferanten','zu dem Termin','zu der Filiale','an das Fenster','in dem Büro','bei dem Unternehmen'
+        ]
+      }
+    }
+  }
+  };
+  const STANDARD='satzbau';
+  const gewuenscht=new URLSearchParams(location.search).get('set');
+  const schluessel=Object.prototype.hasOwnProperty.call(themen, gewuenscht||'') ? gewuenscht : STANDARD;
+  const thema=themen[schluessel];
+  const unbekannt=gewuenscht && schluessel!==gewuenscht;
+  const sets=thema.tage;
+  const tage=Object.keys(sets);
+
+  document.getElementById('drill-thema').textContent=thema.titel;
+  document.getElementById('drill-anleitung').textContent=thema.anleitung;
+  document.title='2-Minuten-Drill: '+thema.titel+' – Deutsch fürs Büro';
+  const zurueck=document.getElementById('drill-zurueck');
+  zurueck.setAttribute('href', thema.zurueck.href);
+  zurueck.textContent=thema.zurueck.text;
+  const merkertext=document.querySelector('.merker p');
+  if(thema.merker && merkertext) merkertext.textContent=thema.merker;
+
+  const ziel=document.getElementById('tagesziel'), label=document.getElementById('drill-label'), impuls=document.getElementById('drill-impuls'), hilfe=document.getElementById('drill-hilfe');
+  const timer=document.getElementById('drill-timer'), balken=document.getElementById('drill-balken'), status=document.getElementById('drill-status');
+  const start=document.getElementById('drill-start'), next=document.getElementById('drill-naechster'), pause=document.getElementById('drill-pause');
+  const tageleiste=document.getElementById('drill-tage');
+
+  tage.forEach((t,i)=>{
+    const b=document.createElement('button');
+    b.className='knopf'; b.type='button'; b.dataset.tag=t;
+    b.textContent='Tag '+t;
+    b.setAttribute('aria-pressed', i===0?'true':'false');
+    tageleiste.appendChild(b);
+  });
+
+  let tag=tage[0], index=0, rest=120, laufend=false, tick=null, auto=null;
+  function mix(items){return [...items].sort(()=>Math.random()-.5)}
+  let reihenfolge=mix(sets[tag].items);
+  function show(){const s=sets[tag]; ziel.textContent=s.ziel; label.textContent=s.label; hilfe.textContent=s.hilfe; impuls.textContent=reihenfolge[index%reihenfolge.length];}
+  function nextItem(){index=(index+1)%reihenfolge.length; show();}
+  function format(){const m=Math.floor(rest/60), s=String(rest%60).padStart(2,'0'); timer.textContent=m+':'+s; balken.style.transform='scaleX('+(rest/120)+')';}
+  function stop(fertig=false){laufend=false; clearInterval(tick); clearInterval(auto); tick=auto=null; pause.disabled=true; start.textContent='2 Minuten starten'; if(fertig){status.textContent='2 Minuten geschafft. Fertig für heute. 🪥';}}
+  function run(){if(laufend)return; if(rest<=0)rest=120; laufend=true; pause.disabled=false; start.textContent='Läuft …'; status.textContent='Nicht tippen. Nur denken oder sprechen.'; tick=setInterval(()=>{rest--;format();if(rest<=0)stop(true)},1000); auto=setInterval(nextItem,10000);}
+  document.querySelectorAll('[data-tag]').forEach(b=>b.addEventListener('click',()=>{stop(); tag=b.dataset.tag; document.querySelectorAll('[data-tag]').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false')); reihenfolge=mix(sets[tag].items);index=0;rest=120;format();show();status.textContent='Während der zwei Minuten erscheint automatisch alle 10 Sekunden ein neuer Impuls.';}));
+  start.addEventListener('click',run); next.addEventListener('click',nextItem); pause.addEventListener('click',()=>{stop();status.textContent='Pausiert. Wenn Sie weitermachen möchten, starten Sie erneut.';});
+  format();show();
+  if(unbekannt){status.textContent='Für „'+gewuenscht+'“ gibt es noch keinen Drill. Es läuft der Satzbau-Drill.';}
+})();
+</script>
+</body>
+</html>
