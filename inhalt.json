@@ -4,7 +4,7 @@
       "id": "kurs",
       "label": "Unser Kurs",
       "kurz": "Willkommen, Kennenlernen und alles Organisatorische an einem festen Ort.",
-      "einleitung": "Hier finden Sie den Kursauftakt, wichtige Termine, Regeln für Krankmeldungen und Hilfe zur Technik. Die organisatorischen Seiten werden nach und nach ergänzt.",
+      "einleitung": "Hier finden Sie den Kursauftakt, wichtige Termine, Regeln für Krankmeldungen, Hilfe zur Technik, unsere Lernweise und die Buchung des Einzelcoachings.",
       "gruppen": [
         {
           "titel": "Ankommen",
@@ -21,6 +21,18 @@
                 "Üben"
               ],
               "status": "fertig"
+            },
+            {
+              "titel": "So lernen wir im Kurs",
+              "beschreibung": "Sprechen, wiederholen, Fehler nutzen, Partnerarbeit, Hausaufgaben und 2-Minuten-Drills.",
+              "pfad": "so-lernen-wir.html",
+              "niveau": "Kursinfo",
+              "dauer": "Nachschlagen",
+              "fertigkeiten": [
+                "Lesen",
+                "Orientierung"
+              ],
+              "status": "in-arbeit"
             }
           ]
         },
@@ -29,7 +41,7 @@
           "module": [
             {
               "titel": "Termine und freie Tage",
-              "beschreibung": "Kurstermine, Kursende und unterrichtsfreie Tage.",
+              "beschreibung": "Kurstage, Weihnachtspause, Kursende und wichtige Termine.",
               "pfad": "termine.html",
               "niveau": "Kursinfo",
               "dauer": "Nachschlagen",
@@ -40,7 +52,7 @@
             },
             {
               "titel": "Krankmeldung und Fehlzeiten",
-              "beschreibung": "So melden Sie sich ab und reichen Nachweise ein.",
+              "beschreibung": "Wem Sie wann Bescheid geben und ab wann ein ärztlicher Nachweis nötig ist.",
               "pfad": "krankmeldung.html",
               "niveau": "Kursinfo",
               "dauer": "Nachschlagen",
@@ -52,7 +64,7 @@
             },
             {
               "titel": "Teams und Technik",
-              "beschreibung": "Zugang, Mikrofon, Kamera und Hilfe bei technischen Problemen.",
+              "beschreibung": "Mikrofon, Kamera, Chat und Hilfe bei technischen Problemen.",
               "pfad": "teams.html",
               "niveau": "Kursinfo",
               "dauer": "Nachschlagen",
@@ -72,6 +84,18 @@
                 "Orientierung"
               ],
               "status": "fertig"
+            },
+            {
+              "titel": "Einzelcoaching",
+              "beschreibung": "5 UE persönliche Coachingzeit und Terminbuchung ab der 4. Kurswoche.",
+              "pfad": "einzelcoaching.html",
+              "niveau": "Kursinfo",
+              "dauer": "5 UE pro Person",
+              "fertigkeiten": [
+                "Sprechen",
+                "Beratung"
+              ],
+              "status": "in-arbeit"
             }
           ]
         }
