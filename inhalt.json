@@ -32,7 +32,7 @@
                 "Lesen",
                 "Orientierung"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             }
           ]
         },
@@ -48,7 +48,7 @@
               "fertigkeiten": [
                 "Lesen"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "Krankmeldung und Fehlzeiten",
@@ -60,7 +60,7 @@
                 "Lesen",
                 "Schreiben"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "Teams und Technik",
@@ -71,7 +71,7 @@
               "fertigkeiten": [
                 "Lesen"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "So funktioniert die Plattform",
@@ -95,7 +95,7 @@
                 "Sprechen",
                 "Beratung"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             }
           ]
         }
@@ -122,7 +122,7 @@
                 "Schreiben",
                 "Sprechen"
               ],
-              "status": "teilweise"
+              "status": "fertig"
             },
             {
               "titel": "Kollegen, Kunden und Zahlen",
@@ -231,7 +231,7 @@
                 "Hören",
                 "Schreiben"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "Schlecht verstanden",
@@ -243,7 +243,7 @@
                 "Sprechen",
                 "Hören"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "Empfang und Kundengespräch",
@@ -255,7 +255,7 @@
                 "Sprechen",
                 "Lesen"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "Kundengespräche am Telefon",
@@ -297,7 +297,7 @@
                 "Schreiben",
                 "Lesen"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "Termine und Fristen",
@@ -309,7 +309,7 @@
                 "Schreiben",
                 "Sprechen"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "Angebot und Auftrag",
@@ -321,7 +321,7 @@
                 "Schreiben",
                 "Lesen"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "Rechnung und Mahnung",
