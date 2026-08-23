@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Am Empfang – Berufssprachkurs</title>
+<link rel="stylesheet" href="../assets/basis.css">
+<link rel="stylesheet" href="../assets/platform.css">
+<link rel="stylesheet" href="../assets/lehrwerk.css">
+<link rel="stylesheet" href="../assets/aufgaben.css">
+<script src="../data/homework.js" defer></script>
+<script src="../assets/platform.js"></script>
+<style>
+.ep-fall,.ep-material,.ep-training{margin:1.2rem 0;padding:1.2rem 1.3rem;border:1px solid var(--linie);border-radius:14px;background:var(--karte)}
+.ep-fall{border-left:5px solid var(--rose-tief)}.ep-material{background:linear-gradient(135deg,#eff4f9,#fff)}
+.ep-dialog{margin:.8rem 0;padding:1rem 1.1rem;border-left:4px solid var(--salbei-tief);background:#fff}.ep-dialog p{margin:.45rem 0}
+.ep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}.ep-grid>*{padding:.85rem 1rem;border:1px solid var(--linie);border-radius:10px;background:#fff}
+.ep-grid strong{display:block;color:var(--rose-tief);margin-bottom:.25rem}.ep-karten{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem}.ep-karte{padding:1rem;border:1px solid var(--linie);border-radius:12px;background:#fff}
+.ep-training{background:#fff7e9}.ep-notiz{max-width:34rem;padding:1rem 1.2rem;border:1px solid var(--linie);background:#fff;box-shadow:0 3px 10px #0001}.ep-notiz span{display:inline-block;min-width:8rem;font-weight:700}
+@media(max-width:48rem){.ep-grid,.ep-karten{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="module" data-bereich="buero" data-root="../">
+<header class="hero bereich-kopf"><div class="innen"><a class="zurueck" href="../buero.html">← Büro und Verwaltung</a><h1><em>Am Empfang</em></h1><p class="anleitung">Besucher professionell begrüßen, ihr Anliegen klären und auch bei Wartezeiten oder Störungen handlungsfähig bleiben.</p></div></header>
+<main class="innen modul modul--breit">
+<div class="reiter" role="tablist">
+<button role="tab" aria-selected="true" data-blatt="ankunft">Besuch empfangen</button>
+<button role="tab" aria-selected="false" data-blatt="weiterleiten">Anliegen klären</button>
+<button role="tab" aria-selected="false" data-blatt="stoerung">Schwierige Situationen</button>
+<button role="tab" aria-selected="false" data-blatt="praxis">Praxistraining</button>
+</div>
+
+<section class="blatt" id="blatt-ankunft">
+<p class="stand-hinweis">Problemsituation · Sprachmaterial · gelenkte Anwendung</p>
+<div class="ep-fall"><span class="marke">KONTOR · Montag, 8:45 Uhr</span><h2>Drei Personen, drei Anliegen</h2><p>Die Empfangskraft ist kurzfristig ausgefallen. Elena übernimmt zum ersten Mal den Empfang. Gleichzeitig kommen ein angemeldeter Bewerber, eine unangemeldete Lieferantin und ein Kunde, der seinen Ansprechpartner nicht kennt. Das Telefon klingelt.</p><p><strong>Auftrag:</strong> Entscheiden Sie: Wen begrüßt Elena zuerst? Welche Informationen muss sie von jeder Person erfragen?</p></div>
+<div class="ep-material"><h2>Ein professioneller erster Kontakt</h2><div class="ep-grid"><div><strong>begrüßen</strong>Guten Morgen, herzlich willkommen bei KONTOR.<br>Was kann ich für Sie tun?</div><div><strong>Anmeldung prüfen</strong>Bei wem haben Sie einen Termin?<br>Auf welchen Namen wurde der Termin vereinbart?</div><div><strong>Anliegen klären</strong>Worum geht es genau?<br>Welche Abteilung möchten Sie sprechen?</div><div><strong>nächsten Schritt nennen</strong>Ich informiere Frau Seidel sofort.<br>Nehmen Sie bitte kurz im Wartebereich Platz.</div></div><p><strong>Sprachhinweis:</strong> Am Empfang wirken kurze, vollständige Sätze ruhig und verbindlich. Erklären Sie immer, was als Nächstes passiert.</p></div>
+<div class="ep-dialog"><p><strong>Elena:</strong> Guten Morgen, herzlich willkommen bei KONTOR. Was kann ich für Sie tun?</p><p><strong>Herr Aydin:</strong> Ich habe um neun Uhr einen Termin wegen der Stelle im Einkauf.</p><p><strong>Elena:</strong> Vielen Dank. Auf welchen Namen wurde der Termin vereinbart?</p><p><strong>Herr Aydin:</strong> Aydin. Meine Ansprechpartnerin ist Frau Neumann.</p><p><strong>Elena:</strong> Einen Moment bitte. Ich informiere Frau Neumann. Möchten Sie solange Platz nehmen?</p></div>
+<h2>Was sagt Elena als Nächstes?</h2><div id="mc-ankunft"></div>
+<h2>Den Empfangsablauf sichern</h2><p>Ergänzen Sie die passenden Verben.</p>
+<div class="frage"><p>1. Herzlich <input class="luecke" id="e1" size="16"> bei KONTOR.</p><p>2. Bei wem <input class="luecke" id="e2" size="16"> Sie einen Termin?</p><p>3. Ich <input class="luecke" id="e3" size="16"> Frau Neumann sofort.</p><button type="button" class="knopf" id="ep-pruefen">Prüfen</button><p class="rueckmeldung" id="ep-rueck" hidden></p></div>
+<div class="regel"><h3>Gelenktes Sprechen</h3><p>Person A ist für 10 Uhr bei Herrn Brandt angemeldet. Person B übernimmt den Empfang. Begrüßen Sie A, prüfen Sie Name und Termin und nennen Sie den nächsten Schritt. Tauschen Sie danach die Rollen und verwenden Sie neue Namen.</p></div>
+</section>
+
+<section class="blatt" id="blatt-weiterleiten" hidden>
+<p class="stand-hinweis">Informationen erfragen · zusammenfassen · korrekt weiterleiten</p>
+<div class="ep-fall"><h2>„Ich muss jemanden aus dem Verkauf sprechen“</h2><p>Eine Kundin hat eine Reklamation, kennt aber weder den Namen der zuständigen Person noch ihre Auftragsnummer. Im Verkauf sind gerade alle im Gespräch. Elena muss das Anliegen so aufnehmen, dass ein Rückruf ohne weitere Rückfragen möglich ist.</p></div>
+<div class="ep-material"><h2>Gezielt statt neugierig fragen</h2><div class="ep-grid"><div><strong>Person und Firma</strong>Wie ist Ihr Name, bitte?<br>Von welchem Unternehmen kommen Sie?</div><div><strong>Anlass</strong>Geht es um eine Bestellung oder eine Rechnung?<br>Können Sie mir kurz sagen, worum es geht?</div><div><strong>Kontaktdaten</strong>Unter welcher Nummer sind Sie erreichbar?<br>Darf ich Ihre E-Mail-Adresse notieren?</div><div><strong>zusammenfassen</strong>Es geht also um die Lieferung 2487, richtig?<br>Ich richte Frau Seidel aus, dass …</div></div></div>
+<div class="ep-notiz"><p><span>Name:</span> Marta Nowak, Firma Polstar</p><p><span>Anliegen:</span> Lieferung 2487 unvollständig</p><p><span>Erreichbar:</span> heute bis 16 Uhr, 030 555 84</p><p><span>Dringlichkeit:</span> Ersatz wird bis Mittwoch benötigt</p></div>
+<h2>Welche Rückrufnotiz ist vollständig?</h2><div id="mc-notiz"></div>
+<h2>Vom Stichwort zur Übergabe</h2><div id="ep-zuordnen"></div><p class="rueckmeldung" id="ep-zuordnen-rueck" hidden></p>
+<div class="ep-training"><h3>Automatisierung: 60-Sekunden-Runde</h3><p>Fragen Sie nacheinander nach Name/Firma, Anliegen, Rückrufnummer und Dringlichkeit. Fassen Sie anschließend alles in zwei Sätzen zusammen. Wiederholen Sie die Runde mit einer neuen Person und ohne Blick auf die Redemittel.</p></div>
+<div class="regel"><h3>Schreibtraining</h3><p>Formulieren Sie aus der Notiz oben eine interne Nachricht an Frau Seidel (50–70 Wörter). Nennen Sie Anlass, konkrete Liefernummer, Erreichbarkeit, Terminbedarf und gewünschte Reaktion.</p><textarea class="feld" rows="6" placeholder="Hallo Frau Seidel, …"></textarea></div>
+</section>
+
+<section class="blatt" id="blatt-stoerung" hidden>
+<p class="stand-hinweis">Verständnis zeigen · Grenze erklären · Lösung anbieten</p>
+<div class="ep-fall"><h2>Der Termin ist nicht eingetragen</h2><p>Herr Peters sagt, er habe um 11 Uhr einen Termin mit der Geschäftsführung. Im Kalender steht nichts, Frau Hartmann ist außer Haus und Herr Peters wird ungeduldig. Elena darf keinen Zugang zu den Büroräumen geben, möchte den Besucher aber nicht abweisen.</p></div>
+<div class="ep-material"><h2>Ruhig und lösungsorientiert bleiben</h2><div class="ep-grid"><div><strong>Verständnis zeigen</strong>Ich verstehe, dass das ärgerlich für Sie ist.<br>Es tut mir leid, dass Sie warten müssen.</div><div><strong>Sachlage erklären</strong>Leider ist der Termin bei uns nicht eingetragen.<br>Frau Hartmann ist im Moment nicht im Haus.</div><div><strong>Grenze formulieren</strong>Ohne Bestätigung darf ich Sie leider nicht in den Bürobereich lassen.</div><div><strong>Lösung anbieten</strong>Ich versuche, das Sekretariat zu erreichen.<br>Gern vereinbare ich einen Rückruf für heute.</div></div><p><strong>Merksatz:</strong> Erst Verständnis, dann eine kurze sachliche Erklärung, anschließend eine konkrete Option. Keine Schuldzuweisung und keine Versprechen, die Sie nicht halten können.</p></div>
+<h2>Professionell oder problematisch?</h2><div id="mc-stoerung"></div>
+<div class="ep-karten"><div class="ep-karte"><strong>Wartezeit</strong><p>Die Ansprechpartnerin verspätet sich um 20 Minuten. Informieren Sie und bieten Sie etwas an.</p></div><div class="ep-karte"><strong>Zutritt</strong><p>Ein Techniker möchte ohne Auftrag in den Serverraum. Erklären Sie die Grenze und klären Sie die Freigabe.</p></div><div class="ep-karte"><strong>Sprache</strong><p>Eine Besucherin versteht Ihre Erklärung nicht. Formulieren Sie langsamer und einfacher, ohne unhöflich zu wirken.</p></div></div>
+<div class="regel"><h3>Rollenspiel mit Beobachtung</h3><p>A ist ein ungeduldiger Besucher ohne sichtbaren Kalendereintrag. B arbeitet am Empfang. C beobachtet: Hat B Verständnis gezeigt, die Grenze klar benannt und mindestens zwei realistische Lösungen angeboten? Spielen Sie drei Runden und wechseln Sie die Rollen.</p></div>
+</section>
+
+<section class="blatt" id="blatt-praxis" hidden>
+<p class="stand-hinweis">Automatisierung · freie Anwendung · Hausaufgabe und Wiederholung</p>
+<h2>Schnelle Reaktionsrunde</h2><div class="ep-karten"><div class="ep-karte"><strong>angemeldet</strong><p>Begrüßen, Termin prüfen, Kontaktperson informieren.</p></div><div class="ep-karte"><strong>unangemeldet</strong><p>Anliegen klären, Daten aufnehmen, nächsten Schritt nennen.</p></div><div class="ep-karte"><strong>Konflikt</strong><p>Verständnis zeigen, Grenze erklären, zwei Lösungen anbieten.</p></div></div>
+<div class="ep-training"><h3>Empfangswechsel</h3><p>Eine Person bleibt am Empfang. Die anderen ziehen nacheinander eine Situation und beginnen ohne Vorbereitung. Nach 45 Sekunden wechselt die Empfangskraft. Ziel: Begrüßung, Klärungsfragen und Abschluss zunehmend ohne Ablesen formulieren.</p></div>
+<div class="regel"><h2>Freie Anwendung: zehn Minuten am Empfang</h2><p>Simulieren Sie einen Vormittag mit mindestens drei gleichzeitig eintreffenden Personen: angemeldeter Besuch, Kurierdienst und verärgerter Kunde. Eine zusätzliche Störung kommt per Telefon. Organisieren Sie Prioritäten, nehmen Sie Informationen auf und übergeben Sie jedes Anliegen verbindlich. Die Beobachtenden notieren gelungene Formulierungen und eine konkrete Verbesserung.</p><textarea class="feld" rows="7" placeholder="Personen, Anliegen, Prioritäten und hilfreiche Formulierungen …"></textarea></div>
+<section class="hausaufgabe" data-homework="empfang"><h2>Hausaufgabe und Wiederholung</h2><ol><li>Schreiben Sie eine vollständige Rückrufnotiz zu einem selbst erfundenen Besucher: Name/Firma, Anliegen, Kontaktdaten, Dringlichkeit und nächster Schritt.</li><li>Formulieren Sie daraus eine interne Nachricht (80–100 Wörter). Markieren Sie darin die Zusammenfassung und den gewünschten nächsten Schritt.</li><li>Wiederholen Sie die Redemittel. Sprechen Sie am nächsten Kurstag ohne Text eine 30-sekündige Begrüßung und eine 45-sekündige Reaktion auf einen fehlenden Termin.</li></ol><textarea class="feld" rows="9" placeholder="Rückrufnotiz und interne Nachricht …"></textarea></section>
+<div class="merker"><h3>Selbstcheck</h3><p>Ich kann Besucher freundlich und eindeutig empfangen. · Ich kann ein Anliegen mit gezielten Fragen aufnehmen und zusammenfassen. · Ich kann bei Wartezeiten oder fehlenden Terminen Grenzen erklären und Lösungen anbieten.</p></div>
+</section>
+</main>
+<script>
+const epMc=(id,items)=>{const el=document.getElementById(id);el.innerHTML=items.map((x,i)=>`<div class="frage"><p><strong>${i+1}.</strong> ${x[0]}</p>${x[1].map((a,j)=>`<label><input type="radio" name="${id}-${i}" value="${j}"> ${a}</label><br>`).join('')}<p class="rueckmeldung" hidden></p></div>`).join('')+'<button type="button" class="knopf">Prüfen</button>';el.querySelector('button').onclick=()=>el.querySelectorAll('.frage').forEach((q,i)=>{const a=q.querySelector('input:checked'),r=q.querySelector('.rueckmeldung');const ok=a&&+a.value===items[i][2];r.hidden=false;r.textContent=ok?'Richtig.':'Noch nicht. Achten Sie auf einen klaren und hilfreichen nächsten Schritt.';r.className='rueckmeldung '+(ok?'richtig':'falsch')})};
+epMc('mc-ankunft',[["Ein Besucher sagt: „Ich bin wegen eines Gesprächs hier.“",['Setzen Sie sich einfach irgendwohin.','Guten Morgen. Bei wem haben Sie einen Termin?','Das weiß ich leider auch nicht.'],1],["Die Ansprechpartnerin ist informiert.",['Frau Neumann kommt gleich zu Ihnen. Nehmen Sie bitte kurz Platz.','Sie müssen warten.','Gehen Sie schon einmal nach oben.'],0]]);
+epMc('mc-notiz',[["Welche Information fehlt: „Herr Kaya, Reklamation, bitte zurückrufen“?",['nur die Anrede','Erreichbarkeit und konkreter Vorgang','der Name'],1],["Welche Übergabe ist präzise?",['Da war jemand wegen einer Sache.','Frau Nowak von Polstar bittet heute bis 16 Uhr um Rückruf zur unvollständigen Lieferung 2487.','Eine Kundin war ziemlich dringend.'],1]]);
+epMc('mc-stoerung',[["Der Termin ist nicht eingetragen.",['Dann haben Sie wohl keinen Termin.','Ich verstehe, dass das ärgerlich ist. Ich kläre sofort, wen ich erreichen kann.','Dafür bin ich nicht zuständig.'],1],["Ein Besucher verlangt sofortigen Zutritt.",['Ohne Bestätigung darf ich Sie nicht hineinlassen. Ich rufe jetzt im Sekretariat an.','Gehen Sie einfach durch.','Sie müssen draußen bleiben.'],0]]);
+document.getElementById('ep-pruefen').onclick=()=>{const antworten=[['e1',['willkommen']],['e2',['haben']],['e3',['informiere','benachrichtige']]];const ok=antworten.every(([id,a])=>a.includes(document.getElementById(id).value.trim().toLowerCase()));const r=document.getElementById('ep-rueck');r.hidden=false;r.textContent=ok?'Richtig: begrüßen – Termin prüfen – nächsten Schritt nennen.':'Prüfen Sie die drei Funktionen. Möglich sind: willkommen · haben · informiere/benachrichtige.';r.className='rueckmeldung '+(ok?'richtig':'falsch')};
+const teile=[['Name und Firma','Frau Nowak von Polstar'],['konkretes Anliegen','unvollständige Lieferung 2487'],['Erreichbarkeit','heute bis 16 Uhr unter 030 555 84'],['gewünschter Schritt','Rückruf wegen Ersatzlieferung']];const gemischt=[2,0,3,1];const ez=document.getElementById('ep-zuordnen');ez.innerHTML=gemischt.map((ix,i)=>`<div class="frage"><label>${teile[ix][1]} <select id="ez${i}"><option value="">Funktion wählen</option>${teile.map((x,j)=>`<option value="${j}">${x[0]}</option>`).join('')}</select></label></div>`).join('')+'<button type="button" class="knopf">Prüfen</button>';ez.querySelector('button').onclick=()=>{const ok=gemischt.every((ix,i)=>+document.getElementById('ez'+i).value===ix),r=document.getElementById('ep-zuordnen-rueck');r.hidden=false;r.textContent=ok?'Richtig: Die Übergabe enthält alle vier Informationen.':'Prüfen Sie, welche Funktion jede Information in der Übergabe hat.';r.className='rueckmeldung '+(ok?'richtig':'falsch')};
+</script>
+</body>
+</html>
