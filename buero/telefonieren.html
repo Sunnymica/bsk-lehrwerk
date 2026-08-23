@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Telefonieren – Berufssprachkurs</title>
+  <link rel="stylesheet" href="../assets/basis.css">
+  <link rel="stylesheet" href="../assets/platform.css">
+  <link rel="stylesheet" href="../assets/lehrwerk.css">
+  <link rel="stylesheet" href="../assets/aufgaben.css">
+  <script src="../data/homework.js" defer></script>
+  <script src="../assets/platform.js"></script>
+</head>
+<body data-page="module" data-bereich="buero" data-root="../">
+<header class="hero bereich-kopf"><div class="innen">
+  <a class="zurueck" href="../buero.html">← Büro und Verwaltung</a>
+  <h1><em>Telefonieren:</em> annehmen, verbinden, notieren</h1>
+  <p class="anleitung">Die drei Handgriffe, die in jedem Anruf vorkommen – so lange üben, bis sie von selbst kommen.</p>
+</div></header>
+
+<main class="innen modul">
+
+<div class="kasten">
+  <h2>Am Telefon fehlt das Gesicht – und die Zeit zum Nachdenken.</h2>
+  <p>Der Name kommt zu schnell, die Leitung rauscht, und die andere Person redet weiter, während Sie noch überlegen. Drei Dinge gehen dabei fast immer schief: Man versteht den <strong>Namen</strong> nicht. Man weiß nicht, was man sagt, wenn die gesuchte Person <strong>nicht da</strong> ist. Und hinterher fehlt in der <strong>Notiz</strong> genau die Information, auf die es ankam.</p>
+  <div class="merker">
+    <span class="marke-merker">WICHTIG</span>
+    <p>Sie müssen am Telefon nichts erfinden. Es sind immer dieselben zehn bis zwölf Wendungen. Wer sie automatisch sagt, hat den Kopf frei zum <strong>Zuhören</strong> – und darauf kommt es an.</p>
+  </div>
+  <p class="marke"><strong>Abgrenzung:</strong> Hier geht es um den Ablauf eines Anrufs. Schwierige Gesprächsverläufe – jemand wird laut, nichts ist gut genug – stehen in <a href="kundengespraeche-telefon.html">Kundengespräche am Telefon</a>. Das Weiterschreiben der Notiz übt <a href="notizzettel-verstehen.html">Notizzettel verstehen</a>.</p>
+  <p class="marke"><strong>Zeit:</strong> Die drei Regelreiter sind der Kern und dauern zusammen 45 Minuten. Spielplatz und freie Anwendung kommen nach Bedarf dazu, die Hausaufgabe läuft zu Hause.</p>
+</div>
+
+<div class="reiter" role="tablist" aria-label="Lernabschnitte">
+  <button type="button" id="tab-annehmen" role="tab" aria-selected="true" data-blatt="annehmen">Annehmen</button>
+  <button type="button" id="tab-verbinden" role="tab" aria-selected="false" data-blatt="verbinden">Weiterverbinden</button>
+  <button type="button" id="tab-notiz" role="tab" aria-selected="false" data-blatt="notiz">Notiz aufnehmen</button>
+  <button type="button" id="tab-spielplatz" role="tab" aria-selected="false" data-blatt="spielplatz">Telefon-Spielplatz</button>
+  <button type="button" id="tab-anwenden" role="tab" aria-selected="false" data-blatt="anwenden">Frei anwenden</button>
+  <button type="button" id="tab-hausaufgabe" role="tab" aria-selected="false" data-blatt="hausaufgabe">Hausaufgabe</button>
+</div>
+
+<!-- ============ ANNEHMEN ============ -->
+<section class="blatt" id="blatt-annehmen" role="tabpanel" aria-labelledby="tab-annehmen">
+  <p class="stand-hinweis">Kern: 10 Minuten · die ersten fünf Sekunden</p>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">1 · Muster</strong>
+    <h2>Die Meldeformel hat drei Teile</h2>
+    <p class="satz"><strong>KONTOR AG</strong>, <strong>Olena Karpenko</strong>, <strong>guten Tag</strong>.</p>
+    <table>
+      <thead><tr><th>Teil</th><th>Warum</th></tr></thead>
+      <tbody>
+        <tr><td>Firma</td><td>Die anrufende Person weiß sofort, ob sie richtig ist.</td></tr>
+        <tr><td>Ihr Name</td><td>Man weiß, mit wem man spricht – und kann Sie später wiederfinden.</td></tr>
+        <tr><td>Gruß</td><td>Ohne Gruß klingt es abweisend, auch wenn es nicht so gemeint ist.</td></tr>
+      </tbody>
+    </table>
+    <p class="marke">Sprechen Sie den eigenen Namen <strong>langsamer</strong> als den Rest. Er ist für die andere Seite neu, für Sie nicht.</p>
+  </div>
+
+  <div class="regel">
+    <h3>Danach kommt genau eine Frage</h3>
+    <p class="satz">„Was kann ich für Sie tun?“ · „Worum geht es denn?“ · „Wie kann ich Ihnen helfen?“</p>
+    <p>Und dann sagen Sie erst einmal nichts mehr. Die zwei Sekunden Stille gehören der anrufenden Person.</p>
+  </div>
+
+  <h2>Miniübung 1: schnell erkennen</h2>
+  <div id="quiz-annehmen"></div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">2 · Bauen</strong>
+    <h2>Nur das fehlende Wort</h2>
+    <p class="anleitung">Ergänzen Sie das passende Wort und sprechen Sie den ganzen Satz einmal laut.</p>
+  </div>
+  <p class="lueckentext">
+    1. KONTOR AG, Olena Karpenko, guten <input class="luecke" id="an1" size="8" autocomplete="off">.<br><br>
+    2. Was kann ich <input class="luecke" id="an2" size="8" autocomplete="off"> Sie tun?<br><br>
+    3. Einen <input class="luecke" id="an3" size="10" autocomplete="off"> bitte, ich sehe kurz nach.<br><br>
+    4. Könnten Sie das bitte noch einmal <input class="luecke" id="an4" size="12" autocomplete="off">?<br><br>
+    5. Wie war Ihr <input class="luecke" id="an5" size="8" autocomplete="off">, bitte?<br><br>
+    6. Da sind Sie bei mir leider <input class="luecke" id="an6" size="8" autocomplete="off"> – ich verbinde Sie weiter.
+  </p>
+  <div class="knopfreihe"><button class="knopf" id="an-pruefen" type="button">Prüfen</button><button class="knopf" id="an-tipp" type="button">Tipp</button></div>
+  <p class="rueckmeldung" id="an-rueck" hidden></p>
+  <p class="rueckmeldung" id="an-hinweis" hidden>Satz 3 und 6 sind feste Wendungen: „Einen Moment bitte“ und „falsch verbunden“. Die lernt man als Ganzes, nicht Wort für Wort.</p>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">3 · Klick und sprich</strong>
+    <h2>Melde-Blitz</h2>
+    <p>Klicken Sie auf <strong>Neuer Anruf</strong>. Sagen Sie sofort die vollständige Meldeformel mit dem angezeigten Namen. Nicht schreiben.</p>
+    <div class="kasten">
+      <p class="satz" id="blitz-an-ausgabe">KONTOR AG · Olena Karpenko · Vormittag</p>
+      <div class="knopfreihe"><button class="knopf" type="button" id="blitz-an-neu">Neuer Anruf</button></div>
+    </div>
+    <p class="marke">Ziel: acht Meldungen ohne Nachdenkpause. Danach mit Ihrem eigenen Namen.</p>
+  </div>
+
+  <div class="redemittel-box">
+    <h2>Jetzt selbst sprechen, aber nichts erfinden</h2>
+    <p class="satz"><strong>Melden:</strong> KONTOR AG, … , guten Tag. · … , Abteilung Einkauf, guten Morgen.</p>
+    <p class="satz"><strong>Anliegen erfragen:</strong> Was kann ich für Sie tun? · Worum geht es denn?</p>
+    <p class="satz"><strong>Zeit gewinnen:</strong> Einen Moment bitte. · Ich sehe kurz nach. · Bleiben Sie bitte dran.</p>
+    <p class="satz"><strong>Nicht verstanden:</strong> Könnten Sie das bitte wiederholen? · Wie war Ihr Name, bitte?</p>
+  </div>
+</section>
+
+<!-- ============ WEITERVERBINDEN ============ -->
+<section class="blatt" id="blatt-verbinden" role="tabpanel" aria-labelledby="tab-verbinden" hidden>
+  <p class="stand-hinweis">Kern: 15 Minuten · vier Fälle, vier Sätze</p>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">1 · Muster</strong>
+    <h2>Vier Fälle – mehr gibt es nicht</h2>
+    <table>
+      <thead><tr><th>Situation</th><th>Was Sie sagen</th></tr></thead>
+      <tbody>
+        <tr><td>Person ist da</td><td>Einen Moment bitte, ich <strong>verbinde</strong> Sie.</td></tr>
+        <tr><td>Person telefoniert</td><td>Herr Becker <strong>telefoniert gerade</strong>. Möchten Sie warten?</td></tr>
+        <tr><td>Person ist außer Haus</td><td>Frau Seidel ist heute <strong>außer Haus</strong>. Kann ich etwas <strong>ausrichten</strong>?</td></tr>
+        <tr><td>Sie sind nicht zuständig</td><td>Dafür ist der <strong>Einkauf</strong> zuständig. Ich <strong>stelle Sie durch</strong>.</td></tr>
+      </tbody>
+    </table>
+    <p class="marke">Jeder Fall endet mit einem <strong>Angebot</strong>: warten, zurückrufen lassen oder etwas ausrichten. So weiß die anrufende Person, wie es weitergeht.</p>
+  </div>
+
+  <div class="regel">
+    <h3>Zwei Wörter, ein Unterschied</h3>
+    <p><strong>verbinden mit</strong> – Sie stellen die Verbindung her: <em>Ich verbinde Sie <strong>mit</strong> Frau Seidel.</em><br>
+    <strong>durchstellen</strong> – dasselbe, im Betrieb noch üblicher: <em>Ich stelle Sie durch.</em></p>
+    <p class="marke">Beides ist richtig. <em>Durchstellen</em> ist trennbar – das <em>durch</em> steht am Satzende.</p>
+  </div>
+
+  <h2>Miniübung 1: Welcher Satz passt?</h2>
+  <div id="quiz-verbinden"></div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">2 · Bauen</strong>
+    <h2>Nur das fehlende Wort</h2>
+  </div>
+  <p class="lueckentext">
+    1. Einen Moment bitte, ich <input class="luecke" id="vb1" size="10" autocomplete="off"> Sie.<br><br>
+    2. Herr Becker <input class="luecke" id="vb2" size="12" autocomplete="off"> gerade.<br><br>
+    3. Frau Seidel ist heute außer <input class="luecke" id="vb3" size="8" autocomplete="off">.<br><br>
+    4. Kann ich ihr etwas <input class="luecke" id="vb4" size="12" autocomplete="off">?<br><br>
+    5. Dafür ist der Einkauf <input class="luecke" id="vb5" size="12" autocomplete="off">.<br><br>
+    6. Soll Frau Seidel Sie <input class="luecke" id="vb6" size="12" autocomplete="off">?
+  </p>
+  <div class="knopfreihe"><button class="knopf" id="vb-pruefen" type="button">Prüfen</button><button class="knopf" id="vb-tipp" type="button">Tipp</button></div>
+  <p class="rueckmeldung" id="vb-rueck" hidden></p>
+  <p class="rueckmeldung" id="vb-hinweis" hidden>Satz 6 braucht ein trennbares Verb: zurückrufen. Das „zurück“ bleibt vorn am Verb, weil es hier im Infinitiv steht.</p>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">3 · Klick und sprich</strong>
+    <h2>Verbinde-Blitz</h2>
+    <p>Sie nehmen den Anruf als <strong>Olena Karpenko</strong> an. Auf der Karte steht die Situation der anderen, gesuchten Person. Sagen Sie sofort den passenden Satz – mit Angebot.</p>
+    <div class="kasten">
+      <p class="satz" id="blitz-vb-ausgabe">Herr Becker telefoniert gerade</p>
+      <div class="knopfreihe"><button class="knopf" type="button" id="blitz-vb-neu">Neue Situation</button></div>
+    </div>
+    <p class="marke">Wenn Ihnen der Satz nicht einfällt: Sagen Sie zuerst „Einen Moment bitte“. Das ist immer richtig und kauft Ihnen drei Sekunden.</p>
+  </div>
+
+  <div class="redemittel-box">
+    <h2>Jetzt selbst sprechen, aber nichts erfinden</h2>
+    <p class="satz"><strong>Verbinden:</strong> Ich verbinde Sie mit … · Ich stelle Sie durch. · Bleiben Sie bitte dran.</p>
+    <p class="satz"><strong>Besetzt:</strong> … telefoniert gerade. · … ist gerade im Gespräch. · Möchten Sie warten?</p>
+    <p class="satz"><strong>Nicht da:</strong> … ist heute außer Haus. · … ist erst ab Montag wieder da. · Kann ich etwas ausrichten?</p>
+    <p class="satz"><strong>Angebot:</strong> Soll … Sie zurückrufen? · Ich lasse … Ihnen Bescheid geben. · Möchten Sie es später noch einmal versuchen?</p>
+  </div>
+</section>
+
+<!-- ============ NOTIZ ============ -->
+<section class="blatt" id="blatt-notiz" role="tabpanel" aria-labelledby="tab-notiz" hidden>
+  <p class="stand-hinweis">Kern: 20 Minuten · hören, buchstabieren, aufschreiben</p>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">Hören</strong>
+    <h2>Ein vollständiger Anruf</h2>
+    <div class="auftrag"><span class="auftrag-marke">Zuhören · 1 Minute</span><p>Die Kursleitung oder eine Lernpartnerin liest den Anruf einmal vor – zu zweit gelesen, mit verteilten Rollen. Hören Sie zunächst nur zu, ohne mitzuschreiben.</p></div>
+    <p class="satz"><strong>A:</strong> Guten Tag, KONTOR AG, mein Name ist Olena Karpenko.<br>
+    <strong>B:</strong> Guten Tag, hier ist Frau Weber von Nordlogistik. Ich würde gern mit Herrn Becker sprechen.<br>
+    <strong>A:</strong> Herr Becker telefoniert gerade. Möchten Sie warten oder soll er Sie zurückrufen?<br>
+    <strong>B:</strong> Ein Rückruf wäre gut, danke.<br>
+    <strong>A:</strong> Gern. Unter welcher Nummer kann er Sie erreichen?<br>
+    <strong>B:</strong> Unter 0176 …<br>
+    <strong>A:</strong> Vielen Dank. Ich richte es ihm aus.<br>
+    <strong>B:</strong> Danke, auf Wiederhören.<br>
+    <strong>A:</strong> Auf Wiederhören.</p>
+    <p class="marke"><strong>Hören Sie einmal zu. Welche fünf Informationen gehören danach in die Telefonnotiz?</strong> Sammeln Sie im Plenum, bevor Sie weiterlesen.</p>
+  </div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">1 · Muster</strong>
+    <h2>Fünf Felder, immer dieselben</h2>
+    <table>
+      <thead><tr><th>Feld</th><th>Frage</th><th>Beispiel</th></tr></thead>
+      <tbody>
+        <tr><td>Wer?</td><td>Wer hat angerufen?</td><td>Frau Aydin, Firma Nordlicht</td></tr>
+        <tr><td>Für wen?</td><td>Wen wollte die Person sprechen?</td><td>für Herrn Becker</td></tr>
+        <tr><td>Wann?</td><td>Wann kam der Anruf?</td><td>Dienstag, 10:15 Uhr</td></tr>
+        <tr><td>Worum geht es?</td><td>Ein Satz genügt.</td><td>Lieferung 4471 verschiebt sich</td></tr>
+        <tr><td>Rückruf?</td><td>Nummer und wann erreichbar</td><td>0451 22 34 18, bis 16 Uhr</td></tr>
+      </tbody>
+    </table>
+    <p class="marke">Fehlt eines der fünf Felder, muss jemand zurückfragen – und das kostet mehr Zeit, als das Notieren gespart hat.</p>
+  </div>
+
+  <div class="regel">
+    <h3>Namen und Zahlen lässt man sich geben, nicht zurufen</h3>
+    <p><strong>Buchstabieren:</strong> „Wie schreibt man das, bitte?“ · „War das mit <em>ie</em> oder mit <em>i</em>?“ · „A wie Anton?“</p>
+    <p><strong>Zahlen:</strong> Wiederholen Sie in Zweierblöcken und lassen Sie bestätigen: <em>„0451 – 22 – 34 – 18. Habe ich das richtig verstanden?“</em></p>
+    <p class="marke">Nachfragen wirkt nicht unsicher, sondern sorgfältig. Eine falsche Ziffer kostet einen halben Tag.</p>
+  </div>
+
+  <h2>Miniübung 1: Was fehlt in der Notiz?</h2>
+  <div id="quiz-notiz"></div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">2 · Bauen</strong>
+    <h2>Die Rückfragen ergänzen</h2>
+  </div>
+  <p class="lueckentext">
+    1. Wie <input class="luecke" id="no1" size="10" autocomplete="off"> man das, bitte?<br><br>
+    2. Könnten Sie den Namen bitte <input class="luecke" id="no2" size="14" autocomplete="off">?<br><br>
+    3. War das mit <em>ie</em> oder mit <input class="luecke" id="no3" size="4" autocomplete="off">?<br><br>
+    4. Ich <input class="luecke" id="no4" size="12" autocomplete="off"> kurz: 0451 – 22 – 34 – 18.<br><br>
+    5. Unter welcher <input class="luecke" id="no5" size="10" autocomplete="off"> sind Sie erreichbar?<br><br>
+    6. Ich <input class="luecke" id="no6" size="12" autocomplete="off"> es Herrn Becker aus.
+  </p>
+  <div class="knopfreihe"><button class="knopf" id="no-pruefen" type="button">Prüfen</button><button class="knopf" id="no-tipp" type="button">Tipp</button></div>
+  <p class="rueckmeldung" id="no-rueck" hidden></p>
+  <p class="rueckmeldung" id="no-hinweis" hidden>Satz 6 braucht ein trennbares Verb: ausrichten. Das Präfix „aus“ rutscht ans Satzende.</p>
+
+  <div class="kasten">
+    <span class="marke">Zum Nachschlagen</span>
+    <h3>Das Buchstabieralphabet</h3>
+    <p>Sie brauchen die Liste nicht auswendig – legen Sie sie neben das Telefon.</p>
+    <table>
+      <thead><tr><th scope="col">Buchstabe</th><th scope="col">Kennwort</th><th scope="col">Buchstabe</th><th scope="col">Kennwort</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">A</th><td>Anton</td><th scope="row">N</th><td>Nordpol</td></tr>
+        <tr><th scope="row">B</th><td>Berta</td><th scope="row">O</th><td>Otto</td></tr>
+        <tr><th scope="row">C</th><td>Cäsar</td><th scope="row">P</th><td>Paula</td></tr>
+        <tr><th scope="row">D</th><td>Dora</td><th scope="row">Q</th><td>Quelle</td></tr>
+        <tr><th scope="row">E</th><td>Emil</td><th scope="row">R</th><td>Richard</td></tr>
+        <tr><th scope="row">F</th><td>Friedrich</td><th scope="row">S</th><td>Samuel</td></tr>
+        <tr><th scope="row">G</th><td>Gustav</td><th scope="row">T</th><td>Theodor</td></tr>
+        <tr><th scope="row">H</th><td>Heinrich</td><th scope="row">U</th><td>Ulrich</td></tr>
+        <tr><th scope="row">I</th><td>Ida</td><th scope="row">V</th><td>Viktor</td></tr>
+        <tr><th scope="row">J</th><td>Julius</td><th scope="row">W</th><td>Wilhelm</td></tr>
+        <tr><th scope="row">K</th><td>Kaufmann</td><th scope="row">X</th><td>Xanthippe</td></tr>
+        <tr><th scope="row">L</th><td>Ludwig</td><th scope="row">Y</th><td>Ypsilon</td></tr>
+        <tr><th scope="row">M</th><td>Martha</td><th scope="row">Z</th><td>Zacharias</td></tr>
+      </tbody>
+    </table>
+    <p class="marke">Seit 2022 gibt es auch eine DIN-Fassung mit Städtenamen, zum Beispiel <em>A wie Aachen, B wie Berlin, C wie Chemnitz</em>. Im Alltag hören Sie weiterhin häufig die ältere Buchstabiertafel.</p>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">3 · Klick und sprich</strong>
+    <h2>Buchstabier-Blitz</h2>
+    <p>Auf der Karte steht ein Name oder eine Zahl. Buchstabieren beziehungsweise sprechen Sie sie laut – in Zweierblöcken und mit Rückfrage.</p>
+    <div class="kasten">
+      <p class="satz" id="blitz-no-ausgabe">Aydin</p>
+      <div class="knopfreihe"><button class="knopf" type="button" id="blitz-no-neu">Neuer Name</button></div>
+    </div>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">4 · Zusätzlich, nach Bedarf</strong>
+    <h2>Partnerdiktat</h2>
+    <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 8 Minuten</span><p><strong>A</strong> liest eine der Notizen unten vor – einmal, im normalen Tempo, ohne Pausen. <strong>B</strong> hört nur zu und schreibt die fünf Felder mit. B darf jederzeit nachfragen, aber nur mit den Wendungen aus dem Regelkasten. Danach vergleichen und tauschen.</p></div>
+    <p class="satz"><strong>Notiz 1:</strong> Frau Aydin von Nordlicht, für Herrn Becker, heute 10:15 Uhr. Die Lieferung 4471 verschiebt sich auf Freitag. Rückruf unter 0451 22 34 18, bis 16 Uhr.</p>
+    <p class="satz"><strong>Notiz 2:</strong> Herr Nowak vom Zentrallager, für Frau Seidel, Dienstag 14:40 Uhr. Zwei Paletten stehen ohne Papiere im Wareneingang. Rückruf unter Durchwahl 214, ab 8 Uhr.</p>
+    <p class="satz"><strong>Notiz 3:</strong> Frau Vogt von der Filiale Bremen, für den Einkauf, Mittwoch 9:05 Uhr. Die Rechnung 88-102 stimmt nicht mit der Bestellung überein. Rückruf unter 0421 55 07 90, vormittags.</p>
+  </div>
+
+  <div class="redemittel-box">
+    <h2>Jetzt selbst sprechen, aber nichts erfinden</h2>
+    <p class="satz"><strong>Nachfragen:</strong> Wie schreibt man das? · Könnten Sie den Namen buchstabieren? · War das mit ie oder i?</p>
+    <p class="satz"><strong>Bestätigen:</strong> Ich wiederhole kurz: … · Habe ich das richtig verstanden? · Also …, ist das so korrekt?</p>
+    <p class="satz"><strong>Abschließen:</strong> Ich richte es aus. · Ich gebe Bescheid, sobald … · Vielen Dank für den Anruf. Auf Wiederhören.</p>
+  </div>
+</section>
+
+<!-- ============ SPIELPLATZ ============ -->
+<section class="blatt" id="blatt-spielplatz" role="tabpanel" aria-labelledby="tab-spielplatz" hidden>
+  <p class="stand-hinweis">Zusätzlich, nach Bedarf: 20 Minuten · schnell, laut, ohne Schreiben</p>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Spiel 1</strong>
+    <h2>Telefon-TÜV</h2>
+    <p>Vier Sätze, einer passt nicht ans Telefon. Finden Sie ihn und sagen Sie eine bessere Fassung laut.</p>
+    <div id="tuev"></div>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Spiel 2</strong>
+    <h2>30-Sekunden-Challenge</h2>
+    <p>Eine Person nennt eine Situation, die andere antwortet sofort mit dem passenden Satz – <strong>immer mit Angebot</strong>. Wie viele schaffen Sie in 30 Sekunden?</p>
+    <p class="satz">„telefoniert gerade“ · „ist außer Haus“ · „falsch verbunden“ · „ist ab Montag wieder da“ · „nicht zuständig“ · „Name nicht verstanden“ · „Nummer zu schnell“</p>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Spiel 3</strong>
+    <h2>Partner-Automat: Kamera aus</h2>
+    <p>Beide schalten die Kamera aus – dann fehlt das Gesicht wirklich, wie am Telefon. <strong>A</strong> ruft an und hat ein Anliegen, <strong>B</strong> nimmt an. Nach drei Anrufen Rollenwechsel.</p>
+    <p class="marke">Die Gruppe hört nur auf zwei Dinge: Kam die Meldeformel vollständig? Und endete jeder Anruf mit einem Angebot?</p>
+  </div>
+
+  <div class="redemittel-box">
+    <h2>Sprachmaterial bleibt sichtbar</h2>
+    <p class="satz"><strong>Melden:</strong> KONTOR AG, … , guten Tag. · Was kann ich für Sie tun?</p>
+    <p class="satz"><strong>Zeit gewinnen:</strong> Einen Moment bitte. · Ich sehe kurz nach. · Bleiben Sie bitte dran.</p>
+    <p class="satz"><strong>Verbinden:</strong> Ich verbinde Sie mit … · Ich stelle Sie durch.</p>
+    <p class="satz"><strong>Nicht erreichbar:</strong> … telefoniert gerade. · … ist gerade im Gespräch. · … ist heute außer Haus. · Kann ich etwas ausrichten? · Soll … Sie zurückrufen?</p>
+    <p class="satz"><strong>Nachfragen:</strong> Wie war Ihr Name? · Könnten Sie das buchstabieren? · Ich wiederhole kurz: …</p>
+    <p class="satz"><strong>Schließen:</strong> Ich richte es aus. · Vielen Dank für den Anruf. Auf Wiederhören.</p>
+  </div>
+</section>
+
+<!-- ============ FREI ANWENDEN ============ -->
+<section class="blatt" id="blatt-anwenden" role="tabpanel" aria-labelledby="tab-anwenden" hidden>
+  <p class="stand-hinweis">Zusätzlich, nach Bedarf: 25 Minuten · schreiben und sprechen</p>
+
+  <div class="kasten">
+    <p class="marke"><strong>Tipp:</strong> Wenn Sie bei den wichtigen Sätzen noch überlegen müssen, üben Sie vorher noch einmal kurz. Danach sprechen Sie frei.</p>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Schreiben</strong>
+    <h2>Eine Telefonnotiz, die niemand nachfragen muss</h2>
+    <div class="auftrag"><span class="auftrag-marke">Einzelarbeit · 10 Minuten</span><p>Sie nehmen einen Anruf für eine Kollegin an. Schreiben Sie die Notiz mit allen fünf Feldern – so, dass die Kollegin ohne Rückfrage handeln kann.</p></div>
+    <p><strong>Start:</strong> die fünf Felder ausfüllen, Stichworte genügen.<br>
+    <strong>Weiter:</strong> zusätzlich in einem Satz, was die Kollegin konkret tun soll.<br>
+    <strong>Herausforderung:</strong> schreiben Sie dieselbe Notiz zweimal – einmal als Zettel, einmal als kurze interne Nachricht in ganzen Sätzen.</p>
+    <textarea class="feld" id="notiz-frei" rows="8" data-ergebnis-label="Meine Telefonnotiz"></textarea>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Sprechen</strong>
+    <h2>Drei Anrufe hintereinander</h2>
+    <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 10 Minuten</span><p>Drei Anrufe ohne Pause dazwischen: Beim ersten ist die gesuchte Person da, beim zweiten telefoniert sie, beim dritten sind Sie falsch verbunden. Ihre Partnerin achtet nur darauf, ob jeder Anruf mit einem Angebot endet.</p></div>
+  </div>
+
+  <div class="differenzierung differenzierung--herausforderung">
+    <strong class="differenzierung__stufe">Herausforderung</strong>
+    <h2>Der Anruf, den Sie nicht erwartet haben</h2>
+    <p>Ihre Partnerin ruft mit einem Anliegen an, das nicht in Ihren Bereich gehört und für das sie den Namen der zuständigen Person nicht kennt. Bringen Sie das Gespräch trotzdem zu einem klaren Ende.</p>
+  </div>
+</section>
+
+<!-- ============ HAUSAUFGABE ============ -->
+<section class="blatt" id="blatt-hausaufgabe" role="tabpanel" aria-labelledby="tab-hausaufgabe" hidden>
+  <p class="stand-hinweis">Zu Hause: 20 Minuten, dann fünf Tage je 2 Minuten</p>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">1 · Gemischt wiederholen</strong>
+    <h2>Welcher Satz passt jetzt?</h2>
+    <div id="quiz-misch"></div>
+  </div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">2 · Laut sprechen</strong>
+    <h2>Acht kurze Impulse</h2>
+    <p class="anleitung">Sprechen Sie zu jedem Impuls sofort den passenden Satz. Nicht schreiben.</p>
+    <p class="satz">Anruf kommt herein &nbsp;·&nbsp; Person telefoniert &nbsp;·&nbsp; Person ist außer Haus &nbsp;·&nbsp; falsch verbunden<br>
+    Name nicht verstanden &nbsp;·&nbsp; Nummer zu schnell &nbsp;·&nbsp; Sie brauchen drei Sekunden &nbsp;·&nbsp; Gespräch beenden</p>
+  </div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">3 · 5-Tage-Mikrotraining</strong>
+    <h2>Zähneputz-Drill</h2>
+    <p>Fünf Tage, je zwei Minuten, jeden Tag nur eine Sache: Tag 1 Meldeformel, Tag 2 Zeit gewinnen, Tag 3 Weiterverbinden, Tag 4 Buchstabieren und Zahlen, Tag 5 Notiz in fünf Feldern.</p>
+    <p class="marke">Sprechen Sie dabei wirklich laut. Telefonieren ist eine Mundbewegung, keine Denkaufgabe – im Kopf geübt hilft es am Hörer nicht.</p>
+    <div class="auftrag"><span class="auftrag-marke">2 Minuten</span><p><a href="../training/2-minuten-drill.html?set=telefonieren"><strong>2-Minuten-Drill auf dem Handy öffnen</strong></a></p><p class="marke">Zähneputzen ist nur der Standardanker. Der Drill funktioniert auch im Bus, in der Pause oder überall dort, wo zwei Minuten frei sind.</p></div>
+  </div>
+
+  <div class="merker">
+    <span class="marke-merker">Nach fünf Tagen</span>
+    <p>Selbsttest: Nehmen Sie fünf gedachte Anrufe hintereinander an, ohne zu stocken. Wenn zwei davon hängen, wiederholen Sie genau diesen Tag – nicht die ganze Woche.</p>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Schriftlich</strong>
+    <h2>Drei Notizen aus dem eigenen Alltag</h2>
+    <ol>
+      <li>Notieren Sie drei Anrufe, die bei Ihnen tatsächlich vorkommen könnten.</li>
+      <li>Schreiben Sie zu jedem die fünf Felder.</li>
+      <li>Markieren Sie das Feld, das Ihnen am schwersten fällt – meistens ist es „Worum geht es?“.</li>
+    </ol>
+    <textarea class="feld" id="hausaufgabe-frei" rows="6" data-ergebnis-label="Drei Telefonnotizen"></textarea>
+  </div>
+</section>
+
+</main><footer class="fuss">Nur für Kursteilnehmerinnen und Kursteilnehmer</footer>
+<script src="../assets/lehrwerk.js"></script><script>
+Lehrwerk.modul('telefonieren');
+Lehrwerk.reiter();
+
+/* ---- Annehmen ---- */
+Lehrwerk.auswahl('quiz-annehmen',[
+  {id:'an-q1',text:'Sie nehmen einen Anruf an. Welche Meldung ist vollständig?',optionen:['KONTOR AG, Olena Karpenko, guten Tag.','Hallo?','Ja bitte?','Karpenko.'],richtig:['KONTOR AG, Olena Karpenko, guten Tag.'],erklaerung:'Firma, Name, Gruß – erst dann weiß die anrufende Person, ob sie richtig ist und mit wem sie spricht. Der bloße Nachname ist am Diensttelefon zu wenig.'},
+  {id:'an-q2',text:'Welche zwei Sätze fragen das Anliegen ab?',optionen:['Was kann ich für Sie tun?','Worum geht es denn?','Wer sind Sie?','Was wollen Sie?'],richtig:['Was kann ich für Sie tun?','Worum geht es denn?'],erklaerung:'Beide sind offen und freundlich. Die anderen beiden klingen nach Verhör – am Telefon hört man den Ton besonders deutlich.'},
+  {id:'an-q3',text:'Sie brauchen drei Sekunden, um etwas nachzusehen. Was sagen Sie?',optionen:['Einen Moment bitte, ich sehe kurz nach.','Warten Sie.','Moment.','Nichts, einfach nachsehen.'],richtig:['Einen Moment bitte, ich sehe kurz nach.'],erklaerung:'Sie sagen, dass Sie kurz weg sind und warum. Stille ohne Ankündigung wirkt am Telefon wie eine unterbrochene Leitung.'},
+  {id:'an-q4',text:'Warum sollen Sie den eigenen Namen langsamer sprechen als den Rest?',optionen:['Weil er für die andere Seite neu ist.','Weil er wichtiger ist.','Weil es höflicher klingt.','Weil man sonst zu leise wird.'],richtig:['Weil er für die andere Seite neu ist.'],erklaerung:'Für Sie ist der eigene Name selbstverständlich, für die anrufende Person nicht. Genau deshalb wird er am häufigsten überhört.'},
+  {id:'an-q5',text:'Der Anruf gehört gar nicht zu Ihnen. Welcher Satz ist am besten?',optionen:['Da sind Sie bei mir leider falsch – ich verbinde Sie weiter.','Falsch verbunden.','Das bin ich nicht.','Da müssen Sie woanders anrufen.'],richtig:['Da sind Sie bei mir leider falsch – ich verbinde Sie weiter.'],erklaerung:'Sagen und weiterhelfen in einem Satz. Ein bloßes „falsch verbunden“ lässt die Person mit demselben Problem zurück.'}
+]);
+
+Lehrwerk.luecken('an',{
+  eindeutig:true,
+  felder:{ an1:['tag'], an2:['für'], an3:['moment'], an4:['wiederholen'], an5:['name'], an6:['falsch'] },
+  pruefen:'an-pruefen', rueck:'an-rueck', tipp:'an-tipp', hinweis:'an-hinweis'
+});
+
+/* ---- Weiterverbinden ---- */
+Lehrwerk.auswahl('quiz-verbinden',[
+  {id:'vb-q1',text:'Herr Becker führt gerade ein anderes Gespräch. Was sagen Sie?',optionen:['Herr Becker telefoniert gerade. Möchten Sie warten?','Herr Becker ist besetzt.','Herr Becker kann nicht.','Rufen Sie später noch einmal an.'],richtig:['Herr Becker telefoniert gerade. Möchten Sie warten?'],erklaerung:'Der Satz sagt, was los ist, und macht sofort ein Angebot. „Besetzt“ ist der Anschluss, nicht die Person, und „Rufen Sie später an“ schiebt die Arbeit zur anrufenden Person.'},
+  {id:'vb-q2',text:'Welche zwei Sätze bedeuten dasselbe?',optionen:['Ich verbinde Sie mit Frau Seidel.','Ich stelle Sie durch.','Ich richte es aus.','Ich gebe Bescheid.'],richtig:['Ich verbinde Sie mit Frau Seidel.','Ich stelle Sie durch.'],erklaerung:'Beides heißt: Ich gebe das Gespräch weiter. Ausrichten und Bescheid geben betreffen dagegen eine Nachricht, nicht das Gespräch.'},
+  {id:'vb-q3',text:'Frau Seidel ist heute nicht da. Was gehört unbedingt dazu?',optionen:['Ein Angebot: etwas ausrichten oder zurückrufen lassen.','Der Grund, warum sie fehlt.','Wann sie zuletzt da war.','Eine Entschuldigung.'],richtig:['Ein Angebot: etwas ausrichten oder zurückrufen lassen.'],erklaerung:'Ohne Angebot endet das Gespräch im Nichts. Warum jemand fehlt, geht die anrufende Person übrigens nichts an.'},
+  {id:'vb-q4',text:'Welcher Satz ist richtig?',optionen:['Ich stelle Sie durch.','Ich durchstelle Sie.','Ich stelle durch Sie.','Ich durch stelle Sie.'],richtig:['Ich stelle Sie durch.'],erklaerung:'durchstellen ist trennbar: Das Präfix „durch“ rutscht ans Satzende.'},
+  {id:'vb-q5',text:'Sie sind für das Anliegen nicht zuständig, kennen aber die richtige Stelle. Was tun Sie?',optionen:['Zuständigkeit nennen und durchstellen.','Die Nummer vorlesen und auflegen.','Sagen, dass Sie nicht zuständig sind.','Das Anliegen trotzdem selbst bearbeiten.'],richtig:['Zuständigkeit nennen und durchstellen.'],erklaerung:'Die anrufende Person soll nicht zweimal erklären müssen. Wer durchstellt, sagt der Kollegin am besten kurz, worum es geht.'}
+]);
+
+Lehrwerk.luecken('vb',{
+  eindeutig:true,
+  felder:{ vb1:['verbinde'], vb2:['telefoniert'], vb3:['haus'], vb4:['ausrichten'], vb5:['zuständig'], vb6:['zurückrufen'] },
+  pruefen:'vb-pruefen', rueck:'vb-rueck', tipp:'vb-tipp', hinweis:'vb-hinweis'
+});
+
+/* ---- Notiz ---- */
+Lehrwerk.auswahl('quiz-notiz',[
+  {id:'no-q1',text:'Auf dem Zettel steht: „Frau Aydin hat angerufen. Bitte zurückrufen.“ Was fehlt?',optionen:['Für wen, wann, worum es geht sowie Rückrufnummer und Erreichbarkeit.','Nichts, das genügt.','Nur die Uhrzeit.','Nur die Firma.'],richtig:['Für wen, wann, worum es geht sowie Rückrufnummer und Erreichbarkeit.'],erklaerung:'Von fünf Feldern ist nur „Wer?“ ausgefüllt. Es fehlen vier vollständige Felder: Empfänger, Zeitpunkt, Anliegen und die Rückrufangaben mit Nummer und Erreichbarkeit.'},
+  {id:'no-q2',text:'Sie haben den Namen nicht verstanden. Welche zwei Fragen helfen?',optionen:['Könnten Sie den Namen bitte buchstabieren?','Wie schreibt man das, bitte?','Wie bitte?','Was?'],richtig:['Könnten Sie den Namen bitte buchstabieren?','Wie schreibt man das, bitte?'],erklaerung:'Beide fragen genau das ab, was Sie brauchen: die Schreibweise. „Wie bitte?“ führt oft nur zu einer Wiederholung im selben Tempo.'},
+  {id:'no-q3',text:'Wie sichern Sie eine Telefonnummer am besten ab?',optionen:['In Zweierblöcken wiederholen und bestätigen lassen.','Einmal mitschreiben und hoffen.','Am Ende schnell vorlesen.','Nachher zurückrufen und prüfen.'],richtig:['In Zweierblöcken wiederholen und bestätigen lassen.'],erklaerung:'Zweierblöcke kann man hören und vergleichen. Eine lange Ziffernkette am Stück prüft niemand zuverlässig nach.'},
+  {id:'no-q4',text:'Welcher Satz gehört ans Ende des Gesprächs?',optionen:['Ich richte es aus. Vielen Dank für den Anruf, auf Wiederhören.','Okay, tschüss.','Ich habe alles.','Dann bis dann.'],richtig:['Ich richte es aus. Vielen Dank für den Anruf, auf Wiederhören.'],erklaerung:'Der Satz bestätigt, was passiert, und schließt förmlich ab. Am Diensttelefon sagt man „auf Wiederhören“, nicht „tschüss“.'},
+  {id:'no-q5',text:'Welches Notizfeld fällt erfahrungsgemäß am schwersten?',optionen:['Worum geht es?','Wer?','Wann?','Rückruf?'],richtig:['Worum geht es?'],erklaerung:'Name, Zeit und Nummer schreibt man mit. Den Inhalt muss man in einem Satz zusammenfassen – und das während des Zuhörens.'}
+]);
+
+Lehrwerk.luecken('no',{
+  eindeutig:true,
+  felder:{ no1:['schreibt'], no2:['buchstabieren'], no3:['i'], no4:['wiederhole'], no5:['nummer'], no6:['richte'] },
+  pruefen:'no-pruefen', rueck:'no-rueck', tipp:'no-tipp', hinweis:'no-hinweis'
+});
+
+/* ---- Spielplatz ---- */
+Lehrwerk.auswahl('tuev',[
+  {id:'tv1',text:'Welcher Satz passt nicht ans Diensttelefon?',optionen:['Was wollen Sie?','Was kann ich für Sie tun?','Worum geht es denn?','Wie kann ich Ihnen helfen?'],richtig:['Was wollen Sie?'],erklaerung:'Inhaltlich dasselbe, im Ton eine ganz andere Sache. Am Telefon fehlt das Gesicht, deshalb wirkt ein schroffer Satz noch schroffer.'},
+  {id:'tv2',text:'Und welcher hier?',optionen:['Der ist nicht da.','Frau Seidel ist heute außer Haus.','Frau Seidel ist erst ab Montag wieder da.','Frau Seidel ist gerade in einer Besprechung.'],richtig:['Der ist nicht da.'],erklaerung:'„Der“ für eine Kollegin oder einen Kollegen ist am Telefon unhöflich – und die Auskunft ist zu knapp, um etwas damit anzufangen.'}
+]);
+
+/* ---- Hausaufgabe ---- */
+Lehrwerk.auswahl('quiz-misch',[
+  {id:'mi1',text:'Der Anruf kommt herein. Erster Satz?',optionen:['KONTOR AG, … , guten Tag.','Hallo?','Ja?','Wer ist da?'],richtig:['KONTOR AG, … , guten Tag.'],erklaerung:'Firma, Name, Gruß – immer in dieser Reihenfolge.'},
+  {id:'mi2',text:'Die gesuchte Person telefoniert. Was sagen Sie?',optionen:['… telefoniert gerade. Möchten Sie warten?','… ist besetzt.','Später bitte.','Kein Anschluss.'],richtig:['… telefoniert gerade. Möchten Sie warten?'],erklaerung:'Zustand nennen, Angebot machen.'},
+  {id:'mi3',text:'Sie haben die Nummer nicht sicher verstanden.',optionen:['Ich wiederhole kurz: 0451 – 22 – 34 – 18. Habe ich das richtig verstanden?','Noch mal bitte.','Das war zu schnell.','Ich rufe später zurück.'],richtig:['Ich wiederhole kurz: 0451 – 22 – 34 – 18. Habe ich das richtig verstanden?'],erklaerung:'Wiederholen in Zweierblöcken und bestätigen lassen.'},
+  {id:'mi4',text:'Welche zwei Felder fehlen in dieser Notiz: „Herr Nowak, Dienstag 14:40, Rückruf 214“?',optionen:['Für wen?','Worum geht es?','Wer?','Wann?'],richtig:['Für wen?','Worum geht es?'],erklaerung:'Wer, wann und Rückruf stehen da. Ohne Empfängerin und ohne Anliegen ist die Notiz aber nicht zustellbar.'},
+  {id:'mi5',text:'Sie sind nicht zuständig. Bester Satz?',optionen:['Dafür ist der Einkauf zuständig. Ich stelle Sie durch.','Da bin ich raus.','Nicht mein Bereich.','Fragen Sie im Einkauf nach.'],richtig:['Dafür ist der Einkauf zuständig. Ich stelle Sie durch.'],erklaerung:'Zuständigkeit nennen und die Verbindung selbst herstellen, statt die Arbeit zurückzugeben.'},
+  {id:'mi6',text:'Wie beenden Sie das Gespräch?',optionen:['Ich richte es aus. Vielen Dank für den Anruf, auf Wiederhören.','Okay, tschüss.','Alles klar.','Bis dann.'],richtig:['Ich richte es aus. Vielen Dank für den Anruf, auf Wiederhören.'],erklaerung:'Zusage plus Verabschiedung. Am Diensttelefon gilt „auf Wiederhören“.'}
+]);
+
+Lehrwerk.frei('notiz-frei');
+Lehrwerk.frei('hausaufgabe-frei');
+
+/* ---- Klick-und-sprich-Blitze ----
+   Wie in praepositionen.html: eine Liste, ein Knopf, ein Absatz. Die Impulse
+   kommen ohne Wiederholung, bis die Liste durch ist. */
+function blitz(ausgabeId, knopfId, liste){
+  const feld=document.getElementById(ausgabeId), knopf=document.getElementById(knopfId);
+  if(!feld || !knopf) return;
+  let rest=[];
+  knopf.addEventListener('click',()=>{
+    if(!rest.length) rest=[...liste].sort(()=>Math.random()-0.5);
+    feld.textContent=rest.pop();
+  });
+}
+
+blitz('blitz-an-ausgabe','blitz-an-neu',[
+  'KONTOR AG · Olena Karpenko · Vormittag','KONTOR AG · Olena Karpenko · Nachmittag',
+  'Verwaltung · Olena Karpenko · Vormittag','KONTOR AG · Empfang · Nachmittag',
+  'KONTOR AG · Buchhaltung · Vormittag','Abteilung Versand · Nachmittag',
+  'KONTOR AG · Zentrale · Vormittag','KONTOR AG · mit Ihrem eigenen Namen · Nachmittag'
+]);
+
+blitz('blitz-vb-ausgabe','blitz-vb-neu',[
+  'Herr Becker telefoniert gerade','Frau Seidel ist heute außer Haus',
+  'Herr Becker ist da und frei','Sie sind nicht zuständig, Frau Seidel im Einkauf schon',
+  'Frau Seidel ist erst ab Montag wieder da','Falsch verbunden',
+  'Die anrufende Person möchte nicht warten','Herr Nowak ist in einer Besprechung',
+  'Die Leitung ist schlecht','Die anrufende Person hat es eilig'
+]);
+
+blitz('blitz-no-ausgabe','blitz-no-neu',[
+  'Aydin','Nowak','Melnyk','Haddad','Vogt','Schmitt oder Schmidt',
+  '0451 22 34 18','Durchwahl 214','Rechnung 88-102','Auftrag 4471'
+]);
+
+Lehrwerk.abschluss();
+</script>
+</body>
+</html>
