@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Termine und Fristen – Berufssprachkurs</title>
+<link rel="stylesheet" href="../assets/basis.css">
+<link rel="stylesheet" href="../assets/platform.css">
+<link rel="stylesheet" href="../assets/lehrwerk.css">
+<link rel="stylesheet" href="../assets/aufgaben.css">
+<script src="../assets/platform.js"></script>
+<script src="../assets/lehrwerk.js"></script>
+<style>
+.tf-fall,.tf-material,.tf-drill{margin:1.2rem 0;padding:1.2rem 1.3rem;border:1px solid var(--linie);border-radius:14px;background:var(--karte)}
+.tf-fall{border-left:5px solid var(--rose-tief)}.tf-material{background:linear-gradient(135deg,#eff4f9,#fff)}
+.tf-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}.tf-grid>*{padding:.85rem 1rem;border:1px solid var(--linie);border-radius:10px;background:#fff}
+.tf-grid strong{display:block;color:var(--rose-tief);margin-bottom:.25rem}.tf-mail{padding:1rem 1.1rem;border-left:4px solid var(--salbei-tief);background:#fff}
+.tf-drill{background:#fff7e9}.tf-karten{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem}.tf-karte{padding:1rem;border:1px solid var(--linie);border-radius:12px;background:#fff}
+@media(max-width:48rem){.tf-grid,.tf-karten{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="module" data-bereich="buero" data-root="../">
+<header class="hero bereich-kopf"><div class="innen"><a class="zurueck" href="../buero.html">← Büro und Verwaltung</a><h1><em>Termine und Fristen</em></h1><p class="anleitung">Termine realistisch abstimmen, Änderungen professionell mitteilen und bei knappen Fristen verbindlich reagieren.</p></div></header>
+<main class="innen modul modul--breit">
+<p class="stand-hinweis"><strong>Zeit:</strong> etwa 70–80 Minuten im Kurs · Hausaufgabe etwa 25 Minuten · insgesamt etwa 95–105 Minuten</p>
+<div class="reiter" role="tablist" aria-label="Lernabschnitte">
+<button type="button" id="tab-abstimmen" role="tab" aria-selected="true" data-blatt="abstimmen">Termin abstimmen</button>
+<button type="button" id="tab-aendern" role="tab" aria-selected="false" data-blatt="aendern">Verschieben und absagen</button>
+<button type="button" id="tab-frist" role="tab" aria-selected="false" data-blatt="frist">Fristen sichern</button>
+<button type="button" id="tab-training" role="tab" aria-selected="false" data-blatt="training">Training</button>
+<button type="button" id="tab-hausaufgabe" role="tab" aria-selected="false" data-blatt="hausaufgabe">Hausaufgabe</button>
+</div>
+<section class="blatt" id="blatt-abstimmen" role="tabpanel" aria-labelledby="tab-abstimmen">
+<p class="stand-hinweis">Problemsituation · Sprachmaterial · gelenkte Anwendung · etwa 20 Minuten</p>
+<div class="tf-fall"><span class="marke">KONTOR · Montag, 9:10 Uhr</span><h2>Ein Termin, drei Kalender</h2><p>Nora Seidel muss mit einem Lieferanten und dem Lager klären, wann eine verspätete Lieferung angenommen werden kann. Mittwochvormittag ist das Lager ausgelastet, am Donnerstag läuft die Angebotsfrist des Lieferanten ab.</p><p><strong>Auftrag:</strong> Welche Informationen braucht Frau Seidel, bevor sie einen Termin bestätigt?</p></div>
+<div class="tf-material"><h2>So klingt Terminabstimmung im Büro</h2><div class="tf-grid"><div><strong>Vorschlagen</strong>Wie wäre es am Donnerstag gegen 14 Uhr?<br>Ich könnte Ihnen Freitagvormittag anbieten.</div><div><strong>Verfügbarkeit prüfen</strong>Passt Ihnen der Termin?<br>Wäre das für Sie machbar?</div><div><strong>Spielraum nennen</strong>Zwischen 13 und 15 Uhr sind wir flexibel.<br>Ab 10 Uhr wäre jemand vor Ort.</div><div><strong>Verbindlich abschließen</strong>Dann halten wir Donnerstag, 14 Uhr, fest.<br>Ich bestätige Ihnen den Termin gleich per E-Mail.</div></div><p><strong>Sprachhinweis:</strong> Ein Vorschlag mit <em>wäre, könnte</em> oder <em>wie wäre es</em> lässt dem Gegenüber Entscheidungsspielraum. Eine Bestätigung nennt Datum, Uhrzeit und Zweck noch einmal eindeutig.</p></div>
+<h2>Welche Funktion hat der Satz?</h2><div id="mc-funktion"></div>
+<h2>Vom Kalender zur Nachricht</h2><p>Ergänzen Sie die passende Formulierung.</p>
+<div class="frage"><p>1. Ich <input class="luecke" id="t1" size="18" autocomplete="off"> Ihnen Donnerstag um 14 Uhr anbieten.</p><p>2. <input class="luecke" id="t2" size="18" autocomplete="off"> der Termin für Sie machbar?</p><p>3. Dann <input class="luecke" id="t3" size="18" autocomplete="off"> wir den Termin so fest.</p><button type="button" class="knopf" id="tf-pruefen">Prüfen</button><p class="rueckmeldung" id="tf-rueck" hidden></p></div>
+<div class="regel"><h3>Gelenktes Sprechen</h3><p>Person A bietet zwei Zeitfenster an: Mittwoch 11 Uhr / Donnerstag 14 Uhr. Person B kann nur Donnerstag ab 13 Uhr. Einigen Sie sich und bestätigen Sie den Termin vollständig. Tauschen Sie danach die Rollen.</p></div>
+</section>
+<section class="blatt" id="blatt-aendern" role="tabpanel" aria-labelledby="tab-aendern" hidden>
+<p class="stand-hinweis">Verstehen · höflich begründen · Lösung anbieten · etwa 20 Minuten</p>
+<div class="tf-fall"><h2>Der Termin steht – aber die Ware nicht</h2><p>Am Mittwoch erfährt Frau Seidel: Der Lkw kommt frühestens am Freitag. Sie muss den vereinbarten Abnahmetermin ändern. Der Lieferant hat dafür bereits Personal eingeplant.</p></div>
+<div class="tf-mail"><strong>Betreff: Abnahmetermin am Donnerstag</strong><p>Guten Tag Herr Brandt,<br>leider können wir den für Donnerstag um 14 Uhr vereinbarten Abnahmetermin nicht wahrnehmen, da sich die Anlieferung kurzfristig verzögert. Könnten wir den Termin auf Freitag, 10 Uhr, verschieben? Alternativ wäre Montag zwischen 8 und 12 Uhr möglich. Bitte geben Sie mir bis Donnerstagmittag kurz Bescheid.<br>Vielen Dank für Ihr Verständnis.</p></div>
+<h2>Was macht die Nachricht professionell?</h2><div id="mc-mail"></div>
+<div class="tf-material"><h2>Bausteine für Änderungen</h2><div class="tf-grid"><div><strong>Bezug</strong>der für Donnerstag vereinbarte Termin<br>unser Gespräch vom Montag</div><div><strong>Änderung</strong>Wir müssen den Termin leider verschieben.<br>Der Termin kann nicht wie geplant stattfinden.</div><div><strong>knappe Begründung</strong>da sich die Lieferung verzögert<br>aufgrund eines kurzfristigen Ausfalls</div><div><strong>Lösung</strong>Könnten wir stattdessen …?<br>Alternativ schlage ich … vor.</div></div></div>
+<h2>Reihenfolge sichern</h2><div id="z-aenderung"></div><p class="rueckmeldung" id="z-aenderung-rueck" hidden></p>
+<div class="regel"><h3>Schreibtraining</h3><p>Der Gesprächstermin „Projektstart“, Dienstag 9 Uhr, muss wegen eines Kundentermins verlegt werden. Schreiben Sie 60–80 Wörter. Bieten Sie Mittwoch 15 Uhr und Donnerstagvormittag an und bitten Sie bis Montag um Rückmeldung.</p><textarea class="feld" id="schreiben-aenderung" rows="7" placeholder="Betreff: …"></textarea></div>
+</section>
+<section class="blatt" id="blatt-frist" role="tabpanel" aria-labelledby="tab-frist" hidden>
+<p class="stand-hinweis">Frist klären · Verbindlichkeit herstellen · eskalieren ohne Vorwurf · etwa 15–20 Minuten</p>
+<div class="tf-fall"><h2>„So schnell wie möglich“ reicht nicht</h2><p>Jonas Becker braucht die korrigierte Preisliste für ein Kundengespräch am Freitag um 9 Uhr. Die Kollegin schreibt nur: „Ich kümmere mich.“ Wann darf Herr Becker mit der Datei rechnen – und wann muss er nachfassen?</p></div>
+<div class="tf-material"><h2>Fristen präzise formulieren</h2><div class="tf-grid"><div><strong>Frist erfragen</strong>Bis wann können Sie mir die Datei schicken?<br>Wann kann ich verbindlich damit rechnen?</div><div><strong>Bedarf erklären</strong>Ich benötige die Freigabe bis Donnerstag, 16 Uhr, damit …</div><div><strong>höflich erinnern</strong>Ich möchte kurz an die vereinbarte Rückmeldung erinnern.<br>Liegt Ihnen die Freigabe inzwischen vor?</div><div><strong>Konsequenz klären</strong>Falls die Frist nicht zu halten ist, informieren Sie mich bitte bis …, damit wir …</div></div></div>
+<h2>Von vage zu verbindlich</h2><div id="mc-frist"></div>
+<div class="tf-drill"><h2>90-Sekunden-Drill</h2><p>Formulieren Sie jede Angabe als vollständige, höfliche Frist. Danach ohne Ablesen wiederholen.</p><div class="tf-karten"><div class="tf-karte"><strong>Preisliste</strong><br>Donnerstag · 16 Uhr · Kundentermin</div><div class="tf-karte"><strong>Teilnehmerzahl</strong><br>Mittwoch · Feierabend · Raum buchen</div><div class="tf-karte"><strong>Freigabe</strong><br>heute · 14 Uhr · Druck starten</div></div></div>
+<div class="regel"><h3>Rollenspiel: Frist unter Druck</h3><p>A braucht die Lieferbestätigung bis 15 Uhr. B kann erst morgen liefern. Klären Sie Zweck, realistische Teilinformation, neue Frist und nächsten Schritt. Wechseln Sie danach die Rollen.</p></div>
+</section>
+<section class="blatt" id="blatt-training" role="tabpanel" aria-labelledby="tab-training" hidden>
+<p class="stand-hinweis">Automatisierung · Transfer · etwa 15–20 Minuten</p>
+<h2>Reaktionsrunde</h2><div class="tf-karten"><div class="tf-karte"><strong>Vorschlagen</strong><p>Dienstag ist belegt. Bieten Sie zwei Alternativen an.</p></div><div class="tf-karte"><strong>Verschieben</strong><p>Ein Techniktermin fällt aus. Begründen Sie knapp und bieten Sie Ersatz an.</p></div><div class="tf-karte"><strong>Nachfassen</strong><p>Eine zugesagte Unterlage fehlt. Erinnern Sie höflich und setzen Sie eine klare Frist.</p></div></div>
+<div class="regel"><h3>Freie Anwendung</h3><p>Planen Sie zu zweit einen Kundentermin mit drei Beteiligten. Bauen Sie eine Terminänderung ein. Das Gespräch endet erst, wenn Termin, Zweck, Zuständigkeit und Bestätigung geklärt sind.</p><textarea class="feld" id="training-frei" rows="6" placeholder="Unsere Eckdaten und nützliche Formulierungen …"></textarea></div>
+<div class="merker"><h3>Selbstcheck</h3><p>Ich kann einen Termin vorschlagen und eindeutig bestätigen. · Ich kann eine Änderung knapp begründen und eine Lösung anbieten. · Ich kann eine realistische Frist erfragen, setzen und höflich nachfassen.</p></div>
+</section>
+<section class="blatt" id="blatt-hausaufgabe" role="tabpanel" aria-labelledby="tab-hausaufgabe" hidden>
+<p class="stand-hinweis">Zu Hause: etwa 25 Minuten</p>
+<div class="hausaufgabe"><h2>Hausaufgabe und Wiederholung</h2><ol><li>Schreiben Sie eine E-Mail (90–120 Wörter): Ein vereinbarter Termin muss verschoben werden. Nennen Sie den Bezug, einen knappen Grund, zwei Alternativen und eine Rückmeldefrist.</li><li>Markieren Sie in Ihrem Text vier Funktionen: Bezug, Änderung, Lösung, Abschluss.</li><li>Am nächsten Kurstag: Sprechen Sie ohne Text eine 30-sekündige Terminänderung als Sprachnachricht.</li></ol><textarea class="feld" id="hausaufgabe-frei" rows="9" placeholder="Betreff: …"></textarea></div>
+</section>
+<p class="stand" id="stand"></p>
+<div class="knopfreihe">
+  <button type="button" class="knopf" id="kopieren">Stand kopieren</button>
+  <button type="button" class="knopf" id="zuruecksetzen">Alles zurücksetzen</button>
+</div>
+</main>
+<script>
+Lehrwerk.modul('termine-fristen');
+Lehrwerk.reiter();
+const mc=(id,items)=>{const el=document.getElementById(id);el.innerHTML=items.map((x,i)=>`<div class="frage"><p><strong>${i+1}.</strong> ${x[0]}</p>${x[1].map((a,j)=>`<label><input type="radio" name="${id}-${i}" value="${j}"> ${a}</label><br>`).join('')}<p class="rueckmeldung" hidden></p></div>`).join('')+`<button type="button" class="knopf">Prüfen</button>`;el.querySelector('button').onclick=()=>el.querySelectorAll('.frage').forEach((q,i)=>{const a=q.querySelector('input:checked'),r=q.querySelector('.rueckmeldung');r.hidden=false;r.textContent=a&&+a.value===items[i][2]?'Richtig.':'Noch einmal prüfen.';r.className='rueckmeldung '+(a&&+a.value===items[i][2]?'richtig':'falsch')})};
+mc('mc-funktion',[["„Wie wäre es am Donnerstag gegen 14 Uhr?“",['Vorschlag','Bestätigung','Absage'],0],["„Dann halten wir Freitag, 10 Uhr, fest.“",['Frist','Bestätigung','Begründung'],1],["„Wäre der Termin für Sie machbar?“",['Verfügbarkeit prüfen','absagen','mahnen'],0]]);
+mc('mc-mail',[["Warum nennt Frau Seidel zwei neue Zeiten?",['Sie will Druck machen.','Sie erleichtert eine schnelle Lösung.','Sie möchte nicht telefonieren.'],1],["Warum steht eine Rückmeldefrist in der Mail?",['Der nächste Schritt wird verbindlich.','Die Mail wirkt länger.','Sie ersetzt die Anrede.'],0]]);
+mc('mc-frist',[["Welche Formulierung ist am verbindlichsten?",['Bitte bald schicken.','Ich brauche das irgendwann diese Woche.','Bitte senden Sie die Liste bis Donnerstag, 16 Uhr.'],2],["Welche Erinnerung bleibt sachlich?",['Warum haben Sie noch nichts geschickt?','Ich möchte kurz an unsere vereinbarte Rückmeldung erinnern.','Sie sind schon wieder zu spät.'],1]]);
+document.getElementById('tf-pruefen').onclick=()=>{const ok=[['t1','könnte'],['t2','wäre'],['t3','halten']].every(([id,a])=>document.getElementById(id).value.trim().toLowerCase()===a);const r=document.getElementById('tf-rueck');r.hidden=false;r.textContent=ok?'Richtig: höflicher Vorschlag, Prüfung und Bestätigung.':'Prüfen Sie: könnte · wäre · halten.';r.className='rueckmeldung '+(ok?'richtig':'falsch')};
+const z=document.getElementById('z-aenderung');const optionen=['eine oder zwei Alternativen anbieten','Bezug auf den vereinbarten Termin','um Rückmeldung bis zu einem Zeitpunkt bitten','Änderung mitteilen und knapp begründen'],loesung=[1,3,0,2];z.innerHTML=loesung.map((_,i)=>`<div class="frage"><label>Schritt ${i+1}: <select id="za${i}"><option value="">Bitte wählen</option>${optionen.map((x,j)=>`<option value="${j}">${x}</option>`).join('')}</select></label></div>`).join('')+'<button type="button" class="knopf">Prüfen</button>';z.querySelector('button').onclick=()=>{const ok=loesung.every((wert,i)=>+document.getElementById('za'+i).value===wert),r=document.getElementById('z-aenderung-rueck');r.hidden=false;r.textContent=ok?'Richtig: Bezug – Änderung – Lösung – Abschluss.':'Ordnen Sie vom Anlass bis zum verbindlichen Abschluss.';r.className='rueckmeldung '+(ok?'richtig':'falsch')};
+Lehrwerk.frei('schreiben-aenderung');
+Lehrwerk.frei('training-frei');
+Lehrwerk.frei('hausaufgabe-frei');
+Lehrwerk.abschluss();
+</script>
+</body>
+</html>
