@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Schlecht verstanden – Berufssprachkurs</title>
+  <link rel="stylesheet" href="../assets/basis.css">
+  <link rel="stylesheet" href="../assets/platform.css">
+  <link rel="stylesheet" href="../assets/lehrwerk.css">
+  <link rel="stylesheet" href="../assets/aufgaben.css">
+  <script src="../data/homework.js" defer></script>
+  <script src="../assets/platform.js"></script>
+</head>
+<body data-page="module" data-bereich="buero" data-root="../">
+<header class="hero bereich-kopf"><div class="innen">
+  <a class="zurueck" href="../buero.html">← Büro und Verwaltung</a>
+  <h1><em>Schlecht verstanden:</em> nachfragen, ohne sich klein zu machen</h1>
+  <p class="anleitung">Sagen, dass etwas nicht angekommen ist – genau nachfragen – und selbst verständlich werden.</p>
+</div></header>
+
+<main class="innen modul">
+
+<div class="kasten">
+  <h2>Nicht verstanden zu haben ist normal. Es nicht zu sagen, ist das Problem.</h2>
+  <p>Im Lager rauscht es, in der Besprechung reden zwei gleichzeitig, am Telefon kommt der Name zu schnell. Fast alle machen dann dasselbe: nicken, hoffen, weitermachen. Zwei Stunden später fehlt die Palette oder die Frist ist die falsche.</p>
+  <div class="merker">
+    <span class="marke-merker">WICHTIG</span>
+    <p>Nachfragen wirkt nicht unsicher, sondern <strong>sorgfältig</strong>. Unsicher wirkt, wer dreimal „ja, ja“ sagt und dann etwas anderes tut. Sie brauchen dafür genau <strong>drei Sätze</strong> – und die üben wir hier, bis sie von selbst kommen.</p>
+  </div>
+  <p class="marke"><strong>Abgrenzung:</strong> Am Telefon kommt das Nachfragen beim Aufnehmen einer Notiz vor – siehe <a href="telefonieren.html">Telefonieren</a>. Hier geht es um alle Situationen: Flur, Lager, Besprechung, Kundengespräch.</p>
+  <p class="marke"><strong>Zeit:</strong> Die drei Regelreiter sind der Kern und dauern zusammen etwa 30 Minuten. Spielplatz und freie Anwendung kommen nach Bedarf dazu, die Hausaufgabe läuft zu Hause.</p>
+</div>
+
+<div class="reiter" role="tablist" aria-label="Lernabschnitte">
+  <button type="button" id="tab-melden" role="tab" aria-selected="true" data-blatt="melden">Nicht verstanden</button>
+  <button type="button" id="tab-genau" role="tab" aria-selected="false" data-blatt="genau">Genau nachfragen</button>
+  <button type="button" id="tab-selbst" role="tab" aria-selected="false" data-blatt="selbst">Selbst verständlich werden</button>
+  <button type="button" id="tab-spielplatz" role="tab" aria-selected="false" data-blatt="spielplatz">Nachfrage-Spielplatz</button>
+  <button type="button" id="tab-anwenden" role="tab" aria-selected="false" data-blatt="anwenden">Frei anwenden</button>
+  <button type="button" id="tab-hausaufgabe" role="tab" aria-selected="false" data-blatt="hausaufgabe">Hausaufgabe</button>
+</div>
+
+<!-- ============ NICHT VERSTANDEN ============ -->
+<section class="blatt" id="blatt-melden" role="tabpanel" aria-labelledby="tab-melden">
+  <p class="stand-hinweis">Richtwert: 10 Minuten · den ersten Satz sagen</p>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">1 · Muster</strong>
+    <h2>Sagen Sie, <em>was</em> gefehlt hat – nicht nur, dass etwas fehlt</h2>
+    <table>
+      <thead><tr><th>Was war das Problem?</th><th>Was Sie sagen</th></tr></thead>
+      <tbody>
+        <tr><td>zu schnell</td><td>Könnten Sie das bitte <strong>langsamer</strong> sagen?</td></tr>
+        <tr><td>zu leise, zu laut im Raum</td><td>Entschuldigung, ich habe Sie <strong>akustisch</strong> nicht verstanden.</td></tr>
+        <tr><td>ein Wort fehlte</td><td>Was heißt <strong>„Rückstand“</strong> genau?</td></tr>
+        <tr><td>der ganze Satz fehlte</td><td>Könnten Sie das bitte noch einmal <strong>wiederholen</strong>?</td></tr>
+      </tbody>
+    </table>
+    <p class="marke">Je genauer Sie sagen, was gefehlt hat, desto besser ist die zweite Fassung. Wer nur „Wie bitte?“ sagt, bekommt oft denselben Satz im selben Tempo zurück.</p>
+  </div>
+
+  <div class="regel">
+    <h3>Der Kürzeste ist nicht der Beste</h3>
+    <p class="satz">„Wie bitte?“ · „Was?“ – verstehen alle, aber sie sagen nichts über das Problem.</p>
+    <p>Besser sind zwei Teile: <strong>Entschuldigung</strong> plus <strong>was Sie brauchen</strong>. <em>„Entschuldigung, könnten Sie die Nummer noch einmal sagen?“</em></p>
+  </div>
+
+  <h2>Miniübung 1: Welcher Satz passt zum Problem?</h2>
+  <div id="quiz-melden"></div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">2 · Bauen</strong>
+    <h2>Nur das fehlende Wort</h2>
+    <p class="anleitung">Ergänzen Sie und sprechen Sie den ganzen Satz einmal laut.</p>
+  </div>
+  <p class="lueckentext">
+    1. Entschuldigung, könnten Sie das bitte <input class="luecke" id="me1" size="12" autocomplete="off">?<br><br>
+    2. Könnten Sie bitte etwas <input class="luecke" id="me2" size="10" autocomplete="off"> sprechen?<br><br>
+    3. Ich habe Sie <input class="luecke" id="me3" size="10" autocomplete="off"> nicht verstanden, hier ist es sehr laut.<br><br>
+    4. Das Wort „Rückstand“ habe ich nicht <input class="luecke" id="me4" size="12" autocomplete="off">.<br><br>
+    5. Den <input class="luecke" id="me5" size="8" autocomplete="off"> Teil habe ich verstanden, den zweiten nicht.<br><br>
+    6. Entschuldigung, ich muss noch einmal <input class="luecke" id="me6" size="12" autocomplete="off">.
+  </p>
+  <div class="knopfreihe"><button class="knopf" id="me-pruefen" type="button">Prüfen</button><button class="knopf" id="me-tipp" type="button">Tipp</button></div>
+  <p class="rueckmeldung" id="me-rueck" hidden></p>
+  <p class="rueckmeldung" id="me-hinweis" hidden>Satz 5 ist der nützlichste im ganzen Modul: Sagen Sie zuerst, was Sie schon verstanden haben. Dann muss die andere Person nicht alles wiederholen.</p>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">3 · Klick und sprich</strong>
+    <h2>Nachfrage-Blitz</h2>
+    <p>Auf der Karte steht, was schiefgegangen ist. Sagen Sie sofort den passenden Satz. Nicht schreiben.</p>
+    <div class="kasten">
+      <p class="satz" id="blitz-me-ausgabe">zu schnell gesprochen</p>
+      <div class="knopfreihe"><button class="knopf" type="button" id="blitz-me-neu">Neue Situation</button></div>
+    </div>
+    <p class="marke">Ziel: acht Situationen ohne Nachdenkpause – und jedes Mal mit „Entschuldigung“ am Anfang.</p>
+  </div>
+
+  <div class="redemittel-box">
+    <h2>Jetzt selbst sprechen, aber nichts erfinden</h2>
+    <p class="satz"><strong>Allgemein:</strong> Entschuldigung, könnten Sie das bitte wiederholen? · Das habe ich nicht ganz mitbekommen.</p>
+    <p class="satz"><strong>Tempo:</strong> Könnten Sie bitte etwas langsamer sprechen?</p>
+    <p class="satz"><strong>Akustik:</strong> Ich habe Sie akustisch nicht verstanden. · Hier ist es gerade sehr laut.</p>
+    <p class="satz"><strong>Teilweise verstanden:</strong> Den ersten Teil habe ich, den zweiten nicht. · Bis … bin ich mitgekommen.</p>
+  </div>
+</section>
+
+<!-- ============ GENAU NACHFRAGEN ============ -->
+<section class="blatt" id="blatt-genau" role="tabpanel" aria-labelledby="tab-genau" hidden>
+  <p class="stand-hinweis">Richtwert: 10 Minuten · Wort, Zahl, Verständnis sichern</p>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">1 · Muster</strong>
+    <h2>Drei Arten von Lücken – drei Fragen</h2>
+    <table>
+      <thead><tr><th>Es fehlt …</th><th>Frage</th></tr></thead>
+      <tbody>
+        <tr><td>ein Wort</td><td>Was bedeutet <strong>„Kulanz“</strong>? · Was heißt das genau?</td></tr>
+        <tr><td>ein Name, eine Zahl</td><td>Könnten Sie das <strong>buchstabieren</strong>? · Wie war die Nummer?</td></tr>
+        <tr><td>der Sinn</td><td><strong>Habe ich richtig verstanden, dass …?</strong></td></tr>
+      </tbody>
+    </table>
+    <p class="marke">Die dritte Frage ist die wichtigste. Sie prüft nicht das Wort, sondern das Ergebnis – und genau dort entstehen die teuren Missverständnisse.</p>
+  </div>
+
+  <div class="regel">
+    <h3>Zahlen und Namen sichert man zweimal</h3>
+    <p><strong>Wiederholen:</strong> in Zweierblöcken, mit Rückfrage: <em>„0451 – 22 – 34 – 18. Habe ich das richtig?“</em></p>
+    <p><strong>Buchstabieren lassen:</strong> <em>„War das mit ie oder mit i?“</em> · <em>„Schmitt mit tt oder Schmidt mit dt?“</em></p>
+    <p class="marke">Mehr dazu beim Aufnehmen einer Telefonnotiz in <a href="telefonieren.html">Telefonieren</a>.</p>
+  </div>
+
+  <h2>Miniübung 1: Welche Frage sichert das Ergebnis?</h2>
+  <div id="quiz-genau"></div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">2 · Bauen</strong>
+    <h2>Verständnis sichern</h2>
+    <p class="anleitung">Ergänzen Sie die Rückfrage.</p>
+  </div>
+  <p class="lueckentext">
+    1. Habe ich richtig <input class="luecke" id="ge1" size="12" autocomplete="off">, dass die Lieferung erst Freitag kommt?<br><br>
+    2. Ist „Kulanz“ <input class="luecke" id="ge2" size="10" autocomplete="off"> wie ein Rabatt?<br><br>
+    3. Könnten Sie den Namen bitte <input class="luecke" id="ge3" size="14" autocomplete="off">?<br><br>
+    4. Ich <input class="luecke" id="ge4" size="12" autocomplete="off"> kurz: zwei Paletten bis Montag.<br><br>
+    5. Also <input class="luecke" id="ge5" size="10" autocomplete="off">: Sie brauchen die Unterschrift heute noch?<br><br>
+    6. War das mit <em>ie</em> oder mit <input class="luecke" id="ge6" size="4" autocomplete="off">?
+  </p>
+  <div class="knopfreihe"><button class="knopf" id="ge-pruefen" type="button">Prüfen</button><button class="knopf" id="ge-tipp" type="button">Tipp</button></div>
+  <p class="rueckmeldung" id="ge-rueck" hidden></p>
+  <p class="rueckmeldung" id="ge-hinweis" hidden>Satz 1 und 5 machen dasselbe: Sie sagen in eigenen Worten, was angekommen ist, und lassen bestätigen. Das ist die sicherste Rückfrage überhaupt.</p>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">3 · Klick und sprich</strong>
+    <h2>Rückfrage-Blitz</h2>
+    <p>Auf der Karte steht eine Aussage. Sagen Sie sofort eine Rückfrage mit <em>Habe ich richtig verstanden, dass …?</em></p>
+    <div class="kasten">
+      <p class="satz" id="blitz-ge-ausgabe">Die Lieferung verschiebt sich auf Freitag.</p>
+      <div class="knopfreihe"><button class="knopf" type="button" id="blitz-ge-neu">Neue Aussage</button></div>
+    </div>
+    <p class="marke">Achten Sie darauf, dass nach <em>dass</em> das Verb ans Satzende rutscht: <em>… dass die Lieferung sich auf Freitag <strong>verschiebt</strong>.</em></p>
+  </div>
+
+  <div class="redemittel-box">
+    <h2>Jetzt selbst sprechen, aber nichts erfinden</h2>
+    <p class="satz"><strong>Wort:</strong> Was bedeutet …? · Was heißt das genau? · Ist das dasselbe wie …?</p>
+    <p class="satz"><strong>Zahl und Name:</strong> Wie war die Nummer? · Könnten Sie das buchstabieren? · Ich wiederhole kurz: …</p>
+    <p class="satz"><strong>Sinn:</strong> Habe ich richtig verstanden, dass …? · Also kurz: … · Das heißt, ich soll …?</p>
+  </div>
+</section>
+
+<!-- ============ SELBST VERSTÄNDLICH WERDEN ============ -->
+<section class="blatt" id="blatt-selbst" role="tabpanel" aria-labelledby="tab-selbst" hidden>
+  <p class="stand-hinweis">Richtwert: 10 Minuten · wenn Sie nicht verstanden werden</p>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">1 · Muster</strong>
+    <h2>Nicht lauter – anders</h2>
+    <p>Wenn Ihr Gegenüber nachfragt, wiederholen die meisten denselben Satz, nur lauter. Das hilft selten. Diese drei Wege helfen:</p>
+    <table>
+      <thead><tr><th>Weg</th><th>Beispiel</th></tr></thead>
+      <tbody>
+        <tr><td>anderes Wort</td><td>„Der Vorgang <strong>stockt</strong>.“ → „Es geht gerade nicht weiter.“</td></tr>
+        <tr><td>in zwei Sätze teilen</td><td>„Die wegen der Inventur verschobene Lieferung …“ → „Wir haben Inventur. Deshalb kommt die Lieferung später.“</td></tr>
+        <tr><td>Beispiel geben</td><td>„Zum Beispiel: Palette 12 steht seit gestern im Wareneingang.“</td></tr>
+      </tbody>
+    </table>
+    <p class="marke">Kurze Sätze mit dem Verb weit vorn versteht man am ersten Hören. Mehr dazu in <a href="../grammatik/satzbau.html">Satzbau</a>.</p>
+  </div>
+
+  <div class="regel">
+    <h3>Ein Satz, der viel rettet</h3>
+    <p class="satz">„Ich sage es noch einmal anders.“</p>
+    <p>Er kündigt an, dass jetzt nicht dasselbe kommt – und nimmt beiden Seiten die Peinlichkeit.</p>
+  </div>
+
+  <h2>Miniübung 1: Welche Fassung ist verständlicher?</h2>
+  <div id="quiz-selbst"></div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">2 · Umformulieren</strong>
+    <h2>Sagen Sie es noch einmal anders</h2>
+    <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 8 Minuten</span><p><strong>A</strong> liest einen der Sätze unten vor. <strong>B</strong> sagt: „Ich habe … nicht verstanden.“ <strong>A</strong> formuliert neu – anderes Wort, zwei Sätze oder Beispiel. Danach tauschen.</p></div>
+    <p class="satz">1. Der Vorgang stockt wegen einer fehlenden Freigabe.<br>
+    2. Die aufgrund der Systemumstellung verschobenen Termine werden neu vergeben.<br>
+    3. Wir sind bei der Reklamation kulant.<br>
+    4. Die Ware ist zwar avisiert, aber noch nicht eingetroffen.<br>
+    5. Das läuft über die Fachabteilung, nicht über uns.</p>
+  </div>
+
+  <div class="redemittel-box">
+    <h2>Jetzt selbst sprechen, aber nichts erfinden</h2>
+    <p class="satz"><strong>Ankündigen:</strong> Ich sage es noch einmal anders. · Ich versuche es anders.</p>
+    <p class="satz"><strong>Erklären:</strong> Das heißt … · Anders gesagt … · Zum Beispiel …</p>
+    <p class="satz"><strong>Prüfen:</strong> Ist es so klarer? · Kommt es so an?</p>
+  </div>
+</section>
+
+<!-- ============ SPIELPLATZ ============ -->
+<section class="blatt" id="blatt-spielplatz" role="tabpanel" aria-labelledby="tab-spielplatz" hidden>
+  <p class="stand-hinweis">Zusätzlich, nach Bedarf: 15 Minuten · schnell, laut, ohne Schreiben</p>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Spiel 1</strong>
+    <h2>Nachfrage-TÜV</h2>
+    <p>Vier Rückfragen, eine hilft nicht weiter. Finden Sie sie und sagen Sie eine bessere laut.</p>
+    <div id="tuev"></div>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Spiel 2</strong>
+    <h2>Die genuschelte Ansage</h2>
+    <p><strong>A</strong> sagt eine kurze Arbeitsanweisung absichtlich zu schnell und zu leise. <strong>B</strong> fragt nach – aber jedes Mal mit einem <strong>anderen</strong> Satz aus den Redemitteln. Erst wenn B die Anweisung mit „Habe ich richtig verstanden, dass …?“ korrekt zusammenfasst, ist die Runde vorbei.</p>
+    <p class="marke">Es geht ausdrücklich nicht ums Verstehen, sondern ums Nachfragen. Wer beim ersten Mal versteht, hat A zu deutlich sprechen lassen.</p>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Spiel 3</strong>
+    <h2>Stille Post mit Rückfrage</h2>
+    <p>Eine Nachricht mit einer Zahl und einem Namen geht reihum. Jede Person darf <strong>einmal</strong> nachfragen. Am Ende vergleichen: Was ist angekommen – und an welcher Stelle hätte eine Rückfrage mehr gerettet?</p>
+  </div>
+
+  <div class="redemittel-box">
+    <h2>Sprachmaterial bleibt sichtbar</h2>
+    <p class="satz"><strong>Melden:</strong> Entschuldigung, könnten Sie das bitte wiederholen? · Könnten Sie bitte etwas langsamer sprechen? · Ich habe Sie akustisch nicht verstanden.</p>
+    <p class="satz"><strong>Teilweise:</strong> Den ersten Teil habe ich, den zweiten nicht. · Bis … bin ich mitgekommen.</p>
+    <p class="satz"><strong>Genau:</strong> Was bedeutet …? · Könnten Sie das buchstabieren? · Wie war die Nummer?</p>
+    <p class="satz"><strong>Sichern:</strong> Habe ich richtig verstanden, dass …? · Also kurz: … · Ich wiederhole kurz: …</p>
+    <p class="satz"><strong>Selbst erklären:</strong> Ich sage es noch einmal anders. · Anders gesagt … · Zum Beispiel …</p>
+  </div>
+</section>
+
+<!-- ============ FREI ANWENDEN ============ -->
+<section class="blatt" id="blatt-anwenden" role="tabpanel" aria-labelledby="tab-anwenden" hidden>
+  <p class="stand-hinweis">Zusätzlich, nach Bedarf: 15 Minuten · sprechen</p>
+
+  <div class="kasten">
+    <p class="marke">Dieser Reiter setzt die drei Regelreiter und den Spielplatz voraus. Wenn die Rückfrage noch stockt, gehen Sie zurück – im Ernstfall haben Sie eine Sekunde, keine zehn.</p>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Sprechen</strong>
+    <h2>Die Anweisung, die Sie nicht mitbekommen haben</h2>
+    <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 8 Minuten</span><p>Ihre Partnerin gibt Ihnen im Vorbeigehen eine Anweisung mit einer Zahl, einem Namen und einer Frist. Sie haben nur die Hälfte verstanden. Klären Sie das in höchstens vier Sätzen – und fassen Sie am Ende zusammen.</p></div>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Schreiben</strong>
+    <h2>Meine drei Sätze</h2>
+    <p class="anleitung">Notieren Sie die drei Sätze, die Sie im Ernstfall wirklich sagen würden – in Ihren Worten.</p>
+    <p><strong>Start:</strong> je einen Satz zum Melden, zum genauen Nachfragen und zum Sichern.<br>
+    <strong>Weiter:</strong> zusätzlich einen Satz für den Fall, dass Sie selbst nicht verstanden werden.<br>
+    <strong>Herausforderung:</strong> notieren Sie eine Situation aus Ihrem Alltag, in der eine Rückfrage gefehlt hat – und was sie gekostet hat.</p>
+    <textarea class="feld" id="drei-frei" rows="6" data-ergebnis-label="Meine drei Nachfragesätze"></textarea>
+  </div>
+
+  <div class="differenzierung differenzierung--herausforderung">
+    <strong class="differenzierung__stufe">Herausforderung</strong>
+    <h2>Nachfragen nach oben</h2>
+    <p>Dieselbe Rückfrage an die Abteilungsleitung statt an eine Kollegin. Was ändern Sie – und was bleibt gleich? Sagen Sie beide Fassungen laut hintereinander.</p>
+  </div>
+</section>
+
+<!-- ============ HAUSAUFGABE ============ -->
+<section class="blatt" id="blatt-hausaufgabe" role="tabpanel" aria-labelledby="tab-hausaufgabe" hidden>
+  <p class="stand-hinweis">Zu Hause: 15 Minuten, dann fünf Tage je 2 Minuten</p>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">1 · Gemischt wiederholen</strong>
+    <h2>Welche Rückfrage passt jetzt?</h2>
+    <div id="quiz-misch"></div>
+  </div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">2 · Laut sprechen</strong>
+    <h2>Acht kurze Impulse</h2>
+    <p class="anleitung">Sprechen Sie zu jedem Impuls sofort den passenden Satz. Nicht schreiben.</p>
+    <p class="satz">zu schnell &nbsp;·&nbsp; zu leise &nbsp;·&nbsp; ein Wort fehlt &nbsp;·&nbsp; eine Zahl fehlt<br>
+    Name unklar &nbsp;·&nbsp; Sinn unklar &nbsp;·&nbsp; halb verstanden &nbsp;·&nbsp; Sie werden selbst nicht verstanden</p>
+  </div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">3 · 5-Tage-Mikrotraining</strong>
+    <h2>Zähneputz-Drill</h2>
+    <p>Fünf Tage, je zwei Minuten, jeden Tag nur eine Sache: Tag 1 Entschuldigung plus Bitte, Tag 2 Tempo und Akustik, Tag 3 Wort und Zahl, Tag 4 <em>Habe ich richtig verstanden, dass …?</em>, Tag 5 noch einmal anders sagen.</p>
+    <p class="marke">Tag 4 ist der wichtigste. Wer nur diesen einen Satz sicher hat, verhindert die meisten Missverständnisse im Betrieb.</p>
+  </div>
+
+  <div class="merker">
+    <span class="marke-merker">Nach fünf Tagen</span>
+    <p>Selbsttest: Fragen Sie an einem Arbeitstag <strong>dreimal bewusst nach</strong>, auch wenn Sie es sich zusammenreimen könnten. Notieren Sie abends, was dabei herauskam.</p>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Schriftlich</strong>
+    <h2>Drei Wörter, die Sie nicht kennen</h2>
+    <ol>
+      <li>Sammeln Sie drei Wörter aus Ihrem Betrieb, die Sie nicht sicher verstehen.</li>
+      <li>Schreiben Sie zu jedem die Frage auf, mit der Sie danach fragen würden.</li>
+      <li>Fragen Sie in der nächsten Woche wirklich – und notieren Sie die Antwort.</li>
+    </ol>
+    <textarea class="feld" id="hausaufgabe-frei" rows="6" data-ergebnis-label="Drei Wörter und meine Fragen"></textarea>
+  </div>
+</section>
+
+</main><footer class="fuss">Nur für Kursteilnehmerinnen und Kursteilnehmer</footer>
+<script src="../assets/lehrwerk.js"></script><script>
+Lehrwerk.modul('nachfragen');
+Lehrwerk.reiter();
+
+/* ---- Nicht verstanden ---- */
+Lehrwerk.auswahl('quiz-melden',[
+  {id:'me-q1',text:'Ihre Kollegin spricht sehr schnell. Welcher Satz hilft am meisten?',optionen:['Könnten Sie bitte etwas langsamer sprechen?','Wie bitte?','Was?','Noch mal.'],richtig:['Könnten Sie bitte etwas langsamer sprechen?'],erklaerung:'Er nennt das Problem. Auf „Wie bitte?“ kommt oft derselbe Satz im selben Tempo zurück.'},
+  {id:'me-q2',text:'Im Lager ist es laut. Welche zwei Sätze passen?',optionen:['Ich habe Sie akustisch nicht verstanden.','Hier ist es gerade sehr laut, könnten Sie das wiederholen?','Sie sprechen zu undeutlich.','Ich verstehe nie etwas hier.'],richtig:['Ich habe Sie akustisch nicht verstanden.','Hier ist es gerade sehr laut, könnten Sie das wiederholen?'],erklaerung:'Beide benennen den Grund, ohne jemanden verantwortlich zu machen. Die anderen beiden schieben die Schuld hin und her.'},
+  {id:'me-q3',text:'Sie haben die erste Hälfte verstanden. Was sagen Sie?',optionen:['Den ersten Teil habe ich, den zweiten nicht.','Ich habe nichts verstanden.','Können Sie alles wiederholen?','Wie bitte?'],richtig:['Den ersten Teil habe ich, den zweiten nicht.'],erklaerung:'So muss die andere Person nur den fehlenden Teil wiederholen. Das spart Zeit und zeigt, dass Sie zugehört haben.'},
+  {id:'me-q4',text:'Warum ist „Wie bitte?“ oft zu wenig?',optionen:['Es sagt nicht, was gefehlt hat.','Es ist unhöflich.','Es ist grammatisch falsch.','Es ist zu lang.'],richtig:['Es sagt nicht, was gefehlt hat.'],erklaerung:'Der Satz ist völlig korrekt und höflich – er steuert die zweite Fassung nur nicht.'},
+  {id:'me-q5',text:'Was gehört bei einer Rückfrage an den Anfang?',optionen:['Entschuldigung.','Also.','Ja, aber.','Nichts.'],richtig:['Entschuldigung.'],erklaerung:'Ein Wort, das die Unterbrechung abfedert. Danach kommt sofort, was Sie brauchen.'}
+]);
+
+Lehrwerk.luecken('me',{
+  felder:{
+    me1:['wiederholen','sagen','erklären'],
+    me2:['langsamer','deutlicher','lauter'],
+    me3:['akustisch'],
+    me4:['verstanden','gehört','mitbekommen'],
+    me5:['ersten'],
+    me6:['nachfragen','nachhaken','fragen']
+  },
+  pruefen:'me-pruefen', rueck:'me-rueck', tipp:'me-tipp', hinweis:'me-hinweis'
+});
+
+/* ---- Genau nachfragen ---- */
+Lehrwerk.auswahl('quiz-genau',[
+  {id:'ge-q1',text:'Welche Frage prüft, ob Sie die Sache richtig verstanden haben?',optionen:['Habe ich richtig verstanden, dass die Lieferung erst Freitag kommt?','Was bedeutet „Lieferung“?','Könnten Sie das wiederholen?','Wie war die Nummer?'],richtig:['Habe ich richtig verstanden, dass die Lieferung erst Freitag kommt?'],erklaerung:'Sie geben in eigenen Worten wieder, was angekommen ist. Die anderen drei klären einzelne Wörter oder Zahlen – wichtig, aber nicht dasselbe.'},
+  {id:'ge-q2',text:'Wie sichern Sie eine Telefonnummer?',optionen:['In Zweierblöcken wiederholen und bestätigen lassen.','Einmal mitschreiben.','Am Ende schnell vorlesen.','Nachher zurückrufen.'],richtig:['In Zweierblöcken wiederholen und bestätigen lassen.'],erklaerung:'Zweierblöcke kann man hören und vergleichen. Eine lange Ziffernkette prüft niemand zuverlässig nach.'},
+  {id:'ge-q3',text:'Welche zwei Fragen klären ein einzelnes Wort?',optionen:['Was bedeutet „Kulanz“?','Was heißt das genau?','Habe ich richtig verstanden, dass …?','Könnten Sie langsamer sprechen?'],richtig:['Was bedeutet „Kulanz“?','Was heißt das genau?'],erklaerung:'Beide zielen auf die Bedeutung. Die dritte Frage sichert den Sinn des Ganzen, die vierte betrifft das Tempo.'},
+  {id:'ge-q4',text:'Nach „dass“ – wo steht das Verb?',optionen:['Am Satzende.','An zweiter Stelle.','Direkt nach dass.','Vor dem Subjekt.'],richtig:['Am Satzende.'],erklaerung:'„Habe ich richtig verstanden, dass die Lieferung sich verschiebt?“ – das gebeugte Verb rutscht ganz nach hinten.'},
+  {id:'ge-q5',text:'Jemand sagt einen Namen, den Sie nicht kennen. Was fragen Sie?',optionen:['Könnten Sie den Namen bitte buchstabieren?','Wie bitte?','Kennen Sie die Person?','Ist das wichtig?'],richtig:['Könnten Sie den Namen bitte buchstabieren?'],erklaerung:'Bei Namen hilft nur die Schreibweise. Eine Wiederholung im selben Tempo bringt Sie nicht weiter.'}
+]);
+
+Lehrwerk.luecken('ge',{
+  felder:{
+    ge1:['verstanden','gehört','mitbekommen'],
+    ge2:['dasselbe','das gleiche','dasgleiche'],
+    ge3:['buchstabieren','wiederholen'],
+    ge4:['wiederhole','notiere','sage'],
+    ge5:['kurz','zusammengefasst'],
+    ge6:['i']
+  },
+  pruefen:'ge-pruefen', rueck:'ge-rueck', tipp:'ge-tipp', hinweis:'ge-hinweis'
+});
+
+/* ---- Selbst verständlich werden ---- */
+Lehrwerk.auswahl('quiz-selbst',[
+  {id:'se-q1',text:'Ihr Gegenüber hat nicht verstanden. Was hilft am wenigsten?',optionen:['Denselben Satz lauter wiederholen.','Ein anderes Wort nehmen.','Den Satz in zwei Sätze teilen.','Ein Beispiel geben.'],richtig:['Denselben Satz lauter wiederholen.'],erklaerung:'Lautstärke ersetzt keine Verständlichkeit. Wenn das Wort fehlte, fehlt es auch laut.'},
+  {id:'se-q2',text:'Welche Fassung versteht man beim ersten Hören besser?',optionen:['Wir haben Inventur. Deshalb kommt die Lieferung später.','Die wegen der Inventur verschobene Lieferung trifft später ein.'],richtig:['Wir haben Inventur. Deshalb kommt die Lieferung später.'],erklaerung:'Zwei kurze Sätze mit dem Verb weit vorn. In der zweiten Fassung kommt das entscheidende Verb erst ganz am Ende.'},
+  {id:'se-q3',text:'Was sagen Sie, bevor Sie neu formulieren?',optionen:['Ich sage es noch einmal anders.','Also noch mal.','Haben Sie das nicht verstanden?','Ich wiederhole.'],richtig:['Ich sage es noch einmal anders.'],erklaerung:'Der Satz kündigt an, dass jetzt nicht dasselbe kommt – und er stellt niemanden bloß.'},
+  {id:'se-q4',text:'„Wir sind da kulant.“ Wie sagen Sie es einfacher?',optionen:['Wir kommen Ihnen entgegen.','Wir sind kulant, wie gesagt.','Das ist Kulanz.','Wir handeln kulanzweise.'],richtig:['Wir kommen Ihnen entgegen.'],erklaerung:'Ein bekanntes Wort statt eines Fachworts. Die anderen drei wiederholen dasselbe Wort in anderer Form.'}
+]);
+
+/* ---- Spielplatz ---- */
+Lehrwerk.auswahl('tuev',[
+  {id:'tv1',text:'Welche Rückfrage bringt am wenigsten?',optionen:['Wie bitte?','Könnten Sie bitte etwas langsamer sprechen?','Den zweiten Teil habe ich nicht verstanden.','Habe ich richtig verstanden, dass wir bis Freitag Zeit haben?'],richtig:['Wie bitte?'],erklaerung:'Höflich und korrekt, aber ohne Steuerung. Die anderen drei sagen genau, was fehlt.'},
+  {id:'tv2',text:'Und welche hier ist unhöflich?',optionen:['Sie sprechen zu undeutlich.','Ich habe Sie akustisch nicht verstanden.','Hier ist es sehr laut, könnten Sie das wiederholen?','Entschuldigung, das ging mir zu schnell.'],richtig:['Sie sprechen zu undeutlich.'],erklaerung:'Der Satz bewertet die andere Person. Die anderen drei benennen die Situation – dasselbe Anliegen, ganz andere Wirkung.'}
+]);
+
+/* ---- Hausaufgabe ---- */
+Lehrwerk.auswahl('quiz-misch',[
+  {id:'mi1',text:'Zu schnell gesprochen.',optionen:['Könnten Sie bitte etwas langsamer sprechen?','Wie bitte?','Was?','Noch mal.'],richtig:['Könnten Sie bitte etwas langsamer sprechen?'],erklaerung:'Problem benennen, dann kommt die zweite Fassung besser.'},
+  {id:'mi2',text:'Ein Fachwort fehlt.',optionen:['Was bedeutet das genau?','Wie bitte?','Sprechen Sie lauter.','Ich verstehe nichts.'],richtig:['Was bedeutet das genau?'],erklaerung:'Zielt genau auf die Lücke.'},
+  {id:'mi3',text:'Sie wollen sichergehen, dass Sie die Aufgabe richtig verstanden haben.',optionen:['Habe ich richtig verstanden, dass ich die Liste bis Freitag prüfen soll?','Alles klar.','Ja, mache ich.','Kein Problem.'],richtig:['Habe ich richtig verstanden, dass ich die Liste bis Freitag prüfen soll?'],erklaerung:'Nur diese Rückfrage sichert das Ergebnis. „Alles klar“ ist die häufigste Quelle von Missverständnissen.'},
+  {id:'mi4',text:'Sie werden selbst nicht verstanden.',optionen:['Ich sage es noch einmal anders.','Ich wiederhole es lauter.','Das habe ich doch gesagt.','Hören Sie zu.'],richtig:['Ich sage es noch einmal anders.'],erklaerung:'Ankündigen und neu formulieren – anderes Wort, zwei Sätze oder Beispiel.'},
+  {id:'mi5',text:'Welche zwei Sätze sichern eine Zahl ab?',optionen:['Ich wiederhole kurz: 0451 – 22 – 34 – 18.','Habe ich das richtig?','Ist die Nummer wichtig?','Schreiben Sie es mir auf.'],richtig:['Ich wiederhole kurz: 0451 – 22 – 34 – 18.','Habe ich das richtig?'],erklaerung:'Wiederholen in Zweierblöcken und bestätigen lassen – zusammen ergeben die beiden Sätze die sichere Rückfrage.'},
+  {id:'mi6',text:'Was ist der Kern des ganzen Moduls?',optionen:['Sagen, was gefehlt hat – und das Ergebnis bestätigen lassen.','Immer höflich bleiben.','Nie nachfragen müssen.','Möglichst kurze Sätze sagen.'],richtig:['Sagen, was gefehlt hat – und das Ergebnis bestätigen lassen.'],erklaerung:'Beides zusammen. Wer nur nachfragt, ohne das Ergebnis zu sichern, hat oft trotzdem etwas anderes verstanden.'}
+]);
+
+Lehrwerk.frei('drei-frei');
+Lehrwerk.frei('hausaufgabe-frei');
+
+/* ---- Klick-und-sprich-Blitze ---- */
+function blitz(ausgabeId, knopfId, liste){
+  const feld=document.getElementById(ausgabeId), knopf=document.getElementById(knopfId);
+  if(!feld || !knopf) return;
+  let rest=[];
+  knopf.addEventListener('click',()=>{
+    if(!rest.length) rest=[...liste].sort(()=>Math.random()-0.5);
+    feld.textContent=rest.pop();
+  });
+}
+
+blitz('blitz-me-ausgabe','blitz-me-neu',[
+  'zu schnell gesprochen','zu leise gesprochen','im Lager ist es laut',
+  'ein Fachwort war unbekannt','die Telefonnummer ging zu schnell',
+  'nur die erste Hälfte verstanden','der Name war unklar',
+  'zwei Personen reden gleichzeitig','die Leitung rauscht','die Frist war undeutlich'
+]);
+
+blitz('blitz-ge-ausgabe','blitz-ge-neu',[
+  'Die Lieferung verschiebt sich auf Freitag.','Die Palette geht heute noch raus.',
+  'Frau Seidel übernimmt den Termin.','Die Rechnung ist schon bezahlt.',
+  'Wir brauchen die Unterschrift bis Montag.','Der Kunde kommt eine Stunde später.',
+  'Das Lager schließt heute früher.','Die Schulung fällt aus.',
+  'Herr Nowak übernimmt die Einweisung.','Die Bestellung wurde storniert.'
+]);
+
+Lehrwerk.abschluss();
+</script>
+</body>
+</html>
