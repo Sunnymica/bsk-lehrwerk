@@ -25,15 +25,16 @@
 
 <main class="innen modul modul--breit">
 
-  <div class="reiter" role="tablist">
-    <button role="tab" aria-selected="true"  data-blatt="menschen">Menschen und Rollen</button>
-    <button role="tab" aria-selected="false" data-blatt="orte">Orte und Arbeitsmittel</button>
-    <button role="tab" aria-selected="false" data-blatt="produkte">Produkte und Geschäftsbeziehungen</button>
-    <button role="tab" aria-selected="false" disabled>Einkauf, Verkauf, Zahlung <span class="folgt">folgt</span></button>
+  <div class="reiter" role="tablist" aria-label="Lernabschnitte">
+    <button type="button" id="tab-menschen" role="tab" aria-selected="true"  data-blatt="menschen">Menschen und Rollen</button>
+    <button type="button" id="tab-orte" role="tab" aria-selected="false" data-blatt="orte">Orte und Arbeitsmittel</button>
+    <button type="button" id="tab-produkte" role="tab" aria-selected="false" data-blatt="produkte">Produkte und Geschäftsbeziehungen</button>
+    <button type="button" id="tab-hausaufgabe" role="tab" aria-selected="false" data-blatt="hausaufgabe">Hausaufgabe</button>
+    <button type="button" id="tab-zahlung" role="tab" aria-selected="false" disabled>Einkauf, Verkauf, Zahlung <span class="folgt">folgt</span></button>
   </div>
 
   <!-- ============ 1 Menschen, Rollen und Zuständigkeiten ============ -->
-  <section class="blatt" id="blatt-menschen">
+  <section class="blatt" id="blatt-menschen" role="tabpanel" aria-labelledby="tab-menschen">
 
     <p class="stand-hinweis">Kernteil etwa 20–25 Minuten · Transfer noch einmal 15–20 Minuten</p>
 
@@ -102,11 +103,11 @@
     <p>Setzen Sie die Wörter ein. Ein Klick genügt.</p>
     <div id="wb-zustaendig-bank"></div>
     <div class="frage">
-      <p>1. Für die Bestellung von Büromaterial ist Frau Seidel <input class="luecke" id="wb1" size="14">.</p>
-      <p>2. Herr Nowak leitet das Lager. Er ist gegenüber den Lagerkräften <input class="luecke" id="wb2" size="18">.</p>
-      <p>3. Frau Haddad trägt die <input class="luecke" id="wb3" size="16"> für die Personalplanung.</p>
-      <p>4. Alle Beschäftigten zusammen sind die <input class="luecke" id="wb4" size="14"> des Unternehmens.</p>
-      <p>5. Frau Melnyk ist die <input class="luecke" id="wb5" size="16"> von Frau Haddad.</p>
+      <p>1. Für die Bestellung von Büromaterial ist Frau Seidel <input class="luecke" id="wb1" size="14" autocomplete="off">.</p>
+      <p>2. Herr Nowak leitet das Lager. Er ist gegenüber den Lagerkräften <input class="luecke" id="wb2" size="18" autocomplete="off">.</p>
+      <p>3. Frau Haddad trägt die <input class="luecke" id="wb3" size="16" autocomplete="off"> für die Personalplanung.</p>
+      <p>4. Alle Beschäftigten zusammen sind die <input class="luecke" id="wb4" size="14" autocomplete="off"> des Unternehmens.</p>
+      <p>5. Frau Melnyk ist die <input class="luecke" id="wb5" size="16" autocomplete="off"> von Frau Haddad.</p>
       <div class="knopfreihe">
         <button type="button" class="knopf" id="wb-pruefen">Prüfen</button>
       </div>
@@ -160,7 +161,7 @@
   </section>
 
   <!-- ============ 2 Orte, Arbeitsmittel und digitale Arbeit ============ -->
-  <section class="blatt" id="blatt-orte" hidden>
+  <section class="blatt" id="blatt-orte" role="tabpanel" aria-labelledby="tab-orte" hidden>
 
     <p class="stand-hinweis">Kernteil etwa 20–25 Minuten · Transfer noch einmal 15–20 Minuten</p>
 
@@ -245,7 +246,7 @@
     <h2>Bei KONTOR anwenden</h2>
     <div id="wb-arbeitsplatz-bank"></div>
     <div class="frage">
-      <p>Frau Seidel arbeitet im Einkauf. Eingehende Rechnungen <input class="luecke" id="ap1" size="12"> sie zuerst und legt sie dann im Ordner „Offene Posten“ <input class="luecke" id="ap2" size="8">. Angebote von Lieferanten <input class="luecke" id="ap3" size="10"> sie auf dem gemeinsamen Laufwerk. Wichtige Stellen im Vertrag <input class="luecke" id="ap4" size="10"> sie farbig. Den unterschriebenen Auftrag <input class="luecke" id="ap5" size="10"> sie an den Lieferanten. Für die Ablage im Regal <input class="luecke" id="ap6" size="10"> sie die Blätter vorher.</p>
+      <p>Frau Seidel arbeitet im Einkauf. Eingehende Rechnungen <input class="luecke" id="ap1" size="12" autocomplete="off"> sie zuerst und legt sie dann im Ordner „Offene Posten“ <input class="luecke" id="ap2" size="8" autocomplete="off">. Angebote von Lieferanten <input class="luecke" id="ap3" size="10" autocomplete="off"> sie auf dem gemeinsamen Laufwerk. Wichtige Stellen im Vertrag <input class="luecke" id="ap4" size="10" autocomplete="off"> sie farbig. Den unterschriebenen Auftrag <input class="luecke" id="ap5" size="10" autocomplete="off"> sie an den Lieferanten. Für die Ablage im Regal <input class="luecke" id="ap6" size="10" autocomplete="off"> sie die Blätter vorher.</p>
       <div class="knopfreihe">
         <button type="button" class="knopf" id="ap-pruefen">Prüfen</button>
       </div>
@@ -274,7 +275,7 @@
   </section>
 
   <!-- ============ 3 Produkte, Waren und Geschäftsbeziehungen ============ -->
-  <section class="blatt" id="blatt-produkte" hidden>
+  <section class="blatt" id="blatt-produkte" role="tabpanel" aria-labelledby="tab-produkte" hidden>
 
     <p class="stand-hinweis">Kernteil etwa 20–25 Minuten · Transfer noch einmal 15–20 Minuten</p>
 
@@ -367,9 +368,65 @@
     <div class="regel">
       <p><strong>Mündlich:</strong> Erklären Sie einer neuen Kollegin in zwei Minuten, was Ihr Betrieb macht und wie ein Auftrag bei Ihnen durchläuft.</p>
       <p><strong>Zu zweit:</strong> Person A erklärt, Person B stellt zwei Rückfragen (<em>Und wer macht das? · Was passiert, wenn die Ware beschädigt ist?</em>). Danach Rollen tauschen.</p>
-      <p><strong>Allein:</strong> Aufnehmen und einmal anhören – kommen die sechs Schritte in der richtigen Reihenfolge?</p>
+      <p><strong>Allein:</strong> Aufnehmen und einmal anhören – kommen die fünf Schritte in der richtigen Reihenfolge?</p>
       <p><strong>Start:</strong> die fünf Schritte der Vorgangskette nennen. <strong>Weiter:</strong> mit eigenen Beispielen aus dem Betrieb. <strong>Herausforderung:</strong> zusätzlich erklären, was schiefgehen kann und wer dann eingreift.</p>
       <textarea class="feld" id="sprechen-vorgang" rows="5" placeholder="Anfrage · Angebot · Auftrag · Lieferung · Rechnung"></textarea>
+    </div>
+  </section>
+
+  <!-- ============ Hausaufgabe ============ -->
+  <section class="blatt" id="blatt-hausaufgabe" role="tabpanel" aria-labelledby="tab-hausaufgabe" hidden>
+    <p class="stand-hinweis">Zu Hause: 20 Minuten, dann fünf Tage je 2 Minuten</p>
+
+    <div class="differenzierung differenzierung--start">
+      <strong class="differenzierung__stufe">1 · Gemischt wiederholen</strong>
+      <h2>Quer durch alle Lernabschnitte</h2>
+      <div id="quiz-misch"></div>
+    </div>
+
+    <div class="differenzierung differenzierung--weiter">
+      <strong class="differenzierung__stufe">2 · Klick und sprich</strong>
+      <h2>KONTOR-Blitz</h2>
+      <p>Klicken Sie auf <strong>Neuer Begriff</strong>. Sagen Sie sofort in einem Satz, worum es geht und wer bei KONTOR damit zu tun hat. Nicht schreiben.</p>
+      <div class="kasten">
+        <p class="satz" id="blitz-kontor-ausgabe">der Einkauf</p>
+        <div class="knopfreihe"><button class="knopf" type="button" id="blitz-kontor-neu">Neuer Begriff</button></div>
+      </div>
+      <p class="marke">Ziel: zehn Begriffe ohne Nachdenkpause. Danach noch einmal, aber mit einem Beispiel aus Ihrem eigenen Betrieb.</p>
+    </div>
+
+    <div class="differenzierung differenzierung--start">
+      <strong class="differenzierung__stufe">3 · Laut sprechen</strong>
+      <h2>Acht kurze Impulse</h2>
+      <p class="anleitung">Sprechen Sie zu jedem Impuls sofort einen vollständigen Satz.</p>
+      <p class="satz">Wer leitet KONTOR? &nbsp;·&nbsp; Wer bestellt Material? &nbsp;·&nbsp; Wer betreut die Kundinnen? &nbsp;·&nbsp; Wer ist für das Lager zuständig?<br>
+      Was ist der Unterschied zwischen Kunde und Lieferant? &nbsp;·&nbsp; Was steht im Angebot? &nbsp;·&nbsp; Wann kommt die Rechnung? &nbsp;·&nbsp; Wohin geht eine Reklamation?</p>
+    </div>
+
+    <div class="differenzierung differenzierung--start">
+      <strong class="differenzierung__stufe">4 · 5-Tage-Mikrotraining</strong>
+      <h2>Zähneputz-Drill</h2>
+      <p>Fünf Tage, je zwei Minuten, jeden Tag nur eine Sache: Tag 1 die fünf Personen mit Funktion und Abteilung, Tag 2 die Orte und wozu sie da sind, Tag 3 Kunde, Lieferant, Partner, Tag 4 die Vorgangskette von der Anfrage bis zur Rechnung, Tag 5 dieselbe Kette mit Beispielen aus Ihrem Betrieb.</p>
+      <p class="marke">Sagen Sie die Sätze wirklich laut. Wer die Begriffe nur liest, erkennt sie später – wer sie spricht, benutzt sie auch.</p>
+    </div>
+
+    <div class="merker">
+      <span class="marke marke-merker">Nach fünf Tagen</span>
+      <p>Selbsttest: Erklären Sie in einer Minute, wie ein Auftrag durch KONTOR läuft und wer dabei was tut. Wenn Sie an zwei Stellen hängen, wiederholen Sie genau diesen Tag – nicht die ganze Woche.</p>
+    </div>
+
+    <div class="differenzierung differenzierung--weiter">
+      <strong class="differenzierung__stufe">Schriftlich</strong>
+      <h2>Mein Betrieb in fünf Sätzen</h2>
+      <ol>
+        <li>Wer leitet Ihren Betrieb, und wie heißen die wichtigsten Abteilungen?</li>
+        <li>Wer sind Ihre Kundinnen und Kunden, wer Ihre Lieferanten?</li>
+        <li>Beschreiben Sie einen Vorgang von der Anfrage bis zur Rechnung.</li>
+      </ol>
+      <p><strong>Start:</strong> fünf Sätze, Stichworte genügen.<br>
+      <strong>Weiter:</strong> ganze Sätze mit den Begriffen aus allen Lernabschnitten.<br>
+      <strong>Herausforderung:</strong> zusätzlich zwei Sätze dazu, was in Ihrem Betrieb anders läuft als bei KONTOR.</p>
+      <textarea class="feld" id="hausaufgabe-frei" rows="6" data-ergebnis-label="Mein Betrieb in fünf Sätzen"></textarea>
     </div>
   </section>
 
@@ -645,6 +702,37 @@ Lehrwerk.auswahl('mc-ware', [
 
 Lehrwerk.frei('schreiben-partner');
 Lehrwerk.frei('sprechen-vorgang');
+
+/* ---------- Hausaufgabe ---------- */
+Lehrwerk.auswahl('quiz-misch', [
+  { id: 'hm1', text: 'Wer leitet die KONTOR AG?', optionen: ['Kateryna Melnyk','Samira Haddad','Nora Seidel','Pawel Nowak'], richtig: ['Kateryna Melnyk'], erklaerung: 'Kateryna Melnyk ist Geschäftsführerin. Samira Haddad leitet die Abteilung Personal und Verwaltung – das ist eine Abteilungsleitung, keine Geschäftsführung.' },
+  { id: 'hm2', text: 'Sie brauchen neues Material. An welche Abteilung wenden Sie sich?', optionen: ['Einkauf','Verkauf','Lager und Versand','Personal'], richtig: ['Einkauf'], erklaerung: 'Der Einkauf beschafft, was der Betrieb selbst braucht. Der Verkauf ist für das zuständig, was der Betrieb anbietet.' },
+  { id: 'hm3', text: 'Welche zwei Aussagen stimmen?', optionen: ['Ein Kunde kauft bei uns.','Ein Lieferant verkauft an uns.','Ein Kunde verkauft an uns.','Ein Lieferant kauft bei uns.'], richtig: ['Ein Kunde kauft bei uns.','Ein Lieferant verkauft an uns.'], erklaerung: 'Die Richtung entscheidet: Beim Kunden geht die Ware hinaus, beim Lieferanten kommt sie herein.' },
+  { id: 'hm4', text: 'Was kommt in der Vorgangskette zuerst?', optionen: ['die Anfrage','das Angebot','der Auftrag','die Rechnung'], richtig: ['die Anfrage'], erklaerung: 'Erst fragt jemand an, dann folgt das Angebot, danach der Auftrag, die Lieferung und zuletzt die Rechnung.' },
+  { id: 'hm5', text: 'Wer nimmt die Ware im Wareneingang an?', optionen: ['Lager und Versand','Einkauf','Buchhaltung','Verkauf'], richtig: ['Lager und Versand'], erklaerung: 'Pawel Nowak leitet Lager und Versand. Der Einkauf bestellt, das Lager nimmt an und prüft.' },
+  { id: 'hm6', text: 'Eine Kundin reklamiert eine beschädigte Lieferung. Wo landet das zuerst?', optionen: ['im Verkauf und Kundenservice','im Einkauf','in der Geschäftsleitung','im Personal'], richtig: ['im Verkauf und Kundenservice'], erklaerung: 'Jonas Becker betreut die Kundinnen und Kunden. Ob danach das Lager oder der Einkauf eingeschaltet wird, klärt sich dort.' }
+]);
+
+Lehrwerk.frei('hausaufgabe-frei');
+
+/* Klick und sprich: eine Liste, ein Knopf, ein Absatz – wie in den
+   Modulen Präpositionen, Telefonieren und Empfang. */
+(function () {
+  const feld = document.getElementById('blitz-kontor-ausgabe');
+  const knopf = document.getElementById('blitz-kontor-neu');
+  if (!feld || !knopf) return;
+  const liste = [
+    'der Einkauf','der Verkauf','das Lager','der Wareneingang','die Buchhaltung',
+    'die Geschäftsleitung','die Anfrage','das Angebot','der Auftrag','die Lieferung',
+    'die Rechnung','die Reklamation','die Kundin','der Lieferant','das Sortiment',
+    'der Vorgang','die Abteilung','die Zuständigkeit'
+  ];
+  let rest = [];
+  knopf.addEventListener('click', () => {
+    if (!rest.length) rest = [...liste].sort(() => Math.random() - 0.5);
+    feld.textContent = rest.pop();
+  });
+})();
 
 Lehrwerk.abschluss();
 </script>
