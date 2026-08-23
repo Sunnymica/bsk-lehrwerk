@@ -1,342 +1,633 @@
 <!DOCTYPE html>
-<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow">
-<title>Satzbau: Das Verb gibt den Takt vor – Berufssprachkurs</title>
-<link rel="stylesheet" href="../assets/basis.css"><link rel="stylesheet" href="../assets/platform.css"><link rel="stylesheet" href="../assets/lehrwerk.css"><link rel="stylesheet" href="../assets/aufgaben.css">
-<script src="../data/homework.js" defer></script><script src="../assets/platform.js"></script></head>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Satzbau: Das Verb gibt den Takt vor – Berufssprachkurs</title>
+  <link rel="stylesheet" href="../assets/basis.css">
+  <link rel="stylesheet" href="../assets/platform.css">
+  <link rel="stylesheet" href="../assets/lehrwerk.css">
+  <link rel="stylesheet" href="../assets/aufgaben.css">
+  <script src="../data/homework.js" defer></script>
+  <script src="../assets/platform.js"></script>
+</head>
 <body data-page="module" data-bereich="grammatik" data-root="../">
-<header class="hero bereich-kopf"><div class="innen"><a class="zurueck" href="../grammatik.html">← Grammatik</a><h1><em>Satzbau:</em> Das Verb gibt den Takt vor</h1><p class="anleitung">Wo das Verb steht, entscheidet die Satzart — und sonst nichts.</p></div></header>
+<header class="hero bereich-kopf"><div class="innen">
+  <a class="zurueck" href="../grammatik.html">← Grammatik</a>
+  <h1><em>Satzbau:</em> Das Verb gibt den Takt vor</h1>
+  <p class="anleitung">Die wichtigsten Verbpositionen Schritt für Schritt üben, sprechen und automatisieren.</p>
+</div></header>
+
 <main class="innen modul">
 
-<div class="regel"><h2>Die Leitregel</h2><p>Das <strong>gebeugte Verb</strong> — das Wort, das sich mit der Person ändert — hat im deutschen Satz einen <strong>festen Platz</strong>. Wo genau, sagt Ihnen der Satzanfang: Wie der Satz eingeleitet wird, entscheidet über die Verbposition.</p>
-<table><thead><tr><th>Satzart</th><th>Das gebeugte Verb steht</th><th>Beispiel aus dem Büroalltag</th></tr></thead><tbody>
-<tr><td>Aussagesatz</td><td><strong>an zweiter Stelle</strong></td><td>Nora <strong>prüft</strong> heute die Bestellung.</td></tr>
-<tr><td>W-Frage</td><td><strong>an zweiter Stelle</strong>, direkt hinter dem Fragewort</td><td>Wann <strong>prüft</strong> Nora die Bestellung?</td></tr>
-<tr><td>geschlossene Frage (ja/nein)</td><td><strong>an erster Stelle</strong></td><td><strong>Prüft</strong> Nora heute die Bestellung?</td></tr>
-<tr><td>Nebensatz</td><td><strong>ganz am Ende</strong></td><td>…, weil Nora heute die Bestellung <strong>prüft</strong>.</td></tr>
-</tbody></table>
-<p class="marke">Vier Zeilen — mehr ist der Kern nicht. Und zwei davon sind dieselbe Regel: Ob vorn ein Wort, eine Angabe oder ein Fragewort steht — ist der Platz besetzt, kommt das Verb sofort danach.</p></div>
+<div class="kasten">
+  <h2>Mit dem Verb an der richtigen Position klingt Deutsch richtig deutsch.</h2>
+  <p>Bei der Verbposition gibt es wenige Regeln. Sie müssen aber so sicher sitzen, dass sie auch beim schnellen Sprechen funktionieren.</p>
+  <div class="merker">
+    <span class="marke-merker">WICHTIG</span>
+    <p><strong>Normaler Satz: Verb IMMER auf Position 2</strong><br>
+    <strong>Nebensatz: Verb an der letzten Position</strong><br>
+    Geschlossene Frage: Verb auf Position 1</p>
+  </div>
+</div>
 
-<div class="kasten"><h2>Wozu das Ganze?</h2>
-<p>Satzbau ist im Beruf <strong>Verständlichkeit unter Zeitdruck</strong>. Eine Mail, die man zweimal lesen muss, kostet die Empfängerin Zeit. Eine Ansage am Telefon, deren Verb erst nach zwanzig Wörtern kommt, wird nicht verstanden.</p>
-<p><strong>Was erfahrungsgemäß schwerfällt</strong> — und zwar auch dann noch, wenn die Regel längst verstanden ist:</p>
-<p class="satz">✗ <s>Gestern ich habe angerufen.</s> → ✓ Gestern <strong>habe ich</strong> angerufen.<br>
-✗ <s>Wir haben abgesagt den Termin.</s> → ✓ Wir haben den Termin <strong>abgesagt</strong>.<br>
-✗ <s>…, weil er hat nicht geantwortet.</s> → ✓ …, weil er nicht <strong>geantwortet hat</strong>.</p>
-<p>Alle drei Fehler haben dieselbe Ursache: Man denkt an den Inhalt, und das Verb rutscht dorthin, wo es in der eigenen Sprache stünde. <strong>Verstanden ist das schnell — sicher wird es nur durch Wiederholung.</strong> Deshalb kommen auf dieser Seite nach jedem Erkennen-Teil gelenkte Bau-, Variations- und Reaktionsübungen, bevor Sie frei formulieren.</p></div>
+<div class="reiter" role="tablist" aria-label="Lernabschnitte">
+  <button type="button" id="tab-grundmuster" role="tab" aria-selected="true" data-blatt="grundmuster">Position 2</button>
+  <button type="button" id="tab-fragen" role="tab" aria-selected="false" data-blatt="fragen">Fragen</button>
+  <button type="button" id="tab-klammer" role="tab" aria-selected="false" data-blatt="klammer">Zwei Verbteile</button>
+  <button type="button" id="tab-nebensatz" role="tab" aria-selected="false" data-blatt="nebensatz">Nebensatz</button>
+  <button type="button" id="tab-automatisieren" role="tab" aria-selected="false" data-blatt="automatisieren">Satzbau-Spielplatz</button>
+  <button type="button" id="tab-anwenden" role="tab" aria-selected="false" data-blatt="anwenden">Frei anwenden</button>
+  <button type="button" id="tab-hausaufgabe" role="tab" aria-selected="false" data-blatt="hausaufgabe">Hausaufgabe</button>
+</div>
 
-<p class="marke"><strong>Danach weiter:</strong> <a href="tekamolo.html">Mittelfeld und TEKAMOLO</a> · <a href="konnektoren-ueberblick.html">Konnektoren im Überblick</a> · <a href="informationsstruktur.html">Informationen gewichten</a></p>
+<!-- ============ POSITION 2 ============ -->
+<section class="blatt" id="blatt-grundmuster" role="tabpanel" aria-labelledby="tab-grundmuster">
+  <p class="stand-hinweis">Richtwert: 35 Minuten · Position 2 einschleifen</p>
 
-<div class="reiter" role="tablist" aria-label="Lernabschnitte"><button type="button" id="tab-grundmuster" role="tab" aria-selected="true" data-blatt="grundmuster">Aussagesatz</button><button type="button" id="tab-fragen" role="tab" aria-selected="false" data-blatt="fragen">Fragen</button><button type="button" id="tab-klammer" role="tab" aria-selected="false" data-blatt="klammer">Zwei Verbteile</button><button type="button" id="tab-nebensatz" role="tab" aria-selected="false" data-blatt="nebensatz">Nebensatz</button><button type="button" id="tab-automatisieren" role="tab" aria-selected="false" data-blatt="automatisieren">Einschleifen</button><button type="button" id="tab-anwenden" role="tab" aria-selected="false" data-blatt="anwenden">Frei anwenden</button></div>
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">1 · Regel</strong>
+    <h2>Im Hauptsatz steht das Verb immer auf Position 2</h2>
+    <p>Es ist egal, was vorne steht: eine Person, eine Zeit, ein Ort, ein Objekt oder eine andere Information.</p>
+    <p class="satzbau satzbau--beispiel"><span class="pos1">Nora</span> <span class="verb">prüft</span> heute die Rechnung.</p>
+    <p class="satzbau satzbau--beispiel"><span class="pos1">Heute</span> <span class="verb">prüft</span> Nora die Rechnung.</p>
+    <p class="satzbau satzbau--beispiel"><span class="pos1">Im Büro</span> <span class="verb">prüft</span> Nora die Rechnung.</p>
+    <p class="satzbau satzbau--beispiel"><span class="pos1">Die Rechnung</span> <span class="verb">prüft</span> Nora heute.</p>
+  </div>
 
-<!-- ============ Aussagesatz ============ -->
-<section class="blatt" id="blatt-grundmuster" role="tabpanel" aria-labelledby="tab-grundmuster"><p class="stand-hinweis">Richtwert: 25 Minuten · erkennen und gelenkt bauen</p>
+  <div class="regel">
+    <h3>Position 1 kann lang sein</h3>
+    <p>Vor dem Verb steht genau <strong>ein Satzteil</strong>. Dieser Satzteil kann aus mehreren Wörtern bestehen.</p>
+    <p class="satz">✓ <strong>Nach der langen Besprechung am Morgen</strong> ruft Nora den Kunden an.<br>
+    ✗ <s>Nach der Besprechung Nora ruft den Kunden an.</s></p>
+    <p>Beim ersten Auftreten nennen wir das Verb fachlich: <strong>konjugiertes Verb (gebeugtes Verb)</strong>. Danach reicht auf dieser Seite: <strong>konjugiertes Verb</strong>.</p>
+  </div>
 
-<div class="differenzierung differenzierung--start"><strong class="differenzierung__stufe">Start · feste Muster</strong><h2>Das Verb an zweiter Stelle</h2>
-<p class="satzbau satzbau--beispiel"><span class="pos1">Nora</span> <span class="verb">prüft</span> heute die Bestellung.</p>
-<p class="satzbau satzbau--beispiel"><span class="pos1">Heute</span> <span class="verb">prüft</span> Nora die Bestellung.</p>
-<p class="satzbau satzbau--beispiel"><span class="pos1">Die Bestellung</span> <span class="verb">prüft</span> Nora heute.</p>
-<p>Dreimal derselbe Inhalt, dreimal ein anderer Anfang — und das Verb bewegt sich nicht. Es bleibt an zweiter Stelle.</p></div>
+  <h2>Miniübung 1: schnell erkennen</h2>
+  <div id="quiz-grund"></div>
 
-<div class="regel"><h3>Der Platz vor dem Verb heißt Position 1</h3><p>Dort steht <strong>genau ein Satzteil</strong>. Er kann aus mehreren Wörtern bestehen — <em>die neue Bestellung aus Hamburg</em> ist trotzdem nur <strong>ein</strong> Satzteil.</p>
-<p><strong>Und das ist die eigentliche Stolperstelle:</strong> Steht dort nicht das Subjekt, rutscht das Subjekt hinter das Verb.</p>
-<p class="satz">✓ Heute <strong>prüft Nora</strong> die Bestellung.<br>✗ <s>Heute Nora prüft die Bestellung.</s></p></div>
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">2 · Bauen</strong>
+    <h2>Der Anfang steht schon</h2>
+    <p>Setzen Sie den Satz weiter. Das konjugierte Verb muss sofort nach Position 1 kommen.</p>
+  </div>
+  <div id="bau-grund"></div>
 
-<h2>Erkennen</h2><div id="quiz-grund"></div>
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">3 · Klick und sprich</strong>
+    <h2>Position-2-Blitz</h2>
+    <p>Klicken Sie auf <strong>Neuer Satz</strong>. Lesen Sie die drei Bausteine und sagen Sie sofort einen vollständigen Satz. Nicht schreiben.</p>
+    <div class="kasten">
+      <p class="satz" id="spiel-p2-ausgabe">Heute · Nora · die Rechnung prüfen</p>
+      <div class="knopfreihe"><button class="knopf" type="button" id="spiel-p2-neu">Neuer Satz</button></div>
+    </div>
+    <p class="marke">Ziel: fünf Sätze ohne Nachdenkpause. Danach noch einmal schneller.</p>
+  </div>
 
-<details class="optionale-hilfe"><summary>Optionale Hilfe: So finden Sie das gebeugte Verb</summary><div class="optionale-hilfe__inhalt"><p>Ändern Sie die Person: <em>ich prüfe – Nora prüft – wir prüfen</em>. Das Wort, das sich dabei verändert, ist das gebeugte Verb. Genau dieses Wort muss an die zweite Stelle.</p></div></details>
-
-<div class="differenzierung differenzierung--start"><strong class="differenzierung__stufe">Start · gelenkt bauen</strong><h2>Der Anfang ist vorgegeben — bauen Sie weiter</h2><p>Position 1 steht schon da. Setzen Sie die übrigen Teile so, dass das Verb sofort danach kommt.</p></div>
-<div id="bau-grund"></div>
-
+  <div class="redemittel-box">
+    <h2>Jetzt selbst sprechen, aber nichts erfinden</h2>
+    <p>Wählen Sie drei Anfänge und je eine passende Handlung. Bilden Sie vollständige Sätze.</p>
+    <p class="satz"><strong>Anfänge:</strong> Heute · Morgen · Im Büro · Nach der Pause · Wegen der Besprechung · Die Rechnung · Den Kunden · Um 14 Uhr</p>
+    <p class="satz"><strong>Handlungen:</strong> prüfen · anrufen · informieren · bearbeiten · schicken · beginnen · warten · bestätigen</p>
+  </div>
 </section>
 
-<!-- ============ Fragen ============ -->
-<section class="blatt" id="blatt-fragen" role="tabpanel" aria-labelledby="tab-fragen" hidden><p class="stand-hinweis">Richtwert: 25 Minuten · zwei Fragetypen sicher unterscheiden</p>
+<!-- ============ FRAGEN ============ -->
+<section class="blatt" id="blatt-fragen" role="tabpanel" aria-labelledby="tab-fragen" hidden>
+  <p class="stand-hinweis">Richtwert: 30 Minuten · Position 1 und 2 bei Fragen</p>
 
-<div class="differenzierung differenzierung--start"><strong class="differenzierung__stufe">Start · feste Muster</strong><h2>Zwei Fragen, zwei Verbpositionen</h2>
-<table><thead><tr><th>Frage</th><th>Verb</th><th>Beispiel</th><th>Antwort</th></tr></thead><tbody>
-<tr><td>geschlossen (ja/nein)</td><td>an <strong>erster</strong> Stelle</td><td><strong>Prüfen</strong> Sie die Bestellung?</td><td>Ja. / Nein.</td></tr>
-<tr><td>offen (W-Frage)</td><td>direkt <strong>hinter dem Fragewort</strong></td><td>Wann <strong>prüfen</strong> Sie die Bestellung?</td><td>Am Montag.</td></tr>
-</tbody></table>
-<p class="marke">Die W-Frage folgt also derselben Logik wie der Aussagesatz: Das Fragewort besetzt Position 1, das Verb kommt sofort danach.</p></div>
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">1 · Regel</strong>
+    <h2>Zwei Fragetypen</h2>
+    <table><thead><tr><th>Frage</th><th>Verbposition</th><th>Beispiel</th></tr></thead><tbody>
+      <tr><td>W-Frage</td><td><strong>Position 2</strong></td><td>Wann <strong>kommt</strong> die Lieferung?</td></tr>
+      <tr><td>geschlossene Frage</td><td><strong>Position 1</strong></td><td><strong>Kommt</strong> die Lieferung heute?</td></tr>
+    </tbody></table>
+    <p>Auch <strong>Frageausdrücke aus mehreren Wörtern</strong> stehen zusammen auf Position 1:</p>
+    <p class="satz"><strong>Wie lange</strong> dauert die Besprechung? · <strong>Wie oft</strong> kommt der Lieferdienst? · <strong>Wie viel</strong> kostet die Bestellung? · <strong>Seit wann</strong> arbeiten Sie hier? · <strong>Bis wann</strong> brauchen Sie die Unterlagen?</p>
+  </div>
 
-<div class="kasten"><h3>Die sieben Fragewörter, die Sie im Büro täglich brauchen</h3>
-<p class="satz"><strong>Wer</strong> macht das? · <strong>Was</strong> brauchen Sie? · <strong>Wann</strong> ist die Frist? · <strong>Wo</strong> liegt der Vorgang? · <strong>Wie</strong> läuft das ab? · <strong>Warum</strong> dauert es länger? · <strong>Wie lange</strong> brauchen Sie noch?</p></div>
+  <h2>Miniübung 1: Welche Frage passt?</h2>
+  <div id="quiz-fragen"></div>
 
-<div class="regel"><h3>Höfliche Fragen sind auch nur Fragen</h3><p><em>Könnten</em>, <em>würden</em>, <em>hätten</em> ändern die Stellung nicht — sie sind das gebeugte Verb und stehen deshalb genau dort, wo sonst das einfache Verb steht.</p>
-<p class="satz"><strong>Könnten</strong> Sie die Bestellung heute noch prüfen? · <strong>Wann könnten</strong> Sie die Bestellung prüfen?</p></div>
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">2 · Bauen</strong>
+    <h2>Fragen zusammensetzen</h2>
+    <p>Bei der W-Frage steht das konjugierte Verb auf Position 2. Bei der geschlossenen Frage steht es auf Position 1.</p>
+  </div>
+  <div id="bau-fragen"></div>
 
-<h2>Erkennen</h2><div id="quiz-fragen"></div>
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">3 · Klick und sprich</strong>
+    <h2>Frageblitz</h2>
+    <p>Klicken Sie. Stellen Sie die verlangte Frage sofort laut.</p>
+    <div class="kasten">
+      <p class="satz" id="spiel-frage-ausgabe">Geschlossene Frage · die Lieferung / heute kommen</p>
+      <div class="knopfreihe"><button class="knopf" type="button" id="spiel-frage-neu">Neue Frage</button></div>
+    </div>
+  </div>
 
-<div class="differenzierung differenzierung--start"><strong class="differenzierung__stufe">Start · gelenkt bauen</strong><h2>Fragen bauen</h2><p>Mal ist ein Fragewort vorgegeben, mal nicht. Achten Sie nur auf eines: Wo steht das gebeugte Verb?</p></div>
-<div id="bau-fragen"></div>
-
-<div class="differenzierung differenzierung--weiter"><strong class="differenzierung__stufe">Weiter · kleine Variation</strong><h2>Aus einer Aussage wird eine Frage</h2><p class="anleitung">Nur das eine gebeugte Verb wandert. Sonst ändern Sie nichts.</p></div>
-<p class="lueckentext">
-1. Sie schicken die Rechnung morgen. → <input class="luecke" id="f1" size="10" autocomplete="off"> Sie die Rechnung morgen?<br><br>
-2. Der Kunde hat gestern angerufen. → <input class="luecke" id="f2" size="8" autocomplete="off"> der Kunde gestern angerufen?<br><br>
-3. Wir können den Termin verschieben. → <input class="luecke" id="f3" size="8" autocomplete="off"> wir den Termin verschieben?<br><br>
-4. Die Lieferung kommt am Freitag. → Wann <input class="luecke" id="f4" size="8" autocomplete="off"> die Lieferung?<br><br>
-5. Frau Seidel ist im Haus. → <input class="luecke" id="f5" size="6" autocomplete="off"> Frau Seidel im Haus?
-</p>
-<div class="knopfreihe"><button class="knopf" id="f-pruefen" type="button">Prüfen</button><button class="knopf" id="f-tipp" type="button">Tipp</button></div>
-<p class="rueckmeldung" id="f-rueck" hidden></p>
-<p class="rueckmeldung" id="f-hinweis" hidden>Suchen Sie im Aussagesatz das Wort, das sich mit der Person ändert. Genau dieses Wort stellen Sie nach vorn — bei der W-Frage hinter das Fragewort.</p>
-
+  <div class="redemittel-box">
+    <h2>Fragen aus dem Büro</h2>
+    <p class="satz"><strong>W-Fragen:</strong> Wann kommt …? · Wo liegt …? · Wer bearbeitet …? · Warum dauert …? · Wie lange brauchen …?</p>
+    <p class="satz"><strong>Geschlossene Fragen:</strong> Ist … schon da? · Haben Sie … erhalten? · Können Sie … schicken? · Brauchen Sie … noch?</p>
+    <p>Wählen Sie vier Muster und sprechen Sie jeweils eine eigene Frage mit den vorhandenen Wörtern.</p>
+  </div>
 </section>
 
-<!-- ============ Zwei Verbteile ============ -->
-<section class="blatt" id="blatt-klammer" role="tabpanel" aria-labelledby="tab-klammer" hidden><p class="stand-hinweis">Richtwert: 25 Minuten · die Klammer schließen</p>
+<!-- ============ ZWEI VERBTEILE ============ -->
+<section class="blatt" id="blatt-klammer" role="tabpanel" aria-labelledby="tab-klammer" hidden>
+  <p class="stand-hinweis">Richtwert: 35 Minuten · zweiten Verbteil sicher ans Ende setzen</p>
 
-<div class="differenzierung differenzierung--start"><strong class="differenzierung__stufe">Start · feste Muster</strong><h2>Wenn das Verb zwei Teile hat</h2>
-<p>Sehr oft besteht das Verb aus zwei Teilen. Dann steht der <strong>gebeugte Teil an zweiter Stelle</strong> und der <strong>zweite Teil ganz am Ende</strong>. Dazwischen liegt alles Übrige.</p>
-<table><thead><tr><th>Typ</th><th>Beispiel</th></tr></thead><tbody>
-<tr><td>trennbares Verb</td><td>Jonas <strong>ruft</strong> den Kunden heute <strong>an</strong>.</td></tr>
-<tr><td>Modalverb + Infinitiv</td><td>Jonas <strong>muss</strong> den Kunden heute <strong>anrufen</strong>.</td></tr>
-<tr><td>Perfekt</td><td>Jonas <strong>hat</strong> den Kunden heute <strong>angerufen</strong>.</td></tr>
-<tr><td>Passiv</td><td>Der Kunde <strong>wird</strong> heute <strong>angerufen</strong>.</td></tr>
-</tbody></table></div>
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">1 · Regel</strong>
+    <h2>Wenn das Verb zwei Teile hat</h2>
+    <p><strong>Das konjugierte Verb bleibt auf Position 2. Der zweite Verbteil steht am Ende.</strong></p>
+    <p>Die anderen Satzteile stehen dazwischen.</p>
+    <table><thead><tr><th>Typ</th><th>Beispiel</th></tr></thead><tbody>
+      <tr><td>trennbares Verb</td><td>Jonas <strong>ruft</strong> den Kunden heute <strong>an</strong>.</td></tr>
+      <tr><td>Modalverb + Infinitiv</td><td>Jonas <strong>muss</strong> den Kunden heute <strong>anrufen</strong>.</td></tr>
+      <tr><td>Perfekt / Plusquamperfekt</td><td>Jonas <strong>hat</strong> den Kunden heute <strong>angerufen</strong>. / Jonas <strong>hatte</strong> den Kunden schon <strong>angerufen</strong>.</td></tr>
+      <tr><td>Futur I</td><td>Jonas <strong>wird</strong> den Kunden morgen <strong>anrufen</strong>.</td></tr>
+    </tbody></table>
+  </div>
 
-<div class="merker"><span class="marke-merker">Satzklammer</span><p>Weil die beiden Verbteile alles andere umschließen, nennt man das die <strong>Satzklammer</strong>. Was dazwischenliegt, ist das <strong>Mittelfeld</strong>.</p>
-<p class="satzbau satzbau--beispiel">KONTOR <span class="verb">liefert</span> die Ware morgen wegen der Inventur nach Berlin <span class="verb">aus</span>.</p>
-<p class="marke">Das hat eine Folge, die man früh wissen sollte: <strong>Die entscheidende Information des Verbs kommt zuletzt.</strong> Wer zuhört, muss bis zum Ende warten — wer schreibt, sollte deshalb nicht zu viel dazwischenpacken.</p></div>
+  <div class="merker">
+    <span class="marke-merker">Späterer Fachbegriff</span>
+    <p>Die beiden Verbteile bilden die <strong>Satzklammer</strong>. Der Bereich dazwischen heißt <strong>Mittelfeld</strong>. Für diese Seite müssen Sie sich nur merken: <strong>zweiter Verbteil ans Ende</strong>.</p>
+  </div>
 
-<h2>Erkennen</h2><div id="quiz-klammer"></div>
+  <h2>Miniübung 1: Wo gehört der zweite Verbteil hin?</h2>
+  <div id="quiz-klammer"></div>
 
-<div class="differenzierung differenzierung--start"><strong class="differenzierung__stufe">Start · gelenkt bauen</strong><h2>Die Klammer schließen</h2><p>Der gebeugte Teil steht schon. Setzen Sie das Mittelfeld — und vergessen Sie den zweiten Verbteil am Ende nicht.</p></div>
-<div id="bau-klammer"></div>
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">2 · Bauen</strong>
+    <h2>Die Klammer schließen</h2>
+    <p>Der erste Verbteil steht schon. Setzen Sie den zweiten Verbteil ganz ans Ende.</p>
+  </div>
+  <div id="bau-klammer"></div>
 
-<p class="marke">Wie die Teile im Mittelfeld sinnvoll geordnet werden, zeigt <a href="tekamolo.html">TEKAMOLO und das Mittelfeld</a>. Für diese Seite genügt: Sie stehen <em>zwischen</em> den Verbteilen.</p>
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">3 · Klick und sprich</strong>
+    <h2>Klammerblitz</h2>
+    <p>Klicken Sie und sprechen Sie sofort einen vollständigen Satz.</p>
+    <div class="kasten">
+      <p class="satz" id="spiel-klammer-ausgabe">Heute · Nora · muss · die Bestellung · prüfen</p>
+      <div class="knopfreihe"><button class="knopf" type="button" id="spiel-klammer-neu">Neue Klammer</button></div>
+    </div>
+  </div>
 
+  <div class="redemittel-box">
+    <h2>Jetzt sprechen</h2>
+    <p class="satz"><strong>Perfekt:</strong> Heute habe ich … · Gestern hat Nora … · Wir haben bereits …</p>
+    <p class="satz"><strong>Modalverb:</strong> Ich muss heute … · Wir können morgen … · Sie möchten noch …</p>
+    <p class="satz"><strong>Trennbar:</strong> Ich rufe … an. · Wir schicken … zurück. · Nora bereitet … vor.</p>
+    <p>Wählen Sie aus jeder Zeile zwei Muster. Ergänzen Sie nur mit den Wörtern aus den Beispielen auf dieser Seite.</p>
+  </div>
 </section>
 
-<!-- ============ Nebensatz ============ -->
-<section class="blatt" id="blatt-nebensatz" role="tabpanel" aria-labelledby="tab-nebensatz" hidden><p class="stand-hinweis">Richtwert: 30 Minuten · Verb ans Ende</p>
+<!-- ============ NEBENSATZ ============ -->
+<section class="blatt" id="blatt-nebensatz" role="tabpanel" aria-labelledby="tab-nebensatz" hidden>
+  <p class="stand-hinweis">Richtwert: 40 Minuten · Verb ans Ende und Hauptsatz danach richtig starten</p>
 
-<div class="differenzierung differenzierung--start"><strong class="differenzierung__stufe">Start · feste Muster</strong><h2>Nach <em>weil</em>, <em>dass</em>, <em>wenn</em> wandert das Verb ans Ende</h2>
-<p class="satzbau satzbau--beispiel">Nora ruft an, <span class="kon">weil</span> die Lieferung heute <span class="neb">kommt</span>.</p>
-<p class="satzbau satzbau--beispiel">Ich glaube, <span class="kon">dass</span> der Termin noch <span class="neb">steht</span>.</p>
-<p class="satzbau satzbau--beispiel"><span class="kon">Wenn</span> die Lieferung heute <span class="neb">kommt</span>, <span class="verb">prüft</span> Nora sie sofort.</p>
-<p class="marke">Ein solcher Satz heißt <strong>Nebensatz</strong>: Er kann nicht allein stehen, und sein Verb geht ganz nach hinten.</p></div>
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">1 · Regel</strong>
+    <h2>Im Nebensatz steht das Verb an der letzten Position</h2>
+    <p class="satz">Wir warten, weil die Freigabe noch <strong>fehlt</strong>.<br>
+    Nora ruft an, wenn die Lieferung <strong>kommt</strong>.<br>
+    Ich glaube, dass der Termin noch <strong>steht</strong>.</p>
+  </div>
 
-<div class="regel"><h3>Steht der Nebensatz vorn, kommt das Verb sofort</h3><p>Der ganze Nebensatz besetzt dann Position 1 — und danach folgt direkt das gebeugte Verb des Hauptsatzes.</p>
-<p class="satz">✓ Wenn die Ware kommt, <strong>prüfen wir</strong> sie.<br>✗ <s>Wenn die Ware kommt, wir prüfen sie.</s></p>
-<p class="marke">Das ist genau dieselbe Regel wie im ersten Reiter: Position 1 besetzt → Verb sofort danach.</p></div>
+  <h2>Miniübung 1: Verb ans Ende</h2>
+  <div id="quiz-neben"></div>
 
-<div class="differenzierung differenzierung--weiter"><strong class="differenzierung__stufe">Weiter</strong><h3>Zwei Verbteile im Nebensatz</h3><p>Hat das Verb zwei Teile, rücken im Nebensatz <strong>beide ans Ende</strong> — und zwar der gebeugte Teil zuletzt.</p>
-<p class="satz">Jonas <strong>muss</strong> den Kunden <strong>anrufen</strong>. → …, weil Jonas den Kunden <strong>anrufen muss</strong>.<br>
-Der Kunde <strong>hat</strong> gestern <strong>angerufen</strong>. → …, weil der Kunde gestern <strong>angerufen hat</strong>.</p></div>
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">2 · Bauen</strong>
+    <h2>Nebensätze zusammensetzen</h2>
+    <p>Der Anfang steht. Das konjugierte Verb kommt an die letzte Position.</p>
+  </div>
+  <div id="bau-neben"></div>
 
-<h2>Erkennen</h2><div id="quiz-neben"></div>
+  <div class="regel">
+    <h3>Der Nebensatz steht vorne? Dann kommt nach dem Komma sofort das Hauptverb.</h3>
+    <p>Der ganze Nebensatz ist zusammen <strong>Position 1</strong> des Hauptsatzes.</p>
+    <p class="satz">✓ Weil die Freigabe fehlt, <strong>warten wir</strong>.<br>
+    ✗ <s>Weil die Freigabe fehlt, wir warten.</s></p>
+    <p class="satz">✓ Wenn die Lieferung kommt, <strong>prüft Nora</strong> sie.<br>
+    ✗ <s>Wenn die Lieferung kommt, Nora prüft sie.</s></p>
+  </div>
 
-<div class="differenzierung differenzierung--start"><strong class="differenzierung__stufe">Start · gelenkt bauen</strong><h2>Nebensätze bauen</h2><p>Der Anfang steht. Setzen Sie den Rest so, dass das gebeugte Verb ganz hinten landet.</p></div>
-<div id="bau-neben"></div>
+  <h2>Miniübung 2: Nebensatz nach vorne</h2>
+  <div id="quiz-neben-vorn"></div>
 
-<p class="marke">Welcher Konnektor welche Stellung verlangt, zeigt <a href="konnektoren-ueberblick.html">der Konnektoren-Überblick</a>.</p>
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">3 · Klick und sprich</strong>
+    <h2>Nebensatz-Pingpong</h2>
+    <p>Klicken Sie. Sprechen Sie den vollständigen Satz. Achten Sie nur auf die Verbposition.</p>
+    <div class="kasten">
+      <p class="satz" id="spiel-neben-ausgabe">Nebensatz hinten · Wir warten / weil / die Freigabe noch fehlen</p>
+      <div class="knopfreihe"><button class="knopf" type="button" id="spiel-neben-neu">Neuer Satz</button></div>
+    </div>
+  </div>
 
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">4 · Zwei Verbteile</strong>
+    <h2>Perfekt und Modalverb im Nebensatz</h2>
+    <p>Hat das Verb zwei Teile, stehen im Nebensatz beide am Ende. Das konjugierte Verb steht zuletzt.</p>
+    <p class="satz">Der Kunde <strong>hat angerufen</strong>. → …, weil der Kunde <strong>angerufen hat</strong>.<br>
+    Jonas <strong>muss anrufen</strong>. → …, weil Jonas <strong>anrufen muss</strong>.</p>
+  </div>
+
+  <div class="redemittel-box">
+    <h2>Jetzt sprechen</h2>
+    <p class="satz"><strong>weil:</strong> Wir warten, weil … · Ich rufe später an, weil … · Der Termin verschiebt sich, weil …</p>
+    <p class="satz"><strong>wenn:</strong> Wenn die Lieferung kommt, … · Wenn die Freigabe da ist, … · Wenn ich eine Antwort habe, …</p>
+    <p>Wählen Sie vier Satzanfänge. Die Informationen dürfen Sie aus den Übungen übernehmen.</p>
+  </div>
 </section>
 
-<!-- ============ Einschleifen ============ -->
-<section class="blatt" id="blatt-automatisieren" role="tabpanel" aria-labelledby="tab-automatisieren" hidden><p class="stand-hinweis">Richtwert: 30–40 Minuten · variieren, reagieren, sprechen</p>
+<!-- ============ SATZBAU-SPIELPLATZ ============ -->
+<section class="blatt" id="blatt-automatisieren" role="tabpanel" aria-labelledby="tab-automatisieren" hidden>
+  <p class="stand-hinweis">Richtwert: 30 Minuten · schnell reagieren und wiederholen</p>
 
-<div class="kasten"><h2>Warum dieser Reiter der wichtigste ist</h2><p>Die Regeln aus den ersten vier Reitern versteht man in zehn Minuten. Im echten Gespräch fallen sie trotzdem um — weil man dann an den Inhalt denkt und nicht an die Verbposition.</p>
-<p class="marke">Deshalb hier: <strong>kleine Schritte, viele Wiederholungen, steigendes Tempo.</strong> Pro Stufe kommt genau eine neue Schwierigkeit dazu. Erst danach folgt der freie Reiter.</p></div>
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Spiel 1</strong>
+    <h2>Satz-TÜV</h2>
+    <p>Klicken Sie auf <strong>Neuer Satz</strong>. Sagen Sie zuerst laut: richtig oder falsch. Ist der Satz falsch, korrigieren Sie ihn. Erst danach die Lösung anzeigen.</p>
+    <div class="kasten">
+      <p class="satz" id="tuev-satz">Heute Nora prüft die Rechnung.</p>
+      <p class="rueckmeldung" id="tuev-loesung" hidden></p>
+      <div class="knopfreihe"><button class="knopf" type="button" id="tuev-neu">Neuer Satz</button><button class="knopf" type="button" id="tuev-zeigen">Lösung zeigen</button></div>
+    </div>
+  </div>
 
-<div class="differenzierung differenzierung--start"><strong class="differenzierung__stufe">Stufe 1 · ein Wort tauschen</strong><h2>Dasselbe Muster, neuer Inhalt</h2><p class="anleitung">Sprechen Sie das Muster laut und ersetzen Sie jedes Mal nur das markierte Wort. Reihum, ohne Nachdenkpause.</p>
-<p class="satz"><strong>Muster A:</strong> Am Montag <em>prüfe</em> ich die Bestellung. → <em>schicke</em> · <em>bearbeite</em> · <em>bestätige</em> · <em>storniere</em></p>
-<p class="satz"><strong>Muster B:</strong> Ich muss den Kunden heute <em>anrufen</em>. → <em>informieren</em> · <em>zurückrufen</em> · <em>benachrichtigen</em> · <em>einladen</em></p>
-<p class="satz"><strong>Muster C:</strong> Wir warten, weil die Freigabe noch <em>fehlt</em>. → <em>aussteht</em> · <em>nicht da ist</em> · <em>geprüft wird</em></p></div>
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Spiel 2</strong>
+    <h2>30-Sekunden-Challenge</h2>
+    <p>Eine Person klickt, eine Person spricht. Für jeden neuen Impuls gibt es genau einen Satz. Wie viele korrekte Sätze schaffen Sie in 30 Sekunden?</p>
+    <div class="kasten">
+      <p class="satz" id="challenge-ausgabe">Heute · Nora · die Rechnung prüfen</p>
+      <p id="challenge-stand">Sätze: 0</p>
+      <div class="knopfreihe"><button class="knopf" type="button" id="challenge-start">30 Sekunden starten</button><button class="knopf" type="button" id="challenge-neu">Nächster Impuls</button></div>
+    </div>
+  </div>
 
-<div class="differenzierung differenzierung--weiter"><strong class="differenzierung__stufe">Stufe 2 · den Anfang verschieben</strong><h2>Vier Anfänge, ein Satz</h2><p>Derselbe Satz, viermal anders begonnen. Alle vier Fassungen sind korrekt — sie beantworten nur unterschiedliche Fragen.</p></div>
-<h2>Welcher Anfang passt zu welcher Situation?</h2>
-<div id="anfaenge"></div>
-<p class="rueckmeldung" id="anfaenge-rueck" hidden></p>
-<p class="marke">Als Kettenübung im Plenum: Ein Satz wird vorgegeben, reihum stellt jede Person ein anderes Element nach vorn und liest laut vor. Danach die Frage: In welcher Situation passt welche Fassung?</p>
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Spiel 3</strong>
+    <h2>Partner-Automat</h2>
+    <p>Klicken Sie auf <strong>Neue Runde</strong>. A liest den Auftrag, B reagiert sofort. Danach Rollen tauschen.</p>
+    <div class="kasten">
+      <p class="satz" id="partner-ausgabe">A: Fragen Sie nach dem Liefertermin. · B: Antworten Sie mit einem weil-Satz.</p>
+      <div class="knopfreihe"><button class="knopf" type="button" id="partner-neu">Neue Runde</button></div>
+    </div>
+  </div>
 
-<div class="differenzierung differenzierung--weiter"><strong class="differenzierung__stufe">Stufe 3 · schnell reagieren</strong><h2>Stell es nach vorn</h2><p class="anleitung">Die Angabe steht hinten und soll nach vorn. Schreiben Sie nur das Wortpaar, das direkt hinter der Angabe kommt: <strong>Verb + Subjekt</strong>. Kurz und schnell — das ist ein Drill, keine Denkaufgabe.</p></div>
-<p class="lueckentext">
-1. Ich habe gestern angerufen. → Gestern <input class="luecke" id="r1" size="12" autocomplete="off"> angerufen.<br><br>
-2. Wir liefern am Freitag. → Am Freitag <input class="luecke" id="r2" size="12" autocomplete="off">.<br><br>
-3. Nora prüft die Rechnung im Büro. → Im Büro <input class="luecke" id="r3" size="12" autocomplete="off"> die Rechnung.<br><br>
-4. Der Termin wurde wegen der Inventur verschoben. → Wegen der Inventur <input class="luecke" id="r4" size="16" autocomplete="off"> verschoben.<br><br>
-5. Jonas kann den Kunden morgen anrufen. → Morgen <input class="luecke" id="r5" size="14" autocomplete="off"> den Kunden anrufen.<br><br>
-6. Wir haben die Ware nach Berlin geschickt. → Nach Berlin <input class="luecke" id="r6" size="12" autocomplete="off"> die Ware geschickt.
-</p>
-<div class="knopfreihe"><button class="knopf" id="r-pruefen" type="button">Prüfen</button><button class="knopf" id="r-tipp" type="button">Tipp</button></div>
-<p class="rueckmeldung" id="r-rueck" hidden></p>
-<p class="rueckmeldung" id="r-hinweis" hidden>Position 1 ist besetzt — also kommt sofort das gebeugte Verb, und erst danach das Subjekt. Immer in dieser Reihenfolge.</p>
-<p class="marke">Als Zwei-Minuten-Drill im Plenum: Die Kursleitung nennt einen Satz und eine Angabe, die angesprochene Person stellt die Angabe nach vorn. Hohes Tempo, keine Korrektur zwischendurch — nur bei Fehlern kurz das Muster wiederholen lassen.</p>
-
-<div class="differenzierung differenzierung--weiter"><strong class="differenzierung__stufe">Stufe 4 · mündlicher Blitzdrill</strong><h2>Zwei Runden, nur gesprochen</h2><p class="anleitung">Reihum, ohne Aufschreiben. Pro Runde nur eine Umformung — genau die, die im Gespräch am häufigsten schiefgeht.</p>
-<p class="satz"><strong>Runde A · Aussage wird Frage.</strong> Die Kursleitung nennt eine Aussage, die angesprochene Person macht daraus eine geschlossene Frage. Danach dieselbe Aussage noch einmal, jetzt als W-Frage mit einem vorgegebenen Fragewort.</p>
-<p class="satz">Die Lieferung kommt am Freitag. → <em>Kommt die Lieferung am Freitag?</em> → <em>Wann kommt die Lieferung?</em></p>
-<p class="satz"><strong>Runde B · Grund anhängen.</strong> Die Kursleitung nennt einen Hauptsatz, die angesprochene Person hängt einen <em>weil</em>-Satz an — Inhalt frei, Verb ans Ende.</p>
-<p class="satz">Ich rufe später zurück, … → <em>… weil ich gerade in einer Besprechung bin.</em></p>
-<p class="marke">Zwei Minuten pro Runde, hohes Tempo. Nicht einzeln korrigieren — bei einem Fehler nur das richtige Muster einmal vorsprechen und weitergehen.</p></div>
-
-<div class="differenzierung differenzierung--weiter"><strong class="differenzierung__stufe">Stufe 5 · kurzer Partnerdialog</strong><h2>Rückfrage und Antwort</h2>
-<div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 8 Minuten</span><p><strong>A</strong> fragt nach einer verspäteten Lieferung, <strong>B</strong> erklärt den Stand und nennt einen Grund. Danach Rollentausch mit einem anderen Vorgang.</p>
-<p><strong>Vorgabe:</strong> A stellt mindestens eine W-Frage und eine geschlossene Frage. B antwortet mindestens einmal mit einem <em>weil</em>-Satz.</p></div></div>
-<div class="redemittel-box"><h2>Redemittel</h2><p><strong>A:</strong> Wann kommt …? · Können Sie mir sagen, …? · Ist die Lieferung schon …? · Warum dauert es länger?<br>
-<strong>B:</strong> Die Lieferung kommt … · Wir warten noch, weil … · Sobald …, melde ich mich. · Heute kann ich Ihnen noch nichts sagen, weil …</p></div>
-
-<details class="optionale-hilfe"><summary>Optionale Hilfe: Wenn der Satz im Sprechen zusammenbricht</summary><div class="optionale-hilfe__inhalt"><p>Machen Sie ihn kürzer. Zwei kurze Sätze sind immer besser als einer, dessen Ende Sie nicht mehr finden: <em>Die Lieferung ist unterwegs. Sie kommt am Freitag.</em></p><p>Und wenn Sie mittendrin merken, dass das Verb fehlt: Sagen Sie den Satz einfach noch einmal von vorn. Das tun Muttersprachler auch.</p></div></details>
-
+  <div class="redemittel-box">
+    <h2>Sprachmaterial bleibt sichtbar</h2>
+    <p class="satz">Heute · morgen · am Freitag · im Büro · wegen der Inventur · die Rechnung · die Lieferung · der Termin · prüfen · schicken · anrufen · verschieben · warten · bestätigen</p>
+    <p>Hier geht es nicht um neue Ideen. Es geht nur darum, die richtige Verbposition schnell zu produzieren.</p>
+  </div>
 </section>
 
-<!-- ============ Frei anwenden ============ -->
-<section class="blatt" id="blatt-anwenden" role="tabpanel" aria-labelledby="tab-anwenden" hidden><p class="stand-hinweis">Richtwert: 25–35 Minuten · schreiben und sprechen</p>
+<!-- ============ FREI ANWENDEN ============ -->
+<section class="blatt" id="blatt-anwenden" role="tabpanel" aria-labelledby="tab-anwenden" hidden>
+  <p class="stand-hinweis">Richtwert: 30 Minuten · schreiben und sprechen</p>
 
-<div class="kasten"><p class="marke">Dieser Reiter setzt die fünf Stufen aus <em>Einschleifen</em> voraus. Wenn dort etwas noch wackelt, gehen Sie lieber zurück — freies Formulieren festigt nichts, es zeigt nur, was schon sitzt.</p></div>
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Schreiben</strong>
+    <h2>Ein Vorgang in sechs Sätzen</h2>
+    <div class="auftrag"><span class="auftrag-marke">Einzelarbeit · 10 Minuten</span><p>Wählen Sie einen Vorgang: Lieferung, Rechnung, Termin oder Kundenanruf. Schreiben Sie sechs Sätze: zwei Hauptsätze mit unterschiedlichem Anfang, eine geschlossene Frage, eine W-Frage, einen Satz mit zwei Verbteilen und einen Nebensatz.</p></div>
+    <textarea class="feld" id="schreiben" rows="8" data-ergebnis-label="Meine sechs Sätze"></textarea>
+  </div>
 
-<div class="differenzierung differenzierung--weiter"><strong class="differenzierung__stufe">Weiter · Schreiben</strong><h2>Fünf Sätze über einen Vorgang</h2>
-<div class="auftrag"><span class="auftrag-marke">Einzelarbeit · 10 Minuten</span><p>Beschreiben Sie einen Vorgang aus Ihrem Arbeitsalltag in fünf Sätzen: eine Aussage, eine W-Frage, eine geschlossene Frage, einen Satz mit zwei Verbteilen und einen Nebensatz.</p></div>
-<p><strong>Start:</strong> fünf Sätze nach der Vorgabe, Inhalt frei.<br>
-<strong>Weiter:</strong> zusätzlich zwei Sätze, die <em>nicht</em> mit dem Subjekt beginnen.<br>
-<strong>Herausforderung:</strong> markieren Sie in jedem Satz das gebeugte Verb und begründen Sie in einem Satz, warum es dort steht.</p>
-<textarea class="feld" id="schreiben" rows="7" data-ergebnis-label="Meine fünf Sätze"></textarea></div>
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Sprechen</strong>
+    <h2>60 Sekunden im Büro</h2>
+    <div class="auftrag"><span class="auftrag-marke">Partnerarbeit</span><p>Wählen Sie eine Situation: verspätete Lieferung, Terminänderung, fehlende Rechnung oder Rückruf. Sprechen Sie 60 Sekunden. Ihr Partner hört nur auf die Verbposition. Wenn ein Satz nicht stimmt, sprechen Sie ihn noch einmal richtig.</p></div>
+  </div>
 
-<div class="differenzierung differenzierung--weiter"><strong class="differenzierung__stufe">Weiter · Sprechen</strong><h2>Ansage in dreißig Sekunden</h2>
-<div class="auftrag"><span class="auftrag-marke">Plenum · je 1 Minute</span><p>Machen Sie eine kurze Ansage an das Team: eine Änderung, ein Termin oder eine Bitte. Höchstens drei Sätze.</p>
-<p><strong>Die Gruppe gibt Rückmeldung nur zu einer einzigen Frage:</strong> Habe ich es beim ersten Hören verstanden?</p></div></div>
+  <div class="differenzierung differenzierung--herausforderung">
+    <strong class="differenzierung__stufe">Herausforderung</strong>
+    <h2>Denselben Inhalt anders beginnen</h2>
+    <p>Sagen Sie denselben Hauptsatz dreimal. Beginnen Sie einmal mit der Person, einmal mit der Zeit und einmal mit einer anderen Information. Das Verb bleibt auf Position 2.</p>
+    <p class="marke">Vertiefung: <a href="informationsstruktur.html">Informationen gewichten</a>.</p>
+  </div>
 
-<div class="differenzierung differenzierung--herausforderung"><strong class="differenzierung__stufe">Herausforderung</strong><h2>Denselben Satz dreimal anfangen</h2><p>Nehmen Sie einen Satz aus Ihrer Ansage und beginnen Sie ihn dreimal anders. Erklären Sie danach, was dadurch jeweils in den Vordergrund rückt.</p><p class="marke">Vertiefung: <a href="informationsstruktur.html">Informationen gewichten</a>.</p></div>
-
-<div class="differenzierung differenzierung--start"><strong class="differenzierung__stufe">Weiterüben / Hausaufgabe · 15–20 Minuten</strong><h2>Ein Vorgang – fünf Satzmuster</h2><ol><li>Notieren Sie fünf Verben aus Ihrem Arbeitsalltag.</li><li>Bilden Sie damit eine Aussage, eine W-Frage, eine geschlossene Frage, einen Satz mit zwei Verbteilen und einen <em>weil</em>-Satz.</li><li>Lesen Sie die fünf Sätze laut. Markieren Sie vorher das gebeugte Verb.</li></ol><p>Bringen Sie zwei Sätze mit, bei denen Sie unsicher sind.</p></div>
-
-<h2>Meine Notizen</h2>
-<textarea class="feld" id="notizen" rows="5" data-ergebnis-label="Notizen zum Satzbau"></textarea>
-
+  <p class="marke"><strong>Danach weiter:</strong> <a href="tekamolo.html">Mittelfeld und TEKAMOLO</a> · <a href="konnektoren-ueberblick.html">Konnektoren im Überblick</a> · <a href="informationsstruktur.html">Informationen gewichten</a></p>
 </section>
 
-</main><footer class="fuss">Nur für Kursteilnehmerinnen und Kursteilnehmer</footer>
-<script src="../assets/lehrwerk.js"></script><script>
-Lehrwerk.modul('satzbau'); Lehrwerk.reiter();
+
+<!-- ============ HAUSAUFGABE ============ -->
+<section class="blatt" id="blatt-hausaufgabe" role="tabpanel" aria-labelledby="tab-hausaufgabe" hidden>
+  <p class="stand-hinweis">Richtwert: 15–20 Minuten plus 2 Minuten täglich · alles mischen und automatisieren</p>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">1 · Gemischt wiederholen</strong>
+    <h2>Welche Verbposition gilt jetzt?</h2>
+    <p>Die Aufgaben sind absichtlich nicht mehr nach Regeln sortiert. Entscheiden Sie bei jedem Satz neu: Position 2, Position 1 oder letzte Position?</p>
+  </div>
+  <div id="quiz-hausaufgabe"></div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">2 · Laut sprechen</strong>
+    <h2>Acht kurze Impulse</h2>
+    <p>Sprechen Sie zu jedem Impuls sofort einen vollständigen Satz. Verwenden Sie nur Wörter, die schon auf dieser Seite vorkamen.</p>
+    <p class="satz"><strong>Heute …</strong> · <strong>Nach der Besprechung …</strong> · <strong>Können Sie …?</strong> · <strong>Wann …?</strong> · <strong>weil …</strong> · <strong>Wenn …, …</strong> · <strong>Ich muss …</strong> · <strong>Ich habe …</strong></p>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">3 · 5-Tage-Mikrotraining</strong>
+    <h2>Zähneputz-Drill</h2>
+    <p>Schauen Sie vor dem Zähneputzen kurz auf die Tagesaufgabe. Dann starten Sie den <strong>2-Minuten-Drill</strong>. Während der zwei Minuten müssen Sie nichts tippen. Sprechen Sie die Sätze laut oder im Kopf.</p>
+    <ol>
+      <li><strong>Tag 1:</strong> Hauptsätze immer neu beginnen. Das Verb bleibt auf Position 2.</li>
+      <li><strong>Tag 2:</strong> Aussage → geschlossene Frage → W-Frage.</li>
+      <li><strong>Tag 3:</strong> Hauptsatz + <em>weil</em>-Satz. Verb im Nebensatz an die letzte Position.</li>
+      <li><strong>Tag 4:</strong> Nebensatz nach vorn. Nach dem Komma sofort das konjugierte Verb des Hauptsatzes.</li>
+      <li><strong>Tag 5:</strong> Zwei Verbteile. Position 2 + zweiter Verbteil am Ende.</li>
+    </ol>
+    <div class="auftrag"><span class="auftrag-marke">2 Minuten</span><p><a href="../training/2-minuten-drill.html?set=satzbau"><strong>2-Minuten-Drill auf dem Handy öffnen</strong></a></p><p class="marke">Zähneputzen ist nur der Standardanker. Der Drill funktioniert auch im Bus, in der Pause oder überall dort, wo zwei Minuten frei sind.</p></div>
+  </div>
+
+  <div class="merker">
+    <span class="marke-merker">Nach fünf Tagen</span>
+    <p>Wenn Sie bei einem Muster noch stocken, wiederholen Sie genau diesen Tag. Ziel ist nicht, die Regel erklären zu können. Ziel ist, den richtigen Satz automatisch zu sagen.</p>
+  </div>
+</section>
+
+</main>
+<footer class="fuss">Nur für Kursteilnehmerinnen und Kursteilnehmer</footer>
+<script src="../assets/lehrwerk.js"></script>
+<script>
+Lehrwerk.modul('satzbau');
+Lehrwerk.reiter();
 const T = (id, text, typ) => ({ id, text, typ });
 
-/* ---- Aussagesatz ---- */
+/* Reiter in diesem Mustermodul: beim Wechsel zur Reiterleiste statt zum Seitenkopf. */
+document.querySelectorAll('.reiter button').forEach(button => {
+  button.addEventListener('click', () => {
+    requestAnimationFrame(() => {
+      const leiste = button.closest('.reiter');
+      if (!leiste) return;
+      const top = leiste.getBoundingClientRect().top + window.scrollY - 12;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    });
+  });
+});
+
+/* ---- Position 2 ---- */
 Lehrwerk.auswahl('quiz-grund',[
-  {id:'g1',text:'Welcher Satz hat das gebeugte Verb an zweiter Stelle?',optionen:['Heute prüft Nora die Rechnung.','Heute Nora prüft die Rechnung.','Prüft heute Nora die Rechnung.'],richtig:['Heute prüft Nora die Rechnung.'],erklaerung:'„Heute“ besetzt Position 1, deshalb kommt das Verb sofort danach und das Subjekt erst dahinter.'},
-  {id:'g2',text:'Welche zwei Sätze sind richtig gebaut?',optionen:['Die Bestellung prüft Nora morgen.','Morgen prüft Nora die Bestellung.','Morgen Nora prüft die Bestellung.','Die Bestellung Nora prüft morgen.'],richtig:['Die Bestellung prüft Nora morgen.','Morgen prüft Nora die Bestellung.'],erklaerung:'Auf Position 1 kann auch das Objekt oder eine Zeitangabe stehen. Entscheidend ist nur: Danach kommt sofort das Verb.'},
-  {id:'g3',text:'Was steht in diesem Satz auf Position 1: „Die neue Bestellung aus Hamburg liegt seit gestern im Fach.“?',optionen:['Die neue Bestellung aus Hamburg','Die','Die neue Bestellung','liegt'],richtig:['Die neue Bestellung aus Hamburg'],erklaerung:'Position 1 kann aus mehreren Wörtern bestehen. Alles bis zum gebeugten Verb gehört zusammen und zählt als ein Satzteil.'},
-  {id:'g4',text:'Ein Kollege schreibt: „Wegen der Inventur wir arbeiten heute im Lager.“ Was ist zu ändern?',optionen:['Verb und Subjekt tauschen: … arbeiten wir heute im Lager.','Nichts, der Satz ist richtig.','„Wegen der Inventur“ ans Ende stellen.','„heute“ nach vorn stellen.'],richtig:['Verb und Subjekt tauschen: … arbeiten wir heute im Lager.'],erklaerung:'Position 1 ist mit der Angabe besetzt. Dann folgt zuerst das gebeugte Verb, danach das Subjekt. Das ist der häufigste Satzbaufehler überhaupt.'},
-  {id:'g5',text:'Warum ist „Gestern im Lager wir haben die Ware gezählt.“ falsch?',optionen:['Auf Position 1 stehen zwei Satzteile, und das Verb steht zu spät.','„gezählt“ steht am falschen Platz.','„Gestern“ darf nicht am Anfang stehen.','Der Satz braucht ein Komma.'],richtig:['Auf Position 1 stehen zwei Satzteile, und das Verb steht zu spät.'],erklaerung:'Vor dem gebeugten Verb steht genau ein Satzteil. Richtig wäre: „Gestern haben wir die Ware im Lager gezählt.“'}
+  {id:'g1',text:'Welcher Satz ist richtig?',optionen:['Heute prüft Nora die Rechnung.','Heute Nora prüft die Rechnung.','Prüft heute Nora die Rechnung.'],richtig:['Heute prüft Nora die Rechnung.'],erklaerung:'Heute steht auf Position 1. Das konjugierte Verb steht auf Position 2.'},
+  {id:'g2',text:'Welcher Satz ist richtig?',optionen:['Im Büro beantwortet Jonas die E-Mails.','Im Büro Jonas beantwortet die E-Mails.','Im Büro die E-Mails beantwortet Jonas.'],richtig:['Im Büro beantwortet Jonas die E-Mails.'],erklaerung:'Auch nach einer Ortsangabe steht das Verb auf Position 2.'},
+  {id:'g3',text:'Welcher Satz ist richtig?',optionen:['Die Rechnung schickt Nora heute.','Die Rechnung Nora schickt heute.','Schickt die Rechnung Nora heute.'],richtig:['Die Rechnung schickt Nora heute.'],erklaerung:'Auch ein Objekt kann auf Position 1 stehen.'},
+  {id:'g4',text:'Welcher Satz ist richtig?',optionen:['Wegen der Besprechung kommt Jonas später.','Wegen der Besprechung Jonas kommt später.','Wegen der Besprechung später Jonas kommt.'],richtig:['Wegen der Besprechung kommt Jonas später.'],erklaerung:'Die lange Angabe ist zusammen Position 1. Danach kommt das Verb.'},
+  {id:'g5',text:'Was steht in „Nach der Pause ruft Nora den Kunden an.“ auf Position 1?',optionen:['Nach der Pause','Nach','der Pause','ruft'],richtig:['Nach der Pause'],erklaerung:'Position 1 kann aus mehreren Wörtern bestehen.'},
+  {id:'g6',text:'Welches Wort ist das konjugierte Verb in „Heute müssen wir länger warten.“?',optionen:['müssen','warten','Heute','länger'],richtig:['müssen'],erklaerung:'müssen verändert sich mit der Person: ich muss, wir müssen.'},
+  {id:'g7',text:'Welcher Satz beginnt mit einem Objekt und bleibt richtig?',optionen:['Den Kunden ruft Nora später an.','Den Kunden Nora ruft später an.','Den Kunden später Nora ruft an.'],richtig:['Den Kunden ruft Nora später an.'],erklaerung:'Was vorne steht, kann wechseln. Das Verb bleibt auf Position 2.'},
+  {id:'g8',text:'Welcher Satz beginnt mit einer Zeitangabe und bleibt richtig?',optionen:['Um 14 Uhr beginnt die Besprechung.','Um 14 Uhr die Besprechung beginnt.','Um 14 Uhr beginnt um die Besprechung.'],richtig:['Um 14 Uhr beginnt die Besprechung.'],erklaerung:'Um 14 Uhr ist Position 1. beginnt steht auf Position 2.'}
 ]);
 
 Lehrwerk.satzfolge('bau-grund',{
-  frage:'Position 1 steht schon. Setzen Sie die übrigen Teile richtig.',
+  frage:'Position 1 steht schon. Bauen Sie den Satz weiter.',
   aufgaben:[
-    {id:'bg1',anfang:'Heute',ende:'.',teile:[T('v','prüft','verb'),T('s','Nora','subjekt'),T('o','die Bestellung','akkusativ')],loesungen:[['v','s','o']],erklaerung:'Position 1 ist besetzt, also kommt sofort das Verb und danach das Subjekt.'},
-    {id:'bg2',anfang:'Am Montag',ende:'.',teile:[T('v','beginnt','verb'),T('s','die Schulung','subjekt'),T('l','im großen Raum','lokal')],loesungen:[['v','s','l']]},
-    {id:'bg3',anfang:'Die Rechnung',ende:'.',teile:[T('v','schickt','verb'),T('s','Jonas','subjekt'),T('t','heute Nachmittag','temporal')],loesungen:[['v','s','t']],erklaerung:'Auch wenn das Objekt vorn steht, bleibt die Reihenfolge dieselbe: Verb, dann Subjekt.'},
-    {id:'bg4',anfang:'Wegen der Inventur',ende:'.',teile:[T('v','arbeiten','verb'),T('s','wir','subjekt'),T('t','heute','temporal'),T('l','im Lager','lokal')],loesungen:[['v','s','t','l'],['v','s','l','t']],erklaerung:'Beide Reihenfolgen der beiden Angaben sind richtig. Auf dieser Seite zählt nur: Verb sofort nach Position 1, Subjekt direkt danach.'},
-    {id:'bg5',anfang:'Frau Seidel',ende:'.',teile:[T('v','ist','verb'),T('t','bis Freitag','temporal'),T('e','im Haus','ergaenzung')],loesungen:[['v','t','e'],['v','e','t']]},
-    {id:'bg6',anfang:'Nach der Besprechung',ende:'.',teile:[T('v','informiert','verb'),T('s','Kateryna','subjekt'),T('o','das Team','akkusativ')],loesungen:[['v','s','o']]}
+    {id:'bg1',anfang:'Heute',ende:'.',teile:[T('v','prüft','verb'),T('s','Nora','subjekt'),T('o','die Rechnung','akkusativ')],loesungen:[['v','s','o']]},
+    {id:'bg2',anfang:'Morgen',ende:'.',teile:[T('v','ruft','verb'),T('s','Jonas','subjekt'),T('o','den Kunden','akkusativ'),T('v2','an','verb')],loesungen:[['v','s','o','v2']]},
+    {id:'bg3',anfang:'Im Büro',ende:'.',teile:[T('v','bearbeitet','verb'),T('s','Nora','subjekt'),T('o','die Bestellung','akkusativ')],loesungen:[['v','s','o']]},
+    {id:'bg4',anfang:'Nach der Pause',ende:'.',teile:[T('v','beginnt','verb'),T('s','die Besprechung','subjekt')],loesungen:[['v','s']]},
+    {id:'bg5',anfang:'Die Rechnung',ende:'.',teile:[T('v','schickt','verb'),T('s','Jonas','subjekt'),T('t','heute','temporal')],loesungen:[['v','s','t']]},
+    {id:'bg6',anfang:'Den Kunden',ende:'.',teile:[T('v','informiert','verb'),T('s','Nora','subjekt'),T('t','morgen','temporal')],loesungen:[['v','s','t']]},
+    {id:'bg7',anfang:'Wegen der Inventur',ende:'.',teile:[T('v','arbeiten','verb'),T('s','wir','subjekt'),T('l','im Lager','lokal')],loesungen:[['v','s','l']]},
+    {id:'bg8',anfang:'Um 14 Uhr',ende:'.',teile:[T('v','kommt','verb'),T('s','der Fahrer','subjekt')],loesungen:[['v','s']]},
+    {id:'bg9',anfang:'In Hamburg',ende:'.',teile:[T('v','sitzt','verb'),T('s','unser Lieferant','subjekt')],loesungen:[['v','s']]},
+    {id:'bg10',anfang:'Diese Bestellung',ende:'.',teile:[T('v','brauchen','verb'),T('s','wir','subjekt'),T('t','heute','temporal')],loesungen:[['v','s','t']]}
   ]
 });
 
 /* ---- Fragen ---- */
 Lehrwerk.auswahl('quiz-fragen',[
-  {id:'q1',text:'Welcher Satz ist eine korrekte W-Frage?',optionen:['Wann liefert KONTOR die Ware?','Wann KONTOR liefert die Ware?','Liefert wann KONTOR die Ware?'],richtig:['Wann liefert KONTOR die Ware?'],erklaerung:'Das Fragewort besetzt Position 1, das gebeugte Verb kommt sofort danach.'},
-  {id:'q2',text:'Sie möchten nur „ja“ oder „nein“ hören. Welche Frage stellen Sie?',optionen:['Ist die Lieferung schon da?','Wann ist die Lieferung da?','Die Lieferung ist schon da?','Wo ist die Lieferung?'],richtig:['Ist die Lieferung schon da?'],erklaerung:'Bei einer geschlossenen Frage steht das gebeugte Verb ganz vorn. Der dritte Satz ist eine Aussage mit Fragezeichen — im Gespräch möglich, aber keine gebaute Frage.'},
-  {id:'q3',text:'Welche zwei Fragen sind richtig gebaut?',optionen:['Warum dauert die Prüfung länger?','Können Sie mir die Nummer geben?','Warum die Prüfung dauert länger?','Sie können mir die Nummer geben?'],richtig:['Warum dauert die Prüfung länger?','Können Sie mir die Nummer geben?'],erklaerung:'Einmal Fragewort plus Verb, einmal Verb ganz vorn. Beide Male steht das gebeugte Verb genau dort, wo die Satzart es verlangt.'},
-  {id:'q4',text:'„Könnten Sie den Vorgang heute noch abschließen?“ — Welches Wort ist hier das gebeugte Verb?',optionen:['Könnten','abschließen','Sie','Vorgang'],richtig:['Könnten'],erklaerung:'„Könnten“ ändert sich mit der Person: ich könnte, Sie könnten. Deshalb steht es vorn, und „abschließen“ bleibt als zweiter Verbteil am Ende.'},
-  {id:'q5',text:'Sie wollen wissen, wie lange etwas noch dauert. Welche Frage passt?',optionen:['Wie lange brauchen Sie noch?','Wie lange Sie brauchen noch?','Brauchen wie lange Sie noch?','Wie lange noch brauchen Sie?'],richtig:['Wie lange brauchen Sie noch?'],erklaerung:'„Wie lange“ ist ein Frageausdruck aus zwei Wörtern und besetzt zusammen Position 1. Direkt danach folgt das gebeugte Verb.'}
+  {id:'q1',text:'Welche W-Frage ist richtig?',optionen:['Wann kommt die Lieferung?','Wann die Lieferung kommt?','Kommt wann die Lieferung?'],richtig:['Wann kommt die Lieferung?']},
+  {id:'q2',text:'Welche geschlossene Frage ist richtig?',optionen:['Haben Sie die Rechnung erhalten?','Sie haben die Rechnung erhalten?','Wann haben Sie die Rechnung erhalten?'],richtig:['Haben Sie die Rechnung erhalten?']},
+  {id:'q3',text:'Welche W-Frage ist richtig?',optionen:['Warum dauert die Bearbeitung länger?','Warum die Bearbeitung dauert länger?','Dauert warum die Bearbeitung länger?'],richtig:['Warum dauert die Bearbeitung länger?']},
+  {id:'q4',text:'Welche geschlossene Frage ist richtig?',optionen:['Können Sie den Termin verschieben?','Sie können den Termin verschieben?','Wann können Sie den Termin verschieben?'],richtig:['Können Sie den Termin verschieben?']},
+  {id:'q5',text:'Welche Frage ist richtig?',optionen:['Wie lange brauchen Sie noch?','Wie lange Sie brauchen noch?','Wie lange noch Sie brauchen?'],richtig:['Wie lange brauchen Sie noch?']},
+  {id:'q6',text:'Welche Frage beginnt mit dem Verb?',optionen:['Ist Frau Seidel im Haus?','Wo ist Frau Seidel?','Wann ist Frau Seidel im Haus?'],richtig:['Ist Frau Seidel im Haus?']}
 ]);
 
 Lehrwerk.satzfolge('bau-fragen',{
-  frage:'Bauen Sie die Frage. Achten Sie nur darauf, wo das gebeugte Verb steht.',
+  frage:'Bauen Sie die Frage.',
   aufgaben:[
-    {id:'bf1',anfang:'',ende:'?',teile:[T('v','Prüfen','verb'),T('s','Sie','subjekt'),T('o','die Rechnung','akkusativ'),T('t','noch heute','temporal')],loesungen:[['v','s','o','t'],['v','s','t','o']],erklaerung:'Geschlossene Frage: Das Verb steht ganz vorn. Ob „noch heute“ vor oder nach dem Objekt steht, ist beides möglich.'},
-    {id:'bf2',anfang:'Wann',ende:'?',teile:[T('v','kommt','verb'),T('s','die Lieferung','subjekt')],loesungen:[['v','s']]},
+    {id:'bf1',anfang:'Wann',ende:'?',teile:[T('v','kommt','verb'),T('s','die Lieferung','subjekt')],loesungen:[['v','s']]},
+    {id:'bf2',anfang:'Wo',ende:'?',teile:[T('v','liegt','verb'),T('s','die Rechnung','subjekt')],loesungen:[['v','s']]},
     {id:'bf3',anfang:'Warum',ende:'?',teile:[T('v','dauert','verb'),T('s','die Bearbeitung','subjekt'),T('m','so lange','modal')],loesungen:[['v','s','m'],['v','m','s']]},
-    {id:'bf4',anfang:'',ende:'?',teile:[T('v','Hat','verb'),T('s','der Kunde','subjekt'),T('t','gestern','temporal'),T('v2','angerufen','verb')],loesungen:[['v','s','t','v2']],erklaerung:'Auch in der Frage bleibt die Klammer: „Hat“ vorn, „angerufen“ am Ende.'},
-    {id:'bf5',anfang:'Wie',ende:'?',teile:[T('v','können','verb'),T('s','wir','subjekt'),T('e','das Problem','akkusativ'),T('v2','lösen','verb')],loesungen:[['v','s','e','v2']]},
-    {id:'bf6',anfang:'Wer',ende:'?',teile:[T('v','ist','verb'),T('t','diese Woche','temporal'),T('e','für den Einkauf zuständig','ergaenzung')],loesungen:[['v','t','e'],['v','e','t']],erklaerung:'Hier ist das Fragewort selbst das Subjekt. Auch dann steht das Verb direkt danach. Wo die Zeitangabe steht, ist frei.'}
+    {id:'bf4',anfang:'Wie lange',ende:'?',teile:[T('v','brauchen','verb'),T('s','Sie','subjekt'),T('m','noch','modal')],loesungen:[['v','s','m']]},
+    {id:'bf5',anfang:'',ende:'?',teile:[T('v','Haben','verb'),T('s','Sie','subjekt'),T('o','die Rechnung','akkusativ'),T('v2','erhalten','verb')],loesungen:[['v','s','o','v2']]},
+    {id:'bf6',anfang:'',ende:'?',teile:[T('v','Kann','verb'),T('s','Nora','subjekt'),T('o','den Termin','akkusativ'),T('v2','verschieben','verb')],loesungen:[['v','s','o','v2']]},
+    {id:'bf7',anfang:'Wer',ende:'?',teile:[T('v','bearbeitet','verb'),T('o','die Bestellung','akkusativ')],loesungen:[['v','o']]},
+    {id:'bf8',anfang:'Was',ende:'?',teile:[T('v','brauchen','verb'),T('s','Sie','subjekt'),T('t','heute','temporal')],loesungen:[['v','s','t']]}
   ]
-});
-
-Lehrwerk.luecken('f',{
-  eindeutig:true,
-  felder:{
-    f1:['schicken'],
-    f2:['hat'],
-    f3:['können'],
-    f4:['kommt'],
-    f5:['ist']
-  },
-  pruefen:'f-pruefen', rueck:'f-rueck', tipp:'f-tipp', hinweis:'f-hinweis'
 });
 
 /* ---- Zwei Verbteile ---- */
 Lehrwerk.auswahl('quiz-klammer',[
-  {id:'k1',text:'Welche Satzklammer ist richtig?',optionen:['Jonas ruft den Kunden heute an.','Jonas anruft den Kunden heute.','Jonas ruft an den Kunden heute.'],richtig:['Jonas ruft den Kunden heute an.'],erklaerung:'Beim trennbaren Verb steht das Präfix ganz am Satzende — nach allem anderen.'},
-  {id:'k2',text:'Welcher Perfektsatz ist richtig?',optionen:['Nora hat die Bestellung geprüft.','Nora hat geprüft die Bestellung.','Nora die Bestellung hat geprüft.'],richtig:['Nora hat die Bestellung geprüft.'],erklaerung:'„Hat“ steht auf Position 2, das Partizip am Ende. Das Objekt liegt dazwischen.'},
-  {id:'k3',text:'Welche zwei Sätze schließen die Klammer richtig?',optionen:['Wir müssen den Termin leider verschieben.','Der Vorgang wird morgen bearbeitet.','Wir müssen verschieben den Termin leider.','Der Vorgang wird bearbeitet morgen.'],richtig:['Wir müssen den Termin leider verschieben.','Der Vorgang wird morgen bearbeitet.'],erklaerung:'Modalverb und Passiv funktionieren gleich: gebeugter Teil an zweiter Stelle, zweiter Teil ganz ans Ende.'},
-  {id:'k4',text:'Wo steht das Mittelfeld?',optionen:['Zwischen den beiden Verbteilen.','Vor dem ersten Verbteil.','Nach dem zweiten Verbteil.','Am Satzanfang.'],richtig:['Zwischen den beiden Verbteilen.'],erklaerung:'Die beiden Verbteile bilden eine Klammer. Alles, was sie umschließen, ist das Mittelfeld.'},
-  {id:'k5',text:'Was ist an „Wir haben die Ware wegen der Verzögerung nach Berlin am Dienstag mit einem zweiten Fahrzeug geschickt.“ ungünstig?',optionen:['Die Klammer ist so weit gespannt, dass man das Verb beim Zuhören kaum noch findet.','Der Satz ist grammatisch falsch.','„geschickt“ steht am falschen Platz.','Es fehlt ein Komma.'],richtig:['Die Klammer ist so weit gespannt, dass man das Verb beim Zuhören kaum noch findet.'],erklaerung:'Der Satz ist korrekt, aber schwer verständlich. Faustregel für den Beruf: Wird der Abstand zwischen den Verbteilen zu groß, teilen Sie den Satz.'}
+  {id:'k1',text:'Welcher Satz ist richtig?',optionen:['Jonas ruft den Kunden heute an.','Jonas anruft den Kunden heute.','Jonas ruft an den Kunden heute.'],richtig:['Jonas ruft den Kunden heute an.']},
+  {id:'k2',text:'Welcher Perfektsatz ist richtig?',optionen:['Nora hat die Bestellung geprüft.','Nora hat geprüft die Bestellung.','Nora die Bestellung hat geprüft.'],richtig:['Nora hat die Bestellung geprüft.']},
+  {id:'k3',text:'Welcher Satz mit Modalverb ist richtig?',optionen:['Wir müssen den Termin verschieben.','Wir müssen verschieben den Termin.','Wir den Termin müssen verschieben.'],richtig:['Wir müssen den Termin verschieben.']},
+  {id:'k4',text:'Wo steht der zweite Verbteil?',optionen:['am Ende','auf Position 2','auf Position 1'],richtig:['am Ende']},
+  {id:'k5',text:'Welcher Satz ist richtig?',optionen:['Heute hat Nora die Rechnung geschickt.','Heute Nora hat die Rechnung geschickt.','Heute hat geschickt Nora die Rechnung.'],richtig:['Heute hat Nora die Rechnung geschickt.']},
+  {id:'k6',text:'Welcher Satz ist richtig?',optionen:['Morgen kann Jonas den Kunden anrufen.','Morgen Jonas kann den Kunden anrufen.','Morgen kann anrufen Jonas den Kunden.'],richtig:['Morgen kann Jonas den Kunden anrufen.']}
 ]);
 
 Lehrwerk.satzfolge('bau-klammer',{
-  frage:'Setzen Sie das Mittelfeld — und vergessen Sie den zweiten Verbteil am Ende nicht.',
+  frage:'Der erste Verbteil steht schon. Schließen Sie die Klammer.',
   aufgaben:[
-    {id:'bk1',anfang:'Jonas ruft',ende:'.',teile:[T('o','den Kunden','akkusativ'),T('t','heute','temporal'),T('v2','an','verb')],loesungen:[['o','t','v2'],['t','o','v2']],erklaerung:'Das Präfix „an“ gehört ans Ende. Ob „heute“ vor oder nach dem Objekt steht, ist beides üblich.'},
+    {id:'bk1',anfang:'Jonas ruft',ende:'.',teile:[T('o','den Kunden','akkusativ'),T('t','heute','temporal'),T('v2','an','verb')],loesungen:[['o','t','v2'],['t','o','v2']]},
     {id:'bk2',anfang:'Nora hat',ende:'.',teile:[T('o','die Bestellung','akkusativ'),T('t','gestern','temporal'),T('v2','geprüft','verb')],loesungen:[['o','t','v2'],['t','o','v2']]},
     {id:'bk3',anfang:'Wir müssen',ende:'.',teile:[T('o','den Termin','akkusativ'),T('m','leider','modal'),T('v2','verschieben','verb')],loesungen:[['o','m','v2'],['m','o','v2']]},
-    {id:'bk4',anfang:'Der Vorgang wird',ende:'.',teile:[T('t','morgen','temporal'),T('l','in der Zentrale','lokal'),T('v2','bearbeitet','verb')],loesungen:[['t','l','v2'],['l','t','v2']],erklaerung:'Beide Reihenfolgen sind richtig. Entscheidend ist nur, dass „bearbeitet“ ganz am Ende steht und die Klammer schließt.'},
-    {id:'bk5',anfang:'Kateryna hat',ende:'.',teile:[T('d','dem Team','dativ'),T('a','die Änderung','akkusativ'),T('v2','erklärt','verb')],loesungen:[['d','a','v2'],['a','d','v2']],erklaerung:'Die Klammer ist in beiden Fassungen richtig geschlossen. Neutral ist Dativ vor Akkusativ; umgekehrt betont man die Änderung.'},
-    {id:'bk6',anfang:'Ich kann',ende:'.',teile:[T('d','Ihnen','dativ'),T('a','die Nummer','akkusativ'),T('t','gleich','temporal'),T('v2','schicken','verb')],loesungen:[['d','a','t','v2'],['d','t','a','v2']],erklaerung:'Das Dativpronomen „Ihnen“ steht früh, das Akkusativobjekt danach. Der Infinitiv „schicken“ schließt die Klammer.'}
+    {id:'bk4',anfang:'Ich kann',ende:'.',teile:[T('o','die Rechnung','akkusativ'),T('t','heute','temporal'),T('v2','schicken','verb')],loesungen:[['o','t','v2'],['t','o','v2']]},
+    {id:'bk5',anfang:'Kateryna bereitet',ende:'.',teile:[T('o','die Besprechung','akkusativ'),T('t','jetzt','temporal'),T('v2','vor','verb')],loesungen:[['o','t','v2'],['t','o','v2']]},
+    {id:'bk6',anfang:'Wir haben',ende:'.',teile:[T('o','den Kunden','akkusativ'),T('t','schon','temporal'),T('v2','informiert','verb')],loesungen:[['o','t','v2'],['t','o','v2']]},
+    {id:'bk7',anfang:'Nora muss',ende:'.',teile:[T('o','die Bestellung','akkusativ'),T('t','heute','temporal'),T('v2','prüfen','verb')],loesungen:[['o','t','v2'],['t','o','v2']]},
+    {id:'bk8',anfang:'Jonas schickt',ende:'.',teile:[T('o','die Unterlagen','akkusativ'),T('t','morgen','temporal'),T('v2','zurück','verb')],loesungen:[['o','t','v2'],['t','o','v2']]}
   ]
 });
 
 /* ---- Nebensatz ---- */
 Lehrwerk.auswahl('quiz-neben',[
-  {id:'n1',text:'Welcher weil-Satz ist richtig?',optionen:['Wir warten, weil die Freigabe noch fehlt.','Wir warten, weil fehlt die Freigabe noch.','Wir warten, weil die Freigabe fehlt noch.'],richtig:['Wir warten, weil die Freigabe noch fehlt.'],erklaerung:'Im Nebensatz steht das gebeugte Verb ganz am Ende — nach allen anderen Teilen.'},
-  {id:'n2',text:'Wie geht es nach einem wenn-Satz weiter?',optionen:['Wenn die Ware kommt, prüfen wir sie.','Wenn die Ware kommt, wir prüfen sie.','Wenn die Ware kommt, dann wir sie prüfen.'],richtig:['Wenn die Ware kommt, prüfen wir sie.'],erklaerung:'Der ganze Nebensatz besetzt Position 1. Danach folgt sofort das gebeugte Verb des Hauptsatzes.'},
-  {id:'n3',text:'Welcher Satz ist richtig?',optionen:['Ich glaube, dass der Termin noch steht.','Ich glaube, dass steht der Termin noch.','Ich glaube, dass der Termin steht noch.'],richtig:['Ich glaube, dass der Termin noch steht.'],erklaerung:'Nach „dass“ gilt dieselbe Regel wie nach „weil“ und „wenn“: Verb ans Ende.'},
-  {id:'n4',text:'Das Verb hat zwei Teile. Welcher Nebensatz ist richtig?',optionen:['…, weil Jonas den Kunden anrufen muss.','…, weil Jonas den Kunden muss anrufen.','…, weil Jonas muss den Kunden anrufen.'],richtig:['…, weil Jonas den Kunden anrufen muss.'],erklaerung:'Im Nebensatz rücken beide Verbteile ans Ende, und der gebeugte Teil steht ganz zuletzt.'},
-  {id:'n5',text:'Welche zwei Sätze sind richtig?',optionen:['Sobald die Freigabe da ist, schicken wir die Ware.','Wir schicken die Ware, sobald die Freigabe da ist.','Sobald die Freigabe ist da, schicken wir die Ware.','Wir schicken die Ware, sobald ist die Freigabe da.'],richtig:['Sobald die Freigabe da ist, schicken wir die Ware.','Wir schicken die Ware, sobald die Freigabe da ist.'],erklaerung:'Der Nebensatz kann vorn oder hinten stehen. Sein Verb bleibt in beiden Fällen am Ende — und steht der Nebensatz vorn, folgt danach sofort das Verb des Hauptsatzes.'}
+  {id:'n1',text:'Welcher weil-Satz ist richtig?',optionen:['Wir warten, weil die Freigabe noch fehlt.','Wir warten, weil fehlt die Freigabe noch.','Wir warten, weil die Freigabe fehlt noch.'],richtig:['Wir warten, weil die Freigabe noch fehlt.']},
+  {id:'n2',text:'Welcher dass-Satz ist richtig?',optionen:['Ich glaube, dass der Termin noch steht.','Ich glaube, dass steht der Termin noch.','Ich glaube, dass der Termin steht noch.'],richtig:['Ich glaube, dass der Termin noch steht.']},
+  {id:'n3',text:'Welcher wenn-Satz ist richtig?',optionen:['Wir melden uns, wenn die Unterlagen vollständig sind.','Wir melden uns, wenn sind die Unterlagen vollständig.','Wir melden uns, wenn die Unterlagen sind vollständig.'],richtig:['Wir melden uns, wenn die Unterlagen vollständig sind.']},
+  {id:'n4',text:'Wo steht das konjugierte Verb im Nebensatz?',optionen:['an der letzten Position','auf Position 2','auf Position 1'],richtig:['an der letzten Position']},
+  {id:'n5',text:'Welcher Perfekt-Nebensatz ist richtig?',optionen:['…, weil der Kunde angerufen hat.','…, weil der Kunde hat angerufen.','…, weil hat der Kunde angerufen.'],richtig:['…, weil der Kunde angerufen hat.']},
+  {id:'n6',text:'Welcher Modalverb-Nebensatz ist richtig?',optionen:['…, weil Jonas den Kunden anrufen muss.','…, weil Jonas muss den Kunden anrufen.','…, weil Jonas den Kunden muss anrufen.'],richtig:['…, weil Jonas den Kunden anrufen muss.']}
 ]);
 
 Lehrwerk.satzfolge('bau-neben',{
-  frage:'Bauen Sie den Nebensatz. Das gebeugte Verb gehört ans Ende.',
+  frage:'Bauen Sie den Nebensatz. Das konjugierte Verb steht zuletzt.',
   aufgaben:[
     {id:'bn1',anfang:'Wir warten, weil',ende:'.',teile:[T('s','die Freigabe','subjekt'),T('m','noch','modal'),T('v','fehlt','verb')],loesungen:[['s','m','v'],['m','s','v']]},
-    {id:'bn2',anfang:'Ich rufe an, weil',ende:'.',teile:[T('s','die Lieferung','subjekt'),T('t','heute','temporal'),T('v','kommt','verb')],loesungen:[['s','t','v'],['t','s','v']],erklaerung:'Auch „weil heute die Lieferung kommt“ ist richtig. Im Nebensatz zählt nur, dass das gebeugte Verb ganz hinten steht.'},
+    {id:'bn2',anfang:'Ich rufe an, weil',ende:'.',teile:[T('s','die Lieferung','subjekt'),T('t','heute','temporal'),T('v','kommt','verb')],loesungen:[['s','t','v'],['t','s','v']]},
     {id:'bn3',anfang:'Ich glaube, dass',ende:'.',teile:[T('s','der Termin','subjekt'),T('m','noch','modal'),T('v','steht','verb')],loesungen:[['s','m','v']]},
-    {id:'bn4',anfang:'Wir melden uns, sobald',ende:'.',teile:[T('s','die Unterlagen','subjekt'),T('e','vollständig','ergaenzung'),T('v','sind','verb')],loesungen:[['s','e','v']]},
-    {id:'bn5',anfang:'Sie hat abgesagt, weil',ende:'.',teile:[T('s','sie','subjekt'),T('o','den Kunden','akkusativ'),T('v2','anrufen','verb'),T('v','musste','verb')],loesungen:[['s','o','v2','v']],erklaerung:'Zwei Verbteile: Beide gehen ans Ende, der gebeugte Teil „musste“ steht ganz zuletzt.'},
-    {id:'bn6',anfang:'Der Vorgang liegt noch hier, weil',ende:'.',teile:[T('s','die Rechnung','subjekt'),T('t','gestern','temporal'),T('v2','geprüft','verb'),T('v','wurde','verb')],loesungen:[['s','t','v2','v'],['t','s','v2','v']]}
+    {id:'bn4',anfang:'Wir melden uns, wenn',ende:'.',teile:[T('s','die Unterlagen','subjekt'),T('e','vollständig','ergaenzung'),T('v','sind','verb')],loesungen:[['s','e','v']]},
+    {id:'bn5',anfang:'Sie sagt ab, weil',ende:'.',teile:[T('s','sie','subjekt'),T('o','keine Zeit','akkusativ'),T('v','hat','verb')],loesungen:[['s','o','v']]},
+    {id:'bn6',anfang:'Wir warten, weil',ende:'.',teile:[T('s','der Kunde','subjekt'),T('v2','noch nicht geantwortet','verb'),T('v','hat','verb')],loesungen:[['s','v2','v']]},
+    {id:'bn7',anfang:'Nora ruft später an, weil',ende:'.',teile:[T('s','sie','subjekt'),T('v2','erst die Rechnung prüfen','verb'),T('v','muss','verb')],loesungen:[['s','v2','v']]},
+    {id:'bn8',anfang:'Ich komme später, weil',ende:'.',teile:[T('s','die Besprechung','subjekt'),T('m','noch','modal'),T('v','läuft','verb')],loesungen:[['s','m','v']]}
   ]
 });
 
-/* ---- Einschleifen ---- */
-Lehrwerk.zuordnen('anfaenge',{
-  rueck:'anfaenge-rueck',
-  paare:[
-    {id:'a1',links:'Wir liefern am Freitag.',rechts:'neutrale Information — nichts ist besonders betont'},
-    {id:'a2',links:'Am Freitag liefern wir.',rechts:'Antwort auf eine Frage nach dem Termin'},
-    {id:'a3',links:'Die Ware liefern wir am Freitag.',rechts:'Anschluss an ein Thema, über das gerade gesprochen wurde'},
-    {id:'a4',links:'Nach Berlin liefern wir am Freitag.',rechts:'wenn mehrere Ziele im Gespräch sind und eines herausgegriffen wird'}
-  ]
+Lehrwerk.auswahl('quiz-neben-vorn',[
+  {id:'nv1',text:'Wie geht es richtig weiter? „Wenn die Lieferung kommt, …“',optionen:['prüft Nora sie sofort.','Nora prüft sie sofort.','sie Nora sofort prüft.'],richtig:['prüft Nora sie sofort.']},
+  {id:'nv2',text:'Wie geht es richtig weiter? „Weil die Freigabe fehlt, …“',optionen:['warten wir.','wir warten.','wir noch warten.'],richtig:['warten wir.']},
+  {id:'nv3',text:'Wie geht es richtig weiter? „Wenn der Kunde anruft, …“',optionen:['verbinden Sie ihn bitte weiter.','Sie verbinden ihn bitte weiter.','ihn Sie bitte weiter verbinden.'],richtig:['verbinden Sie ihn bitte weiter.']},
+  {id:'nv4',text:'Der Nebensatz steht vorne. Was ist er für den Hauptsatz?',optionen:['Position 1','Position 2','die letzte Position'],richtig:['Position 1']},
+  {id:'nv5',text:'Was kommt direkt nach dem Komma?',optionen:['das konjugierte Verb des Hauptsatzes','immer das Subjekt','immer eine Zeitangabe'],richtig:['das konjugierte Verb des Hauptsatzes']},
+  {id:'nv6',text:'Welcher Satz ist richtig?',optionen:['Weil der Termin ausfällt, informieren wir das Team.','Weil der Termin ausfällt, wir informieren das Team.','Weil der Termin ausfällt, das Team informieren wir.'],richtig:['Weil der Termin ausfällt, informieren wir das Team.']}
+]);
+
+/* ---- Mini-Spiele ---- */
+function zufall(liste) { return liste[Math.floor(Math.random() * liste.length)]; }
+function neu(buttonId, outputId, liste) {
+  const button = document.getElementById(buttonId);
+  const output = document.getElementById(outputId);
+  if (!button || !output) return;
+  let letzter = -1;
+  button.addEventListener('click', () => {
+    let index = Math.floor(Math.random() * liste.length);
+    if (liste.length > 1 && index === letzter) index = (index + 1) % liste.length;
+    letzter = index;
+    output.textContent = liste[index];
+  });
+}
+
+const p2 = [
+  'Heute · Nora · die Rechnung prüfen',
+  'Morgen · Jonas · den Kunden anrufen',
+  'Im Büro · wir · die Bestellung bearbeiten',
+  'Nach der Pause · die Besprechung · beginnen',
+  'Die Rechnung · Nora · heute schicken',
+  'Den Kunden · Jonas · morgen informieren',
+  'Wegen der Inventur · wir · im Lager arbeiten',
+  'Um 14 Uhr · der Fahrer · kommen',
+  'In Hamburg · unser Lieferant · sitzen',
+  'Diese Bestellung · wir · heute brauchen'
+];
+neu('spiel-p2-neu','spiel-p2-ausgabe',p2);
+
+const fragen = [
+  'Geschlossene Frage · die Lieferung / heute kommen',
+  'W-Frage mit wann · die Besprechung / beginnen',
+  'Geschlossene Frage · Sie / die Rechnung erhalten',
+  'W-Frage mit warum · die Bearbeitung / länger dauern',
+  'Geschlossene Frage · Nora / den Termin verschieben können',
+  'W-Frage mit wo · die Unterlagen / liegen',
+  'W-Frage mit wie lange · Sie / noch brauchen',
+  'Geschlossene Frage · der Kunde / schon angerufen haben'
+];
+neu('spiel-frage-neu','spiel-frage-ausgabe',fragen);
+
+const klammer = [
+  'Heute · Nora · muss · die Bestellung · prüfen',
+  'Gestern · Jonas · hat · den Kunden · angerufen',
+  'Morgen · wir · können · die Rechnung · schicken',
+  'Im Büro · Kateryna · bereitet · die Besprechung · vor',
+  'Nach der Pause · Jonas · ruft · den Kunden · an',
+  'Heute · wir · haben · die Lieferung · bestätigt',
+  'Um 14 Uhr · Nora · muss · das Team · informieren',
+  'Morgen · Jonas · schickt · die Unterlagen · zurück'
+];
+neu('spiel-klammer-neu','spiel-klammer-ausgabe',klammer);
+
+const neben = [
+  'Nebensatz hinten · Wir warten / weil / die Freigabe noch fehlen',
+  'Nebensatz hinten · Nora ruft an / wenn / die Lieferung kommen',
+  'Nebensatz vorne · weil / der Termin ausfallen / wir das Team informieren',
+  'Nebensatz vorne · wenn / der Kunde anrufen / Sie ihn weiterverbinden',
+  'Nebensatz hinten · Ich glaube / dass / die Rechnung schon da sein',
+  'Nebensatz vorne · weil / der Kunde noch nicht geantwortet haben / wir warten',
+  'Nebensatz hinten · Nora ruft später an / weil / sie erst die Rechnung prüfen müssen'
+];
+neu('spiel-neben-neu','spiel-neben-ausgabe',neben);
+
+const tuev = [
+  {satz:'Heute Nora prüft die Rechnung.',loesung:'Falsch. Heute prüft Nora die Rechnung.'},
+  {satz:'Im Büro beantwortet Jonas die E-Mails.',loesung:'Richtig.'},
+  {satz:'Wir haben geschickt die Rechnung.',loesung:'Falsch. Wir haben die Rechnung geschickt.'},
+  {satz:'Morgen muss Nora den Kunden anrufen.',loesung:'Richtig.'},
+  {satz:'Wir warten, weil die Freigabe fehlt.',loesung:'Richtig.'},
+  {satz:'Wir warten, weil fehlt die Freigabe.',loesung:'Falsch. Wir warten, weil die Freigabe fehlt.'},
+  {satz:'Wenn die Lieferung kommt, Nora prüft sie.',loesung:'Falsch. Wenn die Lieferung kommt, prüft Nora sie.'},
+  {satz:'Wenn die Lieferung kommt, prüfen wir sie.',loesung:'Richtig.'},
+  {satz:'Warum die Bearbeitung dauert länger?',loesung:'Falsch. Warum dauert die Bearbeitung länger?'},
+  {satz:'Haben Sie die Rechnung erhalten?',loesung:'Richtig.'},
+  {satz:'Nach der Pause wir beginnen die Besprechung.',loesung:'Falsch. Nach der Pause beginnen wir die Besprechung.'},
+  {satz:'Nora ruft den Kunden später an.',loesung:'Richtig.'}
+];
+let tuevAktuell = tuev[0];
+const tuevSatz = document.getElementById('tuev-satz');
+const tuevLoesung = document.getElementById('tuev-loesung');
+document.getElementById('tuev-neu')?.addEventListener('click', () => {
+  tuevAktuell = zufall(tuev);
+  tuevSatz.textContent = tuevAktuell.satz;
+  tuevLoesung.hidden = true;
+});
+document.getElementById('tuev-zeigen')?.addEventListener('click', () => {
+  tuevLoesung.textContent = tuevAktuell.loesung;
+  tuevLoesung.hidden = false;
 });
 
-Lehrwerk.luecken('r',{
-  eindeutig:true,
-  felder:{
-    r1:['habe ich'],
-    r2:['liefern wir'],
-    r3:['prüft Nora'],
-    r4:['wurde der Termin'],
-    r5:['kann Jonas'],
-    r6:['haben wir']
-  },
-  pruefen:'r-pruefen', rueck:'r-rueck', tipp:'r-tipp', hinweis:'r-hinweis'
+const challenge = [...p2, ...fragen, ...klammer, ...neben];
+let challengeAktiv = false;
+let challengeZaehler = 0;
+let challengeTimer = null;
+const challengeAusgabe = document.getElementById('challenge-ausgabe');
+const challengeStand = document.getElementById('challenge-stand');
+function challengeNeu() {
+  challengeAusgabe.textContent = zufall(challenge);
+}
+document.getElementById('challenge-neu')?.addEventListener('click', () => {
+  if (challengeAktiv) {
+    challengeZaehler += 1;
+    challengeStand.textContent = 'Sätze: ' + challengeZaehler + ' · Zeit läuft';
+  }
+  challengeNeu();
+});
+document.getElementById('challenge-start')?.addEventListener('click', () => {
+  clearTimeout(challengeTimer);
+  challengeAktiv = true;
+  challengeZaehler = 0;
+  challengeStand.textContent = 'Sätze: 0 · Zeit läuft';
+  challengeNeu();
+  challengeTimer = setTimeout(() => {
+    challengeAktiv = false;
+    challengeStand.textContent = 'Fertig. Geschaffte Sätze: ' + challengeZaehler;
+  }, 30000);
 });
 
-/* ---- Frei anwenden ---- */
+const partner = [
+  'A: Fragen Sie nach dem Liefertermin. · B: Antworten Sie mit einem weil-Satz.',
+  'A: Fragen Sie, ob die Rechnung schon da ist. · B: Antworten Sie mit einem Satz im Perfekt.',
+  'A: Nennen Sie einen Termin. · B: Beginnen Sie Ihre Antwort mit dieser Zeitangabe.',
+  'A: Sagen Sie, dass der Kunde angerufen hat. · B: Beginnen Sie mit „Weil …“ und nennen Sie eine Folge.',
+  'A: Fragen Sie, warum es länger dauert. · B: Antworten Sie mit „weil …“.',
+  'A: Fragen Sie, ob Nora zurückrufen kann. · B: Antworten Sie mit einem Modalverb und einem zweiten Verbteil.',
+  'A: Nennen Sie „im Büro“ als Satzanfang. · B: Bilden Sie sofort einen Hauptsatz.'
+];
+neu('partner-neu','partner-ausgabe',partner);
+
+Lehrwerk.auswahl('quiz-hausaufgabe',[
+  {id:'h1',text:'Welcher Satz ist richtig?',optionen:['Morgen prüfen wir die Rechnung.','Morgen wir prüfen die Rechnung.','Morgen die Rechnung wir prüfen.'],richtig:['Morgen prüfen wir die Rechnung.']},
+  {id:'h2',text:'Welche geschlossene Frage ist richtig?',optionen:['Haben Sie die E-Mail erhalten?','Sie haben die E-Mail erhalten?','Wann haben Sie die E-Mail erhalten?'],richtig:['Haben Sie die E-Mail erhalten?']},
+  {id:'h3',text:'Welcher Nebensatz ist richtig?',optionen:['…, weil die Freigabe noch fehlt.','…, weil fehlt die Freigabe noch.','…, weil die Freigabe fehlt noch.'],richtig:['…, weil die Freigabe noch fehlt.']},
+  {id:'h4',text:'Welcher Satz mit zwei Verbteilen ist richtig?',optionen:['Wir müssen den Termin verschieben.','Wir müssen verschieben den Termin.','Wir den Termin müssen verschieben.'],richtig:['Wir müssen den Termin verschieben.']},
+  {id:'h5',text:'Der Nebensatz steht vorne. Wie geht es richtig weiter?',optionen:['Wenn die Lieferung kommt, prüfen wir sie.','Wenn die Lieferung kommt, wir prüfen sie.','Wenn die Lieferung kommt, wir sie prüfen.'],richtig:['Wenn die Lieferung kommt, prüfen wir sie.']},
+  {id:'h6',text:'Welche W-Frage ist richtig?',optionen:['Bis wann brauchen Sie die Unterlagen?','Bis wann Sie brauchen die Unterlagen?','Brauchen bis wann Sie die Unterlagen?'],richtig:['Bis wann brauchen Sie die Unterlagen?']},
+  {id:'h7',text:'Welcher Perfektsatz ist richtig?',optionen:['Nora hat den Kunden angerufen.','Nora hat angerufen den Kunden.','Nora den Kunden hat angerufen.'],richtig:['Nora hat den Kunden angerufen.']},
+  {id:'h8',text:'Welcher Satz beginnt richtig mit einem Nebensatz?',optionen:['Weil die Rechnung fehlt, rufen wir an.','Weil die Rechnung fehlt, wir rufen an.','Weil fehlt die Rechnung, rufen wir an.'],richtig:['Weil die Rechnung fehlt, rufen wir an.']}
+]);
+
 Lehrwerk.frei('schreiben');
-Lehrwerk.frei('notizen');
-
 Lehrwerk.abschluss();
-</script></body></html>
+</script>
+</body>
+</html>
