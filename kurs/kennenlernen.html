@@ -19,37 +19,55 @@
   }
 
   /* Gruppenprofil: erster Reiter */
-  .gruppe-karte-wrap {
+  .gruppe-eingabezeile {
     display: grid;
-    grid-template-columns: minmax(0, 1.55fr) minmax(270px, .75fr);
-    gap: 1rem;
-    margin: 1rem 0 1.5rem;
+    grid-template-columns: 1fr 1fr 1fr auto auto;
+    gap: .65rem;
+    align-items: end;
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px solid var(--linie, #d9e0e4);
+    border-radius: 1rem;
+    background: #f8fbfc;
   }
+  .gruppe-eingabezeile label {
+    display: block;
+    color: #46545e;
+    font-size: .78rem;
+    font-weight: 700;
+  }
+  .gruppe-eingabezeile input {
+    width: 100%;
+    margin-top: .25rem;
+  }
+  .gruppe-eingabezeile .knopf { white-space: nowrap; }
   #gruppe-karte {
-    min-height: 430px;
+    min-height: 500px;
+    margin: .75rem 0 .6rem;
     border: 1px solid var(--linie, #d9e0e4);
     border-radius: 1rem;
     overflow: hidden;
     background: #eef3f4;
   }
-  .gruppe-hilfe {
-    padding: 1rem 1.1rem;
-    border-radius: 1rem;
-    background: #edf7fa;
+  .gruppe-kartenleiste {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    margin-bottom: 1.5rem;
   }
-  .gruppe-hilfe h3 { margin-top: 0; }
-  .gruppe-hilfe ol { padding-left: 1.25rem; }
-  .gruppe-hilfe li { margin: .55rem 0; }
-  .gruppe-status { min-height: 1.4em; margin-top: .8rem; color: #50636f; }
+  .gruppe-status { margin: 0; color: #50636f; }
+  .gruppe-datenschutz { margin: 0; max-width: 760px; }
   .gruppenraster {
     display: grid;
-    grid-template-columns: repeat(5, minmax(175px, 1fr));
-    gap: .8rem;
-    margin: 1rem 0 1.5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 1rem 0 1.7rem;
   }
   .gruppenkarte {
     min-width: 0;
-    padding: .9rem;
+    padding: 1.1rem;
     border: 1px solid var(--linie, #d9e0e4);
     border-radius: 1rem;
     background: #fff;
@@ -57,39 +75,40 @@
   .gruppenkarte h3 {
     display: flex;
     align-items: center;
-    gap: .45rem;
-    margin: 0 0 .75rem;
-    font-size: 1rem;
+    gap: .5rem;
+    margin: 0 0 .7rem;
+    font-size: 1.05rem;
   }
   .gruppenpunkt {
-    width: .75rem;
-    height: .75rem;
+    width: .8rem;
+    height: .8rem;
     flex: 0 0 auto;
     border-radius: 50%;
     background: #4e7fa1;
   }
+  .profil-orte {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .45rem;
+    margin: 0 0 .75rem;
+  }
+  .profil-ort {
+    min-height: 3.1rem;
+    padding: .55rem .65rem;
+    border-radius: .7rem;
+    background: #f2f7f9;
+    color: #42545f;
+    font-size: .82rem;
+  }
+  .profil-ort strong { display: block; color: #24333b; }
   .gruppenkarte label {
     display: block;
-    margin: .55rem 0;
+    margin: .6rem 0;
     color: #46545e;
     font-size: .78rem;
     font-weight: 700;
   }
-  .gruppenkarte input {
-    width: 100%;
-    margin-top: .25rem;
-  }
-  .ort-knopfreihe {
-    display: flex;
-    gap: .35rem;
-    margin: .55rem 0 .7rem;
-  }
-  .ort-knopfreihe .knopf {
-    flex: 1;
-    min-width: 0;
-    padding: .55rem .4rem;
-    font-size: .76rem;
-  }
+  .gruppenkarte input { width: 100%; margin-top: .25rem; }
   .gruppe-freiwillig {
     margin: .8rem 0 1rem;
     padding: .8rem 1rem;
@@ -102,13 +121,26 @@
     border-radius: .9rem;
     background: #eaf5fb;
   }
-  @media (max-width: 1200px) {
-    .gruppenraster { grid-template-columns: repeat(2, minmax(220px, 1fr)); }
+  .gruppe-leer { color: #8a959c; font-weight: 500; }
+  .gruppe-bearbeiten { margin-top: .6rem; }
+  .leaflet-tooltip.gruppe-label {
+    padding: .35rem .5rem;
+    border: 0;
+    border-radius: .55rem;
+    background: rgba(255,255,255,.94);
+    box-shadow: 0 2px 8px rgba(20,35,50,.18);
+    color: #25343d;
+    font: 600 .82rem/1.25 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
   }
-  @media (max-width: 820px) {
-    .gruppe-karte-wrap { grid-template-columns: 1fr; }
-    .gruppenraster { grid-template-columns: 1fr; }
-    #gruppe-karte { min-height: 360px; }
+  @media (max-width: 1100px) {
+    .gruppe-eingabezeile { grid-template-columns: 1fr 1fr; }
+    .gruppe-eingabezeile label:first-child { grid-column: 1 / -1; }
+    .gruppenraster { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 720px) {
+    .gruppe-eingabezeile, .gruppenraster, .profil-orte { grid-template-columns: 1fr; }
+    .gruppe-eingabezeile label:first-child { grid-column: auto; }
+    #gruppe-karte { min-height: 380px; }
   }
 </style>
 </head>
@@ -143,26 +175,26 @@
     <div class="auftrag">
       <span class="auftrag-marke">Plenum · ca. 5–7 Min.</span>
       <h3>Wo wohnen wir – und woher kommen wir?</h3>
-      <p>Wir tragen unsere Orte ein und entdecken unsere Gruppe auf der Karte. Die Kursleiterin sammelt die Angaben auf ihrem Bildschirm.</p>
+      <p>Eine Person nach der anderen: Name, heutiger Wohnort und Herkunftsort. Wir schauen beide Orte gemeinsam auf der Karte an und übernehmen die Angaben anschließend ins Gruppenprofil.</p>
     </div>
 
-    <div class="gruppe-karte-wrap">
-      <div id="gruppe-karte" aria-label="Karte mit Wohn- und Herkunftsorten der Kursgruppe"></div>
-      <div class="gruppe-hilfe">
-        <h3>So funktioniert’s</h3>
-        <ol>
-          <li>Bei einer Person den Namen und einen Ort eintragen.</li>
-          <li>Auf <strong>Wohnort suchen</strong> oder <strong>Herkunft suchen</strong> klicken.</li>
-          <li>Der Ort erscheint als Pin auf der Karte.</li>
-        </ol>
-        <button class="knopf" type="button" id="gruppe-alle-orte">Alle Orte anzeigen</button>
-        <p class="gruppe-status" id="gruppe-kartenstatus" aria-live="polite"></p>
-        <p class="stand-hinweis">Die Angaben werden nur in diesem Browser gespeichert. Die Karte nutzt OpenStreetMap; bei der Ortssuche wird nur der eingegebene Ortsname an den Kartendienst gesendet.</p>
-      </div>
+    <div class="gruppe-eingabezeile" id="gruppe-eingabezeile">
+      <label>Name<input class="luecke" id="gruppe-name" placeholder="Vorname"></label>
+      <label>Ich wohne in …<input class="luecke" id="gruppe-wohnort" placeholder="z. B. Düsseldorf"></label>
+      <label>Ich komme ursprünglich aus …<input class="luecke" id="gruppe-herkunft" placeholder="z. B. Kyjiw"></label>
+      <button class="knopf" type="button" id="gruppe-zeigen">Auf Karte zeigen</button>
+      <button class="knopf" type="button" id="gruppe-uebertragen">Übertragen ↓</button>
     </div>
+
+    <div id="gruppe-karte" aria-label="Karte mit Wohn- und Herkunftsorten der Kursgruppe"></div>
+    <div class="gruppe-kartenleiste">
+      <button class="knopf" type="button" id="gruppe-alle-orte">Alle Orte anzeigen</button>
+      <p class="gruppe-status" id="gruppe-kartenstatus" aria-live="polite"></p>
+    </div>
+    <p class="stand-hinweis gruppe-datenschutz">Die Angaben werden nur in diesem Browser gespeichert. Die Karte nutzt OpenStreetMap; bei der Ortssuche wird nur der eingegebene Ortsname an den Kartendienst gesendet.</p>
 
     <h2>Beruf &amp; Arbeit</h2>
-    <p>Jede Person hat eine eigene Karte. Wir sammeln nur Stichwörter – später fragen wir genauer nach.</p>
+    <p>Die fünf Teilnehmenden stehen alphabetisch nach Vornamen. Die Kursleitung bleibt als sechste Karte am Ende.</p>
     <div class="gruppenraster" id="gruppe-beruf"></div>
 
     <h2>Familie &amp; Alltag</h2>
@@ -259,42 +291,15 @@
 
     <h2>Wer im Kurs …?</h2>
     <div class="raster" id="bingo">
-      <div class="raster-feld">
-        <span class="raster-text">… hat schon auf Deutsch telefoniert</span>
-        <input class="luecke" aria-label="Wer hat schon auf Deutsch telefoniert" id="bingo1" data-ergebnis-label="Auf Deutsch telefoniert" placeholder="Name">
-      </div>
-      <div class="raster-feld">
-        <span class="raster-text">… hat schon in einem Büro gearbeitet</span>
-        <input class="luecke" aria-label="Wer hat schon in einem Büro gearbeitet" id="bingo2" data-ergebnis-label="Im Büro gearbeitet" placeholder="Name">
-      </div>
-      <div class="raster-feld">
-        <span class="raster-text">… hat schon eine E-Mail auf Deutsch geschrieben</span>
-        <input class="luecke" aria-label="Wer hat schon eine E-Mail auf Deutsch geschrieben" id="bingo3" data-ergebnis-label="E-Mail auf Deutsch" placeholder="Name">
-      </div>
-      <div class="raster-feld">
-        <span class="raster-text">… war schon bei einer Besprechung dabei</span>
-        <input class="luecke" aria-label="Wer war schon bei einer Besprechung dabei" id="bingo4" data-ergebnis-label="Besprechung" placeholder="Name">
-      </div>
-      <div class="raster-feld">
-        <span class="raster-text">… spricht drei oder mehr Sprachen</span>
-        <input class="luecke" aria-label="Wer spricht drei oder mehr Sprachen" id="bingo5" data-ergebnis-label="Drei Sprachen" placeholder="Name">
-      </div>
-      <div class="raster-feld">
-        <span class="raster-text">… hatte schon ein schwieriges Kundengespräch</span>
-        <input class="luecke" aria-label="Wer hatte schon ein schwieriges Kundengespräch" id="bingo6" data-ergebnis-label="Schwieriges Kundengespräch" placeholder="Name">
-      </div>
-      <div class="raster-feld">
-        <span class="raster-text">… findet Small Talk in der Pause leicht</span>
-        <input class="luecke" aria-label="Wer findet Small Talk in der Pause leicht" id="bingo7" data-ergebnis-label="Small Talk" placeholder="Name">
-      </div>
-      <div class="raster-feld">
-        <span class="raster-text">… arbeitet gern am Computer</span>
-        <input class="luecke" aria-label="Wer arbeitet gern am Computer" id="bingo8" data-ergebnis-label="Arbeit am Computer" placeholder="Name">
-      </div>
-      <div class="raster-feld">
-        <span class="raster-text">… sucht gerade eine neue Stelle</span>
-        <input class="luecke" aria-label="Wer sucht gerade eine neue Stelle" id="bingo9" data-ergebnis-label="Sucht eine Stelle" placeholder="Name">
-      </div>
+      <div class="raster-feld"><span class="raster-text">… hat schon auf Deutsch telefoniert</span><input class="luecke" aria-label="Wer hat schon auf Deutsch telefoniert" id="bingo1" data-ergebnis-label="Auf Deutsch telefoniert" placeholder="Name"></div>
+      <div class="raster-feld"><span class="raster-text">… hat schon in einem Büro gearbeitet</span><input class="luecke" aria-label="Wer hat schon in einem Büro gearbeitet" id="bingo2" data-ergebnis-label="Im Büro gearbeitet" placeholder="Name"></div>
+      <div class="raster-feld"><span class="raster-text">… hat schon eine E-Mail auf Deutsch geschrieben</span><input class="luecke" aria-label="Wer hat schon eine E-Mail auf Deutsch geschrieben" id="bingo3" data-ergebnis-label="E-Mail auf Deutsch" placeholder="Name"></div>
+      <div class="raster-feld"><span class="raster-text">… war schon bei einer Besprechung dabei</span><input class="luecke" aria-label="Wer war schon bei einer Besprechung dabei" id="bingo4" data-ergebnis-label="Besprechung" placeholder="Name"></div>
+      <div class="raster-feld"><span class="raster-text">… spricht drei oder mehr Sprachen</span><input class="luecke" aria-label="Wer spricht drei oder mehr Sprachen" id="bingo5" data-ergebnis-label="Drei Sprachen" placeholder="Name"></div>
+      <div class="raster-feld"><span class="raster-text">… hatte schon ein schwieriges Kundengespräch</span><input class="luecke" aria-label="Wer hatte schon ein schwieriges Kundengespräch" id="bingo6" data-ergebnis-label="Schwieriges Kundengespräch" placeholder="Name"></div>
+      <div class="raster-feld"><span class="raster-text">… findet Small Talk in der Pause leicht</span><input class="luecke" aria-label="Wer findet Small Talk in der Pause leicht" id="bingo7" data-ergebnis-label="Small Talk" placeholder="Name"></div>
+      <div class="raster-feld"><span class="raster-text">… arbeitet gern am Computer</span><input class="luecke" aria-label="Wer arbeitet gern am Computer" id="bingo8" data-ergebnis-label="Arbeit am Computer" placeholder="Name"></div>
+      <div class="raster-feld"><span class="raster-text">… sucht gerade eine neue Stelle</span><input class="luecke" aria-label="Wer sucht gerade eine neue Stelle" id="bingo9" data-ergebnis-label="Sucht eine Stelle" placeholder="Name"></div>
     </div>
 
     <h2>Höflich fragen – aber richtig</h2>
@@ -321,21 +326,14 @@
       <h3>Interviewen Sie einander</h3>
       <p><strong>Wichtig:</strong> Sie füllen den Steckbrief <strong>über Ihre Partnerin oder Ihren Partner</strong> aus, nicht über sich selbst. Ihre Partnerin macht dasselbe mit Ihnen.</p>
       <p>So läuft es ab:</p>
-      <p>1. Etwa 7 Minuten: Person A fragt, Person B antwortet.<br>
-         2. Dann wechseln Sie.<br>
-         3. Die letzten Minuten ordnen Sie Ihre Notizen.</p>
+      <p>1. Etwa 7 Minuten: Person A fragt, Person B antwortet.<br>2. Dann wechseln Sie.<br>3. Die letzten Minuten ordnen Sie Ihre Notizen.</p>
       <p>Danach kommen wir zurück ins Plenum, und Sie stellen einander vor. Öffnen Sie dafür schon einmal den Reiter „Vorstellung“.</p>
     </div>
 
     <div class="kasten">
       <span class="marke">Redemittel</span>
       <h3>Fragen für das Interview</h3>
-      <p>– Woher kommen Sie ursprünglich, und wo wohnen Sie jetzt?<br>
-         – Was haben Sie in Ihrem Beruf gemacht?<br>
-         – Welche Aufgaben hatten Sie dabei?<br>
-         – Was ist für Sie auf Deutsch besonders schwer?<br>
-         – Was möchten Sie in diesem Kurs erreichen?<br>
-         – Habe ich das richtig verstanden: Sie haben …?</p>
+      <p>– Woher kommen Sie ursprünglich, und wo wohnen Sie jetzt?<br>– Was haben Sie in Ihrem Beruf gemacht?<br>– Welche Aufgaben hatten Sie dabei?<br>– Was ist für Sie auf Deutsch besonders schwer?<br>– Was möchten Sie in diesem Kurs erreichen?<br>– Habe ich das richtig verstanden: Sie haben …?</p>
     </div>
 
     <div class="kasten">
@@ -348,19 +346,9 @@
       <span class="marke-merker">Wenn die Frage zu weit geht</span>
       <h3>Nicht jede Frage muss beantwortet werden</h3>
       <p>Im Berufsalltag wird viel gefragt – nach der Herkunft, der Familie, der Wohnung, dem Gehalt. Manches möchte man erzählen, manches nicht. <strong>Beides ist in Ordnung</strong>, und beides lässt sich höflich sagen.</p>
-
-      <p><strong>1. Knapp antworten und zurückfragen</strong></p>
-      <p class="satzbau">„Aus der Ukraine. Und Sie, sind Sie von hier?“</p>
-      <p>Die Gegenfrage gibt das Gespräch zurück und beendet das Thema, ohne dass es unfreundlich wirkt.</p>
-
-      <p><strong>2. Freundlich verschieben</strong></p>
-      <p class="satzbau">„Das ist eine längere Geschichte – erzähle ich mal bei Gelegenheit.“</p>
-      <p class="satzbau">„Da müsste ich weit ausholen. Ein andermal gern.“</p>
-
-      <p><strong>3. Höflich abgrenzen und das Thema wechseln</strong></p>
-      <p class="satzbau">„Darüber rede ich lieber nicht bei der Arbeit. Wie war denn Ihr Wochenende?“</p>
-      <p class="satzbau">„Das behalte ich für mich. Aber sagen Sie – wie läuft es bei Ihnen im Team?“</p>
-
+      <p><strong>1. Knapp antworten und zurückfragen</strong></p><p class="satzbau">„Aus der Ukraine. Und Sie, sind Sie von hier?“</p><p>Die Gegenfrage gibt das Gespräch zurück und beendet das Thema, ohne dass es unfreundlich wirkt.</p>
+      <p><strong>2. Freundlich verschieben</strong></p><p class="satzbau">„Das ist eine längere Geschichte – erzähle ich mal bei Gelegenheit.“</p><p class="satzbau">„Da müsste ich weit ausholen. Ein andermal gern.“</p>
+      <p><strong>3. Höflich abgrenzen und das Thema wechseln</strong></p><p class="satzbau">„Darüber rede ich lieber nicht bei der Arbeit. Wie war denn Ihr Wochenende?“</p><p class="satzbau">„Das behalte ich für mich. Aber sagen Sie – wie läuft es bei Ihnen im Team?“</p>
       <p>Wichtig ist der zweite Teil: Wer abgrenzt <strong>und</strong> ein neues Thema anbietet, wirkt nicht abweisend, sondern souverän. Eine Begründung braucht es nicht.</p>
       <p>Das gilt in beide Richtungen – auch beim Fragen. Wenn Ihre Partnerin bei einem Feld zögert, gehen Sie einfach zum nächsten über.</p>
     </div>
@@ -368,50 +356,19 @@
     <h2>Steckbrief</h2>
     <p>Über wen? Über Ihre Partnerin oder Ihren Partner. <strong>Ein Feld ist freiwillig</strong> – wer nicht möchte, sagt einfach einen der Sätze von oben.</p>
     <div class="formular" id="steckbrief">
-      <label class="formular-feld">
-        <span>Name</span>
-        <input class="luecke" id="sb-name" data-ergebnis-label="Name" placeholder="Vor- und Nachname">
-      </label>
-      <label class="formular-feld">
-        <span>Kommt ursprünglich aus <em>(freiwillig)</em></span>
-        <input class="luecke" id="sb-herkunft" data-ergebnis-label="Herkunft" placeholder="nur wenn Ihre Partnerin das erzählen möchte">
-      </label>
-      <label class="formular-feld">
-        <span>Arbeitsweg</span>
-        <input class="luecke" id="sb-wohnort" data-ergebnis-label="Arbeitsweg" placeholder="z. B. 20 Minuten mit der Bahn">
-      </label>
-      <label class="formular-feld">
-        <span>Beruf oder Ausbildung</span>
-        <input class="luecke" id="sb-beruf" data-ergebnis-label="Beruf" placeholder="z. B. Sachbearbeiterin">
-      </label>
-      <label class="formular-feld">
-        <span>Sprachen</span>
-        <input class="luecke" id="sb-sprachen" data-ergebnis-label="Sprachen" placeholder="z. B. Ukrainisch, Englisch, Deutsch">
-      </label>
-      <label class="formular-feld">
-        <span>Berufliches Ziel</span>
-        <input class="luecke" id="sb-ziel" data-ergebnis-label="Berufliches Ziel" placeholder="z. B. Ausbildung im Einzelhandel">
-      </label>
+      <label class="formular-feld"><span>Name</span><input class="luecke" id="sb-name" data-ergebnis-label="Name" placeholder="Vor- und Nachname"></label>
+      <label class="formular-feld"><span>Kommt ursprünglich aus <em>(freiwillig)</em></span><input class="luecke" id="sb-herkunft" data-ergebnis-label="Herkunft" placeholder="nur wenn Ihre Partnerin das erzählen möchte"></label>
+      <label class="formular-feld"><span>Arbeitsweg</span><input class="luecke" id="sb-wohnort" data-ergebnis-label="Arbeitsweg" placeholder="z. B. 20 Minuten mit der Bahn"></label>
+      <label class="formular-feld"><span>Beruf oder Ausbildung</span><input class="luecke" id="sb-beruf" data-ergebnis-label="Beruf" placeholder="z. B. Sachbearbeiterin"></label>
+      <label class="formular-feld"><span>Sprachen</span><input class="luecke" id="sb-sprachen" data-ergebnis-label="Sprachen" placeholder="z. B. Ukrainisch, Englisch, Deutsch"></label>
+      <label class="formular-feld"><span>Berufliches Ziel</span><input class="luecke" id="sb-ziel" data-ergebnis-label="Berufliches Ziel" placeholder="z. B. Ausbildung im Einzelhandel"></label>
     </div>
 
-    <div class="frage">
-      <p><strong>Aufgaben und Erfahrung.</strong> Was hat Ihre Partnerin oder Ihr Partner beruflich gemacht? Schreiben Sie in Stichpunkten oder in ganzen Sätzen.</p>
-      <textarea class="feld" id="interview-aufgaben" data-ergebnis-label="Aufgaben und Erfahrung" placeholder="Hat als … gearbeitet. Zu den Aufgaben gehörte …"></textarea>
-    </div>
+    <div class="frage"><p><strong>Aufgaben und Erfahrung.</strong> Was hat Ihre Partnerin oder Ihr Partner beruflich gemacht? Schreiben Sie in Stichpunkten oder in ganzen Sätzen.</p><textarea class="feld" id="interview-aufgaben" data-ergebnis-label="Aufgaben und Erfahrung" placeholder="Hat als … gearbeitet. Zu den Aufgaben gehörte …"></textarea></div>
+    <div class="frage"><p><strong>Sprachlich schwierig.</strong> Was fällt ihr oder ihm auf Deutsch besonders schwer?</p><textarea class="feld" id="interview-schwierig" data-ergebnis-label="Sprachlich schwierig" placeholder="Besonders schwer findet sie/er …"></textarea></div>
+    <div class="frage"><p><strong>Ziele im Kurs.</strong> Was möchte sie oder er hier erreichen?</p><textarea class="feld" id="interview-ziele" data-ergebnis-label="Ziele im Kurs" placeholder="Sie/Er möchte …"></textarea></div>
 
-    <div class="frage">
-      <p><strong>Sprachlich schwierig.</strong> Was fällt ihr oder ihm auf Deutsch besonders schwer?</p>
-      <textarea class="feld" id="interview-schwierig" data-ergebnis-label="Sprachlich schwierig" placeholder="Besonders schwer findet sie/er …"></textarea>
-    </div>
-
-    <div class="frage">
-      <p><strong>Ziele im Kurs.</strong> Was möchte sie oder er hier erreichen?</p>
-      <textarea class="feld" id="interview-ziele" data-ergebnis-label="Ziele im Kurs" placeholder="Sie/Er möchte …"></textarea>
-    </div>
-
-    <div class="knopfreihe">
-      <button class="knopf" id="interview-kopieren" type="button">Steckbrief kopieren</button>
-    </div>
+    <div class="knopfreihe"><button class="knopf" id="interview-kopieren" type="button">Steckbrief kopieren</button></div>
     <p class="stand-hinweis">Kopieren Sie den Steckbrief, wenn Sie ihn in den Teams-Chat stellen sollen.</p>
 
     <div class="auftrag">
@@ -419,11 +376,7 @@
       <h3>Sieben Minuten pro Person</h3>
       <p>Damit beide gleich viel Zeit haben: Uhr starten, nach sieben Minuten wechseln. Wer zuerst interviewt wird, entscheiden Sie selbst.</p>
       <p class="interview-uhr" id="uhr" aria-live="off">07:00</p>
-      <div class="knopfreihe">
-        <button class="knopf" id="uhr-start" type="button">Start</button>
-        <button class="knopf" id="uhr-pause" type="button">Pause</button>
-        <button class="knopf" id="uhr-zurueck" type="button">Zurücksetzen</button>
-      </div>
+      <div class="knopfreihe"><button class="knopf" id="uhr-start" type="button">Start</button><button class="knopf" id="uhr-pause" type="button">Pause</button><button class="knopf" id="uhr-zurueck" type="button">Zurücksetzen</button></div>
       <p class="stand-hinweis">Die Uhr läuft nur in diesem Browserfenster und merkt sich nichts.</p>
     </div>
   </section>
@@ -460,40 +413,25 @@
     </div>
 
     <h2>Sein oder ihr?</h2>
-    <div id="lt-possessiv-box">
-      <div class="frage">
-        <p>Ergänzen Sie. Es geht um <strong>Kateryna Melnyk</strong>, die Geschäftsführerin von KONTOR.</p>
-        <p>1. <input class="luecke" id="p1"> Büro liegt im dritten Stock.</p>
-        <p>2. <input class="luecke" id="p2"> Kalender ist bis Freitag voll.</p>
-        <p>3. Wir haben <input class="luecke" id="p3"> Vorschlag angenommen.</p>
-        <p>Jetzt geht es um <strong>Pawel Nowak</strong>, den Teamleiter im Lager.</p>
-        <p>4. <input class="luecke" id="p4"> Team arbeitet in zwei Schichten.</p>
-        <p>5. <input class="luecke" id="p5"> Rückmeldung kam noch am selben Tag.</p>
-        <div class="knopfreihe">
-          <button class="knopf" id="p-pruefen" type="button">Prüfen</button>
-        </div>
-        <p class="rueckmeldung" id="p-rueck" hidden></p>
-      </div>
-    </div>
+    <div id="lt-possessiv-box"><div class="frage">
+      <p>Ergänzen Sie. Es geht um <strong>Kateryna Melnyk</strong>, die Geschäftsführerin von KONTOR.</p>
+      <p>1. <input class="luecke" id="p1"> Büro liegt im dritten Stock.</p>
+      <p>2. <input class="luecke" id="p2"> Kalender ist bis Freitag voll.</p>
+      <p>3. Wir haben <input class="luecke" id="p3"> Vorschlag angenommen.</p>
+      <p>Jetzt geht es um <strong>Pawel Nowak</strong>, den Teamleiter im Lager.</p>
+      <p>4. <input class="luecke" id="p4"> Team arbeitet in zwei Schichten.</p>
+      <p>5. <input class="luecke" id="p5"> Rückmeldung kam noch am selben Tag.</p>
+      <div class="knopfreihe"><button class="knopf" id="p-pruefen" type="button">Prüfen</button></div><p class="rueckmeldung" id="p-rueck" hidden></p>
+    </div></div>
 
     <h2>Jetzt sprechen Sie</h2>
-    <div class="regel">
-      <p><strong>Sprechen:</strong> Notieren Sie hier Ihre Stichpunkte – nicht den ganzen Text. Sprechen Sie dann frei nach diesen Stichpunkten.</p>
-      <textarea class="feld" id="sprechen-vorstellung" data-ergebnis-label="Stichpunkte zum Sprechen" placeholder="Name · Herkunft · Beruf · Aufgaben · schwierig · Ziel · mein Eindruck"></textarea>
-    </div>
+    <div class="regel"><p><strong>Sprechen:</strong> Notieren Sie hier Ihre Stichpunkte – nicht den ganzen Text. Sprechen Sie dann frei nach diesen Stichpunkten.</p><textarea class="feld" id="sprechen-vorstellung" data-ergebnis-label="Stichpunkte zum Sprechen" placeholder="Name · Herkunft · Beruf · Aufgaben · schwierig · Ziel · mein Eindruck"></textarea></div>
 
     <h2>Zur Nachbereitung</h2>
-    <div class="regel">
-      <p><strong>Schreiben:</strong> Schreiben Sie Ihre Vorstellung nach dem Unterricht als zusammenhängenden Text auf, etwa acht bis zehn Sätze. Nutzen Sie die Redemittel oben und achten Sie auf <em>sein</em> und <em>ihr</em>.</p>
-      <p>Diese Aufgabe können Sie in Ruhe zu Hause machen. Der Text bleibt gespeichert.</p>
-      <textarea class="feld" id="schreiben-vorstellung" data-ergebnis-label="Meine Vorstellung" placeholder="Ich möchte euch Olena vorstellen. Sie kommt ursprünglich aus …"></textarea>
-    </div>
+    <div class="regel"><p><strong>Schreiben:</strong> Schreiben Sie Ihre Vorstellung nach dem Unterricht als zusammenhängenden Text auf, etwa acht bis zehn Sätze. Nutzen Sie die Redemittel oben und achten Sie auf <em>sein</em> und <em>ihr</em>.</p><p>Diese Aufgabe können Sie in Ruhe zu Hause machen. Der Text bleibt gespeichert.</p><textarea class="feld" id="schreiben-vorstellung" data-ergebnis-label="Meine Vorstellung" placeholder="Ich möchte euch Olena vorstellen. Sie kommt ursprünglich aus …"></textarea></div>
 
     <p class="stand" id="stand"></p>
-    <div class="knopfreihe">
-      <button class="knopf" id="kopieren" type="button">Stand kopieren</button>
-      <button class="knopf" id="zuruecksetzen" type="button">Von vorne beginnen</button>
-    </div>
+    <div class="knopfreihe"><button class="knopf" id="kopieren" type="button">Stand kopieren</button><button class="knopf" id="zuruecksetzen" type="button">Von vorne beginnen</button></div>
   </section>
 
 </main>
@@ -508,300 +446,182 @@ Lehrwerk.reiter();
 
 /* ---- Gruppenkarte und Gruppenprofile ---- */
 (function () {
-  var SPEICHER = 'kennenlernen-gruppe-v2';
-  var farben = ['#3c7eb7', '#efa92e', '#7553aa', '#559947', '#d5573d'];
-  var slots = ['p1', 'p2', 'p3', 'p4', 'p5'];
+  var SPEICHER = 'kennenlernen-gruppe-v3';
+  var teilnehmer = ['tn1','tn2','tn3','tn4','tn5'];
+  var kursleitung = 'kl';
+  var slots = teilnehmer.concat([kursleitung]);
+  var farben = ['#3c7eb7','#efa92e','#7553aa','#559947','#d5573d','#66818f'];
   var state = {};
+  var draft = { name:'', wohnort:'', herkunft:'', wohnortPos:null, herkunftPos:null, editId:null };
   try { state = JSON.parse(localStorage.getItem(SPEICHER) || '{}') || {}; } catch (_) { state = {}; }
   slots.forEach(function (id) { if (!state[id]) state[id] = {}; });
 
-  function speichern() {
-    try { localStorage.setItem(SPEICHER, JSON.stringify(state)); } catch (_) {}
-  }
-  function esc(value) {
-    return String(value || '').replace(/[&<>\"']/g, function (c) {
-      return {'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c];
-    });
-  }
-  function nameVon(id, index) {
-    return state[id].name && state[id].name.trim() ? state[id].name.trim() : 'Person ' + (index + 1);
+  function speichern() { try { localStorage.setItem(SPEICHER, JSON.stringify(state)); } catch (_) {} }
+  function esc(value) { return String(value || '').replace(/[&<>\"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]; }); }
+  function istGefuellt(id) { return !!(state[id].name && state[id].name.trim()); }
+  function farbeVon(id) { return farben[slots.indexOf(id)] || '#4e7fa1'; }
+  function sortierteSlots() {
+    var gefuellt = teilnehmer.filter(istGefuellt).sort(function(a,b){ return state[a].name.localeCompare(state[b].name, 'de', { sensitivity:'base' }); });
+    var leer = teilnehmer.filter(function(id){ return !istGefuellt(id); });
+    return gefuellt.concat(leer).concat([kursleitung]);
   }
   function feld(id, prop, label, placeholder) {
     return '<label>' + label + '<input class="luecke gruppe-eingabe" data-person="' + id + '" data-prop="' + prop + '" value="' + esc(state[id][prop]) + '" placeholder="' + placeholder + '"></label>';
   }
+  function ortBlock(label, wert) { return '<div class="profil-ort"><strong>' + label + '</strong>' + (wert ? esc(wert) : '<span class="gruppe-leer">noch offen</span>') + '</div>'; }
 
   var beruf = document.getElementById('gruppe-beruf');
   var familie = document.getElementById('gruppe-familie');
-  slots.forEach(function (id, index) {
-    beruf.insertAdjacentHTML('beforeend',
-      '<article class="gruppenkarte">' +
-        '<h3><span class="gruppenpunkt" style="background:' + farben[index] + '"></span><span class="gruppen-name" data-name-for="' + id + '">' + esc(nameVon(id,index)) + '</span></h3>' +
-        feld(id, 'name', 'Name', 'Vorname') +
-        feld(id, 'wohnort', 'Ich wohne in …', 'z. B. Düsseldorf') +
-        feld(id, 'herkunft', 'Ich komme ursprünglich aus …', 'z. B. Kyjiw') +
-        '<div class="ort-knopfreihe"><button class="knopf" type="button" data-find="' + id + '" data-kind="wohnort">Wohnort suchen</button><button class="knopf" type="button" data-find="' + id + '" data-kind="herkunft">Herkunft suchen</button></div>' +
-        feld(id, 'beruf', 'Beruf / Ausbildung', 'z. B. Buchhalterin') +
-        feld(id, 'jetzt', 'In Deutschland arbeite ich gerade als …', 'z. B. Verkäuferin') +
-        feld(id, 'ziel', 'Ich möchte gern arbeiten als …', 'z. B. Sachbearbeiterin') +
-      '</article>'
-    );
-    familie.insertAdjacentHTML('beforeend',
-      '<article class="gruppenkarte">' +
-        '<h3><span class="gruppenpunkt" style="background:' + farben[index] + '"></span><span class="gruppen-name" data-name-for="' + id + '">' + esc(nameVon(id,index)) + '</span></h3>' +
-        feld(id, 'familienstand', 'Familienstand (freiwillig)', 'z. B. verheiratet') +
-        feld(id, 'kinder', 'Kinder (freiwillig)', 'z. B. zwei Kinder') +
-        feld(id, 'lebtmit', 'Ich lebe mit … (freiwillig)', 'z. B. meiner Familie') +
-        feld(id, 'familieort', 'Meine Familie lebt … (freiwillig)', 'z. B. in der Ukraine') +
-      '</article>'
-    );
-  });
+  function renderProfile() {
+    beruf.innerHTML = '';
+    familie.innerHTML = '';
+    sortierteSlots().forEach(function(id, index){
+      var isKl = id === kursleitung;
+      var name = istGefuellt(id) ? state[id].name : (isKl ? 'Kursleitung' : 'Noch frei');
+      beruf.insertAdjacentHTML('beforeend',
+        '<article class="gruppenkarte">' +
+          '<h3><span class="gruppenpunkt" style="background:' + farbeVon(id) + '"></span>' + esc(name) + (isKl ? ' <small>· Kursleitung</small>' : '') + '</h3>' +
+          '<div class="profil-orte">' + ortBlock('📍 Wohnort', state[id].wohnort) + ortBlock('🏠 Herkunft', state[id].herkunft) + '</div>' +
+          feld(id,'beruf','Beruf / Ausbildung','z. B. Buchhalterin') +
+          feld(id,'jetzt','In Deutschland arbeite ich gerade als …','z. B. Verkäuferin') +
+          feld(id,'ziel','Ich möchte gern arbeiten als …','z. B. Sachbearbeiterin') +
+          (istGefuellt(id) ? '<button class="knopf gruppe-bearbeiten" type="button" data-edit="' + id + '">Name und Orte bearbeiten</button>' : '') +
+        '</article>'
+      );
+      familie.insertAdjacentHTML('beforeend',
+        '<article class="gruppenkarte">' +
+          '<h3><span class="gruppenpunkt" style="background:' + farbeVon(id) + '"></span>' + esc(name) + (isKl ? ' <small>· Kursleitung</small>' : '') + '</h3>' +
+          feld(id,'familienstand','Familienstand (freiwillig)','z. B. verheiratet') +
+          feld(id,'kinder','Kinder (freiwillig)','z. B. zwei Kinder') +
+          feld(id,'lebtmit','Ich lebe mit … (freiwillig)','z. B. meiner Familie') +
+          feld(id,'familieort','Meine Familie lebt … (freiwillig)','z. B. in der Ukraine') +
+        '</article>'
+      );
+    });
+  }
+  renderProfile();
 
-  document.addEventListener('input', function (event) {
+  document.addEventListener('input', function(event){
     var input = event.target.closest('.gruppe-eingabe');
     if (!input) return;
-    var id = input.dataset.person;
-    state[id][input.dataset.prop] = input.value;
+    state[input.dataset.person][input.dataset.prop] = input.value;
     speichern();
-    if (input.dataset.prop === 'name') {
-      document.querySelectorAll('[data-name-for="' + id + '"]').forEach(function (node) {
-        node.textContent = input.value.trim() || 'Person ' + (slots.indexOf(id) + 1);
-      });
-      markerTexteAktualisieren(id);
-    }
   });
 
-  if (!window.L) {
-    document.getElementById('gruppe-kartenstatus').textContent = 'Die Karte konnte nicht geladen werden.';
-    return;
-  }
-
-  var map = L.map('gruppe-karte').setView([50.9, 10.2], 5);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '© OpenStreetMap'
-  }).addTo(map);
-
+  if (!window.L) { document.getElementById('gruppe-kartenstatus').textContent = 'Die Karte konnte nicht geladen werden.'; return; }
+  var map = L.map('gruppe-karte').setView([50.9,10.2],5);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{ maxZoom:19, attribution:'© OpenStreetMap' }).addTo(map);
   var marker = {};
-  function markerKey(id, kind) { return id + '-' + kind; }
-  function popupText(id, kind) {
-    var index = slots.indexOf(id);
-    var name = nameVon(id, index);
-    var ort = state[id][kind] || '';
-    return '<strong>' + esc(name) + '</strong><br>' + (kind === 'wohnort' ? 'wohnt in ' : 'kommt aus ') + esc(ort);
-  }
-  function markerSetzen(id, kind, lat, lon) {
-    var key = markerKey(id, kind);
+  var preview = [];
+
+  function labelText(name, kind, ort) { return esc(name) + ' · ' + (kind === 'wohnort' ? 'wohnt in ' : 'kommt aus ') + esc(ort); }
+  function markerKey(id, kind){ return id + '-' + kind; }
+  function markerSetzen(id, kind, lat, lon){
+    var key = markerKey(id,kind);
     if (marker[key]) map.removeLayer(marker[key]);
-    marker[key] = L.marker([lat, lon]).addTo(map).bindPopup(popupText(id, kind));
+    marker[key] = L.marker([lat,lon]).addTo(map).bindTooltip(labelText(state[id].name,kind,state[id][kind]), { permanent:true, direction:'top', offset:[0,-12], className:'gruppe-label' });
   }
-  function markerTexteAktualisieren(id) {
-    ['wohnort', 'herkunft'].forEach(function (kind) {
-      var m = marker[markerKey(id, kind)];
-      if (m) m.setPopupContent(popupText(id, kind));
-    });
+  function alleMarkerNeu(){
+    Object.keys(marker).forEach(function(key){ map.removeLayer(marker[key]); }); marker = {};
+    slots.forEach(function(id){ ['wohnort','herkunft'].forEach(function(kind){ var p = state[id][kind+'Pos']; if (istGefuellt(id) && p && Number.isFinite(p.lat) && Number.isFinite(p.lon)) markerSetzen(id,kind,p.lat,p.lon); }); });
+  }
+  alleMarkerNeu();
+
+  function previewLoeschen(){ preview.forEach(function(m){ map.removeLayer(m); }); preview = []; }
+  async function geocode(ort){
+    var response = await fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(ort), { headers:{'Accept':'application/json'} });
+    if (!response.ok) throw new Error('Suche nicht erreichbar');
+    var data = await response.json(); if (!data.length) throw new Error('Ort nicht gefunden: ' + ort);
+    return { lat:Number(data[0].lat), lon:Number(data[0].lon) };
+  }
+  function eingabeLesen(){ draft.name=document.getElementById('gruppe-name').value.trim(); draft.wohnort=document.getElementById('gruppe-wohnort').value.trim(); draft.herkunft=document.getElementById('gruppe-herkunft').value.trim(); }
+  function eingabeLeeren(){
+    ['gruppe-name','gruppe-wohnort','gruppe-herkunft'].forEach(function(id){ document.getElementById(id).value=''; });
+    draft = { name:'', wohnort:'', herkunft:'', wohnortPos:null, herkunftPos:null, editId:null };
+    previewLoeschen();
   }
 
-  slots.forEach(function (id) {
-    ['wohnort', 'herkunft'].forEach(function (kind) {
-      var pos = state[id][kind + 'Pos'];
-      if (pos && Number.isFinite(pos.lat) && Number.isFinite(pos.lon)) markerSetzen(id, kind, pos.lat, pos.lon);
-    });
-  });
-
-  async function ortSuchen(id, kind) {
-    var ort = (state[id][kind] || '').trim();
-    var status = document.getElementById('gruppe-kartenstatus');
-    if (!ort) { status.textContent = 'Bitte zuerst einen Ort eintragen.'; return; }
-    status.textContent = 'Suche „' + ort + '“ …';
+  document.getElementById('gruppe-zeigen').addEventListener('click', async function(){
+    eingabeLesen(); var status=document.getElementById('gruppe-kartenstatus');
+    if (!draft.name || !draft.wohnort || !draft.herkunft) { status.textContent='Bitte Name, Wohnort und Herkunftsort eintragen.'; return; }
+    status.textContent='Suche beide Orte …'; previewLoeschen();
     try {
-      var response = await fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(ort), { headers: { 'Accept':'application/json' } });
-      if (!response.ok) throw new Error('Suche nicht erreichbar');
-      var data = await response.json();
-      if (!data.length) { status.textContent = 'Ort „' + ort + '“ nicht gefunden.'; return; }
-      var lat = Number(data[0].lat), lon = Number(data[0].lon);
-      state[id][kind + 'Pos'] = { lat:lat, lon:lon };
-      speichern();
-      markerSetzen(id, kind, lat, lon);
-      marker[markerKey(id, kind)].openPopup();
-      map.setView([lat, lon], kind === 'wohnort' ? 7 : 6);
-      status.textContent = nameVon(id, slots.indexOf(id)) + ': „' + ort + '“ ist auf der Karte.';
-    } catch (_) {
-      status.textContent = 'Die Ortssuche ist gerade nicht erreichbar.';
-    }
-  }
-
-  document.addEventListener('click', function (event) {
-    var button = event.target.closest('[data-find]');
-    if (button) ortSuchen(button.dataset.find, button.dataset.kind);
+      var pos = await Promise.all([geocode(draft.wohnort), geocode(draft.herkunft)]);
+      draft.wohnortPos=pos[0]; draft.herkunftPos=pos[1];
+      preview.push(L.marker([pos[0].lat,pos[0].lon]).addTo(map).bindTooltip(labelText(draft.name,'wohnort',draft.wohnort),{permanent:true,direction:'top',offset:[0,-12],className:'gruppe-label'}));
+      preview.push(L.marker([pos[1].lat,pos[1].lon]).addTo(map).bindTooltip(labelText(draft.name,'herkunft',draft.herkunft),{permanent:true,direction:'top',offset:[0,-12],className:'gruppe-label'}));
+      map.fitBounds(L.featureGroup(preview).getBounds().pad(.28));
+      status.textContent=draft.name + ': Beide Orte sind auf der Karte.';
+    } catch (e) { status.textContent=e.message || 'Die Ortssuche ist gerade nicht erreichbar.'; }
   });
 
-  document.getElementById('gruppe-alle-orte').addEventListener('click', function () {
-    var alle = Object.keys(marker).map(function (key) { return marker[key]; });
-    if (!alle.length) {
-      document.getElementById('gruppe-kartenstatus').textContent = 'Noch keine Orte auf der Karte.';
-      return;
+  document.getElementById('gruppe-uebertragen').addEventListener('click', async function(){
+    eingabeLesen(); var status=document.getElementById('gruppe-kartenstatus');
+    if (!draft.name || !draft.wohnort || !draft.herkunft) { status.textContent='Bitte Name, Wohnort und Herkunftsort eintragen.'; return; }
+    if (!draft.wohnortPos || !draft.herkunftPos) {
+      status.textContent='Ich suche die beiden Orte zuerst …';
+      try { draft.wohnortPos=await geocode(draft.wohnort); draft.herkunftPos=await geocode(draft.herkunft); }
+      catch(e){ status.textContent=e.message || 'Die Ortssuche ist gerade nicht erreichbar.'; return; }
     }
+    var ziel = draft.editId;
+    if (!ziel) {
+      ziel = teilnehmer.find(function(id){ return !istGefuellt(id); });
+      if (!ziel && !istGefuellt(kursleitung)) ziel = kursleitung;
+    }
+    if (!ziel) { status.textContent='Alle sechs Karten sind bereits belegt. Nutzen Sie „Name und Orte bearbeiten“.'; return; }
+    var bisher = state[ziel] || {};
+    state[ziel] = Object.assign({}, bisher, { name:draft.name, wohnort:draft.wohnort, herkunft:draft.herkunft, wohnortPos:draft.wohnortPos, herkunftPos:draft.herkunftPos });
+    speichern(); previewLoeschen(); alleMarkerNeu(); renderProfile();
+    var name = draft.name; eingabeLeeren();
+    status.textContent=name + ' wurde ins Gruppenprofil übernommen.';
+    var alle = Object.keys(marker).map(function(key){ return marker[key]; }); if (alle.length) map.fitBounds(L.featureGroup(alle).getBounds().pad(.18));
+  });
+
+  document.addEventListener('click', function(event){
+    var b=event.target.closest('[data-edit]'); if (!b) return;
+    var id=b.dataset.edit; var p=state[id];
+    document.getElementById('gruppe-name').value=p.name||''; document.getElementById('gruppe-wohnort').value=p.wohnort||''; document.getElementById('gruppe-herkunft').value=p.herkunft||'';
+    draft={ name:p.name||'', wohnort:p.wohnort||'', herkunft:p.herkunft||'', wohnortPos:p.wohnortPos||null, herkunftPos:p.herkunftPos||null, editId:id };
+    document.getElementById('gruppe-eingabezeile').scrollIntoView({behavior:'smooth',block:'center'});
+    document.getElementById('gruppe-kartenstatus').textContent='Bearbeitung geladen. Änderungen anschließend wieder übertragen.';
+  });
+
+  document.getElementById('gruppe-alle-orte').addEventListener('click', function(){
+    var alle=Object.keys(marker).map(function(key){ return marker[key]; });
+    if (!alle.length) { document.getElementById('gruppe-kartenstatus').textContent='Noch keine übernommenen Orte auf der Karte.'; return; }
     map.fitBounds(L.featureGroup(alle).getBounds().pad(.18));
   });
-
-  document.getElementById('tab-gruppe').addEventListener('click', function () {
-    setTimeout(function () { map.invalidateSize(); }, 50);
-  });
-  window.addEventListener('load', function () {
-    setTimeout(function () { map.invalidateSize(); }, 100);
-  });
+  document.getElementById('tab-gruppe').addEventListener('click', function(){ setTimeout(function(){ map.invalidateSize(); },50); });
+  window.addEventListener('load', function(){ setTimeout(function(){ map.invalidateSize(); },100); });
 })();
 
 Lehrwerk.auswahl('mc-anrede', [
-  {
-    id: 'a1',
-    text: 'Sie schreiben zum ersten Mal an eine Kundin, die Sie nicht kennen. Wie beginnen Sie?',
-    optionen: ['Hallo Frau Weber,', 'Sehr geehrte Frau Weber,', 'Liebe Frau Weber,'],
-    richtig: ['Sehr geehrte Frau Weber,'],
-    erklaerung: 'Beim Erstkontakt nach außen ist „Sehr geehrte“ die sichere Wahl. „Hallo“ und „Liebe“ setzen eine Nähe voraus, die es noch nicht gibt.'
-  },
-  {
-    id: 'a2',
-    text: 'Sie wissen nicht, ob das „du“ üblich ist. Was ist die sicherste Lösung?',
-    optionen: ['Abwarten, bis das „du“ angeboten wird oder eine allgemeine Duzkultur klar ist.', 'Einfach mit „du“ beginnen.', 'Alle Personen im Unternehmen automatisch siezen.'],
-    richtig: ['Abwarten, bis das „du“ angeboten wird oder eine allgemeine Duzkultur klar ist.'],
-    erklaerung: 'So vermeiden Sie, eine Beziehung vorwegzunehmen. In manchen Unternehmen wird grundsätzlich geduzt; andernorts wird das „du“ persönlich angeboten.'
-  },
-  {
-    id: 'a3',
-    text: 'In Ihrem Team duzen sich alle. Sie schreiben zum ersten Mal an einen Kunden. Was gilt?',
-    optionen: ['Sie duzen ihn auch, weil das Team sich duzt.', 'Sie siezen ihn.'],
-    richtig: ['Sie siezen ihn.'],
-    erklaerung: 'Die interne Duzkultur gilt nicht automatisch für Kundinnen und Kunden. Beim Erstkontakt ist „Sie“ die sichere Wahl, solange nichts anderes vereinbart ist.'
-  },
-  {
-    id: 'a4',
-    text: 'Welche Grußformel passt zu „Sehr geehrter Herr Nowak“?',
-    optionen: ['Liebe Grüße', 'Mit freundlichen Grüßen', 'Bis bald'],
-    richtig: ['Mit freundlichen Grüßen'],
-    erklaerung: '„Mit freundlichen Grüßen“ passt eindeutig zum formellen Erstkontakt. „Liebe Grüße“ kann in einer bereits vertrauten Geschäftsbeziehung vorkommen, ist hier aber nicht die sichere Standardform.'
-  },
-  {
-    id: 'a5',
-    text: 'Wie schreibt man die Höflichkeitsform in einer E-Mail?',
-    optionen: ['Sie, Ihnen und Ihr immer groß', 'Sie, Ihnen und Ihr immer klein', 'nur am Satzanfang groß'],
-    richtig: ['Sie, Ihnen und Ihr immer groß'],
-    erklaerung: 'Die Höflichkeitsform wird immer großgeschrieben: „Können Sie mir Ihre Rückmeldung senden?“ Das kleine „sie“ meint dagegen eine Frau oder eine Mehrzahl.'
-  }
+  { id:'a1', text:'Sie schreiben zum ersten Mal an eine Kundin, die Sie nicht kennen. Wie beginnen Sie?', optionen:['Hallo Frau Weber,','Sehr geehrte Frau Weber,','Liebe Frau Weber,'], richtig:['Sehr geehrte Frau Weber,'], erklaerung:'Beim Erstkontakt nach außen ist „Sehr geehrte“ die sichere Wahl. „Hallo“ und „Liebe“ setzen eine Nähe voraus, die es noch nicht gibt.' },
+  { id:'a2', text:'Sie wissen nicht, ob das „du“ üblich ist. Was ist die sicherste Lösung?', optionen:['Abwarten, bis das „du“ angeboten wird oder eine allgemeine Duzkultur klar ist.','Einfach mit „du“ beginnen.','Alle Personen im Unternehmen automatisch siezen.'], richtig:['Abwarten, bis das „du“ angeboten wird oder eine allgemeine Duzkultur klar ist.'], erklaerung:'So vermeiden Sie, eine Beziehung vorwegzunehmen. In manchen Unternehmen wird grundsätzlich geduzt; andernorts wird das „du“ persönlich angeboten.' },
+  { id:'a3', text:'In Ihrem Team duzen sich alle. Sie schreiben zum ersten Mal an einen Kunden. Was gilt?', optionen:['Sie duzen ihn auch, weil das Team sich duzt.','Sie siezen ihn.'], richtig:['Sie siezen ihn.'], erklaerung:'Die interne Duzkultur gilt nicht automatisch für Kundinnen und Kunden. Beim Erstkontakt ist „Sie“ die sichere Wahl, solange nichts anderes vereinbart ist.' },
+  { id:'a4', text:'Welche Grußformel passt zu „Sehr geehrter Herr Nowak“?', optionen:['Liebe Grüße','Mit freundlichen Grüßen','Bis bald'], richtig:['Mit freundlichen Grüßen'], erklaerung:'„Mit freundlichen Grüßen“ passt eindeutig zum formellen Erstkontakt. „Liebe Grüße“ kann in einer bereits vertrauten Geschäftsbeziehung vorkommen, ist hier aber nicht die sichere Standardform.' },
+  { id:'a5', text:'Wie schreibt man die Höflichkeitsform in einer E-Mail?', optionen:['Sie, Ihnen und Ihr immer groß','Sie, Ihnen und Ihr immer klein','nur am Satzanfang groß'], richtig:['Sie, Ihnen und Ihr immer groß'], erklaerung:'Die Höflichkeitsform wird immer großgeschrieben: „Können Sie mir Ihre Rückmeldung senden?“ Das kleine „sie“ meint dagegen eine Frau oder eine Mehrzahl.' }
 ]);
 
 Lehrwerk.auswahl('mc-fragen', [
-  {
-    id: 'f1',
-    text: 'Sie sprechen jemanden im Kurs zum ersten Mal an. Was ist am höflichsten?',
-    optionen: ['Darf ich Sie etwas fragen?', 'Sag mal, hast du schon …?', 'Ich will wissen, ob Sie …'],
-    richtig: ['Darf ich Sie etwas fragen?'],
-    erklaerung: 'Die Frage kündigt an, was kommt, und lässt der anderen Person die Wahl. „Ich will wissen“ klingt fordernd.'
-  },
-  {
-    id: 'f2',
-    text: 'Welcher Satz ist richtig?',
-    optionen: [
-      'Können Sie mir sagen, ob Sie schon einmal auf Deutsch telefoniert haben?',
-      'Können Sie mir sagen, ob haben Sie schon einmal auf Deutsch telefoniert?'
-    ],
-    richtig: ['Können Sie mir sagen, ob Sie schon einmal auf Deutsch telefoniert haben?'],
-    erklaerung: '„Ob“ eröffnet einen Nebensatz. Die Verbgruppe steht am Ende, das konjugierte Verb ganz zuletzt.'
-  },
-  {
-    id: 'f3',
-    text: 'Welcher Satz ist richtig?',
-    optionen: [
-      'Stimmt es, dass Sie drei Sprachen sprechen?',
-      'Stimmt es, dass sprechen Sie drei Sprachen?'
-    ],
-    richtig: ['Stimmt es, dass Sie drei Sprachen sprechen?'],
-    erklaerung: 'Nach „dass“ gilt dieselbe Regel wie nach „ob“, „weil“ und „obwohl“: Das konjugierte Verb steht am Satzende.'
-  }
+  { id:'f1', text:'Sie sprechen jemanden im Kurs zum ersten Mal an. Was ist am höflichsten?', optionen:['Darf ich Sie etwas fragen?','Sag mal, hast du schon …?','Ich will wissen, ob Sie …'], richtig:['Darf ich Sie etwas fragen?'], erklaerung:'Die Frage kündigt an, was kommt, und lässt der anderen Person die Wahl. „Ich will wissen“ klingt fordernd.' },
+  { id:'f2', text:'Welcher Satz ist richtig?', optionen:['Können Sie mir sagen, ob Sie schon einmal auf Deutsch telefoniert haben?','Können Sie mir sagen, ob haben Sie schon einmal auf Deutsch telefoniert?'], richtig:['Können Sie mir sagen, ob Sie schon einmal auf Deutsch telefoniert haben?'], erklaerung:'„Ob“ eröffnet einen Nebensatz. Die Verbgruppe steht am Ende, das konjugierte Verb ganz zuletzt.' },
+  { id:'f3', text:'Welcher Satz ist richtig?', optionen:['Stimmt es, dass Sie drei Sprachen sprechen?','Stimmt es, dass sprechen Sie drei Sprachen?'], richtig:['Stimmt es, dass Sie drei Sprachen sprechen?'], erklaerung:'Nach „dass“ gilt dieselbe Regel wie nach „ob“, „weil“ und „obwohl“: Das konjugierte Verb steht am Satzende.' }
 ]);
 
-Lehrwerk.luecken('p', {
-  felder: {
-    p1: ['ihr'],
-    p2: ['ihr'],
-    p3: ['ihren'],
-    p4: ['sein'],
-    p5: ['seine']
-  },
-  pruefen: 'p-pruefen',
-  rueck: 'p-rueck',
-  eindeutig: true
-});
+Lehrwerk.luecken('p', { felder:{ p1:['ihr'], p2:['ihr'], p3:['ihren'], p4:['sein'], p5:['seine'] }, pruefen:'p-pruefen', rueck:'p-rueck', eindeutig:true });
 
-[
-  'anrede-ergebnis',
-  'anrede-betrieb',
-  'stimmen-du',
-  'stimmen-sie',
-  'bingo1', 'bingo2', 'bingo3', 'bingo4', 'bingo5',
-  'bingo6', 'bingo7', 'bingo8', 'bingo9',
-  'sb-name', 'sb-herkunft', 'sb-wohnort', 'sb-beruf', 'sb-sprachen', 'sb-ziel',
-  'interview-aufgaben',
-  'interview-schwierig',
-  'interview-ziele',
-  'sprechen-vorstellung',
-  'schreiben-vorstellung'
-].forEach(function (id) {
-  Lehrwerk.frei(id);
-});
+['anrede-ergebnis','anrede-betrieb','stimmen-du','stimmen-sie','bingo1','bingo2','bingo3','bingo4','bingo5','bingo6','bingo7','bingo8','bingo9','sb-name','sb-herkunft','sb-wohnort','sb-beruf','sb-sprachen','sb-ziel','interview-aufgaben','interview-schwierig','interview-ziele','sprechen-vorstellung','schreiben-vorstellung'].forEach(function(id){ Lehrwerk.frei(id); });
 
-Lehrwerk.abstimmung({
-  felder: [
-    { id: 'stimmen-du',  balken: 'balken-du',  label: 'du' },
-    { id: 'stimmen-sie', balken: 'balken-sie', label: 'Sie' }
-  ],
-  balken: 'abstimmung-balken',
-  ergebnis: 'abstimmung-ergebnis',
-  leer: 'Noch keine Stimmen eingetragen.',
-  gleichstand: 'Gleichstand. Der Kurs entscheidet gemeinsam, wie es weitergeht.',
-  mehrheit: {
-    'stimmen-du': 'Die Mehrheit ist für „du“. Im Kurs sagen wir also du.',
-    'stimmen-sie': 'Die Mehrheit ist für „Sie“. Im Kurs siezen wir uns also.'
-  }
-});
+Lehrwerk.abstimmung({ felder:[{id:'stimmen-du',balken:'balken-du',label:'du'},{id:'stimmen-sie',balken:'balken-sie',label:'Sie'}], balken:'abstimmung-balken', ergebnis:'abstimmung-ergebnis', leer:'Noch keine Stimmen eingetragen.', gleichstand:'Gleichstand. Der Kurs entscheidet gemeinsam, wie es weitergeht.', mehrheit:{'stimmen-du':'Die Mehrheit ist für „du“. Im Kurs sagen wir also du.','stimmen-sie':'Die Mehrheit ist für „Sie“. Im Kurs siezen wir uns also.'} });
 
-Lehrwerk.ergebnis({
-  quelle: 'blatt-interview',
-  knopf: 'interview-kopieren',
-  titel: 'Partnerinterview'
-});
+Lehrwerk.ergebnis({ quelle:'blatt-interview', knopf:'interview-kopieren', titel:'Partnerinterview' });
 
-/* ---- Uhr fuer das Partnerinterview ---- */
-var UHR_REST = 420, uhrRest = UHR_REST, uhrLaeuft = null;
-var uhrAnzeige = document.getElementById('uhr');
-
-function uhrZeigen() {
-  var m = Math.floor(uhrRest / 60), s = uhrRest % 60;
-  uhrAnzeige.textContent = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
-}
-
-document.getElementById('uhr-start').addEventListener('click', function () {
-  if (uhrLaeuft) return;
-  uhrAnzeige.setAttribute('aria-live', 'off');
-  uhrLaeuft = setInterval(function () {
-    if (uhrRest > 0) { uhrRest--; uhrZeigen(); }
-    if (uhrRest === 0) {
-      clearInterval(uhrLaeuft); uhrLaeuft = null;
-      uhrAnzeige.setAttribute('aria-live', 'polite');
-      uhrAnzeige.textContent = '00:00 — Wechsel!';
-    }
-  }, 1000);
-});
-
-document.getElementById('uhr-pause').addEventListener('click', function () {
-  if (uhrLaeuft) { clearInterval(uhrLaeuft); uhrLaeuft = null; }
-});
-
-document.getElementById('uhr-zurueck').addEventListener('click', function () {
-  if (uhrLaeuft) { clearInterval(uhrLaeuft); uhrLaeuft = null; }
-  uhrRest = UHR_REST; uhrZeigen();
-});
-
+var UHR_REST=420, uhrRest=UHR_REST, uhrLaeuft=null; var uhrAnzeige=document.getElementById('uhr');
+function uhrZeigen(){ var m=Math.floor(uhrRest/60), s=uhrRest%60; uhrAnzeige.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s; }
+document.getElementById('uhr-start').addEventListener('click',function(){ if(uhrLaeuft)return; uhrAnzeige.setAttribute('aria-live','off'); uhrLaeuft=setInterval(function(){ if(uhrRest>0){uhrRest--;uhrZeigen();} if(uhrRest===0){clearInterval(uhrLaeuft);uhrLaeuft=null;uhrAnzeige.setAttribute('aria-live','polite');uhrAnzeige.textContent='00:00 — Wechsel!';}},1000); });
+document.getElementById('uhr-pause').addEventListener('click',function(){ if(uhrLaeuft){clearInterval(uhrLaeuft);uhrLaeuft=null;} });
+document.getElementById('uhr-zurueck').addEventListener('click',function(){ if(uhrLaeuft){clearInterval(uhrLaeuft);uhrLaeuft=null;} uhrRest=UHR_REST;uhrZeigen(); });
 uhrZeigen();
 
 Lehrwerk.abschluss();
