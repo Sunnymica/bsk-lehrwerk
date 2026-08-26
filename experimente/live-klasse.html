@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Live-Klasse – Prototyp</title>
+<link rel="stylesheet" href="../assets/basis.css">
+<link rel="stylesheet" href="../assets/platform.css">
+<link rel="stylesheet" href="../assets/lehrwerk.css">
+<link rel="stylesheet" href="../assets/aufgaben.css">
+<style>
+  .live-wrap{max-width:900px;margin:0 auto;padding:2rem 1rem 4rem}
+  .live-kopf{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+  .live-kopf label{font-weight:700}
+  .live-kopf input{width:100%;margin-top:.35rem}
+  .live-status{padding:.8rem 1rem;border-radius:.8rem;background:#eef7fa;margin:1rem 0;color:#405762}
+  .live-aufgabe{padding:1.2rem;border:1px solid #dbe2e6;border-radius:1rem;background:#fff}
+  .live-aufgabe textarea{width:100%;min-height:180px;margin-top:.7rem}
+  .live-meta{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:#697780;font-size:.9rem}
+  @media(max-width:650px){.live-kopf{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="module" data-bereich="kurs" data-root="../">
+<main class="live-wrap">
+  <p class="stand-hinweis">Experiment · nur auf dem Test-Branch</p>
+  <h1>Live-Klasse</h1>
+  <p>Test einer gemeinsamen Schreibaufgabe. Öffnen Sie diese Seite in mehreren Browserfenstern mit demselben Raumcode.</p>
+
+  <div class="live-kopf">
+    <label>Ihr Name
+      <input class="luecke" id="live-name" placeholder="z. B. Liubov">
+    </label>
+    <label>Raumcode
+      <input class="luecke" id="live-room" value="JBSKK26_14">
+    </label>
+  </div>
+
+  <div class="live-status" id="live-status" aria-live="polite">Noch nicht verbunden.</div>
+
+  <section class="live-aufgabe">
+    <span class="marke">Schreibaufgabe</span>
+    <h2>Wie ist es an Ihrem Arbeitsplatz?</h2>
+    <p>Schreiben Sie zwei bis drei Sätze. Wen siezen Sie, wen duzen Sie? Gab es einen Moment, in dem gewechselt wurde?</p>
+    <textarea class="feld" id="live-answer" placeholder="Bei uns im Betrieb …"></textarea>
+    <div class="live-meta">
+      <span id="live-saved">Noch nichts gespeichert</span>
+      <span>Ihre Eingabe wird während des Schreibens synchronisiert.</span>
+    </div>
+  </section>
+
+  <p class="stand-hinweis">Dieser erste Prototyp synchronisiert nur zwischen Browserfenstern auf demselben Gerät/Browserprofil. Er verändert keine reguläre Lehrwerksseite.</p>
+</main>
+<script src="../assets/live-klasse.js"></script>
+<script>
+BSKLiveTeilnehmer.start({
+  roomInput: 'live-room',
+  nameInput: 'live-name',
+  answerInput: 'live-answer',
+  status: 'live-status',
+  saved: 'live-saved',
+  taskId: 'arbeitsplatz-anrede'
+});
+</script>
+</body>
+</html>
