@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Live-Klasse Lehrkraft – Prototyp</title>
+<link rel="stylesheet" href="../assets/basis.css">
+<link rel="stylesheet" href="../assets/platform.css">
+<link rel="stylesheet" href="../assets/lehrwerk.css">
+<link rel="stylesheet" href="../assets/aufgaben.css">
+<style>
+  .live-wrap{max-width:1100px;margin:0 auto;padding:2rem 1rem 4rem}
+  .live-toolbar{display:flex;gap:.75rem;align-items:end;flex-wrap:wrap;margin:1rem 0}
+  .live-toolbar label{font-weight:700;min-width:240px}.live-toolbar input{width:100%;margin-top:.35rem}
+  .live-status{padding:.8rem 1rem;border-radius:.8rem;background:#eef7fa;margin:1rem 0;color:#405762}
+  .live-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+  .live-card{border:1px solid #dbe2e6;border-radius:1rem;background:#fff;padding:1rem;min-width:0}
+  .live-card h3{margin:.1rem 0 .5rem}.live-answer{white-space:pre-wrap;min-height:90px;padding:.8rem;border-radius:.7rem;background:#f7f9fa}
+  .live-meta{font-size:.85rem;color:#71808a;margin-top:.6rem}
+  .live-empty{padding:2rem;text-align:center;border:1px dashed #cfd8dd;border-radius:1rem;color:#6e7c85}
+  @media(max-width:760px){.live-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="module" data-bereich="kurs" data-root="../">
+<main class="live-wrap">
+  <p class="stand-hinweis">Experiment · nur auf dem Test-Branch</p>
+  <h1>Live-Klasse · Lehrkraft</h1>
+  <p>Hier erscheinen die Texte der Teilnehmenden live.</p>
+  <div class="live-toolbar">
+    <label>Raumcode
+      <input class="luecke" id="live-room" value="JBSKK26_14">
+    </label>
+    <button class="knopf" type="button" id="live-clear">Testdaten dieses Raums löschen</button>
+  </div>
+  <div class="live-status" id="live-status" aria-live="polite">Warte auf Eingaben …</div>
+  <section>
+    <h2>Arbeitsplatz &amp; Anrede</h2>
+    <div class="live-grid" id="live-grid"></div>
+  </section>
+  <p class="stand-hinweis">Für den ersten Funktionstest läuft die Synchronisierung nur innerhalb desselben Browsers. Der nächste Schritt ersetzt nur die Transport-Schicht durch eine geschützte Echtzeit-Datenbank.</p>
+</main>
+<script src="../assets/live-klasse.js"></script>
+<script>
+BSKLiveLehrkraft.start({
+  roomInput: 'live-room',
+  grid: 'live-grid',
+  status: 'live-status',
+  clearButton: 'live-clear',
+  taskId: 'arbeitsplatz-anrede'
+});
+</script>
+</body>
+</html>
