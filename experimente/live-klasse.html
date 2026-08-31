@@ -20,12 +20,17 @@
   .live-meta{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:#697780;font-size:.9rem}
   @media(max-width:650px){.live-kopf{grid-template-columns:1fr}}
 </style>
+<script
+  src="https://res.cdn.office.net/teams-js/2.55.0/js/MicrosoftTeams.min.js"
+  integrity="sha384-qOOENVJGWr7UF7wvgyycjvq3sZen4SEYQwZMKqpquvV/PNMtSJb3VGZ/sAIKsZDw"
+  crossorigin="anonymous">
+</script>
 </head>
 <body data-page="module" data-bereich="kurs" data-root="../">
 <main class="live-wrap">
-  <p class="stand-hinweis">Experiment · nur auf dem Test-Branch</p>
+  <p class="stand-hinweis">Experiment · Live-Klasse</p>
   <h1>Live-Klasse</h1>
-  <p>Test einer gemeinsamen Schreibaufgabe. Öffnen Sie diese Seite in mehreren Browserfenstern mit demselben Raumcode.</p>
+  <p>Test einer gemeinsamen Schreibaufgabe. In Teams wird der Text über Live Share synchronisiert; außerhalb von Teams bleibt der lokale Testmodus erhalten.</p>
 
   <div class="live-kopf">
     <label>Ihr Name
@@ -36,7 +41,7 @@
     </label>
   </div>
 
-  <div class="live-status" id="live-status" aria-live="polite">Noch nicht verbunden.</div>
+  <div class="live-status" id="live-status" aria-live="polite">Verbindung wird hergestellt …</div>
 
   <section class="live-aufgabe">
     <span class="marke">Schreibaufgabe</span>
@@ -44,23 +49,14 @@
     <p>Schreiben Sie zwei bis drei Sätze. Wen siezen Sie, wen duzen Sie? Gab es einen Moment, in dem gewechselt wurde?</p>
     <textarea class="feld" id="live-answer" placeholder="Bei uns im Betrieb …"></textarea>
     <div class="live-meta">
-      <span id="live-saved">Noch nichts gespeichert</span>
+      <span id="live-saved">Noch nichts synchronisiert</span>
       <span>Ihre Eingabe wird während des Schreibens synchronisiert.</span>
     </div>
   </section>
 
-  <p class="stand-hinweis">Dieser erste Prototyp synchronisiert nur zwischen Browserfenstern auf demselben Gerät/Browserprofil. Er verändert keine reguläre Lehrwerksseite.</p>
+  <p class="stand-hinweis">In Teams nutzt dieser Prototyp Microsoft Live Share. Außerhalb von Teams synchronisiert er nur lokal zwischen Browserfenstern desselben Browserprofils.</p>
 </main>
 <script src="../assets/live-klasse.js"></script>
-<script>
-BSKLiveTeilnehmer.start({
-  roomInput: 'live-room',
-  nameInput: 'live-name',
-  answerInput: 'live-answer',
-  status: 'live-status',
-  saved: 'live-saved',
-  taskId: 'arbeitsplatz-anrede'
-});
-</script>
+<script type="module" src="../assets/live-klasse-teams.js"></script>
 </body>
 </html>
