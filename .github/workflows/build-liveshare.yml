@@ -1,0 +1,57 @@
+name: Build Live Share browser bundle
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/liveshare-entry.js'
+      - '.github/workflows/build-liveshare.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install bundle dependencies
+        run: |
+          npm init -y
+          npm install --no-save \
+            @microsoft/live-share@1.4.2 \
+            fluid-framework@1.3.6 \
+            @fluidframework/azure-client@1.1.1 \
+            @microsoft/teams-js@2.11.0 \
+            esbuild@0.25.9
+
+      - name: Build browser bundle
+        run: |
+          npx esbuild tools/liveshare-entry.js \
+            --bundle \
+            --format=esm \
+            --platform=browser \
+            --target=es2020 \
+            --define:process.env.NODE_ENV='"production"' \
+            --define:global=globalThis \
+            --minify \
+            --outfile=assets/liveshare-bundle.js
+
+      - name: Commit generated bundle
+        run: |
+          if git diff --quiet -- assets/liveshare-bundle.js; then
+            echo 'Bundle unchanged.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/liveshare-bundle.js
+          git commit -m 'Build Live Share browser bundle'
+          git push
