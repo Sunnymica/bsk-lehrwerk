@@ -46,7 +46,7 @@ jobs:
 
       - name: Commit generated bundle
         run: |
-          if git diff --quiet -- assets/liveshare-bundle.js; then
+          if [ -z "$(git status --porcelain -- assets/liveshare-bundle.js)" ]; then
             echo 'Bundle unchanged.'
             exit 0
           fi
