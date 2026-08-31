@@ -39,23 +39,30 @@ function startLocal(reason) {
 }
 
 async function startTeamsLiveShare() {
-  if (!window.microsoftTeams?.app) throw new Error('Teams SDK nicht verfügbar');
-
-  await window.microsoftTeams.app.initialize();
-
   /*
-   * Live Share ist ein npm-Paket. Da dieser Prototyp absichtlich ohne
-   * Build-Schritt direkt von GitHub Pages läuft, laden wir browserfertig
-   * gebündelte ESM-Varianten. Das verhindert CJS/ESM-Probleme in
-   * Fluid-Framework-Abhängigkeiten (z. B. debug).
+   * Der Prototyp läuft ohne Build-Schritt direkt von GitHub Pages.
+   * Browserfertige ESM-Pakete von jsDelivr vermeiden die CJS/ESM-Kollision
+   * des bisherigen esm.sh-Imports.
    */
-  const [{ LiveShareClient }, { SharedMap }] = await Promise.all([
-    import('https://esm.sh/@microsoft/live-share@1.4.2?bundle'),
-    import('https://esm.sh/fluid-framework@1.3.6?bundle')
+  const [liveShareModule, fluidModule, teamsModule] = await Promise.all([
+    import('https://cdn.jsdelivr.net/npm/@microsoft/live-share@1.4.2/+esm'),
+    import('https://cdn.jsdelivr.net/npm/fluid-framework@1.3.6/+esm'),
+    import('https://cdn.jsdelivr.net/npm/@microsoft/teams-js@2.55.0/+esm')
   ]);
 
-  const LiveShareHost = window.microsoftTeams.LiveShareHost;
-  if (!LiveShareHost?.create) throw new Error('LiveShareHost ist in Teams nicht verfügbar');
+  const { LiveShareClient } = liveShareModule;
+  const { SharedMap } = fluidModule;
+  const { app, liveShare, LiveShareHost } = teamsModule;
+
+  if (!app?.initialize || !LiveShareHost?.create) {
+    throw new Error('Teams Live Share SDK nicht verfügbar');
+  }
+
+  await app.initialize();
+
+  if (liveShare?.isSupported && !liveShare.isSupported()) {
+    throw new Error('Live Share wird in diesem Teams-Kontext nicht unterstützt');
+  }
 
   const host = LiveShareHost.create();
   const client = new LiveShareClient(host);
