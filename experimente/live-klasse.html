@@ -18,7 +18,12 @@
   .live-aufgabe{padding:1.2rem;border:1px solid #dbe2e6;border-radius:1rem;background:#fff}
   .live-aufgabe textarea{width:100%;min-height:180px;margin-top:.7rem}
   .live-meta{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:#697780;font-size:.9rem}
-  @media(max-width:650px){.live-kopf{grid-template-columns:1fr}}
+  .live-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1rem}
+  .live-card{border:1px solid #dbe2e6;border-radius:1rem;background:#fff;padding:1rem;min-width:0}
+  .live-card h3{margin:.1rem 0 .5rem}
+  .live-answer{white-space:pre-wrap;min-height:70px;padding:.8rem;border-radius:.7rem;background:#f7f9fa}
+  .live-empty{padding:1.4rem;text-align:center;border:1px dashed #cfd8dd;border-radius:1rem;color:#6e7c85;grid-column:1/-1}
+  @media(max-width:650px){.live-kopf,.live-grid{grid-template-columns:1fr}}
 </style>
 <script
   src="https://res.cdn.office.net/teams-js/2.55.0/js/MicrosoftTeams.min.js"
@@ -50,13 +55,19 @@
     <textarea class="feld" id="live-answer" placeholder="Bei uns im Betrieb …"></textarea>
     <div class="live-meta">
       <span id="live-saved">Noch nichts synchronisiert</span>
-      <span>Ihre Eingabe wird während des Schreibens synchronisiert.</span>
+      <span>Ihre Eingabe wird nach einer kurzen Schreibpause synchronisiert.</span>
     </div>
+  </section>
+
+  <section>
+    <h2>Live-Eingänge · Testansicht</h2>
+    <p class="stand-hinweis">Für den Funktionstest sind hier alle eingegangenen Texte sichtbar. Die spätere Lehrkraftansicht wird getrennt.</p>
+    <div class="live-grid" id="live-grid"></div>
   </section>
 
   <p class="stand-hinweis">In Teams nutzt dieser Prototyp Microsoft Live Share. Außerhalb von Teams synchronisiert er nur lokal zwischen Browserfenstern desselben Browserprofils.</p>
 </main>
 <script src="../assets/live-klasse.js"></script>
-<script type="module" src="../assets/live-klasse-teams.js?v=3"></script>
+<script type="module" src="../assets/live-klasse-teams.js?v=4"></script>
 </body>
 </html>
