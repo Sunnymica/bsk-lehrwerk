@@ -20,7 +20,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Install bundle dependencies
         run: |
@@ -29,7 +29,6 @@ jobs:
             @microsoft/live-share@1.4.2 \
             fluid-framework@1.3.6 \
             @fluidframework/azure-client@1.1.1 \
-            @microsoft/teams-js@2.11.0 \
             esbuild@0.25.9
 
       - name: Build browser bundle
@@ -54,4 +53,5 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add assets/liveshare-bundle.js
           git commit -m 'Build Live Share browser bundle'
+          git pull --rebase origin main
           git push
