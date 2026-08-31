@@ -44,7 +44,7 @@ async function startTeamsLiveShare() {
     LiveShareClient,
     LiveShareHost,
     SharedMap
-  } = await import('./liveshare-bundle.js?v=1');
+  } = await import('./liveshare-bundle.js?v=2');
 
   if (!LiveShareClient || !LiveShareHost?.create || !SharedMap) {
     throw new Error('Live-Share-Bundle unvollständig');
