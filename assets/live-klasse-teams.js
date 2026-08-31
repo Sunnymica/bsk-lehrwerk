@@ -43,16 +43,21 @@ async function startTeamsLiveShare() {
 
   await window.microsoftTeams.app.initialize();
 
-  if (window.microsoftTeams.liveShare?.isSupported && !window.microsoftTeams.liveShare.isSupported()) {
-    throw new Error('Live Share wird in diesem Teams-Kontext nicht unterstützt');
-  }
-
+  /*
+   * Live Share ist ein npm-Paket. Da dieser Prototyp absichtlich ohne
+   * Build-Schritt direkt von GitHub Pages läuft, laden wir browserfertig
+   * gebündelte ESM-Varianten. Das verhindert CJS/ESM-Probleme in
+   * Fluid-Framework-Abhängigkeiten (z. B. debug).
+   */
   const [{ LiveShareClient }, { SharedMap }] = await Promise.all([
-    import('https://esm.sh/@microsoft/live-share@1.4.2?deps=fluid-framework@1.3.6,@fluidframework/azure-client@1.1.1'),
-    import('https://esm.sh/fluid-framework@1.3.6')
+    import('https://esm.sh/@microsoft/live-share@1.4.2?bundle'),
+    import('https://esm.sh/fluid-framework@1.3.6?bundle')
   ]);
 
-  const host = window.microsoftTeams.LiveShareHost.create();
+  const LiveShareHost = window.microsoftTeams.LiveShareHost;
+  if (!LiveShareHost?.create) throw new Error('LiveShareHost ist in Teams nicht verfügbar');
+
+  const host = LiveShareHost.create();
   const client = new LiveShareClient(host);
   const schema = { initialObjects: { answers: SharedMap } };
   const { container } = await client.joinContainer(schema);
