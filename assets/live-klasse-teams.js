@@ -33,25 +33,24 @@ function startLocal(reason) {
 }
 
 async function startTeamsLiveShare() {
+  const teams = window.microsoftTeams;
+  if (!teams?.app?.initialize || !teams?.LiveShareHost?.create) {
+    throw new Error('Teams Live Share SDK nicht verfügbar');
+  }
+
+  await teams.app.initialize();
+  const context = await teams.app.getContext();
+
   const {
     LiveShareClient,
-    LiveShareHost,
-    SharedMap,
-    app
-  } = await import('./liveshare-bundle.js?v=3');
+    SharedMap
+  } = await import('./liveshare-bundle.js?v=4');
 
-  if (!app?.initialize || !LiveShareClient || !LiveShareHost?.create || !SharedMap) {
+  if (!LiveShareClient || !SharedMap) {
     throw new Error('Live-Share-Bundle unvollständig');
   }
 
-  /* Wichtig: LiveShareHost und app müssen aus derselben Teams-JS-Instanz
-     stammen. Die vorherige Variante initialisierte das globale CDN-SDK,
-     verwendete LiveShareHost aber aus dem Bundle. Dadurch meldete Teams:
-     "The library has not yet been initialized". */
-  await app.initialize();
-  const context = await app.getContext();
-
-  const host = LiveShareHost.create();
+  const host = teams.LiveShareHost.create();
   const client = new LiveShareClient(host);
   const schema = { initialObjects: { answers: SharedMap } };
   const { container } = await client.joinContainer(schema);
