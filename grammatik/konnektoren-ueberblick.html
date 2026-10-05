@@ -138,11 +138,39 @@
     <div id="quiz-drei-wege"></div>
 
     <h2>Gruppe 4: Zweiteilige Konnektoren</h2>
-    <div class="kasten">
-      <h3>Sie kommen im Doppelpack</h3>
-      <p><strong>entweder … oder · weder … noch · nicht nur … sondern auch · je … desto · zwar … aber</strong> bestehen aus zwei zusammengehörigen Teilen.</p>
+    <p>Diese Konnektoren kommen im Doppelpack. Bevor wir Regeln lesen, setzen wir die Paare erst einmal selbst zusammen.</p>
+
+    <div class="auftrag">
+      <span class="auftrag-marke">Zuordnen · 3 Minuten</span>
+      <h3>Wer gehört zu wem?</h3>
+      <p>Wählen Sie links den ersten Teil und rechts den passenden zweiten Teil.</p>
+    </div>
+
+    <div id="z4-paare"></div>
+    <p class="rueckmeldung" id="z4-paare-rueck" hidden></p>
+
+    <h3>Was bedeutet die Verbindung?</h3>
+    <div id="quiz-z4-bedeutung"></div>
+
+    <h3>Satzhälften zusammenbringen</h3>
+    <p>Jetzt geht es nicht nur um die beiden Wörter, sondern um den ganzen Satz.</p>
+    <div id="z4-satzhaelften"></div>
+    <p class="rueckmeldung" id="z4-satzhaelften-rueck" hidden></p>
+
+    <div class="merker">
+      <span class="marke-merker">Gruppe 4</span>
+      <h3>Die beiden Teile gehören zusammen</h3>
+      <p><strong>entweder … oder · weder … noch · nicht nur … sondern auch · zwar … aber</strong> verbinden zwei Möglichkeiten, Aussagen oder Satzteile.</p>
       <p class="satzbau"><span class="kon">Entweder</span> <span class="verb">senden</span> <span class="subj">Sie</span> das Formular heute <span class="kon">oder</span> <span class="subj">Sie</span> <span class="verb">reichen</span> es persönlich ein.</p>
-      <p>Für diese Gruppe gibt es ein eigenes Modul. Hier reicht zunächst: <strong>Die beiden Teile gehören zusammen.</strong></p>
+    </div>
+
+    <h3>Sonderfall: je … desto</h3>
+    <p>Bei <strong>je … desto</strong> verändert sich mit der einen Größe auch die andere. Bauen Sie die beiden Teile zusammen.</p>
+    <div id="sf-je-desto"></div>
+
+    <div class="kasten">
+      <p><strong>Je</strong> länger die Prüfung dauert, <strong>desto</strong> später können wir die Rechnung freigeben.</p>
+      <p>Für die zweiteiligen Konnektoren gibt es außerdem ein eigenes Modul. Hier reicht für den Überblick: <strong>Paare erkennen, Bedeutung verstehen, Satzbau sicher lesen.</strong></p>
     </div>
   </section>
 
@@ -750,6 +778,117 @@ Lehrwerk.auswahl('quiz-drei-wege', [
     erklaerung: 'Genau diese drei Baupläne sind der Kern des Überblicks.'
   }
 ]);
+
+Lehrwerk.zuordnen('z4-paare', {
+  rueck: 'z4-paare-rueck',
+  paare: [
+    { id: 'p1', links: 'entweder', rechts: 'oder', erklaerung: '„entweder … oder“ bietet zwei Möglichkeiten.' },
+    { id: 'p2', links: 'weder', rechts: 'noch', erklaerung: '„weder … noch“ verneint beide Möglichkeiten.' },
+    { id: 'p3', links: 'nicht nur', rechts: 'sondern auch', erklaerung: '„nicht nur … sondern auch“ fügt eine zweite Aussage verstärkend hinzu.' },
+    { id: 'p4', links: 'zwar', rechts: 'aber', erklaerung: '„zwar … aber“ schränkt die erste Aussage durch die zweite ein.' },
+    { id: 'p5', links: 'je', rechts: 'desto', erklaerung: '„je … desto“ zeigt: Zwei Entwicklungen hängen voneinander ab.' }
+  ]
+});
+
+Lehrwerk.auswahl('quiz-z4-bedeutung', [
+  {
+    id: 'z4b1',
+    text: '„Entweder Sie schicken die Datei heute oder Sie bringen sie morgen mit.“ Was wird ausgedrückt?',
+    optionen: ['zwei Möglichkeiten', 'doppelte Verneinung', 'eine Ursache', 'eine zeitliche Reihenfolge'],
+    richtig: ['zwei Möglichkeiten'],
+    erklaerung: '„entweder … oder“ stellt zwei Alternativen gegenüber.'
+  },
+  {
+    id: 'z4b2',
+    text: '„Weder die Rechnung noch der Lieferschein liegt vor.“ Was wird ausgedrückt?',
+    optionen: ['beide Aussagen gelten', 'beide Möglichkeiten werden verneint', 'eine Bedingung', 'eine Folge'],
+    richtig: ['beide Möglichkeiten werden verneint'],
+    erklaerung: '„weder … noch“ verneint beide verbundenen Teile.'
+  },
+  {
+    id: 'z4b3',
+    text: '„Die Vorlage ist zwar kürzer, aber nicht übersichtlicher.“ Was passiert?',
+    optionen: ['Die zweite Aussage schränkt die erste ein.', 'Es werden zwei Alternativen genannt.', 'Beide Aussagen werden verneint.', 'Die zweite Aussage nennt den Grund.'],
+    richtig: ['Die zweite Aussage schränkt die erste ein.'],
+    erklaerung: '„zwar … aber“ signalisiert eine Einschränkung oder einen Gegensatz.'
+  },
+  {
+    id: 'z4b4',
+    text: '„Sie hat nicht nur die Rechnung geprüft, sondern auch die Zahlung freigegeben.“ Was passiert?',
+    optionen: ['Die zweite Information kommt verstärkend hinzu.', 'Die zweite Information widerspricht der ersten.', 'Nur eine der beiden Aussagen ist richtig.', 'Beide Aussagen werden verneint.'],
+    richtig: ['Die zweite Information kommt verstärkend hinzu.'],
+    erklaerung: '„nicht nur … sondern auch“ erweitert und verstärkt.'
+  }
+]);
+
+Lehrwerk.zuordnen('z4-satzhaelften', {
+  rueck: 'z4-satzhaelften-rueck',
+  paare: [
+    {
+      id: 'sh1',
+      links: 'Entweder senden Sie die Unterlagen heute',
+      rechts: 'oder Sie bringen sie morgen persönlich mit.',
+      erklaerung: 'Zwei Möglichkeiten werden angeboten.'
+    },
+    {
+      id: 'sh2',
+      links: 'Weder die Kundin hat unterschrieben',
+      rechts: 'noch liegt die Freigabe der Leitung vor.',
+      erklaerung: 'Beide Voraussetzungen fehlen.'
+    },
+    {
+      id: 'sh3',
+      links: 'Die neue Vorlage ist zwar kürzer',
+      rechts: 'aber sie ist nicht übersichtlicher.',
+      erklaerung: 'Die zweite Aussage schränkt die erste ein.'
+    },
+    {
+      id: 'sh4',
+      links: 'Wir haben nicht nur die Rechnung geprüft',
+      rechts: 'sondern auch die Zahlung bereits freigegeben.',
+      erklaerung: 'Die zweite Handlung kommt zusätzlich hinzu.'
+    }
+  ]
+});
+
+Lehrwerk.satzfolge('sf-je-desto', {
+  frage: 'Bauen Sie den Satz mit „je … desto“.',
+  aufgaben: [
+    {
+      id: 'jd1',
+      kontext: 'Die Prüfung dauert länger. Die Freigabe kommt später.',
+      anfang: 'Je',
+      ende: '.',
+      teile: [
+        { id: 'a1', text: 'länger die Prüfung', typ: 'ergaenzung' },
+        { id: 'v1', text: 'dauert,', typ: 'verb' },
+        { id: 'k2', text: 'desto', typ: 'ergaenzung' },
+        { id: 'a2', text: 'später', typ: 'ergaenzung' },
+        { id: 'v2', text: 'kommt', typ: 'verb' },
+        { id: 's2', text: 'die Freigabe', typ: 'subjekt' }
+      ],
+      loesungen: [['a1','v1','k2','a2','v2','s2']],
+      erklaerung: 'Im je-Satz steht das Verb am Ende; nach „desto + Vergleich“ folgt im Hauptsatz das konjugierte Verb.'
+    },
+    {
+      id: 'jd2',
+      kontext: 'Wir bekommen die Unterlagen früh. Wir können den Vorgang schnell abschließen.',
+      anfang: 'Je',
+      ende: '.',
+      teile: [
+        { id: 'a1', text: 'früher wir die Unterlagen', typ: 'ergaenzung' },
+        { id: 'v1', text: 'bekommen,', typ: 'verb' },
+        { id: 'k2', text: 'desto', typ: 'ergaenzung' },
+        { id: 'a2', text: 'schneller', typ: 'ergaenzung' },
+        { id: 'v2', text: 'können', typ: 'verb' },
+        { id: 's2', text: 'wir', typ: 'subjekt' },
+        { id: 'e2', text: 'den Vorgang abschließen', typ: 'ergaenzung' }
+      ],
+      loesungen: [['a1','v1','k2','a2','v2','s2','e2']],
+      erklaerung: '„je … desto“ koppelt zwei Entwicklungen miteinander.'
+    }
+  ]
+});
 
 Lehrwerk.auswahl('check-konnektoren', [
   {
