@@ -165,12 +165,58 @@
     </div>
 
     <h3>Sonderfall: je … desto</h3>
-    <p>Bei <strong>je … desto</strong> verändert sich mit der einen Größe auch die andere. Bauen Sie die beiden Teile zusammen.</p>
+    <p>Bei <strong>je … desto</strong> verändern sich zwei Dinge miteinander. Die Wörter nach <em>je</em> und <em>desto</em> stehen dabei sehr häufig im <strong>Komparativ</strong>.</p>
+
+    <div class="auftrag">
+      <span class="auftrag-marke">Auffrischung · 3 Minuten</span>
+      <h3>Komparativ – kurz zurückholen</h3>
+      <p>Bilden Sie die Steigerungsform. Umlaute und unregelmäßige Formen zählen natürlich mit.</p>
+    </div>
+
+    <div class="frage">
+      <p>
+        früh → <input class="luecke" id="jd-k1" autocomplete="off"> &nbsp;
+        lang → <input class="luecke" id="jd-k2" autocomplete="off"> &nbsp;
+        hoch → <input class="luecke" id="jd-k3" autocomplete="off">
+      </p>
+      <p>
+        gut → <input class="luecke" id="jd-k4" autocomplete="off"> &nbsp;
+        viel → <input class="luecke" id="jd-k5" autocomplete="off"> &nbsp;
+        genau → <input class="luecke" id="jd-k6" autocomplete="off">
+      </p>
+      <div class="knopfreihe">
+        <button class="knopf" id="jd-k-pruefen" type="button">Prüfen</button>
+      </div>
+      <p class="rueckmeldung" id="jd-k-rueck" hidden></p>
+    </div>
+
+    <h3>Das Muster in vielen Varianten</h3>
+    <div class="kasten">
+      <p><strong>Je früher</strong> die Unterlagen kommen, <strong>desto schneller</strong> können wir den Antrag bearbeiten.</p>
+      <p><strong>Je vollständiger</strong> die Angaben sind, <strong>desto weniger</strong> Rückfragen haben wir.</p>
+      <p><strong>Je länger</strong> die Prüfung dauert, <strong>desto später</strong> erfolgt die Freigabe.</p>
+      <p><strong>Je genauer</strong> Sie das Formular ausfüllen, <strong>desto geringer</strong> ist das Fehlerrisiko.</p>
+      <p><strong>Je höher</strong> die Kosten sind, <strong>desto genauer</strong> müssen wir prüfen.</p>
+      <p><strong>Je mehr</strong> Unterlagen fehlen, <strong>desto schwieriger</strong> wird die Bearbeitung.</p>
+    </div>
+
+    <div class="merker">
+      <span class="marke-merker">Das Muster</span>
+      <h3>je + Komparativ … desto + Komparativ</h3>
+      <p>Die Kombinationen sind nicht fest. <strong>Je früher</strong> kann zum Beispiel mit <strong>desto besser</strong>, <strong>desto schneller</strong> oder <strong>desto sicherer</strong> verbunden werden – wenn der Zusammenhang inhaltlich passt.</p>
+    </div>
+
+    <h3>Welche Fortsetzungen passen?</h3>
+    <p>Es gibt jeweils mehrere richtige Möglichkeiten. Entscheidend ist der logische Zusammenhang.</p>
+    <div id="quiz-je-desto-offen"></div>
+
+    <h3>Jetzt den ganzen Satz bauen</h3>
+    <p>Achten Sie auf beide Dinge zugleich: den Komparativ und die Verbstellung.</p>
     <div id="sf-je-desto"></div>
 
     <div class="kasten">
-      <p><strong>Je</strong> länger die Prüfung dauert, <strong>desto</strong> später können wir die Rechnung freigeben.</p>
-      <p>Für die zweiteiligen Konnektoren gibt es außerdem ein eigenes Modul. Hier reicht für den Überblick: <strong>Paare erkennen, Bedeutung verstehen, Satzbau sicher lesen.</strong></p>
+      <p><strong>Je</strong> + Komparativ + … + Verb am Ende, <strong>desto</strong> + Komparativ + Verb + Subjekt + …</p>
+      <p>Für die zweiteiligen Konnektoren gibt es außerdem ein eigenes Modul. Hier reicht für den Überblick: <strong>Paare erkennen, Bedeutung verstehen und das Grundmuster sicher anwenden.</strong></p>
     </div>
   </section>
 
@@ -851,6 +897,70 @@ Lehrwerk.zuordnen('z4-satzhaelften', {
   ]
 });
 
+Lehrwerk.luecken('jd-komparativ', {
+  felder: {
+    'jd-k1': ['früher'],
+    'jd-k2': ['länger'],
+    'jd-k3': ['höher'],
+    'jd-k4': ['besser'],
+    'jd-k5': ['mehr'],
+    'jd-k6': ['genauer']
+  },
+  pruefen: 'jd-k-pruefen',
+  rueck: 'jd-k-rueck',
+  eindeutig: true
+});
+
+Lehrwerk.auswahl('quiz-je-desto-offen', [
+  {
+    id: 'jdo1',
+    text: 'Je früher die Unterlagen vollständig sind, …',
+    optionen: [
+      'desto schneller können wir den Vorgang abschließen.',
+      'desto früher können wir Rückfragen stellen.',
+      'desto besser können wir planen.',
+      'desto länger müssen wir auf die Unterlagen warten.'
+    ],
+    richtig: [
+      'desto schneller können wir den Vorgang abschließen.',
+      'desto besser können wir planen.'
+    ],
+    erklaerung: 'Mehrere Fortsetzungen sind möglich. Wichtig ist, dass sich die zweite Entwicklung logisch aus der ersten ergibt.'
+  },
+  {
+    id: 'jdo2',
+    text: 'Je länger die Freigabe dauert, …',
+    optionen: [
+      'desto später können wir bestellen.',
+      'desto größer wird das Risiko einer Verzögerung.',
+      'desto früher ist der Vorgang abgeschlossen.',
+      'desto weniger Zeit bleibt bis zur Frist.'
+    ],
+    richtig: [
+      'desto später können wir bestellen.',
+      'desto größer wird das Risiko einer Verzögerung.',
+      'desto weniger Zeit bleibt bis zur Frist.'
+    ],
+    erklaerung: 'Auch hier gibt es mehrere plausible Folgen. „je … desto“ beschreibt keinen festen Wortpartner, sondern einen Zusammenhang.'
+  },
+  {
+    id: 'jdo3',
+    text: 'Je genauer Sie das Formular ausfüllen, …',
+    optionen: [
+      'desto weniger Rückfragen entstehen.',
+      'desto geringer ist das Fehlerrisiko.',
+      'desto schwieriger wird die Prüfung automatisch.',
+      'desto schneller kann die Bearbeitung gehen.'
+    ],
+    richtig: [
+      'desto weniger Rückfragen entstehen.',
+      'desto geringer ist das Fehlerrisiko.',
+      'desto schneller kann die Bearbeitung gehen.'
+    ],
+    erklaerung: 'Die Fortsetzung muss sinnvoll sein; sie ist nicht auf ein einziges Adjektiv festgelegt.'
+  }
+]);
+
 Lehrwerk.satzfolge('sf-je-desto', {
   frage: 'Bauen Sie den Satz mit „je … desto“.',
   aufgaben: [
@@ -886,6 +996,22 @@ Lehrwerk.satzfolge('sf-je-desto', {
       ],
       loesungen: [['a1','v1','k2','a2','v2','s2','e2']],
       erklaerung: '„je … desto“ koppelt zwei Entwicklungen miteinander.'
+    },
+    {
+      id: 'jd3',
+      kontext: 'Sie füllen das Formular genau aus. Es entstehen wenige Rückfragen.',
+      anfang: 'Je',
+      ende: '.',
+      teile: [
+        { id: 'a1', text: 'genauer Sie das Formular', typ: 'ergaenzung' },
+        { id: 'v1', text: 'ausfüllen,', typ: 'verb' },
+        { id: 'k2', text: 'desto', typ: 'ergaenzung' },
+        { id: 'a2', text: 'weniger', typ: 'ergaenzung' },
+        { id: 's2', text: 'Rückfragen', typ: 'subjekt' },
+        { id: 'v2', text: 'entstehen', typ: 'verb' }
+      ],
+      loesungen: [['a1','v1','k2','a2','s2','v2']],
+      erklaerung: 'Nach „desto weniger“ bildet „Rückfragen“ mit dem Verb den Hauptsatz.'
     }
   ]
 });
