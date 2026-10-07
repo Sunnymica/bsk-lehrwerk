@@ -1620,6 +1620,17 @@
           "titel": "Übersichten",
           "module": [
             {
+              "titel": "Arzt- oder ärztlich-?",
+              "beschreibung": "Faustregel und Beispiele: ärztlicher Bericht, ärztliches Attest, Arzttermin, Arztbesuch.",
+              "pfad": "arzt-aerztlich.html",
+              "niveau": "B1–B2",
+              "dauer": "Nachschlagen",
+              "fertigkeiten": [
+                "Lesen"
+              ],
+              "status": "fertig"
+            },
+            {
               "titel": "Glossar",
               "beschreibung": "Alle Wörter des Kurses, durchsuchbar.",
               "pfad": "glossar.html",
