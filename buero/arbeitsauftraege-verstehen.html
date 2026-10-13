@@ -84,15 +84,32 @@
     </div>
 
     <div class="auftrag">
-      <span class="auftrag-marke">Spiel · 8 Minuten</span>
-      <h3>Wort-Pingpong</h3>
-      <p><strong>Zu zweit:</strong> A klappt die Tabelle unten auf und liest eine Erklärung aus der Spalte „einfach gesagt“ vor, zum Beispiel „bis wann etwas fertig sein muss“. B hat die Tabelle zu, nennt das Wort mit Artikel und sagt sofort einen Satz, den Nora zu Jonas sagen könnte.</p>
-      <p>Richtiges Wort und passender Satz: ein Punkt. Nach fünf Wörtern tauschen Sie die Rollen. Wer am Ende mehr Punkte hat, gewinnt.</p>
-      <p><strong>Herausforderung:</strong> Der Satz muss eine Rückfrage sein, zum Beispiel „Gibt es für die Übersicht eine Vorlage?“</p>
+      <span class="auftrag-marke">Spiel · 10 Minuten</span>
+      <h3>Zehn Wörter, zehn Rückfragen</h3>
+      <p>Die Kursleiterin liest einen Auftrag vor. Reihum wählt jede Person ein Wort und stellt damit eine Rückfrage. Das Wort wird angeklickt und ist dann verbraucht. Wer zuletzt dran ist, hat die schwierigsten Wörter übrig.</p>
+      <p class="satz"><strong>Runde 1 · Kateryna:</strong> „Ach, Frau Seidel, machen Sie doch mal eine Übersicht zu den offenen Anfragen. Herr Becker weiß Bescheid.“</p>
+      <p class="satz"><strong>Runde 2 · Pawel:</strong> „Kannst du dich mal um die Sache mit dem Lager kümmern? Das wäre super.“</p>
+      <div class="wortbank" id="rf-karten">
+        <button type="button" class="wortmarke rf-karte" aria-pressed="false">der Auftrag</button>
+        <button type="button" class="wortmarke rf-karte" aria-pressed="false">die Frist</button>
+        <button type="button" class="wortmarke rf-karte" aria-pressed="false">die Priorität</button>
+        <button type="button" class="wortmarke rf-karte" aria-pressed="false">erledigen</button>
+        <button type="button" class="wortmarke rf-karte" aria-pressed="false">sich abstimmen</button>
+        <button type="button" class="wortmarke rf-karte" aria-pressed="false">zuarbeiten</button>
+        <button type="button" class="wortmarke rf-karte" aria-pressed="false">die Vorlage</button>
+        <button type="button" class="wortmarke rf-karte" aria-pressed="false">die Rückfrage</button>
+        <button type="button" class="wortmarke rf-karte" aria-pressed="false">die Übersicht</button>
+        <button type="button" class="wortmarke rf-karte" aria-pressed="false">weitergeben</button>
+      </div>
+      <div class="knopfreihe">
+        <button class="knopf" id="rf-neu" type="button">Neue Runde</button>
+        <button class="knopf" id="rf-beispiele-knopf" type="button">Beispiele zeigen</button>
+      </div>
+      <p class="rueckmeldung" id="rf-beispiele" hidden>Auftrag: „Ist das ein neuer Auftrag, oder gehört das zur Monatsauswertung?“ · Frist: „Gibt es eine Frist?“ · Priorität: „Hat das Priorität vor der Inventur?“ · erledigen: „Bis wann soll ich das erledigen?“ · sich abstimmen: „Mit wem soll ich mich abstimmen?“ · zuarbeiten: „Wer arbeitet mir dabei zu?“ · Vorlage: „Gibt es dafür eine Vorlage?“ · Rückfrage: „Darf ich noch eine Rückfrage stellen?“ · Übersicht: „Wie ausführlich soll die Übersicht sein?“ · weitergeben: „Darf ich einen Teil davon an Jonas weitergeben?“</p>
     </div>
 
     <details class="kasten">
-      <summary><strong>Die zehn Wörter zum Nachschlagen</strong></summary>
+      <summary><strong>Die zehn Wörter zum Nachschlagen</strong> (mit Erklärung und Beispielsatz)</summary>
       <table>
         <thead><tr><th>Wort</th><th>einfach gesagt</th><th>im Satz</th></tr></thead>
         <tbody>
@@ -550,6 +567,21 @@ Lehrwerk.auswahl('verbteil-spiel', [
     optionen: ['weiter', 'ab', 'zurück'], richtig: ['zurück'],
     erklaerung: 'zurückgeben = dem Besitzer wiedergeben.' }
 ]);
+document.querySelectorAll('#rf-karten .rf-karte').forEach(function (k) {
+  k.addEventListener('click', function () {
+    var an = k.getAttribute('aria-pressed') !== 'true';
+    k.setAttribute('aria-pressed', an ? 'true' : 'false');
+    k.classList.toggle('benutzt', an);
+  });
+});
+document.getElementById('rf-neu').addEventListener('click', function () {
+  document.querySelectorAll('#rf-karten .rf-karte').forEach(function (k) {
+    k.setAttribute('aria-pressed', 'false'); k.classList.remove('benutzt');
+  });
+});
+document.getElementById('rf-beispiele-knopf').addEventListener('click', function () {
+  var b = document.getElementById('rf-beispiele'); b.hidden = !b.hidden;
+});
 Lehrwerk.frei('einstieg-frei');
 document.getElementById('checkliste-zeigen').addEventListener('click', function(){
   document.getElementById('checkliste-box').hidden = false;
