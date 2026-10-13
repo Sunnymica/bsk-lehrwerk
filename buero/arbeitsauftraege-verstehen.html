@@ -62,8 +62,37 @@
     </div>
 
     <div class="kasten">
-      <span class="marke">Vorentlastung · 5 Minuten</span>
-      <h3>Zehn Wörter aus jedem Arbeitsauftrag</h3>
+      <span class="marke">Wortschatz im Kontext · 10 Minuten</span>
+      <h3>Nora fragt nach</h3>
+      <p>Nora schreibt Jonas Becker im Teams-Chat. Setzen Sie die Wörter aus der Wortbank ein.</p>
+      <div id="nb-bank"></div>
+      <p class="lueckentext">
+        <strong>Nora:</strong> Hallo Jonas, Frau Melnyk hat mir gerade im Flur einen <input class="luecke" id="nb1" size="12" autocomplete="off"> gegeben: eine <input class="luecke" id="nb2" size="12" autocomplete="off"> zu den offenen Anfragen. Sie sagt, du weißt Bescheid. Ich habe noch eine <input class="luecke" id="nb3" size="12" autocomplete="off">: Bis wann brauchst du das? Gibt es eine feste <input class="luecke" id="nb4" size="12" autocomplete="off">?<br><br>
+        <strong>Jonas:</strong> Hi Nora! Ich brauche sie für das Monatsgespräch am Freitag. Kannst du das bis Donnerstag, 12 Uhr, <input class="luecke" id="nb5" size="12" autocomplete="off">?<br><br>
+        <strong>Nora:</strong> Das wird knapp, ich stecke noch in der Inventur. Hat die Übersicht <input class="luecke" id="nb6" size="12" autocomplete="off">?<br><br>
+        <strong>Jonas:</strong> Ja, leider. Die Inventur kann bis Montag warten. Ich habe mich schon mit Pawel <input class="luecke" id="nb7" size="12" autocomplete="off">.<br><br>
+        <strong>Nora:</strong> Gut. Gibt es dafür eine <input class="luecke" id="nb8" size="12" autocomplete="off">, oder baue ich die Tabelle selbst?<br><br>
+        <strong>Jonas:</strong> Nimm die vom letzten Monat, sie liegt im Ordner „Verkauf“. Die Zahlen zu den Reklamationen kann dir Samira <input class="luecke" id="nb9" size="12" autocomplete="off">.<br><br>
+        <strong>Nora:</strong> Super. Falls es trotzdem eng wird, würde ich die Liste der Neukunden an dich <input class="luecke" id="nb10" size="12" autocomplete="off"> – okay?
+      </p>
+      <div class="knopfreihe">
+        <button class="knopf" id="nb-pruefen" type="button">Prüfen</button>
+        <button class="knopf" id="nb-tipp" type="button">Tipp</button>
+      </div>
+      <p class="rueckmeldung" id="nb-rueck" hidden></p>
+      <p class="rueckmeldung" id="nb-hinweis" hidden>Achten Sie auf die Form: Nach „Ich habe mich schon mit Pawel …“ steht das Partizip. Nach „kann“ und „würde“ steht der Infinitiv am Ende.</p>
+    </div>
+
+    <div class="auftrag">
+      <span class="auftrag-marke">Spiel · 8 Minuten</span>
+      <h3>Wort-Pingpong</h3>
+      <p><strong>Zu zweit:</strong> A klappt die Tabelle unten auf und liest eine Erklärung aus der Spalte „einfach gesagt“ vor, zum Beispiel „bis wann etwas fertig sein muss“. B hat die Tabelle zu, nennt das Wort mit Artikel und sagt sofort einen Satz, den Nora zu Jonas sagen könnte.</p>
+      <p>Richtiges Wort und passender Satz: ein Punkt. Nach fünf Wörtern tauschen Sie die Rollen. Wer am Ende mehr Punkte hat, gewinnt.</p>
+      <p><strong>Herausforderung:</strong> Der Satz muss eine Rückfrage sein, zum Beispiel „Gibt es für die Übersicht eine Vorlage?“</p>
+    </div>
+
+    <details class="kasten">
+      <summary><strong>Die zehn Wörter zum Nachschlagen</strong></summary>
       <table>
         <thead><tr><th>Wort</th><th>einfach gesagt</th><th>im Satz</th></tr></thead>
         <tbody>
@@ -79,7 +108,8 @@
           <tr><td>weitergeben</td><td>an eine andere Person übergeben</td><td>Ich gebe den Auftrag weiter.</td></tr>
         </tbody>
       </table>
-    </div>
+    
+    </details>
 
     <h2>Kurzer Verständnischeck</h2>
     <div id="check-auftrag"></div>
@@ -473,6 +503,15 @@ Lehrwerk.auswahl('a4', [
 ]);
 
 /* ---- Freitexte ---- */
+Lehrwerk.wortbank('nb', {
+  ziel: 'nb-bank',
+  bank: ['Auftrag', 'Übersicht', 'Rückfrage', 'Frist', 'erledigen', 'Priorität', 'abgestimmt', 'Vorlage', 'zuarbeiten', 'weitergeben'],
+  felder: {
+    nb1: ['Auftrag'], nb2: ['Übersicht'], nb3: ['Rückfrage'], nb4: ['Frist'], nb5: ['erledigen'],
+    nb6: ['Priorität'], nb7: ['abgestimmt'], nb8: ['Vorlage'], nb9: ['zuarbeiten'], nb10: ['weitergeben']
+  },
+  pruefen: 'nb-pruefen', rueck: 'nb-rueck', tipp: 'nb-tipp', hinweis: 'nb-hinweis', eindeutig: true
+});
 Lehrwerk.frei('einstieg-frei');
 document.getElementById('checkliste-zeigen').addEventListener('click', function(){
   document.getElementById('checkliste-box').hidden = false;
