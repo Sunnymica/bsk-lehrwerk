@@ -18,7 +18,7 @@
   <div class="innen">
     <a class="zurueck" href="../buero.html">← Büro und Verwaltung</a>
     <h1>Arbeitsaufträge <em>verstehen</em></h1>
-    <p class="anleitung">Sechs Fragen machen einen Auftrag vollständig. In der Wirklichkeit fehlen fast immer zwei davon — dann müssen Sie nachfragen. Das ist kein Zeichen von Schwäche, sondern der Normalfall.</p>
+    <p class="anleitung">Im Büro bekommt man ständig Aufträge – im Vorbeigehen, im Chat, per E-Mail. Fast nie ist alles gesagt. Hier üben Sie, das zu bemerken und richtig nachzufragen. Das ist kein Zeichen von Schwäche, sondern der Normalfall.</p>
   </div>
 </header>
 
@@ -35,14 +35,30 @@
   <!-- ============ Die sechs Fragen ============ -->
   <section class="blatt" id="blatt-checkliste">
 
+    <div class="auftrag">
+      <span class="auftrag-marke">Einstieg · 8 Minuten</span>
+      <h3>Im Flur bei KONTOR</h3>
+      <p>Kateryna Melnyk kommt mit dem Handy am Ohr an Noras Schreibtisch vorbei, hält kurz an und sagt:</p>
+      <p class="satz">„Ach, Frau Seidel, machen Sie doch mal eine Übersicht zu den offenen Anfragen. Herr Becker weiß Bescheid.“</p>
+      <p>Dann ist sie weg.</p>
+      <p><strong>Sie sind Nora.</strong> Was wissen Sie jetzt, und was wissen Sie nicht? Was müssen Sie noch klären, bevor Sie anfangen können? Sammeln Sie zu zweit Stichworte.</p>
+      <textarea class="feld" id="einstieg-frei" rows="4" data-ergebnis-label="Einstieg: Was muss Nora klären?" placeholder="Was genau …? · Bis wann …? · …"></textarea>
+      <div class="knopfreihe">
+        <button class="knopf" id="checkliste-zeigen" type="button">Mit der Checkliste vergleichen</button>
+      </div>
+    </div>
+
+    <div id="checkliste-box" hidden>
     <div class="kasten">
       <h3>Was gehört zu einem vollständigen Arbeitsauftrag?</h3>
-      <p><strong>Was?</strong> — die Tätigkeit, also das Verb<br>
-      <strong>Wer?</strong> — mit wem abstimmen, wem zuarbeiten<br>
-      <strong>Wann?</strong> — die Frist, mit Uhrzeit<br>
-      <strong>Wie?</strong> — Format und Umfang<br>
-      <strong>Warum?</strong> — Ziel und Zusammenhang<br>
-      <strong>Wie wichtig?</strong> — Priorität gegenüber dem, was schon auf dem Tisch liegt</p>
+      <p><strong>Was?</strong> – die Tätigkeit, also das Verb<br>
+      <strong>Wer?</strong> – mit wem abstimmen, wem zuarbeiten<br>
+      <strong>Wann?</strong> – die Frist, mit Uhrzeit<br>
+      <strong>Wie?</strong> – Format und Umfang<br>
+      <strong>Warum?</strong> – Ziel und Zusammenhang<br>
+      <strong>Wie wichtig?</strong> – Priorität gegenüber dem, was schon auf dem Tisch liegt</p>
+    </div>
+      <p>Welche dieser Fragen hat Katerynas Satz beantwortet? Und welche hatten Sie selbst schon notiert?</p>
     </div>
 
     <div class="kasten">
@@ -89,7 +105,7 @@
     </div>
 
     <div class="merker">
-      <p>Je vollständiger der Auftrag, desto weniger Rückfragen. Aber in der Praxis sind Aufträge fast nie vollständig — und die beiden Angaben, die am häufigsten fehlen, sind ausgerechnet <strong>Warum</strong> und <strong>Wie wichtig</strong>. Ohne das Warum kann man nicht mitdenken; ohne die Priorität weiß man nicht, was liegen bleiben darf.</p>
+      <p>Je vollständiger der Auftrag, desto weniger Rückfragen. Aber in der Praxis sind Aufträge fast nie vollständig – und die beiden Angaben, die am häufigsten fehlen, sind ausgerechnet <strong>Warum</strong> und <strong>Wie wichtig</strong>. Ohne das Warum kann man nicht mitdenken; ohne die Priorität weiß man nicht, was liegen bleiben darf.</p>
     </div>
 
     <h2>Auftrag zerlegen</h2>
@@ -106,18 +122,18 @@
 
     <div class="kasten">
       <h3>Die fünf Auftragskiller</h3>
-      <p><strong>1 · „irgendwann“</strong> — keine Frist. Auch „zeitnah“, „bald“, „wenn Sie dazu kommen“.</p>
-      <p><strong>2 · „die Sache“</strong> — kein konkretes Objekt. Auch „das Thema“, „das mit dem Kunden“.</p>
-      <p><strong>3 · „denen“ / „die“</strong> — keine Namen. Wer genau ist gemeint?</p>
-      <p><strong>4 · „mal“</strong> — verkleinert die Aufgabe und verschleiert die Wichtigkeit. „Schauen Sie da mal drauf.“</p>
-      <p><strong>5 · „schnell“</strong> — klingt nach Frist, ist aber keine. Schnell heißt für jede Person etwas anderes.</p>
+      <p><strong>1 · „irgendwann“</strong> – keine Frist. Auch „zeitnah“, „bald“, „wenn Sie dazu kommen“.</p>
+      <p><strong>2 · „die Sache“</strong> – kein konkretes Objekt. Auch „das Thema“, „das mit dem Kunden“.</p>
+      <p><strong>3 · „denen“ / „die“</strong> – keine Namen. Wer genau ist gemeint?</p>
+      <p><strong>4 · „mal“</strong> – verkleinert die Aufgabe und verschleiert die Wichtigkeit. „Schauen Sie da mal drauf.“</p>
+      <p><strong>5 · „schnell“</strong> – klingt nach Frist, ist aber keine. Schnell heißt für jede Person etwas anderes.</p>
     </div>
 
     <h2>Gut oder unbrauchbar?</h2>
     <div id="a2"></div>
 
     <div class="merker">
-      <p>Diese Wörter sind kein böser Wille. Wer einen Auftrag gibt, hat das Bild vollständig im Kopf und merkt nicht, dass die Hälfte davon nicht mitgesprochen wurde. Deshalb ist Nachfragen keine Kritik an der anderen Person — es holt nur ab, was ohnehin gemeint war.</p>
+      <p>Diese Wörter sind kein böser Wille. Wer einen Auftrag gibt, hat das Bild vollständig im Kopf und merkt nicht, dass die Hälfte davon nicht mitgesprochen wurde. Deshalb ist Nachfragen keine Kritik an der anderen Person – es holt nur ab, was ohnehin gemeint war.</p>
     </div>
 
   </section>
@@ -125,7 +141,7 @@
   <!-- ============ Rückfragen ============ -->
   <section class="blatt" id="blatt-rueckfragen">
 
-    <p>Wenn ein Auftrag unklar ist, <strong>müssen</strong> Sie nachfragen. Das zeigt keine Unsicherheit, sondern Sorgfalt — und es ist deutlich billiger als eine falsch erledigte Aufgabe.</p>
+    <p>Wenn ein Auftrag unklar ist, <strong>müssen</strong> Sie nachfragen. Das zeigt keine Unsicherheit, sondern Sorgfalt – und es ist deutlich billiger als eine falsch erledigte Aufgabe.</p>
 
     <div class="kasten">
       <h3>Redemittel für Rückfragen</h3>
@@ -140,7 +156,7 @@
     </div>
 
     <div class="merker">
-      <p>Der Trick bei der Prioritätsfrage: Fragen Sie nicht „Ist das wichtig?“ — darauf lautet die Antwort immer ja. Fragen Sie, <strong>was dafür warten darf</strong>: „Dann verschiebe ich die Auswertung auf morgen — ist das in Ordnung?“ Das zwingt zu einer echten Entscheidung.</p>
+      <p>Der Trick bei der Prioritätsfrage: Fragen Sie nicht „Ist das wichtig?“ – darauf lautet die Antwort immer ja. Fragen Sie, <strong>was dafür warten darf</strong>: „Dann verschiebe ich die Auswertung auf morgen – ist das in Ordnung?“ Das zwingt zu einer echten Entscheidung.</p>
     </div>
 
     <div class="merker">
@@ -154,7 +170,7 @@
     </div>
 
     <h2>Drei Rückfragen formulieren</h2>
-    <p class="anleitung">Der Auftrag lautet: <em>„Kümmern Sie sich bitte um den Bericht.“</em> — Schreiben Sie drei höfliche Rückfragen, die den Auftrag brauchbar machen.</p>
+    <p class="anleitung">Der Auftrag lautet: <em>„Kümmern Sie sich bitte um den Bericht.“</em> – Schreiben Sie drei höfliche Rückfragen, die den Auftrag brauchbar machen.</p>
     <div class="kasten">
       <span class="marke">Satzstarter</span>
       <p class="satz">Habe ich richtig verstanden, dass …? · Bis wann genau …? · Mit wem soll ich …? · Gibt es dafür …? · Welches Format …? · Hat das Priorität, oder …?</p>
@@ -179,7 +195,7 @@
   <!-- ============ Umformen ============ -->
   <section class="blatt" id="blatt-umformen">
 
-    <p>Denselben Auftrag kann man auf drei Arten sagen. Der Unterschied liegt nicht im Inhalt, sondern im Ton — und der entscheidet, wie er ankommt.</p>
+    <p>Denselben Auftrag kann man auf drei Arten sagen. Der Unterschied liegt nicht im Inhalt, sondern im Ton – und der entscheidet, wie er ankommt.</p>
 
     <table>
       <thead><tr><th>Form</th><th>Beispiel</th><th>Wirkung</th></tr></thead>
@@ -192,9 +208,9 @@
 
     <div class="merker">
       <h3>Wann was?</h3>
-      <p><strong>Imperativ mit <em>bitte</em></strong> ist im deutschen Berufsalltag der Normalfall — auch von der Leitung nach unten und auch unter Gleichrangigen. Er wirkt nicht unhöflich. Was ihn schroff macht, ist das <em>fehlende</em> „bitte“ und der Tonfall, nicht die Form selbst.</p>
+      <p><strong>Imperativ mit <em>bitte</em></strong> ist im deutschen Berufsalltag der Normalfall – auch von der Leitung nach unten und auch unter Gleichrangigen. Er wirkt nicht unhöflich. Was ihn schroff macht, ist das <em>fehlende</em> „bitte“ und der Tonfall, nicht die Form selbst.</p>
       <p><strong>Modalverben</strong> stehen dort, wo etwas verbindlich ist: <em>müssen</em> und <em>sollen</em> bei Vorgaben, <em>müssten</em> und <em>sollten</em> abgeschwächt.</p>
-      <p><strong>Konjunktiv II</strong> ist die sicherste Wahl, wenn Sie unsicher sind — besonders gegenüber Vorgesetzten, Kundschaft und in E-Mails. Er kann in Ketten aber auch schwammig wirken: Wer alles in „Könnten Sie vielleicht eventuell …“ verpackt, klingt nicht höflicher, sondern unsicher.</p>
+      <p><strong>Konjunktiv II</strong> ist die sicherste Wahl, wenn Sie unsicher sind – besonders gegenüber Vorgesetzten, Kundschaft und in E-Mails. Er kann in Ketten aber auch schwammig wirken: Wer alles in „Könnten Sie vielleicht eventuell …“ verpackt, klingt nicht höflicher, sondern unsicher.</p>
     </div>
 
     <h2>In die andere Form bringen</h2>
@@ -232,7 +248,7 @@
 
     <div class="kasten">
       <h3>E-Mail</h3>
-      <p class="satz"><strong>Betreff:</strong> Übersicht offene Kundenanfragen — bis Fr., 14 Uhr</p>
+      <p class="satz"><strong>Betreff:</strong> Übersicht offene Kundenanfragen – bis Fr., 14 Uhr</p>
       <p class="satz">Sehr geehrte Frau Seidel,<br><br>
       für das Monatsgespräch mit der Geschäftsführung benötigen wir eine Übersicht der derzeit offenen Kundenanfragen.<br><br>
       Könnten Sie diese bis Freitag, 14 Uhr, zusammenstellen? Eine tabellarische Auflistung reicht aus; bitte stimmen Sie sich dazu kurz mit Herrn Becker ab.<br><br>
@@ -241,20 +257,20 @@
     </div>
 
     <div class="merker">
-      <p>Der wichtigste Unterschied ist nicht die Länge, sondern die <strong>Reihenfolge</strong>. Im Chat steht die Bitte vorn, der Grund hinten. In der E-Mail steht der Grund vorn — er macht die Bitte nachvollziehbar, bevor sie kommt. Wer die Chat-Reihenfolge in eine E-Mail überträgt, wirkt fordernd, ohne es zu wollen.</p>
+      <p>Der wichtigste Unterschied ist nicht die Länge, sondern die <strong>Reihenfolge</strong>. Im Chat steht die Bitte vorn, der Grund hinten. In der E-Mail steht der Grund vorn – er macht die Bitte nachvollziehbar, bevor sie kommt. Wer die Chat-Reihenfolge in eine E-Mail überträgt, wirkt fordernd, ohne es zu wollen.</p>
     </div>
 
     <h2>Checkliste: Auftrag weitergeben</h2>
     <div class="kasten">
-      <p>▸ Habe ich die sechs Fragen beantwortet — oder wenigstens die vier, die ich selbst weiß?</p>
+      <p>▸ Habe ich die sechs Fragen beantwortet – oder wenigstens die vier, die ich selbst weiß?</p>
       <p>▸ Steht die Frist mit <strong>Uhrzeit</strong> da, nicht nur mit Tag?</p>
       <p>▸ Ist gesagt, <strong>warum</strong>? Ein Halbsatz genügt.</p>
-      <p>▸ Ist gesagt, was passieren soll, wenn es <strong>nicht</strong> klappt — und bis wann Bescheid gegeben werden muss?</p>
+      <p>▸ Ist gesagt, was passieren soll, wenn es <strong>nicht</strong> klappt – und bis wann Bescheid gegeben werden muss?</p>
       <p>▸ Habe ich gesagt, was ich <strong>selbst nicht weiß</strong>? Ein weitergegebener Auftrag darf Lücken haben, solange sie benannt sind.</p>
     </div>
 
     <h2>Vom Zuruf zur E-Mail</h2>
-    <p class="anleitung">Sie bekommen im Vorbeigehen gesagt: <em>„Sagen Sie dem Lager mal Bescheid wegen der Lieferung nächste Woche, das muss schnell geklärt werden.“</em> — Drei der fünf Auftragskiller stecken darin. Schreiben Sie erstens die Rückfragen, die Sie stellen müssen, und zweitens die E-Mail, die Sie danach schreiben würden.</p>
+    <p class="anleitung">Sie bekommen im Vorbeigehen gesagt: <em>„Sagen Sie dem Lager mal Bescheid wegen der Lieferung nächste Woche, das muss schnell geklärt werden.“</em> – Drei der fünf Auftragskiller stecken darin. Schreiben Sie erstens die Rückfragen, die Sie stellen müssen, und zweitens die E-Mail, die Sie danach schreiben würden.</p>
     <div class="kasten">
       <span class="marke">Satzstarter für die E-Mail</span>
       <p class="satz">Betreff: … – bis …, … Uhr<br>
@@ -313,20 +329,20 @@ Lehrwerk.auswahl('a1', [
     id: 'c1',
     text: 'Welche der sechs Fragen beantwortet der Auftrag? Wählen Sie alle zutreffenden.',
     optionen: [
-      'Was? — eine Übersicht erstellen',
-      'Wann? — bis Freitag 14 Uhr',
-      'Wer? — Abstimmung mit Herrn Becker',
-      'Wie? — eine kurze Übersicht',
-      'Warum? — der Zweck der Übersicht',
-      'Wie wichtig? — die Priorität'
+      'Was? – eine Übersicht erstellen',
+      'Wann? – bis Freitag 14 Uhr',
+      'Wer? – Abstimmung mit Herrn Becker',
+      'Wie? – eine kurze Übersicht',
+      'Warum? – der Zweck der Übersicht',
+      'Wie wichtig? – die Priorität'
     ],
     richtig: [
-      'Was? — eine Übersicht erstellen',
-      'Wann? — bis Freitag 14 Uhr',
-      'Wer? — Abstimmung mit Herrn Becker',
-      'Wie? — eine kurze Übersicht'
+      'Was? – eine Übersicht erstellen',
+      'Wann? – bis Freitag 14 Uhr',
+      'Wer? – Abstimmung mit Herrn Becker',
+      'Wie? – eine kurze Übersicht'
     ],
-    erklaerung: 'Vier von sechs — für einen Alltagsauftrag schon überdurchschnittlich. Es fehlen <em>warum</em> (wofür wird die Übersicht gebraucht?) und die <em>Priorität</em> (kommt sie vor oder nach dem, was schon auf dem Tisch liegt?). Genau diese beiden fehlen am häufigsten.'
+    erklaerung: 'Vier von sechs – für einen Alltagsauftrag schon überdurchschnittlich. Es fehlen <em>warum</em> (wofür wird die Übersicht gebraucht?) und die <em>Priorität</em> (kommt sie vor oder nach dem, was schon auf dem Tisch liegt?). Genau diese beiden fehlen am häufigsten.'
   },
   {
     id: 'c2',
@@ -338,7 +354,7 @@ Lehrwerk.auswahl('a1', [
       'Sie zeigt, dass die auftraggebende Person selbst Bescheid weiß.'
     ],
     richtig: ['Wer den Zweck kennt, kann mitdenken und bei unerwarteten Fällen richtig entscheiden.'],
-    erklaerung: 'Wer weiß, dass die Übersicht fürs Monatsgespräch ist, weiß auch, welcher Detailgrad reicht — und merkt, wenn eine Anfrage hineingehört, die formal nicht auf der Liste steht.'
+    erklaerung: 'Wer weiß, dass die Übersicht fürs Monatsgespräch ist, weiß auch, welcher Detailgrad reicht – und merkt, wenn eine Anfrage hineingehört, die formal nicht auf der Liste steht.'
   }
 ]);
 
@@ -358,15 +374,15 @@ Lehrwerk.zuordnen('z1', {
 Lehrwerk.auswahl('a2', [
   {
     id: 'k1',
-    text: 'Wie viele Auftragskiller stecken hier drin? — „Kümmern Sie sich mal schnell um die Sache mit denen.“',
+    text: 'Wie viele Auftragskiller stecken hier drin? – „Kümmern Sie sich mal schnell um die Sache mit denen.“',
     optionen: [
       'Vier: „mal“, „schnell“, „die Sache“, „denen“',
       'Zwei: „mal“ und „schnell“',
       'Drei: „schnell“, „die Sache“, „denen“',
-      'Keiner — der Satz ist umgangssprachlich, aber verständlich.'
+      'Keiner – der Satz ist umgangssprachlich, aber verständlich.'
     ],
     richtig: ['Vier: „mal“, „schnell“, „die Sache“, „denen“'],
-    erklaerung: 'Vier von fünf in acht Wörtern. Übrig bleibt nur das Verb „sich kümmern“ — und auch das sagt nicht, was zu tun ist.'
+    erklaerung: 'Vier von fünf in acht Wörtern. Übrig bleibt nur das Verb „sich kümmern“ – und auch das sagt nicht, was zu tun ist.'
   },
   {
     id: 'k2',
@@ -386,7 +402,7 @@ Lehrwerk.auswahl('a2', [
 Lehrwerk.auswahl('a3', [
   {
     id: 'q1',
-    text: '„Kümmern Sie sich bitte um den Bericht.“ — Welche zwei Rückfragen bringen am meisten?',
+    text: '„Kümmern Sie sich bitte um den Bericht.“ – Welche zwei Rückfragen bringen am meisten?',
     optionen: [
       'Um welchen Bericht geht es genau, und bis wann brauchen Sie ihn?',
       'Gibt es dafür eine Vorlage?',
@@ -403,12 +419,12 @@ Lehrwerk.auswahl('a3', [
     id: 'q2',
     text: 'Sie haben schon drei Aufgaben und bekommen eine vierte. Wie fragen Sie nach der Priorität?',
     optionen: [
-      'Dann verschiebe ich die Auswertung auf morgen — ist das in Ordnung?',
+      'Dann verschiebe ich die Auswertung auf morgen – ist das in Ordnung?',
       'Ist das wichtig?',
       'Ich habe eigentlich schon genug zu tun.',
       'Das schaffe ich heute nicht mehr.'
     ],
-    richtig: ['Dann verschiebe ich die Auswertung auf morgen — ist das in Ordnung?'],
+    richtig: ['Dann verschiebe ich die Auswertung auf morgen – ist das in Ordnung?'],
     erklaerung: 'Die Frage benennt, was der neue Auftrag konkret verdrängt, und verlangt eine Entscheidung. Die anderen drei sind entweder folgenlos oder klingen nach Abwehr, ohne die Lage zu klären.'
   }
 ]);
@@ -440,7 +456,7 @@ Lehrwerk.auswahl('a4', [
       'Ich bräuchte da mal was von Ihnen.'
     ],
     richtig: ['Könnten Sie mir dazu bitte eine kurze Rückmeldung geben?'],
-    erklaerung: 'Nach oben und schriftlich ist der Konjunktiv II die sichere Wahl. Das Modalverb <em>müssten</em> klingt hier nach Vorgabe an eine Vorgesetzte — genau verkehrt herum.'
+    erklaerung: 'Nach oben und schriftlich ist der Konjunktiv II die sichere Wahl. Das Modalverb <em>müssten</em> klingt hier nach Vorgabe an eine Vorgesetzte – genau verkehrt herum.'
   },
   {
     id: 't2',
@@ -452,11 +468,16 @@ Lehrwerk.auswahl('a4', [
       'Wäre es Ihnen möglich, sich der Palette anzunehmen?'
     ],
     richtig: ['Räumen Sie die Palette bitte sofort um.'],
-    erklaerung: 'Bei Dringlichkeit ist der Imperativ mit <em>bitte</em> richtig und nicht unhöflich. Die drei Konjunktiv-Varianten verschleiern, dass es eilt — Höflichkeit, die im falschen Moment schadet.'
+    erklaerung: 'Bei Dringlichkeit ist der Imperativ mit <em>bitte</em> richtig und nicht unhöflich. Die drei Konjunktiv-Varianten verschleiern, dass es eilt – Höflichkeit, die im falschen Moment schadet.'
   }
 ]);
 
 /* ---- Freitexte ---- */
+Lehrwerk.frei('einstieg-frei');
+document.getElementById('checkliste-zeigen').addEventListener('click', function(){
+  document.getElementById('checkliste-box').hidden = false;
+  this.disabled = true;
+});
 Lehrwerk.frei('r-frei');
 Lehrwerk.frei('r-sprechen');
 Lehrwerk.frei('w-frei');
