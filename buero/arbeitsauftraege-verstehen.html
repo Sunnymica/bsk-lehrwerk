@@ -134,6 +134,15 @@
       <p class="marke">Hören Sie bis zum Satzende, bevor Sie antworten – erst dort steht, was wirklich zu tun ist. Alle Formen im Modul <a href="../grammatik/trennbare-verben.html">Trennbare Verben</a>.</p>
     </div>
 
+    <div class="auftrag">
+      <span class="auftrag-marke">Spiel · 10 Minuten</span>
+      <h3>Das letzte Wort entscheidet</h3>
+      <p>Dasselbe Verb, ein anderes Ende, und schon ist der Auftrag ein anderer. Lesen Sie die Situation. Welches Wort fehlt am Satzende?</p>
+      <p><strong>Im Kurs:</strong> Alle tippen nur das fehlende Wort in den Teams-Chat und warten. Auf „drei, zwei, eins“ schicken alle gleichzeitig ab. Danach klicken wir die Lösung an.</p>
+      <p><strong>Zu Hause:</strong> Einfach anklicken und die Erklärung lesen.</p>
+    </div>
+    <div id="verbteil-spiel"></div>
+
     <div class="merker">
       <p>Je vollständiger der Auftrag, desto weniger Rückfragen. Aber in der Praxis sind Aufträge fast nie vollständig – und die beiden Angaben, die am häufigsten fehlen, sind ausgerechnet <strong>Warum</strong> und <strong>Wie wichtig</strong>. Ohne das Warum kann man nicht mitdenken; ohne die Priorität weiß man nicht, was liegen bleiben darf.</p>
     </div>
@@ -512,6 +521,35 @@ Lehrwerk.wortbank('nb', {
   },
   pruefen: 'nb-pruefen', rueck: 'nb-rueck', tipp: 'nb-tipp', hinweis: 'nb-hinweis', eindeutig: true
 });
+Lehrwerk.auswahl('verbteil-spiel', [
+  { id: 'vt1', text: 'Herr Becker plant das Monatsgespräch. Sie sollen die Liste gemeinsam mit ihm klären. – „Stimmen Sie sich bitte mit Herrn Becker …“',
+    optionen: ['ab', 'zu', 'um'], richtig: ['ab'],
+    erklaerung: 'sich abstimmen mit = gemeinsam klären. „zustimmen“ heißt einverstanden sein, „umstimmen“ heißt jemanden zu einer anderen Meinung bringen.' },
+  { id: 'vt2', text: 'Kateryna schlägt einen neuen Liefertermin vor. Sie sind einverstanden. – „Ich stimme Ihrem Vorschlag …“',
+    optionen: ['ab', 'zu', 'um'], richtig: ['zu'],
+    erklaerung: 'zustimmen + Dativ = einverstanden sein: Ich stimme Ihrem Vorschlag zu.' },
+  { id: 'vt3', text: 'Die Unterlagen sollen per Post zu Ihnen kommen. – „Schicken Sie mir die Unterlagen bitte …“',
+    optionen: ['zu', 'zurück', 'ab'], richtig: ['zu'],
+    erklaerung: 'zuschicken = an jemanden senden. Das Ziel ist „mir“.' },
+  { id: 'vt4', text: 'Die falsche Ware soll wieder zum Lieferanten. – „Schicken Sie die Ware bitte …“',
+    optionen: ['zu', 'zurück', 'ab'], richtig: ['zurück'],
+    erklaerung: 'zurückschicken = wieder dorthin senden, woher es kam.' },
+  { id: 'vt5', text: 'Der Brief ist fertig und muss heute noch raus. – „Schicken Sie den Brief bitte heute noch …“',
+    optionen: ['zu', 'zurück', 'ab'], richtig: ['ab'],
+    erklaerung: 'abschicken = losschicken. Wichtig ist, dass der Brief das Haus verlässt.' },
+  { id: 'vt6', text: 'Morgen um neun ist die Besprechung. Heute soll alles fertig sein. – „Bereiten Sie die Besprechung bitte …“',
+    optionen: ['vor', 'zu', 'nach'], richtig: ['vor'],
+    erklaerung: 'vorbereiten = vorher fertig machen. „Nachbereiten“ macht man nach der Besprechung, „zubereiten“ macht man in der Küche.' },
+  { id: 'vt7', text: 'Nora ist nicht zuständig. Der Auftrag soll zu Pawel. – „Geben Sie den Auftrag bitte an Pawel …“',
+    optionen: ['weiter', 'ab', 'zurück'], richtig: ['weiter'],
+    erklaerung: 'weitergeben = an die nächste Person übergeben.' },
+  { id: 'vt8', text: 'Die Frist endet heute um 16 Uhr. Der Bericht muss dann bei Kateryna sein. – „Geben Sie den Bericht bitte bis 16 Uhr …“',
+    optionen: ['weiter', 'ab', 'zurück'], richtig: ['ab'],
+    erklaerung: 'abgeben = etwas Fertiges zur Frist einreichen.' },
+  { id: 'vt9', text: 'Sie haben sich den Laptop von Jonas geliehen. – „Geben Sie Jonas den Laptop bitte …“',
+    optionen: ['weiter', 'ab', 'zurück'], richtig: ['zurück'],
+    erklaerung: 'zurückgeben = dem Besitzer wiedergeben.' }
+]);
 Lehrwerk.frei('einstieg-frei');
 document.getElementById('checkliste-zeigen').addEventListener('click', function(){
   document.getElementById('checkliste-box').hidden = false;
