@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sprachwerkstatt Grundlagen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: eine Bühne für den geteilten Bildschirm – Kopf mit Reitern, große Aufgabenkarte, Steuerleiste, darunter Einstellungen und Übersicht */
+:root{
+  --bg:#faf6f8; --surface:#ffffff; --ink:#24202a; --muted:#6c6471; --line:#e8dfe4;
+  --accent:#a8385a; --accent-soft:#f6e4ec; --accent-ink:#ffffff;
+  --ok:#2c7556; --ok-soft:#e3f2ea; --warn:#a4621a;
+  --chip:#f3eef1;
+  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body:"Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16131a; --surface:#211c26; --ink:#f2edf1; --muted:#a99fae; --line:#3a3140;
+    --accent:#e8819f; --accent-soft:#3a2431; --accent-ink:#1b1218;
+    --ok:#7fd1aa; --ok-soft:#1c3329; --warn:#e3a35b; --chip:#2c2531;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16131a; --surface:#211c26; --ink:#f2edf1; --muted:#a99fae; --line:#3a3140;
+  --accent:#e8819f; --accent-soft:#3a2431; --accent-ink:#1b1218;
+  --ok:#7fd1aa; --ok-soft:#1c3329; --warn:#e3a35b; --chip:#2c2531;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.5}
+.wrap{max-width:62rem;margin:0 auto;padding-inline:1.25rem;padding-block:1.25rem 3rem;display:grid;gap:1.25rem}
+header.kopf{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:.75rem 1.5rem}
+.kopf h1{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,3.5vw,2.3rem);line-height:1.1;margin:0;text-wrap:balance;letter-spacing:-.01em}
+.kopf p{margin:.25rem 0 0;color:var(--muted);max-width:40rem}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+nav.reiter{display:flex;flex-wrap:wrap;gap:.4rem}
+nav.reiter button{font:600 .98rem var(--body);padding:.5rem .9rem;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+nav.reiter button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+button:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+.buehne{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(1.1rem,3vw,2rem);display:grid;gap:1.1rem;min-width:0}
+.buehne-kopf{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.6rem}
+.zaehler{font-family:var(--mono);font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.dran{font-family:var(--display);font-weight:700;font-size:1.25rem;padding:.3rem .85rem;border-radius:10px;background:var(--accent-soft);color:var(--accent)}
+.auftrag{font-size:.95rem;color:var(--muted);margin:0}
+.daten{font-family:var(--mono);font-size:clamp(1.05rem,2.4vw,1.35rem);font-variant-numeric:tabular-nums;margin:0;overflow-wrap:anywhere}
+.bausteine{display:flex;flex-wrap:wrap;gap:.55rem;margin:0;padding:0;list-style:none}
+.bausteine li{font-family:var(--display);font-weight:500;font-size:clamp(1.3rem,3.4vw,2rem);padding:.35rem .85rem;border-radius:10px;background:var(--chip);border:1px solid var(--line)}
+.bausteine li.wort{background:var(--accent-soft);border-color:transparent;color:var(--accent)}
+.zahl{font-family:var(--mono);font-weight:500;font-size:clamp(2.2rem,8vw,4.2rem);line-height:1.1;margin:0;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.fehlersatz{font-family:var(--display);font-size:clamp(1.3rem,3.4vw,1.9rem);margin:0;text-decoration:underline wavy var(--warn) 2px;text-underline-offset:6px}
+
+.uhr{height:8px;border-radius:999px;background:var(--chip);overflow:hidden}
+.uhr i{display:block;height:100%;width:100%;background:var(--accent);transform-origin:left;transition:transform .2s linear}
+.uhr.aus{visibility:hidden}
+.zeit-um{font-family:var(--mono);font-size:.85rem;color:var(--warn);min-height:1.2em;margin:0}
+
+.loesung{border-radius:14px;background:var(--ok-soft);padding:1rem 1.2rem;display:grid;gap:.35rem}
+.loesung .satz{font-family:var(--display);font-weight:700;font-size:clamp(1.35rem,3.4vw,2rem);color:var(--ok);margin:0;line-height:1.25}
+.loesung .alt{margin:0;color:var(--ink)}
+.loesung .hinweis{margin:0;color:var(--muted);max-width:60ch}
+
+.steuer{display:flex;flex-wrap:wrap;gap:.6rem}
+.knopf{font:600 1.05rem var(--body);padding:.7rem 1.2rem;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.knopf.haupt{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.knopf:disabled{opacity:.45;cursor:default}
+.tasten{font-size:.85rem;color:var(--muted);margin:0}
+kbd{font-family:var(--mono);font-size:.78rem;padding:.05rem .35rem;border:1px solid var(--line);border-radius:5px;background:var(--chip)}
+
+.einstellungen{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem}
+.feld{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem;display:grid;gap:.5rem;min-width:0}
+.feld label,.feld .titel{font-weight:600}
+.feld small{color:var(--muted)}
+select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:.5rem .6rem;width:100%}
+textarea{min-height:6.5rem;resize:vertical}
+.schalter{display:flex;gap:.5rem;align-items:center}
+
+.redemittel{margin:0;padding:0;list-style:none;display:grid;gap:.3rem}
+.redemittel li::before{content:"› ";color:var(--accent);font-weight:700}
+
+details.uebersicht{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:.9rem 1.1rem}
+details.uebersicht summary{cursor:pointer;font-weight:600}
+.liste{margin:.8rem 0 0;padding-left:1.4rem;display:grid;gap:.55rem}
+.liste li{min-width:0}
+.liste .a{display:block;color:var(--ok);font-weight:600}
+.liste .p{color:var(--muted)}
+@media (prefers-reduced-motion: reduce){.uhr i{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="kopf">
+    <div>
+      <div class="eyebrow">Deutsch fürs Büro · Sprachwerkstatt</div>
+      <h1>Sprachwerkstatt Grundlagen</h1>
+      <p>Kurze Sprechrunden für den Kursbeginn: Wetter und <em>es</em>, Vergleiche mit <em>wie</em> und <em>als</em>, Zahlen sicher sprechen. Erst sprechen, dann Lösung zeigen.</p>
+    </div>
+    <nav class="reiter" role="tablist" aria-label="Übungsserien">
+      <button role="tab" id="tab-wetter" data-set="wetter" aria-selected="true">Wetter und es</button>
+      <button role="tab" id="tab-vergleiche" data-set="vergleiche" aria-selected="false">Vergleiche</button>
+      <button role="tab" id="tab-zahlen" data-set="zahlen" aria-selected="false">Zahlen</button>
+      <button role="tab" id="tab-gemischt" data-set="gemischt" aria-selected="false">Gemischt</button>
+    </nav>
+  </header>
+
+  <section class="buehne" aria-live="polite">
+    <div class="buehne-kopf">
+      <span class="zaehler" id="zaehler">1 / 18</span>
+      <span class="dran" id="dran" hidden></span>
+    </div>
+    <p class="auftrag" id="auftrag"></p>
+    <div id="aufgabe"></div>
+    <div class="uhr aus" id="uhr" aria-hidden="true"><i id="uhr-balken"></i></div>
+    <p class="zeit-um" id="zeit-um"></p>
+    <div class="loesung" id="loesung" hidden>
+      <p class="satz" id="l-satz"></p>
+      <p class="alt" id="l-alt" hidden></p>
+      <p class="hinweis" id="l-hinweis"></p>
+    </div>
+    <div class="steuer">
+      <button class="knopf" id="zurueck" type="button">← Zurück</button>
+      <button class="knopf haupt" id="zeigen" type="button">Lösung zeigen</button>
+      <button class="knopf" id="weiter" type="button">Weiter →</button>
+    </div>
+    <p class="tasten">Tastatur: <kbd>Leertaste</kbd> Lösung · <kbd>→</kbd> weiter · <kbd>←</kbd> zurück</p>
+  </section>
+
+  <section class="einstellungen" aria-label="Einstellungen">
+    <div class="feld">
+      <label for="zeit">Zeit pro Aufgabe</label>
+      <select id="zeit">
+        <option value="0">ohne Uhr</option>
+        <option value="8">8 Sekunden</option>
+        <option value="10">10 Sekunden</option>
+        <option value="15" selected>15 Sekunden</option>
+        <option value="20">20 Sekunden</option>
+      </select>
+      <div class="schalter">
+        <input type="checkbox" id="mischen">
+        <label for="mischen">Reihenfolge mischen</label>
+      </div>
+    </div>
+    <div class="feld">
+      <label for="namen">Wer ist heute da?</label>
+      <textarea id="namen" placeholder="Ein Name pro Zeile – leer lassen, dann ohne Namen"></textarea>
+      <small>Jede Person kommt einmal dran, bevor jemand zum zweiten Mal drankommt.</small>
+      <div class="schalter">
+        <input type="checkbox" id="merken">
+        <label for="merken">Namen in diesem Browser merken</label>
+      </div>
+      <button class="knopf" id="namen-loeschen" type="button">Namen löschen</button>
+    </div>
+    <div class="feld" id="absichern" hidden>
+      <span class="titel">Zahlen absichern</span>
+      <ul class="redemittel">
+        <li>Habe ich richtig verstanden: fünfzehn, eins-fünf?</li>
+        <li>Ich wiederhole: …</li>
+        <li>Könnten Sie die Artikelnummer bitte Ziffer für Ziffer nennen?</li>
+        <li>Meinen Sie dreizehn oder dreißig?</li>
+      </ul>
+    </div>
+  </section>
+
+  <details class="uebersicht" id="uebersicht">
+    <summary>Alle Aufgaben dieser Serie mit Lösungen (zur Vorbereitung)</summary>
+    <ol class="liste" id="liste"></ol>
+  </details>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------- Aufgaben ---------- */
+var SETS = {
+  wetter: {
+    auftrag: "Bilden Sie einen Satz. Beginnen Sie mit dem ersten Baustein.",
+    items: [
+      {b:["heute","regnen"], a:"Heute regnet es.", n:"regnen, schneien, donnern: Das es gehört zum Verb und bleibt immer stehen, auch wenn etwas anderes vorn steht."},
+      {b:["gestern","den ganzen Tag","regnen"], t:"Perfekt", a:"Gestern hat es den ganzen Tag geregnet.", n:"Perfekt mit haben: es hat geregnet."},
+      {b:["jetzt","kalt sein"], a:"Jetzt ist es kalt.", n:"es + sein + Adjektiv: Das es bleibt, auch nach „jetzt“."},
+      {b:["am Morgen","sonnig sein"], t:"Präteritum", a:"Am Morgen war es sonnig."},
+      {b:["morgen","schneien"], a:"Morgen schneit es.", alt:"Auch richtig: Morgen wird es schneien.", n:"Mit Zeitangabe reicht für die Zukunft oft das Präsens."},
+      {b:["die Sonne","scheinen"], a:"Die Sonne scheint.", n:"Die Sonne ist das Subjekt. Ein es braucht es hier nicht."},
+      {b:["heute","die Sonne","scheinen"], a:"Heute scheint die Sonne.", n:"Nicht: „Heute scheint es die Sonne.“ Die Sonne ist das Subjekt, für ein zusätzliches es ist kein Platz."},
+      {b:["die Sonne","scheinen"], t:"Beginnen Sie mit „Es …“", a:"Es scheint die Sonne.", n:"Dieses es hält nur Position 1 frei. Steht etwas anderes vorn, verschwindet es: „Heute scheint die Sonne.“"},
+      {b:["morgen","17 Grad"], a:"Morgen sind es 17 Grad.", n:"Das Verb richtet sich nach „17 Grad“: sind, nicht ist. In Süddeutschland hört man auch: „Morgen hat es 17 Grad.“"},
+      {b:["in Stuttgart","gerade","12 Grad"], a:"In Stuttgart sind es gerade 12 Grad."},
+      {b:["ich","kalt"], t:"Gefühl, nicht Wetter", a:"Mir ist kalt.", n:"Für das eigene Gefühl steht der Dativ, ohne es: mir ist kalt, ihm ist warm."},
+      {b:["draußen","kalt sein"], t:"Wetter, nicht Gefühl", a:"Draußen ist es kalt.", n:"Vergleichen Sie: Draußen ist es kalt (Wetter). Mir ist kalt (Gefühl)."},
+      {b:["hier","trocken sein","dort","regnen"], a:"Hier ist es trocken, dort regnet es.", n:"Zwei Hauptsätze, zweimal Verb auf Position 2, zweimal es."},
+      {b:["obwohl","sonnig sein","ich","nicht rausgehen"], t:"Vergangenheit", a:"Obwohl es sonnig war, bin ich nicht rausgegangen.", n:"Im Nebensatz steht es direkt nach obwohl, das Verb am Ende. Danach sofort das Verb des Hauptsatzes."},
+      {b:["wenn","regnen","wir","drinnen bleiben"], a:"Wenn es regnet, bleiben wir drinnen.", n:"Nebensatz vorn, danach sofort das Verb des Hauptsatzes."},
+      {b:["heute","Gewitter","es gibt"], a:"Heute gibt es Gewitter.", n:"Auch bei „es gibt“ bleibt das es immer stehen."},
+      {b:["laut Wetterbericht","für morgen","Regen","erwarten"], t:"Passiv", a:"Laut Wetterbericht wird für morgen Regen erwartet."},
+      {b:["in Halle 3","warm sein","deshalb","Pawel","das Fenster öffnen"], t:"zwei Sätze", a:"In Halle 3 ist es warm. Deshalb öffnet Pawel das Fenster.", n:"Nach deshalb kommt sofort das Verb: öffnet Pawel."}
+    ]
+  },
+  vergleiche: {
+    auftrag: "Vergleichen Sie die beiden Werte mit dem Wort in Rosa.",
+    items: [
+      {d:"Paket A: 4 kg · Paket B: 4 kg", b:["schwer"], w:true, a:"Paket A ist genauso schwer wie Paket B.", n:"Gleich: (genau)so + Adjektiv + wie."},
+      {d:"Paket A: 4 kg · Paket C: 7 kg", b:["schwer"], w:true, a:"Paket C ist schwerer als Paket A.", n:"Ungleich: Komparativ + als."},
+      {d:"Angebot A: 230 € · Angebot B: 260 €", b:["günstig"], w:true, a:"Angebot A ist günstiger als Angebot B."},
+      {d:"Angebot A: 230 € · Angebot B: 260 €", b:["nicht so teuer"], w:true, a:"Angebot A ist nicht so teuer wie Angebot B.", n:"Nach „nicht so …“ steht wie, nicht als."},
+      {d:"Spedition A: 3 Tage · Spedition B: 5 Tage", b:["Lieferzeit","kurz"], w:true, a:"Bei Spedition A ist die Lieferzeit kürzer als bei Spedition B.", n:"Die Präposition kommt nach als noch einmal: bei A … als bei B."},
+      {d:"Lager Nord: 850 m² · Lager Süd: 850 m²", b:["groß"], w:true, a:"Lager Nord ist genauso groß wie Lager Süd."},
+      {d:"Rechnung A: 1.480 € · Rechnung B: 1.840 €", b:["hoch"], w:true, a:"Rechnung B ist höher als Rechnung A.", n:"hoch, höher, am höchsten: Im Komparativ fällt das c weg."},
+      {d:"Auftrag A: 15 Kartons · Auftrag B: 50 Kartons", b:["wenig"], w:true, a:"Auftrag A hat weniger Kartons als Auftrag B."},
+      {d:"März: 5 Reklamationen · April: 8 Reklamationen", b:["viel"], w:true, a:"Im April gab es mehr Reklamationen als im März.", n:"viel, mehr, am meisten. Und wieder: im April … als im März."},
+      {d:"März: 3 Beschwerden · April: 3 Beschwerden", b:["viel"], w:true, a:"Im April gab es genauso viele Beschwerden wie im März."},
+      {d:"Lager Süd: 400 m² · Lager Nord: 800 m²", b:["doppelt so groß"], w:true, a:"Lager Nord ist doppelt so groß wie Lager Süd.", n:"doppelt so, halb so, dreimal so … wie."},
+      {d:"Spedition A: 2 Tage · B: 4 Tage · C: 6 Tage", b:["schnell","Superlativ"], w:true, a:"Spedition A liefert am schnellsten.", n:"Nach dem Verb: am …-sten. Am schnellsten, am günstigsten."},
+      {d:"Bewertung A: 4 Sterne · Bewertung B: 5 Sterne", b:["gut"], w:true, a:"Die Bewertung von B ist besser als die von A.", n:"gut, besser, am besten."},
+      {f:"Die Rechnung ist höher wie geplant.", a:"Die Rechnung ist höher als geplant.", n:"Nach dem Komparativ steht als."},
+      {f:"Paket A ist so schwer als Paket B.", a:"Paket A ist so schwer wie Paket B.", n:"Nach so … steht wie."},
+      {f:"Nora arbeitet schon länger bei KONTOR wie Jonas.", a:"Nora arbeitet schon länger bei KONTOR als Jonas.", n:"länger ist ein Komparativ, also als."},
+      {u:"A ist kleiner als B.", a:"B ist größer als A."},
+      {u:"A ist so teuer wie B.", t:"mit dem Verb kosten", a:"A kostet genauso viel wie B.", alt:"Auch richtig: A und B kosten gleich viel."}
+    ]
+  },
+  zahlen: {
+    auftrag: "Lesen Sie die Zahl laut vor. Die anderen schreiben mit und lesen zurück.",
+    items: [
+      {z:"15 Kartons", a:"fünfzehn Kartons", n:"Gegenprobe beim Zurücklesen: eins-fünf. Bei 50 wäre es fünf-null."},
+      {z:"50 Kartons", a:"fünfzig Kartons"},
+      {z:"am 13. Oktober", a:"am dreizehnten Oktober", n:"Nach am hat die Ordnungszahl die Endung -en."},
+      {z:"am 30. Oktober", a:"am dreißigsten Oktober", n:"Ab zwanzig bilden Ordnungszahlen mit -st-: am dreißigsten."},
+      {z:"1.480,50 €", a:"(ein)tausendvierhundertachtzig Euro fünfzig"},
+      {z:"1.840,50 €", a:"(ein)tausendachthundertvierzig Euro fünfzig", n:"Achtzig oder vierzig? Bei Beträgen immer zurücklesen."},
+      {z:"0,75", a:"null Komma sieben fünf", alt:"Auch üblich: null Komma fünfundsiebzig", n:"Im Deutschen steht ein Komma, kein Punkt."},
+      {z:"0,57", a:"null Komma fünf sieben"},
+      {z:"Artikel 20714", a:"zwei, null, sieben, eins, vier", n:"Artikel- und Kundennummern Ziffer für Ziffer sprechen."},
+      {z:"Artikel 27014", a:"zwei, sieben, null, eins, vier"},
+      {z:"14 Pakete", a:"vierzehn Pakete"},
+      {z:"40 Pakete", a:"vierzig Pakete"},
+      {z:"16 %", a:"sechzehn Prozent", n:"sechzehn und sechzig: ohne das s von sechs."},
+      {z:"60 %", a:"sechzig Prozent"},
+      {z:"3 : 1", a:"drei zu eins"},
+      {z:"2.750 Stück", a:"zweitausendsiebenhundertfünfzig Stück"},
+      {z:"am 01.11.2026", a:"am ersten November zweitausendsechsundzwanzig"},
+      {z:"7,5 %", a:"sieben Komma fünf Prozent"},
+      {z:"12,99 €", a:"zwölf Euro neunundneunzig"},
+      {z:"040 / 58 31 27", a:"null, vier, null – achtundfünfzig, einunddreißig, siebenundzwanzig", n:"Vorwahl Ziffer für Ziffer, den Rest in Zweiergruppen."}
+    ]
+  }
+};
+SETS.gemischt = {
+  auftrag: "Gemischte Runde aus allen drei Serien.",
+  items: [].concat(
+    SETS.wetter.items.map(function(x){return Object.assign({s:"wetter"},x);}),
+    SETS.vergleiche.items.map(function(x){return Object.assign({s:"vergleiche"},x);}),
+    SETS.zahlen.items.map(function(x){return Object.assign({s:"zahlen"},x);})
+  )
+};
+
+/* ---------- Speicher (nur dieser Browser) ---------- */
+function lies(k){try{return window.localStorage.getItem(k);}catch(e){return null;}}
+function schreib(k,v){try{window.localStorage.setItem(k,v);}catch(e){}}
+
+/* ---------- Zustand ---------- */
+var $ = function(id){return document.getElementById(id);};
+var state = {set:"wetter", order:[], pos:0, shown:false, timer:null, ende:0};
+var namenQueue = [], aktuellerName = "";
+
+function mischen(arr){
+  var a = arr.slice();
+  for (var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)); var t=a[i];a[i]=a[j];a[j]=t;}
+  return a;
+}
+function namenListe(){
+  return $("namen").value.split(/\n+/).map(function(s){return s.trim();}).filter(Boolean);
+}
+function naechsterName(){
+  var liste = namenListe();
+  if (!liste.length){aktuellerName=""; return;}
+  namenQueue = namenQueue.filter(function(n){return liste.indexOf(n) !== -1;});
+  if (!namenQueue.length){
+    namenQueue = mischen(liste);
+    if (namenQueue.length > 1 && namenQueue[0] === aktuellerName){namenQueue.push(namenQueue.shift());}
+  }
+  aktuellerName = namenQueue.shift();
+}
+
+function baueReihenfolge(){
+  var n = SETS[state.set].items.length;
+  var idx = []; for (var i=0;i<n;i++) idx.push(i);
+  state.order = ($("mischen").checked || state.set === "gemischt") ? mischen(idx) : idx;
+  state.pos = 0;
+}
+
+function el(tag, cls, text){var e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e;}
+
+function zeige(){
+  var set = SETS[state.set];
+  var item = set.items[state.order[state.pos]];
+  var art = item.s || state.set;
+  $("zaehler").textContent = (state.pos+1) + " / " + set.items.length;
+  $("dran").hidden = !aktuellerName;
+  $("dran").textContent = aktuellerName ? "Dran: " + aktuellerName : "";
+
+  var auftrag = (art === "wetter") ? SETS.wetter.auftrag : (art === "zahlen") ? SETS.zahlen.auftrag : SETS.vergleiche.auftrag;
+  if (item.f) auftrag = "In diesem Satz steckt ein Fehler. Sagen Sie ihn richtig.";
+  if (item.u) auftrag = "Sagen Sie dasselbe anders.";
+  if (item.t) auftrag += " (" + item.t + ")";
+  $("auftrag").textContent = auftrag;
+
+  var box = $("aufgabe"); box.textContent = "";
+  if (item.z){ box.appendChild(el("p","zahl",item.z)); }
+  else if (item.f){ box.appendChild(el("p","fehlersatz",item.f)); }
+  else if (item.u){ box.appendChild(el("p","fehlersatz",item.u)).style.textDecoration="none"; }
+  else {
+    if (item.d) box.appendChild(el("p","daten",item.d));
+    var ul = el("ul","bausteine");
+    item.b.forEach(function(w){ ul.appendChild(el("li", item.w ? "wort" : "", w)); });
+    box.appendChild(ul);
+  }
+
+  $("l-satz").textContent = item.a;
+  $("l-alt").hidden = !item.alt; $("l-alt").textContent = item.alt || "";
+  $("l-hinweis").textContent = item.n || "";
+  $("l-hinweis").hidden = !item.n;
+  state.shown = false;
+  $("loesung").hidden = true;
+  $("zeigen").textContent = "Lösung zeigen";
+  $("zurueck").disabled = state.pos === 0;
+  $("absichern").hidden = !(state.set === "zahlen" || state.set === "gemischt");
+  starteUhr();
+}
+
+function starteUhr(){
+  clearInterval(state.timer);
+  $("zeit-um").textContent = "";
+  var sek = parseInt($("zeit").value,10) || 0;
+  var uhr = $("uhr"), balken = $("uhr-balken");
+  if (!sek){ uhr.classList.add("aus"); return; }
+  uhr.classList.remove("aus");
+  state.ende = Date.now() + sek*1000;
+  balken.style.transform = "scaleX(1)";
+  state.timer = setInterval(function(){
+    var rest = Math.max(0, state.ende - Date.now());
+    balken.style.transform = "scaleX(" + (rest/(sek*1000)) + ")";
+    if (rest <= 0){ clearInterval(state.timer); if(!state.shown) $("zeit-um").textContent = "Zeit! Jetzt die anderen fragen oder Lösung zeigen."; }
+  }, 200);
+}
+
+function loesungUmschalten(){
+  state.shown = !state.shown;
+  $("loesung").hidden = !state.shown;
+  $("zeigen").textContent = state.shown ? "Lösung verbergen" : "Lösung zeigen";
+  if (state.shown){ clearInterval(state.timer); $("zeit-um").textContent = ""; }
+}
+function weiter(){
+  if (state.pos < state.order.length-1){ state.pos++; }
+  else { baueReihenfolge(); }
+  naechsterName(); zeige();
+}
+function zurueck(){ if (state.pos>0){ state.pos--; zeige(); } }
+
+function liste(){
+  var ol = $("liste"); ol.textContent = "";
+  SETS[state.set].items.forEach(function(it){
+    var li = document.createElement("li");
+    var p = it.z || it.f || it.u || ((it.d ? it.d + " · " : "") + it.b.join(" · "));
+    li.appendChild(el("span","p",p));
+    li.appendChild(el("span","a",it.a + (it.alt ? "  (" + it.alt + ")" : "")));
+    ol.appendChild(li);
+  });
+}
+
+function wechsleSet(name, fokus){
+  if (!SETS[name]) name = "wetter";
+  state.set = name;
+  document.querySelectorAll("nav.reiter button").forEach(function(b){
+    b.setAttribute("aria-selected", b.dataset.set === name ? "true" : "false");
+  });
+  baueReihenfolge(); naechsterName(); zeige(); liste();
+  schreib("sw-set", name);
+  if (fokus) try{ history.replaceState(null,"","#"+name); }catch(e){}
+}
+
+/* ---------- Ereignisse ---------- */
+document.querySelectorAll("nav.reiter button").forEach(function(b){
+  b.addEventListener("click", function(){ wechsleSet(b.dataset.set, true); });
+});
+$("zeigen").addEventListener("click", loesungUmschalten);
+$("weiter").addEventListener("click", weiter);
+$("zurueck").addEventListener("click", zurueck);
+$("zeit").addEventListener("change", function(){ schreib("sw-zeit", $("zeit").value); starteUhr(); });
+$("mischen").addEventListener("change", function(){ schreib("sw-mischen", $("mischen").checked ? "1" : "0"); baueReihenfolge(); zeige(); });
+function namenSichern(){
+  if ($("merken").checked) schreib("sw-namen", $("namen").value);
+  else { try{ window.localStorage.removeItem("sw-namen"); }catch(e){} }
+}
+$("namen").addEventListener("input", function(){ namenSichern(); namenQueue = []; });
+$("merken").addEventListener("change", namenSichern);
+$("namen-loeschen").addEventListener("click", function(){
+  $("namen").value = ""; namenQueue = []; aktuellerName = "";
+  try{ window.localStorage.removeItem("sw-namen"); }catch(e){}
+  zeige();
+});
+$("namen").addEventListener("change", function(){ naechsterName(); zeige(); });
+document.addEventListener("keydown", function(e){
+  var t = e.target && e.target.tagName;
+  if (t === "TEXTAREA" || t === "SELECT" || t === "INPUT" || t === "BUTTON" && (e.key === " " || e.key === "Enter")) return;
+  if (e.key === " " || e.key === "Enter"){ e.preventDefault(); loesungUmschalten(); }
+  else if (e.key === "ArrowRight"){ e.preventDefault(); weiter(); }
+  else if (e.key === "ArrowLeft"){ e.preventDefault(); zurueck(); }
+});
+
+/* ---------- Start ---------- */
+var gespeichertZeit = lies("sw-zeit"); if (gespeichertZeit) $("zeit").value = gespeichertZeit;
+if (lies("sw-mischen") === "1") $("mischen").checked = true;
+var gespeicherteNamen = lies("sw-namen"); if (gespeicherteNamen){ $("namen").value = gespeicherteNamen; $("merken").checked = true; }
+var start = (location.hash || "").replace("#","") || lies("sw-set") || "wetter";
+wechsleSet(start, false);
+})();
+</script>
+
+</body>
+</html>
