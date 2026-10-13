@@ -83,28 +83,99 @@
       <p class="rueckmeldung" id="nb-hinweis" hidden>Achten Sie auf die Form: Nach „Ich habe mich schon mit Pawel …“ steht das Partizip. Nach „kann“ und „würde“ steht der Infinitiv am Ende.</p>
     </div>
 
-    <div class="auftrag">
-      <span class="auftrag-marke">Spiel · 10 Minuten</span>
-      <h3>Zehn Wörter, zehn Rückfragen</h3>
-      <p><strong>So geht’s:</strong> Die Kursleiterin liest den Auftrag vor. Eine Person klickt ein Wort an. Darunter erscheint eine Rückfrage. Die Person liest sie laut vor, die Kursleiterin antwortet als Kateryna oder Pawel. Dann ist die nächste Person dran.</p>
-      <p class="satz" id="rf-auftrag"></p>
-      <div class="wortbank" id="rf-karten">
-        <button type="button" class="wortmarke rf-karte" data-i="0" aria-pressed="false">der Auftrag</button>
-        <button type="button" class="wortmarke rf-karte" data-i="1" aria-pressed="false">die Frist</button>
-        <button type="button" class="wortmarke rf-karte" data-i="2" aria-pressed="false">die Priorität</button>
-        <button type="button" class="wortmarke rf-karte" data-i="3" aria-pressed="false">erledigen</button>
-        <button type="button" class="wortmarke rf-karte" data-i="4" aria-pressed="false">sich abstimmen</button>
-        <button type="button" class="wortmarke rf-karte" data-i="5" aria-pressed="false">zuarbeiten</button>
-        <button type="button" class="wortmarke rf-karte" data-i="6" aria-pressed="false">die Vorlage</button>
-        <button type="button" class="wortmarke rf-karte" data-i="7" aria-pressed="false">die Rückfrage</button>
-        <button type="button" class="wortmarke rf-karte" data-i="8" aria-pressed="false">die Übersicht</button>
-        <button type="button" class="wortmarke rf-karte" data-i="9" aria-pressed="false">weitergeben</button>
+    <div class="auftrag" id="haken">
+      <style>
+        #haken .haken-raster { display:grid; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr)); gap:.6rem; margin:.8rem 0; align-items:start; }
+        #haken .haken-karte { border:1px dashed #c9c2b4; border-radius:8px; padding:.7rem; background:#faf8f3; }
+        #haken .haken-karte[data-offen="true"] { border-style:solid; border-color:#7a9a7e; background:#eef4ee; }
+        #haken .haken-karte[data-offen="true"] .haken-knopf { display:none; }
+        #haken .haken-inhalt p { margin:.25rem 0; }
+        #haken .haken-frage { font-size:.9em; color:#5c5a55; }
+        #haken h4 { margin:1.2rem 0 .3rem; }
+      </style>
+      <span class="auftrag-marke">Fall · 30 Minuten</span>
+      <h3>Ein Auftrag mit Haken</h3>
+
+      <h4>1 · Hören</h4>
+      <p>Die Kursleiterin liest den Auftrag einmal vor.</p>
+      <p class="satz"><strong>Kateryna:</strong> „Frau Seidel, machen Sie doch bitte eine Übersicht über die offenen Anfragen. Herr Becker weiß Bescheid.“</p>
+
+      <h4>2 · Fragen</h4>
+      <p><strong>Sie sind Nora. Sie sollen den Auftrag erledigen. Was müssen Sie noch wissen?</strong> Jede Person stellt eine eigene Rückfrage – laut, ohne Liste. Passt die Frage zu einer Information, deckt die Kursleiterin sie auf und antwortet als Kateryna.</p>
+      <div class="haken-raster">
+        <div class="haken-karte" data-offen="false">
+          <button type="button" class="knopf haken-knopf">Information 1 aufdecken</button>
+          <div class="haken-inhalt" hidden>
+            <p><strong>Information 1 · Frist</strong></p>
+            <p>Kateryna: „Heute bis 16 Uhr. Um 16:30 Uhr beginnt die Besprechung mit der Geschäftsleitung.“</p>
+            <p class="haken-frage">Passende Rückfrage zum Beispiel: „Bis wann wird die Übersicht gebraucht?“</p>
+          </div>
+        </div>
+        <div class="haken-karte" data-offen="false">
+          <button type="button" class="knopf haken-knopf">Information 2 aufdecken</button>
+          <div class="haken-inhalt" hidden>
+            <p><strong>Information 2 · Inhalt</strong></p>
+            <p>Kateryna: „Alle Kundenanfragen der letzten vier Wochen, die noch nicht beantwortet sind – mit Datum, Kunde und Stand.“</p>
+            <p class="haken-frage">Passende Rückfrage zum Beispiel: „Was genau soll in die Übersicht?“</p>
+          </div>
+        </div>
+        <div class="haken-karte" data-offen="false">
+          <button type="button" class="knopf haken-knopf">Information 3 aufdecken</button>
+          <div class="haken-inhalt" hidden>
+            <p><strong>Information 3 · Form</strong></p>
+            <p>Kateryna: „Als Tabelle, höchstens eine Seite. Bitte fünfmal ausdrucken.“</p>
+            <p class="haken-frage">Passende Rückfrage zum Beispiel: „In welcher Form brauchen Sie die Übersicht?“</p>
+          </div>
+        </div>
+        <div class="haken-karte" data-offen="false">
+          <button type="button" class="knopf haken-knopf">Information 4 aufdecken</button>
+          <div class="haken-inhalt" hidden>
+            <p><strong>Information 4 · Herr Becker</strong></p>
+            <p>Kateryna: „Herr Becker hat die Liste aus dem alten System. Er ist heute aber nur bis 15 Uhr im Büro.“</p>
+            <p class="haken-frage">Passende Rückfrage zum Beispiel: „Welche Informationen hat Herr Becker?“</p>
+          </div>
+        </div>
+        <div class="haken-karte" data-offen="false">
+          <button type="button" class="knopf haken-knopf">Information 5 aufdecken</button>
+          <div class="haken-inhalt" hidden>
+            <p><strong>Information 5 · Priorität</strong></p>
+            <p>Kateryna: „Ja. Die Rechnungsprüfung kann bis morgen warten.“</p>
+            <p class="haken-frage">Passende Rückfrage zum Beispiel: „Hat die Übersicht Vorrang vor meinen anderen Aufgaben?“</p>
+          </div>
+        </div>
       </div>
-      <p class="satz" id="rf-anzeige" style="font-size:1.2em" hidden></p>
-      <div class="knopfreihe">
-        <button class="knopf" id="rf-runde1" type="button">Runde 1 · Kateryna (Sie)</button>
-        <button class="knopf" id="rf-runde2" type="button">Runde 2 · Pawel (du)</button>
-      </div>
+      <div class="knopfreihe"><button class="knopf" id="haken-neu" type="button">Alle Informationen zurücksetzen</button></div>
+      <details class="kasten">
+        <summary>Spickzettel für die Kursleitung (vor dem Bildschirmteilen zuklappen)</summary>
+        <ul><li><strong>Information 1 · Frist:</strong> Heute bis 16 Uhr. Um 16:30 Uhr beginnt die Besprechung mit der Geschäftsleitung.</li><li><strong>Information 2 · Inhalt:</strong> Alle Kundenanfragen der letzten vier Wochen, die noch nicht beantwortet sind – mit Datum, Kunde und Stand.</li><li><strong>Information 3 · Form:</strong> Als Tabelle, höchstens eine Seite. Bitte fünfmal ausdrucken.</li><li><strong>Information 4 · Herr Becker:</strong> Herr Becker hat die Liste aus dem alten System. Er ist heute aber nur bis 15 Uhr im Büro.</li><li><strong>Information 5 · Priorität:</strong> Ja. Die Rechnungsprüfung kann bis morgen warten.</li></ul>
+        <p>Nicht jede Frage muss eine Karte öffnen. Eine Frage kann sprachlich richtig, aber für den Auftrag unnötig sein. Kateryna antwortet dann kurz („Das ist egal.“) – darüber lässt sich gut sprechen.</p>
+      </details>
+
+      <h4>3 · Höflich nachfragen</h4>
+      <p>Sammeln Sie zwei oder drei Fragen aus Schritt 2. Wie klingen sie höflicher?</p>
+      <details class="kasten">
+        <summary>Beispiel zeigen</summary>
+        <p>„Bis wann brauchen Sie die Übersicht?“ → „Könnten Sie mir sagen, bis wann Sie die Übersicht <strong>brauchen</strong>?“</p>
+        <p>„Hat Herr Becker die Liste?“ → „Wissen Sie, ob Herr Becker die Liste <strong>hat</strong>?“</p>
+        <p>Nach „bis wann“, „was“, „ob“ steht das konjugierte Verb am Ende.</p>
+      </details>
+
+      <h4>4 · Handeln</h4>
+      <p>Besprechen Sie gemeinsam:</p>
+      <ul>
+        <li>Reichen die Informationen jetzt? Was fehlt noch?</li>
+        <li>Was muss Nora <strong>zuerst</strong> erledigen?</li>
+        <li>Was passiert, wenn Nora Herrn Becker erst um 15 Uhr anruft?</li>
+      </ul>
+
+      <h4>5 · Schreiben</h4>
+      <p>Schreiben Sie Kateryna eine kurze Auftragsbestätigung (drei bis vier Sätze): Was machen Sie, bis wann, in welcher Form?</p>
+      <textarea class="feld" id="haken-bestaetigung" rows="5" data-ergebnis-label="Auftragsbestätigung an Kateryna" placeholder="Liebe Kateryna, ich bestätige kurz: …"></textarea>
+      <details class="kasten">
+        <summary>Satzanfänge</summary>
+        <p>„Ich bestätige kurz: …“ · „Wie besprochen erstelle ich …“ · „Die Übersicht erhalten Sie bis …“ · „Ich stimme mich dafür noch heute mit … ab.“ · „Die Rechnungsprüfung erledige ich dann morgen.“</p>
+      </details>
+    </div>
     </div>
 
     <details class="kasten">
@@ -568,61 +639,19 @@ Lehrwerk.auswahl('verbteil-spiel', [
     optionen: ['weiter', 'ab', 'zurück'], richtig: ['zurück'],
     erklaerung: 'zurückgeben = dem Besitzer wiedergeben.' }
 ]);
-(function () {
-  var runden = [
-    { auftrag: '<strong>Kateryna:</strong> „Ach, Frau Seidel, machen Sie doch mal eine Übersicht zu den offenen Anfragen. Herr Becker weiß Bescheid.“',
-      wer: 'Nora fragt Kateryna',
-      fragen: [
-        'Ist das ein neuer Auftrag, oder gehört das zur Monatsauswertung?',
-        'Bis wann brauchen Sie die Übersicht?',
-        'Hat die Übersicht Priorität vor meinen anderen Aufgaben?',
-        'Soll ich das heute noch erledigen?',
-        'Soll ich mich vorher mit Herrn Becker abstimmen?',
-        'Arbeitet Herr Becker mir dabei zu?',
-        'Gibt es für die Übersicht eine Vorlage?',
-        'Ich habe noch eine Rückfrage: Welche Anfragen meinen Sie genau?',
-        'Wie ausführlich soll die Übersicht sein?',
-        'An wen soll ich die Übersicht weitergeben?'
-      ] },
-    { auftrag: '<strong>Pawel:</strong> „Kannst du dich mal um die Sache mit dem Lager kümmern? Das wäre super.“',
-      wer: 'Nora fragt Pawel',
-      fragen: [
-        'Ist das ein Auftrag von Kateryna oder von dir?',
-        'Gibt es eine Frist? Bis wann brauchst du das?',
-        'Hat das Priorität, oder kann das bis morgen warten?',
-        'Was genau soll ich im Lager erledigen?',
-        'Mit wem soll ich mich im Lager abstimmen?',
-        'Arbeitet mir jemand aus dem Lager zu?',
-        'Gibt es dafür eine Vorlage?',
-        'Kurze Rückfrage: Welche Sache mit dem Lager meinst du?',
-        'Brauchst du am Ende eine Übersicht?',
-        'An wen soll ich das Ergebnis weitergeben?'
-      ] }
-  ];
-  var aktiv = 0;
-  var karten = document.querySelectorAll('#rf-karten .rf-karte');
-  var anzeige = document.getElementById('rf-anzeige');
-  function start(n) {
-    aktiv = n;
-    document.getElementById('rf-auftrag').innerHTML = runden[n].auftrag;
-    karten.forEach(function (k) { k.setAttribute('aria-pressed', 'false'); k.classList.remove('benutzt'); });
-    anzeige.hidden = true;
-    document.getElementById('rf-runde1').classList.toggle('aktiv', n === 0);
-    document.getElementById('rf-runde2').classList.toggle('aktiv', n === 1);
-  }
-  karten.forEach(function (k) {
-    k.addEventListener('click', function () {
-      var r = runden[aktiv];
-      anzeige.innerHTML = '<strong>' + r.wer + ':</strong> „' + r.fragen[+k.dataset.i] + '“';
-      anzeige.hidden = false;
-      k.setAttribute('aria-pressed', 'true');
-      k.classList.add('benutzt');
-    });
+document.querySelectorAll('#haken .haken-karte').forEach(function (k) {
+  k.querySelector('.haken-knopf').addEventListener('click', function () {
+    k.dataset.offen = 'true';
+    k.querySelector('.haken-inhalt').hidden = false;
   });
-  document.getElementById('rf-runde1').addEventListener('click', function () { start(0); });
-  document.getElementById('rf-runde2').addEventListener('click', function () { start(1); });
-  start(0);
-})();
+});
+document.getElementById('haken-neu').addEventListener('click', function () {
+  document.querySelectorAll('#haken .haken-karte').forEach(function (k) {
+    k.dataset.offen = 'false';
+    k.querySelector('.haken-inhalt').hidden = true;
+  });
+});
+Lehrwerk.frei('haken-bestaetigung');
 document.getElementById('verbteil-neu').addEventListener('click', function () {
   var box = document.getElementById('verbteil-spiel');
   box.querySelectorAll('.wahl button').forEach(function (b) { b.disabled = false; b.classList.remove('richtig', 'falsch'); });
