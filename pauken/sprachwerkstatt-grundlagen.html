@@ -10,29 +10,18 @@
 <style>
 /* Layout: eine Bühne für den geteilten Bildschirm – Kopf mit Reitern, große Aufgabenkarte, Steuerleiste, darunter Einstellungen und Übersicht */
 :root{
-  --bg:#faf6f8; --surface:#ffffff; --ink:#24202a; --muted:#6c6471; --line:#e8dfe4;
-  --accent:#a8385a; --accent-soft:#f6e4ec; --accent-ink:#ffffff;
-  --ok:#2c7556; --ok-soft:#e3f2ea; --warn:#a4621a;
-  --chip:#f3eef1;
+  /* bewusst immer hell, passend zum Lehrwerk */
+  --bg:#f5f6f8; --surface:#ffffff; --ink:#22222b; --muted:#5f6370; --line:#e3e5ea;
+  --accent:#b23a60; --accent-soft:#fbeaf0; --accent-ink:#ffffff;
+  --ok:#22222b; --ok-soft:#eef5f0; --ok-label:#2f6b4f; --warn:#a4621a;
+  --chip:#f1f2f5;
   --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
   --body:"Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
   --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#16131a; --surface:#211c26; --ink:#f2edf1; --muted:#a99fae; --line:#3a3140;
-    --accent:#e8819f; --accent-soft:#3a2431; --accent-ink:#1b1218;
-    --ok:#7fd1aa; --ok-soft:#1c3329; --warn:#e3a35b; --chip:#2c2531;
-    color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#16131a; --surface:#211c26; --ink:#f2edf1; --muted:#a99fae; --line:#3a3140;
-  --accent:#e8819f; --accent-soft:#3a2431; --accent-ink:#1b1218;
-  --ok:#7fd1aa; --ok-soft:#1c3329; --warn:#e3a35b; --chip:#2c2531;
-  color-scheme:dark;
+  color-scheme:light;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.5}
 .wrap{max-width:62rem;margin:0 auto;padding-inline:1.25rem;padding-block:1.25rem 3rem;display:grid;gap:1.25rem}
 header.kopf{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:.75rem 1.5rem}
@@ -61,7 +50,8 @@ button:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-v
 .uhr.aus{visibility:hidden}
 .zeit-um{font-family:var(--mono);font-size:.85rem;color:var(--warn);min-height:1.2em;margin:0}
 
-.loesung{border-radius:14px;background:var(--ok-soft);padding:1rem 1.2rem;display:grid;gap:.35rem}
+.loesung{background:var(--ok-soft);border-radius:14px;padding:1rem 1.2rem;display:grid;gap:.35rem}
+.loesung::before{content:"LÖSUNG";font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:var(--ok-label)}
 .loesung .satz{font-family:var(--display);font-weight:700;font-size:clamp(1.35rem,3.4vw,2rem);color:var(--ok);margin:0;line-height:1.25}
 .loesung .alt{margin:0;color:var(--ink)}
 .loesung .hinweis{margin:0;color:var(--muted);max-width:60ch}
@@ -74,7 +64,7 @@ button:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-v
 kbd{font-family:var(--mono);font-size:.78rem;padding:.05rem .35rem;border:1px solid var(--line);border-radius:5px;background:var(--chip)}
 
 .einstellungen{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem}
-.feld{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem;display:grid;gap:.5rem;min-width:0}
+.feld{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem;display:grid;gap:.5rem;min-width:0;align-content:start}
 .feld label,.feld .titel{font-weight:600}
 .feld small{color:var(--muted)}
 select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:.5rem .6rem;width:100%}
@@ -136,10 +126,10 @@ details.uebersicht summary{cursor:pointer;font-weight:600}
     <div class="feld">
       <label for="zeit">Zeit pro Aufgabe</label>
       <select id="zeit">
-        <option value="0">ohne Uhr</option>
+        <option value="0" selected>ohne Uhr</option>
         <option value="8">8 Sekunden</option>
         <option value="10">10 Sekunden</option>
-        <option value="15" selected>15 Sekunden</option>
+        <option value="15">15 Sekunden</option>
         <option value="20">20 Sekunden</option>
       </select>
       <div class="schalter">
@@ -409,8 +399,8 @@ $("namen-loeschen").addEventListener("click", function(){
 $("namen").addEventListener("change", function(){ naechsterName(); zeige(); });
 document.addEventListener("keydown", function(e){
   var t = e.target && e.target.tagName;
-  if (t === "TEXTAREA" || t === "SELECT" || t === "INPUT" || t === "BUTTON" && (e.key === " " || e.key === "Enter")) return;
-  if (e.key === " " || e.key === "Enter"){ e.preventDefault(); loesungUmschalten(); }
+  if (t === "TEXTAREA" || t === "SELECT" || t === "INPUT") return;
+  if (e.key === " " || e.key === "Spacebar"){ e.preventDefault(); loesungUmschalten(); }
   else if (e.key === "ArrowRight"){ e.preventDefault(); weiter(); }
   else if (e.key === "ArrowLeft"){ e.preventDefault(); zurueck(); }
 });
