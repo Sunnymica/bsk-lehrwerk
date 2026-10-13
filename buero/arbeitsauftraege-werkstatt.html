@@ -76,13 +76,17 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-off
 .rolle .wer{font-family:var(--display);font-weight:700;font-size:1.05rem}
 .linkzeile{display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
 .linkzeile code{font-family:var(--mono);font-size:.78rem;background:var(--chip);padding:.25rem .45rem;border-radius:6px;overflow-wrap:anywhere;min-width:0}
+.rolle .aufgabe{font-weight:600}
+.rolle .info{color:var(--muted);font-size:.92rem;margin:0}
+.vorschau{margin-top:1rem}
+.vorschau .rolle-gross p{font-size:1.05rem}
 .kopiert{font-size:.85rem;color:var(--gut);min-height:1.2em}
 
 /* Einzelkarte (Ansicht für TN) */
 .einzel{max-width:46rem;margin:0 auto;display:grid;gap:1.1rem}
-.einzel .rolle-gross{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(1.2rem,4vw,2rem);display:grid;gap:1rem}
-.einzel .rolle-gross p{font-size:clamp(1.15rem,2.6vw,1.4rem);line-height:1.55}
-.einzel .rolle-gross p.etikett{font-size:.8rem;line-height:1.4}
+.rolle-gross{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(1.2rem,4vw,2rem);display:grid;gap:1rem}
+.rolle-gross p{font-size:clamp(1.15rem,2.6vw,1.4rem);line-height:1.55}
+.rolle-gross p.etikett{font-size:.8rem;line-height:1.4}
 .einzel .satz{font-family:var(--display);font-size:clamp(1.3rem,3vw,1.7rem);background:var(--chip);border-radius:12px;padding:.8rem 1rem}
 .checkliste{margin:0;padding:0;list-style:none;display:grid;gap:.45rem}
 .checkliste label{display:flex;gap:.6rem;align-items:center;font-size:1.15rem}
@@ -129,8 +133,8 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-off
     <!-- 2 · Informationslücke -->
     <section class="blatt" id="blatt-luecke" hidden style="margin-top:1.2rem">
       <div class="hinweis">
-        <p><strong>So läuft es:</strong> A gibt den Auftrag zuerst nur mit dem kurzen Satz auf der Karte. B fragt nach, bis alle sechs Fragen beantwortet sind, und fasst dann zusammen: „Ich mache also …, bis …, und stimme mich mit … ab.“ C prüft mit der Checkliste. Nach fünf Minuten Rollen tauschen, dann der nächste Fall.</p>
-        <p><strong>Für Sie:</strong> Jede Person bekommt nur ihren eigenen Link per privatem Teams-Chat. Sie sieht dann nur ihre Karte.</p>
+        <p><strong>So läuft es:</strong> A sagt nur den kurzen Satz. B fragt nach, bis alle sechs Fragen beantwortet sind, und fasst zusammen. C hakt ab. Nach fünf Minuten Rollen tauschen.</p>
+        <p><strong>Für Sie:</strong> Mit „Karte ansehen“ lesen Sie die Karte hier. Mit „Link für Teams kopieren“ schicken Sie jeder Person nur ihre eigene Karte im privaten Chat.</p>
       </div>
       <div id="faelle"></div>
     </section>
@@ -172,8 +176,8 @@ var $ = function(id){ return document.getElementById(id); };
 function el(tag, cls, text){ var e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e; }
 
 var FRAGEN = [
-  {k:"was", t:"Was?", s:"die Tätigkeit"},
-  {k:"wer", t:"Wer?", s:"mit wem, für wen"},
+  {k:"was", t:"Was genau?", s:"Was soll ich tun? Welche Unterlagen, Waren, Informationen?"},
+  {k:"wer", t:"Wer?", s:"Wer macht es? Mit wem, für wen?"},
   {k:"wann", t:"Wann?", s:"Frist mit Uhrzeit"},
   {k:"wie", t:"Wie?", s:"Format, Umfang"},
   {k:"warum", t:"Warum?", s:"Ziel, Zusammenhang"},
@@ -189,8 +193,8 @@ var AUFTRAEGE = [
    fehlt:["was","wer","wann","wie","warum"],
    rueck:["Wen meinst du genau, die Firma Brandt oder die Spedition?","Was soll ich ihnen zu Freitag sagen?","Soll ich anrufen oder eine E-Mail schreiben?"]},
   {form:"mail", von:"Samira Haddad", an:"Team KONTOR", betreff:"Unterlagen", text:"Bitte die Unterlagen schnell zu mir.",
-   fehlt:["was","wann","wie","warum"],
-   rueck:["Könnten Sie mir sagen, welche Unterlagen Sie brauchen?","Bis wann genau?","Reicht es digital, oder brauchen Sie die Originale?"]}
+   fehlt:["was","wer","wann","wie","warum"],
+   rueck:["Könnten Sie mir sagen, welche Unterlagen Sie brauchen?","Soll ich sie Ihnen bringen, schicken oder hochladen?","Wer aus dem Team soll das übernehmen?","Bis wann genau?","Reicht es digital, oder brauchen Sie die Originale?"]}
 ];
 
 function baueAuftraege(){
@@ -261,17 +265,17 @@ function baueAuftraege(){
 var FAELLE = [
   {id:"1", titel:"Die Regale",
    a:{wer:"Kateryna (Geschäftsführung)", satz:"„Machen Sie mal den Vergleich mit den Regalen.“",
-      text:["Sie brauchen bis Donnerstag, 12 Uhr, einen Vergleich der drei Angebote für neue Lagerregale.","Zweck: Entscheidung in der Geschäftsführungsrunde am Donnerstagnachmittag.","Format: eine Seite, als Tabelle.","Priorität: vor allem anderen."]},
+      text:["Was genau: ein Vergleich der drei Angebote für neue Lagerregale – Preis, Lieferzeit, Garantie.","Wer: Nora macht den Vergleich. Die Maße des Lagers kennt Pawel – mit ihm abstimmen.","Wann: bis Donnerstag, 12 Uhr.","Wie: eine Seite, als Tabelle. Fehlt ein Angebot, beim Lieferanten anrufen und nach Preis und Lieferzeit fragen.","Warum: Entscheidung in der Geschäftsführungsrunde am Donnerstagnachmittag.","Wie wichtig: vor allem anderen. Die Inventur übernimmt Jonas."]},
    b:{wer:"Nora (Einkauf)",
       text:["Sie wissen: Ein Lieferant hat sein Angebot erst für Freitag angekündigt.","Bis Mittwoch stecken Sie in der Monatsinventur.","Fragen Sie nach, bis Sie alles wissen. Sagen Sie dann, was Sie brauchen, um die Frist zu halten."]}},
   {id:"2", titel:"Die verspätete Lieferung",
    a:{wer:"Pawel (Lager und Versand)", satz:"„Sag denen mal Bescheid wegen der Lieferung.“",
-      text:["Die Firma Brandt soll erfahren, dass sich ihre Lieferung um zwei Tage verschiebt.","Anruf bis heute 16 Uhr, danach eine kurze schriftliche Bestätigung.","Zweck: Brandt droht mit Stornierung. Der Auftrag soll gehalten werden.","Ansprechpartnerin ist Frau Krüger aus dem Einkauf."]},
+      text:["Was genau: Die Firma Brandt informieren – die Lieferung kommt zwei Tage später, am Mittwoch statt am Montag.","Wer: Jonas ruft an. Ansprechpartnerin ist Frau Krüger aus dem Einkauf, sie ist ab 13 Uhr erreichbar.","Wann: Anruf heute bis 16 Uhr.","Wie: erst anrufen, danach eine kurze E-Mail als Bestätigung.","Warum: Brandt droht mit Stornierung. Der Auftrag soll gehalten werden.","Wie wichtig: sehr wichtig. Brandt ist einer unserer größten Kunden."]},
    b:{wer:"Jonas (Verkauf)",
       text:["Sie haben um 15 Uhr einen Kundentermin außer Haus.","Bei Brandt kennen Sie zwei Ansprechpersonen und wissen nicht, wen Pawel meint.","Fragen Sie nach, bis Sie alles wissen."]}},
   {id:"3", titel:"Die neuen Auszubildenden",
    a:{wer:"Samira (Personal und Verwaltung)", satz:"„Kümmern Sie sich bitte um die Mappen für Montag.“",
-      text:["Am Montag fangen zwei Auszubildende an.","Jonas soll bis Freitag, 14 Uhr, die Begrüßungsmappen vorbereiten: Ablaufplan der ersten Woche, Telefonliste, Formular für die Zugangsdaten.","Zweck: Die beiden sollen am ersten Tag ohne Warten anfangen können.","Die Vorlage liegt im Ordner „Personal“."]},
+      text:["Was genau: zwei Begrüßungsmappen für die neuen Auszubildenden – Ablaufplan der ersten Woche, Telefonliste, Formular für die Zugangsdaten.","Wer: Jonas macht die Mappen. Die aktuelle Telefonliste hat Nora.","Wann: bis Freitag, 14 Uhr. Die beiden fangen am Montag an.","Wie: ausgedruckt, in den blauen Mappen. Die Vorlage liegt im Ordner „Personal“.","Warum: Die beiden sollen am ersten Tag ohne Warten anfangen können.","Wie wichtig: wichtig, aber Kundentermine gehen vor."]},
    b:{wer:"Jonas (Verkauf)",
       text:["Sie wissen nicht, dass es eine Vorlage gibt.","Am Freitagvormittag sind Sie auf einer Schulung.","Fragen Sie nach, bis Sie alles wissen."]}}
 ];
@@ -282,7 +286,7 @@ var REDEMITTEL_B = ["Habe ich richtig verstanden, dass …?","Bis wann genau …
 function link(anker){ return location.href.split("#")[0] + "#" + anker; }
 function kopiere(text, meld){
   function ok(){ meld.textContent = "Link kopiert – jetzt in den privaten Teams-Chat einfügen."; }
-  function fallback(){ meld.textContent = "Bitte den Link oben markieren und kopieren."; }
+  function fallback(){ window.prompt("Link markieren und kopieren:", text); }
   try{
     if (navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(ok, fallback); }
     else fallback();
@@ -297,24 +301,38 @@ function baueFaelle(){
     kopf.appendChild(el("h2",null,"Fall " + f.id + " · " + f.titel));
     k.appendChild(kopf);
     var r = el("div","rollen");
-    [["a","Karte A",f.a.wer],["b","Karte B",f.b.wer],["c","Karte C",PRUEFER.wer]].forEach(function(x){
+    var vorschau = el("div","vorschau"); vorschau.hidden = true;
+    var offen = null;
+    [["a","Karte A",f.a.wer.split(" (")[0],"Auftrag geben","Kennt alle Antworten. Sagt sie nur, wenn gefragt wird."],
+     ["b","Karte B",f.b.wer.split(" (")[0],"Auftrag klären","Stellt Rückfragen, bis alles klar ist."],
+     ["c","Karte C","Prüfer/in","Beobachten","Hakt ab, was geklärt wurde."]].forEach(function(x){
       var anker = "karte-" + f.id + x[0];
       var d = el("div","rolle");
       d.appendChild(el("span","etikett",x[1]));
       d.appendChild(el("span","wer",x[2]));
-      var lz = el("div","linkzeile");
-      lz.appendChild(el("code",null,link(anker)));
-      d.appendChild(lz);
+      d.appendChild(el("span","aufgabe",x[3]));
+      d.appendChild(el("p","info",x[4]));
       var kr = el("div","knopfreihe");
-      var bk = el("button","knopf","Link kopieren"); bk.type="button";
+      var bo = el("button","knopf","Karte ansehen"); bo.type="button"; bo.setAttribute("aria-pressed","false");
+      var bk = el("button","knopf","Link für Teams kopieren"); bk.type="button";
       var meld = el("p","kopiert");
       bk.addEventListener("click", function(){ kopiere(link(anker), meld); });
-      var bo = el("a","knopf","Ansehen"); bo.href = "#" + anker;
-      kr.appendChild(bk); kr.appendChild(bo);
+      bo.addEventListener("click", function(){
+        r.querySelectorAll("button[aria-pressed]").forEach(function(b){ b.setAttribute("aria-pressed","false"); b.textContent = "Karte ansehen"; });
+        if (offen === x[0]){ offen = null; vorschau.hidden = true; return; }
+        offen = x[0];
+        vorschau.textContent = "";
+        vorschau.appendChild(el("p","etikett",x[1] + " · " + x[2] + " · so sieht die Person ihre Karte"));
+        vorschau.appendChild(karteInhalt(f, x[0]));
+        vorschau.hidden = false;
+        bo.setAttribute("aria-pressed","true"); bo.textContent = "Karte schließen";
+      });
+      kr.appendChild(bo); kr.appendChild(bk);
       d.appendChild(kr); d.appendChild(meld);
       r.appendChild(d);
     });
     k.appendChild(r);
+    k.appendChild(vorschau);
     box.appendChild(k);
   });
 }
@@ -328,6 +346,12 @@ function zeigeEinzel(fallId, rolle){
   kopf.appendChild(el("h1",null, rolle==="c" ? "Ihre Rolle: prüfen" : rolle==="a" ? "Ihre Rolle: Auftrag geben" : "Ihre Rolle: Auftrag annehmen"));
   box.appendChild(kopf);
 
+  box.appendChild(karteInhalt(f, rolle));
+  box.appendChild(el("p","lead","Nach fünf Minuten tauschen Sie die Rollen. Ihre Kursleiterin schickt Ihnen dann den nächsten Link."));
+  return true;
+}
+
+function karteInhalt(f, rolle){
   var g = el("section","rolle-gross");
   if (rolle === "a"){
     g.appendChild(el("p","etikett","Sie sind " + f.a.wer));
@@ -354,9 +378,7 @@ function zeigeEinzel(fallId, rolle){
     });
     g.appendChild(cl);
   }
-  box.appendChild(g);
-  box.appendChild(el("p","lead","Nach fünf Minuten tauschen Sie die Rollen. Ihre Kursleiterin schickt Ihnen dann den nächsten Link."));
-  return true;
+  return g;
 }
 
 /* ---------- 3 · Fehlerwerkstatt ---------- */
