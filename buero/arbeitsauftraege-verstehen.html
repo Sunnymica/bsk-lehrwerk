@@ -158,6 +158,7 @@
       <p><strong>Zu Hause:</strong> Einfach anklicken und die Erklärung lesen.</p>
       <p>Neun Situationen. Nach jedem Klick erscheint die Auflösung mit Erklärung.</p>
       <div id="verbteil-spiel"></div>
+      <div class="knopfreihe"><button class="knopf" id="verbteil-neu" type="button">Übung neu starten</button></div>
     </div>
 
     <div class="merker">
@@ -622,6 +623,17 @@ Lehrwerk.auswahl('verbteil-spiel', [
   document.getElementById('rf-runde2').addEventListener('click', function () { start(1); });
   start(0);
 })();
+document.getElementById('verbteil-neu').addEventListener('click', function () {
+  var box = document.getElementById('verbteil-spiel');
+  box.querySelectorAll('.wahl button').forEach(function (b) { b.disabled = false; b.classList.remove('richtig', 'falsch'); });
+  box.querySelectorAll('.rueckmeldung').forEach(function (r) { r.hidden = true; r.textContent = ''; });
+  try {
+    var k = 'bsk-modul-arbeitsauftraege-verstehen';
+    var st = JSON.parse(localStorage.getItem(k)) || {};
+    Object.keys(st).forEach(function (x) { if (x.indexOf('verbteil-spiel:') === 0) delete st[x]; });
+    localStorage.setItem(k, JSON.stringify(st));
+  } catch (e) {}
+});
 Lehrwerk.frei('einstieg-frei');
 document.getElementById('checkliste-zeigen').addEventListener('click', function(){
   document.getElementById('checkliste-box').hidden = false;
