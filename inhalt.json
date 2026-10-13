@@ -151,6 +151,19 @@
               "status": "fertig"
             },
             {
+              "titel": "Auftragswerkstatt KONTOR",
+              "beschreibung": "Unklare Aufträge erkennen, in der Informationslücke nachfragen, Fehler finden. Mit Einzelkarten-Links für die Breakout-Räume.",
+              "pfad": "arbeitsauftraege-werkstatt.html",
+              "niveau": "B2",
+              "dauer": "70 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Lesen",
+                "Üben"
+              ],
+              "status": "fertig"
+            },
+            {
               "titel": "Arbeitsaufträge delegieren",
               "beschreibung": "Eine Aufgabe weitergeben: was, bis wann, wozu. Fünf Bauformen des Infinitivs mit zu, neun Situationskarten.",
               "pfad": "arbeitsauftraege-delegieren.html",
