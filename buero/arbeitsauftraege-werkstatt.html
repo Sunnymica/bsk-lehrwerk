@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auftragswerkstatt KONTOR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: Unterrichtsbühne in drei Reitern; Einzelkarten-Ansicht per Anker für die Breakout-Räume. Bewusst immer hell. */
+:root{
+  --bg:#f5f6f8; --surface:#ffffff; --ink:#22222b; --muted:#5f6370; --line:#e3e5ea;
+  --accent:#2c5f8a; --accent-soft:#e8f0f7; --accent-ink:#ffffff;
+  --mark:#b23a60; --mark-soft:#fbeaf0;
+  --gut:#2f6b4f; --gut-soft:#eef5f0;
+  --chip:#f1f2f5;
+  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body:"Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.5}
+.wrap{max-width:64rem;margin:0 auto;padding-inline:1.25rem;padding-block:1.25rem 3rem;display:grid;gap:1.25rem}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,3.5vw,2.3rem);line-height:1.1;margin:0;text-wrap:balance}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.3rem,2.6vw,1.7rem);margin:0;text-wrap:balance}
+h3{font-family:var(--display);font-weight:700;font-size:1.2rem;margin:0}
+p{margin:0}
+.lead{color:var(--muted);max-width:44rem}
+header.kopf{display:grid;gap:.4rem}
+nav.reiter{display:flex;flex-wrap:wrap;gap:.4rem}
+nav.reiter button{font:600 .98rem var(--body);padding:.5rem .95rem;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+nav.reiter button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+nav.reiter .zeit{font-family:var(--mono);font-size:.75rem;opacity:.75;margin-right:.35rem}
+button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+.blatt{display:grid;gap:1.1rem}
+.hinweis{background:var(--accent-soft);border-radius:14px;padding:.9rem 1.1rem;display:grid;gap:.3rem;max-width:52rem}
+.hinweis strong{font-weight:600}
+.karte{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(1.1rem,3vw,1.8rem);display:grid;gap:1rem;min-width:0}
+.karte-kopf{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.5rem}
+.etikett{font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.knopfreihe{display:flex;flex-wrap:wrap;gap:.5rem}
+.knopf{font:600 1rem var(--body);padding:.6rem 1.05rem;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem}
+.knopf.haupt{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.knopf[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+
+/* Nachrichtenformen */
+.zuruf{font-family:var(--display);font-size:clamp(1.3rem,3vw,1.85rem);line-height:1.3;margin:0;padding:1rem 1.2rem;border-radius:16px;background:var(--chip);position:relative}
+.chat{max-width:34rem;background:#e9eefb;border-radius:16px 16px 16px 4px;padding:.8rem 1rem;display:grid;gap:.2rem}
+.chat .wer{font-weight:600;font-size:.9rem;color:#3d4f86}
+.chat .text{font-size:clamp(1.25rem,2.8vw,1.6rem);font-family:var(--display)}
+.chat .uhr{font-family:var(--mono);font-size:.75rem;color:var(--muted);justify-self:end}
+.mail{border:1px solid var(--line);border-radius:12px;overflow:hidden;max-width:40rem}
+.mail .zeile{display:grid;grid-template-columns:5.5rem 1fr;gap:.5rem;padding:.4rem .9rem;border-bottom:1px solid var(--line);font-size:.95rem}
+.mail .zeile span:first-child{color:var(--muted)}
+.mail .rumpf{padding:.9rem;font-family:var(--display);font-size:clamp(1.25rem,2.8vw,1.6rem)}
+
+.fragen{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:.5rem}
+.frage{border-radius:12px;padding:.55rem .8rem;border:1px solid var(--line);background:var(--surface);display:grid;gap:.1rem}
+.frage b{font-family:var(--display);font-size:1.1rem}
+.frage small{color:var(--muted);font-size:.85rem}
+.frage.fehlt{background:var(--mark-soft);border-color:transparent}
+.frage.fehlt b{color:var(--mark)}
+.frage.da{background:var(--gut-soft);border-color:transparent}
+.frage.da b{color:var(--gut)}
+.rueckfragen{margin:0;padding-left:1.2rem;display:grid;gap:.35rem;font-size:1.15rem}
+
+/* Informationslücke */
+.fall{display:grid;gap:.8rem}
+.rollen{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:.7rem}
+.rolle{border:1px solid var(--line);border-radius:14px;padding:.9rem 1rem;display:grid;gap:.6rem;align-content:start;min-width:0}
+.rolle .wer{font-family:var(--display);font-weight:700;font-size:1.05rem}
+.linkzeile{display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+.linkzeile code{font-family:var(--mono);font-size:.78rem;background:var(--chip);padding:.25rem .45rem;border-radius:6px;overflow-wrap:anywhere;min-width:0}
+.kopiert{font-size:.85rem;color:var(--gut);min-height:1.2em}
+
+/* Einzelkarte (Ansicht für TN) */
+.einzel{max-width:46rem;margin:0 auto;display:grid;gap:1.1rem}
+.einzel .rolle-gross{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(1.2rem,4vw,2rem);display:grid;gap:1rem}
+.einzel .rolle-gross p{font-size:clamp(1.15rem,2.6vw,1.4rem);line-height:1.55}
+.einzel .rolle-gross p.etikett{font-size:.8rem;line-height:1.4}
+.einzel .satz{font-family:var(--display);font-size:clamp(1.3rem,3vw,1.7rem);background:var(--chip);border-radius:12px;padding:.8rem 1rem}
+.checkliste{margin:0;padding:0;list-style:none;display:grid;gap:.45rem}
+.checkliste label{display:flex;gap:.6rem;align-items:center;font-size:1.15rem}
+.checkliste input{width:1.2rem;height:1.2rem}
+.redemittel{display:flex;flex-wrap:wrap;gap:.45rem}
+.redemittel span{background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:.3rem .75rem;font-size:.98rem}
+
+/* Fehlerwerkstatt */
+.fw-satz{font-family:var(--display);font-size:clamp(1.4rem,3.4vw,2rem);line-height:1.3}
+.fw-zaehler{font-family:var(--mono);font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.fw-antwort{border-radius:14px;padding:1rem 1.2rem;display:grid;gap:.35rem}
+.fw-antwort.richtig{background:var(--gut-soft)}
+.fw-antwort.falsch{background:var(--mark-soft)}
+.fw-antwort .urteil{font-weight:600}
+.fw-antwort .loesung{font-family:var(--display);font-weight:700;font-size:clamp(1.2rem,2.8vw,1.6rem)}
+.fw-antwort .warum{color:var(--muted)}
+.fw-punkte{font-family:var(--mono);font-size:.85rem;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<div class="wrap" id="app">
+  <!-- Übersicht für die Lehrkraft -->
+  <div id="uebersicht">
+    <header class="kopf">
+      <a class="eyebrow" href="arbeitsauftraege-verstehen.html" style="text-decoration:none">← Deutsch fürs Büro · Arbeitsaufträge verstehen</a>
+      <h1>Auftragswerkstatt KONTOR</h1>
+      <p class="lead">Unklare Aufträge erkennen, so lange nachfragen, bis alles klar ist, und am Ende bestätigen, was man tun wird.</p>
+    </header>
+    <nav class="reiter" role="tablist" aria-label="Teile der Stunde" style="margin-top:1rem">
+      <button role="tab" id="r-auftraege" data-blatt="auftraege" aria-selected="true"><span class="zeit">19:00</span>Unklare Aufträge</button>
+      <button role="tab" id="r-luecke" data-blatt="luecke" aria-selected="false"><span class="zeit">19:20</span>Informationslücke</button>
+      <button role="tab" id="r-fehler" data-blatt="fehler" aria-selected="false"><span class="zeit">19:45</span>Fehlerwerkstatt</button>
+    </nav>
+
+    <!-- 1 · Unklare Aufträge -->
+    <section class="blatt" id="blatt-auftraege" style="margin-top:1.2rem">
+      <div class="hinweis">
+        <p><strong>Aufgabe:</strong> Welche der sechs Fragen beantwortet der Auftrag nicht? Und mit welcher Rückfrage holen Sie die Information?</p>
+      </div>
+      <div id="auftraege"></div>
+    </section>
+
+    <!-- 2 · Informationslücke -->
+    <section class="blatt" id="blatt-luecke" hidden style="margin-top:1.2rem">
+      <div class="hinweis">
+        <p><strong>So läuft es:</strong> A gibt den Auftrag zuerst nur mit dem kurzen Satz auf der Karte. B fragt nach, bis alle sechs Fragen beantwortet sind, und fasst dann zusammen: „Ich mache also …, bis …, und stimme mich mit … ab.“ C prüft mit der Checkliste. Nach fünf Minuten Rollen tauschen, dann der nächste Fall.</p>
+        <p><strong>Für Sie:</strong> Jede Person bekommt nur ihren eigenen Link per privatem Teams-Chat. Sie sieht dann nur ihre Karte.</p>
+      </div>
+      <div id="faelle"></div>
+    </section>
+
+    <!-- 3 · Fehlerwerkstatt -->
+    <section class="blatt" id="blatt-fehler" hidden style="margin-top:1.2rem">
+      <div class="hinweis">
+        <p><strong>Aufgabe:</strong> Was stimmt nicht – die Grammatik oder der Auftrag? Manche Sätze sind auch richtig.</p>
+      </div>
+      <div class="karte" id="fw-karte">
+        <div class="karte-kopf"><span class="fw-zaehler" id="fw-zaehler">1 / 12</span><span class="fw-punkte" id="fw-punkte"></span></div>
+        <p class="fw-satz" id="fw-satz"></p>
+        <div class="knopfreihe" id="fw-wahl">
+          <button class="knopf" type="button" data-wahl="grammatik">Grammatikfehler</button>
+          <button class="knopf" type="button" data-wahl="auftrag">Auftrag unklar</button>
+          <button class="knopf" type="button" data-wahl="richtig">Richtig</button>
+        </div>
+        <div class="fw-antwort" id="fw-antwort" hidden>
+          <p class="urteil" id="fw-urteil"></p>
+          <p class="loesung" id="fw-loesung"></p>
+          <p class="warum" id="fw-warum"></p>
+        </div>
+        <div class="knopfreihe">
+          <button class="knopf" type="button" id="fw-zurueck">← Zurück</button>
+          <button class="knopf haupt" type="button" id="fw-weiter">Weiter →</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Einzelkarte für die TN (per Anker) -->
+  <div class="einzel" id="einzel" hidden></div>
+</div>
+
+<script>
+(function(){
+"use strict";
+var $ = function(id){ return document.getElementById(id); };
+function el(tag, cls, text){ var e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e; }
+
+var FRAGEN = [
+  {k:"was", t:"Was?", s:"die Tätigkeit"},
+  {k:"wer", t:"Wer?", s:"mit wem, für wen"},
+  {k:"wann", t:"Wann?", s:"Frist mit Uhrzeit"},
+  {k:"wie", t:"Wie?", s:"Format, Umfang"},
+  {k:"warum", t:"Warum?", s:"Ziel, Zusammenhang"},
+  {k:"prio", t:"Wie wichtig?", s:"Priorität"}
+];
+
+/* ---------- 1 · Unklare Aufträge ---------- */
+var AUFTRAEGE = [
+  {form:"zuruf", wer:"Kateryna im Vorbeigehen zu Nora", text:"„Schauen Sie sich mal die Sache mit dem Regallieferanten an, das sollte bald erledigt sein.“",
+   fehlt:["was","wann","wie","warum","prio"],
+   rueck:["Geht es um das neue Angebot oder um die Reklamation?","Bis wann genau brauchen Sie das?","Hat das Priorität, oder kann die Inventur vorgehen?"]},
+  {form:"chat", wer:"Pawel Nowak", uhr:"10:42", an:"an Jonas im Teams-Chat", text:"Kannst du denen Bescheid geben wegen Freitag? Danke!",
+   fehlt:["was","wer","wann","wie","warum"],
+   rueck:["Wen meinst du genau, die Firma Brandt oder die Spedition?","Was soll ich ihnen zu Freitag sagen?","Soll ich anrufen oder eine E-Mail schreiben?"]},
+  {form:"mail", von:"Samira Haddad", an:"Team KONTOR", betreff:"Unterlagen", text:"Bitte die Unterlagen schnell zu mir.",
+   fehlt:["was","wann","wie","warum"],
+   rueck:["Könnten Sie mir sagen, welche Unterlagen Sie brauchen?","Bis wann genau?","Reicht es digital, oder brauchen Sie die Originale?"]}
+];
+
+function baueAuftraege(){
+  var box = $("auftraege");
+  AUFTRAEGE.forEach(function(a, i){
+    var k = el("article","karte");
+    var kopf = el("div","karte-kopf");
+    kopf.appendChild(el("h2",null,"Auftrag " + (i+1)));
+    kopf.appendChild(el("span","etikett", a.form==="zuruf" ? "im Vorbeigehen" : a.form==="chat" ? "Teams-Chat" : "E-Mail"));
+    k.appendChild(kopf);
+
+    if (a.form === "zuruf"){
+      k.appendChild(el("p","etikett",a.wer));
+      k.appendChild(el("p","zuruf",a.text));
+    } else if (a.form === "chat"){
+      k.appendChild(el("p","etikett",a.an));
+      var c = el("div","chat");
+      c.appendChild(el("span","wer",a.wer));
+      c.appendChild(el("span","text",a.text));
+      c.appendChild(el("span","uhr",a.uhr));
+      k.appendChild(c);
+    } else {
+      var m = el("div","mail");
+      [["Von",a.von],["An",a.an],["Betreff",a.betreff]].forEach(function(z){
+        var r = el("div","zeile"); r.appendChild(el("span",null,z[0])); r.appendChild(el("span",null,z[1])); m.appendChild(r);
+      });
+      m.appendChild(el("div","rumpf",a.text));
+      k.appendChild(m);
+    }
+
+    var fr = el("div","fragen"); fr.setAttribute("aria-label","Die sechs Fragen");
+    FRAGEN.forEach(function(f){
+      var d = el("div","frage"); d.dataset.k = f.k;
+      d.appendChild(el("b",null,f.t)); d.appendChild(el("small",null,f.s));
+      fr.appendChild(d);
+    });
+    k.appendChild(fr);
+
+    var rf = el("ol","rueckfragen"); rf.hidden = true;
+    a.rueck.forEach(function(r){ rf.appendChild(el("li",null,"„" + r + "“")); });
+
+    var leg = el("p","etikett"); leg.hidden = true; leg.textContent = "Rosa: fehlt · Grün: steht im Auftrag";
+
+    var kr = el("div","knopfreihe");
+    var b1 = el("button","knopf","Was fehlt?"); b1.type="button"; b1.setAttribute("aria-pressed","false");
+    var b2 = el("button","knopf","Rückfragen zeigen"); b2.type="button"; b2.setAttribute("aria-pressed","false");
+    b1.addEventListener("click", function(){
+      var an = b1.getAttribute("aria-pressed") !== "true";
+      b1.setAttribute("aria-pressed", an ? "true" : "false");
+      leg.hidden = !an;
+      fr.querySelectorAll(".frage").forEach(function(d){
+        d.classList.toggle("fehlt", an && a.fehlt.indexOf(d.dataset.k) !== -1);
+        d.classList.toggle("da", an && a.fehlt.indexOf(d.dataset.k) === -1);
+      });
+    });
+    b2.addEventListener("click", function(){
+      var an = b2.getAttribute("aria-pressed") !== "true";
+      b2.setAttribute("aria-pressed", an ? "true" : "false");
+      rf.hidden = !an;
+    });
+    kr.appendChild(b1); kr.appendChild(b2);
+    k.appendChild(kr); k.appendChild(leg); k.appendChild(rf);
+    box.appendChild(k);
+  });
+}
+
+/* ---------- 2 · Informationslücke ---------- */
+var FAELLE = [
+  {id:"1", titel:"Die Regale",
+   a:{wer:"Kateryna (Geschäftsführung)", satz:"„Machen Sie mal den Vergleich mit den Regalen.“",
+      text:["Sie brauchen bis Donnerstag, 12 Uhr, einen Vergleich der drei Angebote für neue Lagerregale.","Zweck: Entscheidung in der Geschäftsführungsrunde am Donnerstagnachmittag.","Format: eine Seite, als Tabelle.","Priorität: vor allem anderen."]},
+   b:{wer:"Nora (Einkauf)",
+      text:["Sie wissen: Ein Lieferant hat sein Angebot erst für Freitag angekündigt.","Bis Mittwoch stecken Sie in der Monatsinventur.","Fragen Sie nach, bis Sie alles wissen. Sagen Sie dann, was Sie brauchen, um die Frist zu halten."]}},
+  {id:"2", titel:"Die verspätete Lieferung",
+   a:{wer:"Pawel (Lager und Versand)", satz:"„Sag denen mal Bescheid wegen der Lieferung.“",
+      text:["Die Firma Brandt soll erfahren, dass sich ihre Lieferung um zwei Tage verschiebt.","Anruf bis heute 16 Uhr, danach eine kurze schriftliche Bestätigung.","Zweck: Brandt droht mit Stornierung. Der Auftrag soll gehalten werden.","Ansprechpartnerin ist Frau Krüger aus dem Einkauf."]},
+   b:{wer:"Jonas (Verkauf)",
+      text:["Sie haben um 15 Uhr einen Kundentermin außer Haus.","Bei Brandt kennen Sie zwei Ansprechpersonen und wissen nicht, wen Pawel meint.","Fragen Sie nach, bis Sie alles wissen."]}},
+  {id:"3", titel:"Die neuen Auszubildenden",
+   a:{wer:"Samira (Personal und Verwaltung)", satz:"„Kümmern Sie sich bitte um die Mappen für Montag.“",
+      text:["Am Montag fangen zwei Auszubildende an.","Jonas soll bis Freitag, 14 Uhr, die Begrüßungsmappen vorbereiten: Ablaufplan der ersten Woche, Telefonliste, Formular für die Zugangsdaten.","Zweck: Die beiden sollen am ersten Tag ohne Warten anfangen können.","Die Vorlage liegt im Ordner „Personal“."]},
+   b:{wer:"Jonas (Verkauf)",
+      text:["Sie wissen nicht, dass es eine Vorlage gibt.","Am Freitagvormittag sind Sie auf einer Schulung.","Fragen Sie nach, bis Sie alles wissen."]}}
+];
+var PRUEFER = {wer:"Prüferin oder Prüfer",
+  text:["Hören Sie zu und haken Sie ab, was geklärt wurde.","Nach der Runde sagen Sie: Welche Frage hat gefehlt? Welche Rückfrage war besonders gut?","Dann stellen Sie selbst eine Anschlussfrage an A."]};
+var REDEMITTEL_B = ["Habe ich richtig verstanden, dass …?","Bis wann genau …?","Mit wem soll ich mich abstimmen?","Gibt es dafür eine Vorlage?","Hat das Priorität, oder …?","Ich mache also …, bis …"];
+
+function link(anker){ return location.href.split("#")[0] + "#" + anker; }
+function kopiere(text, meld){
+  function ok(){ meld.textContent = "Link kopiert – jetzt in den privaten Teams-Chat einfügen."; }
+  function fallback(){ meld.textContent = "Bitte den Link oben markieren und kopieren."; }
+  try{
+    if (navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(ok, fallback); }
+    else fallback();
+  }catch(e){ fallback(); }
+}
+
+function baueFaelle(){
+  var box = $("faelle");
+  FAELLE.forEach(function(f){
+    var k = el("article","karte fall");
+    var kopf = el("div","karte-kopf");
+    kopf.appendChild(el("h2",null,"Fall " + f.id + " · " + f.titel));
+    k.appendChild(kopf);
+    var r = el("div","rollen");
+    [["a","Karte A",f.a.wer],["b","Karte B",f.b.wer],["c","Karte C",PRUEFER.wer]].forEach(function(x){
+      var anker = "karte-" + f.id + x[0];
+      var d = el("div","rolle");
+      d.appendChild(el("span","etikett",x[1]));
+      d.appendChild(el("span","wer",x[2]));
+      var lz = el("div","linkzeile");
+      lz.appendChild(el("code",null,link(anker)));
+      d.appendChild(lz);
+      var kr = el("div","knopfreihe");
+      var bk = el("button","knopf","Link kopieren"); bk.type="button";
+      var meld = el("p","kopiert");
+      bk.addEventListener("click", function(){ kopiere(link(anker), meld); });
+      var bo = el("a","knopf","Ansehen"); bo.href = "#" + anker;
+      kr.appendChild(bk); kr.appendChild(bo);
+      d.appendChild(kr); d.appendChild(meld);
+      r.appendChild(d);
+    });
+    k.appendChild(r);
+    box.appendChild(k);
+  });
+}
+
+function zeigeEinzel(fallId, rolle){
+  var f = FAELLE.filter(function(x){ return x.id === fallId; })[0];
+  if (!f) return false;
+  var box = $("einzel"); box.textContent = "";
+  var kopf = el("header","kopf");
+  kopf.appendChild(el("div","eyebrow","Auftragswerkstatt KONTOR · Fall " + f.id));
+  kopf.appendChild(el("h1",null, rolle==="c" ? "Ihre Rolle: prüfen" : rolle==="a" ? "Ihre Rolle: Auftrag geben" : "Ihre Rolle: Auftrag annehmen"));
+  box.appendChild(kopf);
+
+  var g = el("section","rolle-gross");
+  if (rolle === "a"){
+    g.appendChild(el("p","etikett","Sie sind " + f.a.wer));
+    g.appendChild(el("p",null,"Sagen Sie am Anfang nur diesen Satz:"));
+    g.appendChild(el("p","satz",f.a.satz));
+    g.appendChild(el("p",null,"Antworten Sie auf Rückfragen mit diesen Informationen, aber nur, wenn danach gefragt wird:"));
+    var ul = el("ul","rueckfragen"); f.a.text.forEach(function(t){ ul.appendChild(el("li",null,t)); }); g.appendChild(ul);
+  } else if (rolle === "b"){
+    g.appendChild(el("p","etikett","Sie sind " + f.b.wer));
+    f.b.text.forEach(function(t){ g.appendChild(el("p",null,t)); });
+    g.appendChild(el("p","etikett","Diese Sätze helfen"));
+    var rm = el("div","redemittel"); REDEMITTEL_B.forEach(function(t){ rm.appendChild(el("span",null,t)); }); g.appendChild(rm);
+  } else {
+    g.appendChild(el("p","etikett","Sie hören zu und prüfen"));
+    PRUEFER.text.forEach(function(t){ g.appendChild(el("p",null,t)); });
+    var cl = el("ul","checkliste");
+    FRAGEN.concat([{k:"zus",t:"Hat B am Ende zusammengefasst?",s:""}]).forEach(function(q, i){
+      var li = document.createElement("li");
+      var lab = document.createElement("label");
+      var cb = document.createElement("input"); cb.type="checkbox"; cb.id = "pr-" + f.id + "-" + i;
+      lab.htmlFor = cb.id; lab.appendChild(cb);
+      lab.appendChild(document.createTextNode(q.s ? q.t + " (" + q.s + ")" : q.t));
+      li.appendChild(lab); cl.appendChild(li);
+    });
+    g.appendChild(cl);
+  }
+  box.appendChild(g);
+  box.appendChild(el("p","lead","Nach fünf Minuten tauschen Sie die Rollen. Ihre Kursleiterin schickt Ihnen dann den nächsten Link."));
+  return true;
+}
+
+/* ---------- 3 · Fehlerwerkstatt ---------- */
+var FW = [
+  {s:"Können Sie mir sagen, wann kommt die Lieferung?", t:"grammatik", l:"Können Sie mir sagen, wann die Lieferung kommt?", w:"Indirekte Frage: Das konjugierte Verb steht am Ende."},
+  {s:"Schicken Sie mir bitte die Unterlagen zu bis Freitag.", t:"grammatik", l:"Schicken Sie mir die Unterlagen bitte bis Freitag zu.", w:"Trennbares Verb: „zu“ steht ganz am Ende."},
+  {s:"Stimmen Sie sich ab mit Herrn Becker.", t:"grammatik", l:"Stimmen Sie sich bitte mit Herrn Becker ab.", w:"Trennbares Verb: „ab“ steht ganz am Ende."},
+  {s:"Wissen Sie, ob ist die Rechnung schon geprüft?", t:"grammatik", l:"Wissen Sie, ob die Rechnung schon geprüft ist?", w:"Nach „ob“ steht das konjugierte Verb am Ende."},
+  {s:"Machen Sie das mal schnell.", t:"auftrag", l:"Bitte schicken Sie die Rechnung bis 14 Uhr an die Buchhaltung.", w:"Grammatisch richtig, aber unbrauchbar: Was ist „das“? „Schnell“ ist keine Frist."},
+  {s:"Bereiten Sie die Besprechung bitte vor bis morgen um neun.", t:"grammatik", l:"Bereiten Sie die Besprechung bitte bis morgen um neun vor.", w:"Trennbares Verb: „vor“ steht ganz am Ende."},
+  {s:"Bis wann soll ich das fertig machen?", t:"richtig", l:"Bis wann soll ich das fertig machen?", w:"Richtig. Eine gute Rückfrage nach der Frist."},
+  {s:"Könnten Sie die Liste prüfen und mir geben Bescheid?", t:"grammatik", l:"Könnten Sie die Liste prüfen und mir Bescheid geben?", w:"Nach „könnten“ steht der Infinitiv am Ende, auch im zweiten Teil."},
+  {s:"Habe ich richtig verstanden, dass ich soll die Tabelle bis Freitag erstellen?", t:"grammatik", l:"Habe ich richtig verstanden, dass ich die Tabelle bis Freitag erstellen soll?", w:"Nach „dass“ steht das konjugierte Verb am Ende."},
+  {s:"Kümmern Sie sich bitte um die Sache mit denen.", t:"auftrag", l:"Kümmern Sie sich bitte bis Donnerstag um die Reklamation der Firma Brandt.", w:"Grammatisch richtig, aber zwei Auftragskiller: „die Sache“ und „denen“. Außerdem fehlt die Frist."},
+  {s:"Gibt es dafür eine Vorlage?", t:"richtig", l:"Gibt es dafür eine Vorlage?", w:"Richtig. Diese Rückfrage spart oft die meiste Zeit."},
+  {s:"Hat das Priorität, oder kann warten das bis morgen?", t:"grammatik", l:"Hat das Priorität, oder kann das bis morgen warten?", w:"Nach „oder“ (ADUSO) normale Satzstellung: Verb auf Position 2, „warten“ am Ende."}
+];
+var fwPos = 0, fwAntworten = {};
+var NAMEN = {grammatik:"Grammatikfehler", auftrag:"Auftrag unklar", richtig:"Richtig"};
+function fwZeige(){
+  var it = FW[fwPos];
+  $("fw-zaehler").textContent = (fwPos+1) + " / " + FW.length;
+  $("fw-satz").textContent = "„" + it.s + "“";
+  var gewaehlt = fwAntworten[fwPos];
+  document.querySelectorAll("#fw-wahl .knopf").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.wahl === gewaehlt ? "true" : "false"); });
+  var ant = $("fw-antwort");
+  if (!gewaehlt){ ant.hidden = true; }
+  else {
+    var ok = gewaehlt === it.t;
+    ant.hidden = false;
+    ant.className = "fw-antwort " + (ok ? "richtig" : "falsch");
+    $("fw-urteil").textContent = ok ? "Genau." : "Nicht ganz – das ist: " + NAMEN[it.t] + ".";
+    $("fw-loesung").textContent = it.t === "richtig" ? "Der Satz bleibt so." : "„" + it.l + "“";
+    $("fw-warum").textContent = it.w;
+  }
+  var n = 0, r = 0; Object.keys(fwAntworten).forEach(function(k){ n++; if (fwAntworten[k] === FW[k].t) r++; });
+  $("fw-punkte").textContent = n ? r + " von " + n + " richtig eingeordnet" : "";
+  $("fw-zurueck").disabled = fwPos === 0;
+  $("fw-weiter").textContent = fwPos === FW.length-1 ? "Von vorn" : "Weiter →";
+}
+document.querySelectorAll("#fw-wahl .knopf").forEach(function(b){
+  b.addEventListener("click", function(){ fwAntworten[fwPos] = b.dataset.wahl; fwZeige(); });
+});
+$("fw-weiter").addEventListener("click", function(){
+  if (fwPos < FW.length-1) fwPos++; else { fwPos = 0; fwAntworten = {}; }
+  fwZeige();
+});
+$("fw-zurueck").addEventListener("click", function(){ if (fwPos > 0){ fwPos--; fwZeige(); } });
+
+/* ---------- Reiter und Anker ---------- */
+var BLAETTER = ["auftraege","luecke","fehler"];
+function zeigeBlatt(name){
+  BLAETTER.forEach(function(b){
+    $("blatt-" + b).hidden = b !== name;
+    $("r-" + b).setAttribute("aria-selected", b === name ? "true" : "false");
+  });
+}
+document.querySelectorAll("nav.reiter button").forEach(function(b){
+  b.addEventListener("click", function(){
+    zeigeBlatt(b.dataset.blatt);
+    try{ history.replaceState(null,"","#" + b.dataset.blatt); }catch(e){}
+  });
+});
+
+function route(){
+  var h = (location.hash || "").replace("#","");
+  var m = /^karte-(\d)([abc])$/.exec(h);
+  if (m && zeigeEinzel(m[1], m[2])){
+    $("uebersicht").hidden = true; $("einzel").hidden = false;
+    window.scrollTo(0,0);
+    return;
+  }
+  $("uebersicht").hidden = false; $("einzel").hidden = true;
+  zeigeBlatt(BLAETTER.indexOf(h) !== -1 ? h : "auftraege");
+}
+window.addEventListener("hashchange", route);
+
+baueAuftraege(); baueFaelle(); fwZeige(); route();
+})();
+</script>
+
+</body>
+</html>
