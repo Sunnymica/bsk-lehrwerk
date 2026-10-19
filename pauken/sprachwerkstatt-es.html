@@ -5,7 +5,7 @@
 <nav class="tabs" id="tabs" aria-label="Übungsserien"></nav><section class="card"><div class="head"><div class="label" id="count"></div><div class="clock" id="clock" aria-live="polite"></div></div><h2 id="heading"></h2><p id="explain" class="info"></p><p class="label" id="instruction"></p><div class="task" id="task"></div><div id="answer" class="answer" hidden aria-live="polite"><strong id="solution"></strong><div class="note" id="note"></div></div><div class="controls"><button id="prev">← Zurück</button><button id="show" class="main">Lösung zeigen</button><button id="next">Weiter →</button></div><p class="small muted">Leertaste: Lösung zeigen · Pfeiltasten: weiter / zurück (außer auf Bedienelementen)</p></section><div class="card"><label for="timer">Denkzeit pro Aufgabe: </label><select id="timer"><option value="0">ohne Zeitdruck</option><option value="15">15 Sekunden</option><option value="20">20 Sekunden</option><option value="30">30 Sekunden</option></select><p class="muted small">Tipp für Teams: Erst sprechen alle gleichzeitig oder in Paaren. Dann ein bis zwei Lösungen gemeinsam besprechen.</p></div></main>
 <script>
 const sets=[
-{title:"1 · Pronomen",intro:"Das normale es ersetzt ein sächliches Nomen. Es bezeichnet dieselbe Sache.",task:"Ergänzen Sie und sprechen Sie den ganzen Satz.",items:[
+{title:"1 · Pronomen",intro:"Das normale Pronomen „es“ ersetzt ein sächliches Nomen. Es bezeichnet dieselbe Sache.",task:"Ergänzen Sie und sprechen Sie den ganzen Satz.",items:[
 ["Das Paket für Pawel ist angekommen. ___ liegt im Lager.","Es liegt im Lager.","Das Paket → es."],
 ["Nora hat das Formular ausgefüllt. Jetzt schickt sie ___ ab.","Jetzt schickt sie es ab.","Akkusativ: das Formular → es."],
 ["Das Angebot ist teuer. ___ gilt bis Freitag.","Es gilt bis Freitag.","Das Angebot → es."],
@@ -15,7 +15,7 @@ const sets=[
 ["Die Dokumente fehlen. ___ liegen noch im Büro.","Sie liegen noch im Büro.","Plural: sie."],
 ["Wo ist das Protokoll? – Frau Haddad hat ___ gestern verschickt.","Frau Haddad hat es gestern verschickt.","Das Protokoll → es."]
 ]},
-{title:"2 · Wetter",intro:"Einige Wettersätze brauchen es. In anderen Sätzen ist ein anderes Wort das Subjekt.",task:"Bilden Sie einen ganzen Satz.",items:[
+{title:"2 · Wetter",intro:"Einige Wettersätze brauchen „es“. In anderen Sätzen ist ein anderes Wort das Subjekt.",task:"Bilden Sie einen ganzen Satz.",items:[
 ["heute / regnen","Heute regnet es.","Das es bleibt, auch wenn heute vorn steht."],
 ["gestern / schneien (Perfekt)","Gestern hat es geschneit.","Es hat geschneit."],
 ["heute / die Sonne / scheinen","Heute scheint die Sonne.","Die Sonne ist Subjekt. Kein es."],
@@ -25,28 +25,28 @@ const sets=[
 ["am Morgen / bewölkt / sein (Präteritum)","Am Morgen war es bewölkt.","Wetterzustand: es war bewölkt."],
 ["morgen / die Sonne / scheinen","Morgen scheint die Sonne.","Nicht: Morgen scheint es die Sonne."]
 ]},
-{title:"3 · Es gibt oder da ist?",intro:"Es gibt meldet: Etwas existiert oder ist neu. Der andere weiß noch nichts davon. Meist mit ein, eine, kein. Danach steht der Akkusativ, und das Verb bleibt immer gibt. Da ist / da sind zeigt auf etwas, das man sieht oder das schon bekannt ist. Meist mit der, die, das. Danach steht der Nominativ, und das Verb richtet sich nach dem Nomen: da ist, da sind.",task:"Bilden Sie einen ganzen Satz oder entscheiden Sie.",items:[
-["im Büro / ein Drucker (es gibt)","Im Büro gibt es einen Drucker.","Es gibt + Akkusativ: einen Drucker."],
-["heute / drei Besprechungen (es gibt)","Heute gibt es drei Besprechungen.","Auch mit Plural bleibt es bei gibt."],
-["Herr Müller weiß noch nichts. Sie haben eine Neuigkeit für ihn: eine neue Lieferung.","Es gibt eine neue Lieferung, Herr Müller.","Neuigkeit, Herr Müller kennt sie noch nicht: es gibt + eine (Akkusativ)."],
+{title:"3 · Es gibt oder da ist?",intro:"Mit „es gibt“ sagen wir: Etwas ist vorhanden oder kommt vor. Danach steht der Akkusativ. Oft steht dabei „ein“, „eine“ oder „kein“. Das Verb heißt auch bei mehreren Dingen „gibt“. Mit „da ist“ / „da sind“ zeigen wir eher auf etwas Konkretes oder Bekanntes. Hier steht das Nomen im Nominativ, und das Verb richtet sich danach: „ist“ oder „sind“. Achtung Satzbau: „Es gibt einen Drucker.“ → „Im Büro gibt es einen Drucker.“",task:"Bilden Sie einen ganzen Satz oder entscheiden Sie.",items:[
+["im Büro / ein Drucker (es gibt)","Im Büro gibt es einen Drucker.","„es gibt“ + Akkusativ: einen Drucker."],
+["heute / drei Besprechungen (es gibt)","Heute gibt es drei Besprechungen.","Auch im Plural bleibt das Verb in „es gibt“ bei „gibt“."],
+["Herr Müller weiß noch nichts. Sie haben eine Neuigkeit für ihn: eine neue Lieferung.","Es gibt eine neue Lieferung, Herr Müller.","Neuigkeit, Herr Müller kennt sie noch nicht: „es gibt“ + „eine“ (Akkusativ)."],
 ["Herr Müller wartet auf die Lieferung. Sie stehen mit ihm im Lager und zeigen darauf.","Da ist die neue Lieferung, Herr Müller.","Bekannt und sichtbar: da ist + die (Nominativ)."],
-["Herr Müller hat die Lieferung bestellt. Sie sagen: Es gibt die bestellte Lieferung. Wie sagen Sie es besser?","Die bestellte Lieferung ist da, Herr Müller. / Da ist die bestellte Lieferung.","Die Lieferung ist schon bekannt – deshalb nicht es gibt. Ist da heißt hier: ist angekommen."],
+["Herr Müller hat die Lieferung bestellt. Sie sagen: Es gibt die bestellte Lieferung. Wie sagen Sie es besser?","Die bestellte Lieferung ist da, Herr Müller. / Da ist die bestellte Lieferung.","Die Lieferung ist schon bekannt – deshalb hier nicht „es gibt“. Ist da heißt hier: ist angekommen."],
 ["in der Abteilung / kein freier Arbeitsplatz (es gibt)","In der Abteilung gibt es keinen freien Arbeitsplatz.","Akkusativ maskulin: keinen."],
-["hier / zwei freie Plätze (mit sein)","Hier sind zwei freie Plätze.","Mit sein sind die Plätze das Subjekt: Das Verb steht im Plural. Mit es gibt: Hier gibt es zwei freie Plätze."],
-["___ ein Problem mit der Rechnung. (es gibt)","Es gibt ein Problem mit der Rechnung.","Neue Information: ein Problem ist vorhanden. Im Gespräch hört man auch: Da ist ein Problem. Im Büro klingt es gibt neutraler."],
+["hier / zwei freie Plätze (mit sein)","Hier sind zwei freie Plätze.","Mit sein sind die Plätze das Subjekt: Das Verb steht im Plural. Mit „es gibt“: „Hier gibt es zwei freie Plätze.“"],
+["___ ein Problem mit der Rechnung. (es gibt)","Es gibt ein Problem mit der Rechnung.","Neue Information: ein Problem ist vorhanden. Im Gespräch hört man auch: Da ist ein Problem. Im Büro klingt „es gibt“ neutraler."],
 ["___ sind 12 Grad. (Temperatur)","Es sind 12 Grad.","Temperaturangabe – nicht: Es gibt 12 Grad."]
 ]},
-{title:"4 · Platzhalter",intro:"Manchmal besetzt es nur den ersten Platz im Satz. Wenn etwas anderes vorn steht, fällt dieses es weg. Auch im Nebensatz gibt es keinen ersten Platz – auch dort fällt es weg.",task:"Formen Sie um oder korrigieren Sie.",items:[
+{title:"4 · Platzhalter",intro:"Manchmal besetzt „es“ nur den ersten Platz im Satz. Wenn etwas anderes vorn steht, fällt dieses „es“ weg. Auch im Nebensatz gibt es keinen ersten Platz – auch dort fällt es weg.",task:"Formen Sie um oder korrigieren Sie.",items:[
 ["Es wartet ein Kunde vor der Tür. Beginnen Sie mit: Vor der Tür …","Vor der Tür wartet ein Kunde.","Das Platzhalter-es fällt weg."],
 ["Es liegen drei Ordner auf Noras Tisch. Beginnen Sie mit: Auf Noras Tisch …","Auf Noras Tisch liegen drei Ordner.","Das Verb richtet sich nach drei Ordner: liegen."],
 ["Es kommt morgen eine Lieferung. Beginnen Sie mit: Morgen …","Morgen kommt eine Lieferung.","Kein es mehr nötig."],
 ["Heute steht es ein Lkw vor dem Lager. Korrigieren Sie.","Heute steht ein Lkw vor dem Lager.","Das zusätzliche es ist falsch."],
 ["Es wartet ein Kunde. Beginnen Sie mit: Jonas sagt, dass …","Jonas sagt, dass ein Kunde wartet.","Im Nebensatz gibt es keinen ersten Platz. Das Platzhalter-es fällt weg, das Verb steht am Ende."],
 ["Es regnet heute. Beginnen Sie mit: Heute …","Heute regnet es.","Anders als das Platzhalter-es bleibt das Wetter-es."],
-["Es gibt hier einen Fehler. Beginnen Sie mit: Hier …","Hier gibt es einen Fehler.","Auch das es in es gibt bleibt."],
+["Es gibt hier einen Fehler. Beginnen Sie mit: Hier …","Hier gibt es einen Fehler.","Auch das „es“ in „es gibt“ bleibt."],
 ["Es telefoniert jemand im Nebenraum. Beginnen Sie mit: Im Nebenraum …","Im Nebenraum telefoniert jemand.","Das einleitende es fällt weg."]
 ]},
-{title:"5 · Ankündigungswort",intro:"Fachwort: Korrelat. Einfacher sagen wir Ankündigungswort: es kündigt einen dass-Satz oder eine Infinitivgruppe an, die hinten folgt. Steht der dass-Satz selbst vorn, gibt es nichts mehr anzukündigen: Dann steht kein es.",task:"Ergänzen, umformen oder korrigieren Sie.",items:[
+{title:"5 · Ankündigungswort",intro:"Fachwort: Korrelat. Einfacher sagen wir Ankündigungswort: „es“ kündigt einen „dass“-Satz oder eine Infinitivgruppe an, die hinten folgt. Steht der „dass“-Satz selbst vorn, gibt es nichts mehr anzukündigen: Dann steht kein „es“.",task:"Ergänzen, umformen oder korrigieren Sie.",items:[
 ["___ ist wichtig, dass alle pünktlich kommen.","Es ist wichtig, dass alle pünktlich kommen.","Es kündigt den dass-Satz an."],
 ["Es ist wichtig, dass alle pünktlich kommen. Beginnen Sie mit: Dass …","Dass alle pünktlich kommen, ist wichtig.","Der dass-Satz steht vorn – kein es. Nicht: Dass alle pünktlich kommen, ist es wichtig."],
 ["___ freut mich, dass Sie Zeit haben.","Es freut mich, dass Sie Zeit haben.","Es kündigt an, was mich freut."],
@@ -56,17 +56,17 @@ const sets=[
 ["Ich finde es wichtig, dass wir uns abstimmen. Was kündigt es an?","Den dass-Satz: dass wir uns abstimmen.","Hier steht das Ankündigungswort nicht vorn, sondern hinter dem Verb."],
 ["Es ärgert Pawel, dass der Termin ausfällt. Beginnen Sie mit: Dass …","Dass der Termin ausfällt, ärgert Pawel.","Gleicher Inhalt, andere Reihenfolge: Der dass-Satz steht vorn, das es fällt weg."]
 ]},
-{title:"6 · Bleibt es?",intro:"Jetzt entscheiden Sie selbst: Muss es bleiben? Kann es weg? Oder gehört hier gar kein es hin?",task:"Korrigieren Sie oder entscheiden Sie.",items:[
+{title:"6 · Bleibt es?",intro:"Jetzt entscheiden Sie selbst: Muss „es“ bleiben? Kann „es“ weg? Oder gehört hier gar kein „es“ hin?",task:"Korrigieren Sie oder entscheiden Sie.",items:[
 ["Morgen es schneit. Korrigieren Sie.","Morgen schneit es.","Das Verb steht auf Position 2. Das Wetter-es bleibt – aber hinter dem Verb."],
 ["Morgen es kommt Frau Melnyk. Korrigieren Sie.","Morgen kommt Frau Melnyk.","Frau Melnyk ist das Subjekt. Ein es hat hier keine Aufgabe – weder vor noch hinter dem Verb."],
-["Hier es gibt einen Kopierer. Korrigieren Sie.","Hier gibt es einen Kopierer.","Verb auf Position 2. Das es von es gibt bleibt und steht direkt hinter dem Verb."],
+["Hier es gibt einen Kopierer. Korrigieren Sie.","Hier gibt es einen Kopierer.","Verb auf Position 2. Das „es“ von „es gibt“ bleibt und steht direkt hinter dem Verb."],
 ["Es scheint die Sonne. Ist der Satz möglich?","Ja. Neutraler: Die Sonne scheint.","Es hält hier nur die erste Position frei. Das klingt eher erzählend."],
 ["Heute scheint es die Sonne. Korrigieren Sie.","Heute scheint die Sonne.","Heute steht vorn – das Platzhalter-es fällt weg."],
 ["Im Lager sind ___ neue Regale. Ergänzen oder weglassen?","Im Lager sind neue Regale.","Kein es: Die Regale sind das Subjekt."],
 ["Pawel sagt, dass heute regnet. Fehlt etwas?","Pawel sagt, dass es heute regnet.","Das Wetter-es bleibt auch im Nebensatz – anders als das Platzhalter-es."],
 ["Es ist schön, dass Sie mitkommen. Beginnen Sie mit: Dass …","Dass Sie mitkommen, ist schön.","Der dass-Satz steht vorn – das Ankündigungswort fällt weg."]
 ]},
-{title:"7 · Es auf Position 1?",intro:"Als Subjekt kann es vorn stehen: Es liegt im Lager. Als Akkusativobjekt ist es unbetont – und ein unbetontes es kann nicht auf Position 1 stehen. Dann gibt es zwei Lösungen: es hinter das Verb stellen oder vorn das betonte das verwenden.",task:"Korrigieren Sie oder entscheiden Sie.",items:[
+{title:"7 · Es auf Position 1?",intro:"Als Subjekt kann „es“ vorn stehen: „Es liegt im Lager.“ Als Akkusativobjekt ist „es“ unbetont – und ein unbetontes „es“ kann nicht auf Position 1 stehen. Dann gibt es zwei Lösungen: „es“ hinter das Verb stellen oder vorn das betonte „das“ verwenden.",task:"Korrigieren Sie oder entscheiden Sie.",items:[
 ["Das Protokoll? Es habe ich gestern gelesen. Korrigieren Sie.","Ich habe es gestern gelesen. / Das habe ich gestern gelesen.","Akkusativ-es steht nicht auf Position 1. Hinter das Verb damit – oder vorn das betonte das."],
 ["Das Paket? Es ist schon im Lager. Richtig oder falsch?","Richtig.","Hier ist es Subjekt. Das darf vorn stehen."],
 ["Das Formular? Es hat Nora schon unterschrieben. Korrigieren Sie.","Nora hat es schon unterschrieben. / Das hat Nora schon unterschrieben.","Es ist hier Akkusativobjekt – also nicht auf Position 1."],
@@ -76,7 +76,7 @@ const sets=[
 ["Das Problem? Wir kennen ___ schon. (unbetont)","Wir kennen es schon.","Unbetont: es steht hinter dem Verb."],
 ["Das Dokument? Gestern hat Nora ___ mir geschickt.","Gestern hat Nora es mir geschickt.","Zwei Pronomen: Akkusativ vor Dativ – es mir."]
 ]},
-{title:"8 · Feste Wendungen",intro:"Diese Ausdrücke merken wir uns zunächst als ganze Bausteine. In festen Wendungen bleibt es auch dann, wenn etwas anderes vorn steht.",task:"Ergänzen Sie und sprechen Sie den ganzen Satz.",items:[
+{title:"8 · Feste Wendungen",intro:"Diese Ausdrücke merken wir uns zunächst als ganze Bausteine. In festen Wendungen bleibt „es“ auch dann, wenn etwas anderes vorn steht.",task:"Ergänzen Sie und sprechen Sie den ganzen Satz.",items:[
 ["Worum geht ___ in der Besprechung?","Worum geht es in der Besprechung?","Es geht um + Akkusativ. Das es steht hinter dem Verb."],
 ["___ kommt darauf an, wann die Ware ankommt.","Es kommt darauf an, wann die Ware ankommt.","Feste Wendung: es kommt darauf an."],
 ["___ lohnt sich, die Preise zu vergleichen.","Es lohnt sich, die Preise zu vergleichen.","Feste Wendung: es lohnt sich."],
