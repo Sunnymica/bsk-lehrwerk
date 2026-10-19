@@ -5,7 +5,7 @@
     "umfang_ue": 150,
     "ue_pro_abend": 4,
     "beginn": "2026-08-25T17:30:00",
-    "ende": null,
+    "ende": "2027-01-12T20:45:00",
     "tage": [
       1,
       2
@@ -15,7 +15,12 @@
     "format": "Online über Microsoft Teams",
     "pause_minuten": 15
   },
-  "freie_tage": [],
+  "freie_tage": [
+    {
+      "datum": "2026-09-15",
+      "anlass": "Unterricht ausgefallen (Abwesenheit der Kursleitung); Nachholtermin 12. Januar 2027"
+    }
+  ],
   "krankmeldung": {
     "weg": "BITTE_PRUEFEN – Wie melden sich Teilnehmende krank? E-Mail, Telefon, Teams oder Sekretariat?",
     "kontakt": "BITTE_PRUEFEN – Name, E-Mail-Adresse und Telefonnummer der zuständigen Stelle",
