@@ -11,6 +11,18 @@
 <link rel="stylesheet" href="assets/aufgaben.css">
 <script src="data/homework.js" defer></script>
 <script src="assets/platform.js"></script>
+<style>
+.sprachwerkstatt-rahmen{padding:clamp(1.25rem,3vw,2.2rem);margin:1rem 0 2rem}
+.sprachwerkstatt-einleitung{max-width:65ch;margin:0.4rem 0 1.6rem}
+.sprachwerkstatt-karten{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16.5rem),1fr));gap:1rem}
+.sprachwerkstatt-karte{display:flex;flex-direction:column;gap:.65rem;padding:1.4rem;background:#fff;border:1px solid #dce3e9;border-radius:16px;min-height:220px}
+.sprachwerkstatt-karte h3{font-size:1.25rem;line-height:1.25;margin:0;color:#203143}
+.sprachwerkstatt-karte p{margin:0;line-height:1.45;color:#516273;flex:1}
+.sprachwerkstatt-meta{font-size:.78rem;letter-spacing:.05em;font-weight:700;color:#245d76;text-transform:uppercase}
+.sprachwerkstatt-karte a{align-self:flex-start;display:inline-flex;gap:.65rem;align-items:center;font-weight:700;text-decoration:none;color:#205b74;border-bottom:2px solid #9ab5c2;padding-bottom:.22rem}
+.sprachwerkstatt-karte a:hover,.sprachwerkstatt-karte a:focus-visible{color:#9b3257;border-bottom-color:#9b3257}
+@media(max-width:620px){.sprachwerkstatt-karte{min-height:0}}
+</style>
 </head>
 <body data-page="area" data-bereich="pauken" data-root="">
 
@@ -23,7 +35,44 @@
   </div>
 </header>
 
-<section class="innen" aria-labelledby="sprachwerkstatt-titel"><div class="surface" style="padding:1.5rem;margin:1rem 0 2rem"><h2 id="sprachwerkstatt-titel">Unsere Sprachwerkstatt</h2><p>Fünf Übungsseiten zum gemeinsamen oder individuellen Wiederholen: <strong>Grundlagen</strong> mit Wetter, Vergleichen und Zahlen (56 Aufgaben), <strong>das kleine Wort „es“</strong> in zwei Stufen (90 Aufgaben), der <strong>Satzbau-Automat</strong> (80 Aufgaben), die <strong>Wortschatzwerkstatt</strong> (60 Aufgaben) und <strong>Wer ist wofür zuständig?</strong> zur Nominalisierung (33 Aufgaben).</p><p><a class="knopf" href="pauken/sprachwerkstatt-grundlagen.html">Grundlagen →</a> <a class="knopf" href="pauken/sprachwerkstatt-es.html">Das kleine Wort „es“ →</a> <a class="knopf" href="pauken/satzbau-automat.html">Satzbau-Automat →</a> <a class="knopf" href="pauken/wortschatzwerkstatt.html">Wortschatzwerkstatt →</a> <a class="knopf" href="pauken/nominalisierung.html">Neu: Wer ist wofür zuständig? →</a></p></div></section>
+<section class="innen sprachwerkstatt-bereich" aria-labelledby="sprachwerkstatt-titel">
+  <div class="surface sprachwerkstatt-rahmen">
+    <h2 id="sprachwerkstatt-titel">Unsere Sprachwerkstatt</h2>
+    <p class="sprachwerkstatt-einleitung">Fünf Themen zum Wiederholen und Festigen – gemeinsam im Kurs oder allein zu Hause.</p>
+    <div class="sprachwerkstatt-karten">
+      <article class="sprachwerkstatt-karte">
+        <span class="sprachwerkstatt-meta">56 Aufgaben</span>
+        <h3>Grundlagen</h3>
+        <p>Wetter, Vergleiche und Zahlen sicher ausdrücken.</p>
+        <a href="pauken/sprachwerkstatt-grundlagen.html" aria-label="Grundlagen üben: Grundlagen">Grundlagen üben <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="sprachwerkstatt-karte">
+        <span class="sprachwerkstatt-meta">90 Aufgaben</span>
+        <h3>Das kleine Wort „es“</h3>
+        <p>Vom normalen Pronomen bis zu festen Wendungen und Satzstellung.</p>
+        <a href="pauken/sprachwerkstatt-es.html" aria-label="„es“ üben: Das kleine Wort „es“">„es“ üben <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="sprachwerkstatt-karte">
+        <span class="sprachwerkstatt-meta">80 Aufgaben</span>
+        <h3>Satzbau-Automat</h3>
+        <p>Verbposition, Modalverben, Perfekt, Nebensätze und Infinitiv mit „zu“.</p>
+        <a href="pauken/satzbau-automat.html" aria-label="Sätze trainieren: Satzbau-Automat">Sätze trainieren <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="sprachwerkstatt-karte">
+        <span class="sprachwerkstatt-meta">60 Aufgaben</span>
+        <h3>Wortschatzwerkstatt</h3>
+        <p>Berufswörter unterscheiden, Bedeutungen klären und falsche Freunde erkennen.</p>
+        <a href="pauken/wortschatzwerkstatt.html" aria-label="Wortschatz üben: Wortschatzwerkstatt">Wortschatz üben <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="sprachwerkstatt-karte">
+        <span class="sprachwerkstatt-meta">33 Aufgaben</span>
+        <h3>Wer ist wofür zuständig?</h3>
+        <p>Tätigkeiten und Zuständigkeiten mit Nomen ausdrücken.</p>
+        <a href="pauken/nominalisierung.html" aria-label="Nominalisierung üben: Wer ist wofür zuständig?">Nominalisierung üben <span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </div>
+</section>
 <main class="innen gruppen" id="gruppen"></main>
 <div class="innen meldung" id="meldung" hidden></div>
 
