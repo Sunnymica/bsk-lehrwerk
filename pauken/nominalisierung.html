@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sprachwerkstatt · Nominalisierung</title>
+<style>:root{font-family:system-ui,Arial,sans-serif;color:#233044;background:#f5f7fa}*{box-sizing:border-box}body{margin:0}.wrap{max-width:900px;margin:auto;padding:24px}h1{margin:.2em 0}p{line-height:1.55}.muted{color:#536273}
+.levels{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 4px}.levels button{font:inherit;font-weight:700;padding:12px 20px;border:2px solid #245b73;border-radius:12px;background:white;color:#245b73;cursor:pointer}.levels button[aria-pressed=true]{background:#245b73;color:white}.levels small{display:block;font-weight:400;font-size:.85rem}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 22px}.tabs button,.controls button,select{font:inherit;padding:11px 15px;border:1px solid #cbd5df;border-radius:10px;background:white;cursor:pointer}.tabs button[aria-pressed=true],.controls .main{background:#245b73;color:white;border-color:#245b73}
+.card{background:white;border:1px solid #dde4eb;border-radius:18px;padding:25px;margin-bottom:18px}.label{font-size:.85rem;font-weight:700;color:#49667a}.head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.clock{font-weight:700;font-size:1.1rem;color:#49667a;min-height:1.6em}.clock.zeit{background:#ba5270;color:white;padding:4px 16px;border-radius:999px;font-size:1.35rem}
+.bsp{display:inline-block;background:#e6f0f5;color:#245b73;font-weight:700;padding:5px 12px;border-radius:999px;font-size:.95rem;margin-top:14px}
+.vorlage{font-size:1.15rem;color:#536273;margin:18px 0 0}.task{font-size:clamp(1.35rem,3vw,2rem);font-weight:700;margin:14px 0 22px;line-height:1.45}
+.tipp{background:#fff8e6;border-left:4px solid #d39b22;padding:10px 16px;border-radius:8px;margin:0 0 18px;font-size:1.05rem}
+.controls{display:flex;gap:10px;flex-wrap:wrap}.answer{background:#f0f5f9;border-left:4px solid #245b73;padding:18px;border-radius:8px;margin:20px 0}.answer strong{display:block;font-size:1.3rem}.note{font-size:.95rem;margin-top:8px}
+.info{white-space:pre-line;line-height:1.7;border-left:4px solid #ba5270;padding:10px 16px;background:#fff7fa;margin:18px 0;font-size:1.05rem}.small{font-size:.9rem}a{color:#245b73}
+button:focus-visible,select:focus-visible{outline:3px solid #c85478;outline-offset:2px}button:disabled{opacity:.45;cursor:default}[hidden]{display:none!important}
+@media(max-width:500px){.wrap{padding:12px}.card{padding:16px}}</style></head>
+<body><main class="wrap"><a href="../pauken.html">← Pauken</a><p class="label">DEUTSCH FÜRS BÜRO · SPRACHWERKSTATT</p><h1>Wer ist wofür zuständig?</h1><p class="muted">Vom Verb zum Nomen: Nominalisierung im Büro. Aufgabe vorlesen, Satz bilden, dann die Lösung aufdecken.</p>
+<div class="levels" id="levels" hidden><button type="button" data-l="0">Basis<small>Serien 1–4</small></button><button type="button" data-l="1">Vertiefung<small>Serien 5–9</small></button></div>
+<nav class="tabs" id="tabs" aria-label="Übungsserien"></nav>
+<section class="card"><div class="head"><div class="label" id="count"></div><div class="clock" id="clock" aria-live="polite"></div></div><h2 id="heading"></h2><p id="explain" class="info"></p><p class="label" id="instruction"></p><p class="vorlage" id="vorlage" hidden></p><div class="task" id="task"></div><p class="tipp" id="tipp" hidden></p><div id="answer" class="answer" hidden aria-live="polite"><strong id="solution"></strong><div class="note" id="note"></div></div><div class="controls"><button id="prev">← Zurück</button><button id="tippbtn" type="button">Tipp</button><button id="show" class="main">Lösung zeigen</button><button id="next">Weiter →</button></div><p class="small muted">Leertaste: Lösung zeigen · Pfeiltasten: weiter / zurück</p></section>
+<div class="card"><label for="timer">Denkzeit pro Aufgabe: </label><select id="timer"><option value="0">ohne Zeitdruck</option><option value="15">15 Sekunden</option><option value="20">20 Sekunden</option><option value="30">30 Sekunden</option></select><p class="muted small">Tipp für Teams: Erst sprechen alle gleichzeitig oder in Paaren. Dann ein bis zwei Lösungen gemeinsam besprechen.</p></div></main>
+<script>
+/* Item: q = Aufgabe, a = Lösung, n = Erklärung, v = Ausgangssatz (klein darüber), t = Tipp, b = Beispiel (Lösung sofort sichtbar) */
+const levels=[[
+{title:"1 · Verb → Nomen",intro:"Viele Verben bekommen -ung: planen → die Planung. Nomen mit -ung sind immer feminin: die.\nManche Nomen sind nur der Wortstamm: verkaufen → der Verkauf.\nVerben auf -ieren → oft -ion: produzieren → die Produktion.",task:"Sagen Sie das Nomen mit Artikel.",items:[
+{q:"planen",a:"die Planung",n:"-ung → die",t:"-ung"},
+{q:"bestellen",a:"die Bestellung",n:"-ung → die",t:"-ung"},
+{q:"liefern",a:"die Lieferung",n:"-ung → die",t:"-ung"},
+{q:"prüfen",a:"die Prüfung",n:"-ung → die",t:"-ung"},
+{q:"beraten",a:"die Beratung",n:"-ung → die",t:"-ung"},
+{q:"verkaufen",a:"der Verkauf",n:"Nur der Wortstamm: der Verkauf.",t:"Kein -ung! Nur der Wortstamm: der …"},
+{q:"einkaufen",a:"der Einkauf",n:"Nur der Wortstamm: der Einkauf.",t:"wie verkaufen → der Verkauf"},
+{q:"produzieren",a:"die Produktion",n:"-ieren → -ion: die Produktion",t:"-ieren → -ion"},
+{q:"organisieren",a:"die Organisation",n:"-ieren → -ation: die Organisation",t:"-ieren → -ation"},
+{q:"versenden",a:"der Versand",n:"Achtung: Der Wortstamm ändert sich: der Versand.",t:"Das Wort steht auf vielen Paketen: der Ver…"}
+]},
+{title:"2 · Wer ist wofür zuständig?",intro:"Verbalstil: Nora bestellt das Material.\nNominalstil: Nora ist für die Bestellung des Materials zuständig.\nNach dem Nomen folgt oft der Genitiv: das Material → des Materials · die Ware → der Ware · die Kunden → der Kunden",task:"Sagen Sie den Satz im Nominalstil.",items:[
+{v:"Nora bestellt das Material.",q:"Nora ist für … zuständig.",a:"Nora ist für die Bestellung des Materials zuständig.",n:"bestellen → die Bestellung · das Material → des Materials",t:"das Material → des Materials"},
+{v:"Pawel prüft die Lieferungen.",q:"Pawel ist für … zuständig.",a:"Pawel ist für die Prüfung der Lieferungen zuständig.",n:"prüfen → die Prüfung · die Lieferungen → der Lieferungen",t:"die Lieferungen → der Lieferungen"},
+{v:"Jonas berät die Kunden.",q:"Jonas ist für … zuständig.",a:"Jonas ist für die Beratung der Kunden zuständig.",n:"beraten → die Beratung · die Kunden → der Kunden",t:"beraten → die Beratung"},
+{v:"Frau Haddad plant die Schulungen.",q:"Frau Haddad ist für … zuständig.",a:"Frau Haddad ist für die Planung der Schulungen zuständig.",n:"planen → die Planung · die Schulungen → der Schulungen",t:"planen → die Planung"},
+{v:"Die Buchhaltung bezahlt die Rechnungen.",q:"Die Buchhaltung ist für … zuständig.",a:"Die Buchhaltung ist für die Bezahlung der Rechnungen zuständig.",n:"bezahlen → die Bezahlung",t:"bezahlen → die Bezahlung"},
+{v:"Das Lager verpackt die Waren.",q:"Das Lager ist für … zuständig.",a:"Das Lager ist für die Verpackung der Waren zuständig.",n:"verpacken → die Verpackung · die Waren → der Waren",t:"verpacken → die Verpackung"},
+{v:"Jonas verkauft die Produkte.",q:"Jonas ist für … zuständig.",a:"Jonas ist für den Verkauf der Produkte zuständig.",n:"für + Akkusativ: der Verkauf → für den Verkauf",t:"der Verkauf → für den …"},
+{v:"Frau Melnyk leitet die Firma.",q:"Frau Melnyk ist für … zuständig.",a:"Frau Melnyk ist für die Leitung der Firma zuständig.",n:"leiten → die Leitung · die Firma → der Firma",t:"leiten → die Leitung"},
+{v:"Nora kauft das Büromaterial ein.",q:"Nora ist für … zuständig.",a:"Nora ist für den Einkauf des Büromaterials zuständig.",n:"für den Einkauf · das Büromaterial → des Büromaterials",t:"der Einkauf → für den …"},
+{v:"Pawel organisiert den Versand.",q:"Pawel ist für … zuständig.",a:"Pawel ist für die Organisation des Versands zuständig.",n:"organisieren → die Organisation · der Versand → des Versands",t:"der Versand → des Versands"}
+]},
+{title:"3 · Und zurück",intro:"Im Gespräch klingt der Verbalstil oft natürlicher.\nNominalstil: Nora ist für die Bestellung der Ersatzteile zuständig.\nVerbalstil: Nora bestellt die Ersatzteile.",task:"Sagen Sie es einfacher, mit Verb.",items:[
+{v:"Nora ist für die Bestellung der Ersatzteile zuständig.",q:"Nora …",a:"Nora bestellt die Ersatzteile.",n:"die Bestellung → bestellen"},
+{v:"Jonas ist für die Betreuung der Großkunden zuständig.",q:"Jonas …",a:"Jonas betreut die Großkunden.",n:"die Betreuung → betreuen",t:"die Betreuung → betreuen"},
+{v:"Die IT ist für die Wartung der Computer zuständig.",q:"Die IT …",a:"Die IT wartet die Computer.",n:"die Wartung → warten",t:"die Wartung → warten"},
+{v:"Frau Haddad ist für die Planung des Betriebsausflugs zuständig.",q:"Frau Haddad …",a:"Frau Haddad plant den Betriebsausflug.",n:"des Betriebsausflugs → den Betriebsausflug (Akkusativ)",t:"des Betriebsausflugs → den …"},
+{v:"Pawel ist für die Kontrolle der Lieferscheine zuständig.",q:"Pawel …",a:"Pawel kontrolliert die Lieferscheine.",n:"die Kontrolle → kontrollieren",t:"die Kontrolle → kontrollieren"},
+{v:"Das Team ist für die Vorbereitung der Messe zuständig.",q:"Das Team …",a:"Das Team bereitet die Messe vor.",n:"vorbereiten ist trennbar: bereitet … vor",t:"vorbereiten ist trennbar"},
+{v:"Frau Melnyk ist für die Unterschrift der Verträge zuständig.",q:"Frau Melnyk …",a:"Frau Melnyk unterschreibt die Verträge.",n:"die Unterschrift → unterschreiben",t:"die Unterschrift → unter…"},
+{v:"Der Vertrieb ist für die Beantwortung der Kundenanfragen zuständig.",q:"Der Vertrieb …",a:"Der Vertrieb beantwortet die Kundenanfragen.",n:"die Beantwortung → beantworten",t:"die Beantwortung → beantworten"}
+]},
+{title:"4 · Und Sie?",intro:"Jetzt sprechen Sie über Ihre eigene Arbeit.\nIch bin für die Planung der Termine zuständig.\nIch plane die Termine.",task:"Sagen Sie zwei Sätze: einmal mit zuständig, einmal mit Verb.",items:[
+{q:"Wofür sind Sie bei der Arbeit zuständig?",a:"Zum Beispiel: Ich bin für die Kontrolle der Rechnungen zuständig. Ich kontrolliere die Rechnungen.",n:"Ich bin für + Akkusativ + zuständig."},
+{q:"Wofür ist eine Kollegin oder ein Kollege zuständig?",a:"Zum Beispiel: Meine Kollegin ist für die Betreuung der Kunden zuständig. Sie betreut die Kunden.",n:"Sie ist für … zuständig. Er ist für … zuständig."},
+{q:"Wofür möchten Sie in Ihrem nächsten Job zuständig sein?",a:"Zum Beispiel: Ich möchte für die Organisation des Versands zuständig sein. Ich möchte den Versand organisieren.",n:"Mit möchte: Das Verb sein oder organisieren steht am Ende."},
+{q:"Wer ist in Ihrer Firma für den Einkauf zuständig?",a:"Zum Beispiel: Für den Einkauf ist Herr Weber zuständig.",n:"Auch möglich: Für den Einkauf ist … zuständig. Das Verb ist steht auf Platz 2."},
+{q:"Wer ist in Ihrer Firma für die Einstellung neuer Mitarbeiter zuständig?",a:"Zum Beispiel: Die Personalabteilung ist dafür zuständig.",n:"Kurz: dafür = für die Einstellung neuer Mitarbeiter."}
+]}]];
+let li=0,si=0,ii=0,shown=false,interval=null;const $=id=>document.getElementById(id);
+function sets(){return levels[li]}
+function buildTabs(){$("tabs").innerHTML="";sets().forEach((s,i)=>{let b=document.createElement("button");b.type="button";b.textContent=s.title;b.onclick=()=>{si=i;ii=0;draw()};$("tabs").append(b)});[...$("levels").children].forEach((b,i)=>b.setAttribute("aria-pressed",String(i===li)))}
+document.querySelectorAll("#levels button").forEach(b=>b.onclick=()=>{li=Number(b.dataset.l);si=0;ii=0;buildTabs();draw()});
+function setClock(t,zeit){$("clock").textContent=t;$("clock").classList.toggle("zeit",!!zeit)}
+function showAnswer(on){shown=on;$("answer").hidden=!on;$("show").textContent=on?"Lösung verbergen":"Lösung zeigen";if(on){clearInterval(interval);setClock("")}}
+function draw(){clearInterval(interval);let s=sets()[si],q=s.items[ii];$("count").textContent="Aufgabe "+(ii+1)+" von "+s.items.length;$("heading").textContent=s.title;$("explain").textContent=s.intro;$("instruction").textContent=s.task;
+$("vorlage").hidden=!q.v;$("vorlage").textContent=q.v||"";$("task").textContent=q.q;$("solution").textContent=q.a;$("note").textContent=q.n||"";
+$("tipp").hidden=true;$("tipp").textContent=q.t?"Tipp: "+q.t:"";$("tippbtn").hidden=!q.t;
+$("prev").disabled=ii===0&&si===0;[...$("tabs").children].forEach((b,i)=>b.setAttribute("aria-pressed",String(i===si)));setClock("");
+showAnswer(false);
+let seconds=Number($("timer").value);if(seconds){setClock(seconds+" s");interval=setInterval(()=>{seconds--;if(seconds<=0){clearInterval(interval);setClock("Zeit!",true)}else setClock(seconds+" s")},1000)}}
+$("show").onclick=()=>showAnswer(!shown);
+$("tippbtn").onclick=()=>{$("tipp").hidden=!$("tipp").hidden};
+$("prev").onclick=()=>{if(ii>0)ii--;else if(si>0){si--;ii=sets()[si].items.length-1}else return;draw()};
+$("next").onclick=()=>{ii++;if(ii>=sets()[si].items.length){si=(si+1)%sets().length;ii=0}draw()};
+$("timer").onchange=draw;
+document.addEventListener("keydown",e=>{if(["INPUT","SELECT","TEXTAREA"].includes(e.target.tagName))return;if(e.code==="Space"){e.preventDefault();$("show").click()}if(e.key==="ArrowRight")$("next").click();if(e.key==="ArrowLeft")$("prev").click()});
+buildTabs();draw();
+</script></body></html>
