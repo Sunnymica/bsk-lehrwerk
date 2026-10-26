@@ -25,8 +25,8 @@
   <button type="button" id="tab-uebergabe" role="tab" aria-selected="true" data-blatt="uebergabe">1 · Die Übergabe</button>
   <button type="button" id="tab-suchen" role="tab" aria-selected="false" data-blatt="suchen">2 · Nora sucht etwas</button>
   <button type="button" id="tab-besuch" role="tab" aria-selected="false" data-blatt="besuch">3 · Herr Sommer kommt</button>
-  <button type="button" role="tab" aria-selected="false" disabled>4 · Die Vertretung organisieren <span class="folgt">folgt</span></button>
-  <button type="button" role="tab" aria-selected="false" disabled>5 · Meine Übergabe <span class="folgt">folgt</span></button>
+  <button type="button" id="tab-organisieren" role="tab" aria-selected="false" data-blatt="organisieren">4 · Die Vertretung organisieren</button>
+  <button type="button" id="tab-meine" role="tab" aria-selected="false" data-blatt="meine">5 · Meine Übergabe</button>
 </div>
 
 <!-- ============ 1 · DIE ÜBERGABE ============ -->
@@ -255,7 +255,19 @@
     <p class="marke"><strong>Abwesend heute:</strong> Pawel Nowak, ganztägig beim Kunden. Ab Dienstag, 8 Uhr, wieder im Haus.</p>
   </div>
 
-  <div class="auftrag"><span class="auftrag-marke">Einzelarbeit · 5 Minuten</span><p>Lesen Sie noch einmal den Teil über Herrn Sommer in der E-Mail von Frau Lenz (Reiter 1). Was ist hier los? Und was macht Nora jetzt?</p></div>
+  <div class="auftrag"><span class="auftrag-marke">Einzelarbeit · 5 Minuten</span><p>Lesen Sie noch einmal den Teil über Herrn Sommer in der E-Mail von Frau Lenz (Reiter 1). Was weiß Nora sicher? Was kann sie nur vermuten? Sortieren Sie.</p></div>
+  <div id="gruppieren-wissen"></div>
+  <div class="knopfreihe"><button class="knopf" id="gruppieren-wissen-pruefen" type="button">Prüfen</button></div>
+  <p class="rueckmeldung" id="gruppieren-wissen-rueck" hidden></p>
+
+  <div class="merker">
+    <span class="marke-merker">Wissen oder vermuten?</span>
+    <p>Was Nora <strong>weiß</strong>, sagt sie direkt: In meiner Liste steht kein Termin.<br>
+    Was sie nur <strong>vermutet</strong>, sagt sie vorsichtig: <strong>Vielleicht</strong> … · <strong>Wahrscheinlich</strong> … · <strong>Ich vermute, dass</strong> … · <strong>Es kann sein, dass</strong> …<br>
+    Herrn Sommer gegenüber sagt sie am besten nur, was sie weiß.</p>
+  </div>
+
+  <h2>Und jetzt?</h2>
   <div id="quiz-sommer"></div>
 
   <div class="differenzierung differenzierung--start">
@@ -305,6 +317,134 @@
       <div class="knopfreihe"><button class="knopf" type="button" id="blitz-we-neu">Neue Lage</button></div>
     </div>
   </div>
+</section>
+
+<!-- ============ 4 · DIE VERTRETUNG ORGANISIEREN ============ -->
+<section class="blatt" id="blatt-organisieren" role="tabpanel" aria-labelledby="tab-organisieren" hidden>
+  <p class="stand-hinweis">etwa 40 Minuten · ordnen, entscheiden, nachfragen, planen</p>
+
+  <div class="kasten">
+    <p>Dienstag, 8:00 Uhr. Nora sitzt am Empfang. Aber ihre eigene Arbeit im Einkauf wartet auch. Auf ihrem Zettel steht:</p>
+  </div>
+
+  <div class="kasten">
+    <h3>Noras Liste für Dienstag</h3>
+    <p class="satz">1 · Post verteilen, bis 10 Uhr<br>
+    2 · Herr Sommer kommt um 9 Uhr zu Pawel. Weiß Pawel das?<br>
+    3 · Eilpaket nach Hamburg: Kurier bestellen, Abholung bis 11 Uhr<br>
+    4 · Einkauf: Angebot von Papierwerk Süd prüfen, Antwort bis 12 Uhr<br>
+    5 · 10:30 bis 11:30 Uhr: Lieferantengespräch im Raum 2.14. Und wer sitzt dann am Empfang?<br>
+    6 · Frau Melnyk: Raum 3.01 für Donnerstag, 14 Uhr, reservieren<br>
+    7 · Jonas: „Kannst du bis Freitag 500 Prospekte für die Messe bestellen?“ Ist das Einkauf?<br>
+    8 · Büromaterial nachbestellen, wie jeden Donnerstag</p>
+  </div>
+
+  <div class="auftrag"><span class="auftrag-marke">Einzelarbeit · 5 Minuten</span><p>Bis wann muss Nora was erledigen? Sortieren Sie. Und was kann Nora gar nicht allein entscheiden?</p></div>
+  <div id="gruppieren-prioritaet"></div>
+  <div class="knopfreihe"><button class="knopf" id="gruppieren-prioritaet-pruefen" type="button">Prüfen</button></div>
+  <p class="rueckmeldung" id="gruppieren-prioritaet-rueck" hidden></p>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Zu zweit</strong>
+    <h2>Was macht Nora zuerst?</h2>
+    <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 8 Minuten</span><p>Einigen Sie sich auf eine Reihenfolge für die Punkte bis 12 Uhr. Begründen Sie jeden Schritt mit <strong>weil</strong> oder <strong>denn</strong>. Ihre Partnerin oder Ihr Partner hört genau hin: Steht das Verb richtig?</p></div>
+  </div>
+  <div class="redemittel-box">
+    <h2>So begründen Sie</h2>
+    <p class="satz">Zuerst rufe ich Pawel an, <strong>weil</strong> Herr Sommer schon um 9 Uhr <strong>kommt</strong>.</p>
+    <p class="satz">Das Angebot ist dringend, <strong>denn</strong> die Antwort <strong>muss</strong> bis 12 Uhr raus.</p>
+    <p class="satz">Das hat Zeit bis Donnerstag. · Das kann ich nicht allein entscheiden. · Dafür bin ich nicht zuständig.</p>
+  </div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">Entdecken</strong>
+    <h2>Wer sitzt um 10:30 Uhr am Empfang?</h2>
+    <p>Das muss Nora mit Samira Haddad klären. Sie leitet Personal und Verwaltung. Nora schreibt ihr eine kurze Nachricht in Teams. Welche Nachricht ist am besten?</p>
+  </div>
+  <div id="quiz-rueckfrage"></div>
+
+  <div class="merker">
+    <span class="marke-merker">Was macht die gute Rückfrage gut?</span>
+    <p>Sie nennt das <strong>Problem</strong> mit Uhrzeit, stellt eine <strong>klare Frage</strong> und macht einen <strong>Vorschlag</strong>. So kann Frau Haddad in einer Minute antworten.</p>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Schreiben</strong>
+    <h2>Und die Prospekte für Jonas?</h2>
+    <div class="auftrag"><span class="auftrag-marke">Einzelarbeit · 6 Minuten</span><p>Nora weiß nicht: Ist der Einkauf für die Messe-Prospekte zuständig oder das Marketing? Schreiben Sie eine kurze Rückfrage an Jonas. Problem, Frage, Vorschlag.</p></div>
+    <textarea class="feld" id="rueckfrage-jonas" rows="5" data-ergebnis-label="Rückfrage an Jonas"></textarea>
+  </div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">Planen</strong>
+    <h2>Noras Vormittag</h2>
+    <p>Nora erklärt Frau Haddad kurz ihren Plan. Bauen Sie die Sätze. Achtung: Was vorn steht, kann wechseln. Das Verb bleibt auf Platz 2.</p>
+  </div>
+  <div id="satzfolge-plan"></div>
+
+  <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 8 Minuten</span><p>Erzählen Sie Ihrer Partnerin oder Ihrem Partner Noras ganzen Vormittag von 8 bis 12 Uhr. Benutzen Sie: <strong>zuerst · dann · danach · um … Uhr · von … bis … · anschließend</strong>. Dann tauschen Sie.</p></div>
+</section>
+
+<!-- ============ 5 · MEINE ÜBERGABE ============ -->
+<section class="blatt" id="blatt-meine" role="tabpanel" aria-labelledby="tab-meine" hidden>
+  <p class="stand-hinweis">etwa 40 Minuten · prüfen, verbessern, selbst schreiben</p>
+
+  <div class="kasten">
+    <p>Zwei Wochen später. Frau Lenz kommt aus dem Urlaub zurück. Nora schreibt ihr schnell eine Übergabe. Leider sehr schnell.</p>
+  </div>
+
+  <div class="kasten">
+    <p class="marke"><strong>Von:</strong> Nora Seidel · <strong>An:</strong> Petra Lenz · <strong>Betreff:</strong> Zurück am Empfang</p>
+    <p>Hallo Petra,</p>
+    <p>willkommen zurück! Alles lief gut.</p>
+    <p>(1) Mit Herrn Sommer ist alles geklärt, glaube ich.<br>
+    (2) Die Bestellung ist raus.<br>
+    (3) Ein paar Nachrichten liegen noch da.<br>
+    (4) Frau Melnyk wollte noch was wegen Donnerstag.</p>
+    <p>Viele Grüße<br>Nora</p>
+  </div>
+
+  <div class="auftrag"><span class="auftrag-marke">Einzelarbeit · 5 Minuten</span><p>Frau Lenz liest die E-Mail und hat sofort Fragen. Was fehlt in jedem Satz?</p></div>
+  <div id="quiz-luecken-uebergabe"></div>
+
+  <div class="merker">
+    <span class="marke-merker">Eine gute Übergabe sagt</span>
+    <p>Was ist <strong>erledigt</strong>? Was ist noch <strong>offen</strong>? <strong>Wer</strong> ist zuständig? <strong>Bis wann</strong>? <strong>Wo</strong> liegt was? Und: Ist das <strong>sicher</strong> oder nur eine Vermutung?</p>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Zu zweit</strong>
+    <h2>Nora schreibt es noch einmal</h2>
+    <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 10 Minuten</span><p>Hier sind Noras Notizen. Schreiben Sie die vier Sätze neu, so dass Frau Lenz keine Frage mehr hat.</p></div>
+    <div class="kasten">
+      <p class="satz">Herr Sommer: Termin mit Pawel am Dienstag um 9 Uhr hat stattgefunden. Pawel schickt das Angebot bis Freitag.<br>
+      Büromaterial: am Donnerstag bestellt, Lieferung kommt am Montag.<br>
+      Telefonnachrichten: drei, von Frau Kaya, Herrn Lindner und dem Steuerbüro Kern. Liegen in der Ablage.<br>
+      Frau Melnyk: braucht Raum 3.01 am Donnerstag um 14 Uhr. Noch nicht reserviert.</p>
+    </div>
+    <textarea class="feld" id="uebergabe-neu" rows="7" data-ergebnis-label="Noras verbesserte Übergabe"></textarea>
+    <details class="kasten">
+      <summary><strong>Ein Vorschlag zum Vergleichen</strong></summary>
+      <p>(1) Der Termin von Herrn Sommer mit Pawel hat am Dienstag um 9 Uhr stattgefunden. Pawel schickt ihm das Angebot bis Freitag.<br>
+      (2) Das Büromaterial habe ich am Donnerstag bestellt. Die Lieferung kommt am Montag.<br>
+      (3) In der Ablage liegen noch drei Telefonnachrichten: von Frau Kaya, Herrn Lindner und dem Steuerbüro Kern.<br>
+      (4) Noch offen: Frau Melnyk braucht Raum 3.01 am Donnerstag um 14 Uhr. Kannst du ihn bitte reservieren?</p>
+    </details>
+  </div>
+
+  <div class="differenzierung differenzierung--herausforderung">
+    <strong class="differenzierung__stufe">Ihr Arbeitsplatz</strong>
+    <h2>Meine Übergabe</h2>
+    <div class="auftrag"><span class="auftrag-marke">Einzelarbeit · 15 Minuten</span><p>Sie haben zwei Wochen Urlaub. Eine Kollegin oder ein Kollege vertritt Sie. Schreiben Sie eine Übergabe für Ihren Arbeitsplatz oder Ihren Wunscharbeitsplatz.</p></div>
+    <p><strong>Start:</strong> drei Aufgaben und eine Ortsangabe.<br>
+    <strong>Weiter:</strong> dazu ein offener Punkt mit Frist und Zuständigkeit.<br>
+    <strong>Herausforderung:</strong> dazu ein Punkt, bei dem Sie etwas nur vermuten. Sagen Sie das ehrlich.</p>
+    <p class="satz">Täglich musst du … · Bis … Uhr … · Der/Die/Das … liegt / steht / hängt … · Noch offen ist … · Zuständig ist … · Ich vermute, dass … · Bei Fragen wende dich an …</p>
+    <textarea class="feld" id="meine-uebergabe" rows="9" data-ergebnis-label="Meine Übergabe"></textarea>
+    <div class="knopfreihe"><button class="knopf" id="uebergabe-kopieren" type="button">Meine Texte kopieren</button></div>
+  </div>
+
+  <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 8 Minuten</span><p>Lesen Sie die Übergabe Ihrer Partnerin oder Ihres Partners. Sie sind jetzt die Vertretung. Stellen Sie zwei Rückfragen. Ihre Partnerin oder Ihr Partner antwortet.</p></div>
 </section>
 
 </main>
@@ -374,8 +514,16 @@ Lehrwerk.auswahl('quiz-dativ',[
 })();
 
 /* ---- 3 · Herr Sommer kommt ---- */
+Lehrwerk.gruppieren('gruppieren-wissen',{
+  pruefen:'gruppieren-wissen-pruefen',
+  rueck:'gruppieren-wissen-rueck',
+  gruppen:[
+    {id:'wissen',titel:'Das weiß Nora',woerter:['Herr Sommer hat letzte Woche angerufen.','Frau Lenz hat gesagt: Pawel ruft zurück.','In der Terminliste steht kein Termin.','Pawel ist heute beim Kunden.']},
+    {id:'vermuten',titel:'Das vermutet Nora',woerter:['Pawel hat nicht zurückgerufen.','Herr Sommer hat etwas falsch verstanden.','Pawel hat den Termin vergessen.']}
+  ]
+});
+
 Lehrwerk.auswahl('quiz-sommer',[
-  {id:'so-q1',text:'Was ist wahrscheinlich passiert?',optionen:['Pawel hat Herrn Sommer nicht zurückgerufen. Herr Sommer glaubt, er hat einen Termin.','Herr Sommer hat sich im Tag geirrt.','Nora hat den Termin vergessen.','Frau Lenz hat den Termin gelöscht.'],richtig:['Pawel hat Herrn Sommer nicht zurückgerufen. Herr Sommer glaubt, er hat einen Termin.'],erklaerung:'Sicher weiß Nora es nicht. Aber Frau Lenz schreibt: „Ob das passiert ist, weiß ich nicht.“ Und in der Liste steht nichts.'},
   {id:'so-q2',text:'Was macht Nora jetzt?',optionen:['Sie sagt freundlich, was sie sieht, und macht ein Angebot.','Sie schickt Herrn Sommer ins Lager zu Pawels Team.','Sie sagt: „Sie haben keinen Termin.“','Sie ruft zuerst Frau Lenz im Urlaub an.'],richtig:['Sie sagt freundlich, was sie sieht, und macht ein Angebot.'],erklaerung:'Ehrlich und freundlich bleiben und eine Lösung anbieten. Ins Lager darf er nicht allein. Und Frau Lenz kann jetzt auch nicht helfen: Herr Sommer steht vor Nora.'}
 ]);
 
@@ -391,6 +539,55 @@ Lehrwerk.zuordnen('zuordnen-sommer',{
     {id:'s7',links:'freundlich abschließen',rechts:'Möchten Sie noch einen Kaffee, bevor Sie gehen?'}
   ]
 });
+
+
+/* ---- 4 · Die Vertretung organisieren ---- */
+Lehrwerk.gruppieren('gruppieren-prioritaet',{
+  pruefen:'gruppieren-prioritaet-pruefen',
+  rueck:'gruppieren-prioritaet-rueck',
+  gruppen:[
+    {id:'vormittag',titel:'heute bis 12 Uhr',woerter:['Post verteilen','Pawel wegen Herrn Sommer informieren','Kurier für das Eilpaket bestellen','Angebot von Papierwerk Süd prüfen']},
+    {id:'spaeter',titel:'hat Zeit',woerter:['Raum 3.01 für Donnerstag reservieren','Büromaterial nachbestellen']},
+    {id:'klaeren',titel:'Nora muss nachfragen',woerter:['Vertretung am Empfang von 10:30 bis 11:30 Uhr','Prospekte für die Messe']}
+  ]
+});
+
+Lehrwerk.auswahl('quiz-rueckfrage',[
+  {id:'rf-q1',text:'Welche Nachricht an Frau Haddad ist am besten?',optionen:[
+    'Hallo Frau Haddad, ich habe heute von 10:30 bis 11:30 Uhr ein Lieferantengespräch. Wer kann in dieser Zeit den Empfang übernehmen? Vielleicht Herr Becker? Viele Grüße, Nora Seidel',
+    'Hallo, ich kann um 10:30 nicht am Empfang sein. Das geht so nicht. Nora',
+    'Hallo Frau Haddad, haben Sie heute kurz Zeit? Ich hätte eine Frage. Nora',
+    'Hallo Frau Haddad, das mit dem Empfang ist schwierig. Was soll ich machen? Nora'],
+   richtig:['Hallo Frau Haddad, ich habe heute von 10:30 bis 11:30 Uhr ein Lieferantengespräch. Wer kann in dieser Zeit den Empfang übernehmen? Vielleicht Herr Becker? Viele Grüße, Nora Seidel'],
+   erklaerung:'Problem mit Uhrzeit, klare Frage, ein Vorschlag. Die anderen Nachrichten beschweren sich, sind zu vage oder brauchen noch eine zweite Nachricht.'}
+]);
+
+Lehrwerk.frei('rueckfrage-jonas');
+
+const T = (id, text, typ) => ({ id, text, typ });
+Lehrwerk.satzfolge('satzfolge-plan',{
+  frage:'Bauen Sie Noras Satz. Das Verb steht auf Platz 2.',
+  aufgaben:[
+    {id:'p1',anfang:'',ende:'.',teile:[T('z','Zuerst','temporal'),T('v','rufe','verb'),T('s','ich','subjekt'),T('a','Pawel','akkusativ'),T('r','an','verb')],loesungen:[['z','v','s','a','r'],['s','v','z','a','r']],erklaerung:'Zuerst · rufe · ich · Pawel · an. Der kleine Teil „an“ steht am Ende.'},
+    {id:'p2',anfang:'',ende:'.',teile:[T('z','Bis 10 Uhr','temporal'),T('v','verteile','verb'),T('s','ich','subjekt'),T('a','die Post','akkusativ')],loesungen:[['z','v','s','a'],['s','v','a','z'],['s','v','z','a']],erklaerung:'Bis 10 Uhr · verteile · ich · die Post.'},
+    {id:'p3',anfang:'',ende:'.',teile:[T('z','Um 9 Uhr','temporal'),T('v','empfange','verb'),T('s','ich','subjekt'),T('a','Herrn Sommer','akkusativ')],loesungen:[['z','v','s','a'],['s','v','z','a'],['s','v','a','z']],erklaerung:'Steht die Zeit vorn, kommt das Subjekt hinter das Verb.'},
+    {id:'p4',anfang:'',ende:'.',teile:[T('z','Danach','temporal'),T('v','bestelle','verb'),T('s','ich','subjekt'),T('a','den Kurier','akkusativ')],loesungen:[['z','v','s','a'],['s','v','z','a']],erklaerung:'Danach · bestelle · ich · den Kurier.'},
+    {id:'p5',anfang:'',ende:'.',teile:[T('z','Von 10:30 bis 11:30 Uhr','temporal'),T('v','übernimmt','verb'),T('s','Herr Becker','subjekt'),T('a','den Empfang','akkusativ')],loesungen:[['z','v','s','a'],['s','v','z','a']],erklaerung:'Hier ist Herr Becker das Subjekt: übernimmt (er).'},
+    {id:'p6',anfang:'',ende:'.',teile:[T('z','Anschließend','temporal'),T('v','prüfe','verb'),T('s','ich','subjekt'),T('a','das Angebot','akkusativ')],loesungen:[['z','v','s','a'],['s','v','z','a']],erklaerung:'Anschließend · prüfe · ich · das Angebot.'}
+  ]
+});
+
+/* ---- 5 · Meine Übergabe ---- */
+Lehrwerk.auswahl('quiz-luecken-uebergabe',[
+  {id:'mu-q1',text:'(1) „Mit Herrn Sommer ist alles geklärt, glaube ich.“ Was ist das Problem?',optionen:['Nora weiß es nicht sicher. Was genau ist passiert?','Der Satz ist zu höflich.','Herr Sommer ist nicht wichtig.','Es fehlt nur ein Komma.'],richtig:['Nora weiß es nicht sicher. Was genau ist passiert?'],erklaerung:'„Glaube ich“ ist eine Vermutung. In einer Übergabe steht, was sicher ist, und was noch offen ist.'},
+  {id:'mu-q2',text:'(2) „Die Bestellung ist raus.“ Was fehlt?',optionen:['Welche Bestellung? Wann kommt die Lieferung?','Wer hat die Bestellung bezahlt?','Nichts, der Satz ist klar.','Warum Nora bestellt hat.'],richtig:['Welche Bestellung? Wann kommt die Lieferung?'],erklaerung:'Frau Lenz weiß nicht, welche Bestellung gemeint ist und wann sie mit der Ware rechnen kann.'},
+  {id:'mu-q3',text:'(3) „Ein paar Nachrichten liegen noch da.“ Was fehlt?',optionen:['Wie viele? Von wem? Wo genau?','Ob die Nachrichten wichtig sind.','Die Telefonnummern.','Nichts, Frau Lenz findet sie schon.'],richtig:['Wie viele? Von wem? Wo genau?'],erklaerung:'„Da“ hilft nicht. „In der Ablage“ schon.'},
+  {id:'mu-q4',text:'(4) „Frau Melnyk wollte noch was wegen Donnerstag.“ Was fehlt?',optionen:['Was genau? Bis wann? Ist es noch offen?','Ob Frau Melnyk freundlich war.','Welcher Donnerstag im Monat.','Nichts, Frau Lenz kann Frau Melnyk fragen.'],richtig:['Was genau? Bis wann? Ist es noch offen?'],erklaerung:'Eine offene Aufgabe braucht: was, bis wann, und wer es jetzt erledigt.'}
+]);
+
+Lehrwerk.frei('uebergabe-neu');
+Lehrwerk.frei('meine-uebergabe');
+Lehrwerk.ergebnis({quelle:'blatt-meine',knopf:'uebergabe-kopieren',titel:'Meine Übergabe'});
 
 /* ---- Klick-und-sprich-Blitze ---- */
 function blitz(ausgabeId, knopfId, liste){
