@@ -15,433 +15,382 @@
 <body data-page="module" data-bereich="buero" data-root="../">
 <header class="hero bereich-kopf"><div class="innen">
   <a class="zurueck" href="../buero.html">← Büro und Verwaltung</a>
-  <h1><em>Am Empfang:</em> begrüßen, aufnehmen, weiterleiten</h1>
-  <p class="anleitung">Die ersten dreißig Sekunden am Empfang – so lange üben, bis sie sitzen.</p>
+  <h1><em>Am Empfang:</em> Nora übernimmt</h1>
+  <p class="anleitung">Frau Lenz vom Empfang hat zwei Wochen Urlaub. Nora Seidel vertritt sie. Was muss sie wissen, wo findet sie alles, und was macht sie, wenn es schwierig wird?</p>
 </div></header>
 
-<main class="innen modul">
-
-<div class="kasten">
-  <h2>Am Empfang entscheidet sich, ob jemand sich willkommen fühlt.</h2>
-  <p>Eine Besucherin steht vor Ihnen, das Telefon klingelt, und im Wartebereich sitzt schon jemand. Drei Dinge gehen dabei oft schief: Man <strong>begrüßt zu spät</strong>, man fragt <strong>nicht nach dem Namen</strong>, und man lässt jemanden warten, <strong>ohne zu sagen, wie lange</strong>.</p>
-  <div class="merker">
-    <span class="marke-merker">WICHTIG</span>
-    <p>Sie brauchen keine langen Sätze. Ein <strong>Blickkontakt</strong> und „Einen Moment bitte, ich bin gleich für Sie da“ reichen völlig – und retten die Situation, auch wenn Sie gerade beschäftigt sind.</p>
-  </div>
-  <p class="marke"><strong>Abgrenzung:</strong> Anrufe annehmen und weiterverbinden übt <a href="telefonieren.html">Telefonieren</a>. Wenn Sie etwas nicht verstehen, hilft <a href="nachfragen.html">Schlecht verstanden</a>. Hier geht es um Besuch, der vor Ihnen steht.</p>
-  <p class="marke"><strong>Zeit:</strong> Die drei Regelreiter sind der Kern und dauern zusammen 45 Minuten. Spielplatz und freie Anwendung kommen nach Bedarf dazu, die Hausaufgabe läuft zu Hause.</p>
-</div>
+<main class="innen modul modul--breit">
 
 <div class="reiter" role="tablist" aria-label="Lernabschnitte">
-  <button type="button" id="tab-begruessen" role="tab" aria-selected="true" data-blatt="begruessen">Begrüßen</button>
-  <button type="button" id="tab-anliegen" role="tab" aria-selected="false" data-blatt="anliegen">Anliegen aufnehmen</button>
-  <button type="button" id="tab-weiterleiten" role="tab" aria-selected="false" data-blatt="weiterleiten">Warten und weiterleiten</button>
-  <button type="button" id="tab-spielplatz" role="tab" aria-selected="false" data-blatt="spielplatz">Empfangs-Spielplatz</button>
-  <button type="button" id="tab-anwenden" role="tab" aria-selected="false" data-blatt="anwenden">Frei anwenden</button>
-  <button type="button" id="tab-hausaufgabe" role="tab" aria-selected="false" data-blatt="hausaufgabe">Hausaufgabe</button>
+  <button type="button" id="tab-uebergabe" role="tab" aria-selected="true" data-blatt="uebergabe">1 · Die Übergabe</button>
+  <button type="button" id="tab-suchen" role="tab" aria-selected="false" data-blatt="suchen">2 · Nora sucht etwas</button>
+  <button type="button" id="tab-besuch" role="tab" aria-selected="false" data-blatt="besuch">3 · Herr Sommer kommt</button>
+  <button type="button" role="tab" aria-selected="false" disabled>4 · Die Vertretung organisieren <span class="folgt">folgt</span></button>
+  <button type="button" role="tab" aria-selected="false" disabled>5 · Meine Übergabe <span class="folgt">folgt</span></button>
 </div>
 
-<!-- ============ BEGRÜSSEN ============ -->
-<section class="blatt" id="blatt-begruessen" role="tabpanel" aria-labelledby="tab-begruessen">
-  <p class="stand-hinweis">Kern: 15 Minuten · die ersten dreißig Sekunden</p>
-
-  <div class="differenzierung differenzierung--start">
-    <strong class="differenzierung__stufe">1 · Muster</strong>
-    <h2>Drei Schritte, immer dieselben</h2>
-    <table>
-      <thead><tr><th>Schritt</th><th>Was Sie sagen</th></tr></thead>
-      <tbody>
-        <tr><td>1 · Grüßen</td><td>Guten Tag!</td></tr>
-        <tr><td>2 · Anbieten</td><td>Was kann ich für Sie tun?</td></tr>
-        <tr><td>3 · Namen erfragen</td><td>Wie ist Ihr Name, bitte?</td></tr>
-      </tbody>
-    </table>
-    <p class="marke">Der dritte Schritt wird am häufigsten vergessen – und ohne Namen können Sie niemanden anmelden. Fragen Sie <strong>früh</strong> danach, nicht erst am Ende.</p>
-  </div>
-
-  <div class="regel">
-    <h3>Wenn Sie gerade nicht können</h3>
-    <p>Blickkontakt und ein kurzer Satz genügen. Wichtig ist, dass die Person merkt: Sie ist gesehen worden.</p>
-    <p class="satz">„Einen Moment bitte, ich bin gleich für Sie da.“ · „Ich bin sofort bei Ihnen.“</p>
-    <p class="marke">Danach wirklich zurückkommen – und sich kurz bedanken: <em>„Danke fürs Warten.“</em></p>
-  </div>
-
-  <h2>Miniübung 1: schnell erkennen</h2>
-  <div id="quiz-begruessen"></div>
-
-  <div class="differenzierung differenzierung--start">
-    <strong class="differenzierung__stufe">2 · Bauen</strong>
-    <h2>Nur das fehlende Wort</h2>
-    <p class="anleitung">Ergänzen Sie und sprechen Sie den ganzen Satz einmal laut.</p>
-  </div>
-  <p class="lueckentext">
-    1. Guten Tag! Was kann ich <input class="luecke" id="be1" size="6" autocomplete="off"> Sie tun?<br><br>
-    2. Wie ist Ihr <input class="luecke" id="be2" size="8" autocomplete="off">, bitte?<br><br>
-    3. Einen Moment bitte, ich bin <input class="luecke" id="be3" size="8" autocomplete="off"> für Sie da.<br><br>
-    4. Danke fürs <input class="luecke" id="be4" size="8" autocomplete="off">.<br><br>
-    5. Sind Sie <input class="luecke" id="be5" size="10" autocomplete="off">? – Ja, um 10 Uhr bei Frau Seidel.<br><br>
-    6. Nehmen Sie doch bitte kurz <input class="luecke" id="be6" size="8" autocomplete="off">.
-  </p>
-  <div class="knopfreihe"><button class="knopf" id="be-pruefen" type="button">Prüfen</button><button class="knopf" id="be-tipp" type="button">Tipp</button></div>
-  <p class="rueckmeldung" id="be-rueck" hidden></p>
-  <p class="rueckmeldung" id="be-hinweis" hidden>Satz 5 und 6 sind feste Wendungen am Empfang: „Sind Sie angemeldet?“ und „Nehmen Sie bitte Platz.“</p>
-
-  <div class="differenzierung differenzierung--weiter">
-    <strong class="differenzierung__stufe">3 · Klick und sprich</strong>
-    <h2>Empfangs-Blitz</h2>
-    <p>Auf der Karte steht, wer vor Ihnen steht. Sagen Sie sofort die drei Schritte. Nicht schreiben.</p>
-    <div class="kasten">
-      <p class="satz" id="blitz-be-ausgabe">Eine Besucherin mit Termin</p>
-      <div class="knopfreihe"><button class="knopf" type="button" id="blitz-be-neu">Neue Situation</button></div>
-    </div>
-    <p class="marke">Ziel: acht Situationen ohne Nachdenkpause – jedes Mal mit Gruß, Angebot und Namensfrage.</p>
-  </div>
-
-  <div class="redemittel-box">
-    <h2>Jetzt selbst sprechen, aber nichts erfinden</h2>
-    <p class="satz"><strong>Grüßen:</strong> Guten Tag! · Guten Morgen! · Herzlich willkommen bei der KONTOR AG.</p>
-    <p class="satz"><strong>Anbieten:</strong> Was kann ich für Sie tun? · Wie kann ich Ihnen helfen?</p>
-    <p class="satz"><strong>Name und Termin:</strong> Wie ist Ihr Name, bitte? · Sind Sie angemeldet? · Mit wem sind Sie verabredet?</p>
-    <p class="satz"><strong>Wenn es gerade nicht geht:</strong> Einen Moment bitte, ich bin gleich für Sie da. · Danke fürs Warten.</p>
-  </div>
-</section>
-
-<!-- ============ ANLIEGEN ============ -->
-<section class="blatt" id="blatt-anliegen" role="tabpanel" aria-labelledby="tab-anliegen" hidden>
-  <p class="stand-hinweis">Kern: 15 Minuten · lesen, zuordnen, nachfragen</p>
-
-  <div class="differenzierung differenzierung--start">
-    <strong class="differenzierung__stufe">1 · Muster</strong>
-    <h2>Drei Fragen, dann wissen Sie genug</h2>
-    <p class="satz"><strong>Wer?</strong> Wie ist Ihr Name, bitte? · <strong>Zu wem?</strong> Mit wem sind Sie verabredet? · <strong>Weshalb?</strong> Worum geht es denn?</p>
-    <p>Mehr brauchen Sie am Empfang nicht. Alles Weitere klärt die Kollegin, zu der Sie weiterleiten.</p>
-    <p class="marke">Auch wichtig: <strong>Nicht</strong> nachbohren. Wenn jemand das Anliegen nicht sagen möchte, notieren Sie „persönlich“ und melden es so an.</p>
-  </div>
-
-  <div class="differenzierung differenzierung--start">
-    <strong class="differenzierung__stufe">Lesen</strong>
-    <h2>Die Terminliste am Empfang</h2>
-    <p class="anleitung">So sieht die Liste an einem Vormittag bei der KONTOR AG aus. Lesen Sie sie einmal durch.</p>
-    <table>
-      <thead><tr><th>Uhrzeit</th><th>Besuch</th><th>Firma</th><th>bei</th><th>Raum</th></tr></thead>
-      <tbody>
-        <tr><td>09:00</td><td>Frau Weber</td><td>Nordlogistik</td><td>Nora Seidel</td><td>2.14</td></tr>
-        <tr><td>09:30</td><td>Herr Kaya</td><td>Bautechnik Süd</td><td>Jonas Becker</td><td>1.08</td></tr>
-        <tr><td>10:00</td><td>Frau Vogt</td><td>Filiale Bremen</td><td>Kateryna Melnyk</td><td>3.01</td></tr>
-        <tr><td>11:00</td><td>Herr Lindner</td><td>Bewerbung</td><td>Samira Haddad</td><td>1.22</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h2>Miniübung 1: Wer geht wohin?</h2>
-  <div id="zuordnen-liste"></div>
-  <p class="rueckmeldung" id="zuordnen-liste-rueck" hidden></p>
-
-  <h2>Miniübung 2: Was fragen Sie?</h2>
-  <div id="quiz-anliegen"></div>
-
-  <div class="differenzierung differenzierung--start">
-    <strong class="differenzierung__stufe">2 · Bauen</strong>
-    <h2>Die drei Fragen ergänzen</h2>
-  </div>
-  <p class="lueckentext">
-    1. Mit wem sind Sie <input class="luecke" id="al1" size="12" autocomplete="off">?<br><br>
-    2. <input class="luecke" id="al2" size="6" autocomplete="off"> geht es denn?<br><br>
-    3. Ich melde Sie kurz <input class="luecke" id="al3" size="6" autocomplete="off">.<br><br>
-    4. Frau Seidel <input class="luecke" id="al4" size="8" autocomplete="off"> Sie schon.<br><br>
-    5. Haben Sie einen <input class="luecke" id="al5" size="8" autocomplete="off">?<br><br>
-    6. Darf ich fragen, <input class="luecke" id="al6" size="8" autocomplete="off"> Sie kommen?
-  </p>
-  <div class="knopfreihe"><button class="knopf" id="al-pruefen" type="button">Prüfen</button><button class="knopf" id="al-tipp" type="button">Tipp</button></div>
-  <p class="rueckmeldung" id="al-rueck" hidden></p>
-  <p class="rueckmeldung" id="al-hinweis" hidden>Satz 6 ist die höfliche Fassung von „Warum kommen Sie?“ – mit „Darf ich fragen …“ klingt dieselbe Frage deutlich freundlicher.</p>
-
-  <div class="differenzierung differenzierung--weiter">
-    <strong class="differenzierung__stufe">3 · Klick und sprich</strong>
-    <h2>Anliegen-Blitz</h2>
-    <p>Auf der Karte steht, was die Person sagt. Antworten Sie sofort – mit der nächsten passenden Frage oder dem nächsten Schritt.</p>
-    <div class="kasten">
-      <p class="satz" id="blitz-al-ausgabe">Ich habe einen Termin bei Frau Seidel.</p>
-      <div class="knopfreihe"><button class="knopf" type="button" id="blitz-al-neu">Neue Aussage</button></div>
-    </div>
-  </div>
-
-  <div class="redemittel-box">
-    <h2>Jetzt selbst sprechen, aber nichts erfinden</h2>
-    <p class="satz"><strong>Fragen:</strong> Mit wem sind Sie verabredet? · Worum geht es denn? · Haben Sie einen Termin?</p>
-    <p class="satz"><strong>Höflich nachfragen:</strong> Darf ich fragen, weshalb Sie kommen? · Können Sie mir kurz sagen, worum es geht?</p>
-    <p class="satz"><strong>Bestätigen:</strong> Frau Seidel erwartet Sie schon. · Ich melde Sie kurz an. · Sie werden gleich abgeholt.</p>
-  </div>
-</section>
-
-<!-- ============ WARTEN UND WEITERLEITEN ============ -->
-<section class="blatt" id="blatt-weiterleiten" role="tabpanel" aria-labelledby="tab-weiterleiten" hidden>
-  <p class="stand-hinweis">Kern: 15 Minuten · vier Fälle, vier Sätze</p>
-
-  <div class="differenzierung differenzierung--start">
-    <strong class="differenzierung__stufe">1 · Muster</strong>
-    <h2>Vier Fälle – mehr gibt es nicht</h2>
-    <table>
-      <thead><tr><th>Situation</th><th>Was Sie sagen</th></tr></thead>
-      <tbody>
-        <tr><td>Person kommt gleich</td><td>Frau Seidel kommt gleich. Nehmen Sie bitte so lange <strong>Platz</strong>.</td></tr>
-        <tr><td>Es dauert etwas</td><td>Es dauert noch <strong>etwa zehn Minuten</strong>. Möchten Sie einen Kaffee?</td></tr>
-        <tr><td>Sie begleiten selbst</td><td>Ich <strong>bringe Sie</strong> zu Raum 2.14. Kommen Sie bitte mit.</td></tr>
-        <tr><td>Ohne Termin</td><td>Herr Becker ist heute leider <strong>ausgebucht</strong>. Darf ich einen Termin für Sie <strong>vereinbaren</strong>?</td></tr>
-      </tbody>
-    </table>
-    <p class="marke">Der wichtigste Teil ist die <strong>Zeitangabe</strong>. „Es dauert noch etwas“ macht nervös – „noch etwa zehn Minuten“ nicht.</p>
-  </div>
-
-  <div class="regel">
-    <h3>Den Weg beschreiben</h3>
-    <p class="satz">„Gehen Sie den Gang entlang bis zum Aufzug.“ · „Zweiter Stock, dann rechts.“ · „Die dritte Tür auf der linken Seite.“</p>
-    <p class="marke">Wo etwas ist und wohin jemand gehen soll, üben Sie ausführlich in <a href="../grammatik/praepositionen.html">Präpositionen und Kasus</a>.</p>
-  </div>
-
-  <h2>Miniübung 1: Welcher Satz passt?</h2>
-  <div id="quiz-weiterleiten"></div>
-
-  <div class="differenzierung differenzierung--start">
-    <strong class="differenzierung__stufe">2 · Bauen</strong>
-    <h2>Nur das fehlende Wort</h2>
-  </div>
-  <p class="lueckentext">
-    1. Nehmen Sie bitte so lange <input class="luecke" id="we1" size="8" autocomplete="off">.<br><br>
-    2. Es dauert noch <input class="luecke" id="we2" size="6" autocomplete="off"> zehn Minuten.<br><br>
-    3. Ich <input class="luecke" id="we3" size="8" autocomplete="off"> Sie zu Raum 2.14.<br><br>
-    4. Herr Becker ist heute leider <input class="luecke" id="we4" size="10" autocomplete="off">.<br><br>
-    5. Darf ich einen Termin für Sie <input class="luecke" id="we5" size="12" autocomplete="off">?<br><br>
-    6. Gehen Sie den Gang <input class="luecke" id="we6" size="8" autocomplete="off"> bis zum Aufzug.
-  </p>
-  <div class="knopfreihe"><button class="knopf" id="we-pruefen" type="button">Prüfen</button><button class="knopf" id="we-tipp" type="button">Tipp</button></div>
-  <p class="rueckmeldung" id="we-rueck" hidden></p>
-  <p class="rueckmeldung" id="we-hinweis" hidden>Satz 2 braucht ein Wort, das die Angabe ungefähr macht: „etwa“ oder „ungefähr“. Ohne dieses Wort klingt die Zeit wie ein Versprechen.</p>
-
-  <div class="differenzierung differenzierung--weiter">
-    <strong class="differenzierung__stufe">3 · Klick und sprich</strong>
-    <h2>Weiterleit-Blitz</h2>
-    <p>Auf der Karte steht die Lage. Sagen Sie sofort den passenden Satz – mit Zeitangabe oder Angebot.</p>
-    <div class="kasten">
-      <p class="satz" id="blitz-we-ausgabe">Frau Seidel kommt in fünf Minuten</p>
-      <div class="knopfreihe"><button class="knopf" type="button" id="blitz-we-neu">Neue Lage</button></div>
-    </div>
-  </div>
-
-  <div class="redemittel-box">
-    <h2>Jetzt selbst sprechen, aber nichts erfinden</h2>
-    <p class="satz"><strong>Warten:</strong> Nehmen Sie bitte Platz. · Es dauert noch etwa … Minuten. · Möchten Sie einen Kaffee oder ein Wasser?</p>
-    <p class="satz"><strong>Begleiten:</strong> Ich bringe Sie zu … · Kommen Sie bitte mit. · Ich zeige Ihnen den Weg.</p>
-    <p class="satz"><strong>Weg beschreiben:</strong> den Gang entlang · zweiter Stock, dann rechts · die dritte Tür links</p>
-    <p class="satz"><strong>Ohne Termin:</strong> … ist heute leider ausgebucht. · Darf ich einen Termin für Sie vereinbaren? · Möchten Sie eine Nachricht hinterlassen?</p>
-  </div>
-</section>
-
-<!-- ============ SPIELPLATZ ============ -->
-<section class="blatt" id="blatt-spielplatz" role="tabpanel" aria-labelledby="tab-spielplatz" hidden>
-  <p class="stand-hinweis">Zusätzlich, nach Bedarf: 20 Minuten · schnell, laut, ohne Schreiben</p>
-
-  <div class="differenzierung differenzierung--weiter">
-    <strong class="differenzierung__stufe">Spiel 1</strong>
-    <h2>Empfangs-TÜV</h2>
-    <p>Vier Sätze, einer passt nicht an den Empfang. Finden Sie ihn und sagen Sie eine bessere Fassung laut.</p>
-    <div id="tuev"></div>
-  </div>
-
-  <div class="differenzierung differenzierung--weiter">
-    <strong class="differenzierung__stufe">Spiel 2</strong>
-    <h2>30-Sekunden-Challenge</h2>
-    <p>Eine Person nennt eine Lage, die andere antwortet sofort – <strong>immer mit Zeitangabe oder Angebot</strong>. Wie viele schaffen Sie in 30 Sekunden?</p>
-    <p class="satz">„kommt gleich“ · „dauert zehn Minuten“ · „ohne Termin“ · „falsche Firma“ · „zu früh da“ · „Lieferung, kein Besuch“ · „will niemanden nennen“</p>
-  </div>
-
-  <div class="differenzierung differenzierung--weiter">
-    <strong class="differenzierung__stufe">Spiel 3</strong>
-    <h2>Partner-Automat: der Vormittag am Empfang</h2>
-    <p>Nehmen Sie die Terminliste aus Reiter 2. <strong>A</strong> ist die Besucherin oder der Besucher, <strong>B</strong> steht am Empfang. Vier Anmeldungen hintereinander, dann Rollenwechsel.</p>
-    <p class="marke">Im Onlinekurs: Hier bleibt die Kamera ausdrücklich <strong>an</strong> – am Empfang gehört der Blickkontakt dazu. Das ist der Unterschied zum Telefon.</p>
-  </div>
-
-  <div class="redemittel-box">
-    <h2>Sprachmaterial bleibt sichtbar</h2>
-    <p class="satz"><strong>Begrüßen:</strong> Guten Tag! · Was kann ich für Sie tun? · Wie ist Ihr Name, bitte?</p>
-    <p class="satz"><strong>Aufnehmen:</strong> Mit wem sind Sie verabredet? · Worum geht es denn? · Haben Sie einen Termin?</p>
-    <p class="satz"><strong>Warten:</strong> Nehmen Sie bitte Platz. · Es dauert noch etwa … Minuten. · Danke fürs Warten.</p>
-    <p class="satz"><strong>Weiterleiten:</strong> Ich melde Sie kurz an. · Ich bringe Sie zu … · Kommen Sie bitte mit.</p>
-    <p class="satz"><strong>Ohne Termin:</strong> … ist heute leider ausgebucht. · Darf ich einen Termin vereinbaren?</p>
-  </div>
-</section>
-
-<!-- ============ FREI ANWENDEN ============ -->
-<section class="blatt" id="blatt-anwenden" role="tabpanel" aria-labelledby="tab-anwenden" hidden>
-  <p class="stand-hinweis">Zusätzlich, nach Bedarf: 20 Minuten · sprechen und schreiben</p>
+<!-- ============ 1 · DIE ÜBERGABE ============ -->
+<section class="blatt" id="blatt-uebergabe" role="tabpanel" aria-labelledby="tab-uebergabe">
+  <p class="stand-hinweis">etwa 30 Minuten · lesen, zuordnen, sprechen</p>
 
   <div class="kasten">
-    <p class="marke"><strong>Tipp:</strong> Wenn Sie bei den wichtigen Sätzen noch überlegen müssen, üben Sie vorher noch einmal kurz. Danach sprechen Sie frei.</p>
+    <p>Freitagnachmittag bei KONTOR. Petra Lenz arbeitet am Empfang. Ab Montag hat sie zwei Wochen Urlaub. Nora Seidel aus dem Einkauf vertritt sie. Bevor Frau Lenz geht, schreibt sie Nora eine E-Mail.</p>
+  </div>
+
+  <div class="auftrag"><span class="auftrag-marke">Einzelarbeit · 5 Minuten</span><p>Lesen Sie die E-Mail. Was muss Nora ab Montag jeden Tag machen?</p></div>
+
+  <div class="kasten">
+    <p class="marke"><strong>Von:</strong> Petra Lenz · <strong>An:</strong> Nora Seidel · <strong>Betreff:</strong> Übergabe Empfang</p>
+    <p>Hallo Nora,</p>
+    <p>vielen Dank, dass du mich ab Montag am Empfang vertrittst! Hier das Wichtigste für deinen Tag:</p>
+    <p>Um halb neun bringt die Post die eingehenden Briefe. Bitte verteil sie bis 10 Uhr an die Abteilungen.</p>
+    <p>Besucherinnen und Besucher empfängst du am Tresen und meldest sie bei den Kolleginnen und Kollegen an.</p>
+    <p>Anrufe nimmst du an und verbindest weiter. Wenn niemand erreichbar ist, nimmst du eine Nachricht auf und leitest sie per E-Mail weiter.</p>
+    <p>Die ausgehende Post frankierst du bis 15 Uhr. Eilige Sendungen schicken wir mit dem Kurier. Den bestellst du online.</p>
+    <p>Lieferscheine heftest du im Ordner „Empfang“ ab. Und donnerstags bestellst du Büromaterial für alle Abteilungen nach.</p>
+    <p>Noch etwas: Herr Sommer von Brandt Verpackungen hat letzte Woche angerufen. Er möchte mit Pawel über neue Kartons sprechen. Ich habe ihm gesagt, dass Pawel ihn zurückruft. Ob das passiert ist, weiß ich nicht.</p>
+    <p>Die Terminliste liegt jeden Morgen in der Ablage. Die Telefonliste hängt an der Pinnwand. Wenn du etwas nicht findest: Ruf mich ruhig an!</p>
+    <p>Liebe Grüße<br>Petra</p>
+  </div>
+
+  <h2>Haben Sie alles verstanden?</h2>
+  <div id="quiz-uebergabe"></div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">Entdecken</strong>
+    <h2>Was macht man womit?</h2>
+    <p>Suchen Sie in der E-Mail das passende Verb. Klicken Sie erst links, dann rechts.</p>
+  </div>
+  <div id="zuordnen-taetigkeiten"></div>
+  <p class="rueckmeldung" id="zuordnen-taetigkeiten-rueck" hidden></p>
+
+  <div class="merker">
+    <span class="marke-merker">Was fällt auf?</span>
+    <p>Viele Verben am Empfang sind <strong>trennbar</strong>. Im Satz steht das konjugierte Verb auf Platz 2, der kleine Teil ganz am Ende:</p>
+    <p class="satzbau"><span class="subj">Ich</span> <span class="verb">nehme</span> den Anruf <span class="verb">an</span>. · <span class="pos1">Morgens</span> <span class="verb">heftet</span> <span class="subj">Nora</span> die Lieferscheine <span class="verb">ab</span>.</p>
+    <p>Trennbar sind hier: <strong>an</strong>nehmen, <strong>an</strong>melden, <strong>auf</strong>nehmen, <strong>weiter</strong>leiten, <strong>weiter</strong>verbinden, <strong>ab</strong>heften, <strong>nach</strong>bestellen.</p>
   </div>
 
   <div class="differenzierung differenzierung--weiter">
     <strong class="differenzierung__stufe">Sprechen</strong>
-    <h2>Drei Anmeldungen hintereinander</h2>
-    <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 10 Minuten</span><p>Beim ersten Besuch stimmt alles. Beim zweiten ist die gesuchte Person in einer Besprechung. Beim dritten kommt jemand ohne Termin. Ihre Partnerin achtet nur darauf, ob jede Anmeldung mit einer Zeitangabe oder einem Angebot endet.</p></div>
+    <h2>Montag, Noras erster Tag am Empfang</h2>
+    <p>Auf der Karte steht, was passiert. Sie sind Nora. Sagen Sie sofort, was Sie machen: <strong>Ich …</strong></p>
+    <div class="kasten">
+      <p class="satz" id="blitz-tag-ausgabe">Das Telefon klingelt.</p>
+      <div class="knopfreihe"><button class="knopf" type="button" id="blitz-tag-neu">Neue Situation</button></div>
+    </div>
   </div>
 
+  <div class="redemittel-box">
+    <h2>Diese Verben brauchen Sie</h2>
+    <p class="satz">die Post verteilen · Besucher empfangen · Besucher anmelden · Anrufe annehmen · weiterverbinden · eine Nachricht aufnehmen · eine Nachricht weiterleiten · die Post frankieren · einen Kurier bestellen · Lieferscheine abheften · Büromaterial nachbestellen</p>
+  </div>
+</section>
+
+<!-- ============ 2 · NORA SUCHT ETWAS ============ -->
+<section class="blatt" id="blatt-suchen" role="tabpanel" aria-labelledby="tab-suchen" hidden>
+  <p class="stand-hinweis">etwa 30 Minuten · entdecken, zu zweit fragen und antworten</p>
+
+  <div class="kasten">
+    <p>Montag, 8:15 Uhr. Nora steht am Empfang. In der E-Mail stand: „Die Terminliste <strong>liegt</strong> in der Ablage. Die Telefonliste <strong>hängt</strong> an der Pinnwand.“ Aber wo ist alles andere?</p>
+  </div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">Entdecken</strong>
+    <h2>Steht, liegt oder hängt es?</h2>
+    <p>Sortieren Sie. Denken Sie an ein normales Büro.</p>
+  </div>
+  <div id="gruppieren-position"></div>
+  <div class="knopfreihe"><button class="knopf" id="gruppieren-position-pruefen" type="button">Prüfen</button></div>
+  <p class="rueckmeldung" id="gruppieren-position-rueck" hidden></p>
+
+  <div class="merker">
+    <span class="marke-merker">Die Regel</span>
+    <p><strong>stehen</strong>: Die Sache ist aufrecht. Der Drucker steht auf dem Tisch.<br>
+    <strong>liegen</strong>: Die Sache ist flach. Der Brief liegt in der Ablage.<br>
+    <strong>hängen</strong>: Die Sache ist oben befestigt. Der Kalender hängt an der Wand.</p>
+    <p>Die Frage ist <strong>Wo?</strong> Darum folgt nach der Präposition der <strong>Dativ</strong>:<br>
+    auf <strong>dem</strong> Tisch · neben <strong>der</strong> Tastatur · in <strong>der</strong> Schublade · an <strong>der</strong> Wand · im (= in dem) Regal · am (= an dem) Schlüsselbrett</p>
+  </div>
+
+  <h2>Kurz üben</h2>
+  <div id="quiz-dativ"></div>
+
   <div class="differenzierung differenzierung--weiter">
-    <strong class="differenzierung__stufe">Schreiben</strong>
-    <h2>Die Nachricht an die Kollegin</h2>
-    <div class="auftrag"><span class="auftrag-marke">Einzelarbeit · 8 Minuten</span><p>Frau Bruns von Technikhaus Nord war ohne Termin da und möchte Jonas Becker sprechen. Schreiben Sie die interne Nachricht: wer, von welcher Firma, wann da gewesen, worum es ging, wie erreichbar.</p></div>
-    <p><strong>Start:</strong> fünf Stichworte.<br>
-    <strong>Weiter:</strong> ganze Sätze, dazu ein Vorschlag, wann ein Termin passen könnte.<br>
-    <strong>Herausforderung:</strong> zusätzlich zwei Sätze für den Fall, dass Herr Becker diese Woche gar keine Zeit hat.</p>
-    <textarea class="feld" id="nachricht-frei" rows="7" data-ergebnis-label="Nachricht an die Kollegin"></textarea>
+    <strong class="differenzierung__stufe">Zu zweit</strong>
+    <h2>Nora ruft Frau Lenz an</h2>
+    <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 15 Minuten</span><p>Öffnen Sie diese Seite auf Ihrem eigenen Gerät. A ist Nora und sieht nur die Möbel. B ist Frau Lenz und sieht, wo alles ist. A fragt, B antwortet. Dann tauschen Sie die Rollen für Runde 2.</p></div>
+    <div class="knopfreihe" id="plan-rollen">
+      <button class="knopf" type="button" data-plan="a1">Runde 1 · A (Nora)</button>
+      <button class="knopf" type="button" data-plan="b1">Runde 1 · B (Frau Lenz)</button>
+      <button class="knopf" type="button" data-plan="a2">Runde 2 · A (Nora)</button>
+      <button class="knopf" type="button" data-plan="b2">Runde 2 · B (Frau Lenz)</button>
+    </div>
+    <p class="marke" id="plan-rolle-text">Wählen Sie Ihre Rolle.</p>
+  </div>
+
+  <figure class="bildgrammatik">
+    <svg id="plan" viewBox="0 0 640 400" role="img" aria-label="Grundriss des Empfangs bei KONTOR" style="display:block;width:100%;height:auto;background:var(--papier);border:1px solid var(--linie);border-radius:8px;font-family:inherit">
+      <!-- Raum -->
+      <rect x="10" y="10" width="620" height="380" fill="none" stroke="var(--tinte)" stroke-width="3"/>
+      <!-- Fenster -->
+      <rect x="60" y="6" width="140" height="8" fill="var(--himmel)" stroke="var(--tinte)"/>
+      <text x="130" y="30" text-anchor="middle" font-size="13" fill="var(--tinte-weich)">Fenster</text>
+      <!-- Tür -->
+      <rect x="450" y="386" width="90" height="8" fill="var(--papier)" stroke="none"/>
+      <text x="495" y="380" text-anchor="middle" font-size="13" fill="var(--tinte-weich)">Tür</text>
+      <!-- Pinnwand -->
+      <rect x="380" y="16" width="140" height="16" fill="var(--sand)" stroke="var(--tinte)"/>
+      <text x="450" y="48" text-anchor="middle" font-size="13" fill="var(--tinte)">Pinnwand</text>
+      <!-- Regal -->
+      <rect x="18" y="80" width="46" height="220" fill="var(--sand)" stroke="var(--tinte)"/>
+      <text x="41" y="190" text-anchor="middle" font-size="13" fill="var(--tinte)" transform="rotate(-90 41 190)">Regal</text>
+      <!-- Schreibtisch -->
+      <rect x="200" y="80" width="240" height="70" fill="var(--sand)" stroke="var(--tinte)"/>
+      <text x="434" y="145" text-anchor="end" font-size="13" fill="var(--tinte)">Schreibtisch</text>
+      <rect x="295" y="88" width="60" height="16" fill="var(--karte)" stroke="var(--tinte)"/>
+      <text x="325" y="100" text-anchor="middle" font-size="11" fill="var(--tinte)">Monitor</text>
+      <rect x="295" y="110" width="60" height="12" fill="var(--karte)" stroke="var(--tinte)"/>
+      <text x="325" y="120" text-anchor="middle" font-size="9" fill="var(--tinte)">Tastatur</text>
+      <rect x="385" y="92" width="40" height="22" fill="var(--karte)" stroke="var(--tinte)"/>
+      <text x="405" y="107" text-anchor="middle" font-size="10" fill="var(--tinte)">Telefon</text>
+      <!-- Tresen -->
+      <rect x="160" y="200" width="320" height="34" fill="var(--sand)" stroke="var(--tinte)" stroke-width="2"/>
+      <text x="320" y="222" text-anchor="middle" font-size="13" fill="var(--tinte)">Tresen</text>
+      <rect x="175" y="204" width="56" height="26" fill="var(--karte)" stroke="var(--tinte)"/>
+      <text x="203" y="221" text-anchor="middle" font-size="10" fill="var(--tinte)">Schublade</text>
+      <!-- Sideboard -->
+      <rect x="578" y="80" width="44" height="150" fill="var(--sand)" stroke="var(--tinte)"/>
+      <text x="600" y="155" text-anchor="middle" font-size="13" fill="var(--tinte)" transform="rotate(-90 600 155)">Sideboard</text>
+      <!-- Drucker -->
+      <rect x="470" y="262" width="70" height="40" fill="var(--karte)" stroke="var(--tinte)"/>
+      <text x="505" y="287" text-anchor="middle" font-size="12" fill="var(--tinte)">Drucker</text>
+      <!-- Kühlschrank -->
+      <rect x="566" y="300" width="56" height="66" fill="var(--karte)" stroke="var(--tinte)"/>
+      <text x="594" y="337" text-anchor="middle" font-size="10" fill="var(--tinte)">Kühlschrank</text>
+      <!-- Schlüsselbrett -->
+      <rect x="402" y="370" width="36" height="10" fill="var(--sand)" stroke="var(--tinte)"/>
+      <text x="420" y="364" text-anchor="middle" font-size="10" fill="var(--tinte-weich)">Schlüsselbrett</text>
+      <!-- Wartebereich -->
+      <circle cx="80" cy="345" r="14" fill="var(--karte)" stroke="var(--tinte)"/>
+      <circle cx="120" cy="345" r="14" fill="var(--karte)" stroke="var(--tinte)"/>
+      <circle cx="160" cy="345" r="14" fill="var(--karte)" stroke="var(--tinte)"/>
+      <text x="120" y="378" text-anchor="middle" font-size="12" fill="var(--tinte-weich)">Wartebereich</text>
+      <!-- Feste Hinweise aus der E-Mail -->
+      <text x="450" y="28" text-anchor="middle" font-size="9" fill="var(--tinte)">Telefonliste</text>
+      <rect x="215" y="88" width="56" height="18" fill="var(--karte)" stroke="var(--tinte)"/>
+      <text x="243" y="100" text-anchor="middle" font-size="10" fill="var(--tinte)">Ablage</text>
+
+      <!-- Runde 1: Gegenstände -->
+      <g id="plan-runde1" font-size="11" fill="var(--rose-tief)" font-weight="700">
+        <text x="203" y="252" text-anchor="middle">Besucherausweise</text>
+        <text x="570" y="112" text-anchor="end">Frankiermaschine</text>
+        <text x="420" y="350" text-anchor="middle">Schlüssel für Raum 2.14</text>
+        <rect x="258" y="112" width="30" height="10" fill="var(--rose)" stroke="var(--rose-tief)"/><text x="273" y="138" text-anchor="middle">Headset</text>
+        <text x="72" y="98">Postkörbe</text>
+      </g>
+      <!-- Runde 2: Gegenstände -->
+      <g id="plan-runde2" font-size="11" fill="var(--rose-tief)" font-weight="700">
+        <text x="72" y="294">Ordner „Empfang“</text>
+        <text x="570" y="132" text-anchor="end">Briefmarken</text>
+        <rect x="300" y="14" width="40" height="14" fill="var(--rose)" stroke="var(--rose-tief)"/><text x="320" y="46" text-anchor="middle">Kalender</text>
+        <text x="505" y="256" text-anchor="middle">Kurierformulare</text>
+        <text x="560" y="326" text-anchor="end">Wasser für Gäste</text>
+      </g>
+    </svg>
+    <figcaption>Der Empfang bei KONTOR von oben. Die rote Schrift sieht nur Frau Lenz.</figcaption>
+  </figure>
+
+  <div class="kasten" id="karte-a1" hidden>
+    <h3>Runde 1 · Sie sind Nora</h3>
+    <p>Rufen Sie Frau Lenz an und fragen Sie. Schreiben Sie die Antworten in Stichworten auf oder merken Sie sie sich.</p>
+    <p class="satz">Wo sind die Besucherausweise? · Wo ist die Frankiermaschine? · Wo ist der Schlüssel für Raum 2.14? · Wo ist das Headset? · Wo sind die Postkörbe für die Abteilungen?</p>
+  </div>
+  <div class="kasten" id="karte-b1" hidden>
+    <h3>Runde 1 · Sie sind Frau Lenz</h3>
+    <p>Nora ruft an. Schauen Sie auf den Plan und antworten Sie in ganzen Sätzen, mit <strong>stehen</strong>, <strong>liegen</strong> oder <strong>hängen</strong>.</p>
+  </div>
+  <div class="kasten" id="karte-a2" hidden>
+    <h3>Runde 2 · Sie sind Nora</h3>
+    <p>Dienstag. Sie suchen schon wieder etwas. Rufen Sie Frau Lenz an.</p>
+    <p class="satz">Wo ist der Ordner „Empfang“? · Wo sind die Briefmarken? · Wo ist der Kalender? · Wo sind die Kurierformulare? · Wo ist das Wasser für die Gäste?</p>
+  </div>
+  <div class="kasten" id="karte-b2" hidden>
+    <h3>Runde 2 · Sie sind Frau Lenz</h3>
+    <p>Nora ruft schon wieder an. Antworten Sie geduldig, mit <strong>stehen</strong>, <strong>liegen</strong> oder <strong>hängen</strong>.</p>
+  </div>
+
+  <div class="redemittel-box">
+    <h2>Am Telefon</h2>
+    <p class="satz"><strong>Nora:</strong> Hallo Petra, hier ist Nora. Entschuldige, dass ich störe! · Ich suche … Wo ist / Wo sind …? · Ah, jetzt sehe ich es. Danke dir!</p>
+    <p class="satz"><strong>Frau Lenz:</strong> Kein Problem! · Der/Die/Das … steht / liegt / hängt … · Die … stehen / liegen / hängen …</p>
+  </div>
+
+  <details class="kasten">
+    <summary><strong>Lösungen zum Vergleichen</strong> (erst nach dem Gespräch öffnen)</summary>
+    <p><strong>Runde 1:</strong> Die Besucherausweise liegen in der Schublade. · Die Frankiermaschine steht auf dem Sideboard. · Der Schlüssel für Raum 2.14 hängt am Schlüsselbrett neben der Tür. · Das Headset liegt neben der Tastatur. · Die Postkörbe stehen im Regal.</p>
+    <p><strong>Runde 2:</strong> Der Ordner „Empfang“ steht im Regal, ganz unten. · Die Briefmarken liegen auf dem Sideboard. · Der Kalender hängt an der Wand hinter dem Schreibtisch. · Die Kurierformulare liegen auf dem Drucker. · Das Wasser für die Gäste steht im Kühlschrank.</p>
+  </details>
+</section>
+
+<!-- ============ 3 · HERR SOMMER KOMMT ============ -->
+<section class="blatt" id="blatt-besuch" role="tabpanel" aria-labelledby="tab-besuch" hidden>
+  <p class="stand-hinweis">etwa 35 Minuten · entscheiden, entdecken, Rollenspiel</p>
+
+  <div class="kasten">
+    <p>Montag, 14:00 Uhr. Ein Mann steht am Tresen: „Guten Tag, Sommer, Brandt Verpackungen. Ich habe um 14 Uhr einen Termin mit Herrn Nowak.“ Nora schaut auf die Terminliste.</p>
+  </div>
+
+  <div class="kasten">
+    <h3>Terminliste Empfang · Montag</h3>
+    <table>
+      <thead><tr><th>Uhrzeit</th><th>Besuch</th><th>Firma</th><th>bei</th><th>Raum</th></tr></thead>
+      <tbody>
+        <tr><td>09:00</td><td>Frau Weber</td><td>Nordlogistik</td><td>Jonas Becker</td><td>1.08</td></tr>
+        <tr><td>10:00</td><td>Frau Vogt</td><td>Filiale Bremen</td><td>Kateryna Melnyk</td><td>3.01</td></tr>
+        <tr><td>11:00</td><td>Herr Lindner</td><td>Bewerbung</td><td>Samira Haddad</td><td>1.22</td></tr>
+        <tr><td>15:30</td><td>Frau Brandl</td><td>Steuerbüro Kern</td><td>Kateryna Melnyk</td><td>3.01</td></tr>
+      </tbody>
+    </table>
+    <p class="marke"><strong>Abwesend heute:</strong> Pawel Nowak, ganztägig beim Kunden. Ab Dienstag, 8 Uhr, wieder im Haus.</p>
+  </div>
+
+  <div class="auftrag"><span class="auftrag-marke">Einzelarbeit · 5 Minuten</span><p>Lesen Sie noch einmal den Teil über Herrn Sommer in der E-Mail von Frau Lenz (Reiter 1). Was ist hier los? Und was macht Nora jetzt?</p></div>
+  <div id="quiz-sommer"></div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">Entdecken</strong>
+    <h2>So hat Nora es gemacht</h2>
+    <p>Lesen Sie das Gespräch zu zweit laut. Eine Person ist Nora, eine ist Herr Sommer.</p>
+  </div>
+  <div class="kasten">
+    <p><strong>Nora:</strong> Guten Tag, Herr Sommer! Herzlich willkommen bei KONTOR.</p>
+    <p><strong>Herr Sommer:</strong> Ich bin mit Herrn Nowak verabredet. Um 14 Uhr.</p>
+    <p><strong>Nora:</strong> Einen Moment bitte, ich schaue nach. … In meiner Liste steht für heute leider kein Termin mit Herrn Nowak. Er ist heute auch den ganzen Tag beim Kunden.</p>
+    <p><strong>Herr Sommer:</strong> Das kann doch nicht sein! Ich habe extra angerufen.</p>
+    <p><strong>Nora:</strong> Das verstehe ich. Das ist ärgerlich für Sie, und es tut mir leid.</p>
+    <p><strong>Herr Sommer:</strong> Und jetzt?</p>
+    <p><strong>Nora:</strong> Herr Nowak ist morgen ab 8 Uhr wieder im Haus. Ich kann Ihnen gleich einen Termin für morgen eintragen. Oder er ruft Sie heute noch an. Was ist Ihnen lieber?</p>
+    <p><strong>Herr Sommer:</strong> Dann lieber ein Termin morgen früh. Um neun?</p>
+    <p><strong>Nora:</strong> Gern. Ich trage Sie für morgen um 9 Uhr ein und schicke Herrn Nowak sofort eine Nachricht. Möchten Sie noch einen Kaffee, bevor Sie gehen?</p>
+  </div>
+
+  <p>Was macht Nora mit diesen Sätzen? Klicken Sie erst links, dann rechts.</p>
+  <div id="zuordnen-sommer"></div>
+  <p class="rueckmeldung" id="zuordnen-sommer-rueck" hidden></p>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Rollenspiel</strong>
+    <h2>Jetzt Sie</h2>
+    <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 15 Minuten</span><p>Spielen Sie zwei Fälle. Nach Fall 1 tauschen Sie die Rollen. Die Person am Empfang achtet darauf: Am Ende steht immer eine Zeitangabe oder ein Angebot.</p></div>
+    <p><strong>Fall 1:</strong> A ist Herr Sommer. Sie sind ungeduldig und haben wenig Zeit. Sie möchten heute noch mit jemandem aus dem Lager sprechen. B ist Nora am Empfang.</p>
+    <p><strong>Fall 2:</strong> B ist Frau Bruns von Technikhaus Nord. Sie haben keinen Termin, möchten aber Jonas Becker sprechen. Herr Becker ist bis 15:30 Uhr in einer Besprechung. A ist Nora am Empfang.</p>
+  </div>
+
+  <div class="redemittel-box">
+    <h2>Diese Sätze helfen</h2>
+    <p class="satz"><strong>Begrüßen:</strong> Guten Tag! Was kann ich für Sie tun? · Herzlich willkommen bei KONTOR.</p>
+    <p class="satz"><strong>Nachfragen:</strong> Wie ist Ihr Name, bitte? · Mit wem sind Sie verabredet? · Worum geht es denn?</p>
+    <p class="satz"><strong>Ehrlich sagen, was Sie sehen:</strong> In meiner Liste steht leider kein Termin. · Herr … ist heute nicht im Haus. · Frau … ist noch in einer Besprechung.</p>
+    <p class="satz"><strong>Verständnis zeigen:</strong> Das verstehe ich. · Das tut mir leid.</p>
+    <p class="satz"><strong>Zeit nennen und anbieten:</strong> Herr … ist morgen ab … Uhr wieder da. · Es dauert noch etwa … Minuten. · Darf ich einen Termin für Sie vereinbaren? · Möchten Sie eine Nachricht hinterlassen? · Nehmen Sie bitte so lange Platz.</p>
   </div>
 
   <div class="differenzierung differenzierung--herausforderung">
-    <strong class="differenzierung__stufe">Herausforderung</strong>
-    <h2>Der Termin steht nicht in der Liste</h2>
-    <p>Am Nachmittag steht Herr Sommer vor Ihnen. Er sagt, er sei um 14 Uhr mit Pawel Nowak verabredet. In der Terminliste steht dazu nichts, und Herr Nowak ist außer Haus. Herr Sommer wird ungeduldig. In die Büroräume dürfen Sie ihn nicht lassen – abweisen möchten Sie ihn auch nicht.</p>
-    <p><strong>Ihre Aufgabe:</strong> Bleiben Sie freundlich, sagen Sie ehrlich, was Sie sehen, und machen Sie ein Angebot. Danach im Plenum: Welcher Satz hat die Lage entschärft?</p>
+    <strong class="differenzierung__stufe">Wenn noch Zeit ist</strong>
+    <h2>Empfangs-Blitz</h2>
+    <p>Auf der Karte steht die Lage. Sagen Sie sofort den passenden Satz, mit Zeitangabe oder Angebot.</p>
+    <div class="kasten">
+      <p class="satz" id="blitz-we-ausgabe">Frau Haddad kommt in fünf Minuten</p>
+      <div class="knopfreihe"><button class="knopf" type="button" id="blitz-we-neu">Neue Lage</button></div>
+    </div>
   </div>
 </section>
 
-<!-- ============ HAUSAUFGABE ============ -->
-<section class="blatt" id="blatt-hausaufgabe" role="tabpanel" aria-labelledby="tab-hausaufgabe" hidden>
-  <p class="stand-hinweis">Zu Hause: 15 Minuten, dann fünf Tage je 2 Minuten</p>
+</main>
 
-  <div class="differenzierung differenzierung--start">
-    <strong class="differenzierung__stufe">1 · Gemischt wiederholen</strong>
-    <h2>Welcher Satz passt jetzt?</h2>
-    <div id="quiz-misch"></div>
-  </div>
+<footer class="fuss">Nur für Kursteilnehmerinnen und Kursteilnehmer</footer>
 
-  <div class="differenzierung differenzierung--start">
-    <strong class="differenzierung__stufe">2 · Laut sprechen</strong>
-    <h2>Acht kurze Impulse</h2>
-    <p class="anleitung">Sprechen Sie zu jedem Impuls sofort den passenden Satz. Nicht schreiben.</p>
-    <p class="satz">Besuch mit Termin &nbsp;·&nbsp; Besuch ohne Termin &nbsp;·&nbsp; Sie telefonieren gerade &nbsp;·&nbsp; die Person kommt gleich<br>
-    es dauert zehn Minuten &nbsp;·&nbsp; Sie begleiten zum Raum &nbsp;·&nbsp; Name nicht verstanden &nbsp;·&nbsp; jemand wartet zu lange</p>
-  </div>
-
-  <div class="differenzierung differenzierung--start">
-    <strong class="differenzierung__stufe">3 · 5-Tage-Mikrotraining</strong>
-    <h2>Zähneputz-Drill</h2>
-    <p>Fünf Tage, je zwei Minuten, jeden Tag nur eine Sache: Tag 1 die drei Schritte beim Begrüßen, Tag 2 die drei Fragen, Tag 3 Warten mit Zeitangabe, Tag 4 Weg beschreiben, Tag 5 Besuch ohne Termin.</p>
-    <p class="marke">Sprechen Sie laut. Am Empfang zählt nicht, was Sie wissen, sondern was in den ersten Sekunden aus Ihnen herauskommt.</p>
-  </div>
-
-  <div class="merker">
-    <span class="marke-merker">Nach fünf Tagen</span>
-    <p>Selbsttest: Melden Sie fünf gedachte Besuche hintereinander an, ohne zu stocken. Wenn zwei davon hängen, wiederholen Sie genau diesen Tag – nicht die ganze Woche.</p>
-  </div>
-
-  <div class="differenzierung differenzierung--weiter">
-    <strong class="differenzierung__stufe">Schriftlich</strong>
-    <h2>Mein Empfang</h2>
-    <ol>
-      <li>Notieren Sie, wie Sie sich an Ihrem Arbeitsplatz melden würden – mit Firma und Namen.</li>
-      <li>Schreiben Sie drei Sätze für Besuch, der warten muss, jeweils mit Zeitangabe.</li>
-      <li>Notieren Sie einen Weg in Ihrem Gebäude in zwei Sätzen.</li>
-    </ol>
-    <textarea class="feld" id="hausaufgabe-frei" rows="6" data-ergebnis-label="Mein Empfang"></textarea>
-  </div>
-</section>
-
-</main><footer class="fuss">Nur für Kursteilnehmerinnen und Kursteilnehmer</footer>
 <script src="../assets/lehrwerk.js"></script><script>
 Lehrwerk.modul('empfang');
 Lehrwerk.reiter();
 
-/* ---- Begrüßen ---- */
-Lehrwerk.auswahl('quiz-begruessen',[
-  {id:'be-q1',text:'Eine Besucherin kommt herein. Was sagen Sie zuerst?',optionen:['Guten Tag! Was kann ich für Sie tun?','Ja bitte?','Haben Sie einen Termin?','Warten Sie kurz.'],richtig:['Guten Tag! Was kann ich für Sie tun?'],erklaerung:'Erst grüßen, dann anbieten. Die Terminfrage kommt danach – sonst klingt der Empfang wie eine Kontrolle.'},
-  {id:'be-q2',text:'Sie telefonieren gerade, jemand stellt sich an den Tresen. Was tun Sie?',optionen:['Blickkontakt und „Einen Moment bitte, ich bin gleich für Sie da“.','Weitertelefonieren und danach fragen.','Das Gespräch sofort beenden.','Auf den Wartebereich zeigen.'],richtig:['Blickkontakt und „Einen Moment bitte, ich bin gleich für Sie da“.'],erklaerung:'Die Person muss merken, dass sie gesehen wurde. Zwei Sekunden genügen dafür.'},
-  {id:'be-q3',text:'Welche zwei Fragen gehören früh ins Gespräch?',optionen:['Wie ist Ihr Name, bitte?','Mit wem sind Sie verabredet?','Wo arbeiten Sie?','Wie sind Sie hergekommen?'],richtig:['Wie ist Ihr Name, bitte?','Mit wem sind Sie verabredet?'],erklaerung:'Ohne Name und Ziel können Sie niemanden anmelden. Die anderen beiden Fragen gehen den Empfang nichts an.'},
-  {id:'be-q4',text:'Warum sagen Sie „Danke fürs Warten“?',optionen:['Es erkennt die Wartezeit an und beendet sie freundlich.','Es ist eine Höflichkeitsformel ohne Bedeutung.','Es entschuldigt einen Fehler.','Es beendet das Gespräch.'],richtig:['Es erkennt die Wartezeit an und beendet sie freundlich.'],erklaerung:'Vier Wörter, die viel retten. Sie zeigen, dass die Wartezeit bemerkt wurde.'},
-  {id:'be-q5',text:'Welche Begrüßung ist am Empfang vollständig?',optionen:['Guten Tag, herzlich willkommen bei der KONTOR AG! Was kann ich für Sie tun?','Hallo.','Ja?','Guten Tag.'],richtig:['Guten Tag, herzlich willkommen bei der KONTOR AG! Was kann ich für Sie tun?'],erklaerung:'Gruß, Firma und Angebot in einem Satz. Ein bloßes „Guten Tag“ ist nicht falsch, aber die Person weiß danach noch nicht, ob sie richtig ist.'}
+/* ---- 1 · Die Übergabe ---- */
+Lehrwerk.auswahl('quiz-uebergabe',[
+  {id:'ue-q1',text:'Warum schreibt Frau Lenz die E-Mail?',optionen:['Nora vertritt sie zwei Wochen am Empfang.','Nora fängt neu bei KONTOR an.','Frau Lenz wechselt in den Einkauf.','Nora soll ihr im Urlaub helfen.'],richtig:['Nora vertritt sie zwei Wochen am Empfang.'],erklaerung:'Frau Lenz hat Urlaub. Nora kennt KONTOR schon, aber nicht den Empfang.'},
+  {id:'ue-q2',text:'Was muss Nora bis 10 Uhr erledigen?',optionen:['die eingehende Post verteilen','die ausgehende Post frankieren','Büromaterial bestellen','Herrn Sommer anrufen'],richtig:['die eingehende Post verteilen'],erklaerung:'„Bitte verteil sie bis 10 Uhr an die Abteilungen.“ Die ausgehende Post hat Zeit bis 15 Uhr.'},
+  {id:'ue-q3',text:'Was macht Nora, wenn bei einem Anruf niemand erreichbar ist?',optionen:['Sie nimmt eine Nachricht auf und leitet sie weiter.','Sie sagt, die Person soll später anrufen.','Sie ruft Frau Lenz an.','Sie bestellt einen Kurier.'],richtig:['Sie nimmt eine Nachricht auf und leitet sie weiter.'],erklaerung:'Eine Nachricht aufnehmen und per E-Mail weiterleiten: So geht keine Information verloren.'},
+  {id:'ue-q4',text:'Was weiß Frau Lenz über Herrn Sommer nicht?',optionen:['ob Pawel ihn schon zurückgerufen hat','was Herr Sommer möchte','von welcher Firma er ist','mit wem er sprechen möchte'],richtig:['ob Pawel ihn schon zurückgerufen hat'],erklaerung:'„Ob das passiert ist, weiß ich nicht.“ Diesen Satz brauchen Sie in Reiter 3 noch einmal.'}
 ]);
 
-Lehrwerk.luecken('be',{
-  felder:{
-    be1:['für'],
-    be2:['name'],
-    be3:['gleich','sofort'],
-    be4:['warten'],
-    be5:['angemeldet','verabredet'],
-    be6:['platz']
-  },
-  pruefen:'be-pruefen', rueck:'be-rueck', tipp:'be-tipp', hinweis:'be-hinweis'
-});
-
-/* ---- Anliegen ---- */
-Lehrwerk.zuordnen('zuordnen-liste',{
-  rueck:'zuordnen-liste-rueck',
+Lehrwerk.zuordnen('zuordnen-taetigkeiten',{
+  rueck:'zuordnen-taetigkeiten-rueck',
   paare:[
-    {id:'z1',links:'Frau Weber von Nordlogistik, 9 Uhr',rechts:'Nora Seidel, Raum 2.14'},
-    {id:'z2',links:'Herr Kaya von Bautechnik Süd, 9:30 Uhr',rechts:'Jonas Becker, Raum 1.08'},
-    {id:'z3',links:'Frau Vogt von der Filiale Bremen, 10 Uhr',rechts:'Kateryna Melnyk, Raum 3.01'},
-    {id:'z4',links:'Herr Lindner, Bewerbung, 11 Uhr',rechts:'Samira Haddad, Raum 1.22'}
+    {id:'t1',links:'die eingehende Post',rechts:'verteilen',erklaerung:'Bitte verteil sie bis 10 Uhr an die Abteilungen.'},
+    {id:'t2',links:'Besucherinnen und Besucher',rechts:'empfangen',erklaerung:'Besucher empfängst du am Tresen.'},
+    {id:'t3',links:'Anrufe',rechts:'annehmen',erklaerung:'Anrufe nimmst du an und verbindest weiter.'},
+    {id:'t4',links:'eine Nachricht',rechts:'aufnehmen',erklaerung:'Wenn niemand erreichbar ist, nimmst du eine Nachricht auf.'},
+    {id:'t5',links:'die ausgehende Post',rechts:'frankieren',erklaerung:'Frankieren heißt: das Porto auf den Brief bringen.'},
+    {id:'t6',links:'einen Kurier',rechts:'bestellen',erklaerung:'Eilige Sendungen schicken wir mit dem Kurier. Den bestellst du online.'},
+    {id:'t7',links:'Lieferscheine',rechts:'abheften',erklaerung:'Lieferscheine heftest du im Ordner ab.'},
+    {id:'t8',links:'Büromaterial',rechts:'nachbestellen',erklaerung:'Nachbestellen: Etwas ist fast leer, also bestellt man neu.'}
   ]
 });
 
-Lehrwerk.auswahl('quiz-anliegen',[
-  {id:'al-q1',text:'Jemand sagt nur: „Ich möchte zu Herrn Becker.“ Was fragen Sie als Nächstes?',optionen:['Wie ist Ihr Name, bitte?','Warum wollen Sie zu ihm?','Kennen Sie ihn?','Ist das dringend?'],richtig:['Wie ist Ihr Name, bitte?'],erklaerung:'Ohne Namen können Sie nicht anmelden. Die Frage nach dem Grund kommt danach – und höflich formuliert.'},
-  {id:'al-q2',text:'Wie fragen Sie höflich nach dem Grund?',optionen:['Darf ich fragen, weshalb Sie kommen?','Warum sind Sie hier?','Was wollen Sie?','Worum geht es, bitte schnell.'],richtig:['Darf ich fragen, weshalb Sie kommen?'],erklaerung:'Dieselbe Information, ganz anderer Ton. „Darf ich fragen …“ lässt der Person die Wahl.'},
-  {id:'al-q3',text:'Die Person möchte den Grund nicht nennen. Was tun Sie?',optionen:['Sie notieren „persönlich“ und melden so an.','Sie fragen noch einmal nach.','Sie lassen die Person nicht durch.','Sie raten selbst etwas.'],richtig:['Sie notieren „persönlich“ und melden so an.'],erklaerung:'Am Empfang wird aufgenommen, nicht geprüft. Alles Weitere klärt die Person, zu der Sie weiterleiten.'},
-  {id:'al-q4',text:'Laut Terminliste kommt Frau Vogt um 10 Uhr. Wohin bringen Sie sie?',optionen:['zu Kateryna Melnyk, Raum 3.01','zu Nora Seidel, Raum 2.14','zu Jonas Becker, Raum 1.08','zu Samira Haddad, Raum 1.22'],richtig:['zu Kateryna Melnyk, Raum 3.01'],erklaerung:'Ein Blick in die Liste genügt – deshalb liegt sie am Empfang.'},
-  {id:'al-q5',text:'Welche zwei Sätze bestätigen eine Anmeldung freundlich?',optionen:['Frau Seidel erwartet Sie schon.','Ich melde Sie kurz an.','Sie stehen auf der Liste.','Da müssen Sie warten.'],richtig:['Frau Seidel erwartet Sie schon.','Ich melde Sie kurz an.'],erklaerung:'Beide sagen, dass es weitergeht. Die anderen beiden klingen nach Verwaltung statt nach Empfang.'}
-]);
-
-Lehrwerk.luecken('al',{
-  felder:{
-    al1:['verabredet'],
-    al2:['worum'],
-    al3:['an'],
-    al4:['erwartet'],
-    al5:['termin'],
-    al6:['weshalb','warum','wieso','weswegen']
-  },
-  pruefen:'al-pruefen', rueck:'al-rueck', tipp:'al-tipp', hinweis:'al-hinweis'
+/* ---- 2 · Nora sucht etwas ---- */
+Lehrwerk.gruppieren('gruppieren-position',{
+  pruefen:'gruppieren-position-pruefen',
+  rueck:'gruppieren-position-rueck',
+  gruppen:[
+    {id:'steht',titel:'… steht',woerter:['der Drucker','der Monitor','die Pflanze','die Kaffeemaschine']},
+    {id:'liegt',titel:'… liegt',woerter:['der Brief','die Mappe','das Headset','der Kugelschreiber']},
+    {id:'haengt',titel:'… hängt',woerter:['der Kalender','die Uhr','das Bild','der Schlüssel am Brett']}
+  ]
 });
 
-/* ---- Warten und weiterleiten ---- */
-Lehrwerk.auswahl('quiz-weiterleiten',[
-  {id:'we-q1',text:'Die gesuchte Person braucht noch zehn Minuten. Was sagen Sie?',optionen:['Es dauert noch etwa zehn Minuten. Möchten Sie einen Kaffee?','Es dauert noch etwas.','Setzen Sie sich.','Frau Seidel ist beschäftigt.'],richtig:['Es dauert noch etwa zehn Minuten. Möchten Sie einen Kaffee?'],erklaerung:'Zeitangabe plus Angebot. „Noch etwas“ ist die häufigste Ursache für ungeduldige Besucher.'},
-  {id:'we-q2',text:'Warum sagen Sie „etwa zehn Minuten“ statt „zehn Minuten“?',optionen:['Weil Sie es nicht genau wissen und nichts versprechen wollen.','Weil es höflicher klingt.','Weil zehn Minuten zu kurz sind.','Weil man am Empfang keine Zeiten nennt.'],richtig:['Weil Sie es nicht genau wissen und nichts versprechen wollen.'],erklaerung:'„Etwa“ und „ungefähr“ machen aus einer Zusage eine Einschätzung. Das ist ehrlicher und hält, was es sagt.'},
-  {id:'we-q3',text:'Jemand kommt ohne Termin. Welche zwei Sätze helfen weiter?',optionen:['Herr Becker ist heute leider ausgebucht.','Darf ich einen Termin für Sie vereinbaren?','Ohne Termin geht das nicht.','Sie hätten anrufen müssen.'],richtig:['Herr Becker ist heute leider ausgebucht.','Darf ich einen Termin für Sie vereinbaren?'],erklaerung:'Lage nennen und einen Weg anbieten. Die anderen beiden Sätze schließen die Tür, ohne eine andere zu öffnen.'},
-  {id:'we-q4',text:'Welche Wegbeschreibung ist am klarsten?',optionen:['Zweiter Stock, dann rechts – die dritte Tür links.','Da hinten irgendwo.','Sie finden das schon.','Beim Aufzug fragen Sie noch mal.'],richtig:['Zweiter Stock, dann rechts – die dritte Tür links.'],erklaerung:'Drei kurze Schritte in der richtigen Reihenfolge. Mehr merkt sich niemand auf einmal.'},
-  {id:'we-q5',text:'Was ist oft besser, als den Weg zu beschreiben?',optionen:['Die Person selbst hinbringen, wenn es die Zeit erlaubt.','Einen Plan mitgeben.','Die Kollegin herunterschicken.','Nichts, die Beschreibung genügt immer.'],richtig:['Die Person selbst hinbringen, wenn es die Zeit erlaubt.'],erklaerung:'„Kommen Sie bitte mit“ ist der freundlichste Satz am Empfang – wenn der Tresen so lange allein bleiben kann.'}
+Lehrwerk.auswahl('quiz-dativ',[
+  {id:'da-q1',text:'Das Headset liegt neben ___ Tastatur.',optionen:['der','die','den'],richtig:['der'],erklaerung:'Wo? → Dativ. die Tastatur → neben der Tastatur.'},
+  {id:'da-q2',text:'Die Frankiermaschine steht auf ___ Sideboard.',optionen:['dem','das','den'],richtig:['dem'],erklaerung:'Wo? → Dativ. das Sideboard → auf dem Sideboard.'},
+  {id:'da-q3',text:'Der Kalender ___ an der Wand.',optionen:['hängt','steht','liegt'],richtig:['hängt'],erklaerung:'Ein Kalender ist oben befestigt: Er hängt.'},
+  {id:'da-q4',text:'Die Briefe liegen ___ Ablage.',optionen:['in der','in die','im'],richtig:['in der'],erklaerung:'Wo? → Dativ. die Ablage → in der Ablage.'},
+  {id:'da-q5',text:'Die Ordner ___ im Regal.',optionen:['stehen','liegen','hängen'],richtig:['stehen'],erklaerung:'Ordner im Regal sind aufrecht: Sie stehen. Plural: stehen.'}
 ]);
 
-Lehrwerk.luecken('we',{
-  felder:{
-    we1:['platz'],
-    we2:['etwa','ungefähr','circa','ca.','rund','gut'],
-    we3:['bringe','begleite'],
-    we4:['ausgebucht'],
-    we5:['vereinbaren','ausmachen'],
-    we6:['entlang']
-  },
-  pruefen:'we-pruefen', rueck:'we-rueck', tipp:'we-tipp', hinweis:'we-hinweis'
+/* Grundriss: Rollen A und B */
+(function(){
+  const r1=document.getElementById('plan-runde1'), r2=document.getElementById('plan-runde2');
+  const text=document.getElementById('plan-rolle-text');
+  const karten=['a1','b1','a2','b2'];
+  function zeige(rolle){
+    r1.setAttribute('display', rolle==='b1' ? 'inline' : 'none');
+    r2.setAttribute('display', rolle==='b2' ? 'inline' : 'none');
+    karten.forEach(k=>{document.getElementById('karte-'+k).hidden = (k!==rolle);});
+    document.querySelectorAll('#plan-rollen [data-plan]').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.plan===rolle)));
+    text.textContent = rolle ? '' : 'Wählen Sie Ihre Rolle.';
+    text.hidden = !!rolle;
+  }
+  document.querySelectorAll('#plan-rollen [data-plan]').forEach(b=>b.addEventListener('click',()=>zeige(b.dataset.plan)));
+  zeige('');
+})();
+
+/* ---- 3 · Herr Sommer kommt ---- */
+Lehrwerk.auswahl('quiz-sommer',[
+  {id:'so-q1',text:'Was ist wahrscheinlich passiert?',optionen:['Pawel hat Herrn Sommer nicht zurückgerufen. Herr Sommer glaubt, er hat einen Termin.','Herr Sommer hat sich im Tag geirrt.','Nora hat den Termin vergessen.','Frau Lenz hat den Termin gelöscht.'],richtig:['Pawel hat Herrn Sommer nicht zurückgerufen. Herr Sommer glaubt, er hat einen Termin.'],erklaerung:'Sicher weiß Nora es nicht. Aber Frau Lenz schreibt: „Ob das passiert ist, weiß ich nicht.“ Und in der Liste steht nichts.'},
+  {id:'so-q2',text:'Was macht Nora jetzt?',optionen:['Sie sagt freundlich, was sie sieht, und macht ein Angebot.','Sie schickt Herrn Sommer ins Lager zu Pawels Team.','Sie sagt: „Sie haben keinen Termin.“','Sie ruft zuerst Frau Lenz im Urlaub an.'],richtig:['Sie sagt freundlich, was sie sieht, und macht ein Angebot.'],erklaerung:'Ehrlich und freundlich bleiben und eine Lösung anbieten. Ins Lager darf er nicht allein. Und Frau Lenz kann jetzt auch nicht helfen: Herr Sommer steht vor Nora.'}
+]);
+
+Lehrwerk.zuordnen('zuordnen-sommer',{
+  rueck:'zuordnen-sommer-rueck',
+  paare:[
+    {id:'s1',links:'begrüßen',rechts:'Herzlich willkommen bei KONTOR.'},
+    {id:'s2',links:'Zeit gewinnen',rechts:'Einen Moment bitte, ich schaue nach.'},
+    {id:'s3',links:'ehrlich sagen, was sie sieht',rechts:'In meiner Liste steht für heute leider kein Termin.'},
+    {id:'s4',links:'Verständnis zeigen',rechts:'Das ist ärgerlich für Sie, und es tut mir leid.'},
+    {id:'s5',links:'eine Zeit nennen',rechts:'Herr Nowak ist morgen ab 8 Uhr wieder im Haus.'},
+    {id:'s6',links:'zwei Lösungen anbieten',rechts:'Ich kann Ihnen einen Termin eintragen. Oder er ruft Sie an.'},
+    {id:'s7',links:'freundlich abschließen',rechts:'Möchten Sie noch einen Kaffee, bevor Sie gehen?'}
+  ]
 });
-
-/* ---- Spielplatz ---- */
-Lehrwerk.auswahl('tuev',[
-  {id:'tv1',text:'Welcher Satz passt nicht an den Empfang?',optionen:['Was wollen Sie?','Was kann ich für Sie tun?','Wie kann ich Ihnen helfen?','Guten Tag, herzlich willkommen!'],richtig:['Was wollen Sie?'],erklaerung:'Inhaltlich dasselbe, im Ton eine ganz andere Sache – und am Empfang ist der Ton die halbe Arbeit.'},
-  {id:'tv2',text:'Und welcher hier?',optionen:['Da müssen Sie warten.','Nehmen Sie bitte so lange Platz.','Es dauert noch etwa zehn Minuten.','Möchten Sie einen Kaffee?'],richtig:['Da müssen Sie warten.'],erklaerung:'Der Satz nennt keine Zeit und macht kein Angebot. Genau daran entstehen ungeduldige Besucher.'}
-]);
-
-/* ---- Hausaufgabe ---- */
-Lehrwerk.auswahl('quiz-misch',[
-  {id:'mi1',text:'Besuch kommt herein. Erster Satz?',optionen:['Guten Tag! Was kann ich für Sie tun?','Haben Sie einen Termin?','Ja bitte?','Name?'],richtig:['Guten Tag! Was kann ich für Sie tun?'],erklaerung:'Erst grüßen und anbieten, dann fragen.'},
-  {id:'mi2',text:'Sie telefonieren gerade.',optionen:['Blickkontakt und „Einen Moment bitte, ich bin gleich für Sie da“.','Weitertelefonieren.','Auf die Uhr zeigen.','Die Person wegschicken.'],richtig:['Blickkontakt und „Einen Moment bitte, ich bin gleich für Sie da“.'],erklaerung:'Gesehen werden ist wichtiger als sofort bedient werden.'},
-  {id:'mi3',text:'Die gesuchte Person braucht noch Zeit.',optionen:['Es dauert noch etwa zehn Minuten. Nehmen Sie bitte Platz.','Es dauert noch.','Warten Sie dort.','Keine Ahnung, wie lange.'],richtig:['Es dauert noch etwa zehn Minuten. Nehmen Sie bitte Platz.'],erklaerung:'Zeitangabe plus Angebot – immer zusammen.'},
-  {id:'mi4',text:'Jemand kommt ohne Termin und die Person ist ausgebucht.',optionen:['Darf ich einen Termin für Sie vereinbaren?','Ohne Termin geht nichts.','Kommen Sie morgen wieder.','Da kann ich nichts machen.'],richtig:['Darf ich einen Termin für Sie vereinbaren?'],erklaerung:'Immer eine Tür öffnen, wenn Sie eine schließen.'},
-  {id:'mi5',text:'Welche zwei Fragen brauchen Sie zum Anmelden?',optionen:['Wie ist Ihr Name, bitte?','Mit wem sind Sie verabredet?','Wie sind Sie hergekommen?','Wie lange bleiben Sie?'],richtig:['Wie ist Ihr Name, bitte?','Mit wem sind Sie verabredet?'],erklaerung:'Name und Ziel genügen. Alles andere klärt die Kollegin.'},
-  {id:'mi6',text:'Die Person möchte nicht sagen, worum es geht.',optionen:['„Persönlich“ notieren und so anmelden.','Nachbohren.','Nicht anmelden.','Selbst etwas vermuten.'],richtig:['„Persönlich“ notieren und so anmelden.'],erklaerung:'Am Empfang wird aufgenommen, nicht geprüft.'}
-]);
-
-Lehrwerk.frei('nachricht-frei');
-Lehrwerk.frei('hausaufgabe-frei');
 
 /* ---- Klick-und-sprich-Blitze ---- */
 function blitz(ausgabeId, knopfId, liste){
@@ -454,24 +403,15 @@ function blitz(ausgabeId, knopfId, liste){
   });
 }
 
-blitz('blitz-be-ausgabe','blitz-be-neu',[
-  'Eine Besucherin mit Termin','Ein Besucher ohne Termin','Jemand kommt zwanzig Minuten zu früh',
-  'Sie telefonieren gerade','Eine Lieferung, kein Besuch','Jemand sucht die Personalabteilung',
-  'Eine Bewerberin, sehr nervös','Zwei Personen gleichzeitig','Jemand nennt keinen Namen',
-  'Ein Besucher steht schon am Tresen, als Sie kommen'
-]);
-
-blitz('blitz-al-ausgabe','blitz-al-neu',[
-  'Ich habe einen Termin bei Frau Seidel.','Ich möchte zu Herrn Becker.',
-  'Ich bin wegen der Bewerbung hier.','Ich habe eine Lieferung für das Lager.',
-  'Ich möchte jemanden vom Einkauf sprechen.','Das ist persönlich.',
-  'Ich bin mit Frau Melnyk verabredet, weiß aber nicht mehr, wann.',
-  'Ich war schon einmal hier, letzte Woche.','Ich habe keinen Termin, es dauert nur kurz.',
-  'Mein Name ist Kaya, Bautechnik Süd.'
+blitz('blitz-tag-ausgabe','blitz-tag-neu',[
+  'Das Telefon klingelt.','8:30 Uhr: Die Post bringt die Briefe.','Ein Besucher steht am Tresen.',
+  'Frau Melnyk ist nicht erreichbar. Jemand möchte sie sprechen.','Es ist 14:45 Uhr. Die Briefe für heute liegen noch auf dem Tisch.',
+  'Ein Paket muss heute noch nach Hamburg.','Ein Kurier bringt drei Lieferscheine.','Es ist Donnerstag.',
+  'Eine Kundin ruft an und möchte Jonas Becker sprechen.','Das Kopierpapier ist fast leer.'
 ]);
 
 blitz('blitz-we-ausgabe','blitz-we-neu',[
-  'Frau Seidel kommt in fünf Minuten','Herr Becker ist noch in einer Besprechung',
+  'Frau Haddad kommt in fünf Minuten','Herr Becker ist noch in einer Besprechung',
   'Die Person ist heute ausgebucht','Sie können selbst hinbringen',
   'Raum 2.14, zweiter Stock','Der Aufzug ist außer Betrieb',
   'Die Besucherin wartet schon zwanzig Minuten','Die gesuchte Person ist außer Haus',

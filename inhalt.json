@@ -259,8 +259,8 @@
               "status": "fertig"
             },
             {
-              "titel": "Empfang und Kundengespräch",
-              "beschreibung": "Begrüßen, Anliegen aufnehmen, weiterleiten.",
+              "titel": "Am Empfang: Nora übernimmt",
+              "beschreibung": "Eine Urlaubsübergabe lesen, den Arbeitsplatz beschreiben, schwierigen Besuch empfangen.",
               "pfad": "empfang.html",
               "niveau": "B2",
               "dauer": "45 Min",
@@ -268,7 +268,7 @@
                 "Sprechen",
                 "Lesen"
               ],
-              "status": "fertig"
+              "status": "teilweise"
             },
             {
               "titel": "Kundengespräche am Telefon",
