@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Teambesprechung bei KONTOR – Berufssprachkurs</title>
+  <link rel="stylesheet" href="../assets/basis.css">
+  <link rel="stylesheet" href="../assets/platform.css">
+  <link rel="stylesheet" href="../assets/lehrwerk.css">
+  <link rel="stylesheet" href="../assets/aufgaben.css">
+  <script src="../assets/platform.js"></script>
+</head>
+<body data-page="module" data-bereich="pauken" data-root="../">
+<header class="hero bereich-kopf"><div class="innen">
+  <a class="zurueck" href="../pauken.html">← Pauken</a>
+  <h1><em>Hörwerkstatt:</em> Teambesprechung bei KONTOR</h1>
+  <p class="anleitung">Frau Melnyk verteilt Aufgaben. Drei Kolleginnen und Kollegen fehlen. Hören Sie, fragen Sie zurück, und hören Sie dann, was Nora und Jonas fragen.</p>
+</div></header>
+
+<main class="innen modul modul--breit">
+
+<div class="reiter" role="tablist" aria-label="Teile der Besprechung">
+  <button type="button" id="tab-teil1" role="tab" aria-selected="true" data-blatt="teil1">Teil 1 · Wer macht was?</button>
+  <button type="button" id="tab-teil2" role="tab" aria-selected="false" data-blatt="teil2" disabled>Teil 2 · Schon erledigt? <span class="folgt">folgt</span></button>
+</div>
+
+<!-- ============ TEIL 1 ============ -->
+<section class="blatt" id="blatt-teil1" role="tabpanel" aria-labelledby="tab-teil1">
+  <p class="stand-hinweis">etwa 40 Minuten · hören, zurückfragen, vergleichen, weitergeben</p>
+
+  <audio id="ton" preload="auto" src="../assets/audio/teambesprechung-teil1.mp3"></audio>
+
+  <!-- 1 · Situation -->
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">Schritt 1 · Hören</strong>
+    <h2>Wer ist heute nicht da?</h2>
+    <p>Montagmorgen bei KONTOR. Frau Melnyk beginnt die Teambesprechung. Hören Sie den Anfang.</p>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" data-von="0" data-bis="10.9">▶ Anfang hören (10 Sekunden)</button>
+      <button class="knopf" type="button" data-stopp>■ Stopp</button>
+    </div>
+  </div>
+  <div id="quiz-situation"></div>
+  <div id="zuordnen-warum"></div>
+  <p class="rueckmeldung" id="zuordnen-warum-rueck" hidden></p>
+
+  <!-- 2 · Auftrag für Auftrag -->
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Schritt 2 · Zurückfragen</strong>
+    <h2>Auftrag für Auftrag</h2>
+    <p>Frau Melnyk gibt einen Auftrag. <strong>Stopp!</strong> Jetzt fragen <strong>Sie</strong> zurück. Erst danach hören Sie, was Nora oder Jonas fragt.</p>
+  </div>
+
+  <div class="kasten">
+    <h3>So geht es</h3>
+    <p class="satz"><strong>Frau Melnyk:</strong> Nora soll das Paket heute noch abschicken.</p>
+    <p class="satz"><strong>Ihre Rückfrage:</strong> <span class="verb">Schickt</span> sie es auch <span class="verb">ab</span>, wenn sie keine Briefmarken hat?</p>
+    <p>Fragen Sie <strong>ohne</strong> Modalverb. Das Verb steht vorn. Hören Sie dann genau: Bleibt das Verb zusammen, oder geht ein Teil ans Ende?</p>
+  </div>
+
+  <div class="kasten" id="schritte">
+    <p class="marke" id="schritt-nummer">Auftrag 1 von 8</p>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="schritt-auftrag">▶ 1. Frau Melnyk hören</button>
+      <button class="knopf" type="button" id="schritt-auftrag-text">Auftrag lesen</button>
+    </div>
+    <p class="satz" id="schritt-auftrag-ausgabe" hidden></p>
+    <div class="auftrag"><span class="auftrag-marke">Jetzt Sie</span><p>Was fragen Sie zurück? Sagen Sie Ihre Frage laut.</p></div>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="schritt-tipp">Tipp</button>
+    </div>
+    <p class="satz" id="schritt-tipp-ausgabe" hidden></p>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="schritt-frage">▶ 2. Rückfrage im Gespräch hören</button>
+      <button class="knopf" type="button" id="schritt-frage-text">Rückfrage lesen</button>
+    </div>
+    <p class="satz" id="schritt-frage-ausgabe" hidden></p>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="schritt-zurueck">← Zurück</button>
+      <button class="knopf" type="button" id="schritt-weiter">Nächster Auftrag →</button>
+    </div>
+  </div>
+
+  <!-- 3 · Erkennen -->
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Schritt 3 · Erkennen</strong>
+    <h2>Welches Verb? Wo ist die Betonung?</h2>
+    <p>Hören Sie den Auftrag noch einmal. Das Verb steht ganz am Ende. Welches Verb ist es? Sagen Sie es. Dann klicken Sie auf „Verb zeigen“ und danach auf die <strong>betonte</strong> Silbe.</p>
+  </div>
+  <div class="kasten" id="betonung"></div>
+
+  <div class="auftrag"><span class="auftrag-marke">Sortieren</span><p>Trennbar oder nicht? Denken Sie an die Rückfragen: „Nimmt er sie an?“, aber „Besucht er Brandt?“</p></div>
+  <div id="gruppieren-trennbar"></div>
+  <div class="knopfreihe"><button class="knopf" id="gruppieren-trennbar-pruefen" type="button">Prüfen</button></div>
+  <p class="rueckmeldung" id="gruppieren-trennbar-rueck" hidden></p>
+
+  <div class="merker">
+    <span class="marke-merker">Was fällt auf?</span>
+    <p><strong>Vorne betont → trennbar.</strong> Ohne Modalverb geht der kleine Teil ans Ende:<br>
+    <strong>AN</strong>nehmen → <span class="verb">Nimmt</span> er die Lieferung <span class="verb">an</span>? · <strong>AB</strong>holen → <span class="verb">Holt</span> er die Prospekte <span class="verb">ab</span>?</p>
+    <p><strong>Hinten betont → untrennbar.</strong> be- und ver- bleiben immer am Verb:<br>
+    be<strong>SU</strong>chen → <span class="verb">Besucht</span> er Brandt? · ver<strong>SCHI</strong>cken → <span class="verb">Verschickt</span> sie die Einladungen?</p>
+    <p><strong>Mit Modalverb</strong> bleibt alles zusammen am Ende: Pawel <span class="verb">muss</span> die Lieferung <span class="verb">annehmen</span>.</p>
+    <p class="marke">Spannend: nach|bestellen → Sie <span class="verb">bestellt</span> Papier <span class="verb">nach</span>. „nach“ geht weg, „be“ bleibt.</p>
+  </div>
+
+  <!-- 4 · Weitergeben -->
+  <div class="differenzierung differenzierung--herausforderung">
+    <strong class="differenzierung__stufe">Schritt 4 · Weitergeben</strong>
+    <h2>Nora ruft an</h2>
+    <p>Sie sind Nora. Nach der Besprechung rufen Sie die Kolleginnen und Kollegen an und sagen ihnen den Auftrag direkt. Das Modalverb bleibt gleich.</p>
+    <p>Nora duzt Pawel und Petra Lenz. Frau Haddad siezt sie.</p>
+  </div>
+
+  <div class="kasten">
+    <h3>So geht es</h3>
+    <p class="satz">Frau Melnyk: „Pawel <span class="verb">muss</span> die Lieferung annehmen.“<br>
+    Nora am Telefon: „Pawel, du <span class="verb">musst</span> die Lieferung annehmen.“</p>
+  </div>
+
+  <div class="kasten">
+    <p class="satz" id="karte-direkt-ausgabe">Klicken Sie auf „Neuer Auftrag“.</p>
+    <p class="satz" id="karte-direkt-loesung" hidden></p>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="karte-direkt-neu">Neuer Auftrag</button>
+      <button class="knopf" type="button" id="karte-direkt-zeigen">Lösung zeigen</button>
+    </div>
+  </div>
+
+  <div class="merker">
+    <span class="marke-merker">Achtung</span>
+    <p>Bei Modalverben klingen <strong>ich</strong> und <strong>er/sie</strong> gleich. Keine Endung!</p>
+    <p class="satz">ich <span class="verb">muss</span> · du <span class="verb">musst</span> · er/sie <span class="verb">muss</span> · wir <span class="verb">müssen</span> · Sie <span class="verb">müssen</span><br>
+    ich <span class="verb">soll</span> · du <span class="verb">sollst</span> · er/sie <span class="verb">soll</span> · wir <span class="verb">sollen</span> · Sie <span class="verb">sollen</span><br>
+    ich <span class="verb">kann</span> · du <span class="verb">kannst</span> · er/sie <span class="verb">kann</span> · wir <span class="verb">können</span> · Sie <span class="verb">können</span></p>
+    <p>Also: Pawel <span class="verb">muss</span> … Nicht: <s>Pawel müssen …</s></p>
+  </div>
+
+  <div class="differenzierung differenzierung--herausforderung">
+    <strong class="differenzierung__stufe">Berichten</strong>
+    <h2>Und wer macht was?</h2>
+    <p>Jemand war nicht in der Besprechung und fragt Sie. Antworten Sie mit <strong>er</strong> oder <strong>sie</strong> und mit dem Modalverb aus der Besprechung.</p>
+  </div>
+  <div class="kasten">
+    <p class="satz" id="karte-bericht-ausgabe">Klicken Sie auf „Neue Frage“.</p>
+    <p class="satz" id="karte-bericht-loesung" hidden></p>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="karte-bericht-neu">Neue Frage</button>
+      <button class="knopf" type="button" id="karte-bericht-zeigen">Lösung zeigen</button>
+    </div>
+  </div>
+
+  <details class="kasten">
+    <summary><strong>Die Besprechung zum Nachlesen</strong> (erst ganz am Ende öffnen)</summary>
+    <div id="transkript"></div>
+  </details>
+</section>
+
+<!-- ============ TEIL 2 ============ -->
+<section class="blatt" id="blatt-teil2" role="tabpanel" aria-labelledby="tab-teil2" hidden>
+  <p>Teil 2 folgt.</p>
+</section>
+
+</main>
+
+<script src="../assets/lehrwerk.js"></script><script>
+Lehrwerk.modul('teambesprechung');
+Lehrwerk.reiter();
+
+/* ---- Ausschnitte abspielen ----
+   Seitenlokal wie die Blitze im Empfangsmodul. Sobald die zentrale
+   Hörfunktion in lehrwerk.js steht, wird dies ersetzt. */
+const ton=document.getElementById('ton');
+let tonEnde=null, tonUhr=null;
+function spiele(von,bis){
+  clearInterval(tonUhr);
+  if(ton.readyState<1){ ton.addEventListener('loadedmetadata',()=>spiele(von,bis),{once:true}); ton.load(); return; }
+  ton.currentTime=von; tonEnde=bis;
+  const p=ton.play(); if(p&&p.catch) p.catch(()=>{});
+  tonUhr=setInterval(()=>{ if(ton.currentTime>=tonEnde){ ton.pause(); clearInterval(tonUhr); } },40);
+}
+function stopp(){ ton.pause(); clearInterval(tonUhr); }
+document.querySelectorAll('[data-von]').forEach(k=>k.addEventListener('click',()=>spiele(+k.dataset.von,+k.dataset.bis)));
+document.querySelectorAll('[data-stopp]').forEach(k=>k.addEventListener('click',stopp));
+
+/* ---- Daten: die acht Aufträge ----
+   auftrag/frage: Sekunden in der Aufnahme */
+const V=t=>'<span class="verb">'+t+'</span>';
+const AUFTRAEGE=[
+  {auftrag:[11.0,13.85], frage:[14.0,20.0], wer:'Nora',
+   a:'Pawel '+V('muss')+' morgen um sieben die Lieferung '+V('annehmen')+'.',
+   tipp:'Selbst? Oder jemand aus dem Lager?',
+   f:'<strong>Nora:</strong> '+V('Nimmt')+' er sie selbst '+V('an')+'? Oder macht das jemand aus dem Lager?<br><strong>Frau Melnyk:</strong> Er selbst. Es ist eine wichtige Lieferung.'},
+  {auftrag:[20.3,22.7], frage:[22.75,28.1], wer:'Jonas',
+   a:'Frau Haddad '+V('soll')+' Herrn Sommer '+V('zurückrufen')+'.',
+   tipp:'Von zu Hause? Sie ist doch krank.',
+   f:'<strong>Jonas:</strong> '+V('Ruft')+' sie ihn von zu Hause '+V('zurück')+'? Sie ist doch krank.<br><strong>Frau Melnyk:</strong> Ja, sie arbeitet heute von zu Hause.'},
+  {auftrag:[28.3,31.55], frage:[31.6,38.0], wer:'Jonas',
+   a:'Pawel '+V('muss')+' morgen Nachmittag die Firma Brandt '+V('besuchen')+'.',
+   tipp:'Allein? Oder mit jemandem?',
+   f:'<strong>Jonas:</strong> '+V('Besucht')+' er Brandt allein? Ich kann gern mitkommen.<br><strong>Frau Melnyk:</strong> Nein, Sie bleiben hier. Wir sind sowieso schon zu wenige.'},
+  {auftrag:[38.2,42.4], frage:[42.45,48.3], wer:'Nora',
+   a:'Frau Lenz '+V('soll')+' nach dem Urlaub den Besprechungsraum für die Messe '+V('vorbereiten')+'.',
+   tipp:'Allein? Das sind viele Stühle.',
+   f:'<strong>Nora:</strong> '+V('Bereitet')+' sie den Raum allein '+V('vor')+'? Das sind doch zwanzig Stühle.<br><strong>Frau Melnyk:</strong> Nein, Pawel hilft ihr.'},
+  {auftrag:[48.4,51.0], frage:[51.05,55.95], wer:'Jonas',
+   a:'Frau Haddad '+V('muss')+' Druckerpapier '+V('nachbestellen')+'.',
+   tipp:'Wie viele Pakete? Bald ist die Messe.',
+   f:'<strong>Jonas:</strong> '+V('Bestellt')+' sie gleich zwanzig Pakete '+V('nach')+'? Wir brauchen viel für die Messe.<br><strong>Frau Melnyk:</strong> Zehn reichen.'},
+  {auftrag:[56.0,59.55], frage:[59.55,64.2], wer:'Nora',
+   a:'Frau Lenz '+V('kann')+' nach dem Urlaub die Blumen für den Empfang '+V('bestellen')+'.',
+   tipp:'Wieder Rosen? Die waren teuer.',
+   f:'<strong>Nora:</strong> '+V('Bestellt')+' sie wieder Rosen? Die waren so teuer.<br><strong>Frau Melnyk:</strong> Dann eben Tulpen.'},
+  {auftrag:[64.25,68.2], frage:[68.2,71.8], wer:'Jonas',
+   a:'Pawel '+V('soll')+' am Donnerstag die Messeprospekte in der Druckerei '+V('abholen')+'.',
+   tipp:'Mit dem Auto? Mit dem Lieferwagen?',
+   f:'<strong>Jonas:</strong> '+V('Holt')+' er sie mit dem Lieferwagen '+V('ab')+'?<br><strong>Frau Melnyk:</strong> Ja, es sind zehn Kartons.'},
+  {auftrag:[71.8,75.05], frage:[75.05,85.8], wer:'Nora',
+   a:'Und Frau Haddad '+V('muss')+' die Einladungen zur Messe '+V('verschicken')+'.',
+   tipp:'Per E-Mail oder per Post?',
+   f:'<strong>Nora:</strong> '+V('Verschickt')+' sie die per E-Mail oder per Post?<br><strong>Frau Melnyk:</strong> Per E-Mail. Das kann sie auch von zu Hause. … Oh, Entschuldigung, mein Telefon. Das muss ich annehmen. Fünf Minuten Pause!'}
+];
+
+/* ---- Schritt 1 ---- */
+Lehrwerk.auswahl('quiz-situation',[
+  {id:'s-q1',text:'Wer ist heute nicht da? Drei Antworten sind richtig.',optionen:['Frau Haddad','Pawel','Frau Lenz','Nora','Jonas'],richtig:['Frau Haddad','Pawel','Frau Lenz'],erklaerung:'Nora und Jonas sitzen in der Besprechung. Frau Haddad, Pawel und Frau Lenz fehlen.'},
+  {id:'s-q2',text:'Warum verteilt Frau Melnyk die Aufgaben?',optionen:['Drei Personen fehlen. Ihre Arbeit muss trotzdem jemand planen.','Frau Melnyk hat heute keine Zeit.','Nora und Jonas sind neu bei KONTOR.'],richtig:['Drei Personen fehlen. Ihre Arbeit muss trotzdem jemand planen.'],erklaerung:'„Wir sind also nur zu dritt. Dann verteile ich mal die Aufgaben.“'}
+]);
+Lehrwerk.zuordnen('zuordnen-warum',{
+  rueck:'zuordnen-warum-rueck',
+  paare:[
+    {id:'w1',links:'Frau Haddad',rechts:'ist krank.',erklaerung:'„Frau Haddad ist krank.“ Sie arbeitet aber von zu Hause.'},
+    {id:'w2',links:'Pawel',rechts:'ist beim Kunden.',erklaerung:'„Pawel ist beim Kunden.“'},
+    {id:'w3',links:'Frau Lenz',rechts:'hat Urlaub.',erklaerung:'„Frau Lenz hat Urlaub.“ Nora vertritt sie am Empfang.'}
+  ]
+});
+
+/* ---- Schritt 2: ein Auftrag nach dem anderen ---- */
+(function(){
+  let i=0;
+  const $=id=>document.getElementById(id);
+  const zu=['schritt-auftrag-ausgabe','schritt-tipp-ausgabe','schritt-frage-ausgabe'];
+  function zeige(){
+    const x=AUFTRAEGE[i];
+    stopp();
+    $('schritt-nummer').textContent='Auftrag '+(i+1)+' von '+AUFTRAEGE.length;
+    $('schritt-auftrag-ausgabe').innerHTML='<strong>Frau Melnyk:</strong> '+x.a;
+    $('schritt-tipp-ausgabe').textContent=x.tipp;
+    $('schritt-frage-ausgabe').innerHTML=x.f;
+    $('schritt-frage').textContent='▶ 2. '+x.wer+' hören';
+    zu.forEach(id=>$(id).hidden=true);
+    $('schritt-zurueck').disabled=i===0;
+    $('schritt-weiter').disabled=i===AUFTRAEGE.length-1;
+  }
+  const umschalten=id=>()=>{$(id).hidden=!$(id).hidden;};
+  $('schritt-auftrag').addEventListener('click',()=>spiele(...AUFTRAEGE[i].auftrag));
+  $('schritt-frage').addEventListener('click',()=>spiele(...AUFTRAEGE[i].frage));
+  $('schritt-auftrag-text').addEventListener('click',umschalten('schritt-auftrag-ausgabe'));
+  $('schritt-tipp').addEventListener('click',umschalten('schritt-tipp-ausgabe'));
+  $('schritt-frage-text').addEventListener('click',umschalten('schritt-frage-ausgabe'));
+  $('schritt-zurueck').addEventListener('click',()=>{if(i>0){i--;zeige();}});
+  $('schritt-weiter').addEventListener('click',()=>{if(i<AUFTRAEGE.length-1){i++;zeige();}});
+  zeige();
+})();
+
+/* ---- Schritt 3: Betonung ---- */
+const BETONUNG=[
+  {silben:['an','neh','men'],b:0,satz:'Nimmt er sie selbst an?'},
+  {silben:['zu','rück','ru','fen'],b:1,satz:'Ruft sie ihn zurück?'},
+  {silben:['be','su','chen'],b:1,satz:'Besucht er Brandt allein?'},
+  {silben:['vor','be','rei','ten'],b:0,satz:'Bereitet sie den Raum vor?'},
+  {silben:['nach','be','stel','len'],b:0,satz:'Bestellt sie Papier nach?'},
+  {silben:['be','stel','len'],b:1,satz:'Bestellt sie wieder Rosen?'},
+  {silben:['ab','ho','len'],b:0,satz:'Holt er sie ab?'},
+  {silben:['ver','schi','cken'],b:1,satz:'Verschickt sie die Einladungen?'}
+];
+(function(){
+  const ziel=document.getElementById('betonung');
+  BETONUNG.forEach((v,n)=>{
+    const zeile=document.createElement('div');
+    zeile.style.cssText='border-bottom:1px solid var(--linie);padding:0.6rem 0';
+    const reihe=document.createElement('div'); reihe.className='knopfreihe'; reihe.style.marginTop='0';
+    const hoer=document.createElement('button'); hoer.className='knopf'; hoer.type='button';
+    hoer.textContent='▶ Auftrag '+(n+1);
+    hoer.addEventListener('click',()=>spiele(...AUFTRAEGE[n].auftrag));
+    const zeigen=document.createElement('button'); zeigen.className='knopf'; zeigen.type='button';
+    zeigen.textContent='Verb zeigen';
+    reihe.append(hoer,zeigen);
+    const silben=document.createElement('div'); silben.className='knopfreihe'; silben.style.display='none';
+    const rueck=document.createElement('p'); rueck.className='rueckmeldung'; rueck.hidden=true;
+    v.silben.forEach((s,k)=>{
+      const b=document.createElement('button'); b.className='knopf'; b.type='button';
+      b.textContent=s; b.style.cssText='font-size:1.25rem;font-family:inherit;text-transform:none;letter-spacing:normal;min-width:3.2rem';
+      b.addEventListener('click',()=>{
+        silben.querySelectorAll('button').forEach(x=>{x.style.fontWeight='';x.style.background='';});
+        rueck.hidden=false;
+        const wort=v.silben.map((t,j)=>j===v.b?t.toUpperCase():t).join('');
+        if(k===v.b){
+          b.style.fontWeight='700'; b.style.background='#D6EFD2';
+          rueck.innerHTML=(v.b===0
+            ? '✓ <strong>'+wort+'</strong>: vorne betont, also trennbar. '
+            : (v.silben[0]==='zu'
+              ? '✓ <strong>'+wort+'</strong>: Die Betonung liegt auf „zurück“, also trennbar. '
+              : '✓ <strong>'+wort+'</strong>: hinten betont, also untrennbar. '))
+            +'Rückfrage: „'+v.satz+'“';
+        } else {
+          rueck.textContent='Noch nicht. Hören Sie noch einmal: Welche Silbe ist laut und lang?';
+        }
+      });
+      silben.append(b);
+    });
+    zeigen.addEventListener('click',()=>{silben.style.display='';});
+    zeile.append(reihe,silben,rueck);
+    ziel.append(zeile);
+  });
+})();
+
+Lehrwerk.gruppieren('gruppieren-trennbar',{
+  pruefen:'gruppieren-trennbar-pruefen',
+  rueck:'gruppieren-trennbar-rueck',
+  gruppen:[
+    {id:'trennbar',titel:'trennbar (vorne betont)',woerter:['annehmen','zurückrufen','vorbereiten','nachbestellen','abholen']},
+    {id:'untrennbar',titel:'untrennbar (hinten betont)',woerter:['besuchen','bestellen','verschicken']}
+  ]
+});
+
+/* ---- Schritt 4: Karten ---- */
+function karten(stamm, liste){
+  const aus=document.getElementById(stamm+'-ausgabe'), loe=document.getElementById(stamm+'-loesung');
+  let rest=[];
+  document.getElementById(stamm+'-neu').addEventListener('click',()=>{
+    if(!rest.length) rest=[...liste].sort(()=>Math.random()-0.5);
+    const [frage,antwort]=rest.pop();
+    aus.innerHTML=frage; loe.innerHTML=antwort; loe.hidden=true;
+  });
+  document.getElementById(stamm+'-zeigen').addEventListener('click',()=>{ if(loe.innerHTML) loe.hidden=!loe.hidden; });
+}
+karten('karte-direkt',[
+  ['Pawel '+V('muss')+' morgen um sieben die Lieferung annehmen.','Pawel, du '+V('musst')+' morgen um sieben die Lieferung annehmen.'],
+  ['Frau Haddad '+V('soll')+' Herrn Sommer zurückrufen.','Frau Haddad, Sie '+V('sollen')+' Herrn Sommer zurückrufen.'],
+  ['Pawel '+V('muss')+' morgen Nachmittag die Firma Brandt besuchen.','Pawel, du '+V('musst')+' morgen Nachmittag die Firma Brandt besuchen.'],
+  ['Frau Lenz '+V('soll')+' nach dem Urlaub den Besprechungsraum vorbereiten.','Petra, du '+V('sollst')+' nach dem Urlaub den Besprechungsraum vorbereiten.'],
+  ['Frau Haddad '+V('muss')+' Druckerpapier nachbestellen.','Frau Haddad, Sie '+V('müssen')+' Druckerpapier nachbestellen.'],
+  ['Frau Lenz '+V('kann')+' nach dem Urlaub die Blumen für den Empfang bestellen.','Petra, du '+V('kannst')+' nach dem Urlaub die Blumen für den Empfang bestellen.'],
+  ['Pawel '+V('soll')+' am Donnerstag die Messeprospekte abholen.','Pawel, du '+V('sollst')+' am Donnerstag die Messeprospekte abholen.'],
+  ['Frau Haddad '+V('muss')+' die Einladungen zur Messe verschicken.','Frau Haddad, Sie '+V('müssen')+' die Einladungen zur Messe verschicken.']
+]);
+karten('karte-bericht',[
+  ['Was muss Pawel morgen um sieben machen?','Er '+V('muss')+' die Lieferung annehmen.'],
+  ['Wen soll Frau Haddad zurückrufen?','Sie '+V('soll')+' Herrn Sommer zurückrufen.'],
+  ['Wen muss Pawel morgen Nachmittag besuchen?','Er '+V('muss')+' die Firma Brandt besuchen.'],
+  ['Was soll Frau Lenz nach dem Urlaub vorbereiten?','Sie '+V('soll')+' den Besprechungsraum für die Messe vorbereiten.'],
+  ['Was muss Frau Haddad nachbestellen?','Sie '+V('muss')+' Druckerpapier nachbestellen.'],
+  ['Was kann Frau Lenz nach dem Urlaub bestellen?','Sie '+V('kann')+' die Blumen für den Empfang bestellen.'],
+  ['Was soll Pawel am Donnerstag abholen?','Er '+V('soll')+' die Messeprospekte in der Druckerei abholen.'],
+  ['Was muss Frau Haddad verschicken?','Sie '+V('muss')+' die Einladungen zur Messe verschicken.'],
+  ['Und warum macht Frau Melnyk eine Pause?','Sie '+V('muss')+' ein Telefonat annehmen.']
+]);
+
+/* ---- Transkript ---- */
+document.getElementById('transkript').innerHTML=
+  '<p><strong>Frau Melnyk:</strong> Guten Morgen, Nora, guten Morgen, Jonas. Frau Haddad ist krank, Pawel ist beim Kunden, und Frau Lenz hat Urlaub. Wir sind also nur zu dritt. Dann verteile ich mal die Aufgaben.</p>'+
+  AUFTRAEGE.map(x=>'<p><strong>Frau Melnyk:</strong> '+x.a+'<br>'+x.f+'</p>').join('');
+
+Lehrwerk.abschluss();
+</script>
+</body>
+</html>
