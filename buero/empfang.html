@@ -352,7 +352,7 @@
 
 <!-- ============ 3 · HERR SOMMER KOMMT ============ -->
 <section class="blatt" id="blatt-besuch" role="tabpanel" aria-labelledby="tab-besuch" hidden>
-  <p class="stand-hinweis">etwa 35 Minuten · entscheiden, entdecken, Rollenspiel</p>
+  <p class="stand-hinweis">etwa 45 Minuten · entscheiden, hören, selbst sprechen, Rollenspiel</p>
 
   <div class="kasten">
     <p>Montag, 14:00 Uhr. Ein Mann steht am Tresen: „Guten Tag, Sommer, Brandt Verpackungen. Ich habe um 14 Uhr einen Termin mit Herrn Nowak.“ Nora schaut auf die Terminliste.</p>
@@ -388,23 +388,59 @@
   <div id="quiz-sommer"></div>
 
   <div class="differenzierung differenzierung--start">
-    <strong class="differenzierung__stufe">Entdecken</strong>
-    <h2>So hat Nora es gemacht</h2>
-    <p>Lesen Sie das Gespräch zu zweit laut. Eine Person ist Nora, eine ist Herr Sommer.</p>
+    <strong class="differenzierung__stufe">Hören</strong>
+    <h2>So macht es Nora</h2>
+    <figure class="bildgrammatik">
+      <audio controls preload="auto" id="ton-sommer" src="../assets/audio/empfang-sommer.mp3" style="width:100%">Ihr Browser kann die Audiodatei nicht abspielen. Das Gespräch steht unten zum Nachlesen.</audio>
+      <figcaption>Nora und Herr Sommer am Empfang · 43 Sekunden</figcaption>
+    </figure>
+  </div>
+
+  <div class="auftrag"><span class="auftrag-marke">1. Hören · ohne Text</span><p>Wie endet das Gespräch?</p></div>
+  <div id="quiz-sommer-hoeren1"></div>
+
+  <div class="auftrag"><span class="auftrag-marke">2. Hören · genau</span><p>Hören Sie noch einmal. Achten Sie auf Uhrzeiten und auf Noras Angebote.</p></div>
+  <div id="quiz-sommer-hoeren2"></div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Sprechen</strong>
+    <h2>Jetzt sind Sie Nora</h2>
+    <p>Sie hören Herrn Sommer. <strong>Stopp!</strong> Antworten Sie als Nora. Erst dann hören Sie, was Nora sagt, und vergleichen.</p>
   </div>
   <div class="kasten">
+    <p class="marke" id="nora-nummer">Schritt 1 von 5</p>
+    <p class="satz" id="nora-lage"></p>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="nora-sommer">▶ 1. Herrn Sommer hören</button>
+      <button class="knopf" type="button" id="nora-tipp">Tipp</button>
+    </div>
+    <p class="satz" id="nora-tipp-ausgabe" hidden></p>
+    <div class="auftrag"><span class="auftrag-marke">Jetzt Sie</span><p>Was sagen Sie als Nora? Sprechen Sie laut.</p></div>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="nora-hoeren">▶ 2. Nora hören</button>
+      <button class="knopf" type="button" id="nora-text">Nora lesen</button>
+    </div>
+    <p class="satz" id="nora-text-ausgabe" hidden></p>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="nora-zurueck">← Zurück</button>
+      <button class="knopf" type="button" id="nora-weiter">Weiter →</button>
+    </div>
+  </div>
+
+  <details class="kasten">
+    <summary><strong>Das Gespräch zum Nachlesen</strong> (erst nach dem Hören öffnen)</summary>
     <p><strong>Nora:</strong> Guten Tag, Herr Sommer! Herzlich willkommen bei KONTOR.</p>
     <p><strong>Herr Sommer:</strong> Ich bin mit Herrn Nowak verabredet. Um 14 Uhr.</p>
-    <p><strong>Nora:</strong> Einen Moment bitte, ich schaue nach. … In meiner Liste steht für heute leider kein Termin mit Herrn Nowak. Er ist heute auch den ganzen Tag beim Kunden.</p>
+    <p><strong>Nora:</strong> Einen Moment bitte, ich schaue nach. In meiner Liste steht für heute leider kein Termin mit Herrn Nowak. Er ist heute auch den ganzen Tag beim Kunden.</p>
     <p><strong>Herr Sommer:</strong> Das kann doch nicht sein! Ich habe extra angerufen.</p>
     <p><strong>Nora:</strong> Das verstehe ich. Das ist ärgerlich für Sie, und es tut mir leid.</p>
     <p><strong>Herr Sommer:</strong> Und jetzt?</p>
     <p><strong>Nora:</strong> Herr Nowak ist morgen ab 8 Uhr wieder im Haus. Ich kann Ihnen gleich einen Termin für morgen eintragen. Oder er ruft Sie heute noch an. Was ist Ihnen lieber?</p>
     <p><strong>Herr Sommer:</strong> Dann lieber ein Termin morgen früh. Um neun?</p>
     <p><strong>Nora:</strong> Gern. Ich trage Sie für morgen um 9 Uhr ein und schicke Herrn Nowak sofort eine Nachricht. Möchten Sie noch einen Kaffee, bevor Sie gehen?</p>
-  </div>
+  </details>
 
-  <p>Was macht Nora mit diesen Sätzen? Klicken Sie erst links, dann rechts.</p>
+  <div class="auftrag"><span class="auftrag-marke">Entdecken</span><p>Öffnen Sie jetzt das Gespräch. Was macht Nora mit diesen Sätzen? Klicken Sie erst links, dann rechts.</p></div>
   <div id="zuordnen-sommer"></div>
   <p class="rueckmeldung" id="zuordnen-sommer-rueck" hidden></p>
 
@@ -701,6 +737,53 @@ Lehrwerk.zuordnen('zuordnen-sommer',{
   ]
 });
 
+
+Lehrwerk.auswahl('quiz-sommer-hoeren1',[
+  {id:'sh1-q1',text:'Wie endet das Gespräch?',optionen:['Herr Sommer kommt morgen um 9 Uhr wieder.','Herr Nowak ruft Herrn Sommer heute noch an.','Herr Sommer wartet am Empfang auf Herrn Nowak.','Herr Sommer geht ohne Termin nach Hause.'],richtig:['Herr Sommer kommt morgen um 9 Uhr wieder.'],erklaerung:'„Dann lieber ein Termin morgen früh. Um neun?“ – „Gern. Ich trage Sie für morgen um 9 Uhr ein.“'}
+]);
+Lehrwerk.auswahl('quiz-sommer-hoeren2',[
+  {id:'sh2-q1',text:'Um wie viel Uhr ist Herr Sommer heute verabredet?',optionen:['um 14 Uhr','um 9 Uhr','um 8 Uhr','um 15:30 Uhr'],richtig:['um 14 Uhr'],erklaerung:'„Ich bin mit Herrn Nowak verabredet. Um 14 Uhr.“'},
+  {id:'sh2-q2',text:'Was sagt Herr Sommer, als er hört: kein Termin?',optionen:['Ich habe extra angerufen.','Dann warte ich eben.','Ich komme morgen wieder.','Das macht nichts.'],richtig:['Ich habe extra angerufen.'],erklaerung:'„Das kann doch nicht sein! Ich habe extra angerufen.“ Er ist verärgert.'},
+  {id:'sh2-q3',text:'Welche zwei Lösungen bietet Nora an? Zwei Antworten sind richtig.',optionen:['einen Termin für morgen','einen Anruf von Herrn Nowak heute','ein Gespräch mit Jonas Becker','warten bis 15:30 Uhr'],richtig:['einen Termin für morgen','einen Anruf von Herrn Nowak heute'],erklaerung:'„Ich kann Ihnen gleich einen Termin für morgen eintragen. Oder er ruft Sie heute noch an. Was ist Ihnen lieber?“ Herr Sommer darf wählen.'},
+  {id:'sh2-q4',text:'Was macht Nora nach dem Gespräch? Zwei Antworten sind richtig.',optionen:['Sie trägt den Termin ein.','Sie schickt Herrn Nowak eine Nachricht.','Sie ruft Frau Lenz an.','Sie bestellt ein Taxi.'],richtig:['Sie trägt den Termin ein.','Sie schickt Herrn Nowak eine Nachricht.'],erklaerung:'„Ich trage Sie für morgen um 9 Uhr ein und schicke Herrn Nowak sofort eine Nachricht.“'}
+]);
+
+/* Jetzt sind Sie Nora: Ausschnitte (Sekunden) aus empfang-sommer.mp3.
+   Seitenlokal wie in pauken/teambesprechung.html, bis die zentrale Hörfunktion steht. */
+(function(){
+  const ton=document.getElementById('ton-sommer'); if(!ton) return;
+  let uhr=null;
+  function spiele(von,bis){
+    clearInterval(uhr);
+    if(ton.readyState<1){ ton.addEventListener('loadedmetadata',()=>spiele(von,bis),{once:true}); ton.load(); return; }
+    ton.currentTime=von; const p=ton.play(); if(p&&p.catch) p.catch(()=>{});
+    uhr=setInterval(()=>{ if(ton.currentTime>=bis){ ton.pause(); clearInterval(uhr); } },40);
+  }
+  const S=[
+    {lage:'Herr Sommer kommt an den Tresen. Sie kennen seinen Namen. Begrüßen Sie ihn.',sommer:null,nora:[0,3.0],tipp:'Guten Tag, Herr …! Herzlich willkommen bei …',text:'Guten Tag, Herr Sommer! Herzlich willkommen bei KONTOR.'},
+    {lage:'Herr Sommer sagt, warum er da ist. Schauen Sie auf die Terminliste oben.',sommer:[3.05,6.4],nora:[6.45,15.35],tipp:'Zeit gewinnen · sagen, was in der Liste steht · sagen, wo Herr Nowak ist',text:'Einen Moment bitte, ich schaue nach. In meiner Liste steht für heute leider kein Termin mit Herrn Nowak. Er ist heute auch den ganzen Tag beim Kunden.'},
+    {lage:'Herr Sommer ist verärgert.',sommer:[15.35,18.9],nora:[18.9,22.95],tipp:'Verständnis zeigen · sich entschuldigen',text:'Das verstehe ich. Das ist ärgerlich für Sie, und es tut mir leid.'},
+    {lage:'Herr Sommer will eine Lösung.',sommer:[22.95,24.0],nora:[24.0,32.65],tipp:'Wann ist Herr Nowak wieder da? · zwei Lösungen anbieten · fragen, was er lieber möchte',text:'Herr Nowak ist morgen ab 8 Uhr wieder im Haus. Ich kann Ihnen gleich einen Termin für morgen eintragen. Oder er ruft Sie heute noch an. Was ist Ihnen lieber?'},
+    {lage:'Herr Sommer entscheidet sich.',sommer:[32.65,36.2],nora:[36.2,43.3],tipp:'zustimmen · Termin eintragen · Herrn Nowak informieren · freundlich abschließen',text:'Gern. Ich trage Sie für morgen um 9 Uhr ein und schicke Herrn Nowak sofort eine Nachricht. Möchten Sie noch einen Kaffee, bevor Sie gehen?'}
+  ];
+  let i=0; const $=id=>document.getElementById(id);
+  function zeige(){
+    const x=S[i]; ton.pause(); clearInterval(uhr);
+    $('nora-nummer').textContent='Schritt '+(i+1)+' von '+S.length;
+    $('nora-lage').textContent=x.lage;
+    $('nora-sommer').style.display=x.sommer?'':'none';
+    $('nora-tipp-ausgabe').textContent=x.tipp; $('nora-tipp-ausgabe').hidden=true;
+    $('nora-text-ausgabe').innerHTML='<strong>Nora:</strong> '+x.text; $('nora-text-ausgabe').hidden=true;
+    $('nora-zurueck').disabled=i===0; $('nora-weiter').disabled=i===S.length-1;
+  }
+  $('nora-sommer').addEventListener('click',()=>{ if(S[i].sommer) spiele(...S[i].sommer); });
+  $('nora-hoeren').addEventListener('click',()=>spiele(...S[i].nora));
+  $('nora-tipp').addEventListener('click',()=>{ $('nora-tipp-ausgabe').hidden=!$('nora-tipp-ausgabe').hidden; });
+  $('nora-text').addEventListener('click',()=>{ $('nora-text-ausgabe').hidden=!$('nora-text-ausgabe').hidden; });
+  $('nora-zurueck').addEventListener('click',()=>{ if(i>0){i--;zeige();} });
+  $('nora-weiter').addEventListener('click',()=>{ if(i<S.length-1){i++;zeige();} });
+  zeige();
+})();
 
 /* ---- 4 · Die Vertretung organisieren ---- */
 Lehrwerk.gruppieren('gruppieren-prioritaet',{
