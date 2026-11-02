@@ -24,9 +24,10 @@
 <div class="reiter" role="tablist" aria-label="Lernabschnitte">
   <button type="button" id="tab-uebergabe" role="tab" aria-selected="true" data-blatt="uebergabe">1 · Die Übergabe</button>
   <button type="button" id="tab-suchen" role="tab" aria-selected="false" data-blatt="suchen">2 · Nora sucht etwas</button>
-  <button type="button" id="tab-besuch" role="tab" aria-selected="false" data-blatt="besuch">3 · Herr Sommer kommt</button>
-  <button type="button" id="tab-organisieren" role="tab" aria-selected="false" data-blatt="organisieren">4 · Die Vertretung organisieren</button>
-  <button type="button" id="tab-meine" role="tab" aria-selected="false" data-blatt="meine">5 · Meine Übergabe</button>
+  <button type="button" id="tab-paket" role="tab" aria-selected="false" data-blatt="paket">3 · Ein Paket für KONTOR</button>
+  <button type="button" id="tab-besuch" role="tab" aria-selected="false" data-blatt="besuch">4 · Herr Sommer kommt</button>
+  <button type="button" id="tab-organisieren" role="tab" aria-selected="false" data-blatt="organisieren">5 · Die Vertretung organisieren</button>
+  <button type="button" id="tab-meine" role="tab" aria-selected="false" data-blatt="meine">6 · Meine Übergabe</button>
 </div>
 
 <!-- ============ 1 · DIE ÜBERGABE ============ -->
@@ -350,7 +351,110 @@
   </details>
 </section>
 
-<!-- ============ 3 · HERR SOMMER KOMMT ============ -->
+<!-- ============ 3 · EIN PAKET FÜR KONTOR ============ -->
+<section class="blatt" id="blatt-paket" role="tabpanel" aria-labelledby="tab-paket" hidden>
+  <p class="stand-hinweis">etwa 45 Minuten · hören, selbst sprechen, entdecken, Rollenspiel</p>
+
+  <div class="kasten">
+    <p>Montag, 11 Uhr. Nora sitzt am Empfang. Frau Haddad ist heute krank, Pawel ist den ganzen Tag beim Kunden. Da kommt ein Paketbote herein.</p>
+  </div>
+
+  <div class="auftrag"><span class="auftrag-marke">Vorher · im Kurs · 3 Minuten</span><p>Ein Paketbote kommt an den Empfang. Was fragt er? Was muss Nora machen? Sammeln Sie Ideen.</p></div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">Hören</strong>
+    <h2>Zwei Pakete</h2>
+    <figure class="bildgrammatik">
+      <audio controls preload="auto" id="ton-paket" src="../assets/audio/empfang-paket.mp3" style="width:100%">Ihr Browser kann die Audiodatei nicht abspielen. Das Gespräch steht unten zum Nachlesen.</audio>
+      <figcaption>Der Paketbote und Nora am Empfang · gut eine Minute</figcaption>
+    </figure>
+  </div>
+
+  <div class="auftrag"><span class="auftrag-marke">1. Hören · ohne Text</span><p>Für wen sind die Pakete? Und was passiert mit ihnen?</p></div>
+  <div id="quiz-paket-hoeren1"></div>
+
+  <div class="auftrag"><span class="auftrag-marke">2. Hören · genau</span><p>Hören Sie noch einmal. Achten Sie auf das zweite Paket.</p></div>
+  <div id="quiz-paket-hoeren2"></div>
+
+  <div class="auftrag"><span class="auftrag-marke">3. Nachdenken</span><p>Nora weiß: Frau Haddad ist krank. Aber was sagt sie dem Paketboten?</p></div>
+  <div id="quiz-paket-privat"></div>
+
+  <div class="merker">
+    <span class="marke-merker">Was sagt man Fremden?</span>
+    <p>Dass jemand krank ist, ist privat. Am Empfang sagt man lieber neutral:<br>
+    Frau … ist heute <strong>nicht im Haus</strong>. · Herr … ist <strong>gerade nicht erreichbar</strong>. · Frau … ist <strong>ab morgen wieder da</strong>.</p>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Sprechen</strong>
+    <h2>Jetzt sind Sie Nora</h2>
+    <p>Sie hören den Paketboten. <strong>Stopp!</strong> Antworten Sie als Nora. Erst dann hören Sie, was Nora sagt, und vergleichen.</p>
+  </div>
+  <div class="kasten">
+    <p class="marke" id="bote-nummer">Schritt 1 von 9</p>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="bote-hoeren">▶ 1. Paketboten hören</button>
+      <button class="knopf" type="button" id="bote-tipp">Tipp</button>
+    </div>
+    <p class="satz" id="bote-tipp-ausgabe" hidden></p>
+    <div class="auftrag"><span class="auftrag-marke">Jetzt Sie</span><p>Was sagen Sie als Nora? Sprechen Sie laut.</p></div>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="bote-nora">▶ 2. Nora hören</button>
+      <button class="knopf" type="button" id="bote-text">Beide Sätze lesen</button>
+    </div>
+    <p class="satz" id="bote-text-ausgabe" hidden></p>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="bote-zurueck">← Zurück</button>
+      <button class="knopf" type="button" id="bote-weiter">Weiter →</button>
+    </div>
+  </div>
+
+  <details class="kasten">
+    <summary><strong>Das Gespräch zum Nachlesen</strong> (erst nach dem Hören öffnen)</summary>
+    <div id="paket-transkript"></div>
+  </details>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">Entdecken</strong>
+    <h2>Diese Verben kommen im Gespräch vor</h2>
+    <p>Trennbar oder nicht? Sprechen Sie das Verb leise: Ist es vorne betont oder hinten?</p>
+  </div>
+  <div id="gruppieren-paket"></div>
+  <div class="knopfreihe"><button class="knopf" id="gruppieren-paket-pruefen" type="button">Prüfen</button></div>
+  <p class="rueckmeldung" id="gruppieren-paket-rueck" hidden></p>
+  <div class="merker">
+    <span class="marke-merker">Wie im Gespräch</span>
+    <p class="satzbau">Ich <span class="verb">bewahre</span> das Paket am Empfang <span class="verb">auf</span>. · Er <span class="verb">holt</span> es selbst <span class="verb">ab</span>. · Ich <span class="verb">leite</span> die Karte gleich an ihn <span class="verb">weiter</span>.</p>
+    <p class="satzbau">Dann <span class="verb">unterschreiben</span> Sie bitte hier. · Ich <span class="verb">vertrete</span> den Empfang.</p>
+    <p class="marke"><strong>Mehr üben:</strong> <a href="../pauken/teambesprechung.html">Hörwerkstatt: Teambesprechung bei KONTOR</a></p>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Rollenspiel</strong>
+    <h2>Noch mehr Pakete</h2>
+    <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 15 Minuten</span><p>A ist der Paketbote, B ist Nora am Empfang. Jede Person liest nur ihre eigene Karte. Spielen Sie Fall 1 und 2, dann tauschen Sie die Rollen. Fall 3 ist für Profis.</p></div>
+  </div>
+  <details class="kasten">
+    <summary><strong>Karte A · Paketbote</strong> (nur A öffnet)</summary>
+    <p><strong>Fall 1:</strong> Ein Paket für Jonas Becker. Ganz normal. Die Person am Empfang muss auf dem Scanner unterschreiben.</p>
+    <p><strong>Fall 2:</strong> Ein Paket für Frau Melnyk. Nachnahme: 24,90 Euro, bar oder mit Karte. Ohne Bezahlung nehmen Sie das Paket wieder mit. Es geht in die Filiale Bahnhofstraße und bleibt dort eine Woche.</p>
+    <p><strong>Fall 3 · für Profis:</strong> Ein Paket für Pawel Nowak. Der Karton ist an einer Ecke eingedrückt. Die Person am Empfang kann das Paket annehmen und auf dem Scanner „beschädigt“ vermerken. Oder sie verweigert die Annahme, dann geht das Paket zurück an den Absender. Erklären Sie beide Möglichkeiten.</p>
+  </details>
+  <details class="kasten">
+    <summary><strong>Karte B · Nora</strong> (nur B öffnet)</summary>
+    <p><strong>Fall 1:</strong> Jonas Becker ist bis 12 Uhr in einer Besprechung. Pakete für Kolleginnen und Kollegen dürfen Sie annehmen.</p>
+    <p><strong>Fall 2:</strong> Frau Melnyk ist im Haus, aber noch etwa zehn Minuten am Telefon. Sie selbst dürfen nichts bezahlen.</p>
+    <p><strong>Fall 3 · für Profis:</strong> Pawel ist beim Kunden. Was machen Sie mit einem kaputten Karton? Das wissen Sie nicht. Fragen Sie den Paketboten.</p>
+  </details>
+
+  <div class="redemittel-box">
+    <h2>Diese Sätze helfen</h2>
+    <p class="satz"><strong>Nora:</strong> Für wen ist das Paket? · Frau … ist heute nicht im Haus. · Ich nehme das Paket für sie an. · Ich bewahre es am Empfang auf. · Darf ich das für ihn bezahlen? · Was passiert, wenn …? · Das kann ich nicht entscheiden. · Wo kann er das Paket abholen? · Ich gebe ihm Bescheid.</p>
+    <p class="satz"><strong>Paketbote:</strong> Ich habe ein Paket für … · Unterschreiben Sie bitte hier. · Bitte schreiben Sie Ihren Namen in Druckbuchstaben. · Da sind noch … Euro offen. · Dann nehme ich das Paket wieder mit. · Hier ist die Benachrichtigungskarte.</p>
+  </div>
+</section>
+
+<!-- ============ 4 · HERR SOMMER KOMMT ============ -->
 <section class="blatt" id="blatt-besuch" role="tabpanel" aria-labelledby="tab-besuch" hidden>
   <p class="stand-hinweis">etwa 45 Minuten · entscheiden, hören, selbst sprechen, Rollenspiel</p>
 
@@ -472,7 +576,7 @@
   </div>
 </section>
 
-<!-- ============ 4 · DIE VERTRETUNG ORGANISIEREN ============ -->
+<!-- ============ 5 · DIE VERTRETUNG ORGANISIEREN ============ -->
 <section class="blatt" id="blatt-organisieren" role="tabpanel" aria-labelledby="tab-organisieren" hidden>
   <p class="stand-hinweis">etwa 40 Minuten · ordnen, entscheiden, nachfragen, planen</p>
 
@@ -538,7 +642,7 @@
   <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 8 Minuten</span><p>Erzählen Sie Ihrer Partnerin oder Ihrem Partner Noras ganzen Vormittag von 8 bis 12 Uhr. Benutzen Sie: <strong>zuerst · dann · danach · um … Uhr · von … bis … · anschließend</strong>. Dann tauschen Sie.</p></div>
 </section>
 
-<!-- ============ 5 · MEINE ÜBERGABE ============ -->
+<!-- ============ 6 · MEINE ÜBERGABE ============ -->
 <section class="blatt" id="blatt-meine" role="tabpanel" aria-labelledby="tab-meine" hidden>
   <p class="stand-hinweis">etwa 40 Minuten · prüfen, verbessern, selbst schreiben</p>
 
@@ -618,7 +722,7 @@ Lehrwerk.auswahl('quiz-hoeren2',[
   {id:'h2-q2',text:'Bis wann muss die Post verteilt sein?',optionen:['bis 10 Uhr','bis 9 Uhr','bis 12 Uhr','bis 15 Uhr'],richtig:['bis 10 Uhr'],erklaerung:'„Spätestens um zehn muss alles verteilt sein.“'},
   {id:'h2-q3',text:'Woher weiß Nora, wer zu Besuch kommt?',optionen:['aus der Terminliste','von Pawel','aus einer E-Mail von Frau Melnyk','Das sagt Frau Lenz nicht.'],richtig:['aus der Terminliste'],erklaerung:'„Wer wann kommt, steht auf der Terminliste.“'},
   {id:'h2-q4',text:'Was macht Nora, wenn bei einem Anruf niemand da ist?',optionen:['Sie schreibt eine Nachricht.','Sie ruft später zurück.','Sie ruft Frau Lenz an.','Sie verbindet zu Pawel.'],richtig:['Sie schreibt eine Nachricht.'],erklaerung:'„Wenn niemand da ist, schreibst du eine Nachricht.“'},
-  {id:'h2-q5',text:'Was weiß Frau Lenz nicht?',optionen:['ob Pawel Herrn Sommer zurückgerufen hat','wann die Post kommt','wo die Terminliste ist','wann ihr Zug fährt'],richtig:['ob Pawel Herrn Sommer zurückgerufen hat'],erklaerung:'„Das weiß ich leider nicht. Ich habe Pawel gestern eine Nachricht geschickt, aber er hat noch nicht geantwortet.“ Diese Information brauchen Sie in Reiter 3.'}
+  {id:'h2-q5',text:'Was weiß Frau Lenz nicht?',optionen:['ob Pawel Herrn Sommer zurückgerufen hat','wann die Post kommt','wo die Terminliste ist','wann ihr Zug fährt'],richtig:['ob Pawel Herrn Sommer zurückgerufen hat'],erklaerung:'„Das weiß ich leider nicht. Ich habe Pawel gestern eine Nachricht geschickt, aber er hat noch nicht geantwortet.“ Diese Information brauchen Sie in Reiter 4.'}
 ]);
 
 Lehrwerk.gruppieren('gruppieren-neu',{
@@ -710,7 +814,71 @@ Lehrwerk.auswahl('quiz-welch',[
   zeige('');
 })();
 
-/* ---- 3 · Herr Sommer kommt ---- */
+/* ---- 3 · Ein Paket für KONTOR ---- */
+Lehrwerk.auswahl('quiz-paket-hoeren1',[
+  {id:'pk1-q1',text:'Für wen sind die Pakete? Zwei Antworten sind richtig.',optionen:['für Frau Haddad','für Herrn Nowak','für Frau Melnyk','für Jonas Becker'],richtig:['für Frau Haddad','für Herrn Nowak'],erklaerung:'„Das erste ist für Frau Haddad.“ – „Das zweite Paket ist für Herrn Nowak.“'},
+  {id:'pk1-q2',text:'Welches Paket bleibt bei KONTOR?',optionen:['das Paket für Frau Haddad','das Paket für Herrn Nowak','beide Pakete','keins'],richtig:['das Paket für Frau Haddad'],erklaerung:'Nora nimmt das Paket für Frau Haddad an. Das Paket für Herrn Nowak nimmt der Bote wieder mit.'}
+]);
+Lehrwerk.auswahl('quiz-paket-hoeren2',[
+  {id:'pk2-q1',text:'Was muss Nora für das erste Paket machen? Zwei Antworten sind richtig.',optionen:['auf dem Scanner unterschreiben','ihren Namen in Druckbuchstaben schreiben','ihren Ausweis zeigen','Frau Haddad anrufen'],richtig:['auf dem Scanner unterschreiben','ihren Namen in Druckbuchstaben schreiben'],erklaerung:'„Dann unterschreiben Sie bitte hier auf dem Scanner. Und schreiben Sie Ihren Namen bitte in Druckbuchstaben darunter.“'},
+  {id:'pk2-q2',text:'Woher kommt das zweite Paket?',optionen:['aus der Schweiz','aus Österreich','aus Polen','aus Hamburg'],richtig:['aus der Schweiz'],erklaerung:'„Es kommt aus der Schweiz.“ Die Schweiz ist nicht in der EU. Deshalb gibt es Einfuhrabgaben.'},
+  {id:'pk2-q3',text:'Wie viel Geld ist für das zweite Paket noch offen?',optionen:['38 Euro','18 Euro','83 Euro','28 Euro'],richtig:['38 Euro'],erklaerung:'„Achtunddreißig Euro. Die müssen Sie gleich bezahlen, bar oder mit Karte.“'},
+  {id:'pk2-q4',text:'Warum bezahlt Nora nicht?',optionen:['Sie weiß nicht, ob sie das für Herrn Nowak darf.','Sie hat kein Geld dabei.','Das Paket ist kaputt.','Der Bote nimmt keine Karte.'],richtig:['Sie weiß nicht, ob sie das für Herrn Nowak darf.'],erklaerung:'„Darf ich das überhaupt für ihn bezahlen?“ Nora entscheidet nichts, was sie nicht entscheiden darf.'},
+  {id:'pk2-q5',text:'Wo und wie lange kann Herr Nowak das Paket abholen?',optionen:['in der Filiale Bahnhofstraße, eine Woche lang','am Empfang, eine Woche lang','in der Filiale Bahnhofstraße, zwei Tage lang','beim Zoll, einen Monat lang'],richtig:['in der Filiale Bahnhofstraße, eine Woche lang'],erklaerung:'„Es geht in unsere Filiale in der Bahnhofstraße.“ – „Eine Woche. Danach schicken wir es an den Absender zurück.“'}
+]);
+Lehrwerk.auswahl('quiz-paket-privat',[
+  {id:'pk3-q1',text:'Was sagt Nora über Frau Haddad?',optionen:['Frau Haddad ist heute nicht im Haus.','Frau Haddad ist heute krank.','Frau Haddad hat Urlaub.','Frau Haddad kommt gleich.'],richtig:['Frau Haddad ist heute nicht im Haus.'],erklaerung:'Nora sagt nicht „krank“. Das ist privat, und der Paketbote braucht diese Information nicht.'}
+]);
+
+/* Jetzt sind Sie Nora: Ausschnitte (Sekunden) aus empfang-paket.mp3. Seitenlokal, siehe Reiter 4. */
+(function(){
+  const ton=document.getElementById('ton-paket'); if(!ton) return;
+  let uhr=null;
+  function spiele(von,bis){
+    clearInterval(uhr);
+    if(ton.readyState<1){ ton.addEventListener('loadedmetadata',()=>spiele(von,bis),{once:true}); ton.load(); return; }
+    ton.currentTime=von; const p=ton.play(); if(p&&p.catch) p.catch(()=>{});
+    uhr=setInterval(()=>{ if(ton.currentTime>=bis){ ton.pause(); clearInterval(uhr); } },40);
+  }
+  const S=[
+    {b:[0,4.8],n:[4.8,7.15],tipp:'begrüßen · fragen: für wen?',bt:'Guten Tag! Paketdienst Express-Nord. Ich habe zwei Pakete für KONTOR.',nt:'Guten Tag! Für wen sind die denn?'},
+    {b:[7.15,10.67],n:[10.67,18.8],tipp:'nein · Frau Haddad ist nicht da (nicht „krank“!) · sich vorstellen · anbieten',bt:'Das erste ist für Frau Haddad. Sind Sie Frau Haddad?',nt:'Nein, Frau Haddad ist heute nicht im Haus. Ich bin Nora Seidel, ich vertrete den Empfang. Ich kann das Paket für sie annehmen.'},
+    {b:[18.8,24.55],n:[24.55,29.22],tipp:'fertig · sagen, wo das Paket bleibt',bt:'Gut. Dann unterschreiben Sie bitte hier auf dem Scanner. Und schreiben Sie Ihren Namen bitte in Druckbuchstaben darunter.',nt:'So, bitte schön. Ich bewahre das Paket am Empfang auf, bis sie wieder da ist.'},
+    {b:[29.22,33.86],n:[33.86,37.99],tipp:'Wo ist Herr Nowak? · Sie nehmen es auch an',bt:'Prima. Das zweite Paket ist für Herrn Nowak. Es kommt aus der Schweiz.',nt:'Herr Nowak ist heute beim Kunden. Aber das Paket kann ich auch annehmen.'},
+    {b:[37.99,46.23],n:[46.23,53.2],tipp:'Darf ich …? · Was passiert, wenn …?',bt:'Moment, bei diesem Paket sind noch Einfuhrabgaben offen. Achtunddreißig Euro. Die müssen Sie gleich bezahlen, bar oder mit Karte.',nt:'Oh. Darf ich das überhaupt für ihn bezahlen? Was passiert, wenn ich nicht bezahle?'},
+    {b:[53.2,58.38],n:[58.38,60.29],tipp:'fragen: wie lange?',bt:'Dann nehme ich das Paket wieder mit. Es geht in unsere Filiale in der Bahnhofstraße. Herr Nowak kann es dort abholen und bezahlen.',nt:'Und wie lange bleibt es dort?'},
+    {b:[60.29,63.36],n:[63.36,67.85],tipp:'entscheiden: Paket wieder mitnehmen · Herrn Nowak informieren',bt:'Eine Woche. Danach schicken wir es an den Absender zurück.',nt:'Dann nehmen Sie es bitte wieder mit. Ich gebe Herrn Nowak Bescheid, und er holt es selbst ab.'},
+    {b:[67.85,73.56],n:[73.56,76.48],tipp:'danken · sagen, was Sie mit der Karte machen',bt:'Gut. Hier ist die Benachrichtigungskarte. Darauf stehen die Adresse der Filiale und die Sendungsnummer.',nt:'Vielen Dank. Ich leite die Karte gleich an ihn weiter.'},
+    {b:[76.48,78.06],n:[78.06,79.6],tipp:'sich verabschieden',bt:'Gern. Schönen Tag noch!',nt:'Danke, Ihnen auch!'}
+  ];
+  let i=0; const $=id=>document.getElementById(id);
+  function zeige(){
+    const x=S[i]; ton.pause(); clearInterval(uhr);
+    $('bote-nummer').textContent='Schritt '+(i+1)+' von '+S.length;
+    $('bote-tipp-ausgabe').textContent=x.tipp; $('bote-tipp-ausgabe').hidden=true;
+    $('bote-text-ausgabe').innerHTML='<strong>Paketbote:</strong> '+x.bt+'<br><strong>Nora:</strong> '+x.nt; $('bote-text-ausgabe').hidden=true;
+    $('bote-zurueck').disabled=i===0; $('bote-weiter').disabled=i===S.length-1;
+  }
+  $('bote-hoeren').addEventListener('click',()=>spiele(...S[i].b));
+  $('bote-nora').addEventListener('click',()=>spiele(...S[i].n));
+  $('bote-tipp').addEventListener('click',()=>{ $('bote-tipp-ausgabe').hidden=!$('bote-tipp-ausgabe').hidden; });
+  $('bote-text').addEventListener('click',()=>{ $('bote-text-ausgabe').hidden=!$('bote-text-ausgabe').hidden; });
+  $('bote-zurueck').addEventListener('click',()=>{ if(i>0){i--;zeige();} });
+  $('bote-weiter').addEventListener('click',()=>{ if(i<S.length-1){i++;zeige();} });
+  document.getElementById('paket-transkript').innerHTML=S.map(x=>'<p><strong>Paketbote:</strong> '+x.bt+'<br><strong>Nora:</strong> '+x.nt+'</p>').join('');
+  zeige();
+})();
+
+Lehrwerk.gruppieren('gruppieren-paket',{
+  pruefen:'gruppieren-paket-pruefen',
+  rueck:'gruppieren-paket-rueck',
+  gruppen:[
+    {id:'trennbar',titel:'trennbar (vorne betont)',woerter:['annehmen','aufbewahren','mitnehmen','abholen','zurückschicken','weiterleiten']},
+    {id:'untrennbar',titel:'untrennbar (hinten betont)',woerter:['unterschreiben','bezahlen','vertreten']}
+  ]
+});
+
+/* ---- 4 · Herr Sommer kommt ---- */
 Lehrwerk.gruppieren('gruppieren-wissen',{
   pruefen:'gruppieren-wissen-pruefen',
   rueck:'gruppieren-wissen-rueck',
@@ -785,7 +953,7 @@ Lehrwerk.auswahl('quiz-sommer-hoeren2',[
   zeige();
 })();
 
-/* ---- 4 · Die Vertretung organisieren ---- */
+/* ---- 5 · Die Vertretung organisieren ---- */
 Lehrwerk.gruppieren('gruppieren-prioritaet',{
   pruefen:'gruppieren-prioritaet-pruefen',
   rueck:'gruppieren-prioritaet-rueck',
