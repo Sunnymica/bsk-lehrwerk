@@ -583,7 +583,7 @@
 
 <!-- ============ 5 · DIE VERTRETUNG ORGANISIEREN ============ -->
 <section class="blatt" id="blatt-organisieren" role="tabpanel" aria-labelledby="tab-organisieren" hidden>
-  <p class="stand-hinweis">etwa 40 Minuten · ordnen, entscheiden, nachfragen, planen</p>
+  <p class="stand-hinweis">etwa 60 Minuten · ordnen, entscheiden, nachfragen, hören, planen</p>
 
   <div class="kasten">
     <p>Dienstag, 8:00 Uhr. Nora sitzt am Empfang. Aber ihre eigene Arbeit im Einkauf wartet auch. Auf ihrem Zettel steht:</p>
@@ -629,6 +629,62 @@
     <span class="marke-merker">Was macht die gute Rückfrage gut?</span>
     <p>Sie nennt das <strong>Problem</strong> mit Uhrzeit, stellt eine <strong>klare Frage</strong> und macht einen <strong>Vorschlag</strong>. So kann Frau Haddad in einer Minute antworten.</p>
   </div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">Hören</strong>
+    <h2>Und Raum 3.01 für Donnerstag?</h2>
+    <p>Punkt 6 auf Noras Liste. Diesmal fragt Nora nicht in Teams, sondern geht kurz zu Frau Haddad.</p>
+    <figure class="bildgrammatik">
+      <audio controls preload="auto" id="ton-raum" src="../assets/audio/empfang-raum.mp3" style="width:100%">Ihr Browser kann die Audiodatei nicht abspielen. Das Gespräch steht unten zum Nachlesen.</audio>
+      <figcaption>Nora und Frau Haddad · gut eine Minute</figcaption>
+    </figure>
+  </div>
+
+  <div class="auftrag"><span class="auftrag-marke">1. Hören · ohne Text</span><p>Bekommt Nora den Raum? Und was macht sie am Ende?</p></div>
+  <div id="quiz-raum-hoeren1"></div>
+
+  <div class="auftrag"><span class="auftrag-marke">2. Hören · genau</span><p>Hören Sie noch einmal. Was sagt Frau Haddad zu den drei Räumen? Klicken Sie erst links, dann rechts.</p></div>
+  <div id="zuordnen-raum"></div>
+  <p class="rueckmeldung" id="zuordnen-raum-rueck" hidden></p>
+  <div id="quiz-raum-hoeren2"></div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Sprechen</strong>
+    <h2>Jetzt sind Sie Nora</h2>
+    <p>Sie hören Frau Haddad. <strong>Stopp!</strong> Antworten Sie als Nora. Dann hören Sie, was Nora sagt, und vergleichen.</p>
+  </div>
+  <div class="kasten">
+    <p class="marke" id="raum-nummer">Schritt 1 von 5</p>
+    <p class="satz" id="raum-lage"></p>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="raum-haddad">▶ 1. Frau Haddad hören</button>
+      <button class="knopf" type="button" id="raum-tipp">Tipp</button>
+    </div>
+    <p class="satz" id="raum-tipp-ausgabe" hidden></p>
+    <div class="auftrag"><span class="auftrag-marke">Jetzt Sie</span><p>Was sagen Sie als Nora? Sprechen Sie laut.</p></div>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="raum-nora">▶ 2. Nora hören</button>
+      <button class="knopf" type="button" id="raum-text">Lesen</button>
+    </div>
+    <p class="satz" id="raum-text-ausgabe" hidden></p>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="raum-zurueck">← Zurück</button>
+      <button class="knopf" type="button" id="raum-weiter">Weiter →</button>
+    </div>
+  </div>
+
+  <details class="kasten">
+    <summary><strong>Das Gespräch zum Nachlesen</strong> (erst nach dem Hören öffnen)</summary>
+    <div id="raum-transkript"></div>
+  </details>
+
+  <div class="merker">
+    <span class="marke-merker">Am Telefon und im Flur genauso</span>
+    <p><strong>Problem:</strong> Raum 3.01 ist belegt. → <strong>Frage:</strong> Gibt es einen anderen Raum? → <strong>Vorschlag:</strong> Können wir schon um 13 Uhr anfangen?<br>
+    Und was Nora nicht entscheiden darf, entscheidet sie nicht: <strong>Das kann ich nicht selbst entscheiden. Ich frage Frau Melnyk und melde mich wieder.</strong></p>
+  </div>
+
+  <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 6 Minuten</span><p>A ist Nora und ruft Frau Melnyk an: Raum 3.01 ist belegt. Erklären Sie die zwei Möglichkeiten und fragen Sie, was sie möchte. B ist Frau Melnyk und entscheidet sich. Dann tauschen Sie.</p></div>
 
   <div class="differenzierung differenzierung--weiter">
     <strong class="differenzierung__stufe">Schreiben</strong>
@@ -982,6 +1038,60 @@ Lehrwerk.auswahl('quiz-rueckfrage',[
 Lehrwerk.frei('rueckfrage-jonas');
 
 const T = (id, text, typ) => ({ id, text, typ });
+/* ---- 5 · Raum reservieren (Hördialog) ---- */
+Lehrwerk.auswahl('quiz-raum-hoeren1',[
+  {id:'rr1-q1',text:'Bekommt Nora Raum 3.01 für Donnerstag, 14 Uhr?',optionen:['Nein, der Raum ist schon belegt.','Ja, der Raum ist frei.','Ja, aber erst ab 15:30 Uhr.'],richtig:['Nein, der Raum ist schon belegt.'],erklaerung:'„Raum 3.01 ist von 13:30 bis 15 Uhr belegt.“'},
+  {id:'rr1-q2',text:'Was macht Nora am Ende?',optionen:['Sie fragt zuerst Frau Melnyk.','Sie reserviert Raum 2.14.','Sie reserviert Raum 1.08.','Sie sagt die Besprechung ab.'],richtig:['Sie fragt zuerst Frau Melnyk.'],erklaerung:'„Das kann ich nicht selbst entscheiden. Ich frage Frau Melnyk, ob sie früher anfangen kann.“'}
+]);
+Lehrwerk.zuordnen('zuordnen-raum',{
+  rueck:'zuordnen-raum-rueck',
+  paare:[
+    {id:'r1',links:'Raum 3.01',rechts:'von 13:30 bis 15 Uhr belegt',erklaerung:'Hier wollte Frau Melnyk eigentlich hin.'},
+    {id:'r2',links:'Raum 2.14',rechts:'bis 14:30 Uhr frei, dann kommt ein Lieferant',erklaerung:'Möglich, wenn die Besprechung früher anfängt.'},
+    {id:'r3',links:'Raum 1.08',rechts:'den ganzen Nachmittag frei, aber nur vier Plätze',erklaerung:'Für sechs Personen bräuchte man zwei Stühle mehr.'}
+  ]
+});
+Lehrwerk.auswahl('quiz-raum-hoeren2',[
+  {id:'rr2-q1',text:'Für wie viele Personen braucht Frau Melnyk den Raum?',optionen:['für sechs','für vier','für acht','für zwei'],richtig:['für sechs'],erklaerung:'„Gibt es einen anderen Raum für sechs Personen?“'},
+  {id:'rr2-q2',text:'Nora fragt: Können wir in Raum 2.14 schon um 13 Uhr anfangen? Was antwortet Frau Haddad?',optionen:['Ja, aber dann muss die Besprechung spätestens um 14:15 Uhr enden.','Ja, bis 15 Uhr.','Nein, um 13 Uhr kommt ein Lieferant.'],richtig:['Ja, aber dann muss die Besprechung spätestens um 14:15 Uhr enden.'],erklaerung:'„Um 13 Uhr geht es. Aber dann müsste die Besprechung spätestens um 14:15 Uhr enden.“'},
+  {id:'rr2-q3',text:'Und wenn Frau Melnyk nicht früher kann?',optionen:['Zwei zusätzliche Stühle in Raum 1.08','Die Besprechung im Lager','Frau Haddad gibt ihr Büro frei'],richtig:['Zwei zusätzliche Stühle in Raum 1.08'],erklaerung:'„Falls das nicht klappt, könnten wir zwei zusätzliche Stühle in Raum 1.08 stellen. Allerdings ist der Raum ziemlich klein.“'}
+]);
+(function(){
+  const ton=document.getElementById('ton-raum'); if(!ton) return;
+  let uhr=null;
+  function spiele(von,bis){
+    clearInterval(uhr);
+    if(ton.readyState<1){ ton.addEventListener('loadedmetadata',()=>spiele(von,bis),{once:true}); ton.load(); return; }
+    ton.currentTime=von; const p=ton.play(); if(p&&p.catch) p.catch(()=>{});
+    uhr=setInterval(()=>{ if(ton.currentTime>=bis){ ton.pause(); clearInterval(uhr); } },40);
+  }
+  const S=[
+    {lage:'Nora kommt zu Frau Haddad. Sie soll für Frau Melnyk Raum 3.01 reservieren: Donnerstag, 14 Uhr. Beginnen Sie.',h:null,n:[0,8.0],tipp:'begrüßen · Haben Sie kurz Zeit? · sagen, was Sie reservieren sollen',ht:'',nt:'Guten Morgen, Frau Haddad. Haben Sie kurz Zeit? Ich soll für Frau Melnyk am Donnerstag um 14 Uhr den Raum 3.01 reservieren.'},
+    {lage:'Frau Haddad schaut in den Kalender.',h:[8.0,20.15],n:[20.15,23.58],tipp:'Problem verstanden · nach einem anderen Raum fragen (sechs Personen)',ht:'Guten Morgen, Nora. Moment, ich schaue in den Kalender. Donnerstag, 14 Uhr … Das wird schwierig. Raum 3.01 ist von 13:30 bis 15 Uhr belegt.',nt:'Ach so. Gibt es einen anderen Raum für sechs Personen?'},
+    {lage:'Frau Haddad nennt zwei Räume.',h:[23.58,33.95],n:[33.95,42.6],tipp:'1.08 ist zu klein · Vorschlag für Raum 2.14: früher anfangen?',ht:'Raum 2.14 ist bis 14:30 Uhr frei. Danach kommt ein Lieferant. Raum 1.08 ist den ganzen Nachmittag frei, aber dort gibt es nur vier Plätze.',nt:'Hm. Sechs Personen, vier Plätze – das reicht nicht. Können wir in Raum 2.14 vielleicht schon um 13 Uhr anfangen?'},
+    {lage:'Frau Haddad sagt, was dann gilt.',h:[42.6,48.4],n:[48.4,52.78],tipp:'nicht selbst entscheiden · Frau Melnyk fragen',ht:'Um 13 Uhr geht es. Aber dann müsste die Besprechung spätestens um 14:15 Uhr enden.',nt:'Das kann ich nicht selbst entscheiden. Ich frage Frau Melnyk, ob sie früher anfangen kann.'},
+    {lage:'Frau Haddad hat noch eine Idee.',h:[52.78,60.9],n:[60.9,65.35],tipp:'zuerst klären · sich wieder melden · danken',ht:'Gut. Und falls das nicht klappt, könnten wir zwei zusätzliche Stühle in Raum 1.08 stellen. Allerdings ist der Raum ziemlich klein.',nt:'Dann kläre ich zuerst mit Frau Melnyk die Uhrzeit und melde mich wieder. Vielen Dank!'}
+  ];
+  let i=0; const $=id=>document.getElementById(id);
+  function zeige(){
+    const x=S[i]; ton.pause(); clearInterval(uhr);
+    $('raum-nummer').textContent='Schritt '+(i+1)+' von '+S.length;
+    $('raum-lage').textContent=x.lage;
+    $('raum-haddad').style.display=x.h?'':'none';
+    $('raum-tipp-ausgabe').textContent=x.tipp; $('raum-tipp-ausgabe').hidden=true;
+    $('raum-text-ausgabe').innerHTML=(x.ht?'<strong>Frau Haddad:</strong> '+x.ht+'<br>':'')+'<strong>Nora:</strong> '+x.nt; $('raum-text-ausgabe').hidden=true;
+    $('raum-zurueck').disabled=i===0; $('raum-weiter').disabled=i===S.length-1;
+  }
+  $('raum-haddad').addEventListener('click',()=>{ if(S[i].h) spiele(...S[i].h); });
+  $('raum-nora').addEventListener('click',()=>spiele(...S[i].n));
+  $('raum-tipp').addEventListener('click',()=>{ $('raum-tipp-ausgabe').hidden=!$('raum-tipp-ausgabe').hidden; });
+  $('raum-text').addEventListener('click',()=>{ $('raum-text-ausgabe').hidden=!$('raum-text-ausgabe').hidden; });
+  $('raum-zurueck').addEventListener('click',()=>{ if(i>0){i--;zeige();} });
+  $('raum-weiter').addEventListener('click',()=>{ if(i<S.length-1){i++;zeige();} });
+  document.getElementById('raum-transkript').innerHTML=S.map(x=>(x.ht?'<p><strong>Frau Haddad:</strong> '+x.ht+'</p>':'')+'<p><strong>Nora:</strong> '+x.nt+'</p>').join('')+'<p><strong>Frau Haddad:</strong> Gern. Bis später!</p>';
+  zeige();
+})();
+
 Lehrwerk.satzfolge('satzfolge-plan',{
   frage:'Bauen Sie Noras Satz. Das Verb steht auf Platz 2.',
   aufgaben:[
