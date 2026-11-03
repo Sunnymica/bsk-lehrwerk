@@ -618,4 +618,4 @@ ersetzt keine korrekte redaktionelle Statuspflege.
 
 ## Zwischenspeicher
 
-Die zentralen Dateien werden mit einer Versionsnummer eingebunden, zum Beispiel `assets/lehrwerk.css?v=20261103c`. Wer `basis`, `platform`, `lehrwerk` oder `aufgaben` ändert, erhöht die Nummer in allen Seiten (Suchen und Ersetzen), damit Browser nicht die alte Fassung zeigen.
+Die zentralen Dateien werden mit einer Versionsnummer eingebunden, zum Beispiel `assets/lehrwerk.css?v=20261103d`. Wer `basis`, `platform`, `lehrwerk` oder `aufgaben` ändert, erhöht die Nummer in allen Seiten (Suchen und Ersetzen), damit Browser nicht die alte Fassung zeigen.

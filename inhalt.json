@@ -40,6 +40,17 @@
           "titel": "Organisatorisches",
           "module": [
             {
+              "titel": "Was wir gemacht haben",
+              "beschreibung": "Alle Kurstage mit Themen, Links ins Lehrwerk und Hausaufgaben.",
+              "pfad": "was-wir-gemacht-haben.html",
+              "niveau": "Kursinfo",
+              "dauer": "Nachschlagen",
+              "fertigkeiten": [
+                "Lesen"
+              ],
+              "status": "fertig"
+            },
+            {
               "titel": "Termine und freie Tage",
               "beschreibung": "Kurstage, Weihnachtspause, Kursende und wichtige Termine.",
               "pfad": "termine.html",

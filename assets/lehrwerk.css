@@ -873,3 +873,19 @@ details > summary .symbol { margin-top: -0.2rem; }
 }
 .nebeneinander > * { margin-top: 0; margin-bottom: 0; }
 @media (max-width: 46rem) { .nebeneinander { grid-template-columns: 1fr; } }
+
+/* Aufklappbarer Monat (z. B. „Was wir gemacht haben“) */
+.monat { margin: 0.4rem 0; border-bottom: 1px solid var(--linie); }
+.monat > summary {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  padding: 0.3rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+.monat > summary::-webkit-details-marker { display: none; }
+.monat > summary::before { content: "▸"; color: var(--platform-terracotta); font-size: 1.1rem; transition: transform 0.15s; }
+.monat[open] > summary::before { transform: rotate(90deg); }
+.monat > summary h2 { display: inline; margin: 0.8rem 0 0.6rem; }
+.monat__zahl { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tinte-weich); }
