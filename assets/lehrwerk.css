@@ -675,3 +675,53 @@ mark { background: var(--sand); padding: 0 0.2rem; border-radius: 3px; }
   .wortschatz-vorab dd,
   .redemittel-box dd { margin-bottom: .5rem; }
 }
+
+/* =========================================================
+   Gesprächsszene: Dialog mit festen Figurenporträts
+   Porträts liegen in assets/figuren/<name>.webp (rund, ohne Text).
+   Sprecher A links (Flieder), Sprecher B rechts (Himmel).
+   ========================================================= */
+.gespraech {
+  --gespraech-a: var(--flieder);
+  --gespraech-b: var(--himmel);
+  --gespraech-bild: 3.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin: 1rem 0;
+}
+.gespraech__zeile { display: flex; align-items: flex-end; gap: 0.7rem; }
+.gespraech__zeile--b { flex-direction: row-reverse; }
+.gespraech__bild {
+  width: var(--gespraech-bild);
+  height: var(--gespraech-bild);
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--karte);
+  box-shadow: 0 0 0 3px var(--karte), 0 2px 8px rgba(34, 34, 43, 0.14);
+}
+.gespraech__blase {
+  max-width: 36rem;
+  padding: 0.65rem 1rem 0.75rem;
+  border-radius: 1.1rem 1.1rem 1.1rem 0.3rem;
+  background: var(--gespraech-a);
+  font-size: 1.08rem;
+  line-height: 1.45;
+}
+.gespraech__zeile--b .gespraech__blase {
+  border-radius: 1.1rem 1.1rem 0.3rem 1.1rem;
+  background: var(--gespraech-b);
+}
+.gespraech__name {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tinte-weich);
+}
+@media (max-width: 34rem) {
+  .gespraech { --gespraech-bild: 2.6rem; }
+  .gespraech__blase { font-size: 1rem; }
+}

@@ -232,6 +232,7 @@ Beispielsätze stehen in `<p class="satzbau">`.
 - `.formular` / `.formular-feld` – beschriftetes Formularraster
 - `.satzfolge` – klickbares Satzpuzzle mit Vorrat und gebautem Satz
 - `.bildgrammatik` – eigenes erklärendes Schaubild mit Bildunterschrift
+- `.gespraech` mit `.gespraech__zeile` (für die zweite Person zusätzlich `.gespraech__zeile--b`), darin `img.gespraech__bild` und `.gespraech__blase` mit `.gespraech__name` – Gesprächsszene mit festen Figurenporträts aus `assets/figuren/` (nora, lenz, melnyk, haddad, nowak, becker, sommer). Texte stehen nie im Bild, immer in der Blase.
 
 Eigene Farben, Schriftgrößen oder `<style>`-Blöcke sind nicht vorgesehen. Einzelne
 `style="…"`-Angaben für Abstände sind geduldet; Farben laufen über bestehende Variablen.
