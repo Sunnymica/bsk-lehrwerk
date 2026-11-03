@@ -381,11 +381,30 @@
   <div class="auftrag"><span class="auftrag-marke">2. Hören · genau</span><p>Hören Sie noch einmal. Achten Sie auf das zweite Paket.</p></div>
   <div id="quiz-paket-hoeren2"></div>
 
-  <div class="auftrag"><span class="auftrag-marke">3. Nachdenken</span><p>Nora weiß: Frau Haddad ist krank. Aber was sagt sie dem Paketboten?</p></div>
+  <div class="auftrag"><span class="auftrag-marke">3. Lesen und vergleichen</span><p>Das ist die Karte, die der Paketbote Nora gibt. Auf der Karte ist <strong>ein Fehler</strong>. Was stimmt nicht mit dem Gespräch überein?</p></div>
+  <div class="dok-karte">
+    <div class="dok-karte__kopf"><span class="dok-karte__firma">Express-Nord</span><span>Benachrichtigung</span></div>
+    <p class="dok-karte__hinweis">Wir haben Sie leider nicht angetroffen. Ihre Sendung liegt zur Abholung bereit.</p>
+    <dl class="dok-karte__felder">
+      <dt>Empfänger</dt><dd>Herr Pawel Nowak · KONTOR</dd>
+      <dt>Absender</dt><dd>aus der Schweiz</dd>
+      <dt>Offener Betrag</dt><dd>38,00 € Einfuhrabgaben · bar oder mit Karte</dd>
+      <dt>Abholung</dt><dd>Filiale Bahnhofstraße</dd>
+      <dt>Abholfrist</dt><dd>zwei Wochen, danach Rücksendung an den Absender</dd>
+      <dt>Sendungsnummer</dt><dd>EN 2611 4038 CH</dd>
+    </dl>
+  </div>
+  <div id="quiz-paket-karte"></div>
+
+  <div class="auftrag"><span class="auftrag-marke">4. Nachdenken</span><p>Nora weiß: Frau Haddad ist krank. Aber was sagt sie dem Paketboten?</p></div>
   <div id="quiz-paket-privat"></div>
 
   <div class="merker">
     <span class="marke-merker">Was sagt man Fremden?</span>
+    <div class="gespraech">
+      <div class="gespraech__zeile"><img class="gespraech__bild" src="../assets/figuren/nora.webp" alt=""><p class="gespraech__blase"><span class="gespraech__name">So nicht</span><s>Frau Haddad ist heute krank.</s></p></div>
+      <div class="gespraech__zeile"><img class="gespraech__bild" src="../assets/figuren/nora.webp" alt=""><p class="gespraech__blase"><span class="gespraech__name">Besser</span>Frau Haddad ist heute <strong>nicht im Haus</strong>.</p></div>
+    </div>
     <p>Dass jemand krank ist, ist privat. Am Empfang sagt man lieber neutral:<br>
     Frau … ist heute <strong>nicht im Haus</strong>. · Herr … ist <strong>gerade nicht erreichbar</strong>. · Frau … ist <strong>ab morgen wieder da</strong>.</p>
   </div>
@@ -407,7 +426,7 @@
       <button class="knopf" type="button" id="bote-nora">▶ 2. Nora hören</button>
       <button class="knopf" type="button" id="bote-text">Beide Sätze lesen</button>
     </div>
-    <p class="satz" id="bote-text-ausgabe" hidden></p>
+    <div id="bote-text-ausgabe" hidden></div>
     <div class="knopfreihe">
       <button class="knopf" type="button" id="bote-zurueck">← Zurück</button>
       <button class="knopf" type="button" id="bote-weiter">Weiter →</button>
@@ -440,13 +459,13 @@
     <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 15 Minuten</span><p>A ist der Paketbote, B ist Nora am Empfang. Jede Person liest nur ihre eigene Karte. Spielen Sie Fall 1 und 2, dann tauschen Sie die Rollen. Fall 3 ist für Profis.</p></div>
   </div>
   <details class="kasten">
-    <summary><strong>Karte A · Paketbote</strong> (nur A öffnet)</summary>
+    <summary><img class="symbol" src="../assets/figuren/bote.webp" alt=""><strong>Karte A · Paketbote</strong> (nur A öffnet)</summary>
     <p><strong>Fall 1:</strong> Ein Paket für Jonas Becker. Ganz normal. Die Person am Empfang muss auf dem Scanner unterschreiben.</p>
     <p><strong>Fall 2:</strong> Ein Paket für Frau Melnyk. Nachnahme: 24,90 Euro, bar oder mit Karte. Ohne Bezahlung nehmen Sie das Paket wieder mit. Es geht in die Filiale Bahnhofstraße und bleibt dort eine Woche.</p>
     <p><strong>Fall 3 · für Profis:</strong> Ein Paket für Pawel Nowak. Der Karton ist an einer Ecke eingedrückt. Die Person am Empfang kann das Paket annehmen und auf dem Scanner „beschädigt“ vermerken. Oder sie verweigert die Annahme, dann geht das Paket zurück an den Absender. Erklären Sie beide Möglichkeiten.</p>
   </details>
   <details class="kasten">
-    <summary><strong>Karte B · Nora</strong> (nur B öffnet)</summary>
+    <summary><img class="symbol" src="../assets/figuren/nora.webp" alt=""><strong>Karte B · Nora</strong> (nur B öffnet)</summary>
     <p><strong>Fall 1:</strong> Jonas Becker ist bis 12 Uhr in einer Besprechung. Pakete für Kolleginnen und Kollegen dürfen Sie annehmen.</p>
     <p><strong>Fall 2:</strong> Frau Melnyk ist im Haus, aber noch etwa zehn Minuten am Telefon. Sie selbst dürfen nichts bezahlen. Sagen Sie das höflich und schlagen Sie eine Lösung vor.</p>
     <p><strong>Fall 3 · für Profis:</strong> Pawel ist beim Kunden. Was machen Sie mit einem kaputten Karton? Das wissen Sie nicht. Stellen Sie dem Paketboten <strong>zuerst zwei Fragen</strong>. Erst dann entscheiden Sie: annehmen oder nicht?</p>
@@ -454,8 +473,8 @@
 
   <div class="redemittel-box">
     <h2>Diese Sätze helfen</h2>
-    <p class="satz"><strong>Nora:</strong> Für wen ist das Paket? · Frau … ist heute nicht im Haus. · Ich nehme das Paket für sie an. · Ich bewahre es am Empfang auf. · Darf ich das für ihn bezahlen? · Ich darf leider nichts bezahlen. · Kann ich kurz jemanden fragen? · Was passiert, wenn …? · Kann ich die Beschädigung vermerken? · Das kann ich nicht entscheiden. · Wo kann er das Paket abholen? · Ich gebe ihm Bescheid.</p>
-    <p class="satz"><strong>Paketbote:</strong> Ich habe ein Paket für … · Unterschreiben Sie bitte hier. · Bitte schreiben Sie Ihren Namen in Druckbuchstaben. · Da sind noch … Euro offen. · Dann nehme ich das Paket wieder mit. · Hier ist die Benachrichtigungskarte.</p>
+    <p class="satz"><img class="symbol" src="../assets/figuren/nora.webp" alt=""><strong>Nora:</strong> Für wen ist das Paket? · Frau … ist heute nicht im Haus. · Ich nehme das Paket für sie an. · Ich bewahre es am Empfang auf. · Darf ich das für ihn bezahlen? · Ich darf leider nichts bezahlen. · Kann ich kurz jemanden fragen? · Was passiert, wenn …? · Kann ich die Beschädigung vermerken? · Das kann ich nicht entscheiden. · Wo kann er das Paket abholen? · Ich gebe ihm Bescheid.</p>
+    <p class="satz"><img class="symbol" src="../assets/figuren/bote.webp" alt=""><strong>Paketbote:</strong> Ich habe ein Paket für … · Unterschreiben Sie bitte hier. · Bitte schreiben Sie Ihren Namen in Druckbuchstaben. · Da sind noch … Euro offen. · Dann nehme ich das Paket wieder mit. · Hier ist die Benachrichtigungskarte.</p>
   </div>
 </section>
 
@@ -1080,6 +1099,9 @@ Lehrwerk.auswahl('quiz-paket-hoeren2',[
   {id:'pk2-q4',text:'Warum bezahlt Nora nicht?',optionen:['Sie weiß nicht, ob sie das für Herrn Nowak darf.','Sie hat kein Geld dabei.','Das Paket ist kaputt.','Der Bote nimmt keine Karte.'],richtig:['Sie weiß nicht, ob sie das für Herrn Nowak darf.'],erklaerung:'„Darf ich das überhaupt für ihn bezahlen?“ Nora entscheidet nichts, was sie nicht entscheiden darf.'},
   {id:'pk2-q5',text:'Wo und wie lange kann Herr Nowak das Paket abholen?',optionen:['in der Filiale Bahnhofstraße, eine Woche lang','am Empfang, eine Woche lang','in der Filiale Bahnhofstraße, zwei Tage lang','beim Zoll, einen Monat lang'],richtig:['in der Filiale Bahnhofstraße, eine Woche lang'],erklaerung:'„Es geht in unsere Filiale in der Bahnhofstraße.“ – „Eine Woche. Danach schicken wir es an den Absender zurück.“'}
 ]);
+Lehrwerk.auswahl('quiz-paket-karte',[
+  {id:'pk-karte-q1',text:'Was stimmt auf der Karte nicht?',optionen:['die Abholfrist','der Betrag','die Filiale','der Empfänger'],richtig:['die Abholfrist'],erklaerung:'Der Bote sagt: „Eine Woche. Danach schicken wir es an den Absender zurück.“ Auf der Karte steht: zwei Wochen.'}
+]);
 Lehrwerk.auswahl('quiz-paket-privat',[
   {id:'pk3-q1',text:'Was sagt Nora über Frau Haddad?',optionen:['Frau Haddad ist heute nicht im Haus.','Frau Haddad ist heute krank.','Frau Haddad hat Urlaub.','Frau Haddad kommt gleich.'],richtig:['Frau Haddad ist heute nicht im Haus.'],erklaerung:'Nora sagt nicht „krank“. Das ist privat, und der Paketbote braucht diese Information nicht.'}
 ]);
@@ -1110,7 +1132,7 @@ Lehrwerk.auswahl('quiz-paket-privat',[
     const x=S[i]; ton.pause(); clearInterval(uhr);
     $('bote-nummer').textContent='Schritt '+(i+1)+' von '+S.length;
     $('bote-tipp-ausgabe').textContent=x.tipp; $('bote-tipp-ausgabe').hidden=true;
-    $('bote-text-ausgabe').innerHTML='<strong>Paketbote:</strong> '+x.bt+'<br><strong>Nora:</strong> '+x.nt; $('bote-text-ausgabe').hidden=true;
+    Lehrwerk.szene('bote-text-ausgabe',[{wer:'bote',name:'Paketbote',text:x.bt,b:true},{wer:'nora',name:'Nora',text:x.nt}]); $('bote-text-ausgabe').hidden=true;
     $('bote-zurueck').disabled=i===0; $('bote-weiter').disabled=i===S.length-1;
   }
   $('bote-hoeren').addEventListener('click',()=>spiele(...S[i].b));
@@ -1119,7 +1141,7 @@ Lehrwerk.auswahl('quiz-paket-privat',[
   $('bote-text').addEventListener('click',()=>{ $('bote-text-ausgabe').hidden=!$('bote-text-ausgabe').hidden; });
   $('bote-zurueck').addEventListener('click',()=>{ if(i>0){i--;zeige();} });
   $('bote-weiter').addEventListener('click',()=>{ if(i<S.length-1){i++;zeige();} });
-  document.getElementById('paket-transkript').innerHTML=S.map(x=>'<p><strong>Paketbote:</strong> '+x.bt+'<br><strong>Nora:</strong> '+x.nt+'</p>').join('');
+  Lehrwerk.szene('paket-transkript',S.flatMap(x=>[{wer:'bote',name:'Paketbote',text:x.bt,b:true},{wer:'nora',name:'Nora',text:x.nt}]));
   zeige();
 })();
 

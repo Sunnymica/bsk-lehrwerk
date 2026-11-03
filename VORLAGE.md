@@ -235,6 +235,7 @@ Beispielsätze stehen in `<p class="satzbau">`.
 - `.gespraech` mit `.gespraech__zeile` (für die zweite Person zusätzlich `.gespraech__zeile--b`), darin `img.gespraech__bild` und `.gespraech__blase` mit `.gespraech__name` – Gesprächsszene mit festen Figurenporträts aus `assets/figuren/` (nora, lenz, melnyk, haddad, nowak, becker, sommer, bote, vogt). Texte stehen nie im Bild, immer in der Blase.
   Per Skript: `Lehrwerk.szene(zielId, [{ wer:'nora', name:'Nora', text:'…', b:true }])` baut die Szene (b = rechte Seite).
 - `figure.reiter-bild` mit `img` – Szenenbild oben im Reiter, direkt nach `.stand-hinweis`, Dateien in `assets/szenen/`, Bilder ohne Text, mit sprechendem alt
+- `.dok-karte` mit `.dok-karte__kopf` (darin `.dok-karte__firma`), `.dok-karte__hinweis` und `dl.dok-karte__felder` – Benachrichtigungskarte, Lieferschein und ähnliche kleine Formulare
 - `img.symbol` – kleines rundes Symbol vor einer Überschrift, Dateien in `assets/symbole/` (klemmbrett, kalender, paket, brief, telefon, laptop, ordner, notizzettel), immer mit leerem alt
 - `.dok-notiz` mit `.dok-notiz__titel` und `ol` – Notizzettel mit Pinnnadel
 - `.dok-email` mit `.dok-email__leiste`, `dl.dok-email__kopf` (dt/dd: Von, An, Betreff) und `.dok-email__text` – E-Mail als Dokument

@@ -832,3 +832,33 @@ mark { background: var(--sand); padding: 0 0.2rem; border-radius: 3px; }
   object-position: center 30%;
 }
 @media (max-width: 34rem) { .reiter-bild { --reiter-bild-hoehe: 10rem; } }
+
+/* Benachrichtigungskarte (z. B. vom Paketdienst) */
+.dok-karte {
+  --karte-farbe: var(--platform-blue);
+  max-width: 34rem;
+  margin: 1rem 0;
+  overflow: hidden;
+  background: var(--karte);
+  border: 2px solid var(--karte-farbe);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(34, 34, 43, 0.08);
+}
+.dok-karte__kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.55rem 1rem;
+  background: var(--karte-farbe);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.dok-karte__firma { font-family: var(--display); font-size: 1.05rem; font-weight: 700; letter-spacing: 0; text-transform: none; }
+.dok-karte__hinweis { margin: 0; padding: 0.7rem 1rem 0.2rem; font-style: italic; color: var(--tinte-weich); }
+.dok-karte__felder { display: grid; grid-template-columns: auto 1fr; gap: 0.3rem 0.9rem; margin: 0; padding: 0.6rem 1rem 0.9rem; }
+.dok-karte__felder dt { color: var(--tinte-weich); font-size: 0.92rem; }
+.dok-karte__felder dd { margin: 0; font-weight: 600; }
+details > summary .symbol { margin-top: -0.2rem; }
