@@ -236,6 +236,7 @@ Beispielsätze stehen in `<p class="satzbau">`.
   Per Skript: `Lehrwerk.szene(zielId, [{ wer:'nora', name:'Nora', text:'…', b:true }])` baut die Szene (b = rechte Seite).
 - `figure.reiter-bild` mit `img` – Szenenbild oben im Reiter, direkt nach `.stand-hinweis`, Dateien in `assets/szenen/`, Bilder ohne Text, mit sprechendem alt
 - `.dok-karte` mit `.dok-karte__kopf` (darin `.dok-karte__firma`), `.dok-karte__hinweis` und `dl.dok-karte__felder` – Benachrichtigungskarte, Lieferschein und ähnliche kleine Formulare
+- `.nebeneinander` – zwei Elemente nebeneinander (z. B. Dokument links, Aufgabe rechts; Karte A und Karte B), auf schmalen Bildschirmen untereinander
 - `img.symbol` – kleines rundes Symbol vor einer Überschrift, Dateien in `assets/symbole/` (klemmbrett, kalender, paket, brief, telefon, laptop, ordner, notizzettel), immer mit leerem alt
 - `.dok-notiz` mit `.dok-notiz__titel` und `ol` – Notizzettel mit Pinnnadel
 - `.dok-email` mit `.dok-email__leiste`, `dl.dok-email__kopf` (dt/dd: Von, An, Betreff) und `.dok-email__text` – E-Mail als Dokument
@@ -611,3 +612,8 @@ Fehlt sie eindeutig, bleibt die Karte sichtbar, ist aber nicht anklickbar. Diese
 ersetzt keine korrekte redaktionelle Statuspflege.
 
 **Musterseite:** `grammatik/konnektoren-ueberblick.html`
+
+
+## Zwischenspeicher
+
+Die zentralen Dateien werden mit einer Versionsnummer eingebunden, zum Beispiel `assets/lehrwerk.css?v=20261103b`. Wer `basis`, `platform`, `lehrwerk` oder `aufgaben` ändert, erhöht die Nummer in allen Seiten (Suchen und Ersetzen), damit Browser nicht die alte Fassung zeigen.

@@ -862,3 +862,14 @@ mark { background: var(--sand); padding: 0 0.2rem; border-radius: 3px; }
 .dok-karte__felder dt { color: var(--tinte-weich); font-size: 0.92rem; }
 .dok-karte__felder dd { margin: 0; font-weight: 600; }
 details > summary .symbol { margin-top: -0.2rem; }
+
+/* Zwei Dinge nebeneinander (Dokument und Aufgabe, Karte A und Karte B); mobil untereinander */
+.nebeneinander {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.4rem;
+  align-items: start;
+  margin: 1rem 0;
+}
+.nebeneinander > * { margin-top: 0; margin-bottom: 0; }
+@media (max-width: 46rem) { .nebeneinander { grid-template-columns: 1fr; } }
