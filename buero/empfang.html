@@ -27,7 +27,8 @@
   <button type="button" id="tab-paket" role="tab" aria-selected="false" data-blatt="paket">3 · Ein Paket für KONTOR</button>
   <button type="button" id="tab-besuch" role="tab" aria-selected="false" data-blatt="besuch">4 · Herr Sommer kommt</button>
   <button type="button" id="tab-organisieren" role="tab" aria-selected="false" data-blatt="organisieren">5 · Die Vertretung organisieren</button>
-  <button type="button" id="tab-meine" role="tab" aria-selected="false" data-blatt="meine">6 · Meine Übergabe</button>
+  <button type="button" id="tab-entscheidet" role="tab" aria-selected="false" data-blatt="entscheidet">6 · Frau Melnyk entscheidet</button>
+  <button type="button" id="tab-meine" role="tab" aria-selected="false" data-blatt="meine">7 · Meine Übergabe</button>
 </div>
 
 <!-- ============ 1 · DIE ÜBERGABE ============ -->
@@ -703,7 +704,117 @@
   <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 8 Minuten</span><p>Erzählen Sie Ihrer Partnerin oder Ihrem Partner Noras ganzen Vormittag von 8 bis 12 Uhr. Benutzen Sie: <strong>zuerst · dann · danach · um … Uhr · von … bis … · anschließend</strong>. Dann tauschen Sie.</p></div>
 </section>
 
-<!-- ============ 6 · MEINE ÜBERGABE ============ -->
+<!-- ============ 6 · FRAU MELNYK ENTSCHEIDET ============ -->
+<section class="blatt" id="blatt-entscheidet" role="tabpanel" aria-labelledby="tab-entscheidet" hidden>
+  <p class="stand-hinweis">etwa 60 Minuten · hören, selbst sprechen, schreiben, telefonieren</p>
+
+  <div class="kasten">
+    <p>Raum 3.01 ist am Donnerstag belegt. Nora ruft Frau Melnyk an. Sie haben das in Reiter 5 schon zu zweit gespielt. Wie hat Frau Melnyk wirklich entschieden?</p>
+  </div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">Hören</strong>
+    <h2>Nora ruft Frau Melnyk an</h2>
+    <figure class="bildgrammatik">
+      <audio controls preload="auto" id="ton-melnyk" src="../assets/audio/empfang-melnyk.mp3" style="width:100%">Ihr Browser kann die Audiodatei nicht abspielen. Das Gespräch steht unten zum Nachlesen.</audio>
+      <figcaption>Nora und Frau Melnyk am Telefon · knapp zwei Minuten</figcaption>
+    </figure>
+  </div>
+
+  <div class="auftrag"><span class="auftrag-marke">1. Hören · ohne Text</span><p>Was entscheidet Frau Melnyk? Haben Sie im Rollenspiel auch so entschieden?</p></div>
+  <div id="quiz-melnyk-hoeren1"></div>
+
+  <div class="auftrag"><span class="auftrag-marke">2. Hören · genau</span><p>Hören Sie noch einmal. Achten Sie auf Frau Vogt und auf das Ende des Gesprächs.</p></div>
+  <div id="quiz-melnyk-hoeren2"></div>
+
+  <div class="auftrag"><span class="auftrag-marke">3. Noras Notizzettel</span><p>Was muss Nora jetzt tun? Und was macht sie nicht? Sortieren Sie.</p></div>
+  <div id="gruppieren-notiz"></div>
+  <div class="knopfreihe"><button class="knopf" id="gruppieren-notiz-pruefen" type="button">Prüfen</button></div>
+  <p class="rueckmeldung" id="gruppieren-notiz-rueck" hidden></p>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Sprechen</strong>
+    <h2>Jetzt sind Sie Nora</h2>
+    <p>Sie hören Frau Melnyk. <strong>Stopp!</strong> Antworten Sie als Nora. Dann hören Sie, was Nora sagt, und vergleichen. Im Schritt 9 fassen Sie alles zusammen. Das ist der schwerste Schritt.</p>
+  </div>
+  <div class="kasten">
+    <p class="marke" id="mel-nummer">Schritt 1 von 10</p>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="mel-hoeren">▶ 1. Frau Melnyk hören</button>
+      <button class="knopf" type="button" id="mel-tipp">Tipp</button>
+    </div>
+    <p class="satz" id="mel-tipp-ausgabe" hidden></p>
+    <div class="auftrag"><span class="auftrag-marke">Jetzt Sie</span><p>Was sagen Sie als Nora? Sprechen Sie laut.</p></div>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="mel-nora">▶ 2. Nora hören</button>
+      <button class="knopf" type="button" id="mel-text">Beide Sätze lesen</button>
+    </div>
+    <p class="satz" id="mel-text-ausgabe" hidden></p>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="mel-zurueck">← Zurück</button>
+      <button class="knopf" type="button" id="mel-weiter">Weiter →</button>
+    </div>
+  </div>
+
+  <details class="kasten">
+    <summary><strong>Das Gespräch zum Nachlesen</strong> (erst nach dem Hören öffnen)</summary>
+    <div id="melnyk-transkript"></div>
+  </details>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">Entdecken</strong>
+    <h2>Was man mit Terminen macht</h2>
+    <p>„Dann verlegen wir die Besprechung lieber vor.“ – „Dann verschieben wir die Besprechung auf Freitag.“ Trennbar oder nicht? Sprechen Sie die Verben leise und sortieren Sie.</p>
+  </div>
+  <div id="gruppieren-termin"></div>
+  <div class="knopfreihe"><button class="knopf" id="gruppieren-termin-pruefen" type="button">Prüfen</button></div>
+  <p class="rueckmeldung" id="gruppieren-termin-rueck" hidden></p>
+  <div class="merker">
+    <span class="marke-merker">Termin-Verben</span>
+    <p class="satzbau">Wir <span class="verb">verlegen</span> die Besprechung <span class="verb">vor</span>. · Frau Vogt <span class="verb">sagt</span> den Termin <span class="verb">ab</span>. · Nora <span class="verb">ruft</span> Frau Vogt <span class="verb">an</span>.</p>
+    <p class="satzbau">Wir <span class="verb">verschieben</span> die Besprechung auf Freitag. · Wir <span class="verb">vereinbaren</span> einen neuen Termin. · Bitte <span class="verb">bestätigen</span> Sie den Termin.</p>
+    <p class="marke">vorverlegen = früher machen · verschieben = später machen (oder auf einen anderen Tag) · absagen = nicht machen</p>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Schreiben</strong>
+    <h2>Die E-Mail an alle</h2>
+    <div class="auftrag"><span class="auftrag-marke">Einzelarbeit · 10 Minuten</span><p>Sie sind Nora. Schreiben Sie Herrn Nowak, Herrn Becker und Frau Haddad eine kurze E-Mail. Was ist neu? Wo? Warum? Bis wann? Was sollen sie tun?</p></div>
+    <p class="satz">Betreff: … · Liebe Kolleginnen und Kollegen, · die Besprechung am Donnerstag wird … · Sie findet in … statt, weil … · Wir müssen spätestens um … · Für … ist gesorgt. · Bitte geben Sie mir kurz Bescheid, ob … · Viele Grüße</p>
+    <textarea class="feld" id="email-vorverlegt" rows="8" data-ergebnis-label="E-Mail: Besprechung vorverlegt"></textarea>
+  </div>
+  <details class="kasten">
+    <summary><strong>Ein Vorschlag</strong> (erst nach dem Schreiben öffnen)</summary>
+    <p><strong>Betreff:</strong> Besprechung am Donnerstag beginnt schon um 13 Uhr</p>
+    <p>Liebe Kolleginnen und Kollegen,</p>
+    <p>die Besprechung am Donnerstag wird auf 13 Uhr vorverlegt. Sie findet in Raum 2.14 statt, weil Raum 3.01 belegt ist. Wir müssen spätestens um 14:15 Uhr fertig sein. Für belegte Brötchen und Kaffee ist gesorgt.</p>
+    <p>Bitte geben Sie mir kurz Bescheid, ob Sie um 13 Uhr kommen können.</p>
+    <p>Viele Grüße<br>Nora Seidel</p>
+  </details>
+
+  <div class="differenzierung differenzierung--herausforderung">
+    <strong class="differenzierung__stufe">Telefonieren</strong>
+    <h2>Nora ruft Frau Vogt an</h2>
+    <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 15 Minuten</span><p>A ist Nora, B ist Frau Vogt aus der Filiale Bremen. Jede Person liest nur ihre eigene Karte. Spielen Sie Fall 1, dann tauschen Sie die Rollen und spielen Fall 2. Nora fasst am Ende immer zusammen: „Also: …“</p></div>
+  </div>
+  <details class="kasten">
+    <summary><strong>Karte A · Nora</strong> (nur A öffnet)</summary>
+    <p>Die Besprechung am Donnerstag beginnt jetzt schon um 13 Uhr in Raum 2.14 und endet um 14:15 Uhr. Fragen Sie Frau Vogt, ob sie es schafft. Wenn nicht: Frau Melnyk möchte die Besprechung nur im Notfall auf Freitag verschieben. Sie entscheiden das nicht allein. Sagen Sie, dass Sie sich wieder melden.</p>
+  </details>
+  <details class="kasten">
+    <summary><strong>Karte B · Frau Vogt</strong> (nur B öffnet)</summary>
+    <p><strong>Fall 1:</strong> Ihr Zug kommt am Donnerstag um 12:52 Uhr am Hauptbahnhof an. Mit dem Taxi brauchen Sie etwa 20 Minuten bis zu KONTOR. Es gibt auch einen früheren Zug, Ankunft 11:52 Uhr. Dann müssen Sie aber sehr früh los. Überlegen Sie laut und entscheiden Sie sich.</p>
+    <p><strong>Fall 2:</strong> Am Donnerstagvormittag haben Sie in Bremen einen wichtigen Termin, den Sie nicht verschieben können. Um 13 Uhr schaffen Sie es auf keinen Fall. Schlagen Sie Freitag vor oder fragen Sie, ob Sie online teilnehmen können.</p>
+  </details>
+
+  <div class="redemittel-box">
+    <h2>Diese Sätze helfen</h2>
+    <p class="satz"><strong>Nora:</strong> Es gibt eine Änderung: … · Die Besprechung wird auf … vorverlegt. · Schaffen Sie das? · Wie sieht es bei Ihnen am … aus? · Wie wäre es mit …? · Das kann ich nicht allein entscheiden. · Ich kläre das mit Frau Melnyk und melde mich wieder. · Also: …</p>
+    <p class="satz"><strong>Frau Vogt:</strong> Um 13 Uhr wird es knapp. · Das schaffe ich leider nicht. · Ich könnte einen früheren Zug nehmen. · Am Freitag hätte ich Zeit. · Kann ich vielleicht online teilnehmen?</p>
+  </div>
+</section>
+
+<!-- ============ 7 · MEINE ÜBERGABE ============ -->
 <section class="blatt" id="blatt-meine" role="tabpanel" aria-labelledby="tab-meine" hidden>
   <p class="stand-hinweis">etwa 40 Minuten · prüfen, verbessern, selbst schreiben</p>
 
@@ -1104,7 +1215,75 @@ Lehrwerk.satzfolge('satzfolge-plan',{
   ]
 });
 
-/* ---- 5 · Meine Übergabe ---- */
+/* ---- 6 · Frau Melnyk entscheidet ---- */
+Lehrwerk.auswahl('quiz-melnyk-hoeren1',[
+  {id:'me1-q1',text:'Was entscheidet Frau Melnyk?',optionen:['Die Besprechung beginnt schon um 13 Uhr in Raum 2.14.','Die Besprechung ist in Raum 1.08, mit zwei Stühlen mehr.','Die Besprechung wird auf Freitag verschoben.','Die Besprechung wird abgesagt.'],richtig:['Die Besprechung beginnt schon um 13 Uhr in Raum 2.14.'],erklaerung:'„Dann verlegen wir die Besprechung lieber vor. Dreizehn Uhr in Raum zwei vierzehn.“'}
+]);
+Lehrwerk.auswahl('quiz-melnyk-hoeren2',[
+  {id:'me2-q1',text:'Warum nimmt Frau Melnyk nicht Raum 1.08?',optionen:['Vier Plätze für sechs Personen sind zu eng.','Der Raum ist belegt.','Dort gibt es keinen Kaffee.'],richtig:['Vier Plätze für sechs Personen sind zu eng.'],erklaerung:'„Vier Plätze für sechs Personen? Das ist zu eng.“'},
+  {id:'me2-q2',text:'Wie informiert Nora Herrn Nowak, Herrn Becker und Frau Haddad?',optionen:['mit einer kurzen E-Mail','mit einem Anruf','persönlich im Büro'],richtig:['mit einer kurzen E-Mail'],erklaerung:'„Schreiben Sie allen eine kurze E-Mail.“ Die drei sind im Haus.'},
+  {id:'me2-q3',text:'Warum ist Frau Melnyk bei Frau Vogt nicht sicher?',optionen:['Frau Vogt kommt mit dem Zug aus Bremen.','Frau Vogt ist krank.','Frau Vogt hat keinen Termin.'],richtig:['Frau Vogt kommt mit dem Zug aus Bremen.'],erklaerung:'„Sie kommt mit dem Zug. Rufen Sie sie bitte an und fragen Sie, ob sie schon um dreizehn Uhr hier sein kann.“'},
+  {id:'me2-q4',text:'Was passiert, wenn Frau Vogt um 13 Uhr nicht kommen kann?',optionen:['Dann wird die Besprechung auf Freitag verschoben.','Dann beginnt die Besprechung ohne sie.','Dann wird die Besprechung abgesagt.'],richtig:['Dann wird die Besprechung auf Freitag verschoben.'],erklaerung:'„Dann verschieben wir die Besprechung auf Freitag. Aber nur, wenn sie wirklich nicht kann.“'},
+  {id:'me2-q5',text:'Was soll Nora noch bestellen? Zwei Antworten sind richtig.',optionen:['belegte Brötchen','Kaffee','Kuchen','Getränke für zehn Personen'],richtig:['belegte Brötchen','Kaffee'],erklaerung:'„Können Sie ein paar belegte Brötchen bestellen?“ – „Ja. Und Kaffee natürlich.“ Für sechs Personen.'}
+]);
+Lehrwerk.gruppieren('gruppieren-notiz',{
+  pruefen:'gruppieren-notiz-pruefen',
+  rueck:'gruppieren-notiz-rueck',
+  gruppen:[
+    {id:'nora',titel:'Das macht Nora',woerter:['Frau Haddad Bescheid sagen','allen eine E-Mail schreiben','Frau Vogt anrufen','Brötchen und Kaffee bestellen','sich bei Frau Melnyk wieder melden']},
+    {id:'nicht',titel:'Das macht Nora nicht',woerter:['Raum 2.14 selbst reservieren','Raum 1.08 reservieren','die Besprechung auf Freitag verschieben']}
+  ]
+});
+Lehrwerk.gruppieren('gruppieren-termin',{
+  pruefen:'gruppieren-termin-pruefen',
+  rueck:'gruppieren-termin-rueck',
+  gruppen:[
+    {id:'trennbar',titel:'trennbar (vorne betont)',woerter:['vorverlegen','absagen','anrufen']},
+    {id:'untrennbar',titel:'untrennbar (hinten betont)',woerter:['verschieben','vereinbaren','bestätigen','bestellen']}
+  ]
+});
+Lehrwerk.frei('email-vorverlegt');
+(function(){
+  const ton=document.getElementById('ton-melnyk'); if(!ton) return;
+  let uhr=null;
+  function spiele(von,bis){
+    clearInterval(uhr);
+    if(ton.readyState<1){ ton.addEventListener('loadedmetadata',()=>spiele(von,bis),{once:true}); ton.load(); return; }
+    ton.currentTime=von; const p=ton.play(); if(p&&p.catch) p.catch(()=>{});
+    uhr=setInterval(()=>{ if(ton.currentTime>=bis){ ton.pause(); clearInterval(uhr); } },40);
+  }
+  const S=[
+    {m:[0,0.85],n:[0.85,6.75],tipp:'grüßen · sich vorstellen · Haben Sie kurz Zeit? · Worum geht es?',mt:'Melnyk.',nt:'Hallo, Frau Melnyk, hier ist Nora. Haben Sie kurz Zeit? Es geht um die Besprechung am Donnerstag.'},
+    {m:[6.75,9.5],n:[9.5,15.9],tipp:'leider nicht · Raum 3.01 ist belegt (wann?)',mt:'Ja, natürlich. Ist der Raum reserviert?',nt:'Leider noch nicht. Raum 3.01 ist am Donnerstag von 13:30 bis 15 Uhr belegt.'},
+    {m:[15.9,17.7],n:[17.7,34.8],tipp:'zwei Möglichkeiten: Raum 2.14 (früher anfangen) oder Raum 1.08 (nur vier Plätze)',mt:'Oh. Und jetzt?',nt:'Es gibt zwei Möglichkeiten. Raum 2.14 ist bis 14:30 Uhr frei. Dann müssten wir aber schon um 13 Uhr anfangen und um 14:15 Uhr fertig sein. Oder wir nehmen Raum 1.08. Der ist den ganzen Nachmittag frei, aber dort gibt es nur vier Plätze.'},
+    {m:[34.8,43.73],n:[43.73,49.6],tipp:'zustimmen · Frau Haddad informieren · fragen: die anderen auch?',mt:'Vier Plätze für sechs Personen? Das ist zu eng. Dann verlegen wir die Besprechung lieber vor. 13 Uhr in Raum 2.14.',nt:'Gut. Dann sage ich Frau Haddad Bescheid, und sie reserviert den Raum. Soll ich die anderen auch informieren?'},
+    {m:[49.6,57.28],n:[57.28,59.13],tipp:'Wer fehlt noch? Frau Vogt aus Bremen',mt:'Ja, bitte. Schreiben Sie allen eine kurze E-Mail. Herr Nowak, Herr Becker und Frau Haddad sind im Haus. Das ist kein Problem.',nt:'Und Frau Vogt aus Bremen?'},
+    {m:[59.13,67.18],n:[67.18,68.9],tipp:'nachfragen: Und wenn …?',mt:'Bei Frau Vogt bin ich nicht sicher. Sie kommt mit dem Zug. Rufen Sie sie bitte an und fragen Sie, ob sie schon um 13 Uhr hier sein kann.',nt:'Und wenn sie es nicht schafft?'},
+    {m:[68.9,75.5],n:[75.5,79.0],tipp:'verstanden · Frau Vogt anrufen · sich wieder melden',mt:'Dann verschieben wir die Besprechung auf Freitag. Aber nur, wenn sie wirklich nicht kann. Freitag ist bei mir sehr voll.',nt:'Verstanden. Ich rufe sie gleich an und melde mich dann bei Ihnen.'},
+    {m:[79.0,86.7],n:[86.7,88.1],tipp:'nachfragen: für wie viele Personen?',mt:'Danke. Ach, und noch etwas: Um 13 Uhr hat noch niemand zu Mittag gegessen. Können Sie ein paar belegte Brötchen bestellen?',nt:'Für sechs Personen?'},
+    {m:[88.1,90.25],n:[90.25,104.2],tipp:'zusammenfassen: Ich fasse kurz zusammen: Die Besprechung … · Ich informiere … · Ich rufe … an · Ich bestelle …',mt:'Ja. Und Kaffee natürlich.',nt:'Gut. Ich fasse kurz zusammen: Die Besprechung beginnt am Donnerstag schon um 13 Uhr, in Raum 2.14. Ich informiere alle per E-Mail, ich rufe Frau Vogt an, und ich bestelle Brötchen und Kaffee für sechs Personen.'},
+    {m:[104.2,106.22],n:[106.22,107.7],tipp:'sich verabschieden',mt:'Perfekt. Danke, Nora!',nt:'Gern. Bis später, Frau Melnyk!'}
+  ];
+  let i=0; const $=id=>document.getElementById(id);
+  function zeige(){
+    const x=S[i]; ton.pause(); clearInterval(uhr);
+    $('mel-nummer').textContent='Schritt '+(i+1)+' von '+S.length;
+    $('mel-tipp-ausgabe').textContent=x.tipp; $('mel-tipp-ausgabe').hidden=true;
+    $('mel-text-ausgabe').innerHTML='<strong>Frau Melnyk:</strong> '+x.mt+'<br><strong>Nora:</strong> '+x.nt; $('mel-text-ausgabe').hidden=true;
+    $('mel-zurueck').disabled=i===0; $('mel-weiter').disabled=i===S.length-1;
+  }
+  $('mel-hoeren').addEventListener('click',()=>spiele(...S[i].m));
+  $('mel-nora').addEventListener('click',()=>spiele(...S[i].n));
+  $('mel-tipp').addEventListener('click',()=>{ $('mel-tipp-ausgabe').hidden=!$('mel-tipp-ausgabe').hidden; });
+  $('mel-text').addEventListener('click',()=>{ $('mel-text-ausgabe').hidden=!$('mel-text-ausgabe').hidden; });
+  $('mel-zurueck').addEventListener('click',()=>{ if(i>0){i--;zeige();} });
+  $('mel-weiter').addEventListener('click',()=>{ if(i<S.length-1){i++;zeige();} });
+  document.getElementById('melnyk-transkript').innerHTML=S.map(x=>'<p><strong>Frau Melnyk:</strong> '+x.mt+'<br><strong>Nora:</strong> '+x.nt+'</p>').join('');
+  zeige();
+})();
+
+/* ---- 7 · Meine Übergabe ---- */
+
 Lehrwerk.auswahl('quiz-luecken-uebergabe',[
   {id:'mu-q1',text:'(1) „Mit Herrn Sommer ist alles geklärt, glaube ich.“ Was ist das Problem?',optionen:['Nora weiß es nicht sicher. Was genau ist passiert?','Der Satz ist zu höflich.','Herr Sommer ist nicht wichtig.','Es fehlt nur ein Komma.'],richtig:['Nora weiß es nicht sicher. Was genau ist passiert?'],erklaerung:'„Glaube ich“ ist eine Vermutung. In einer Übergabe steht, was sicher ist, und was noch offen ist.'},
   {id:'mu-q2',text:'(2) „Die Bestellung ist raus.“ Was fehlt?',optionen:['Welche Bestellung? Wann kommt die Lieferung?','Wer hat die Bestellung bezahlt?','Nichts, der Satz ist klar.','Warum Nora bestellt hat.'],richtig:['Welche Bestellung? Wann kommt die Lieferung?'],erklaerung:'Frau Lenz weiß nicht, welche Bestellung gemeint ist und wann sie mit der Ware rechnen kann.'},
