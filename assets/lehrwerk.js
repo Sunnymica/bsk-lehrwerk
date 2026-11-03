@@ -1076,6 +1076,18 @@ window.Lehrwerk = (function () {
       offen: c => c.fallbackUrl || 'https://play.kahoot.it/v2/?quizId=' + kennung(c.kennung),
       hoehe: 560
     },
+    /* Kahoot-Challenge: Die TN spielen allein, ohne Live-Spiel. Aus dem Einbettungscode
+       von Kahoot braucht man die Spiel-PIN (kennung) und die challenge-id (challenge).
+       Eine Challenge kann ein Ablaufdatum haben, das stellt man bei Kahoot ein. */
+    'kahoot-challenge': {
+      name: 'Kahoot',
+      rahmen: c => 'https://kahoot.it/challenge/' + nurZiffern(c.kennung) +
+                   '?challenge-id=' + encodeURIComponent(c.challenge || '') + '&embed=true',
+      offen: c => c.fallbackUrl || 'https://kahoot.it/challenge/' + nurZiffern(c.kennung) +
+                   '?challenge-id=' + encodeURIComponent(c.challenge || ''),
+      hoehe: 600,
+      breite: 440
+    },
     learningapps: {
       name: 'LearningApps',
       rahmen: c => 'https://learningapps.org/watch?v=' + kennung(c.kennung),
@@ -1122,6 +1134,7 @@ window.Lehrwerk = (function () {
       rahmen.loading = 'lazy';
       rahmen.setAttribute('allowfullscreen', '');
       rahmen.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+      if (a.breite) { rahmen.style.maxWidth = a.breite + 'px'; rahmen.style.margin = '0 auto'; }
       flaeche.innerHTML = '';
       flaeche.appendChild(rahmen);
     });

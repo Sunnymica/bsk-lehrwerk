@@ -412,7 +412,7 @@ und die Aufgabe misst dann eher Geduld als Sprache.
 
 ```js
 Lehrwerk.extern('x-wortschatz', {
-  anbieter: 'quizlet',          // quizlet | kahoot | learningapps | video
+  anbieter: 'quizlet',          // quizlet | kahoot | kahoot-challenge | learningapps | video
   kennung:  '123456789',        // nur die Set-Nummer, ohne Namensteil
   titel:    'Wortschatz Büro',
   auftrag:  'Zehn Minuten Karteikarten, dann zurück auf diese Seite.',
@@ -423,6 +423,8 @@ Lehrwerk.extern('x-wortschatz', {
 ```
 
 Im HTML genügt `<div id="x-wortschatz"></div>`.
+
+Für eine **Kahoot-Challenge** (die TN spielen allein) braucht es aus dem Einbettungscode von Kahoot die PIN und die challenge-id: `anbieter: 'kahoot-challenge', kennung: '02146553', challenge: '7e54…_1793…'`. Eine Challenge kann bei Kahoot ein Ablaufdatum haben.
 
 Eingebettet wird bei Quizlet über die reine Set-Nummer: `/123456789/match/embed`.
 Der öffentliche Link enthält zusätzlich den Set-Namen und lässt sich daraus nicht
@@ -616,4 +618,4 @@ ersetzt keine korrekte redaktionelle Statuspflege.
 
 ## Zwischenspeicher
 
-Die zentralen Dateien werden mit einer Versionsnummer eingebunden, zum Beispiel `assets/lehrwerk.css?v=20261103b`. Wer `basis`, `platform`, `lehrwerk` oder `aufgaben` ändert, erhöht die Nummer in allen Seiten (Suchen und Ersetzen), damit Browser nicht die alte Fassung zeigen.
+Die zentralen Dateien werden mit einer Versionsnummer eingebunden, zum Beispiel `assets/lehrwerk.css?v=20261103c`. Wer `basis`, `platform`, `lehrwerk` oder `aufgaben` ändert, erhöht die Nummer in allen Seiten (Suchen und Ersetzen), damit Browser nicht die alte Fassung zeigen.

@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>Am Empfang – Berufssprachkurs</title>
-  <link rel="stylesheet" href="../assets/basis.css?v=20261103b">
-  <link rel="stylesheet" href="../assets/platform.css?v=20261103b">
-  <link rel="stylesheet" href="../assets/lehrwerk.css?v=20261103b">
-  <link rel="stylesheet" href="../assets/aufgaben.css?v=20261103b">
+  <link rel="stylesheet" href="../assets/basis.css?v=20261103c">
+  <link rel="stylesheet" href="../assets/platform.css?v=20261103c">
+  <link rel="stylesheet" href="../assets/lehrwerk.css?v=20261103c">
+  <link rel="stylesheet" href="../assets/aufgaben.css?v=20261103c">
   <script src="../data/homework.js" defer></script>
-  <script src="../assets/platform.js?v=20261103b"></script>
+  <script src="../assets/platform.js?v=20261103c"></script>
 </head>
 <body data-page="module" data-bereich="buero" data-root="../">
 <header class="hero bereich-kopf"><div class="innen">
@@ -864,6 +864,13 @@
     <p class="satz"><strong>Nora:</strong> Es gibt eine Änderung: … · Die Besprechung wird auf … vorverlegt. · Schaffen Sie das? · Wie sieht es bei Ihnen am … aus? · Wie wäre es mit …? · Das kann ich nicht allein entscheiden. · Ich kläre das mit Frau Melnyk und melde mich wieder. · Also: …</p>
     <p class="satz"><strong>Frau Vogt:</strong> Um 13 Uhr wird es knapp. · Das schaffe ich leider nicht. · Ich könnte einen früheren Zug nehmen. · Am Freitag hätte ich Zeit. · Kann ich vielleicht online teilnehmen?</p>
   </div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">Wiederholen</strong>
+    <h2>Kahoot zum Raum und zur Besprechung</h2>
+    <p>Zu Hause oder in der Pause: Spielen Sie allein, so oft Sie möchten.</p>
+  </div>
+  <div id="x-kahoot-raum"></div>
 </section>
 
 <!-- ============ 7 · FRAU LENZ IST ZURÜCK ============ -->
@@ -997,7 +1004,7 @@
 
 <footer class="fuss">Nur für Kursteilnehmerinnen und Kursteilnehmer</footer>
 
-<script src="../assets/lehrwerk.js?v=20261103b"></script><script>
+<script src="../assets/lehrwerk.js?v=20261103c"></script><script>
 Lehrwerk.modul('empfang');
 Lehrwerk.reiter();
 
@@ -1408,6 +1415,15 @@ Lehrwerk.frei('email-vorverlegt');
   Lehrwerk.szene('melnyk-transkript',S.flatMap(x=>[{wer:'melnyk',name:'Frau Melnyk',text:x.mt,b:true},{wer:'nora',name:'Nora',text:x.nt}]));
   zeige();
 })();
+
+Lehrwerk.extern('x-kahoot-raum',{
+  anbieter:'kahoot-challenge',
+  kennung:'02146553',
+  challenge:'7e542571-6205-4ea3-ab6d-2a68dc8b7bea_1793714616010',
+  titel:'Raum reservieren und nachfragen',
+  auftrag:'12 Fragen zu Reiter 5 und 6: Inhalt, weil und denn, und die beste Rückfrage.',
+  dauer:'10 Min'
+});
 
 /* ---- 7 · Frau Lenz ist zurück ---- */
 Lehrwerk.gruppieren('gruppieren-lenz',{
