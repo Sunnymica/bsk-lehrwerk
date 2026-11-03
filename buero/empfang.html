@@ -590,16 +590,18 @@
     <p>Dienstag, 8:00 Uhr. Nora sitzt am Empfang. Aber ihre eigene Arbeit im Einkauf wartet auch. Auf ihrem Zettel steht:</p>
   </div>
 
-  <div class="kasten">
-    <h3>Noras Liste für Dienstag</h3>
-    <p class="satz">1 · Post verteilen, bis 10 Uhr<br>
-    2 · Herr Sommer kommt um 9 Uhr zu Pawel. Weiß Pawel das?<br>
-    3 · Eilpaket nach Hamburg: Kurier bestellen, Abholung bis 11 Uhr<br>
-    4 · Einkauf: Angebot von Papierwerk Süd prüfen, Antwort bis 12 Uhr<br>
-    5 · 10:30 bis 11:30 Uhr: Lieferantengespräch im Raum 2.14. Und wer sitzt dann am Empfang?<br>
-    6 · Frau Melnyk: Raum 3.01 für Donnerstag, 14 Uhr, reservieren<br>
-    7 · Jonas: „Kannst du bis Freitag 500 Prospekte für die Messe bestellen?“ Ist das Einkauf?<br>
-    8 · Büromaterial nachbestellen, wie jeden Donnerstag</p>
+  <div class="dok-notiz">
+    <p class="dok-notiz__titel">Noras Liste für Dienstag</p>
+    <ol>
+      <li>Post verteilen, bis 10 Uhr</li>
+      <li>Herr Sommer kommt um 9 Uhr zu Pawel. Weiß Pawel das?</li>
+      <li>Eilpaket nach Hamburg: Kurier bestellen, Abholung bis 11 Uhr</li>
+      <li>Einkauf: Angebot von Papierwerk Süd prüfen, Antwort bis 12 Uhr</li>
+      <li>10:30 bis 11:30 Uhr: Lieferantengespräch im Raum 2.14. Und wer sitzt dann am Empfang?</li>
+      <li>Frau Melnyk: Raum 3.01 für Donnerstag, 14 Uhr, reservieren</li>
+      <li>Jonas: „Kannst du bis Freitag 500 Prospekte für die Messe bestellen?“ Ist das Einkauf?</li>
+      <li>Büromaterial nachbestellen, wie jeden Donnerstag</li>
+    </ol>
   </div>
 
   <div class="auftrag"><span class="auftrag-marke">Einzelarbeit · 5 Minuten</span><p>Bis wann muss Nora was erledigen? Sortieren Sie. Und was kann Nora gar nicht allein entscheiden?</p></div>
@@ -667,7 +669,7 @@
       <button class="knopf" type="button" id="raum-nora">▶ 2. Nora hören</button>
       <button class="knopf" type="button" id="raum-text">Lesen</button>
     </div>
-    <p class="satz" id="raum-text-ausgabe" hidden></p>
+    <div id="raum-text-ausgabe" hidden></div>
     <div class="knopfreihe">
       <button class="knopf" type="button" id="raum-zurueck">← Zurück</button>
       <button class="knopf" type="button" id="raum-weiter">Weiter →</button>
@@ -749,7 +751,7 @@
       <button class="knopf" type="button" id="mel-nora">▶ 2. Nora hören</button>
       <button class="knopf" type="button" id="mel-text">Beide Sätze lesen</button>
     </div>
-    <p class="satz" id="mel-text-ausgabe" hidden></p>
+    <div id="mel-text-ausgabe" hidden></div>
     <div class="knopfreihe">
       <button class="knopf" type="button" id="mel-zurueck">← Zurück</button>
       <button class="knopf" type="button" id="mel-weiter">Weiter →</button>
@@ -785,11 +787,20 @@
   </div>
   <details class="kasten">
     <summary><strong>Ein Vorschlag</strong> (erst nach dem Schreiben öffnen)</summary>
-    <p><strong>Betreff:</strong> Besprechung am Donnerstag beginnt schon um 13 Uhr</p>
-    <p>Liebe Kolleginnen und Kollegen,</p>
-    <p>die Besprechung am Donnerstag wird auf 13 Uhr vorverlegt. Sie findet in Raum 2.14 statt, weil Raum 3.01 belegt ist. Wir müssen spätestens um 14:15 Uhr fertig sein. Für belegte Brötchen und Kaffee ist gesorgt.</p>
-    <p>Bitte geben Sie mir kurz Bescheid, ob Sie um 13 Uhr kommen können.</p>
-    <p>Viele Grüße<br>Nora Seidel</p>
+    <div class="dok-email">
+      <div class="dok-email__leiste">Neue Nachricht</div>
+      <dl class="dok-email__kopf">
+        <dt>Von</dt><dd>Nora Seidel</dd>
+        <dt>An</dt><dd>Pawel Nowak, Jonas Becker, Samira Haddad</dd>
+        <dt>Betreff</dt><dd><strong>Besprechung am Donnerstag beginnt schon um 13 Uhr</strong></dd>
+      </dl>
+      <div class="dok-email__text">
+        <p>Liebe Kolleginnen und Kollegen,</p>
+        <p>die Besprechung am Donnerstag wird auf 13 Uhr vorverlegt. Sie findet in Raum 2.14 statt, weil Raum 3.01 belegt ist. Wir müssen spätestens um 14:15 Uhr fertig sein. Für belegte Brötchen und Kaffee ist gesorgt.</p>
+        <p>Bitte geben Sie mir kurz Bescheid, ob Sie um 13 Uhr kommen können.</p>
+        <p>Viele Grüße<br>Nora Seidel</p>
+      </div>
+    </div>
   </details>
 
   <div class="differenzierung differenzierung--herausforderung">
@@ -1253,7 +1264,7 @@ Lehrwerk.auswahl('quiz-raum-hoeren2',[
     $('raum-lage').textContent=x.lage;
     $('raum-haddad').style.display=x.h?'':'none';
     $('raum-tipp-ausgabe').textContent=x.tipp; $('raum-tipp-ausgabe').hidden=true;
-    $('raum-text-ausgabe').innerHTML=(x.ht?'<strong>Frau Haddad:</strong> '+x.ht+'<br>':'')+'<strong>Nora:</strong> '+x.nt; $('raum-text-ausgabe').hidden=true;
+    Lehrwerk.szene('raum-text-ausgabe',(x.ht?[{wer:'haddad',name:'Frau Haddad',text:x.ht,b:true}]:[]).concat([{wer:'nora',name:'Nora',text:x.nt}])); $('raum-text-ausgabe').hidden=true;
     $('raum-zurueck').disabled=i===0; $('raum-weiter').disabled=i===S.length-1;
   }
   $('raum-haddad').addEventListener('click',()=>{ if(S[i].h) spiele(...S[i].h); });
@@ -1262,7 +1273,7 @@ Lehrwerk.auswahl('quiz-raum-hoeren2',[
   $('raum-text').addEventListener('click',()=>{ $('raum-text-ausgabe').hidden=!$('raum-text-ausgabe').hidden; });
   $('raum-zurueck').addEventListener('click',()=>{ if(i>0){i--;zeige();} });
   $('raum-weiter').addEventListener('click',()=>{ if(i<S.length-1){i++;zeige();} });
-  document.getElementById('raum-transkript').innerHTML=S.map(x=>(x.ht?'<p><strong>Frau Haddad:</strong> '+x.ht+'</p>':'')+'<p><strong>Nora:</strong> '+x.nt+'</p>').join('')+'<p><strong>Frau Haddad:</strong> Gern. Bis später!</p>';
+  Lehrwerk.szene('raum-transkript',S.flatMap(x=>(x.ht?[{wer:'haddad',name:'Frau Haddad',text:x.ht,b:true}]:[]).concat([{wer:'nora',name:'Nora',text:x.nt}])).concat([{wer:'haddad',name:'Frau Haddad',text:'Gern. Bis später!',b:true}]));
   zeige();
 })();
 
@@ -1332,7 +1343,7 @@ Lehrwerk.frei('email-vorverlegt');
     const x=S[i]; ton.pause(); clearInterval(uhr);
     $('mel-nummer').textContent='Schritt '+(i+1)+' von '+S.length;
     $('mel-tipp-ausgabe').textContent=x.tipp; $('mel-tipp-ausgabe').hidden=true;
-    $('mel-text-ausgabe').innerHTML='<strong>Frau Melnyk:</strong> '+x.mt+'<br><strong>Nora:</strong> '+x.nt; $('mel-text-ausgabe').hidden=true;
+    Lehrwerk.szene('mel-text-ausgabe',[{wer:'melnyk',name:'Frau Melnyk',text:x.mt,b:true},{wer:'nora',name:'Nora',text:x.nt}]); $('mel-text-ausgabe').hidden=true;
     $('mel-zurueck').disabled=i===0; $('mel-weiter').disabled=i===S.length-1;
   }
   $('mel-hoeren').addEventListener('click',()=>spiele(...S[i].m));
@@ -1341,7 +1352,7 @@ Lehrwerk.frei('email-vorverlegt');
   $('mel-text').addEventListener('click',()=>{ $('mel-text-ausgabe').hidden=!$('mel-text-ausgabe').hidden; });
   $('mel-zurueck').addEventListener('click',()=>{ if(i>0){i--;zeige();} });
   $('mel-weiter').addEventListener('click',()=>{ if(i<S.length-1){i++;zeige();} });
-  document.getElementById('melnyk-transkript').innerHTML=S.map(x=>'<p><strong>Frau Melnyk:</strong> '+x.mt+'<br><strong>Nora:</strong> '+x.nt+'</p>').join('');
+  Lehrwerk.szene('melnyk-transkript',S.flatMap(x=>[{wer:'melnyk',name:'Frau Melnyk',text:x.mt,b:true},{wer:'nora',name:'Nora',text:x.nt}]));
   zeige();
 })();
 

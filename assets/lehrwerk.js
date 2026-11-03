@@ -1360,5 +1360,21 @@ window.Lehrwerk = (function () {
     }).catch(() => fehler(meldung));
   }
 
-  return { bereich, modul, reiter, auswahl, luecken, wortbank, zuordnen, gruppieren, satzfolge, extern, frei, abstimmung, ergebnis, abschluss };
+  /* ====== Gesprächsszene ======
+     Lehrwerk.szene(zielId, zeilen) – zeilen: [{ wer:'nora', name:'Nora', text:'…', b:true }]
+     wer = Dateiname in assets/figuren/, b:true = rechte Seite. text darf HTML enthalten.
+     Gibt den HTML-Text zurück; mit zielId (oder Element) wird er gleich eingesetzt. */
+  function szene(ziel, zeilen) {
+    const wurzel = (document.body && document.body.dataset.root) || '';
+    const html = '<div class="gespraech">' + zeilen.map(z =>
+      '<div class="gespraech__zeile' + (z.b ? ' gespraech__zeile--b' : '') + '">' +
+      '<img class="gespraech__bild" src="' + wurzel + 'assets/figuren/' + z.wer + '.webp" alt="">' +
+      '<p class="gespraech__blase"><span class="gespraech__name">' + z.name + '</span>' + z.text + '</p></div>'
+    ).join('') + '</div>';
+    const el = typeof ziel === 'string' ? document.getElementById(ziel) : ziel;
+    if (el) el.innerHTML = html;
+    return html;
+  }
+
+  return { bereich, modul, reiter, auswahl, luecken, wortbank, zuordnen, gruppieren, satzfolge, extern, frei, abstimmung, ergebnis, abschluss, szene };
 })();
