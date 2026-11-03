@@ -812,3 +812,23 @@ mark { background: var(--sand); padding: 0 0.2rem; border-radius: 3px; }
   border-radius: 50%;
 }
 @media (max-width: 34rem) { .symbol { --symbol-groesse: 2.1rem; } }
+
+/* =========================================================
+   Szenenbild oben im Reiter (assets/szenen/<modul>-<thema>.webp)
+   <figure class="reiter-bild"><img src="…" alt="…"></figure>
+   ========================================================= */
+.reiter-bild {
+  --reiter-bild-hoehe: 15rem;
+  margin: 0.4rem 0 1.2rem;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(34, 34, 43, 0.10);
+}
+.reiter-bild img {
+  display: block;
+  width: 100%;
+  height: var(--reiter-bild-hoehe);
+  object-fit: cover;
+  object-position: center 30%;
+}
+@media (max-width: 34rem) { .reiter-bild { --reiter-bild-hoehe: 10rem; } }
