@@ -798,3 +798,17 @@ mark { background: var(--sand); padding: 0 0.2rem; border-radius: 3px; }
 .dok-email__text { padding: 0.8rem 1rem 0.9rem; }
 .dok-email__text p { margin: 0 0 0.6rem; }
 .dok-email__text p:last-child { margin-bottom: 0; }
+
+/* =========================================================
+   Symbole aus der KONTOR-Bilderwelt (assets/symbole/<name>.webp)
+   Klein vor einer Überschrift: <h2><img class="symbol" src="…" alt="">Titel</h2>
+   ========================================================= */
+.symbol {
+  --symbol-groesse: 2.7rem;
+  width: var(--symbol-groesse);
+  height: var(--symbol-groesse);
+  margin: -0.35rem 0.6rem 0 0;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+@media (max-width: 34rem) { .symbol { --symbol-groesse: 2.1rem; } }

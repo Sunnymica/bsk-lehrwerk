@@ -234,6 +234,7 @@ Beispielsätze stehen in `<p class="satzbau">`.
 - `.bildgrammatik` – eigenes erklärendes Schaubild mit Bildunterschrift
 - `.gespraech` mit `.gespraech__zeile` (für die zweite Person zusätzlich `.gespraech__zeile--b`), darin `img.gespraech__bild` und `.gespraech__blase` mit `.gespraech__name` – Gesprächsszene mit festen Figurenporträts aus `assets/figuren/` (nora, lenz, melnyk, haddad, nowak, becker, sommer, bote). Texte stehen nie im Bild, immer in der Blase.
   Per Skript: `Lehrwerk.szene(zielId, [{ wer:'nora', name:'Nora', text:'…', b:true }])` baut die Szene (b = rechte Seite).
+- `img.symbol` – kleines rundes Symbol vor einer Überschrift, Dateien in `assets/symbole/` (klemmbrett, kalender, paket, brief, telefon, laptop, ordner, notizzettel), immer mit leerem alt
 - `.dok-notiz` mit `.dok-notiz__titel` und `ol` – Notizzettel mit Pinnnadel
 - `.dok-email` mit `.dok-email__leiste`, `dl.dok-email__kopf` (dt/dd: Von, An, Betreff) und `.dok-email__text` – E-Mail als Dokument
 
