@@ -232,7 +232,7 @@ Beispielsätze stehen in `<p class="satzbau">`.
 - `.formular` / `.formular-feld` – beschriftetes Formularraster
 - `.satzfolge` – klickbares Satzpuzzle mit Vorrat und gebautem Satz
 - `.bildgrammatik` – eigenes erklärendes Schaubild mit Bildunterschrift
-- `.gespraech` mit `.gespraech__zeile` (für die zweite Person zusätzlich `.gespraech__zeile--b`), darin `img.gespraech__bild` und `.gespraech__blase` mit `.gespraech__name` – Gesprächsszene mit festen Figurenporträts aus `assets/figuren/` (nora, lenz, melnyk, haddad, nowak, becker, sommer, bote). Texte stehen nie im Bild, immer in der Blase.
+- `.gespraech` mit `.gespraech__zeile` (für die zweite Person zusätzlich `.gespraech__zeile--b`), darin `img.gespraech__bild` und `.gespraech__blase` mit `.gespraech__name` – Gesprächsszene mit festen Figurenporträts aus `assets/figuren/` (nora, lenz, melnyk, haddad, nowak, becker, sommer, bote, vogt). Texte stehen nie im Bild, immer in der Blase.
   Per Skript: `Lehrwerk.szene(zielId, [{ wer:'nora', name:'Nora', text:'…', b:true }])` baut die Szene (b = rechte Seite).
 - `figure.reiter-bild` mit `img` – Szenenbild oben im Reiter, direkt nach `.stand-hinweis`, Dateien in `assets/szenen/`, Bilder ohne Text, mit sprechendem alt
 - `img.symbol` – kleines rundes Symbol vor einer Überschrift, Dateien in `assets/symbole/` (klemmbrett, kalender, paket, brief, telefon, laptop, ordner, notizzettel), immer mit leerem alt
