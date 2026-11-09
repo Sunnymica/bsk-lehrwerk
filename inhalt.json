@@ -358,15 +358,12 @@
             },
             {
               "titel": "Rechnung und Mahnung",
-              "beschreibung": "Zahlungsziel, Erinnerung, Mahnstufen.",
+              "beschreibung": "Teil 1 · Die Rechnung geht nicht auf: Belege vergleichen, reklamieren am Telefon, Passiv als Werkzeug, eine Reklamation schreiben.",
               "pfad": "rechnung.html",
               "niveau": "C1",
-              "dauer": "60 Min",
-              "fertigkeiten": [
-                "Schreiben",
-                "Lesen"
-              ],
-              "status": "in-arbeit"
+              "dauer": "240 Min",
+              "fertigkeiten": ["Lesen", "Hören", "Sprechen", "Schreiben"],
+              "status": "teilweise"
             },
             {
               "titel": "Schriftliche Beschwerden",

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Rechnung und Mahnung – Berufssprachkurs</title>
+  <link rel="stylesheet" href="../assets/basis.css?v=20261109a">
+  <link rel="stylesheet" href="../assets/platform.css?v=20261109a">
+  <link rel="stylesheet" href="../assets/lehrwerk.css?v=20261109a">
+  <link rel="stylesheet" href="../assets/aufgaben.css?v=20261109a">
+  <script src="../data/homework.js" defer></script>
+  <script src="../assets/platform.js?v=20261109a"></script>
+  <style>
+    .beleg { background:#fff; border:1px solid #d9d4ca; border-radius:10px; padding:1.1rem 1.3rem; margin:0 0 1rem; box-shadow:0 4px 14px rgba(34,34,43,.06); font-size:.95rem; }
+    .beleg__kopf { display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; border-bottom:2px solid #2f4a5a; padding-bottom:.5rem; margin-bottom:.7rem; }
+    .beleg__firma { font-weight:700; font-size:1.05rem; }
+    .beleg__art { font-family:var(--mono, monospace); text-transform:uppercase; letter-spacing:.08em; font-size:.8rem; color:#2f4a5a; }
+    .beleg table { width:100%; border-collapse:collapse; margin:.6rem 0; }
+    .beleg th, .beleg td { text-align:left; padding:.35rem .4rem; border-bottom:1px solid #ece7de; vertical-align:top; }
+    .beleg td.zahl, .beleg th.zahl { text-align:right; white-space:nowrap; }
+    .beleg tr.summe td { font-weight:700; border-bottom:none; }
+    .beleg__klein { font-size:.85rem; color:#555; }
+    .gespraech-text p { margin:.35rem 0; }
+  </style>
+</head>
+<body data-page="module" data-bereich="buero" data-root="../">
+<header class="hero bereich-kopf"><div class="innen">
+  <a class="zurueck" href="../buero.html">← Büro und Verwaltung</a>
+  <h1><em>Rechnung und Mahnung:</em> Die Rechnung geht nicht auf</h1>
+  <p class="anleitung">Die Messeprospekte sind da. Mit ihnen kommt die Rechnung der Druckerei. Nora sieht sie an und runzelt die Stirn: Da stimmt etwas nicht.</p>
+</div></header>
+
+<main class="innen modul modul--breit">
+
+<div class="reiter" role="tablist" aria-label="Lernabschnitte">
+  <button type="button" id="tab-belege" role="tab" aria-selected="true" data-blatt="belege">1 · Die Rechnung ist da</button>
+  <button type="button" id="tab-finn" role="tab" aria-selected="false" data-blatt="finn">2 · Finn entdeckt den Fehler</button>
+  <button type="button" id="tab-reklamieren" role="tab" aria-selected="false" data-blatt="reklamieren">3 · Nora reklamiert</button>
+  <button type="button" id="tab-schriftlich" role="tab" aria-selected="false" data-blatt="schriftlich">4 · Schwarz auf weiß</button>
+  <button type="button" id="tab-entscheiden" role="tab" aria-selected="false" data-blatt="entscheiden">5 · Zahlen oder warten?</button>
+</div>
+
+<!-- ============ 1 · DIE RECHNUNG IST DA ============ -->
+<section class="blatt" id="blatt-belege" role="tabpanel" aria-labelledby="tab-belege">
+  <p class="stand-hinweis">etwa 45 Minuten · Belege lesen und vergleichen, Zahlen sprechen, Fehler finden</p>
+
+  <div class="kasten">
+    <p>Mittwoch, 11. November. Die 500 Messeprospekte sind pünktlich bei KONTOR angekommen. Auf Noras Schreibtisch liegen jetzt drei Papiere: die Rechnung vom Druckhaus Lindner, die E-Mail, mit der die Druckerei den Preis bestätigt hat, und der Lieferschein. Lesen Sie wie Nora: genau.</p>
+  </div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">Lesen</strong>
+    <h2>Drei Belege</h2>
+  </div>
+
+  <div class="beleg">
+    <div class="beleg__kopf"><span class="beleg__firma">Druckhaus Lindner GmbH</span><span class="beleg__art">Rechnung</span></div>
+    <p class="beleg__klein">An: KONTOR Büro &amp; Logistik GmbH · Einkauf · z. Hd. Frau Nora Seidel</p>
+    <p class="beleg__klein">Rechnungsnummer: 2026-418 · Rechnungsdatum: 11.11.2026 · Lieferdatum: 11.11.2026 · Ihre Bestellung vom 03.11.2026</p>
+    <table>
+      <thead><tr><th>Pos.</th><th>Bezeichnung</th><th class="zahl">Menge</th><th class="zahl">Einzelpreis</th><th class="zahl">Gesamt</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Messeprospekt A4, 8 Seiten, vierfarbig</td><td class="zahl">5.000 Stück</td><td class="zahl">0,48 €</td><td class="zahl">2.400,00 €</td></tr>
+        <tr><td></td><td>Nettobetrag</td><td></td><td></td><td class="zahl">2.400,00 €</td></tr>
+        <tr><td></td><td>zzgl. 19 % Umsatzsteuer</td><td></td><td></td><td class="zahl">456,00 €</td></tr>
+        <tr class="summe"><td></td><td>Rechnungsbetrag</td><td></td><td></td><td class="zahl">2.856,00 €</td></tr>
+      </tbody>
+    </table>
+    <p class="beleg__klein">Zahlbar innerhalb von 30 Tagen ohne Abzug. Bei Zahlung bis zum 19.11.2026 gewähren wir 2 % Skonto.</p>
+  </div>
+
+  <div class="dok-email">
+    <div class="dok-email__leiste">E-Mail</div>
+    <dl class="dok-email__kopf">
+      <dt>Von</dt><dd>Jana Weber, Druckhaus Lindner</dd>
+      <dt>An</dt><dd>Nora Seidel, KONTOR</dd>
+      <dt>Datum</dt><dd>03.11.2026</dd>
+      <dt>Betreff</dt><dd><strong>AW: Messeprospekte – Preis und Liefertermin</strong></dd>
+    </dl>
+    <div class="dok-email__text">
+      <p>Sehr geehrte Frau Seidel,</p>
+      <p>vielen Dank für Ihre Nachfrage. Gern bestätige ich Ihnen den Preis aus unserem Angebot: 500 Messeprospekte A4, 8 Seiten, vierfarbig, zu <strong>0,42 € pro Stück</strong> zzgl. Umsatzsteuer.</p>
+      <p>Die Lieferung erfolgt am Mittwoch, 11.11.2026.</p>
+      <p>Mit freundlichen Grüßen<br>Jana Weber<br>Auftragsannahme</p>
+    </div>
+  </div>
+
+  <div class="beleg">
+    <div class="beleg__kopf"><span class="beleg__firma">Druckhaus Lindner GmbH</span><span class="beleg__art">Lieferschein</span></div>
+    <p class="beleg__klein">Lieferschein-Nr. LS-2026-0951 · Lieferdatum: 11.11.2026 · Empfänger: KONTOR Büro &amp; Logistik GmbH</p>
+    <table>
+      <thead><tr><th>Bezeichnung</th><th class="zahl">Menge</th><th>Verpackung</th></tr></thead>
+      <tbody><tr><td>Messeprospekt A4, 8 Seiten, vierfarbig</td><td class="zahl">500 Stück</td><td>2 Kartons à 250 Stück</td></tr></tbody>
+    </table>
+    <p class="beleg__klein">Ware vollständig und unbeschädigt erhalten: <em>F. Albers</em>, 11.11.2026, 8:40 Uhr</p>
+  </div>
+
+  <div class="auftrag"><span class="auftrag-marke">1. Vergleichen · zu zweit</span><p>Legen Sie die drei Belege nebeneinander. Was passt nicht zusammen?</p></div>
+  <div id="quiz-belege"></div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Wortschatz</strong>
+    <h2>Was steht wo auf der Rechnung?</h2>
+    <p>Ordnen Sie zu. Alle Wörter finden Sie oben auf der Rechnung.</p>
+  </div>
+  <div id="z-rechnung"></div>
+  <p class="rueckmeldung" id="z-rechnung-rueck" hidden></p>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Sprechen</strong>
+    <h2>Zahlen laut lesen</h2>
+    <div class="auftrag"><span class="auftrag-marke">Reihum · 8 Minuten</span><p>Am Telefon muss jede Zahl sitzen. Lesen Sie die Zahlen laut, jede Person zwei. Die anderen hören zu: Stimmt es?</p></div>
+    <p class="satz">2.856,00 € · 0,48 € · 0,42 € · 19 % · 456,00 € · 5.000 Stück · 2026-418 · 11.11.2026 · 2 % Skonto · 249,90 €</p>
+  </div>
+  <details class="kasten">
+    <summary><strong>So spricht man es</strong> (erst nach dem Sprechen öffnen)</summary>
+    <p>zweitausendachthundertsechsundfünfzig Euro · achtundvierzig Cent · zweiundvierzig Cent · neunzehn Prozent · vierhundertsechsundfünfzig Euro · fünftausend Stück · zwei null zwei sechs Strich vierhundertachtzehn · am elften Elften zweitausendsechsundzwanzig · zwei Prozent Skonto · zweihundertneunundvierzig Euro neunzig</p>
+  </details>
+
+  <div class="auftrag"><span class="auftrag-marke">2. Rechnen · zu zweit</span><p>Was müsste auf der Rechnung stehen? Rechnen Sie mit der Menge vom Lieferschein und dem Preis aus der E-Mail.</p></div>
+  <div id="quiz-rechnen"></div>
+
+  <div class="merker">
+    <span class="marke-merker">So beschreiben Sie den Fall neutral</span>
+    <p class="satzbau">Es <span class="verb">wurden</span> 500 Stück <span class="verb">bestellt</span>, aber 5.000 <span class="verb">berechnet</span>.</p>
+    <p class="satzbau">Der Preis <span class="verb">wurde</span> am 3. November schriftlich <span class="verb">bestätigt</span>.</p>
+    <p class="satzbau">Die Prospekte <span class="verb">sind</span> am Mittwoch <span class="verb">geliefert worden</span>.</p>
+    <p>Wer bestellt, berechnet, bestätigt hat, steht hier nicht. Wichtig ist, <strong>was passiert ist</strong>. Mehr dazu in Reiter 3.</p>
+  </div>
+</section>
+
+<!-- ============ 2 · FINN ENTDECKT DEN FEHLER ============ -->
+<section class="blatt" id="blatt-finn" role="tabpanel" aria-labelledby="tab-finn" hidden>
+  <p class="stand-hinweis">etwa 45 Minuten · hören, auf einen Fehler hinweisen, Vermutung und Beweis, selbst sprechen</p>
+
+  <div class="kasten">
+    <img src="../assets/figuren/finn.webp" alt="Finn Albers" style="float:right;width:110px;height:110px;margin:0 0 .5rem 1rem;border-radius:50%">
+    <p>Finn hat am Empfang die Prospekte angenommen und den Lieferschein unterschrieben. Frau Lenz schickt ihn damit zu Nora. Er klopft vorsichtig an.</p>
+  </div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">Hören</strong>
+    <h2>„Ähm, Nora? Hier steht aber etwas anderes …“</h2>
+    <figure class="bildgrammatik">
+      <audio controls preload="auto" id="ton-finn" src="../assets/audio/rechnung-finn.mp3" style="width:100%">Ihr Browser kann die Audiodatei nicht abspielen. Das Gespräch steht unten zum Nachlesen.</audio>
+      <figcaption>Finn und Nora im Einkauf · knapp zwei Minuten</figcaption>
+    </figure>
+  </div>
+
+  <div class="auftrag"><span class="auftrag-marke">1. Hören · ohne Text</span><p>Was findet Finn heraus? Und wie geht es ihm am Ende?</p></div>
+  <div id="quiz-finn-hoeren1"></div>
+
+  <div class="auftrag"><span class="auftrag-marke">2. Hören · genau</span><p>Hören Sie noch einmal. Achten Sie auf die Zahlen.</p></div>
+  <div id="quiz-finn-hoeren2"></div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Entdecken</strong>
+    <h2>Vermutung oder Beweis?</h2>
+    <p>Nora sagt: „Eine Vermutung reicht nicht.“ Sortieren Sie die Sätze aus dem Gespräch.</p>
+  </div>
+  <div id="gruppieren-beweis"></div>
+  <div class="knopfreihe"><button class="knopf" id="gruppieren-beweis-pruefen" type="button">Prüfen</button></div>
+  <p class="rueckmeldung" id="gruppieren-beweis-rueck" hidden></p>
+
+  <div class="merker">
+    <span class="marke-merker">Höflich auf einen Fehler hinweisen</span>
+    <p><strong>Vorsichtig:</strong> Hier steht aber etwas anderes. · Kann es sein, dass …? · Ich glaube, da stimmt etwas nicht.</p>
+    <p><strong>Sachlich:</strong> Mir ist aufgefallen, dass … · Auf der Rechnung steht …, auf dem Lieferschein aber … · Laut E-Mail vom … gilt …</p>
+    <p><strong>Vermutung kennzeichnen:</strong> Vielleicht ist das nur … · Ich vermute, dass … · Ich bin mir nicht sicher, ob …</p>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Sprechen</strong>
+    <h2>Da stimmt etwas nicht</h2>
+    <div class="auftrag"><span class="auftrag-marke">Reihum · 10 Minuten</span><p>Sie finden einen Fehler. Sagen Sie es Ihrer Kollegin höflich, erst vorsichtig, dann sachlich mit Beleg. Die nächste Person antwortet als Kollegin.</p></div>
+    <ol>
+      <li>Bestellt: 20 Ordner. Geliefert: 20 Ordner. Rechnung: 200 Ordner.</li>
+      <li>Angebot: Lieferung kostenlos. Rechnung: Versand 12,50 €.</li>
+      <li>Rechnung an „KONTOR Büro &amp; Logistik GmbH“, aber die Rechnungsnummer fehlt.</li>
+      <li>Rechnung über Toner, aber der Toner ist noch gar nicht gekommen.</li>
+      <li>Die Rechnung ist doppelt gekommen, mit zwei verschiedenen Nummern.</li>
+    </ol>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Sprechen</strong>
+    <h2>Jetzt sind Sie Finn</h2>
+    <p>Sie hören Nora. <strong>Stopp!</strong> Antworten Sie als Finn. Dann hören Sie, was Finn sagt, und vergleichen. Finn darf unsicher sein, und Sie auch.</p>
+  </div>
+  <div class="kasten">
+    <p class="marke" id="fin-nummer">Schritt 1 von 10</p>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="fin-hoeren">▶ 1. Nora hören</button>
+      <button class="knopf" type="button" id="fin-tipp">Tipp</button>
+    </div>
+    <p class="satz" id="fin-tipp-ausgabe" hidden></p>
+    <div class="auftrag"><span class="auftrag-marke">Jetzt Sie</span><p>Was sagen Sie als Finn? Sprechen Sie laut.</p></div>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="fin-finn">▶ 2. Finn hören</button>
+      <button class="knopf" type="button" id="fin-text">Beide Sätze lesen</button>
+    </div>
+    <div id="fin-text-ausgabe" hidden></div>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="fin-zurueck">← Zurück</button>
+      <button class="knopf" type="button" id="fin-weiter">Weiter →</button>
+    </div>
+  </div>
+
+  <details class="kasten">
+    <summary><strong>Das Gespräch zum Nachlesen</strong> (erst nach dem Hören öffnen)</summary>
+    <div id="finn-transkript"></div>
+  </details>
+</section>
+
+<!-- ============ 3 · NORA REKLAMIERT ============ -->
+<section class="blatt" id="blatt-reklamieren" role="tabpanel" aria-labelledby="tab-reklamieren" hidden>
+  <p class="stand-hinweis">etwa 60 Minuten · hören, Passiv entdecken, reklamieren am Telefon</p>
+
+  <div class="kasten">
+    <p>Finn hat sich einen Stuhl geholt. Nora ruft beim Druckhaus Lindner an. Am Telefon ist Herr Brückner: freundlich, routiniert und sehr geschickt darin, niemandem die Schuld zu geben.</p>
+  </div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">Hören</strong>
+    <h2><img class="symbol" src="../assets/symbole/telefon.webp" alt="">Nora ruft die Druckerei an</h2>
+    <figure class="bildgrammatik">
+      <audio controls preload="auto" id="ton-lindner" src="../assets/audio/rechnung-lindner.mp3" style="width:100%">Ihr Browser kann die Audiodatei nicht abspielen.</audio>
+      <figcaption>Nora und Herr Brückner am Telefon · zwei Minuten</figcaption>
+    </figure>
+  </div>
+
+  <div class="auftrag"><span class="auftrag-marke">1. Hören · ohne Text</span><p>Was erreicht Nora?</p></div>
+  <div id="quiz-lindner-hoeren1"></div>
+
+  <div class="auftrag"><span class="auftrag-marke">2. Hören · genau</span><p>Wie reagiert Herr Brückner? Und wie bleibt Nora dran?</p></div>
+  <div id="quiz-lindner-hoeren2"></div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Entdecken</strong>
+    <h2>Wer war's? Niemand!</h2>
+    <p>Herr Brückner sagt nie: „Wir haben einen Fehler gemacht.“ Lesen Sie seine Sätze. Wer hat das eigentlich getan?</p>
+  </div>
+  <div class="kasten">
+    <p class="satzbau">Da <span class="verb">wurde</span> wohl die Menge falsch <span class="verb">übertragen</span>.</p>
+    <p class="satzbau">Die Rechnungen <span class="verb">werden</span> bei uns automatisch <span class="verb">erstellt</span>.</p>
+    <p class="satzbau">Das <span class="verb">wird korrigiert</span>.</p>
+    <p class="satzbau">Unsere Preise <span class="verb">wurden</span> zum ersten November <span class="verb">angepasst</span>.</p>
+    <p class="satzbau">Da <span class="verb">wurde</span> vermutlich noch der alte Preis <span class="verb">genannt</span>.</p>
+  </div>
+  <div id="quiz-wer"></div>
+
+  <div class="merker">
+    <span class="marke-merker">Das Passiv</span>
+    <p class="satzbau">Die Menge <span class="verb">wurde</span> falsch <span class="verb">übertragen</span>. → <strong>werden</strong> + <strong>Partizip II</strong> am Ende</p>
+    <p><strong>Präsens:</strong> Die Rechnung <span class="verb">wird</span> korrigiert. · <strong>Präteritum:</strong> Die Rechnung <span class="verb">wurde</span> korrigiert. · <strong>Perfekt:</strong> Die Rechnung <span class="verb">ist</span> korrigiert <span class="verb">worden</span>.</p>
+    <p>Im Passiv steht im Mittelpunkt, <strong>was passiert</strong>, nicht <strong>wer</strong> es tut. Das ist praktisch für neutrale Beschreibungen. Es ist aber auch praktisch, wenn man niemanden nennen will.</p>
+    <p><strong>Nora macht es anders.</strong> Sie nennt, wer was getan hat: „<em>Sie haben</em> uns fünftausend Prospekte berechnet.“ – „<em>Ihre Kollegin hat</em> den Preis bestätigt.“ Im Aktiv.</p>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Üben</strong>
+    <h2>Herr Brückners Sätze bauen</h2>
+    <p>Bauen Sie die Passivsätze. „wurde“ steht auf Platz 2, das Partizip am Ende.</p>
+  </div>
+  <div id="satzfolge-passiv"></div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Sprechen</strong>
+    <h2>Und jetzt mit Namen!</h2>
+    <div class="auftrag"><span class="auftrag-marke">Reihum · 8 Minuten</span><p>Eine Person liest einen Passivsatz wie Herr Brückner. Die nächste antwortet wie Nora, im Aktiv und mit einem Namen: „Nein, Herr Brückner, <em>Sie haben</em> …“</p></div>
+    <ol>
+      <li>Die Prospekte wurden falsch berechnet. (die Druckerei)</li>
+      <li>Der falsche Preis wurde in die Rechnung eingetragen. (Ihre Buchhaltung)</li>
+      <li>Die Lieferung wurde gestern bestätigt. (Herr Albers)</li>
+      <li>Der Preis wurde am dritten November bestätigt. (Ihre Kollegin, Frau Weber)</li>
+      <li>Die Rechnung ist automatisch verschickt worden. (Ihr System)</li>
+    </ol>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Sprechen</strong>
+    <h2>Jetzt sind Sie Nora</h2>
+    <p>Sie hören Herrn Brückner. <strong>Stopp!</strong> Antworten Sie als Nora: höflich, aber bestimmt. Dann hören Sie, was Nora sagt, und vergleichen.</p>
+  </div>
+  <div class="kasten">
+    <p class="marke" id="lin-nummer">Schritt 1 von 8</p>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="lin-hoeren">▶ 1. Herrn Brückner hören</button>
+      <button class="knopf" type="button" id="lin-tipp">Tipp</button>
+    </div>
+    <p class="satz" id="lin-tipp-ausgabe" hidden></p>
+    <div class="auftrag"><span class="auftrag-marke">Jetzt Sie</span><p>Was sagen Sie als Nora? Sprechen Sie laut.</p></div>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="lin-nora">▶ 2. Nora hören</button>
+      <button class="knopf" type="button" id="lin-text">Beide Sätze lesen</button>
+    </div>
+    <div class="kasten gespraech-text" id="lin-text-ausgabe" hidden></div>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="lin-zurueck">← Zurück</button>
+      <button class="knopf" type="button" id="lin-weiter">Weiter →</button>
+    </div>
+  </div>
+
+  <div class="merker">
+    <span class="marke-merker">So reklamieren Sie am Telefon</span>
+    <p><strong>Anlass nennen:</strong> Ich rufe wegen Ihrer Rechnung Nummer … an.</p>
+    <p><strong>Fehler mit Beleg:</strong> Sie haben uns … berechnet. Geliefert haben Sie aber … So steht es auch auf Ihrem Lieferschein.</p>
+    <p><strong>Ausreden freundlich abwehren:</strong> Das mag sein. Aber … · Das verstehe ich. Aber Sie haben uns am … schriftlich bestätigt. · Für uns gilt …</p>
+    <p><strong>Lösung und Frist:</strong> Bis wann können Sie mir eine korrigierte Rechnung schicken? · Das ist leider zu spät. Wäre … möglich?</p>
+  </div>
+
+  <div class="differenzierung differenzierung--herausforderung">
+    <strong class="differenzierung__stufe">Rollenspiel</strong>
+    <h2>Ein neuer Fall</h2>
+    <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 15 Minuten</span><p>A ist Nora, B arbeitet beim Bürobedarf Schulte. Jede Person öffnet nur ihre eigene Karte. Dann tauschen Sie die Rollen.</p></div>
+    <p>Bei fünf Personen: zwei Paare und eine Dreiergruppe. Person C zählt: Wie oft benutzt B das Passiv, um sich herauszureden? Und bleibt A trotzdem freundlich?</p>
+  </div>
+  <div class="nebeneinander">
+    <details class="kasten">
+      <summary><strong>Karte A · Nora</strong> (nur A öffnet)</summary>
+      <p>Sie haben beim Bürobedarf Schulte 40 Ordner bestellt. Laut Angebot ist die Lieferung kostenlos. Geliefert wurden 40 Ordner. Auf der Rechnung stehen aber 12,50 € Versandkosten. Das Angebot vom 2. November liegt Ihnen vor.</p>
+      <p><em>Ziel: eine korrigierte Rechnung ohne Versandkosten, bis übermorgen.</em></p>
+    </details>
+    <details class="kasten">
+      <summary><strong>Karte B · Bürobedarf Schulte</strong> (nur B öffnet)</summary>
+      <p>Sie sind freundlich, sagen aber nie „Wir haben einen Fehler gemacht“. Benutzen Sie Sätze wie: „Die Versandkosten werden automatisch berechnet.“ – „Das Angebot wurde vielleicht nicht richtig übernommen.“ – „Das muss erst geprüft werden.“</p>
+      <p><em>Wenn A das Angebot nennt, geben Sie nach. Die korrigierte Rechnung kommt aber erst Ende der Woche, außer A bleibt freundlich hartnäckig.</em></p>
+    </details>
+  </div>
+
+  <details class="kasten">
+    <summary><strong>Das Gespräch zum Nachlesen</strong> (erst nach dem Hören öffnen)</summary>
+    <div class="gespraech-text" id="lindner-transkript"></div>
+  </details>
+</section>
+
+<!-- ============ 4 · SCHWARZ AUF WEISS ============ -->
+<section class="blatt" id="blatt-schriftlich" role="tabpanel" aria-labelledby="tab-schriftlich" hidden>
+  <p class="stand-hinweis">etwa 45 Minuten · Passiv mit Modalverb, eine Reklamation schreiben</p>
+
+  <div class="kasten">
+    <p>Herr Brückner hat am Telefon viel versprochen. Nora weiß: Was nur am Telefon gesagt wird, ist schnell vergessen. Darum schreibt sie gleich danach eine E-Mail. Darin steht, was jetzt passieren muss.</p>
+  </div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">Entdecken</strong>
+    <h2>Was muss passieren?</h2>
+    <p>Lesen Sie Noras Sätze. Wo stehen die Verben?</p>
+  </div>
+  <div class="kasten">
+    <p class="satzbau">Die Rechnung <span class="verb">muss korrigiert werden</span>.</p>
+    <p class="satzbau">Die Menge <span class="verb">muss</span> auf 500 Stück <span class="verb">geändert werden</span>.</p>
+    <p class="satzbau">Der Betrag <span class="verb">kann</span> erst nach Eingang der korrigierten Rechnung <span class="verb">überwiesen werden</span>.</p>
+    <p class="satzbau">Die alte Rechnung <span class="verb">soll</span> bitte <span class="verb">storniert werden</span>.</p>
+  </div>
+  <div class="merker">
+    <span class="marke-merker">Passiv mit Modalverb</span>
+    <p class="satzbau">Die Rechnung · <span class="verb">muss</span> · bis morgen · <span class="verb">korrigiert werden</span>.</p>
+    <p>Das Modalverb steht auf Platz 2. Am Ende stehen zwei Verben: zuerst das Partizip II, dann <strong>werden</strong>.</p>
+    <p>So klingt eine Forderung sachlich und trotzdem klar. Niemand wird angegriffen, aber jeder weiß, was zu tun ist.</p>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Üben</strong>
+    <h2>Sätze für die E-Mail</h2>
+  </div>
+  <div id="satzfolge-modal"></div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Schreiben</strong>
+    <h2>Noras E-Mail an Herrn Brückner</h2>
+    <div class="auftrag"><span class="auftrag-marke">Einzelarbeit · 15 Minuten</span><p>Sie sind Nora. Schreiben Sie Herrn Brückner. Halten Sie fest, was am Telefon vereinbart wurde.</p></div>
+    <p><strong>Eine gute Reklamation hat fünf Teile:</strong> Bezug (Rechnung, Telefonat) · Sachverhalt (was ist falsch?) · Belege (Lieferschein, E-Mail) · Forderung (was muss passieren?) · Frist (bis wann?)</p>
+    <p><strong>Start:</strong> alle fünf Teile, je ein Satz.<br><strong>Weiter:</strong> dazu zwei Sätze mit Passiv und Modalverb.<br><strong>Herausforderung:</strong> dazu ein Satz, was passiert, wenn die Frist nicht eingehalten wird.</p>
+    <p class="satz">Betreff: Ihre Rechnung Nr. … · Sehr geehrter Herr Brückner, · wie heute telefonisch besprochen, … · Auf der Rechnung … berechnet, geliefert wurden jedoch … · Laut Ihrer E-Mail vom … · Die Rechnung muss … werden. · Bitte senden Sie uns bis … · Bis dahin kann … · Mit freundlichen Grüßen</p>
+    <textarea class="feld" id="mail-brueckner" rows="10" data-ergebnis-label="Reklamation an Herrn Brückner"></textarea>
+  </div>
+  <details class="kasten">
+    <summary><strong>Ein Vorschlag</strong> (erst nach dem Schreiben öffnen)</summary>
+    <div class="dok-email">
+      <div class="dok-email__leiste">Neue Nachricht</div>
+      <dl class="dok-email__kopf">
+        <dt>Von</dt><dd>Nora Seidel</dd>
+        <dt>An</dt><dd>Herr Brückner, Druckhaus Lindner</dd>
+        <dt>Betreff</dt><dd><strong>Ihre Rechnung Nr. 2026-418 vom 11.11.2026 – Bitte um Korrektur</strong></dd>
+      </dl>
+      <div class="dok-email__text">
+        <p>Sehr geehrter Herr Brückner,</p>
+        <p>wie heute telefonisch besprochen, enthält Ihre Rechnung Nr. 2026-418 zwei Fehler. Berechnet wurden 5.000 Prospekte zu 0,48 €. Geliefert wurden jedoch 500 Stück, wie Ihr Lieferschein LS-2026-0951 zeigt. Außerdem haben Sie uns mit E-Mail vom 03.11.2026 einen Preis von 0,42 € pro Stück bestätigt. Beide Belege finden Sie im Anhang.</p>
+        <p>Die Rechnung muss deshalb auf 500 Stück zu 0,42 € korrigiert werden, also 210,00 € netto, 249,90 € brutto. Die alte Rechnung soll bitte storniert werden.</p>
+        <p>Bitte senden Sie uns die korrigierte Rechnung bis morgen, 12.11.2026. Der Betrag kann erst nach Eingang der korrigierten Rechnung überwiesen werden. Den Skonto bis zum 19.11.2026 möchten wir gern nutzen.</p>
+        <p>Vielen Dank für Ihre Unterstützung.</p>
+        <p>Mit freundlichen Grüßen<br>Nora Seidel<br>Einkauf · KONTOR Büro &amp; Logistik GmbH</p>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ 5 · ZAHLEN ODER WARTEN? ============ -->
+<section class="blatt" id="blatt-entscheiden" role="tabpanel" aria-labelledby="tab-entscheiden" hidden>
+  <p class="stand-hinweis">etwa 45 Minuten · entscheiden und begründen, Abläufe im Passiv beschreiben</p>
+
+  <div class="kasten">
+    <p>Donnerstag, 19. November, 9 Uhr. Die korrigierte Rechnung ist immer noch nicht da, obwohl Herr Brückner sie für den nächsten Tag versprochen hatte. Heute endet die Skonto-Frist. Frau Melnyk ruft an: „Nora, zahlen wir jetzt oder warten wir? Sagen Sie mir bis zehn Uhr Bescheid.“</p>
+  </div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">Entscheiden</strong>
+    <h2>Drei Möglichkeiten</h2>
+    <div class="auftrag"><span class="auftrag-marke">In Gruppen · 15 Minuten</span><p>Diskutieren Sie die drei Möglichkeiten. Einigen Sie sich auf eine. Dann erklärt eine Person Frau Melnyk die Entscheidung, in drei Sätzen und mit Begründung.</p></div>
+    <ol>
+      <li><strong>Den richtigen Betrag heute überweisen.</strong> 249,90 € minus 2 % Skonto, also 244,90 €, mit dem Vermerk „Rechnung 2026-418, korrigierter Betrag laut Telefonat“.</li>
+      <li><strong>Warten, bis die korrigierte Rechnung kommt.</strong> Dann ist der Skonto vielleicht weg, aber alles ist sauber dokumentiert.</li>
+      <li><strong>Noch einmal anrufen</strong> und um eine Verlängerung der Skonto-Frist bitten.</li>
+    </ol>
+    <p>Wichtig für die Diskussion: Wie viel Geld ist der Skonto eigentlich? Lohnt sich der Aufwand? Und was sagt die Buchhaltung, wenn eine Zahlung ohne passende Rechnung kommt?</p>
+  </div>
+  <div class="merker">
+    <span class="marke-merker">So begründen Sie Ihre Entscheidung</span>
+    <p>Wir schlagen vor, …, weil … · Der Vorteil ist, dass … · Ein Nachteil ist allerdings … · Obwohl …, würden wir … · Deshalb …</p>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Entdecken</strong>
+    <h2>So wird bei KONTOR eine Rechnung geprüft</h2>
+    <p>Frau Haddad hat für Finn eine Anleitung geschrieben. Bringen Sie die Schritte in die richtige Reihenfolge.</p>
+  </div>
+  <div id="satzfolge-pruefung"></div>
+  <div class="merker">
+    <span class="marke-merker">Abläufe beschreiben mit Passiv</span>
+    <p class="satzbau">Zuerst <span class="verb">wird</span> die Rechnung mit der Bestellung <span class="verb">verglichen</span>.</p>
+    <p>In Anleitungen und Arbeitsabläufen ist das Passiv ganz normal. Wer es macht, ist klar: die Person, die gerade die Rechnungen bearbeitet.</p>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Ihr Arbeitsplatz</strong>
+    <h2>So wird das bei uns gemacht</h2>
+    <div class="auftrag"><span class="auftrag-marke">Einzelarbeit · 10 Minuten</span><p>Beschreiben Sie einen Ablauf aus Ihrem Beruf im Passiv. Zum Beispiel: wie eine Rechnung gebucht wird, wie eine Sendung verzollt wird, wie ein Geldtransfer geprüft wird.</p></div>
+    <p><strong>Start:</strong> vier Sätze mit zuerst, dann, danach, zum Schluss.<br><strong>Weiter:</strong> dazu ein Satz mit Modalverb: „… muss … werden.“<br><strong>Herausforderung:</strong> dazu ein Satz im Perfekt: „Wenn … geprüft worden ist, …“</p>
+    <textarea class="feld" id="ablauf-passiv" rows="7" data-ergebnis-label="Mein Ablauf im Passiv"></textarea>
+    <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 10 Minuten</span><p>Erklären Sie Ihrer Partnerin oder Ihrem Partner den Ablauf, ohne abzulesen. Sie oder er fragt nach: „Und was passiert, wenn …?“</p></div>
+  </div>
+
+  <div class="kasten">
+    <p><strong>Hausaufgabe:</strong> Hören Sie das Telefonat mit Herrn Brückner noch einmal und machen Sie „Jetzt sind Sie Nora“ allein. Schreiben Sie dann fünf Passivsätze über Ihren Arbeitstag gestern: Was wurde erledigt? Was ist noch nicht gemacht worden?</p>
+  </div>
+
+  <div class="kasten">
+    <p><strong>Und bei KONTOR?</strong> Drei Wochen später liegt ein Brief vom Druckhaus Lindner im Postfach. Oben steht in roten Buchstaben: <strong>Zahlungserinnerung</strong>. Betrag: 2.856,00 €.</p>
+  </div>
+</section>
+
+</main>
+
+<script src="../assets/lehrwerk.js?v=20261109a"></script><script>
+Lehrwerk.modul('rechnung');
+Lehrwerk.reiter();
+const T = (id, text, typ) => ({ id, text, typ });
+
+/* ---- 1 · Die Rechnung ist da ---- */
+Lehrwerk.auswahl('quiz-belege',[
+  {id:'be-q1',text:'Was passt nicht zusammen? Zwei Antworten sind richtig.',optionen:['die Menge: 5.000 auf der Rechnung, 500 auf dem Lieferschein','der Einzelpreis: 0,48 € auf der Rechnung, 0,42 € in der E-Mail','das Lieferdatum','die Umsatzsteuer von 19 %'],richtig:['die Menge: 5.000 auf der Rechnung, 500 auf dem Lieferschein','der Einzelpreis: 0,48 € auf der Rechnung, 0,42 € in der E-Mail'],erklaerung:'Das Lieferdatum stimmt überall (11.11.2026). 19 % Umsatzsteuer ist richtig. Falsch sind die Menge und der Einzelpreis.'},
+  {id:'be-q2',text:'Wer hat den Empfang der Prospekte unterschrieben?',optionen:['Finn Albers','Nora Seidel','Frau Lenz'],richtig:['Finn Albers'],erklaerung:'Auf dem Lieferschein steht: „Ware vollständig und unbeschädigt erhalten: F. Albers“.'},
+  {id:'be-q3',text:'Bis wann kann KONTOR mit 2 % Skonto bezahlen?',optionen:['bis zum 19.11.2026','bis zum 11.11.2026','innerhalb von 30 Tagen'],richtig:['bis zum 19.11.2026'],erklaerung:'„Bei Zahlung bis zum 19.11.2026 gewähren wir 2 % Skonto.“ Wer später zahlt, aber innerhalb von 30 Tagen, zahlt den vollen Betrag.'}
+]);
+Lehrwerk.zuordnen('z-rechnung',{
+  rueck:'z-rechnung-rueck',
+  paare:[
+    {id:'r1',links:'Position',rechts:'eine Zeile mit einer Ware oder Leistung'},
+    {id:'r2',links:'Einzelpreis',rechts:'der Preis für ein Stück'},
+    {id:'r3',links:'Nettobetrag',rechts:'der Betrag ohne Umsatzsteuer'},
+    {id:'r4',links:'Rechnungsbetrag (brutto)',rechts:'der Betrag mit Umsatzsteuer'},
+    {id:'r5',links:'Zahlungsziel',rechts:'bis wann man spätestens zahlen muss'},
+    {id:'r6',links:'Skonto',rechts:'ein Abzug, wenn man schnell zahlt'}
+  ]
+});
+Lehrwerk.auswahl('quiz-rechnen',[
+  {id:'re-q1',text:'500 Stück × 0,42 € = ? (netto)',optionen:['210,00 €','2.100,00 €','240,00 €'],richtig:['210,00 €'],erklaerung:'500 × 0,42 € = 210,00 €.'},
+  {id:'re-q2',text:'210,00 € + 19 % Umsatzsteuer = ?',optionen:['249,90 €','229,00 €','250,00 €'],richtig:['249,90 €'],erklaerung:'19 % von 210,00 € sind 39,90 €. 210,00 € + 39,90 € = 249,90 €.'},
+  {id:'re-q3',text:'Wie viel zu viel steht auf der Rechnung? (brutto)',optionen:['2.606,10 €','2.400,00 €','606,10 €'],richtig:['2.606,10 €'],erklaerung:'2.856,00 € − 249,90 € = 2.606,10 €. Nicht schlecht für „eine Null zu viel“ und sechs Cent.'}
+]);
+
+/* ---- 2 · Finn entdeckt den Fehler ---- */
+Lehrwerk.auswahl('quiz-finn-hoeren1',[
+  {id:'fh1-q1',text:'Was findet Finn heraus?',optionen:['Auf der Rechnung steht eine andere Menge als auf dem Lieferschein.','Die Prospekte sind beschädigt.','Die Prospekte sind zu spät gekommen.'],richtig:['Auf der Rechnung steht eine andere Menge als auf dem Lieferschein.'],erklaerung:'„Auf der Rechnung steht fünftausend Stück. Und auf dem Lieferschein … fünfhundert.“'},
+  {id:'fh1-q2',text:'Wie geht es Finn am Ende?',optionen:['Er freut sich, dass er beim Telefonat zuhören darf.','Er hat Angst vor dem Telefonat.','Er ist müde und geht nach Hause.'],richtig:['Er freut sich, dass er beim Telefonat zuhören darf.'],erklaerung:'„Ich? Zuhören? Super! Ich hole schnell einen Stuhl!“'}
+]);
+Lehrwerk.auswahl('quiz-finn-hoeren2',[
+  {id:'fh2-q1',text:'Wie viele Kartons sind gekommen, und wie viele Prospekte sind in einem Karton?',optionen:['zwei Kartons, je 250 Prospekte','fünf Kartons, je 100 Prospekte','zwei Kartons, je 2.500 Prospekte'],richtig:['zwei Kartons, je 250 Prospekte'],erklaerung:'„Zwei kleine Kartons. Ich habe einen aufgemacht, da waren zweihundertfünfzig drin.“'},
+  {id:'fh2-q2',text:'Woher weiß Nora, dass der Preis falsch ist?',optionen:['Sie hat eine E-Mail von der Druckerei mit dem bestätigten Preis.','Frau Melnyk hat es ihr gesagt.','Finn hat es auf dem Karton gelesen.'],richtig:['Sie hat eine E-Mail von der Druckerei mit dem bestätigten Preis.'],erklaerung:'„Hier ist die E-Mail von der Druckerei. Zweiundvierzig Cent pro Stück. Schwarz auf weiß.“'},
+  {id:'fh2-q3',text:'Was macht Nora als Nächstes?',optionen:['Sie ruft die Druckerei an.','Sie bezahlt die Rechnung.','Sie schreibt Frau Melnyk.'],richtig:['Sie ruft die Druckerei an.'],erklaerung:'„Jetzt rufe ich das Druckhaus Lindner an. Und du hörst zu.“'}
+]);
+Lehrwerk.gruppieren('gruppieren-beweis',{
+  pruefen:'gruppieren-beweis-pruefen',
+  rueck:'gruppieren-beweis-rueck',
+  gruppen:[
+    {id:'vermutung',titel:'Vermutung',woerter:['Das kommt mir sehr viel vor.','Vielleicht ist das nur ein Tippfehler.','Ich bin mir nicht sicher.','Das vermute ich auch.']},
+    {id:'beweis',titel:'Beweis',woerter:['Auf dem Lieferschein steht fünfhundert.','Zwei mal zweihundertfünfzig, das sind fünfhundert.','Hier ist die E-Mail: zweiundvierzig Cent pro Stück.']}
+  ]
+});
+(function(){
+  const ton=document.getElementById('ton-finn'); if(!ton) return;
+  let uhr=null;
+  function spiele(von,bis){
+    clearInterval(uhr);
+    if(ton.readyState<1){ ton.addEventListener('loadedmetadata',()=>spiele(von,bis),{once:true}); ton.load(); return; }
+    ton.currentTime=von; const p=ton.play(); if(p&&p.catch) p.catch(()=>{});
+    uhr=setInterval(()=>{ if(ton.currentTime>=bis){ ton.pause(); clearInterval(uhr); } },40);
+  }
+  const S=[
+    {n:[4.52,6.98],f:[6.98,14.37],tipp:'erklären, warum Sie da sind: Prospekte, Lieferschein, Frau Lenz',nt:'Nein, nein, komm rein, Finn. Was gibt\'s?',ft:'Die Prospekte für die Messe sind heute Morgen gekommen. Ich habe am Empfang unterschrieben. Und Frau Lenz sagt, der Lieferschein gehört zu dir.'},
+    {n:[14.37,24.27],f:[24.27,26.29],tipp:'unsicher nachfragen: Ist das …?',nt:'Super, danke! Das passt gut. Ich habe gerade die Rechnung vom Druckhaus Lindner auf dem Tisch. Und ehrlich gesagt … die gefällt mir gar nicht.',ft:'Oh. Ist das … schlimm?'},
+    {n:[26.29,33.74],f:[33.74,44.33],tipp:'fragen, ob Sie sehen dürfen · vorsichtig auf den Fehler hinweisen: Hier steht aber …',nt:'Na ja. Zweitausendachthundertsechsundfünfzig Euro. Für Prospekte. Das kommt mir sehr viel vor.',ft:'Darf ich mal sehen? Ähm … Nora? Hier steht aber etwas anderes. Auf der Rechnung steht fünftausend Stück. Und auf dem Lieferschein … fünfhundert.'},
+    {n:[44.33,50.91],f:[50.91,56.93],tipp:'eine Vermutung äußern · Unsicherheit zeigen',nt:'Zeig mal. Tatsächlich. Fünftausend auf der Rechnung, fünfhundert auf dem Lieferschein.',ft:'Vielleicht ist das nur ein Tippfehler? Eine Null zu viel? Ich weiß nicht … ich bin mir nicht sicher.'},
+    {n:[56.93,62.51],f:[62.51,68.99],tipp:'zwei Kartons · einen geöffnet: 250',nt:'Das vermute ich auch. Aber eine Vermutung reicht nicht. Wie viele Kartons sind gekommen?',ft:'Zwei kleine Kartons. Ich habe einen aufgemacht, da waren zweihundertfünfzig drin. Das steht auch auf dem Karton.'},
+    {n:[68.99,75.08],f:[75.08,78.59],tipp:'sich freuen!',nt:'Zwei mal zweihundertfünfzig, das sind fünfhundert. Gut. Dann haben wir einen Beweis.',ft:'Echt? Ich habe einen Beweis gefunden? Wow!'},
+    {n:[78.59,84.28],f:[84.28,85.39],tipp:'kurz nachfragen',nt:'Hast du. Und warte mal … der Preis. Achtundvierzig Cent pro Stück?',ft:'Ist das falsch?'},
+    {n:[85.39,95.3],f:[95.3,97.0],tipp:'überrascht reagieren: Dann …!',nt:'Ich habe mir den Preis letzte Woche extra bestätigen lassen. Moment … hier ist die E-Mail von der Druckerei. Zweiundvierzig Cent pro Stück. Schwarz auf weiß.',ft:'Dann stimmt ja gar nichts!'},
+    {n:[97.0,101.08],f:[101.08,103.0],tipp:'fragen, wie es weitergeht',nt:'Die Menge nicht und der Preis nicht. Gut, dass du gekommen bist, Finn.',ft:'Und … was machst du jetzt?'},
+    {n:[103.0,109.64],f:[109.64,113.63],tipp:'sich riesig freuen · einen Stuhl holen',nt:'Jetzt rufe ich das Druckhaus Lindner an. Und du hörst zu. So eine Reklamation lernt man am besten live.',ft:'Ich? Zuhören? Super! Ich hole schnell einen Stuhl!'}
+  ];
+  let i=0; const $=id=>document.getElementById(id);
+  function zeige(){
+    const x=S[i]; ton.pause(); clearInterval(uhr);
+    $('fin-nummer').textContent='Schritt '+(i+1)+' von '+S.length;
+    $('fin-tipp-ausgabe').textContent=x.tipp; $('fin-tipp-ausgabe').hidden=true;
+    Lehrwerk.szene('fin-text-ausgabe',[{wer:'nora',name:'Nora',text:x.nt,b:true},{wer:'finn',name:'Finn',text:x.ft}]); $('fin-text-ausgabe').hidden=true;
+    $('fin-zurueck').disabled=i===0; $('fin-weiter').disabled=i===S.length-1;
+  }
+  $('fin-hoeren').addEventListener('click',()=>spiele(...S[i].n));
+  $('fin-finn').addEventListener('click',()=>spiele(...S[i].f));
+  $('fin-tipp').addEventListener('click',()=>{ $('fin-tipp-ausgabe').hidden=!$('fin-tipp-ausgabe').hidden; });
+  $('fin-text').addEventListener('click',()=>{ $('fin-text-ausgabe').hidden=!$('fin-text-ausgabe').hidden; });
+  $('fin-zurueck').addEventListener('click',()=>{ if(i>0){i--;zeige();} });
+  $('fin-weiter').addEventListener('click',()=>{ if(i<S.length-1){i++;zeige();} });
+  Lehrwerk.szene('finn-transkript',[{wer:'finn',name:'Finn',text:'Ähm … Nora? Hast du kurz Zeit? Oder störe ich?'}].concat(S.flatMap(x=>[{wer:'nora',name:'Nora',text:x.nt,b:true},{wer:'finn',name:'Finn',text:x.ft}])));
+  zeige();
+})();
+
+/* ---- 3 · Nora reklamiert ---- */
+Lehrwerk.auswahl('quiz-lindner-hoeren1',[
+  {id:'lh1-q1',text:'Was erreicht Nora?',optionen:['Die Druckerei schickt eine korrigierte Rechnung.','Die Druckerei schickt 4.500 Prospekte nach.','Nora bezahlt die Rechnung, und die Druckerei gibt später Geld zurück.'],richtig:['Die Druckerei schickt eine korrigierte Rechnung.'],erklaerung:'Am Ende verspricht Herr Brückner eine korrigierte Rechnung.'}
+]);
+Lehrwerk.auswahl('quiz-lindner-hoeren2',[
+  {id:'lh2-q1',text:'Wie erklärt Herr Brückner den Fehler bei der Menge?',optionen:['„Da wurde wohl die Menge falsch übertragen.“','„Unser Fahrer hat sich verzählt.“','„Sie haben 5.000 bestellt.“'],richtig:['„Da wurde wohl die Menge falsch übertragen.“'],erklaerung:'Er sagt nicht, wer die Menge falsch übertragen hat. Und: „Die Rechnungen werden bei uns automatisch erstellt.“'},
+  {id:'lh2-q2',text:'Warum stehen 0,48 € auf der Rechnung? Was sagt Herr Brückner?',optionen:['Die Papierpreise sind gestiegen, die Preise wurden angepasst.','Die Prospekte sind größer geworden.','Das ist ein Expresszuschlag.'],richtig:['Die Papierpreise sind gestiegen, die Preise wurden angepasst.'],erklaerung:'„Die Papierpreise sind gestiegen. Unsere Preise wurden zum ersten November angepasst.“'},
+  {id:'lh2-q3',text:'Mit welchem Argument bleibt Nora beim Preis von 0,42 €?',optionen:['Die Druckerei hat ihr den Preis am 3. November schriftlich bestätigt.','Frau Melnyk will nicht mehr bezahlen.','Andere Druckereien sind billiger.'],richtig:['Die Druckerei hat ihr den Preis am 3. November schriftlich bestätigt.'],erklaerung:'„Aber Sie haben uns am dritten November schriftlich zweiundvierzig Cent bestätigt. Ich habe die E-Mail hier vor mir.“'},
+  {id:'lh2-q4',text:'Warum ist „bis Ende der Woche“ zu spät?',optionen:['Die Skonto-Frist läuft am Donnerstag ab.','Nora hat ab Freitag Urlaub.','Die Messe beginnt am Freitag.'],richtig:['Die Skonto-Frist läuft am Donnerstag ab.'],erklaerung:'„Unsere Zahlungsfrist mit Skonto läuft am Donnerstag ab. Wäre morgen möglich?“'}
+]);
+Lehrwerk.auswahl('quiz-wer',[
+  {id:'we-q1',text:'„Da wurde wohl die Menge falsch übertragen.“ Wer hat das getan?',optionen:['jemand bei der Druckerei','Nora','Finn'],richtig:['jemand bei der Druckerei'],erklaerung:'Die Druckerei hat die Rechnung geschrieben. Aber im Passiv muss Herr Brückner niemanden nennen.'},
+  {id:'we-q2',text:'„Unsere Preise wurden angepasst.“ Wer hat die Preise angepasst?',optionen:['die Druckerei selbst','die Papierfabrik','KONTOR'],richtig:['die Druckerei selbst'],erklaerung:'Aktiv klingt das ganz anders: „Wir haben unsere Preise erhöht.“'},
+  {id:'we-q3',text:'Warum spricht Herr Brückner so oft im Passiv?',optionen:['So muss er nicht sagen, wer den Fehler gemacht hat.','Weil das höflicher für Nora ist.','Weil man am Telefon immer Passiv benutzt.'],richtig:['So muss er nicht sagen, wer den Fehler gemacht hat.'],erklaerung:'Das Passiv versteckt den, der handelt. Manchmal ist das neutral und sachlich, bei Herrn Brückner ist es eine kleine Ausrede.'}
+]);
+Lehrwerk.satzfolge('satzfolge-passiv',{
+  frage:'Bauen Sie den Passivsatz.',
+  aufgaben:[
+    {id:'pa1',anfang:'',ende:'.',teile:[T('s','Die Menge','subjekt'),T('v','wurde','verb'),T('m','falsch','modal'),T('p','übertragen','verb')],loesungen:[['s','v','m','p']],erklaerung:'Die Menge · wurde · falsch · übertragen. „wurde“ auf Platz 2, das Partizip am Ende.'},
+    {id:'pa2',anfang:'',ende:'.',teile:[T('s','Unsere Preise','subjekt'),T('v','wurden','verb'),T('z','zum ersten November','temporal'),T('p','angepasst','verb')],loesungen:[['s','v','z','p'],['z','v','s','p']],erklaerung:'Unsere Preise · wurden · zum ersten November · angepasst.'},
+    {id:'pa3',anfang:'',ende:'.',teile:[T('s','Die Rechnungen','subjekt'),T('v','werden','verb'),T('l','bei uns','lokal'),T('m','automatisch','modal'),T('p','erstellt','verb')],loesungen:[['s','v','l','m','p'],['l','v','s','m','p']],erklaerung:'Präsens: Die Rechnungen · werden · bei uns · automatisch · erstellt.'},
+    {id:'pa4',anfang:'',ende:'.',teile:[T('s','Der Preis','subjekt'),T('v','ist','verb'),T('z','am 3. November','temporal'),T('m','schriftlich','modal'),T('p','bestätigt','verb'),T('w','worden','verb')],loesungen:[['s','v','z','m','p','w'],['z','v','s','m','p','w']],erklaerung:'Perfekt: Der Preis · ist · am 3. November · schriftlich · bestätigt · worden.'},
+    {id:'pa5',anfang:'',ende:'.',teile:[T('z','Bei der Lieferung','temporal'),T('v','wurden','verb'),T('a','500 Prospekte','subjekt'),T('p','abgegeben','verb')],loesungen:[['z','v','a','p'],['a','v','z','p']],erklaerung:'Bei der Lieferung · wurden · 500 Prospekte · abgegeben.'}
+  ]
+});
+(function(){
+  const ton=document.getElementById('ton-lindner'); if(!ton) return;
+  let uhr=null;
+  function spiele(von,bis){
+    clearInterval(uhr);
+    if(ton.readyState<1){ ton.addEventListener('loadedmetadata',()=>spiele(von,bis),{once:true}); ton.load(); return; }
+    ton.currentTime=von; const p=ton.play(); if(p&&p.catch) p.catch(()=>{});
+    uhr=setInterval(()=>{ if(ton.currentTime>=bis){ ton.pause(); clearInterval(uhr); } },40);
+  }
+  const S=[
+    {b:[0,2.93],n:[2.93,15.13],tipp:'grüßen · sich vorstellen · Anlass und Rechnungsnummer nennen',bt:'Druckhaus Lindner, Brückner, guten Tag.',nt:'Guten Tag, Herr Brückner, hier Nora Seidel von KONTOR. Ich rufe wegen Ihrer Rechnung für die Messeprospekte an. Die Rechnungsnummer ist zwei null zwei sechs, Strich, vierhundertachtzehn.'},
+    {b:[15.13,19.87],n:[19.87,28.98],tipp:'Fehler 1 mit Beleg: berechnet … geliefert … Lieferschein',bt:'Einen Moment … ja, ich hab sie. Was gibt es denn?',nt:'Die Rechnung stimmt leider nicht. Sie haben uns fünftausend Prospekte berechnet. Geliefert haben Sie aber fünfhundert. So steht es auch auf Ihrem Lieferschein.'},
+    {b:[28.98,33.94],n:[33.94,40.78],tipp:'Das mag sein. Aber …',bt:'Hm. Da wurde wohl die Menge falsch übertragen. Das kann passieren. Die Rechnungen werden bei uns automatisch erstellt.',nt:'Das mag sein. Aber wir zahlen natürlich nur, was wir bekommen haben.'},
+    {b:[40.78,43.36],n:[43.36,49.96],tipp:'danken · Fehler 2: der Einzelpreis',bt:'Selbstverständlich. Das wird korrigiert.',nt:'Danke. Und es gibt noch einen zweiten Punkt: den Einzelpreis. Auf der Rechnung stehen achtundvierzig Cent pro Stück.'},
+    {b:[49.96,58.0],n:[58.0,64.46],tipp:'Das verstehe ich. Aber Sie haben uns am … schriftlich … bestätigt.',bt:'Ja, das ist richtig. Die Papierpreise sind gestiegen. Unsere Preise wurden zum ersten November angepasst.',nt:'Das verstehe ich. Aber Sie haben uns am dritten November schriftlich zweiundvierzig Cent bestätigt. Ich habe die E-Mail hier vor mir.'},
+    {b:[64.46,70.85],n:[70.85,87.45],tipp:'Ihre Kollegin hat … · Deshalb … · Für uns gilt …',bt:'Am dritten November? Hm … Da wurde vermutlich noch der alte Preis genannt.',nt:'Herr Brückner, Ihre Kollegin hat den Preis auf meine Nachfrage hin bestätigt. Deshalb haben wir den Auftrag so freigegeben. Für uns gilt zweiundvierzig Cent.'},
+    {b:[87.45,90.08],n:[90.08,97.34],tipp:'Gern. · Belege noch einmal schicken · nach der Frist fragen',bt:'Da muss ich erst mit unserer Buchhaltung sprechen.',nt:'Gern. Ich schicke Ihnen die E-Mail und den Lieferschein gleich noch einmal. Bis wann können Sie mir eine korrigierte Rechnung schicken?'},
+    {b:[97.34,101.92],n:[101.92,109.48],tipp:'Das ist leider zu spät. · Grund: Skonto · Wäre … möglich?',bt:'Ich denke … bis Ende der Woche.',nt:'Das ist leider zu spät. Unsere Zahlungsfrist mit Skonto läuft am Donnerstag ab. Wäre morgen möglich?'}
+  ];
+  const zeile=(n,t)=>'<p><strong>'+n+':</strong> '+t+'</p>';
+  let i=0; const $=id=>document.getElementById(id);
+  function zeige(){
+    const x=S[i]; ton.pause(); clearInterval(uhr);
+    $('lin-nummer').textContent='Schritt '+(i+1)+' von '+S.length;
+    $('lin-tipp-ausgabe').textContent=x.tipp; $('lin-tipp-ausgabe').hidden=true;
+    $('lin-text-ausgabe').innerHTML=zeile('Herr Brückner',x.bt)+zeile('Nora',x.nt); $('lin-text-ausgabe').hidden=true;
+    $('lin-zurueck').disabled=i===0; $('lin-weiter').disabled=i===S.length-1;
+  }
+  $('lin-hoeren').addEventListener('click',()=>spiele(...S[i].b));
+  $('lin-nora').addEventListener('click',()=>spiele(...S[i].n));
+  $('lin-tipp').addEventListener('click',()=>{ $('lin-tipp-ausgabe').hidden=!$('lin-tipp-ausgabe').hidden; });
+  $('lin-text').addEventListener('click',()=>{ $('lin-text-ausgabe').hidden=!$('lin-text-ausgabe').hidden; });
+  $('lin-zurueck').addEventListener('click',()=>{ if(i>0){i--;zeige();} });
+  $('lin-weiter').addEventListener('click',()=>{ if(i<S.length-1){i++;zeige();} });
+  $('lindner-transkript').innerHTML=S.map(x=>zeile('Herr Brückner',x.bt)+zeile('Nora',x.nt)).join('');
+  zeige();
+})();
+
+/* ---- 4 · Schwarz auf weiß ---- */
+Lehrwerk.satzfolge('satzfolge-modal',{
+  frage:'Bauen Sie Noras Satz. Das Modalverb steht auf Platz 2, am Ende: Partizip + werden.',
+  aufgaben:[
+    {id:'mo1',anfang:'',ende:'.',teile:[T('s','Die Rechnung','subjekt'),T('v','muss','verb'),T('z','bis morgen','temporal'),T('p','korrigiert','verb'),T('w','werden','verb')],loesungen:[['s','v','z','p','w'],['z','v','s','p','w']],erklaerung:'Die Rechnung · muss · bis morgen · korrigiert · werden.'},
+    {id:'mo2',anfang:'',ende:'.',teile:[T('s','Der Betrag','subjekt'),T('v','kann','verb'),T('z','erst nach Eingang der korrigierten Rechnung','temporal'),T('p','überwiesen','verb'),T('w','werden','verb')],loesungen:[['s','v','z','p','w'],['z','v','s','p','w']],erklaerung:'Der Betrag · kann · erst nach Eingang der korrigierten Rechnung · überwiesen · werden.'},
+    {id:'mo3',anfang:'',ende:'.',teile:[T('s','Die alte Rechnung','subjekt'),T('v','soll','verb'),T('b','bitte','modal'),T('p','storniert','verb'),T('w','werden','verb')],loesungen:[['s','v','b','p','w']],erklaerung:'Die alte Rechnung · soll · bitte · storniert · werden.'},
+    {id:'mo4',anfang:'',ende:'.',teile:[T('s','Der Einzelpreis','subjekt'),T('v','muss','verb'),T('k','auf 0,42 €','praep'),T('p','geändert','verb'),T('w','werden','verb')],loesungen:[['s','v','k','p','w']],erklaerung:'Der Einzelpreis · muss · auf 0,42 € · geändert · werden.'}
+  ]
+});
+Lehrwerk.frei('mail-brueckner');
+
+/* ---- 5 · Zahlen oder warten? ---- */
+Lehrwerk.satzfolge('satzfolge-pruefung',{
+  frage:'Wie wird bei KONTOR eine Rechnung geprüft? Bringen Sie die Schritte in die richtige Reihenfolge.',
+  aufgaben:[
+    {id:'pr1',anfang:'',ende:'',teile:[T('a','Zuerst wird die Rechnung mit der Bestellung verglichen.','schritt'),T('b','Dann wird die Menge mit dem Lieferschein kontrolliert.','schritt'),T('c','Danach werden Einzelpreis und Summe nachgerechnet.','schritt'),T('d','Wenn alles stimmt, wird die Rechnung zur Zahlung freigegeben.','schritt'),T('e','Zum Schluss wird der Betrag überwiesen und die Rechnung abgelegt.','schritt')],loesungen:[['a','b','c','d','e']],erklaerung:'Bestellung → Lieferschein → Nachrechnen → Freigabe → Überweisung und Ablage.'}
+  ]
+});
+Lehrwerk.frei('ablauf-passiv');
+
+Lehrwerk.abschluss();
+</script>
+</body>
+</html>
