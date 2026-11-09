@@ -25,6 +25,8 @@
   <button type="button" id="tab-auftrag" role="tab" aria-selected="true" data-blatt="auftrag">1 · Frau Melnyk hat einen Auftrag</button>
   <button type="button" id="tab-anweisung" role="tab" aria-selected="false" data-blatt="anweisung">2 · So klingt eine Anweisung</button>
   <button type="button" id="tab-weiter" role="tab" aria-selected="false" data-blatt="weiter">3 · Nora gibt weiter</button>
+  <button type="button" id="tab-azubi" role="tab" aria-selected="false" data-blatt="azubi">4 · Der neue Azubi</button>
+  <button type="button" id="tab-ablauf" role="tab" aria-selected="false" data-blatt="ablauf">5 · Ihr Arbeitsplatz</button>
 </div>
 
 <!-- ============ 1 · FRAU MELNYK HAT EINEN AUFTRAG ============ -->
@@ -302,7 +304,127 @@
   </details>
 
   <div class="kasten">
-    <p><strong>Hausaufgabe:</strong> Wählen Sie einen Ablauf aus Ihrem Beruf oder Ihrem Wunschberuf, zum Beispiel „eine Rechnung prüfen“. Schreiben Sie fünf Anweisungen für eine neue Kollegin: zweimal mit Sie, dreimal mit du. Benutzen Sie: zuerst · danach · achten Sie / achte immer auf … · zum Schluss …</p>
+    <p><strong>Hausaufgabe:</strong> Machen Sie „Jetzt sind Sie Nora“ aus Reiter 1 noch einmal allein, laut. Schreiben Sie dann Herrn Becker eine kurze E-Mail: Sie schicken ihm den Standplan und sagen ihm, was er damit tun soll.</p>
+  </div>
+</section>
+
+<!-- ============ 4 · DER NEUE AZUBI ============ -->
+<section class="blatt" id="blatt-azubi" role="tabpanel" aria-labelledby="tab-azubi" hidden>
+  <p class="stand-hinweis">etwa 45 Minuten · hören, einen Ablauf ordnen, nachfragen, selbst sprechen</p>
+
+  <div class="kasten">
+    <p>Am Empfang ist heute ein neues Gesicht: Finn Albers, 19 Jahre, Auszubildender Kaufmann für Büromanagement im ersten Lehrjahr. Es ist sein erster Tag. Frau Lenz erklärt ihm, was er ab morgen allein machen soll.</p>
+  </div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">Hören</strong>
+    <h2>Finns erster Tag</h2>
+    <figure class="bildgrammatik">
+      <audio controls preload="auto" id="ton-azubi" src="../assets/audio/messe-azubi.mp3" style="width:100%">Ihr Browser kann die Audiodatei nicht abspielen. Das Gespräch steht unten zum Nachlesen.</audio>
+      <figcaption>Frau Lenz und Finn am Empfang · knapp zwei Minuten</figcaption>
+    </figure>
+  </div>
+
+  <div class="auftrag"><span class="auftrag-marke">1. Hören · ohne Text</span><p>Was lernt Finn heute? Und wie sprechen Frau Lenz und Finn miteinander?</p></div>
+  <div id="quiz-azubi-hoeren1"></div>
+
+  <div class="auftrag"><span class="auftrag-marke">2. Hören · genau</span><p>Ein Besucher kommt mit Termin. Was macht Finn? Bringen Sie die Schritte in die richtige Reihenfolge.</p></div>
+  <div id="satzfolge-ablauf"></div>
+
+  <div class="auftrag"><span class="auftrag-marke">3. Hören · noch genauer</span><p>Was passiert, wenn etwas anders läuft? Und was vergessen viele?</p></div>
+  <div id="quiz-azubi-hoeren2"></div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Entdecken</strong>
+    <h2>Frau Lenz erklärt mit du</h2>
+    <p>Frau Lenz sagt: „<span class="verb">Begrüß</span> ihn freundlich.“ · „<span class="verb">Trag</span> sie in die Besucherliste <span class="verb">ein</span>.“ · „<span class="verb">Nimm</span> den Ausweis <span class="verb">zurück</span>.“ Zu welchen Verben gehören ihre Anweisungen? Sortieren Sie.</p>
+  </div>
+  <div id="gruppieren-lenz"></div>
+  <div class="knopfreihe"><button class="knopf" id="gruppieren-lenz-pruefen" type="button">Prüfen</button></div>
+  <p class="rueckmeldung" id="gruppieren-lenz-rueck" hidden></p>
+  <div class="merker">
+    <span class="marke-merker">Einen Ablauf erklären</span>
+    <p><strong>Zuerst</strong> begrüß ihn freundlich. · <strong>Dann</strong> schau in den Kalender. · <strong>Wenn</strong> er keinen Termin hat, <strong>dann</strong> ruf … an. · <strong>Danach</strong> gibst du ihm einen Ausweis. · <strong>Achte immer darauf</strong>, dass … · <strong>Kontrollier zum Schluss</strong> …</p>
+    <p>Achtung bei „nehmen“: du nimmst → <span class="verb">Nimm</span> den Ausweis <span class="verb">zurück</span>. Das i bleibt, wie bei gib und sprich.</p>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Entdecken</strong>
+    <h2>Finn ist unsicher, und das ist gut so</h2>
+    <p>Finn hört nicht nur zu. Er fragt nach, prüft, ob er richtig verstanden hat, und sagt ehrlich, wenn er unsicher ist. Was macht er mit diesen Sätzen?</p>
+  </div>
+  <div id="quiz-finn"></div>
+  <div class="merker">
+    <span class="marke-merker">So lernt man einen neuen Ablauf</span>
+    <p><strong>Sich vergewissern:</strong> Du meinst, …? · Habe ich richtig verstanden: …? · Also zuerst … und dann …?</p>
+    <p><strong>Nach dem nächsten Schritt fragen:</strong> Und wie geht das? · Und was mache ich dann? · Und wenn …?</p>
+    <p><strong>Unsicherheit zeigen:</strong> Ob ich mir das alles merken kann? · Darf ich mir das aufschreiben? · Kannst du mir das noch einmal zeigen?</p>
+    <p><strong>Mut machen:</strong> Keine Sorge. · Mach dir einfach Notizen. · Nach einer Woche machst du das mit links.</p>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Sprechen</strong>
+    <h2>Jetzt sind Sie Finn</h2>
+    <p>Sie hören Frau Lenz. <strong>Stopp!</strong> Antworten Sie als Finn. Dann hören Sie, was Finn sagt, und vergleichen. Im Schritt 6 wiederholen Sie den ganzen Ablauf. Das ist der schwerste Schritt.</p>
+  </div>
+  <div class="kasten">
+    <p class="marke" id="azu-nummer">Schritt 1 von 8</p>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="azu-hoeren">▶ 1. Frau Lenz hören</button>
+      <button class="knopf" type="button" id="azu-tipp">Tipp</button>
+    </div>
+    <p class="satz" id="azu-tipp-ausgabe" hidden></p>
+    <div class="auftrag"><span class="auftrag-marke">Jetzt Sie</span><p>Was sagen Sie als Finn? Sprechen Sie laut.</p></div>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="azu-finn">▶ 2. Finn hören</button>
+      <button class="knopf" type="button" id="azu-text">Beide Sätze lesen</button>
+    </div>
+    <div class="kasten" id="azu-text-ausgabe" hidden></div>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="azu-zurueck">← Zurück</button>
+      <button class="knopf" type="button" id="azu-weiter">Weiter →</button>
+    </div>
+  </div>
+
+  <details class="kasten">
+    <summary><strong>Das Gespräch zum Nachlesen</strong> (erst nach dem Hören öffnen)</summary>
+    <div id="azubi-transkript"></div>
+  </details>
+</section>
+
+<!-- ============ 5 · IHR ARBEITSPLATZ ============ -->
+<section class="blatt" id="blatt-ablauf" role="tabpanel" aria-labelledby="tab-ablauf" hidden>
+  <p class="stand-hinweis">etwa 30 Minuten · einen Ablauf aus dem eigenen Beruf erklären, nachfragen</p>
+
+  <div class="kasten">
+    <p>Finn lernt den Empfang. Und Sie? Stellen Sie sich vor: Morgen fängt bei Ihnen eine neue Kollegin oder ein neuer Kollege an. Welchen Ablauf erklären Sie zuerst?</p>
+  </div>
+
+  <div class="differenzierung differenzierung--start">
+    <strong class="differenzierung__stufe">Schreiben</strong>
+    <h2>Mein Ablauf</h2>
+    <div class="auftrag"><span class="auftrag-marke">Einzelarbeit · 10 Minuten</span><p>Wählen Sie einen Ablauf aus Ihrem Beruf oder Ihrem Wunschberuf. Zum Beispiel: eine Rechnung prüfen · eine Lieferung annehmen · einen Kunden am Schalter beraten · eine Zollanmeldung vorbereiten · eine Akte anlegen. Schreiben Sie die Schritte als Anweisungen mit du.</p></div>
+    <p><strong>Start:</strong> vier Schritte mit zuerst, dann, danach, zum Schluss.<br><strong>Weiter:</strong> dazu ein Satz mit „Wenn …, dann …“ für den Fall, dass etwas anders läuft.<br><strong>Herausforderung:</strong> dazu ein Satz mit „Achte immer darauf, dass …“: Was vergessen Neue oft?</p>
+    <textarea class="feld" id="mein-ablauf" rows="8" data-ergebnis-label="Mein Ablauf"></textarea>
+  </div>
+  <details class="kasten">
+    <summary><strong>Ein Beispiel: eine Rechnung prüfen</strong> (erst nach dem Schreiben öffnen)</summary>
+    <p>Zuerst schau, ob die Rechnung an die richtige Firma geht. Dann vergleich die Positionen mit der Bestellung und dem Lieferschein. Wenn etwas nicht stimmt, dann ruf den Lieferanten an oder schreib ihm eine E-Mail. Danach prüf die Zahlungsfrist und trag die Rechnung ins System ein. Achte immer darauf, dass die Umsatzsteuer richtig ausgewiesen ist. Zum Schluss leg die Rechnung zur Freigabe in den Ordner.</p>
+  </details>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Sprechen</strong>
+    <h2>Erklären und nachfragen</h2>
+    <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 15 Minuten</span><p>A erklärt den eigenen Ablauf, ohne vom Text abzulesen. B ist die neue Kollegin oder der neue Kollege und fragt wie Finn nach: mindestens einmal „Du meinst, …?“ und einmal „Und wenn …?“. Am Ende wiederholt B den ganzen Ablauf. Dann tauschen Sie.</p></div>
+    <p>Bei fünf Personen: zwei Paare und eine Dreiergruppe. In der Dreiergruppe hört Person C zu und zählt: Wie viele Schritte hat B richtig wiederholt? Was hat gefehlt?</p>
+  </div>
+
+  <div class="kasten">
+    <p><strong>Hausaufgabe:</strong> Überarbeiten Sie Ihren Ablauf. Schreiben Sie ihn dann noch einmal mit Sie, als Anleitung für einen Kunden oder eine neue Chefin. Was ändert sich außer „du“ und „Sie“?</p>
+  </div>
+
+  <div class="kasten">
+    <p><strong>Und bei KONTOR?</strong> Am Mittwoch sind die Prospekte pünktlich da. Mit ihnen kommt auch die Rechnung der Druckerei. Nora sieht sie an und runzelt die Stirn: Da stimmt etwas nicht.</p>
   </div>
 </section>
 
@@ -423,6 +545,79 @@ Lehrwerk.auswahl('quiz-fehlt',[
   {id:'fe-q4',text:'„Herr Becker, ich buche das Hotel.“ Was fehlt?',optionen:['für wen, von wann bis wann','wie das Hotel heißt, das weiß Nora schon','nichts, das ist genau genug'],richtig:['für wen, von wann bis wann'],erklaerung:'Besser: „Ich buche Zimmer für Sie und Frau Vogt, von Dienstag bis Freitag. Den Namen des Hotels schicke ich Ihnen, sobald ich gebucht habe.“'}
 ]);
 Lehrwerk.frei('nachricht-pawel');
+
+/* ---- 4 · Der neue Azubi ---- */
+Lehrwerk.auswahl('quiz-azubi-hoeren1',[
+  {id:'az1-q1',text:'Was lernt Finn heute?',optionen:['Besucher anmelden','die Post verteilen','Pakete annehmen','Telefonate weiterleiten'],richtig:['Besucher anmelden'],erklaerung:'„Das Wichtigste zuerst: Besucher anmelden. Das machst du ab morgen allein.“'},
+  {id:'az1-q2',text:'Wie sprechen Frau Lenz und Finn miteinander?',optionen:['Sie duzen sich. Frau Lenz bietet das Du an.','Sie siezen sich.','Finn duzt Frau Lenz, Frau Lenz siezt Finn.'],richtig:['Sie duzen sich. Frau Lenz bietet das Du an.'],erklaerung:'„Wir duzen uns hier im Team. Ist das in Ordnung für Sie?“ – „Ja, gern. Ich bin Finn.“'}
+]);
+Lehrwerk.satzfolge('satzfolge-ablauf',{
+  frage:'Ein Besucher mit Termin kommt. In welcher Reihenfolge macht Finn das?',
+  aufgaben:[
+    {id:'ab1',anfang:'',ende:'',teile:[T('a','begrüßen','schritt'),T('b','nach Name und Firma fragen','schritt'),T('c','im Kalender den Termin prüfen','schritt'),T('d','in die Besucherliste eintragen','schritt'),T('e','einen Besucherausweis geben','schritt'),T('f','den Ansprechpartner anrufen','schritt'),T('g','etwas zu trinken anbieten','schritt')],loesungen:[['a','b','c','d','e','f','g']],erklaerung:'Begrüßen, nach Name und Firma fragen, Termin prüfen, eintragen, Ausweis, Ansprechpartner anrufen, Kaffee oder Wasser anbieten. Finn sagt es selbst: „Begrüßen, Termin prüfen, eintragen, Ausweis, anrufen, Kaffee.“'}
+  ]
+});
+Lehrwerk.auswahl('quiz-azubi-hoeren2',[
+  {id:'az2-q1',text:'Was macht Finn, wenn der Besuch keinen Termin hat?',optionen:['Er ruft die Kollegin oder den Kollegen an und fragt, ob sie oder er Zeit hat.','Er schickt den Besuch nach Hause.','Er schickt den Besuch einfach ins Haus.'],richtig:['Er ruft die Kollegin oder den Kollegen an und fragt, ob sie oder er Zeit hat.'],erklaerung:'„Dann ruf die Kollegin oder den Kollegen an und frag, ob sie oder er Zeit hat. Schick niemanden einfach so ins Haus.“'},
+  {id:'az2-q2',text:'Bekommt auch ein Besucher einen Ausweis, der nur kurz bleibt?',optionen:['Ja, jeder Besucher bekommt einen Ausweis.','Nein, nur Besucher, die länger bleiben.','Nur wenn er keinen Termin hat.'],richtig:['Ja, jeder Besucher bekommt einen Ausweis.'],erklaerung:'„Du meinst, jeder Besucher bekommt einen Ausweis, auch wenn er nur kurz bleibt?“ – „Genau, jeder.“'},
+  {id:'az2-q3',text:'Was vergessen viele, wenn der Besuch geht? Zwei Antworten sind richtig.',optionen:['den Ausweis zurücknehmen','die Uhrzeit in die Liste eintragen','sich verabschieden','den Ansprechpartner anrufen'],richtig:['den Ausweis zurücknehmen','die Uhrzeit in die Liste eintragen'],erklaerung:'„Nimm den Ausweis zurück und trag die Uhrzeit in die Liste ein.“'},
+  {id:'az2-q4',text:'Was kontrolliert Finn jeden Tag zum Schluss?',optionen:['ob alle Ausweise wieder in der Schublade sind','ob der Kalender stimmt','ob noch Kaffee da ist'],richtig:['ob alle Ausweise wieder in der Schublade sind'],erklaerung:'„Achte immer darauf, dass alle Ausweise am Abend wieder in der Schublade sind. Kontrollier das zum Schluss jeden Tag.“'},
+  {id:'az2-q5',text:'Und wo findet Finn Frau Seidel?',optionen:['Gar nicht, sie kommt zu ihm an den Empfang.','Im Einkauf, im zweiten Stock.','In der Kantine.'],richtig:['Gar nicht, sie kommt zu ihm an den Empfang.'],erklaerung:'„Gar nicht, sie findet dich. Sie kommt hierher.“'}
+]);
+Lehrwerk.gruppieren('gruppieren-lenz',{
+  pruefen:'gruppieren-lenz-pruefen',
+  rueck:'gruppieren-lenz-rueck',
+  gruppen:[
+    {id:'trennbar',titel:'Ein Teil geht ans Ende',woerter:['anrufen','eintragen','anbieten','zurücknehmen']},
+    {id:'ganz',titel:'Das Verb bleibt ganz',woerter:['begrüßen','fragen','schauen','schicken','kontrollieren','achten']}
+  ]
+});
+Lehrwerk.auswahl('quiz-finn',[
+  {id:'fi-q1',text:'„Du meinst, jeder Besucher bekommt einen Ausweis, auch wenn er nur kurz bleibt?“',optionen:['Finn prüft, ob er richtig verstanden hat.','Finn widerspricht Frau Lenz.','Finn will keinen Ausweis ausgeben.'],richtig:['Finn prüft, ob er richtig verstanden hat.'],erklaerung:'Mit „Du meinst, …?“ vergewissert man sich.'},
+  {id:'fi-q2',text:'„Und wenn sie keinen Termin hat?“',optionen:['Finn fragt nach einem anderen Fall.','Finn hat nicht zugehört.','Finn möchte den Termin absagen.'],richtig:['Finn fragt nach einem anderen Fall.'],erklaerung:'„Und wenn …?“ ist die wichtigste Frage beim Lernen eines Ablaufs: Was mache ich, wenn es anders läuft?'},
+  {id:'fi-q3',text:'„Begrüßen, Termin prüfen, eintragen, Ausweis, anrufen, Kaffee.“',optionen:['Finn wiederholt den Ablauf in Stichworten.','Finn gibt Frau Lenz eine Anweisung.','Finn beschwert sich über die viele Arbeit.'],richtig:['Finn wiederholt den Ablauf in Stichworten.'],erklaerung:'Laut wiederholen hilft beim Merken. Und Frau Lenz hört sofort, ob etwas fehlt.'},
+  {id:'fi-q4',text:'„Ob ich mir das alles merken kann …“',optionen:['Finn zeigt, dass er unsicher ist.','Finn sagt, dass er das schon kann.','Finn fragt Frau Lenz nach ihrem Gedächtnis.'],richtig:['Finn zeigt, dass er unsicher ist.'],erklaerung:'Ein Satz mit „ob“ ohne Hauptsatz drückt Zweifel aus. Frau Lenz reagiert sofort: „Keine Sorge. Mach dir einfach Notizen.“'}
+]);
+(function(){
+  const ton=document.getElementById('ton-azubi'); if(!ton) return;
+  let uhr=null;
+  function spiele(von,bis){
+    clearInterval(uhr);
+    if(ton.readyState<1){ ton.addEventListener('loadedmetadata',()=>spiele(von,bis),{once:true}); ton.load(); return; }
+    ton.currentTime=von; const p=ton.play(); if(p&&p.catch) p.catch(()=>{});
+    uhr=setInterval(()=>{ if(ton.currentTime>=bis){ ton.pause(); clearInterval(uhr); } },40);
+  }
+  const S=[
+    {l:[0,6.28],f:[6.28,8.47],tipp:'einverstanden sein · sich mit Vornamen vorstellen',lt:'So, Herr Albers, willkommen am Empfang! Wir duzen uns hier im Team. Ist das in Ordnung für Sie?',ft:'Ja, gern. Ich bin Finn.'},
+    {l:[8.47,16.07],f:[16.07,19.98],tipp:'überrascht sein: allein? · fragen: Wie geht das?',lt:'Und ich bin Petra. Also, Finn, das Wichtigste zuerst: Besucher anmelden. Das machst du ab morgen allein.',ft:'Allein? Okay … Und wie geht das?'},
+    {l:[19.98,29.54],f:[29.54,31.34],tipp:'nach dem anderen Fall fragen: Und wenn …?',lt:'Ganz einfach. Wenn jemand reinkommt, begrüß ihn freundlich und frag nach dem Namen und der Firma. Dann schau in den Kalender: Hat die Person einen Termin?',ft:'Und wenn sie keinen Termin hat?'},
+    {l:[31.34,38.84],f:[38.84,42.05],tipp:'verstanden · nach dem normalen Fall fragen: Und wenn die Person einen Termin hat?',lt:'Dann ruf die Kollegin oder den Kollegen an und frag, ob sie oder er Zeit hat. Schick niemanden einfach so ins Haus.',ft:'Verstehe. Und wenn die Person einen Termin hat?'},
+    {l:[42.05,51.68],f:[51.68,58.15],tipp:'sich vergewissern: Du meinst, jeder …?',lt:'Dann trag sie in die Besucherliste ein. Name, Firma, Uhrzeit. Danach gibst du ihr einen Besucherausweis. Die Ausweise liegen hier in der Schublade, siehst du?',ft:'Ah ja. Du meinst, jeder Besucher bekommt einen Ausweis, auch wenn er nur kurz bleibt?'},
+    {l:[58.15,68.7],f:[68.7,77.61],tipp:'den Ablauf in Stichworten wiederholen · fragen: Und wenn der Besuch geht?',lt:'Genau, jeder. Dann ruf den Ansprechpartner an und sag Bescheid, dass der Besuch da ist. Und biete dem Gast bitte etwas an: Kaffee, Wasser, einen Platz im Wartebereich.',ft:'Begrüßen, Termin prüfen, eintragen, Ausweis, anrufen, Kaffee. Und was mache ich, wenn der Besuch wieder geht?'},
+    {l:[77.61,91.12],f:[91.12,93.13],tipp:'Unsicherheit zeigen: Ob ich …?',lt:'Gute Frage. Das vergessen viele. Nimm den Ausweis zurück und trag die Uhrzeit in die Liste ein. Achte immer darauf, dass alle Ausweise am Abend wieder in der Schublade sind. Kontrollier das zum Schluss jeden Tag.',ft:'Ob ich mir das alles merken kann …'},
+    {l:[93.13,105.64],f:[105.64,109.47],tipp:'sich freuen · fragen: Wo finde ich …?',lt:'Keine Sorge. Mach dir einfach Notizen. Nach einer Woche machst du das mit links. Ach, und noch etwas: Frau Seidel aus dem Einkauf kommt gleich. Sie braucht deine Hilfe bei den Namensschildern für die Messe.',ft:'Für die Messe? Toll! Und wo finde ich Frau Seidel?'}
+  ];
+  const zeile=(n,t)=>'<p><strong>'+n+':</strong> '+t+'</p>';
+  let i=0; const $=id=>document.getElementById(id);
+  function zeige(){
+    const x=S[i]; ton.pause(); clearInterval(uhr);
+    $('azu-nummer').textContent='Schritt '+(i+1)+' von '+S.length;
+    $('azu-tipp-ausgabe').textContent=x.tipp; $('azu-tipp-ausgabe').hidden=true;
+    $('azu-text-ausgabe').innerHTML=zeile('Frau Lenz',x.lt)+zeile('Finn',x.ft); $('azu-text-ausgabe').hidden=true;
+    $('azu-zurueck').disabled=i===0; $('azu-weiter').disabled=i===S.length-1;
+  }
+  $('azu-hoeren').addEventListener('click',()=>spiele(...S[i].l));
+  $('azu-finn').addEventListener('click',()=>spiele(...S[i].f));
+  $('azu-tipp').addEventListener('click',()=>{ $('azu-tipp-ausgabe').hidden=!$('azu-tipp-ausgabe').hidden; });
+  $('azu-text').addEventListener('click',()=>{ $('azu-text-ausgabe').hidden=!$('azu-text-ausgabe').hidden; });
+  $('azu-zurueck').addEventListener('click',()=>{ if(i>0){i--;zeige();} });
+  $('azu-weiter').addEventListener('click',()=>{ if(i<S.length-1){i++;zeige();} });
+  $('azubi-transkript').innerHTML=S.map(x=>zeile('Frau Lenz',x.lt)+zeile('Finn',x.ft)).join('')+zeile('Frau Lenz','Gar nicht, sie findet dich. Sie kommt hierher.');
+  zeige();
+})();
+
+/* ---- 5 · Ihr Arbeitsplatz ---- */
+Lehrwerk.frei('mein-ablauf');
 
 Lehrwerk.abschluss();
 </script>
