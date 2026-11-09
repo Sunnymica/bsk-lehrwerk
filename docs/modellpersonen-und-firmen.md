@@ -673,3 +673,5 @@ Andernfalls entstehen Fassungen, die später erneut angefasst werden müssen.
 | Name | Rolle | Fundstelle |
 |---|---|---|
 | `Finn Albers` | Auszubildender Kaufmann für Büromanagement, 1. Lehrjahr, 19 Jahre, am Empfang bei Petra Lenz; duzt sich mit dem Empfangsteam | `buero/messe.html` Reiter 4 (Audio `messe-azubi.mp3`, Porträt `assets/figuren/finn.webp`) |
+| `Herr Brückner` | Druckhaus Lindner GmbH (fiktiv), Ansprechpartner für Rechnungen; freundlich, ausweichend, redet sich gern im Passiv heraus | `buero/rechnung.html` Reiter 3 (Audio `rechnung-lindner.mp3`, Porträt `assets/figuren/brueckner.webp`) |
+| `Jana Weber` | Druckhaus Lindner, Auftragsannahme; hat Nora den Preis schriftlich bestätigt | `buero/rechnung.html` Reiter 1 (E-Mail) |

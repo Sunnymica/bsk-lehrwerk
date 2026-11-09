@@ -45,6 +45,8 @@
 <section class="blatt" id="blatt-belege" role="tabpanel" aria-labelledby="tab-belege">
   <p class="stand-hinweis">etwa 45 Minuten · Belege lesen und vergleichen, Zahlen sprechen, Fehler finden</p>
 
+  <figure class="reiter-bild" style="--reiter-bild-hoehe:26rem"><img style="object-position:center 40%" src="../assets/szenen/rechnung-pruefen.webp" alt="Nora prüft stirnrunzelnd eine Rechnung, Finn hält einen Lieferschein und schaut ihr über die Schulter. Auf dem Tisch liegt ein Taschenrechner."></figure>
+
   <div class="kasten">
     <p>Mittwoch, 11. November. Die 500 Messeprospekte sind pünktlich bei KONTOR angekommen. Auf Noras Schreibtisch liegen jetzt drei Papiere: die Rechnung vom Druckhaus Lindner, die E-Mail, mit der die Druckerei den Preis bestätigt hat, und der Lieferschein. Lesen Sie wie Nora: genau.</p>
   </div>
@@ -218,6 +220,7 @@
   <p class="stand-hinweis">etwa 60 Minuten · hören, Passiv entdecken, reklamieren am Telefon</p>
 
   <div class="kasten">
+    <img src="../assets/figuren/brueckner.webp" alt="Herr Brückner" style="float:right;width:110px;height:110px;margin:0 0 .5rem 1rem;border-radius:50%">
     <p>Finn hat sich einen Stuhl geholt. Nora ruft beim Druckhaus Lindner an. Am Telefon ist Herr Brückner: freundlich, routiniert und sehr geschickt darin, niemandem die Schuld zu geben.</p>
   </div>
 
@@ -295,7 +298,7 @@
       <button class="knopf" type="button" id="lin-nora">▶ 2. Nora hören</button>
       <button class="knopf" type="button" id="lin-text">Beide Sätze lesen</button>
     </div>
-    <div class="kasten gespraech-text" id="lin-text-ausgabe" hidden></div>
+    <div id="lin-text-ausgabe" hidden></div>
     <div class="knopfreihe">
       <button class="knopf" type="button" id="lin-zurueck">← Zurück</button>
       <button class="knopf" type="button" id="lin-weiter">Weiter →</button>
@@ -331,7 +334,7 @@
 
   <details class="kasten">
     <summary><strong>Das Gespräch zum Nachlesen</strong> (erst nach dem Hören öffnen)</summary>
-    <div class="gespraech-text" id="lindner-transkript"></div>
+    <div id="lindner-transkript"></div>
   </details>
 </section>
 
@@ -582,13 +585,12 @@ Lehrwerk.satzfolge('satzfolge-passiv',{
     {b:[87.45,90.08],n:[90.08,97.34],tipp:'Gern. · Belege noch einmal schicken · nach der Frist fragen',bt:'Da muss ich erst mit unserer Buchhaltung sprechen.',nt:'Gern. Ich schicke Ihnen die E-Mail und den Lieferschein gleich noch einmal. Bis wann können Sie mir eine korrigierte Rechnung schicken?'},
     {b:[97.34,101.92],n:[101.92,109.48],tipp:'Das ist leider zu spät. · Grund: Skonto · Wäre … möglich?',bt:'Ich denke … bis Ende der Woche.',nt:'Das ist leider zu spät. Unsere Zahlungsfrist mit Skonto läuft am Donnerstag ab. Wäre morgen möglich?'}
   ];
-  const zeile=(n,t)=>'<p><strong>'+n+':</strong> '+t+'</p>';
   let i=0; const $=id=>document.getElementById(id);
   function zeige(){
     const x=S[i]; ton.pause(); clearInterval(uhr);
     $('lin-nummer').textContent='Schritt '+(i+1)+' von '+S.length;
     $('lin-tipp-ausgabe').textContent=x.tipp; $('lin-tipp-ausgabe').hidden=true;
-    $('lin-text-ausgabe').innerHTML=zeile('Herr Brückner',x.bt)+zeile('Nora',x.nt); $('lin-text-ausgabe').hidden=true;
+    Lehrwerk.szene('lin-text-ausgabe',[{wer:'brueckner',name:'Herr Brückner',text:x.bt,b:true},{wer:'nora',name:'Nora',text:x.nt}]); $('lin-text-ausgabe').hidden=true;
     $('lin-zurueck').disabled=i===0; $('lin-weiter').disabled=i===S.length-1;
   }
   $('lin-hoeren').addEventListener('click',()=>spiele(...S[i].b));
@@ -597,7 +599,7 @@ Lehrwerk.satzfolge('satzfolge-passiv',{
   $('lin-text').addEventListener('click',()=>{ $('lin-text-ausgabe').hidden=!$('lin-text-ausgabe').hidden; });
   $('lin-zurueck').addEventListener('click',()=>{ if(i>0){i--;zeige();} });
   $('lin-weiter').addEventListener('click',()=>{ if(i<S.length-1){i++;zeige();} });
-  $('lindner-transkript').innerHTML=S.map(x=>zeile('Herr Brückner',x.bt)+zeile('Nora',x.nt)).join('');
+  Lehrwerk.szene('lindner-transkript',S.flatMap(x=>[{wer:'brueckner',name:'Herr Brückner',text:x.bt,b:true},{wer:'nora',name:'Nora',text:x.nt}]));
   zeige();
 })();
 
