@@ -229,7 +229,7 @@
     <h2><img class="symbol" src="../assets/symbole/telefon.webp" alt="">Nora ruft die Druckerei an</h2>
     <figure class="bildgrammatik">
       <audio controls preload="auto" id="ton-lindner" src="../assets/audio/rechnung-lindner.mp3" style="width:100%">Ihr Browser kann die Audiodatei nicht abspielen.</audio>
-      <figcaption>Nora und Herr Brückner am Telefon · zwei Minuten</figcaption>
+      <figcaption>Nora und Herr Brückner am Telefon · genau zwei Minuten</figcaption>
     </figure>
   </div>
 
@@ -287,7 +287,7 @@
     <p>Sie hören Herrn Brückner. <strong>Stopp!</strong> Antworten Sie als Nora: höflich, aber bestimmt. Dann hören Sie, was Nora sagt, und vergleichen.</p>
   </div>
   <div class="kasten">
-    <p class="marke" id="lin-nummer">Schritt 1 von 8</p>
+    <p class="marke" id="lin-nummer">Schritt 1 von 10</p>
     <div class="knopfreihe">
       <button class="knopf" type="button" id="lin-hoeren">▶ 1. Herrn Brückner hören</button>
       <button class="knopf" type="button" id="lin-tipp">Tipp</button>
@@ -577,13 +577,15 @@ Lehrwerk.satzfolge('satzfolge-passiv',{
   }
   const S=[
     {b:[0,2.93],n:[2.93,15.13],tipp:'grüßen · sich vorstellen · Anlass und Rechnungsnummer nennen',bt:'Druckhaus Lindner, Brückner, guten Tag.',nt:'Guten Tag, Herr Brückner, hier Nora Seidel von KONTOR. Ich rufe wegen Ihrer Rechnung für die Messeprospekte an. Die Rechnungsnummer ist zwei null zwei sechs, Strich, vierhundertachtzehn.'},
-    {b:[15.13,19.87],n:[19.87,28.98],tipp:'Fehler 1 mit Beleg: berechnet … geliefert … Lieferschein',bt:'Einen Moment … ja, ich hab sie. Was gibt es denn?',nt:'Die Rechnung stimmt leider nicht. Sie haben uns fünftausend Prospekte berechnet. Geliefert haben Sie aber fünfhundert. So steht es auch auf Ihrem Lieferschein.'},
-    {b:[28.98,33.94],n:[33.94,40.78],tipp:'Das mag sein. Aber …',bt:'Hm. Da wurde wohl die Menge falsch übertragen. Das kann passieren. Die Rechnungen werden bei uns automatisch erstellt.',nt:'Das mag sein. Aber wir zahlen natürlich nur, was wir bekommen haben.'},
+    {b:[15.13,19.87],n:[19.87,28.95],tipp:'Fehler 1 mit Beleg: berechnet … geliefert … Lieferschein',bt:'Einen Moment … ja, ich hab sie. Was gibt es denn?',nt:'Die Rechnung stimmt leider nicht. Sie haben uns fünftausend Prospekte berechnet. Geliefert haben Sie aber fünfhundert. So steht es auch auf Ihrem Lieferschein.'},
+    {b:[28.95,36.6],n:[36.6,40.78],tipp:'Das mag sein. Aber …',bt:'Hm. Da wurde wohl die Menge falsch übertragen. Das kann passieren. Die Rechnungen werden bei uns automatisch erstellt.',nt:'Das mag sein. Aber wir zahlen natürlich nur, was wir bekommen haben.'},
     {b:[40.78,43.36],n:[43.36,49.96],tipp:'danken · Fehler 2: der Einzelpreis',bt:'Selbstverständlich. Das wird korrigiert.',nt:'Danke. Und es gibt noch einen zweiten Punkt: den Einzelpreis. Auf der Rechnung stehen achtundvierzig Cent pro Stück.'},
-    {b:[49.96,58.0],n:[58.0,64.46],tipp:'Das verstehe ich. Aber Sie haben uns am … schriftlich … bestätigt.',bt:'Ja, das ist richtig. Die Papierpreise sind gestiegen. Unsere Preise wurden zum ersten November angepasst.',nt:'Das verstehe ich. Aber Sie haben uns am dritten November schriftlich zweiundvierzig Cent bestätigt. Ich habe die E-Mail hier vor mir.'},
-    {b:[64.46,70.85],n:[70.85,87.45],tipp:'Ihre Kollegin hat … · Deshalb … · Für uns gilt …',bt:'Am dritten November? Hm … Da wurde vermutlich noch der alte Preis genannt.',nt:'Herr Brückner, Ihre Kollegin hat den Preis auf meine Nachfrage hin bestätigt. Deshalb haben wir den Auftrag so freigegeben. Für uns gilt zweiundvierzig Cent.'},
-    {b:[87.45,90.08],n:[90.08,97.34],tipp:'Gern. · Belege noch einmal schicken · nach der Frist fragen',bt:'Da muss ich erst mit unserer Buchhaltung sprechen.',nt:'Gern. Ich schicke Ihnen die E-Mail und den Lieferschein gleich noch einmal. Bis wann können Sie mir eine korrigierte Rechnung schicken?'},
-    {b:[97.34,101.92],n:[101.92,109.48],tipp:'Das ist leider zu spät. · Grund: Skonto · Wäre … möglich?',bt:'Ich denke … bis Ende der Woche.',nt:'Das ist leider zu spät. Unsere Zahlungsfrist mit Skonto läuft am Donnerstag ab. Wäre morgen möglich?'}
+    {b:[49.96,56.55],n:[56.55,64.3],tipp:'Das verstehe ich. Aber Sie haben uns am … schriftlich … bestätigt.',bt:'Ja, das ist richtig. Die Papierpreise sind gestiegen. Unsere Preise wurden zum ersten November angepasst.',nt:'Das verstehe ich. Aber Sie haben uns am dritten November schriftlich zweiundvierzig Cent bestätigt. Ich habe die E-Mail hier vor mir.'},
+    {b:[64.3,70.5],n:[70.5,79.0],tipp:'Ihre Kollegin hat … · Deshalb … · Für uns gilt …',bt:'Am dritten November? Hm … Da wurde vermutlich noch der alte Preis genannt.',nt:'Herr Brückner, Ihre Kollegin hat den Preis auf meine Nachfrage hin bestätigt. Deshalb haben wir den Auftrag so freigegeben. Für uns gilt zweiundvierzig Cent.'},
+    {b:[79.0,81.6],n:[81.6,87.45],tipp:'Gern. · Belege noch einmal schicken · nach der Frist fragen',bt:'Da muss ich erst mit unserer Buchhaltung sprechen.',nt:'Gern. Ich schicke Ihnen die E-Mail und den Lieferschein gleich noch einmal. Bis wann können Sie mir eine korrigierte Rechnung schicken?'},
+    {b:[87.45,90.08],n:[90.08,96.6],tipp:'Das ist leider zu spät. · Grund: Skonto · Wäre … möglich?',bt:'Ich denke … bis Ende der Woche.',nt:'Das ist leider zu spät. Unsere Zahlungsfrist mit Skonto läuft am Donnerstag ab. Wäre morgen möglich?'},
+    {b:[96.6,101.9],n:[101.9,112.1],tipp:'danken · zusammenfassen: Sie schicken mir bis … · Und bis dahin …',bt:'Na gut. Ich kümmere mich darum. Sie bekommen die neue Rechnung morgen.',nt:'Vielen Dank. Dann fasse ich kurz zusammen: Sie schicken mir bis morgen eine korrigierte Rechnung über fünfhundert Stück zu zweiundvierzig Cent. Und bis dahin bezahlen wir die alte Rechnung nicht.'},
+    {b:[112.1,115.91],n:[115.91,119.1],tipp:'freundlich abschließen · danken · verabschieden',bt:'So machen wir es. Entschuldigen Sie bitte den Fehler, Frau Seidel.',nt:'Kein Problem. Danke für Ihre Hilfe. Auf Wiederhören!'}
   ];
   let i=0; const $=id=>document.getElementById(id);
   function zeige(){
@@ -599,7 +601,7 @@ Lehrwerk.satzfolge('satzfolge-passiv',{
   $('lin-text').addEventListener('click',()=>{ $('lin-text-ausgabe').hidden=!$('lin-text-ausgabe').hidden; });
   $('lin-zurueck').addEventListener('click',()=>{ if(i>0){i--;zeige();} });
   $('lin-weiter').addEventListener('click',()=>{ if(i<S.length-1){i++;zeige();} });
-  Lehrwerk.szene('lindner-transkript',S.flatMap(x=>[{wer:'brueckner',name:'Herr Brückner',text:x.bt,b:true},{wer:'nora',name:'Nora',text:x.nt}]).concat([{wer:'brueckner',name:'Herr Brückner',text:'Na gut. Ich kümmere mich darum. Sie bekommen die neue Rechnung morgen.',b:true},{wer:'nora',name:'Nora',text:'Vielen Dank. Dann fasse ich kurz zusammen: Sie schicken mir bis morgen eine korrigierte Rechnung über fünfhundert Stück zu zweiundvierzig Cent. Und bis dahin bezahlen wir die alte Rechnung nicht.'},{wer:'brueckner',name:'Herr Brückner',text:'So machen wir es. Entschuldigen Sie bitte den Fehler, Frau Seidel.',b:true},{wer:'nora',name:'Nora',text:'Kein Problem. Danke für Ihre Hilfe. Auf Wiederhören!'},{wer:'brueckner',name:'Herr Brückner',text:'Auf Wiederhören.',b:true}]));
+  Lehrwerk.szene('lindner-transkript',S.flatMap(x=>[{wer:'brueckner',name:'Herr Brückner',text:x.bt,b:true},{wer:'nora',name:'Nora',text:x.nt}]).concat([{wer:'brueckner',name:'Herr Brückner',text:'Auf Wiederhören.',b:true}]));
   zeige();
 })();
 
