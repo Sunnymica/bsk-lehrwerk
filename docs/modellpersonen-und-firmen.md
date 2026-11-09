@@ -665,3 +665,11 @@ Spalte **„verwendet in Modulen“**: Sie macht solche Kollisionen sichtbar.
 
 **Bis diese fünf Punkte geklärt sind, wird keine Datei anonymisiert.**
 Andernfalls entstehen Fassungen, die später erneut angefasst werden müssen.
+
+---
+
+## Neu im KONTOR-Team (Nov. 2026)
+
+| Name | Rolle | Fundstelle |
+|---|---|---|
+| `Finn Albers` | Auszubildender Kaufmann für Büromanagement, 1. Lehrjahr, 19 Jahre, am Empfang bei Petra Lenz; duzt sich mit dem Empfangsteam | `buero/messe.html` Reiter 4 (Audio `messe-azubi.mp3`, Porträt `assets/figuren/finn.webp`) |
