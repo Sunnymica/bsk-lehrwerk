@@ -282,6 +282,15 @@
               "status": "teilweise"
             },
             {
+              "titel": "Die Messe kommt",
+              "beschreibung": "Aufträge am Telefon verstehen, nachfragen, höflich anweisen und mit du und Sie weitergeben.",
+              "pfad": "messe.html",
+              "niveau": "B2",
+              "dauer": "45 Min",
+              "fertigkeiten": ["Hören", "Sprechen"],
+              "status": "teilweise"
+            },
+            {
               "titel": "Kundengespräche am Telefon",
               "beschreibung": "Der Gesprächseinstieg, fünf schwierige Verläufe mit Redemitteln, zwölf Videobeispiele als Zwei-Klick-Einbindung.",
               "pfad": "kundengespraeche-telefon.html",
