@@ -599,7 +599,7 @@ Lehrwerk.satzfolge('satzfolge-passiv',{
   $('lin-text').addEventListener('click',()=>{ $('lin-text-ausgabe').hidden=!$('lin-text-ausgabe').hidden; });
   $('lin-zurueck').addEventListener('click',()=>{ if(i>0){i--;zeige();} });
   $('lin-weiter').addEventListener('click',()=>{ if(i<S.length-1){i++;zeige();} });
-  Lehrwerk.szene('lindner-transkript',S.flatMap(x=>[{wer:'brueckner',name:'Herr Brückner',text:x.bt,b:true},{wer:'nora',name:'Nora',text:x.nt}]));
+  Lehrwerk.szene('lindner-transkript',S.flatMap(x=>[{wer:'brueckner',name:'Herr Brückner',text:x.bt,b:true},{wer:'nora',name:'Nora',text:x.nt}]).concat([{wer:'brueckner',name:'Herr Brückner',text:'Na gut. Ich kümmere mich darum. Sie bekommen die neue Rechnung morgen.',b:true},{wer:'nora',name:'Nora',text:'Vielen Dank. Dann fasse ich kurz zusammen: Sie schicken mir bis morgen eine korrigierte Rechnung über fünfhundert Stück zu zweiundvierzig Cent. Und bis dahin bezahlen wir die alte Rechnung nicht.'},{wer:'brueckner',name:'Herr Brückner',text:'So machen wir es. Entschuldigen Sie bitte den Fehler, Frau Seidel.',b:true},{wer:'nora',name:'Nora',text:'Kein Problem. Danke für Ihre Hilfe. Auf Wiederhören!'},{wer:'brueckner',name:'Herr Brückner',text:'Auf Wiederhören.',b:true}]));
   zeige();
 })();
 
