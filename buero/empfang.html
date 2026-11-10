@@ -885,7 +885,7 @@
 
 <!-- ============ 7 · FRAU LENZ IST ZURÜCK ============ -->
 <section class="blatt" id="blatt-meine" role="tabpanel" aria-labelledby="tab-meine" hidden>
-  <p class="stand-hinweis">etwa 60 Minuten, mit der Kaffeepause etwa 100 Minuten · nachfragen, mündlich übergeben, Kaffeeküche, entscheiden, selbst schreiben</p>
+  <p class="stand-hinweis">etwa 60 Minuten, dazu die Kaffeeküche · nachfragen, mündlich übergeben, Kaffeeküche, entscheiden, selbst schreiben</p>
 
   <div class="kasten">
     <p>Zwei Wochen später, Montag, 8:15 Uhr. Frau Lenz kommt heute aus dem Urlaub zurück. Nora möchte ihr nicht nur sagen, was sie erledigt hat. Sie möchte auch genau sagen, was noch offen ist. Dafür fragt sie vorher bei den Kolleginnen und Kollegen nach.</p>
@@ -1020,6 +1020,66 @@
   <details class="kasten">
     <summary><strong>Das Gespräch zum Nachlesen</strong> (erst nach dem Hören öffnen)</summary>
     <div id="kueche1-transkript"></div>
+  </details>
+
+
+  <div class="differenzierung differenzierung--start" id="kaffeekueche-2">
+    <strong class="differenzierung__stufe">Szene 2</strong>
+    <h2>Samira kommt dazu</h2>
+    <p>Jetzt kommt auch Samira Haddad in die Kaffeeküche. Sie leitet Personal und Verwaltung. Und sie liebt Liebesgeschichten.</p>
+    <figure class="bildgrammatik">
+      <audio controls preload="auto" id="ton-kueche2" src="../assets/audio/kaffeekueche-2.mp3" style="width:100%">Ihr Browser kann die Audiodatei nicht abspielen. Das Gespräch steht unten zum Nachlesen.</audio>
+      <figcaption>Szene 2 · Samira, Petra und Nora · gut eine Minute</figcaption>
+    </figure>
+  </div>
+
+  <div class="auftrag"><span class="auftrag-marke">1. Hören</span><p>Was erfahren Sie jetzt über den Segellehrer?</p></div>
+  <div id="quiz-kueche2-hoeren"></div>
+
+  <div class="auftrag"><span class="auftrag-marke">2. Du oder Sie?</span><p>Hören Sie noch einmal. Wer duzt wen? Wer siezt wen? Und was ändert sich?</p></div>
+  <div id="quiz-kueche2-du"></div>
+  <div class="merker">
+    <span class="marke-merker">Das Du anbieten</span>
+    <p>Im Büro bietet meistens die <strong>ranghöhere</strong> oder <strong>ältere</strong> Person das Du an. Samira leitet Personal und Verwaltung. Deshalb macht sie das Angebot, nicht Petra.</p>
+    <p class="satz"><strong>Anbieten:</strong> Sagen wir doch einfach du. Ich bin Samira. · Wollen wir uns nicht duzen?<br>
+    <strong>Annehmen:</strong> Gern. Petra. · Sehr gern, ich bin Nora.</p>
+  </div>
+
+  <div class="auftrag"><span class="auftrag-marke">3. Welches „ja“?</span><p>Nicht jedes „ja“ ist ein kleines Wort mit Würze. Manchmal ist „ja“ einfach eine Antwort. Entscheiden Sie.</p></div>
+  <div id="quiz-kueche2-ja"></div>
+  <div class="merker">
+    <span class="marke-merker">So erkennen Sie es</span>
+    <p><strong>Antwort:</strong> Man kann „nein“ dagegen sagen. „Im Sommer, ja.“ – „Im Sommer, nein.“<br>
+    <strong>Würze:</strong> „ja“ ist unbetont und steht mitten im Satz, meistens hinter dem konjugierten Verb. „Das klingt <strong>ja</strong> wie in einem Film!“ Mit „nein“ geht das nicht.</p>
+  </div>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Sprechen</strong>
+    <h2>Jetzt sind Sie Petra</h2>
+    <p>Samira und Nora wollen alles wissen. Sie sind Petra und möchten nicht viel erzählen. Hören Sie die Frage. <strong>Stopp!</strong> Antworten Sie kurz, weichen Sie aus, bleiben Sie freundlich. Dann hören Sie Petra und vergleichen.</p>
+  </div>
+  <div class="kasten">
+    <p class="marke" id="pet-nummer">Schritt 1 von 8</p>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="pet-frage">▶ 1. Die Frage hören</button>
+      <button class="knopf" type="button" id="pet-tipp">Tipp</button>
+    </div>
+    <p class="satz" id="pet-tipp-ausgabe" hidden></p>
+    <div class="auftrag"><span class="auftrag-marke">Jetzt Sie</span><p>Was sagen Sie als Petra? Sprechen Sie laut.</p></div>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="pet-petra">▶ 2. Petra hören</button>
+      <button class="knopf" type="button" id="pet-text">Den Text lesen</button>
+    </div>
+    <div id="pet-text-ausgabe" hidden></div>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="pet-zurueck">← Zurück</button>
+      <button class="knopf" type="button" id="pet-weiter">Weiter →</button>
+    </div>
+  </div>
+
+  <details class="kasten">
+    <summary><strong>Szene 2 zum Nachlesen</strong> (erst nach dem Hören öffnen)</summary>
+    <div id="kueche2-transkript"></div>
   </details>
 
   <div class="differenzierung differenzierung--weiter">
@@ -1675,6 +1735,67 @@ Lehrwerk.auswahl('quiz-kueche-wuerze',[
   $('kue-zurueck').addEventListener('click',()=>{ if(i>0){i--;zeige();} });
   $('kue-weiter').addEventListener('click',()=>{ if(i<S.length-1){i++;zeige();} });
   Lehrwerk.szene('kueche1-transkript',S.flatMap(zeilen));
+  zeige();
+})();
+
+/* ---- 7 · Kaffeeküche, Szene 2 ---- */
+Lehrwerk.auswahl('quiz-kueche2-hoeren',[
+  {id:'kue3-q1',text:'Wie heißt der Segellehrer?',optionen:['Carlos','Marco','Pablo'],richtig:['Carlos'],erklaerung:'„Wie heißt er denn?“ – „… Carlos.“'},
+  {id:'kue3-q2',text:'Was möchte Samira wissen?',optionen:['ob es etwas Ernstes ist','wie viel der Segelkurs gekostet hat','wann Petra wieder Urlaub hat'],richtig:['ob es etwas Ernstes ist'],erklaerung:'„Oh, Carlos! Wie romantisch! Ist das denn was Ernstes?“'},
+  {id:'kue3-q3',text:'Wer soll von Carlos nichts erfahren?',optionen:['Olena aus der Buchhaltung','Frau Melnyk','Petras Schwester'],richtig:['Olena aus der Buchhaltung'],erklaerung:'„Und bitte kein Wort zu Olena aus der Buchhaltung.“ Olena fragt nach Sachen, die niemand wissen will.'},
+  {id:'kue3-q4',text:'Was erfahren wir über Carlos? Zwei Antworten sind richtig.',optionen:['Er kommt im Dezember nach Deutschland.','Im Winter arbeitet er für eine Firma in Palma.','Er möchte Petra heiraten.','Er hat Petra jeden Tag geschrieben.'],richtig:['Er kommt im Dezember nach Deutschland.','Im Winter arbeitet er für eine Firma in Palma.'],erklaerung:'„Im Dezember. Er hat hier beruflich zu tun.“ – „Im Sommer, ja. Im Winter arbeitet er für eine Firma in Palma.“ Ob er Petra geschrieben hat? „Vielleicht.“'}
+]);
+Lehrwerk.auswahl('quiz-kueche2-du',[
+  {id:'kued-q1',text:'Nora und Petra …',optionen:['duzen sich.','siezen sich.'],richtig:['duzen sich.'],erklaerung:'„Hat er dir schon geschrieben?“ Nora und Petra duzen sich schon lange.'},
+  {id:'kued-q2',text:'Am Anfang sagen Petra und Samira …',optionen:['„Sie“ zueinander.','„du“ zueinander.'],richtig:['„Sie“ zueinander.'],erklaerung:'„Oh, Frau Lenz, Sie sind ja wieder da!“ – „Guten Morgen, Frau Haddad.“'},
+  {id:'kued-q3',text:'Wer bietet das Du an?',optionen:['Samira','Petra','Nora'],richtig:['Samira'],erklaerung:'„Wissen Sie was? Sagen wir doch einfach du. Ich bin Samira.“'},
+  {id:'kued-q4',text:'Und Nora?',optionen:['Sie möchte auch dabei sein. Samira duzt jetzt auch sie.','Sie möchte lieber beim Sie bleiben.'],richtig:['Sie möchte auch dabei sein. Samira duzt jetzt auch sie.'],erklaerung:'„Und ich? Ich bin Nora!“ – „Ich weiß doch, Nora. Also, du auch.“'}
+]);
+Lehrwerk.auswahl('quiz-kueche2-ja',[
+  {id:'kuej-q1',text:'„Oh, Frau Lenz, Sie sind ja wieder da!“',optionen:['Würze','Antwort'],richtig:['Würze'],erklaerung:'Samira freut sich und ist überrascht. Niemand hat etwas gefragt.'},
+  {id:'kuej-q2',text:'„Ach komm, das heißt doch ja!“',optionen:['Würze','Antwort'],richtig:['Antwort'],erklaerung:'Hier ist „ja“ das Wort für die Antwort. Nora meint: „Vielleicht“ bedeutet eigentlich „ja“. Die Würze in diesem Satz ist „doch“.'},
+  {id:'kuej-q3',text:'„Im Sommer, ja.“',optionen:['Würze','Antwort'],richtig:['Antwort'],erklaerung:'Petra antwortet auf Nora: „Ich dachte, er ist Segellehrer.“ – „Im Sommer, ja.“'},
+  {id:'kuej-q4',text:'„Das klingt ja wie in einem Film!“',optionen:['Würze','Antwort'],richtig:['Würze'],erklaerung:'Samira ist begeistert. „ja“ ist unbetont und steht hinter dem Verb.'},
+  {id:'kuej-q5',text:'„Hallo Petra! Da bist du ja.“ (Szene 1)',optionen:['Würze','Antwort'],richtig:['Würze'],erklaerung:'Nora freut sich: Endlich ist Petra da.'}
+]);
+(function(){
+  const ton=document.getElementById('ton-kueche2'); if(!ton) return;
+  let uhr=null;
+  function spiele(von,bis){
+    clearInterval(uhr);
+    if(ton.readyState<1){ ton.addEventListener('loadedmetadata',()=>spiele(von,bis),{once:true}); ton.load(); return; }
+    ton.currentTime=von; const p=ton.play(); if(p&&p.catch) p.catch(()=>{});
+    uhr=setInterval(()=>{ if(ton.currentTime>=bis){ ton.pause(); clearInterval(uhr); } },40);
+  }
+  const SAM={wer:'haddad',name:'Samira'}, NOR={wer:'nora',name:'Nora'}, PET={wer:'lenz',name:'Petra',b:true};
+  const z=(w,t)=>Object.assign({},w,{text:t});
+  /* Sprecherwechsel aus der Tonspur ermittelt (Pausen + Stimmprofil mit Szene 1 als Referenz), zweifach geprüft. */
+  const S=[
+    {q:[0,4.915],a:[4.915,8.16],tipp:'grüßen (Sie!) · danken · ganz kurz antworten',fz:[z(SAM,'Guten Morgen! Oh, Frau Lenz, Sie sind ja wieder da! Wie war der Urlaub?')],pt:'Guten Morgen, Frau Haddad. Danke, sehr schön.'},
+    {q:[8.16,14.015],a:[14.015,14.895],tipp:'nur den Namen sagen und vorher kurz zögern',fz:[z(NOR,'Sie hat einen Segelkurs gemacht. Mit einem Segellehrer.'),z(SAM,'Oh! Und? Wie heißt er denn?')],pt:'… Carlos.'},
+    {q:[14.895,19.895],a:[19.895,24.465],tipp:'abwehren: Wir waren nur zusammen … · nicht geheiratet',fz:[z(SAM,'Oh, Carlos! Wie romantisch! Ist das denn was Ernstes?')],pt:'Frau Haddad, wir waren zusammen segeln. Wir haben nicht geheiratet.'},
+    {q:[24.465,26.995],a:[26.995,27.95],tipp:'nicht ja, nicht nein: ein Wort reicht',fz:[z(SAM,'Noch nicht!'),z(NOR,'Hat er dir schon geschrieben?')],pt:'Vielleicht.'},
+    {q:[27.95,30.235],a:[30.235,36.135],tipp:'Das bleibt … · bitte kein Wort zu … (Olena)',fz:[z(NOR,'Ach komm, das heißt doch ja!')],pt:'Vielleicht heißt: Das bleibt unter uns. Und bitte kein Wort zu Olena aus der Buchhaltung.'},
+    {q:[36.135,45.91],a:[45.91,47.335],tipp:'das Du annehmen: Gern. + Ihr Vorname',fz:[z(SAM,'Oh nein, auf keinen Fall! Olena fragt sonst nach Sachen, die wirklich niemand wissen will. Wissen Sie was? Sagen wir doch einfach du. Ich bin Samira.')],pt:'Gern. Petra.'},
+    {q:[47.335,55.65],a:[55.65,58.475],tipp:'Wann? (Dezember) · Warum? (beruflich)',fz:[z(NOR,'Und ich? Ich bin Nora!'),z(SAM,'Ich weiß doch, Nora. Also, du auch. Und jetzt, Petra: Kommt Carlos mal nach Deutschland?')],pt:'Im Dezember. Er hat hier beruflich zu tun.'},
+    {q:[58.475,61.505],a:[61.505,67.23],tipp:'Im Sommer … · Im Winter … (Firma in Palma) · Mehr weiß ich …',fz:[z(NOR,'Beruflich? Ich dachte, er ist Segellehrer.')],pt:'Im Sommer, ja. Im Winter arbeitet er für eine Firma in Palma. Mehr weiß ich auch nicht.'}
+  ];
+  const zeilen=x=>x.fz.concat([z(PET,x.pt)]);
+  let i=0; const $=id=>document.getElementById(id);
+  function zeige(){
+    const x=S[i]; ton.pause(); clearInterval(uhr);
+    $('pet-nummer').textContent='Schritt '+(i+1)+' von '+S.length;
+    $('pet-tipp-ausgabe').textContent=x.tipp; $('pet-tipp-ausgabe').hidden=true;
+    Lehrwerk.szene('pet-text-ausgabe',zeilen(x)); $('pet-text-ausgabe').hidden=true;
+    $('pet-zurueck').disabled=i===0; $('pet-weiter').disabled=i===S.length-1;
+  }
+  $('pet-frage').addEventListener('click',()=>spiele(...S[i].q));
+  $('pet-petra').addEventListener('click',()=>spiele(...S[i].a));
+  $('pet-tipp').addEventListener('click',()=>{ $('pet-tipp-ausgabe').hidden=!$('pet-tipp-ausgabe').hidden; });
+  $('pet-text').addEventListener('click',()=>{ $('pet-text-ausgabe').hidden=!$('pet-text-ausgabe').hidden; });
+  $('pet-zurueck').addEventListener('click',()=>{ if(i>0){i--;zeige();} });
+  $('pet-weiter').addEventListener('click',()=>{ if(i<S.length-1){i++;zeige();} });
+  Lehrwerk.szene('kueche2-transkript',S.flatMap(zeilen).concat([z(SAM,'Das klingt ja wie in einem Film!')]));
   zeige();
 })();
 
