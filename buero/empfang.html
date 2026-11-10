@@ -1082,6 +1082,59 @@
     <div id="kueche2-transkript"></div>
   </details>
 
+
+  <div class="differenzierung differenzierung--start" id="kaffeekueche-3">
+    <strong class="differenzierung__stufe">Szene 3</strong>
+    <h2>Die Chefin kommt</h2>
+    <p>Mitten im Gespräch geht die Tür auf. Frau Melnyk möchte auch einen Kaffee.</p>
+    <figure class="bildgrammatik">
+      <audio controls preload="auto" id="ton-kueche3" src="../assets/audio/kaffeekueche-3.mp3" style="width:100%">Ihr Browser kann die Audiodatei nicht abspielen. Das Gespräch steht unten zum Nachlesen.</audio>
+      <figcaption>Szene 3 · Frau Melnyk, Nora, Samira und Petra · gut eine halbe Minute</figcaption>
+    </figure>
+  </div>
+
+  <div class="auftrag"><span class="auftrag-marke">1. Hören</span><p>Was passiert, als Frau Melnyk kommt?</p></div>
+  <div id="quiz-kueche3-hoeren"></div>
+
+  <div class="merker">
+    <span class="marke-merker">Schnell das Thema wechseln</span>
+    <p>Die Chefin kommt, das Thema ist privat? Dann wechseln Sie freundlich das Thema.</p>
+    <p class="satz">Wir haben gerade über … gesprochen. · Ach, nichts Besonderes. · Gut, dass Sie kommen: Ich wollte Sie noch etwas fragen. · Möchten Sie auch einen Kaffee?</p>
+  </div>
+
+  <div class="auftrag"><span class="auftrag-marke">2. Wissen oder vermuten?</span><p>Petra sagt: „Mehr weiß ich auch nicht.“ Stimmt das? Was meinen Sie? Sprechen Sie zu zweit. Sagen Sie klar, was Sie <strong>wissen</strong> und was Sie nur <strong>vermuten</strong>.</p></div>
+  <p class="satz">Wir wissen, dass … · Ich vermute, dass … · Vielleicht … · Ich glaube nicht, dass …</p>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Sprechen</strong>
+    <h2>Mal Nora, mal Petra</h2>
+    <p>Lesen Sie zuerst: Wer sind Sie in diesem Schritt? Hören Sie. <strong>Stopp!</strong> Sprechen Sie. Dann hören Sie das Original und vergleichen.</p>
+  </div>
+  <div class="kasten">
+    <p class="marke" id="che-nummer">Schritt 1 von 4</p>
+    <p class="satz" id="che-rolle"></p>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="che-frage">▶ 1. Hören</button>
+      <button class="knopf" type="button" id="che-tipp">Tipp</button>
+    </div>
+    <p class="satz" id="che-tipp-ausgabe" hidden></p>
+    <div class="auftrag"><span class="auftrag-marke">Jetzt Sie</span><p>Sprechen Sie laut.</p></div>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="che-antwort">▶ 2. Original hören</button>
+      <button class="knopf" type="button" id="che-text">Den Text lesen</button>
+    </div>
+    <div id="che-text-ausgabe" hidden></div>
+    <div class="knopfreihe">
+      <button class="knopf" type="button" id="che-zurueck">← Zurück</button>
+      <button class="knopf" type="button" id="che-weiter">Weiter →</button>
+    </div>
+  </div>
+
+  <details class="kasten">
+    <summary><strong>Szene 3 zum Nachlesen</strong> (erst nach dem Hören öffnen)</summary>
+    <div id="kueche3-transkript"></div>
+  </details>
+
   <div class="differenzierung differenzierung--weiter">
     <strong class="differenzierung__stufe">Im Büro</strong>
     <h2>Kleine Wörter im Büro</h2>
@@ -1096,7 +1149,7 @@
     <p class="satz">Schauen Sie mal, … · Warten Sie mal kurz. · Können Sie mir mal helfen? · Haben Sie denn schon …? · Wie war denn …? · Das ist ja toll! · Da ist er ja! · Rufen Sie doch morgen noch einmal an. · Na ja, das ist eben so.</p>
   </div>
 
-  <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 8 Minuten</span><p>Eine Person kommt aus dem Urlaub zurück. Die andere Person ist sehr neugierig und fragt viel: Wo? Mit wem? Was hast du gemacht? Die Person aus dem Urlaub möchte nicht alles erzählen. Sie antwortet kurz oder wechselt das Thema. Dann tauschen Sie die Rollen. Sprechen Sie über Ihren echten Urlaub oder über einen Traumurlaub.</p></div>
+  <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 8 Minuten</span><p>Eine Person kommt aus dem Urlaub zurück. Die andere Person ist sehr neugierig und fragt viel: Wo? Mit wem? Was hast du gemacht? Die Person aus dem Urlaub möchte nicht alles erzählen. Sie antwortet kurz oder wechselt das Thema. Achtung: Plötzlich kommt die Chefin oder der Chef herein. Wechseln Sie schnell das Thema! Dann tauschen Sie die Rollen. Sprechen Sie über Ihren echten Urlaub oder über einen Traumurlaub.</p></div>
   <div class="redemittel-box">
     <h2>Neugierig fragen · höflich ausweichen</h2>
     <p class="satz"><strong>Neugierig:</strong> Erzähl doch mal! · Wie war’s denn? · Und mit wem warst du da? · Na hör mal, du lenkst ab!</p>
@@ -1796,6 +1849,51 @@ Lehrwerk.auswahl('quiz-kueche2-ja',[
   $('pet-zurueck').addEventListener('click',()=>{ if(i>0){i--;zeige();} });
   $('pet-weiter').addEventListener('click',()=>{ if(i<S.length-1){i++;zeige();} });
   Lehrwerk.szene('kueche2-transkript',S.flatMap(zeilen).concat([z(SAM,'Das klingt ja wie in einem Film!')]));
+  zeige();
+})();
+
+/* ---- 7 · Kaffeeküche, Szene 3 ---- */
+Lehrwerk.auswahl('quiz-kueche3-hoeren',[
+  {id:'kue4-q1',text:'Worüber haben die drei angeblich gesprochen?',optionen:['über die neue Kaffeemaschine','über Petras Urlaub','über die Besprechung am Donnerstag'],richtig:['über die neue Kaffeemaschine'],erklaerung:'„Wir haben gerade … über die neue Kaffeemaschine gesprochen.“ Nora wechselt schnell das Thema.'},
+  {id:'kue4-q2',text:'Wer hat heute Morgen bei KONTOR angerufen?',optionen:['Herr García aus Palma','Herr Sommer','Frau Vogt aus Bremen'],richtig:['Herr García aus Palma'],erklaerung:'„Heute Morgen hat ein Herr García aus Palma angerufen.“'},
+  {id:'kue4-q3',text:'Was möchte seine Firma?',optionen:['mit KONTOR zusammenarbeiten','bei KONTOR einen Segelkurs anbieten','eine Rechnung schicken'],richtig:['mit KONTOR zusammenarbeiten'],erklaerung:'„Seine Firma möchte mit uns zusammenarbeiten. Er kommt im Dezember zu uns.“'},
+  {id:'kue4-q4',text:'„Dann vereinbaren Sie doch bitte einen Termin mit ihm.“ Wie klingt Frau Melnyk?',optionen:['freundlich: Sie bittet, sie befiehlt nicht.','streng und unfreundlich','unsicher'],richtig:['freundlich: Sie bittet, sie befiehlt nicht.'],erklaerung:'„doch“ macht die Aufforderung freundlich. Das funktioniert auch mit „Sie“ und sogar bei der Chefin.'},
+  {id:'kue4-q5',text:'Petra sagt: „Und diesmal steht er in der Terminliste.“ Woran denkt sie?',optionen:['an Herrn Sommer: Er kam ohne Termin.','an die Besprechung mit Frau Vogt','an Olena aus der Buchhaltung'],richtig:['an Herrn Sommer: Er kam ohne Termin.'],erklaerung:'Erinnern Sie sich an Reiter 4? Herr Sommer stand nicht in der Terminliste.'}
+]);
+(function(){
+  const ton=document.getElementById('ton-kueche3'); if(!ton) return;
+  let uhr=null;
+  function spiele(von,bis){
+    clearInterval(uhr);
+    if(ton.readyState<1){ ton.addEventListener('loadedmetadata',()=>spiele(von,bis),{once:true}); ton.load(); return; }
+    ton.currentTime=von; const p=ton.play(); if(p&&p.catch) p.catch(()=>{});
+    uhr=setInterval(()=>{ if(ton.currentTime>=bis){ ton.pause(); clearInterval(uhr); } },40);
+  }
+  const MEL={wer:'melnyk',name:'Frau Melnyk'}, NOR={wer:'nora',name:'Nora',b:true}, SAM={wer:'haddad',name:'Samira',b:true}, PET={wer:'lenz',name:'Petra',b:true};
+  const z=(w,t,b)=>Object.assign({},w,{text:t},b===undefined?{}:{b:b});
+  /* Sprecherwechsel aus der Tonspur ermittelt (Pausen + Stimmprofil mit Szene 1, Szene 2 und Reiter 6 als Referenz), zweifach geprüft. */
+  const S=[
+    {rolle:'Sie sind Nora. Die Chefin kommt herein. Sie haben gerade über Petras Carlos gesprochen.',q:[0,1.33],a:[1.33,8.24],tipp:'grüßen · schnell das Thema wechseln: Wir haben gerade über … gesprochen.',fz:[z(MEL,'Guten Morgen, zusammen!')],az:[z(NOR,'Oh! Guten Morgen, Frau Melnyk!'),z(SAM,'Guten Morgen!'),z(NOR,'Wir haben gerade … über die neue Kaffeemaschine gesprochen.')]},
+    {rolle:'Sie sind Petra. Frau Melnyk fragt nach Herrn García.',q:[8.24,24.255],a:[24.255,26.065],tipp:'kurz zögern · zugeben: Ja. Wir …',fz:[z(MEL,'Ah ja, die macht wirklich guten Kaffee. Frau Lenz, schön, dass Sie wieder da sind. Übrigens: Heute Morgen hat ein Herr García aus Palma angerufen. Seine Firma möchte mit uns zusammenarbeiten. Er kommt im Dezember zu uns. Er sagt, Sie kennen sich?')],az:[z(PET,'… Ja. Wir kennen uns.')]},
+    {rolle:'Sie sind Nora. Die Chefin geht wieder. Jetzt dürfen Sie aufgeregt sein!',q:[26.065,30.51],a:[30.51,34.24],tipp:'Mensch, Petra! · Carlos kommt …! · Ins …!',fz:[z(MEL,'Wunderbar. Dann vereinbaren Sie doch bitte einen Termin mit ihm. Bis später!')],az:[z(NOR,'Mensch, Petra! Carlos kommt zu uns! Ins Büro!')]},
+    {rolle:'Sie sind Petra. Bleiben Sie ganz ruhig.',q:[30.51,34.24],a:[34.24,37.49],tipp:'trocken: Ja. Und diesmal … (Denken Sie an Herrn Sommer.)',fz:[z(NOR,'Mensch, Petra! Carlos kommt zu uns! Ins Büro!',false)],az:[z(PET,'Ja. Und diesmal steht er in der Terminliste.')]}
+  ];
+  let i=0; const $=id=>document.getElementById(id);
+  function zeige(){
+    const x=S[i]; ton.pause(); clearInterval(uhr);
+    $('che-nummer').textContent='Schritt '+(i+1)+' von '+S.length;
+    $('che-rolle').textContent=x.rolle;
+    $('che-tipp-ausgabe').textContent=x.tipp; $('che-tipp-ausgabe').hidden=true;
+    Lehrwerk.szene('che-text-ausgabe',x.fz.concat(x.az)); $('che-text-ausgabe').hidden=true;
+    $('che-zurueck').disabled=i===0; $('che-weiter').disabled=i===S.length-1;
+  }
+  $('che-frage').addEventListener('click',()=>spiele(...S[i].q));
+  $('che-antwort').addEventListener('click',()=>spiele(...S[i].a));
+  $('che-tipp').addEventListener('click',()=>{ $('che-tipp-ausgabe').hidden=!$('che-tipp-ausgabe').hidden; });
+  $('che-text').addEventListener('click',()=>{ $('che-text-ausgabe').hidden=!$('che-text-ausgabe').hidden; });
+  $('che-zurueck').addEventListener('click',()=>{ if(i>0){i--;zeige();} });
+  $('che-weiter').addEventListener('click',()=>{ if(i<S.length-1){i++;zeige();} });
+  Lehrwerk.szene('kueche3-transkript',S.slice(0,3).flatMap(x=>x.fz.concat(x.az)).concat(S[3].az));
   zeige();
 })();
 
