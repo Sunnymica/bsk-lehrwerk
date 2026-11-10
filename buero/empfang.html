@@ -29,6 +29,7 @@
   <button type="button" id="tab-organisieren" role="tab" aria-selected="false" data-blatt="organisieren">5 · Die Vertretung organisieren</button>
   <button type="button" id="tab-entscheidet" role="tab" aria-selected="false" data-blatt="entscheidet">6 · Frau Melnyk entscheidet</button>
   <button type="button" id="tab-meine" role="tab" aria-selected="false" data-blatt="meine">7 · Frau Lenz ist zurück</button>
+  <button type="button" id="tab-kaffeekueche" role="tab" aria-selected="false" data-blatt="kaffeekueche">8 · In der Kaffeeküche</button>
 </div>
 
 <!-- ============ 1 · DIE ÜBERGABE ============ -->
@@ -885,7 +886,7 @@
 
 <!-- ============ 7 · FRAU LENZ IST ZURÜCK ============ -->
 <section class="blatt" id="blatt-meine" role="tabpanel" aria-labelledby="tab-meine" hidden>
-  <p class="stand-hinweis">etwa 60 Minuten, dazu die Kaffeeküche · nachfragen, mündlich übergeben, Kaffeeküche, entscheiden, selbst schreiben</p>
+  <p class="stand-hinweis">etwa 60 Minuten · nachfragen, mündlich übergeben, entscheiden, selbst schreiben</p>
 
   <div class="kasten">
     <p>Zwei Wochen später, Montag, 8:15 Uhr. Frau Lenz kommt heute aus dem Urlaub zurück. Nora möchte ihr nicht nur sagen, was sie erledigt hat. Sie möchte auch genau sagen, was noch offen ist. Dafür fragt sie vorher bei den Kolleginnen und Kollegen nach.</p>
@@ -949,11 +950,85 @@
   </div>
 
 
-  <!-- ============ KAFFEEPAUSE · IN DER KAFFEEKÜCHE ============ -->
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">3 · Entscheiden</strong>
+    <h2>Was passiert als Nächstes?</h2>
+    <div class="auftrag"><span class="auftrag-marke">Zu zweit · 8 Minuten</span><p>Nora ist fertig. Jetzt arbeitet Frau Lenz weiter. Was kann sie selbst erledigen? Wo muss sie erst jemanden fragen? Sortieren Sie. Dann einigen Sie sich: Was macht sie zuerst? Begründen Sie mit <strong>weil</strong>.</p></div>
+  </div>
+  <div id="gruppieren-lenz"></div>
+  <div class="knopfreihe"><button class="knopf" id="gruppieren-lenz-pruefen" type="button">Prüfen</button></div>
+  <p class="rueckmeldung" id="gruppieren-lenz-rueck" hidden></p>
+  <div class="redemittel-box">
+    <h2>So begründen Sie</h2>
+    <p class="satz">Zuerst würde ich …, weil … · Das kann Frau Lenz selbst erledigen. · Hier muss sie zuerst … fragen. · Wir wissen noch nicht, ob … · Wenn …, dann …</p>
+  </div>
+
+  <div class="differenzierung differenzierung--herausforderung">
+    <strong class="differenzierung__stufe">4 · Ihr Arbeitsplatz</strong>
+    <h2><img class="symbol" src="../assets/symbole/laptop.webp" alt="">Meine Übergabe</h2>
+    <div class="auftrag"><span class="auftrag-marke">Einzelarbeit · 15 Minuten</span><p>Sie haben zwei Wochen Urlaub. Eine Kollegin oder ein Kollege vertritt Sie. Schreiben Sie eine Übergabe für Ihren Arbeitsplatz oder Ihren Wunscharbeitsplatz.</p></div>
+    <div class="merker">
+      <span class="marke-merker">Eine gute Übergabe sagt</span>
+      <p>Was ist <strong>erledigt</strong>? Was ist noch <strong>offen</strong>? <strong>Wer</strong> ist zuständig? <strong>Bis wann</strong>? <strong>Wo</strong> liegt was? Und: Ist das <strong>sicher</strong> oder nur eine Vermutung?</p>
+    </div>
+    <p><strong>Start:</strong> drei Aufgaben und eine Ortsangabe.<br>
+    <strong>Weiter:</strong> dazu ein offener Punkt mit Frist und Zuständigkeit.<br>
+    <strong>Herausforderung:</strong> dazu ein Punkt, bei dem Sie etwas nur vermuten. Sagen Sie das ehrlich.</p>
+    <p class="satz">Täglich musst du … · Bis … Uhr … · Der/Die/Das … liegt / steht / hängt … · Noch offen ist … · Zuständig ist … · Ich vermute, dass … · Bei Fragen wende dich an …</p>
+    <textarea class="feld" id="meine-uebergabe" rows="9" data-ergebnis-label="Meine Übergabe"></textarea>
+    <div class="knopfreihe"><button class="knopf" id="uebergabe-kopieren" type="button">Meine Texte kopieren</button></div>
+  </div>
+
+  <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 8 Minuten</span><p>Lesen Sie die Übergabe Ihrer Partnerin oder Ihres Partners. Sie sind jetzt die Vertretung. Stellen Sie zwei Rückfragen. Ihre Partnerin oder Ihr Partner antwortet.</p></div>
+
+  <div class="differenzierung differenzierung--herausforderung">
+    <strong class="differenzierung__stufe">Abschluss</strong>
+    <h2>Das ganze Modul im Kahoot</h2>
+    <p>Fragen aus allen sieben Reitern, von der Übergabe bis zur Rückkehr von Frau Lenz. Allein spielen, so oft Sie möchten.</p>
+  </div>
+  <div id="x-kahoot-empfang"></div>
+
+  <details class="kasten">
+    <summary><strong>Freiwillige Hausaufgabe:</strong> Noras schnelle E-Mail verbessern</summary>
+    <p>Bevor Nora mit Frau Lenz spricht, hatte sie ihr schnell eine E-Mail geschrieben. Leider sehr schnell.</p>
+    <div class="kasten">
+      <p class="marke"><strong>Von:</strong> Nora Seidel · <strong>An:</strong> Petra Lenz · <strong>Betreff:</strong> Zurück am Empfang</p>
+      <p>Hallo Petra,</p>
+      <p>willkommen zurück! Alles lief gut.</p>
+      <p>(1) Mit Herrn Sommer ist alles geklärt, glaube ich.<br>
+      (2) Die Bestellung ist raus.<br>
+      (3) Ein paar Nachrichten liegen noch da.<br>
+      (4) Frau Melnyk wollte noch was wegen Donnerstag.</p>
+      <p>Viele Grüße<br>Nora</p>
+    </div>
+    <p>Was fehlt in jedem Satz?</p>
+    <div id="quiz-luecken-uebergabe"></div>
+    <p>Hier sind Noras Notizen. Schreiben Sie die vier Sätze neu, so dass Frau Lenz keine Frage mehr hat.</p>
+    <p class="satz">Herr Sommer: Termin mit Pawel am Dienstag um 9 Uhr eingetragen, Pawel informiert. Ob er stattgefunden hat: weiß ich nicht.<br>
+    Büromaterial: am Donnerstag bestellt, Lieferung kommt am Montag.<br>
+    Telefonnachrichten: drei, von Frau Kaya, Herrn Lindner und dem Steuerbüro Kern. Liegen in der Ablage.<br>
+    Frau Melnyk: Besprechung am Donnerstag auf 13 Uhr vorverlegt, Raum 2.14. Antwort von Frau Vogt fehlt.</p>
+    <textarea class="feld" id="uebergabe-neu" rows="7" data-ergebnis-label="Noras verbesserte Übergabe"></textarea>
+    <details class="kasten">
+      <summary><strong>Ein Vorschlag zum Vergleichen</strong></summary>
+      <p>(1) Herr Sommer hat einen Termin mit Pawel am Dienstag um 9 Uhr bekommen. Ich habe Pawel informiert. Ob das Gespräch stattgefunden hat, weiß ich leider nicht. Kannst du Pawel bitte fragen?<br>
+      (2) Das Büromaterial habe ich am Donnerstag bestellt. Die Lieferung kommt am Montag.<br>
+      (3) In der Ablage liegen noch drei Telefonnachrichten: von Frau Kaya, Herrn Lindner und dem Steuerbüro Kern.<br>
+      (4) Die Besprechung von Frau Melnyk am Donnerstag ist auf 13 Uhr vorverlegt, in Raum 2.14. Noch offen: Frau Vogt hat noch nicht bestätigt.</p>
+    </details>
+  </details>
+</section>
+
+<!-- ============ 8 · IN DER KAFFEEKÜCHE ============ -->
+<section class="blatt" id="blatt-kaffeekueche" role="tabpanel" aria-labelledby="tab-kaffeekueche" hidden>
+  <p class="stand-hinweis">drei Hörszenen · kleine Wörter mit Würze, das Du anbieten, schnell das Thema wechseln</p>
+
+  
   <div class="differenzierung differenzierung--start" id="kaffeekueche">
-    <strong class="differenzierung__stufe">Kaffeepause</strong>
-    <h2>In der Kaffeeküche: Was war auf Mallorca?</h2>
-    <p>Montag, halb elf. Die Übergabe ist fertig. Nora und Frau Lenz holen sich einen Kaffee. Unter Kolleginnen ist Frau Lenz einfach Petra. Nora ist sehr neugierig. Petra möchte nicht alles erzählen.</p>
+    <strong class="differenzierung__stufe">Szene 1</strong>
+    <h2>Was war auf Mallorca?</h2>
+    <p>Montag, halb elf. Frau Lenz ist seit heute Morgen wieder da. Nora und sie holen sich einen Kaffee. Unter Kolleginnen ist Frau Lenz einfach Petra. Nora ist sehr neugierig. Petra möchte nicht alles erzählen.</p>
     <figure class="bildgrammatik">
       <audio controls preload="auto" id="ton-kueche1" src="../assets/audio/kaffeekueche-1.mp3" style="width:100%">Ihr Browser kann die Audiodatei nicht abspielen. Das Gespräch steht unten zum Nachlesen.</audio>
       <figcaption>Szene 1 · Nora und Petra · knapp eine Minute</figcaption>
@@ -1155,74 +1230,6 @@
     <p class="satz"><strong>Neugierig:</strong> Erzähl doch mal! · Wie war’s denn? · Und mit wem warst du da? · Na hör mal, du lenkst ab!</p>
     <p class="satz"><strong>Ausweichen:</strong> Ach, ganz normal eben. · Das bleibt mein Geheimnis. · Möchtest du auch einen Kaffee? · Erzähl ich dir ein anderes Mal.</p>
   </div>
-
-  <div class="differenzierung differenzierung--weiter">
-    <strong class="differenzierung__stufe">3 · Entscheiden</strong>
-    <h2>Was passiert als Nächstes?</h2>
-    <div class="auftrag"><span class="auftrag-marke">Zu zweit · 8 Minuten</span><p>Nora ist fertig. Jetzt arbeitet Frau Lenz weiter. Was kann sie selbst erledigen? Wo muss sie erst jemanden fragen? Sortieren Sie. Dann einigen Sie sich: Was macht sie zuerst? Begründen Sie mit <strong>weil</strong>.</p></div>
-  </div>
-  <div id="gruppieren-lenz"></div>
-  <div class="knopfreihe"><button class="knopf" id="gruppieren-lenz-pruefen" type="button">Prüfen</button></div>
-  <p class="rueckmeldung" id="gruppieren-lenz-rueck" hidden></p>
-  <div class="redemittel-box">
-    <h2>So begründen Sie</h2>
-    <p class="satz">Zuerst würde ich …, weil … · Das kann Frau Lenz selbst erledigen. · Hier muss sie zuerst … fragen. · Wir wissen noch nicht, ob … · Wenn …, dann …</p>
-  </div>
-
-  <div class="differenzierung differenzierung--herausforderung">
-    <strong class="differenzierung__stufe">4 · Ihr Arbeitsplatz</strong>
-    <h2><img class="symbol" src="../assets/symbole/laptop.webp" alt="">Meine Übergabe</h2>
-    <div class="auftrag"><span class="auftrag-marke">Einzelarbeit · 15 Minuten</span><p>Sie haben zwei Wochen Urlaub. Eine Kollegin oder ein Kollege vertritt Sie. Schreiben Sie eine Übergabe für Ihren Arbeitsplatz oder Ihren Wunscharbeitsplatz.</p></div>
-    <div class="merker">
-      <span class="marke-merker">Eine gute Übergabe sagt</span>
-      <p>Was ist <strong>erledigt</strong>? Was ist noch <strong>offen</strong>? <strong>Wer</strong> ist zuständig? <strong>Bis wann</strong>? <strong>Wo</strong> liegt was? Und: Ist das <strong>sicher</strong> oder nur eine Vermutung?</p>
-    </div>
-    <p><strong>Start:</strong> drei Aufgaben und eine Ortsangabe.<br>
-    <strong>Weiter:</strong> dazu ein offener Punkt mit Frist und Zuständigkeit.<br>
-    <strong>Herausforderung:</strong> dazu ein Punkt, bei dem Sie etwas nur vermuten. Sagen Sie das ehrlich.</p>
-    <p class="satz">Täglich musst du … · Bis … Uhr … · Der/Die/Das … liegt / steht / hängt … · Noch offen ist … · Zuständig ist … · Ich vermute, dass … · Bei Fragen wende dich an …</p>
-    <textarea class="feld" id="meine-uebergabe" rows="9" data-ergebnis-label="Meine Übergabe"></textarea>
-    <div class="knopfreihe"><button class="knopf" id="uebergabe-kopieren" type="button">Meine Texte kopieren</button></div>
-  </div>
-
-  <div class="auftrag"><span class="auftrag-marke">Partnerarbeit · 8 Minuten</span><p>Lesen Sie die Übergabe Ihrer Partnerin oder Ihres Partners. Sie sind jetzt die Vertretung. Stellen Sie zwei Rückfragen. Ihre Partnerin oder Ihr Partner antwortet.</p></div>
-
-  <div class="differenzierung differenzierung--herausforderung">
-    <strong class="differenzierung__stufe">Abschluss</strong>
-    <h2>Das ganze Modul im Kahoot</h2>
-    <p>Fragen aus allen sieben Reitern, von der Übergabe bis zur Rückkehr von Frau Lenz. Allein spielen, so oft Sie möchten.</p>
-  </div>
-  <div id="x-kahoot-empfang"></div>
-
-  <details class="kasten">
-    <summary><strong>Freiwillige Hausaufgabe:</strong> Noras schnelle E-Mail verbessern</summary>
-    <p>Bevor Nora mit Frau Lenz spricht, hatte sie ihr schnell eine E-Mail geschrieben. Leider sehr schnell.</p>
-    <div class="kasten">
-      <p class="marke"><strong>Von:</strong> Nora Seidel · <strong>An:</strong> Petra Lenz · <strong>Betreff:</strong> Zurück am Empfang</p>
-      <p>Hallo Petra,</p>
-      <p>willkommen zurück! Alles lief gut.</p>
-      <p>(1) Mit Herrn Sommer ist alles geklärt, glaube ich.<br>
-      (2) Die Bestellung ist raus.<br>
-      (3) Ein paar Nachrichten liegen noch da.<br>
-      (4) Frau Melnyk wollte noch was wegen Donnerstag.</p>
-      <p>Viele Grüße<br>Nora</p>
-    </div>
-    <p>Was fehlt in jedem Satz?</p>
-    <div id="quiz-luecken-uebergabe"></div>
-    <p>Hier sind Noras Notizen. Schreiben Sie die vier Sätze neu, so dass Frau Lenz keine Frage mehr hat.</p>
-    <p class="satz">Herr Sommer: Termin mit Pawel am Dienstag um 9 Uhr eingetragen, Pawel informiert. Ob er stattgefunden hat: weiß ich nicht.<br>
-    Büromaterial: am Donnerstag bestellt, Lieferung kommt am Montag.<br>
-    Telefonnachrichten: drei, von Frau Kaya, Herrn Lindner und dem Steuerbüro Kern. Liegen in der Ablage.<br>
-    Frau Melnyk: Besprechung am Donnerstag auf 13 Uhr vorverlegt, Raum 2.14. Antwort von Frau Vogt fehlt.</p>
-    <textarea class="feld" id="uebergabe-neu" rows="7" data-ergebnis-label="Noras verbesserte Übergabe"></textarea>
-    <details class="kasten">
-      <summary><strong>Ein Vorschlag zum Vergleichen</strong></summary>
-      <p>(1) Herr Sommer hat einen Termin mit Pawel am Dienstag um 9 Uhr bekommen. Ich habe Pawel informiert. Ob das Gespräch stattgefunden hat, weiß ich leider nicht. Kannst du Pawel bitte fragen?<br>
-      (2) Das Büromaterial habe ich am Donnerstag bestellt. Die Lieferung kommt am Montag.<br>
-      (3) In der Ablage liegen noch drei Telefonnachrichten: von Frau Kaya, Herrn Lindner und dem Steuerbüro Kern.<br>
-      (4) Die Besprechung von Frau Melnyk am Donnerstag ist auf 13 Uhr vorverlegt, in Raum 2.14. Noch offen: Frau Vogt hat noch nicht bestätigt.</p>
-    </details>
-  </details>
 </section>
 
 </main>
