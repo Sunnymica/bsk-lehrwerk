@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Danylo · Die Ware ist beschädigt</title>
+<style>
+:root{--ink:#24324d;--amber:#b5651d;--pale:#fbefe1;--sky:#eaf0f7;--cream:#fdfaf5;--line:#e3dbd0;--muted:#6b6f7a;--ok:#2e6b4a;--bad:#b03030}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:19px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+button,textarea,input{font:inherit;color:inherit}
+button{cursor:pointer;border:1px solid var(--line);background:#fff;padding:10px 16px;border-radius:10px}
+button:hover{background:var(--sky)}
+button:disabled{opacity:.4;cursor:default}
+button.active,button.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+button:focus-visible,summary:focus-visible,textarea:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+header{padding:36px max(24px,calc((100% - 1080px)/2));background:#fff;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+header:after{content:'📦';position:absolute;font-size:170px;opacity:.08;right:4%;top:-30px;pointer-events:none}
+.eyebrow{font-size:12px;letter-spacing:.17em;text-transform:uppercase;font-weight:700;color:var(--amber)}
+h1{font:clamp(32px,5vw,48px)/1.12 Georgia,serif;margin:12px 0}
+h2{font:28px/1.2 Georgia,serif;margin:0 0 12px}
+h3{font-size:19px;margin:18px 0 8px}
+p{margin:8px 0 12px}
+.sub{max-width:720px;color:var(--muted)}
+.wrap{max-width:1100px;margin:auto;padding:24px}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;margin-bottom:22px}
+.hint{background:var(--sky);border-radius:12px;padding:14px 18px;margin:12px 0}
+.box{background:var(--pale);border-radius:12px;padding:14px 18px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff}
+.num{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--amber)}
+textarea{width:100%;min-height:64px;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--cream);resize:vertical}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;align-items:center}
+.prompt{font:26px/1.4 Georgia,serif;background:var(--pale);border-left:6px solid var(--amber);border-radius:10px;padding:18px 22px;margin:14px 0;min-height:80px}
+.twist{background:#fbe3e3;border-left-color:var(--bad)}
+.solution{font:24px/1.45 Georgia,serif;background:#fff;border:2px dashed var(--line);border-radius:10px;padding:16px 22px;min-height:70px}
+.tag{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--sky);border-radius:999px;padding:2px 12px;margin-bottom:8px}
+.stat{font-size:16px;color:var(--muted)}
+/* Farbsystem Satzbau */
+.kon{color:var(--bad);font-weight:700}.verb{color:var(--ok);font-weight:700}.subj{color:#2457a6;font-weight:700}.neb{color:#7a3fa0}.pos1{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:15px;margin:6px 0 0}
+/* Dialog */
+.line{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.who{font-weight:700}.who.me{color:var(--amber)}
+/* Artikel-Blitz */
+.word{font:44px/1.2 Georgia,serif;text-align:center;padding:26px 10px;background:var(--pale);border-radius:14px;margin:12px 0}
+.word.ok{background:#e3f1e8}.word.no{background:#fbe3e3}
+.art{font-size:24px;min-width:110px}
+/* viel / zu viel */
+.vz{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0}
+.vz .s{font-size:21px}
+.vz .gapx{display:inline-block;min-width:90px;border-bottom:2px solid var(--amber);text-align:center;font-weight:700}
+.vz .opts{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.vz .opts button{padding:6px 14px}
+.vz .fb{margin-top:8px;font-size:17px}
+.okb{background:#e3f1e8!important;border-color:var(--ok)!important}.nob{background:#fbe3e3!important;border-color:var(--bad)!important}
+details{border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0;background:#fff}
+summary{cursor:pointer;font-weight:700}
+.small{font-size:15px;color:var(--muted)}
+.tuv{display:flex;gap:16px;flex-wrap:wrap;margin:8px 0;font-size:16px}
+.tuv label{display:flex;gap:6px;align-items:center}
+.det{font:26px/2.2 Georgia,serif;background:var(--pale);border-radius:12px;padding:18px 22px;margin:12px 0}
+.slot,.slotdemo{display:inline-block;min-width:26px;text-align:center;color:#b9a68f;cursor:pointer;border-radius:6px;padding:0 4px;font-weight:700}
+.slot:hover{background:#fff}
+.slot.on{background:var(--ink);color:#fff}
+.slot.hit{background:#e3f1e8;color:var(--ok)}
+.slot.miss{background:#fde9cf;color:var(--amber)}
+.slot.wrong{background:#fbe3e3;color:var(--bad);text-decoration:line-through}
+/* Regeln visuell */
+.rule{border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:16px 0;background:#fff}
+.rhead{font:22px/1.35 Georgia,serif;margin-bottom:12px}
+.rnum{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;font:700 18px system-ui;margin-right:8px;vertical-align:middle}
+.big2{background:#d8eedf;color:var(--ok);font-weight:700;padding:0 8px;border-radius:6px}
+.bigE{background:#d8eedf;color:var(--ok);font-weight:700;padding:0 8px;border-radius:6px}
+table.feld{border-collapse:collapse;width:100%;margin:10px 0;font-size:20px}
+table.feld th{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 10px;border-bottom:2px solid var(--line)}
+table.feld th small{text-transform:none;letter-spacing:0}
+table.feld td{padding:10px;border:1px solid var(--line)}
+table.feld .v{background:#d8eedf;font-weight:700;color:var(--ok)}
+table.feld .e{background:#e6f2ea;font-weight:700;color:var(--ok)}
+table.feld .k{color:var(--bad);font-weight:700}
+.pair{margin:10px 0;display:grid;gap:4px;font-size:20px}
+.pair .no{background:#fbd5d5;border-left:6px solid var(--bad);padding:8px 14px;border-radius:8px}
+.pair .yes{background:#d8eedf;border-left:6px solid var(--ok);padding:8px 14px;border-radius:8px;font-weight:600}
+.lanes{display:grid;gap:8px;margin:8px 0 12px}
+.lane{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;border-radius:12px;padding:10px 14px}
+.lane.l1{background:#f3e6f7}.lane.l2{background:#fdeedd}.lane.l3{background:#eef1f5}
+.chips span{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:999px;padding:2px 12px;margin:2px;font-weight:700;color:var(--bad)}
+.arrow{font-size:18px;white-space:nowrap}
+.formula{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:8px 0 12px}
+.formula .fb{background:#e3ecf7;border:2px solid #2457a6;border-radius:12px;padding:10px 16px;font-weight:700;color:#2457a6;text-align:center}
+.formula .plus{font:700 32px Georgia,serif}
+.formula .fn{background:#fff;border:2px solid var(--ink);border-radius:12px;padding:14px 22px;font:700 22px Georgia,serif}
+.exc{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.exc>div{background:var(--pale);border-radius:12px;padding:12px 14px;font-size:17px}
+.exc .ico{display:block;font-size:26px;margin-bottom:4px}
+.own{border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+.own .no{background:#fbd5d5;border-left:6px solid var(--bad);padding:10px 14px;border-radius:8px;font:22px/1.4 Georgia,serif}
+.steps3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.steps3>div{background:var(--pale);border-radius:12px;padding:14px 16px}
+.bridge{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.bridge button{display:block;width:100%;text-align:left;margin:6px 0;font-size:19px}
+.bridge button.sel{background:var(--ink);color:#fff}
+.bridge button.done{background:#d8eedf;border-color:var(--ok);color:var(--ok);font-weight:700;cursor:default}
+.bridge button.wrong{background:#fbd5d5;border-color:var(--bad)}
+[hidden]{display:none!important}
+</style>
+</head><body>
+<header>
+  <a href="../einzelcoaching.html" style="display:inline-block;margin-bottom:10px;color:inherit;font-size:15px">← Einzelcoaching</a>
+  <div class="eyebrow">Einzelcoaching · Danylo · 4 von 5</div>
+  <h1>Die Ware ist beschädigt</h1>
+  <p class="sub">Frau Keller ruft noch einmal an. Und sie ist nicht besser gelaunt. Jetzt geht es um eine Reklamation – ruhig bleiben, Fragen stellen, Lösung anbieten.</p>
+</header>
+<div class="wrap">
+<nav>
+  <button data-tab="t1" class="active">1 · Frau Keller ruft wieder an</button>
+  <button data-tab="t2">2 · Bootcamp: Reklamation</button>
+  <button data-tab="t3">3 · Wortschatz: Der Schaden</button>
+  <button data-tab="t4">4 · Du bist dran</button>
+  <button data-tab="t5">5 · Rollenspiel</button>
+  <button data-tab="t6">6 · Die Schadensmeldung</button>
+  <button data-tab="t7">7 · Das kann ich</button>
+</nav>
+<main>
+
+<!-- 1 HÖREN -->
+<section id="t1">
+  <div class="panel">
+    <h2>Frau Keller ruft wieder an</h2>
+    <p>Zwei Tage später. Die Sendung ist in Basel angekommen. Aber nicht so, wie Frau Keller sie haben wollte. Pawel Nowak nimmt im Versand ab.</p>
+    <div id="audioBox" class="box"><b>Hör zu.</b> Beim ersten Mal nur hören, nichts lesen.
+      <audio id="aud" controls preload="auto" src="../../assets/audio/coaching-keller-2.mp3" style="width:100%;margin-top:10px"></audio></div>
+    <h3>Beim Hören: Was ist passiert?</h3>
+    <div class="grid">
+      <div class="card"><div class="num">1</div>Was ist mit den Kartons los?<details><summary>Lösung</summary>Zwei Kartons sind nass, ein Karton ist eingedrückt.</details></div>
+      <div class="card"><div class="num">2</div>Was ist in den Kartons?<details><summary>Lösung</summary>Kopierpapier und Ordner.</details></div>
+      <div class="card"><div class="num">3</div>Was hat Frau Keller bei der Annahme gemacht?<details><summary>Lösung</summary>Sie hat den Schaden auf dem Lieferschein vermerkt („Annahme unter Vorbehalt“), der Fahrer hat unterschrieben. Und sie hat Fotos gemacht.</details></div>
+      <div class="card"><div class="num">4</div>Was soll Frau Keller schicken – und warum?<details><summary>Lösung</summary>Die Fotos per E-Mail. Herr Nowak braucht sie für die Schadensmeldung an die Spedition.</details></div>
+      <div class="card"><div class="num">5</div>Welche Lösung bietet Herr Nowak an?<details><summary>Lösung</summary>Eine Ersatzlieferung per Express, morgen früh in Basel. KONTOR übernimmt die Kosten.</details></div>
+      <div class="card"><div class="num">6</div>Wer muss am Ende den Schaden ersetzen – und warum?<details><summary>Lösung</summary>Die Spedition, weil der Schaden beim Transport passiert ist.</details></div>
+    </div>
+    <details style="margin-top:18px"><summary>Das Telefonat zum Mitlesen</summary><div id="dlgFull"></div></details>
+    <div class="hint"><b>Achte auf die farbigen Stellen.</b> Genau diese Sätze trainierst du im Bootcamp.</div>
+  </div>
+</section>
+
+<!-- 2 BOOTCAMP -->
+<section id="t2" hidden>
+  <div class="panel">
+    <h2>Bootcamp: Reklamation unter Druck</h2>
+    <p>Du siehst Bausteine. Du sagst sofort den ganzen Satz – laut. Dann kommt die Lösung. Richtig beim ersten Mal? Weiter. Nicht ganz? Die Karte kommt später noch einmal.</p>
+    <div class="controls">
+      <button class="cat active" data-cat="alle">Alles gemischt</button>
+      <button class="cat" data-cat="pos2">Verb auf Position 2</button>
+      <button class="cat" data-cat="modal">Modalverb-Klammer</button>
+      <button class="cat" data-cat="neben">Zwei Sätze verbinden</button>
+      <button class="cat" data-cat="bitte">Höflich bitten</button>
+    </div>
+    <div id="bcTag" class="tag"></div>
+    <div id="bcPrompt" class="prompt" aria-live="polite"></div>
+    <div id="bcSol" class="solution" aria-live="polite"><span class="small">Erst sprechen. Dann klicken.</span></div>
+    <div class="controls">
+      <button id="bcShow" class="primary">Lösung zeigen</button>
+      <button id="bcOk" disabled>✓ Sofort richtig</button>
+      <button id="bcAgain" disabled>↻ Nochmal – später</button>
+      <span id="bcStat" class="stat"></span>
+    </div>
+    <div class="legend"><span class="pos1">Position 1</span><span class="verb">konjugiertes Verb</span><span class="subj">Subjekt</span><span class="kon">Konnektor</span><span class="neb">Nebensatz</span></div>
+  </div>
+  <div class="panel">
+    <h2>Die Regeln auf einen Blick</h2>
+    <div class="hint"><b>So geht’s:</b> Eine Karte geht zweimal daneben? Dann schau hier auf die passende Tabelle und sag den Satz danach noch einmal laut.</div>
+    <div class="rule">
+      <div class="rhead"><span class="rnum">1</span> Das Verb steht auf <span class="big2">Platz 2</span> – egal, was vorne steht.</div>
+      <table class="feld">
+        <tr><th>Position 1</th><th class="v">Position 2<br><small>Verb</small></th><th>Mittelfeld</th><th class="e">Ende</th></tr>
+        <tr><td>Leider</td><td class="v">sind</td><td>zwei Kartons nass.</td><td class="e"></td></tr>
+        <tr><td>Bei der Annahme</td><td class="v">hat</td><td>Frau Keller den Schaden</td><td class="e">vermerkt.</td></tr>
+        <tr><td>Morgen früh</td><td class="v">kommt</td><td>die Ersatzlieferung in Basel</td><td class="e">an.</td></tr>
+      </table>
+      <div class="pair"><div class="no">✗ Leider zwei Kartons sind nass.</div><div class="yes">✓ Leider sind zwei Kartons nass.</div></div>
+    </div>
+    <div class="rule">
+      <div class="rhead"><span class="rnum">2</span> Modalverb auf <span class="big2">Platz 2</span> – Infinitiv ganz ans <span class="bigE">Ende</span>.</div>
+      <table class="feld">
+        <tr><th>Position 1</th><th class="v">Position 2<br><small>Modalverb</small></th><th>Mittelfeld</th><th class="e">Ende<br><small>Infinitiv</small></th></tr>
+        <tr><td>Die Spedition</td><td class="v">muss</td><td>den Schaden</td><td class="e">ersetzen.</td></tr>
+        <tr><td>Das Papier</td><td class="v">kann</td><td>ich</td><td class="e">wegwerfen.</td></tr>
+      </table>
+      <div class="pair"><div class="no">✗ Die Spedition muss ersetzen den Schaden.</div><div class="yes">✓ Die Spedition muss den Schaden ersetzen.</div></div>
+    </div>
+    <div class="rule">
+      <div class="rhead"><span class="rnum">3</span> Zwei Sätze verbinden: Wohin mit dem Verb?</div>
+      <div class="lanes">
+        <div class="lane l1"><div class="chips"><span>weil</span><span>obwohl</span><span>bevor</span><span>sobald</span><span>dass</span></div><div class="arrow">Verb ganz ans <b>ENDE</b> ⇥</div></div>
+        <div class="lane l2"><div class="chips"><span>trotzdem</span><span>deshalb</span></div><div class="arrow">Verb <b>DIREKT DANACH</b> →</div></div>
+        <div class="lane l3"><div class="chips"><span>aber</span><span>denn</span><span>und</span><span>sondern</span><span>oder</span></div><div class="arrow">Position 0 – <b>nichts ändert sich</b> =</div></div>
+      </div>
+      <table class="feld">
+        <tr><th>Hauptsatz</th><th>Konnektor</th><th>Mitte</th><th class="e">Ende<br><small>Verb</small></th></tr>
+        <tr><td>Die Spedition muss zahlen,</td><td class="k">weil</td><td>der Schaden beim Transport passiert</td><td class="e">ist.</td></tr>
+        <tr><td>Ich prüfe die Papiere,</td><td class="k">bevor</td><td>die Sendung</td><td class="e">rausgeht.</td></tr>
+      </table>
+      <div class="pair"><div class="no">✗ … weil der Schaden ist beim Transport passiert.</div><div class="yes">✓ … weil der Schaden beim Transport passiert ist.</div></div>
+    </div>
+    <div class="rule">
+      <div class="rhead"><span class="rnum">4</span> Höflich bitten: <b>Könnten Sie …?</b> – auch das ist eine Klammer.</div>
+      <table class="feld">
+        <tr><th class="v">Position 1<br><small>Könnten / Würden</small></th><th>Sie</th><th>Mittelfeld</th><th class="e">Ende<br><small>Infinitiv</small></th></tr>
+        <tr><td class="v">Könnten</td><td>Sie</td><td>mir bitte die Fotos</td><td class="e">schicken?</td></tr>
+        <tr><td class="v">Würden</td><td>Sie</td><td>mich bitte morgen</td><td class="e">zurückrufen?</td></tr>
+      </table>
+      <div class="pair"><div class="no">✗ Schicken Sie mir die Fotos!</div><div class="yes">✓ Könnten Sie mir bitte die Fotos schicken?</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 WORTSCHATZ -->
+<section id="t3" hidden>
+  <div class="panel">
+    <h2>Wie sieht der Schaden aus?</h2>
+    <div class="exc">
+      <div><span class="ico">💧</span><b>nass</b><br>Der Karton ist nass.<br>ein nasser Karton</div>
+      <div><span class="ico">📦</span><b>eingedrückt</b><br>Der Karton ist eingedrückt.<br>ein eingedrückter Karton</div>
+      <div><span class="ico">✂️</span><b>aufgerissen</b><br>Die Folie ist aufgerissen.<br>eine aufgerissene Folie</div>
+      <div><span class="ico">🔨</span><b>kaputt / beschädigt</b><br>Die Ware ist beschädigt.<br>beschädigte Ware</div>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>Was passt zusammen?</h2>
+    <p>Klick links das Nomen, dann rechts das passende Verb. Dann sag die ganze Wendung laut – <b>mit Artikel</b>: „den Schaden melden“.</p>
+    <div class="bridge"><div id="brL"></div><div id="brR"></div></div>
+    <p id="brStat" class="stat"></p>
+    <div class="controls"><button id="brNew">Neu mischen</button></div>
+  </div>
+  <div class="panel">
+    <h2>Wortbrücke: Das kennst du – so heißt es auf Deutsch</h2>
+    <div class="grid">
+      <div class="card"><div class="num">Damage</div>der Schaden · der Transportschaden</div>
+      <div class="card"><div class="num">Damage Report / Claim</div>die Schadensmeldung</div>
+      <div class="card"><div class="num">Replacement Delivery</div>die Ersatzlieferung</div>
+      <div class="card"><div class="num">Accept with reservation</div>unter Vorbehalt annehmen</div>
+      <div class="card"><div class="num">Delivery Note</div>der Lieferschein</div>
+      <div class="card"><div class="num">Complaint</div>die Reklamation · die Beschwerde</div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 DU BIST DRAN -->
+<section id="t4" hidden>
+  <div class="panel">
+    <h2>Du bist dran: Danylo am Telefon</h2>
+    <p>Du sitzt im Versand. Regina ist Frau Keller. Du übernimmst Herrn Nowaks Rolle.</p>
+    <div class="controls">
+      <button class="lv active" data-lv="text">Ganzer Text</button>
+      <button class="lv" data-lv="stich">Nur Stichworte</button>
+      <button class="lv" data-lv="frei">Frei – nur Frau Keller</button>
+    </div>
+    <div id="dlgMe"></div>
+    <div class="hint"><b>Dreimal:</b> mit Text, mit Stichworten, frei. Nach jedem Durchgang: Satz-TÜV.
+      <div class="tuv"><label><input type="checkbox">Verb auf 2?</label><label><input type="checkbox">Nebensatz: Verb am Ende?</label><label><input type="checkbox">Artikel da?</label></div>
+    </div>
+    <h3>Der Fahrplan für jede Reklamation</h3>
+    <div class="steps3" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+      <div><span class="rnum">1</span><b>Zuhören</b><br>Das tut mir sehr leid. · Was ist genau passiert?</div>
+      <div><span class="rnum">2</span><b>Fragen</b><br>Haben Sie den Schaden vermerkt? · Haben Sie Fotos?</div>
+      <div><span class="rnum">3</span><b>Lösung</b><br>Ich kann Ihnen Folgendes anbieten: …</div>
+      <div><span class="rnum">4</span><b>Zusammenfassen</b><br>Ich fasse zusammen: Sie …, ich …</div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 ROLLENSPIEL -->
+<section id="t5" hidden>
+  <div class="panel">
+    <h2>Rollenspiel: Das Telefon klingelt wieder</h2>
+    <p>Keine Vorbereitung. Ein Gedanke – ein Satz. Rote Karten sind Überraschungen.</p>
+    <div class="controls">
+      <button class="md active" data-md="A">Frau Keller (wütend)</button>
+      <button class="md" data-md="B">Herr Wolff (Spedition, weist alles zurück)</button>
+    </div>
+    <div id="rsPrompt" class="prompt" aria-live="polite"></div>
+    <div class="controls">
+      <button id="rsPrev">← Zurück</button>
+      <button id="rsNext" class="primary">Weiter →</button>
+      <button id="rsHelp">Satzanfang zeigen</button>
+    </div>
+    <p id="rsHelpText" class="hint" hidden></p>
+    <div class="tuv"><label><input type="checkbox">Verb auf 2?</label><label><input type="checkbox">Nebensatz: Verb am Ende?</label><label><input type="checkbox">Artikel?</label></div>
+  </div>
+</section>
+
+<!-- 6 SCHADENSMELDUNG -->
+<section id="t6" hidden>
+  <div class="panel">
+    <h2>Die Schadensmeldung an die Spedition</h2>
+    <p>Frau Keller hat die Fotos geschickt. Jetzt schreibst du der Spedition Rheintal. Erst die Bausteine ansehen, dann selbst schreiben.</p>
+    <div class="steps3" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+      <div><span class="rnum">1</span><b>Betreff</b><br>Schadensmeldung – Sendung nach Basel, Auftragsnummer 47110</div>
+      <div><span class="rnum">2</span><b>Was ist passiert?</b><br>Bei der Zustellung am … waren zwei Kartons nass und ein Karton eingedrückt.</div>
+      <div><span class="rnum">3</span><b>Nachweis</b><br>Die Empfängerin hat den Schaden auf dem Lieferschein vermerkt. Die Fotos finden Sie im Anhang.</div>
+      <div><span class="rnum">4</span><b>Forderung</b><br>Wir bitten Sie, den Schaden zu prüfen und die Kosten für die Ersatzlieferung zu übernehmen.</div>
+      <div><span class="rnum">5</span><b>Schluss</b><br>Bitte bestätigen Sie den Eingang dieser Meldung. Mit freundlichen Grüßen</div>
+    </div>
+    <h3>Jetzt du</h3>
+    <textarea style="min-height:220px" placeholder="Sehr geehrter Herr Wolff,&#10;&#10;"></textarea>
+    <div class="tuv"><label><input type="checkbox">Verb auf 2?</label><label><input type="checkbox">ein weil-Satz?</label><label><input type="checkbox">alle Artikel?</label><label><input type="checkbox">eine höfliche Bitte?</label></div>
+  </div>
+</section>
+
+<!-- 7 DAS KANN ICH -->
+<section id="t7" hidden>
+  <div class="panel">
+    <h2>Das kann ich</h2>
+    <div class="grid">
+      <div class="card">✓ Ich kann einen Schaden am Telefon aufnehmen.</div>
+      <div class="card">✓ Ich kann die richtigen Fragen stellen: Vermerk? Fotos?</div>
+      <div class="card">✓ Ich kann eine Lösung anbieten und zusammenfassen.</div>
+      <div class="card">✓ Ich kann höflich bitten: Könnten Sie …?</div>
+      <div class="card">✓ Ich kann eine Schadensmeldung schreiben.</div>
+    </div>
+    <h2 style="margin-top:28px">Bis zum nächsten Mal</h2>
+    <div class="steps3">
+      <div><span class="rnum">1</span><b>Jeden Tag · 10 Min.</b><br>Bootcamp: alle Karten laut, bis jede einmal „sofort richtig“ ist.</div>
+      <div><span class="rnum">2</span><b>Zweimal</b><br>Das Telefonat hören und Herrn Nowaks Rolle laut mitsprechen.</div>
+      <div><span class="rnum">3</span><b>Schreiben</b><br>Die Schadensmeldung fertig schreiben und mitbringen.</div>
+    </div>
+  </div>
+</section>
+</main></div>
+<script>
+const tabs=document.querySelectorAll('[data-tab]');
+tabs.forEach(b=>b.onclick=()=>{document.querySelectorAll('main>section').forEach(s=>s.hidden=s.id!==b.dataset.tab);tabs.forEach(x=>x.classList.toggle('active',x===b));window.scrollTo(0,0)});
+const aud=document.getElementById('aud');
+aud.addEventListener('error',()=>{document.getElementById('audioBox').hidden=true},true);
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+
+/* ---------- DIALOG ---------- */
+const DL=[
+ ['p','KONTOR Versand, Pawel Nowak, guten Tag.','Firma · Name · Gruß'],
+ ['k','Guten Tag, Herr Nowak. Hier ist noch einmal Keller aus Basel.','—'],
+ ['p','Guten Tag, Frau Keller! Ist die Ware gut angekommen?','gut angekommen?'],
+ ['k','Angekommen ja. Gut nein. Zwei Kartons sind nass, und ein Karton ist total eingedrückt.','—'],
+ ['p','Oh nein, das tut mir sehr leid. Was ist denn in den Kartons?','tut mir leid · was drin?'],
+ ['k','Kopierpapier und Ordner. Das Papier kann ich wegwerfen. Und morgen ist die Schulung!','—'],
+ ['p','Ich verstehe. Darf ich Ihnen kurz ein paar Fragen stellen? Dann kann ich den Schaden sofort melden.','verstehe · darf ich …? · Schaden melden'],
+ ['k','Bitte.','—'],
+ ['p','Haben Sie den Schaden bei der Annahme auf dem Lieferschein vermerkt?','Schaden · Annahme · Lieferschein · vermerkt?'],
+ ['k','Ja, der Fahrer hat unterschrieben. Ich habe „Annahme unter Vorbehalt“ geschrieben.','—'],
+ ['p','Sehr gut, das ist wichtig. Und haben Sie Fotos gemacht?','sehr gut · Fotos?'],
+ ['k','Ja, natürlich.','—'],
+ ['p','Könnten Sie mir die Fotos per E-Mail schicken? Dann kann ich eine Schadensmeldung an die Spedition schreiben.','könnten Sie …? · Schadensmeldung'],
+ ['k','Mache ich. Aber das hilft mir morgen nicht. Ich brauche das Papier für die Schulung!','—'],
+ ['p','Das verstehe ich. Ich kann Ihnen Folgendes anbieten: Wir schicken Ihnen heute noch eine Ersatzlieferung per Express. Dann ist die Ware morgen früh bei Ihnen.','anbieten · Ersatzlieferung · Express · morgen früh'],
+ ['k','Und wer bezahlt das?','—'],
+ ['p','Die Kosten übernehmen wir. Die Spedition muss den Schaden ersetzen, weil der Schaden beim Transport passiert ist. Darum kümmere ich mich.','Kosten · Spedition muss … · weil … · kümmern'],
+ ['k','Hm. Und die Handelsrechnung ist diesmal dabei?','—'],
+ ['p','Ja, versprochen. Ich prüfe die Papiere selbst, bevor die Sendung rausgeht.','versprochen · prüfe · bevor …'],
+ ['k','Na gut. Langsam glaube ich, Sie sind der Einzige, der bei Ihnen arbeitet.','—'],
+ ['p','Nicht ganz. Aber heute fühlt es sich so an. Ich fasse zusammen: Sie schicken mir die Fotos, ich melde den Schaden bei der Spedition, und die Ersatzlieferung ist morgen früh bei Ihnen.','nicht ganz · zusammenfassen · Fotos · Schaden · Ersatzlieferung'],
+ ['k','Einverstanden. Auf Wiederhören, Herr Nowak.','—'],
+ ['p','Auf Wiederhören, Frau Keller. Und viel Erfolg bei der Schulung!','Wiederhören · Erfolg']
+];
+const HL=t=>t
+ .replace(/Darf ich Ihnen kurz ein paar Fragen stellen/,'<span class="verb">Darf</span> <span class="subj">ich</span> Ihnen kurz ein paar Fragen <b>stellen</b>')
+ .replace(/Dann kann ich den Schaden sofort melden/,'<span class="pos1">Dann</span> <span class="verb">kann</span> <span class="subj">ich</span> den Schaden sofort <b>melden</b>')
+ .replace(/Könnten Sie mir die Fotos per E-Mail schicken/,'<span class="verb">Könnten</span> <span class="subj">Sie</span> mir die Fotos per E-Mail <b>schicken</b>')
+ .replace(/Die Spedition muss den Schaden ersetzen, weil der Schaden beim Transport passiert ist/,'<span class="subj">Die Spedition</span> <span class="verb">muss</span> den Schaden <b>ersetzen</b>, <span class="kon">weil</span> <span class="neb">der Schaden beim Transport passiert <b>ist</b></span>')
+ .replace(/bevor die Sendung rausgeht/,'<span class="kon">bevor</span> <span class="neb">die Sendung <b>rausgeht</b></span>')
+ .replace(/Dann ist die Ware morgen früh bei Ihnen/,'<span class="pos1">Dann</span> <span class="verb">ist</span> <span class="subj">die Ware</span> morgen früh bei Ihnen');
+document.getElementById('dlgFull').innerHTML=DL.map(([w,t])=>`<div class="line"><div class="who">${w==='p'?'Pawel Nowak':'Frau Keller'}</div><div>${HL(t)}</div></div>`).join('');
+let lv='text';
+function renderMe(){document.getElementById('dlgMe').innerHTML=DL.map(([w,t,s])=>{const me=w==='p';let txt=me?HL(t):t;
+  if(me&&lv==='stich')txt='<i>'+s+'</i>';if(me&&lv==='frei')txt='<span class="small">… (du sprichst)</span>';
+  return `<div class="line"><div class="who ${me?'me':''}">${me?'Danylo':'Frau Keller'}</div><div>${txt}</div></div>`}).join('')}
+document.querySelectorAll('.lv').forEach(b=>b.onclick=()=>{lv=b.dataset.lv;document.querySelectorAll('.lv').forEach(x=>x.classList.toggle('active',x===b));renderMe()});
+renderMe();
+
+/* ---------- BOOTCAMP ---------- */
+const V=s=>'<span class="verb">'+s+'</span>', S=s=>'<span class="subj">'+s+'</span>', P=s=>'<span class="pos1">'+s+'</span>', K=s=>'<span class="kon">'+s+'</span>', N=s=>'<span class="neb">'+s+'</span>';
+const BC=[
+ ['pos2','Leider · zwei Kartons · nass · sein',P('Leider')+' '+V('sind')+' '+S('zwei Kartons')+' nass.'],
+ ['pos2','Bei der Annahme · Frau Keller · den Schaden · vermerken (Perfekt)',P('Bei der Annahme')+' '+V('hat')+' '+S('Frau Keller')+' den Schaden <b>vermerkt</b>.'],
+ ['pos2','Morgen früh · die Ersatzlieferung · in Basel · ankommen',P('Morgen früh')+' '+V('kommt')+' '+S('die Ersatzlieferung')+' in Basel <b>an</b>.'],
+ ['pos2','Heute noch · ich · die Schadensmeldung · schreiben',P('Heute noch')+' '+V('schreibe')+' '+S('ich')+' die Schadensmeldung.'],
+ ['pos2','Diesmal · ich · die Papiere · selbst · prüfen',P('Diesmal')+' '+V('prüfe')+' '+S('ich')+' die Papiere selbst.'],
+ ['pos2','Die Kosten · wir · übernehmen',P('Die Kosten')+' '+V('übernehmen')+' '+S('wir')+'.'],
+ ['modal','dürfen · ich · Ihnen · ein paar Fragen · stellen? (Frage)',V('Darf')+' '+S('ich')+' Ihnen ein paar Fragen <b>stellen</b>?'],
+ ['modal','die Spedition · müssen · den Schaden · ersetzen',S('Die Spedition')+' '+V('muss')+' den Schaden <b>ersetzen</b>.'],
+ ['modal','das Papier · können · ich · nur noch · wegwerfen',P('Das Papier')+' '+V('kann')+' '+S('ich')+' nur noch <b>wegwerfen</b>.'],
+ ['modal','Dann · können · ich · den Schaden · sofort · melden',P('Dann')+' '+V('kann')+' '+S('ich')+' den Schaden sofort <b>melden</b>.'],
+ ['modal','Leider · können · wir · die Ware · nicht · zurücknehmen',P('Leider')+' '+V('können')+' '+S('wir')+' die Ware nicht <b>zurücknehmen</b>.'],
+ ['neben','Die Spedition muss zahlen. Der Schaden ist beim Transport passiert. → weil','Die Spedition muss zahlen, '+K('weil')+' '+N('der Schaden beim Transport passiert <b>ist</b>')+'.'],
+ ['neben','Ich prüfe die Papiere. Die Sendung geht raus. → bevor','Ich prüfe die Papiere, '+K('bevor')+' '+N('die Sendung <b>rausgeht</b>')+'.'],
+ ['neben','Ich schreibe die Schadensmeldung. Ich habe die Fotos. → sobald','Ich schreibe die Schadensmeldung, '+K('sobald')+' '+N('ich die Fotos <b>habe</b>')+'.'],
+ ['neben','Frau Keller sagt: Sie braucht das Papier morgen. → dass','Frau Keller sagt, '+K('dass')+' '+N('sie das Papier morgen <b>braucht</b>')+'.'],
+ ['neben','Wir haben die Ware gut verpackt. Sie ist nass. → obwohl (vorne)',K('Obwohl')+' '+N('wir die Ware gut verpackt <b>haben</b>')+', '+V('ist')+' '+S('sie')+' nass.'],
+ ['neben','Der Schaden ist beim Transport passiert. Die Spedition muss zahlen. → deshalb','Der Schaden ist beim Transport passiert. '+K(P('Deshalb'))+' '+V('muss')+' '+S('die Spedition')+' <b>zahlen</b>.'],
+ ['bitte','Schicken Sie mir die Fotos! → höflich (Könnten …?)',V('Könnten')+' '+S('Sie')+' mir bitte die Fotos <b>schicken</b>?'],
+ ['bitte','Rufen Sie mich zurück! → höflich (Würden …?)',V('Würden')+' '+S('Sie')+' mich bitte <b>zurückrufen</b>?'],
+ ['bitte','Prüfen Sie den Schaden! → höflich (Könnten …?)',V('Könnten')+' '+S('Sie')+' bitte den Schaden <b>prüfen</b>?'],
+ ['bitte','Bestätigen Sie den Eingang! → höflich (Würden …?)',V('Würden')+' '+S('Sie')+' bitte den Eingang <b>bestätigen</b>?']
+];
+const catName={pos2:'Verb auf Position 2',modal:'Modalverb-Klammer',neben:'Zwei Sätze verbinden',bitte:'Höflich bitten'};
+let bcQ=[],bcCur=null,bcOkN=0,bcTotal=0;
+function bcStart(cat){bcQ=shuffle(BC.filter(x=>cat==='alle'||x[0]===cat));bcTotal=bcQ.length;bcOkN=0;bcNext()}
+function bcNext(){
+  const pr=document.getElementById('bcPrompt'),so=document.getElementById('bcSol');
+  document.getElementById('bcOk').disabled=true;document.getElementById('bcAgain').disabled=true;document.getElementById('bcShow').disabled=false;
+  if(!bcQ.length){bcCur=null;document.getElementById('bcTag').textContent='Geschafft';pr.textContent='Alle Karten sofort richtig. Stark! 💪';so.innerHTML='<span class="small">Noch eine Runde? Oben eine Kategorie wählen.</span>';document.getElementById('bcShow').disabled=true;bcStat();return}
+  bcCur=bcQ.shift();document.getElementById('bcTag').textContent=catName[bcCur[0]];pr.textContent=bcCur[1];so.innerHTML='<span class="small">Erst sprechen. Dann klicken.</span>';bcStat();
+}
+function bcStat(){document.getElementById('bcStat').textContent='Sofort richtig: '+bcOkN+' von '+bcTotal}
+document.getElementById('bcShow').onclick=()=>{if(!bcCur)return;document.getElementById('bcSol').innerHTML=bcCur[2];document.getElementById('bcOk').disabled=false;document.getElementById('bcAgain').disabled=false;document.getElementById('bcShow').disabled=true};
+document.getElementById('bcOk').onclick=()=>{bcOkN++;bcNext()};
+document.getElementById('bcAgain').onclick=()=>{bcQ.splice(Math.min(3,bcQ.length),0,bcCur);bcNext()};
+document.querySelectorAll('.cat').forEach(b=>b.onclick=()=>{document.querySelectorAll('.cat').forEach(x=>x.classList.toggle('active',x===b));bcStart(b.dataset.cat)});
+bcStart('alle');
+
+/* ---------- WAS PASST ZUSAMMEN ---------- */
+const BR=[['den Schaden','bei der Spedition melden'],['die Ware','unter Vorbehalt annehmen'],['Fotos','machen'],['eine Ersatzlieferung','per Express schicken'],['die Kosten','übernehmen'],['die Papiere','vor dem Versand prüfen'],['eine Schadensmeldung','schreiben'],['den Eingang','bestätigen']];
+let brSel=null,brOk=0;
+function brStart(){brSel=null;brOk=0;
+ document.getElementById('brL').innerHTML=shuffle(BR.map((x,i)=>i)).map(i=>`<button data-i="${i}" data-s="L">${BR[i][0]}</button>`).join('');
+ document.getElementById('brR').innerHTML=shuffle(BR.map((x,i)=>i)).map(i=>`<button data-i="${i}" data-s="R">${BR[i][1]}</button>`).join('');
+ document.querySelectorAll('.bridge button').forEach(b=>b.onclick=()=>brClick(b));brStatF()}
+function brStatF(){document.getElementById('brStat').textContent=brOk===BR.length?'Alle '+BR.length+' Paare gefunden! 🎉 Jetzt jede Wendung einmal laut.':'Gefunden: '+brOk+' von '+BR.length}
+function brClick(b){if(b.classList.contains('done'))return;
+ if(!brSel||brSel.dataset.s===b.dataset.s){document.querySelectorAll('.bridge button.sel').forEach(x=>x.classList.remove('sel'));brSel=b;b.classList.add('sel');return}
+ const a=brSel;brSel=null;a.classList.remove('sel');
+ if(a.dataset.i===b.dataset.i){a.classList.add('done');b.classList.add('done');brOk++;brStatF()}
+ else{a.classList.add('wrong');b.classList.add('wrong');setTimeout(()=>{a.classList.remove('wrong');b.classList.remove('wrong')},700)}}
+document.getElementById('brNew').onclick=brStart;brStart();
+
+/* ---------- ROLLENSPIEL ---------- */
+const R={
+ A:[
+  ['Guten Tag, hier ist noch einmal Keller aus Basel. Ich bin wirklich sauer!','Guten Tag, Frau Keller. Das tut mir leid. Was ist passiert?'],
+  ['Zwei Kartons sind nass, einer ist kaputt!','Oh nein. Was ist denn in den Kartons?'],
+  ['⚡ Das ist schon das zweite Problem mit Ihnen!','Das verstehe ich. Trotzdem möchte ich … · Darf ich Ihnen ein paar Fragen stellen?'],
+  ['Was wollen Sie denn wissen?','Haben Sie den Schaden auf dem Lieferschein …? · Haben Sie Fotos …?'],
+  ['⚡ Nein, ich habe nichts vermerkt. Der Fahrer war so schnell weg.','Das ist schade. Könnten Sie mir trotzdem Fotos …? · Dann kann ich …'],
+  ['Ich brauche die Ware morgen!','Ich kann Ihnen Folgendes anbieten: …'],
+  ['⚡ Und wer bezahlt das?','Die Kosten übernehmen wir. · Die Spedition muss …, weil …'],
+  ['⚡ Ich will mit Ihrem Chef sprechen.','Das kann ich verstehen. Ich kümmere mich persönlich darum. · Würden Sie mir …?'],
+  ['Gut. Was passiert jetzt?','Ich fasse zusammen: Sie …, ich …, und morgen früh …']
+ ],
+ B:[
+  ['Wolff, Spedition Rheintal. Worum geht es?','Guten Tag, Herr Wolff. Hier ist … von KONTOR. Ich möchte einen Schaden melden.'],
+  ['Welche Sendung?','Die Sendung nach Basel, Auftragsnummer … Zwei Kartons waren …'],
+  ['⚡ Bei uns ist nichts passiert. Die Kartons waren schon bei der Abholung nass.','Das glaube ich nicht. Die Ware war gut verpackt. · Bei der Abholung hat Ihr Fahrer …'],
+  ['Haben Sie Beweise?','Ja. Die Empfängerin hat den Schaden auf dem Lieferschein vermerkt. · Die Fotos schicke ich Ihnen …'],
+  ['⚡ Hm. Das muss erst unsere Versicherung prüfen. Das kann Wochen dauern.','Das verstehe ich. Könnten Sie mir trotzdem den Eingang …? · Bis wann …?'],
+  ['Schicken Sie mir alles schriftlich.','Gern. Sie bekommen heute noch eine Schadensmeldung per E-Mail.']
+ ]
+};
+let md='A',ri=0;
+const RP=document.getElementById('rsPrompt'),RH=document.getElementById('rsHelpText');
+function rs(){const x=R[md][ri];RP.textContent=x[0].replace('⚡ ','');RP.classList.toggle('twist',x[0].startsWith('⚡'));RH.textContent=x[1];RH.hidden=true;
+  document.getElementById('rsPrev').disabled=ri===0;document.getElementById('rsNext').disabled=ri===R[md].length-1}
+document.getElementById('rsPrev').onclick=()=>{if(ri>0){ri--;rs()}};
+document.getElementById('rsNext').onclick=()=>{if(ri<R[md].length-1){ri++;rs()}};
+document.getElementById('rsHelp').onclick=()=>{RH.hidden=!RH.hidden};
+document.querySelectorAll('.md').forEach(b=>b.onclick=()=>{md=b.dataset.md;ri=0;document.querySelectorAll('.md').forEach(x=>x.classList.toggle('active',x===b));rs()});
+rs();
+</script>
+</body></html>
