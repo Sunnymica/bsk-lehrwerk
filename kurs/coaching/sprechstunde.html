@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Iryna · Die Sprechstunde</title>
+<style>
+:root{--ink:#2a3352;--plum:#8a3f6b;--pale:#f6eaf1;--sky:#eaf0f7;--cream:#fdfaf6;--line:#e4dbe0;--muted:#6b6f7a;--ok:#2e6b4a;--bad:#b03030;--amber:#b5651d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:19px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+button,textarea,input{font:inherit;color:inherit}
+button{cursor:pointer;border:1px solid var(--line);background:#fff;padding:10px 16px;border-radius:10px}
+button:hover{background:var(--sky)}
+button:disabled{opacity:.4;cursor:default}
+button.active,button.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+button:focus-visible,summary:focus-visible,textarea:focus-visible{outline:3px solid var(--plum);outline-offset:3px}
+header{padding:36px max(24px,calc((100% - 1080px)/2));background:#fff;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+header:after{content:'🏫';position:absolute;font-size:170px;opacity:.08;right:4%;top:-30px;pointer-events:none}
+.eyebrow{font-size:12px;letter-spacing:.17em;text-transform:uppercase;font-weight:700;color:var(--plum)}
+h1{font:clamp(32px,5vw,48px)/1.12 Georgia,serif;margin:12px 0}
+h2{font:28px/1.2 Georgia,serif;margin:0 0 12px}
+h3{font-size:19px;margin:18px 0 8px}
+p{margin:8px 0 12px}
+.sub{max-width:720px;color:var(--muted)}
+.wrap{max-width:1100px;margin:auto;padding:24px}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;margin-bottom:22px}
+.hint{background:var(--sky);border-radius:12px;padding:14px 18px;margin:12px 0}
+.box{background:var(--pale);border-radius:12px;padding:14px 18px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff}
+.num{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--plum)}
+textarea{width:100%;min-height:64px;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--cream);resize:vertical}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;align-items:center}
+.prompt{font:26px/1.4 Georgia,serif;background:var(--pale);border-left:6px solid var(--plum);border-radius:10px;padding:18px 22px;margin:14px 0;min-height:80px}
+.twist{background:#fbe3e3;border-left-color:var(--bad)}
+.solution{font:24px/1.45 Georgia,serif;background:#fff;border:2px dashed var(--line);border-radius:10px;padding:16px 22px;min-height:70px}
+.tag{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--sky);border-radius:999px;padding:2px 12px;margin-bottom:8px}
+.stat{font-size:16px;color:var(--muted)}
+.kon{color:var(--bad);font-weight:700}.verb{color:var(--ok);font-weight:700}.subj{color:#2457a6;font-weight:700}.neb{color:#7a3fa0}.pos1{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:15px;margin:6px 0 0}
+.wrongs{color:var(--bad);text-decoration:line-through;text-decoration-thickness:1px}
+/* Countdown */
+.timer{height:10px;background:var(--line);border-radius:99px;overflow:hidden;margin:6px 0}
+.timer>div{height:100%;background:var(--plum);width:100%}
+.zeit{font-weight:700;color:var(--bad);font-size:20px}
+/* Dialog */
+.line{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.who{font-weight:700}.who.me{color:var(--plum)}
+/* Klammer-Jagd */
+.m{cursor:pointer;border-bottom:2px dotted var(--plum)}
+.m:hover{background:var(--pale)}
+.m.found{color:var(--ok);font-weight:700;border-bottom:none;background:#e3f1e8;border-radius:4px;padding:0 3px}
+.inf.found{color:var(--ok);font-weight:700;background:#e3f1e8;border-radius:4px;padding:0 3px}
+/* Artikel-Detektor */
+.det{font:26px/2.2 Georgia,serif;background:var(--pale);border-radius:12px;padding:18px 22px;margin:12px 0}
+.slot,.slotdemo{display:inline-block;min-width:26px;text-align:center;color:#b79aab;cursor:pointer;border-radius:6px;padding:0 4px;font-weight:700}
+.slot:hover{background:#fff}
+.slot.on{background:var(--ink);color:#fff}
+.slot.hit{background:#e3f1e8;color:var(--ok)}
+.slot.miss{background:#fde9cf;color:var(--amber)}
+.slot.wrong{background:#fbe3e3;color:var(--bad);text-decoration:line-through}
+details{border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0;background:#fff}
+summary{cursor:pointer;font-weight:700}
+.small{font-size:15px;color:var(--muted)}
+.tuv{display:flex;gap:16px;flex-wrap:wrap;margin:8px 0;font-size:16px}
+.tuv label{display:flex;gap:6px;align-items:center}
+/* Regeln visuell */
+.rule{border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:16px 0;background:#fff}
+.rhead{font:22px/1.35 Georgia,serif;margin-bottom:12px}
+.rnum{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;font:700 18px system-ui;margin-right:8px;vertical-align:middle}
+.big2{background:#d8eedf;color:var(--ok);font-weight:700;padding:0 8px;border-radius:6px}
+.bigE{background:#d8eedf;color:var(--ok);font-weight:700;padding:0 8px;border-radius:6px}
+table.feld{border-collapse:collapse;width:100%;margin:10px 0;font-size:20px}
+table.feld th{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 10px;border-bottom:2px solid var(--line)}
+table.feld th small{text-transform:none;letter-spacing:0}
+table.feld td{padding:10px;border:1px solid var(--line)}
+table.feld .v{background:#d8eedf;font-weight:700;color:var(--ok)}
+table.feld .e{background:#e6f2ea;font-weight:700;color:var(--ok)}
+table.feld .k{color:var(--bad);font-weight:700}
+.pair{margin:10px 0;display:grid;gap:4px;font-size:20px}
+.pair .no{background:#fbd5d5;border-left:6px solid var(--bad);padding:8px 14px;border-radius:8px}
+.pair .yes{background:#d8eedf;border-left:6px solid var(--ok);padding:8px 14px;border-radius:8px;font-weight:600}
+.lanes{display:grid;gap:8px;margin:8px 0 12px}
+.lane{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;border-radius:12px;padding:10px 14px}
+.lane.l1{background:#f3e6f7}.lane.l2{background:#fdeedd}.lane.l3{background:#eef1f5}
+.chips span{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:999px;padding:2px 12px;margin:2px;font-weight:700;color:var(--bad)}
+.arrow{font-size:18px;white-space:nowrap}
+.formula{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:8px 0 12px}
+.formula .fb{background:#e3ecf7;border:2px solid #2457a6;border-radius:12px;padding:10px 16px;font-weight:700;color:#2457a6;text-align:center}
+.formula .plus{font:700 32px Georgia,serif}
+.formula .fn{background:#fff;border:2px solid var(--ink);border-radius:12px;padding:14px 22px;font:700 22px Georgia,serif}
+.exc{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.exc>div{background:var(--pale);border-radius:12px;padding:12px 14px;font-size:17px}
+.exc .ico{display:block;font-size:26px;margin-bottom:4px}
+[hidden]{display:none!important}
+</style></head><body>
+<header>
+  <a href="../einzelcoaching.html" style="display:inline-block;margin-bottom:10px;color:inherit;font-size:15px">← Einzelcoaching</a>
+  <div class="eyebrow">Einzelcoaching · Iryna · 1 von 5</div>
+  <h1>Die Sprechstunde</h1>
+  <p class="sub">Du kannst das. Jetzt üben wir, dass es auch unter Druck klappt – wenn das Herz klopft und die Zeit knapp ist.</p>
+</header>
+<div class="wrap">
+<nav>
+  <button data-tab="t1" class="active">1 · Am Abend davor</button>
+  <button data-tab="t2">2 · Bootcamp</button>
+  <button data-tab="t3">3 · Artikel-Detektor</button>
+  <button data-tab="t4">4 · Bei Herrn Albrecht</button>
+  <button data-tab="t5">5 · Du bist dran</button>
+  <button data-tab="t6">6 · Rollenspiel</button>
+  <button data-tab="t7">7 · Meine Sprechstunde</button>
+</nav>
+<main>
+
+<!-- 1 LESETEXT -->
+<section id="t1">
+  <div class="panel">
+    <h2>Am Abend davor</h2>
+    <p>Familie Schröder, Küche, 20 Uhr. Morgen hat Frau Schröder einen Termin in der Schule. Max ist 15, sein Bruder Paul ist 9.</p>
+    <div class="hint"><b>1. Lesen:</b> Lest die Szene mit verteilten Rollen. Du bist die Mutter, Regina ist Max und Paul.</div>
+    <div id="scene1"></div>
+    <div class="hint" style="margin-top:18px"><b>2. Klammer-Jagd:</b> Im Text stecken <b id="mTotal"></b> Modalverben. Sie sind <span class="m" style="cursor:default">so unterstrichen</span>. Klick auf ein Modalverb: Wo ist sein zweites Verb? Sag die Lösung, bevor du klickst!
+      <p class="stat" id="mStat" style="margin:8px 0 0"></p></div>
+    <div class="grid">
+      <div class="card"><div class="num">3. weil oder denn?</div>
+        <p>„Du hast in Mathe eine Fünf geschrieben, <b>denn</b> du hast nicht gelernt.“</p>
+        <p>„Ich konnte nicht kommen, <b>weil</b> ich noch bei Tim war.“</p>
+        <p>Wo steht das Verb nach <b>denn</b>? Wo nach <b>weil</b>? Sag beide Sätze noch einmal – und dann tausch: <b>weil</b> statt <b>denn</b> und <b>denn</b> statt <b>weil</b>.</p>
+        <details><summary>Lösung</summary>… <span class="kon">weil</span> <span class="neb">du nicht gelernt <b>hast</b></span>.<br>… <span class="kon">denn</span> <span class="subj">ich</span> <span class="verb">war</span> noch bei Tim.</details>
+      </div>
+      <div class="card"><div class="num">4. Sprechen</div>
+        <p>Was meinst du: Wer hat recht – die Mutter oder Max? Sag zwei Sätze: einen mit <b>weil</b>, einen mit <b>denn</b>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 BOOTCAMP -->
+<section id="t2" hidden>
+  <div class="panel">
+    <h2>Bootcamp: Schnell und richtig</h2>
+    <p>Du siehst die Aufgabe. Du sagst den Satz sofort – laut. Dann kommt die Lösung. Richtig beim ersten Mal? Weiter. Nicht ganz? Die Karte kommt später noch einmal.</p>
+    <div class="controls">
+      <button class="cat active" data-cat="alle">Alles gemischt</button>
+      <button class="cat" data-cat="wd">weil oder denn</button>
+      <button class="cat" data-cat="modal">Modalverb-Klammer</button>
+      <button class="cat" data-cat="fehler">Fehler-Finder</button>
+      <label class="small" style="display:flex;gap:6px;align-items:center;margin-left:auto"><input type="checkbox" id="cdOn" checked> Countdown (10 Sek.)</label>
+    </div>
+    <div id="bcTag" class="tag"></div>
+    <div class="timer" id="cdBar"><div id="cdFill"></div></div>
+    <div id="bcPrompt" class="prompt" aria-live="polite"></div>
+    <div id="bcSol" class="solution" aria-live="polite"><span class="small">Erst sprechen. Dann klicken.</span></div>
+    <div class="controls">
+      <button id="bcShow" class="primary">Lösung zeigen</button>
+      <button id="bcOk" disabled>✓ Sofort richtig</button>
+      <button id="bcAgain" disabled>↻ Nochmal – später</button>
+      <span id="bcStat" class="stat"></span>
+    </div>
+    <div class="legend"><span class="pos1">Position 1</span><span class="verb">konjugiertes Verb</span><span class="subj">Subjekt</span><span class="kon">Konnektor</span><span class="neb">Nebensatz</span></div>
+  </div>
+  <div class="panel">
+    <h2>Die Regeln zum Nachschlagen</h2>
+    <div class="hint"><b>So geht’s:</b> Eine Karte geht zweimal daneben? Dann klapp hier die passende Regel auf, lies sie einmal und sag den Satz danach noch einmal laut.</div>
+    <details><summary>weil oder denn – wohin mit dem Verb?</summary>
+      <p><b>weil</b> macht einen Nebensatz: Das Verb geht ans <b>Ende</b>.<br>
+      Max lernt nicht, <span class="kon">weil</span> <span class="neb">er keine Lust <b>hat</b></span>.</p>
+      <p><b>denn</b> sitzt auf der Bank, Position 0 (wie aber, und, sondern, oder). Danach kommt ein ganz normaler Satz: Subjekt, Verb auf 2.<br>
+      Max lernt nicht, <span class="kon">denn</span> <span class="subj">er</span> <span class="verb">hat</span> keine Lust.</p>
+      <div class="box"><b>Eselsbrücke:</b> <b>weil</b> schickt das Verb weg – ans Ende. <b>denn</b> lässt alles, wie es ist.</div>
+    </details>
+    <details><summary>Die Modalverb-Klammer</summary>
+      <p>Zwei Verben, zwei Aufgaben: Das <b>Modalverb</b> wird <b>konjugiert</b> und steht auf Platz 2 (ich muss, du musst, er muss …). Das <b>zweite Verb</b> steht im <b>Infinitiv</b> ganz am Ende.</p>
+      <p><span class="subj">Max</span> <span class="verb">soll</span> jeden Tag die Hausaufgaben <b>aufschreiben</b>.</p>
+      <p>Im Nebensatz rutscht das Modalverb ganz ans Ende, hinter den Infinitiv:<br>… <span class="kon">weil</span> <span class="neb">er seinen Bruder abholen <b>muss</b></span>.</p>
+      <div class="box"><b>Check:</b> Modalverb konjugiert? ✓ Zweites Verb am Ende? ✓ Dann ist die Klammer zu.</div>
+    </details>
+  </div>
+</section>
+
+<!-- 3 ARTIKEL -->
+<section id="t3" hidden>
+  <div class="panel">
+    <h2>Artikel-Detektor: Wo fehlt etwas?</h2>
+    <p>So spricht man, wenn man die Artikel vergisst. Klick in jedem Satz auf die Lücken <span class="slotdemo">·</span>, wo ein Artikel fehlt. Dann „Prüfen“. Dann sagst du den ganzen Satz laut – <b>mit</b> Artikeln.</p>
+    <div class="rule">
+      <div class="rhead"><span class="rnum">!</span> Ein Nomen geht <span class="big2">nie allein</span>. Es braucht einen Begleiter – wir nennen ihn <b>Artikel</b>.</div>
+      <div class="formula"><span class="fb"><small style="font-weight:400">Artikel</small><br>der · die · das<br>ein · eine · mein · kein …</span><span class="plus">+</span><span class="fn">Nomen</span></div>
+      <div class="pair"><div class="no">✗ Ich habe Termin in Schule.</div><div class="yes">✓ Ich habe einen Termin in der Schule.</div></div>
+      <p style="margin:14px 0 6px"><b>Welcher Artikel? ein oder der?</b></p>
+      <div class="exc" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+        <div style="background:#eef1f5"><span class="ico">🆕</span><b>unbestimmt: ein, eine</b><br>Etwas ist <b>neu</b> – wir erwähnen es zum ersten Mal. Oder wir wissen nichts Konkretes: irgendein.<br><i>Ich habe einen Termin.</i> · <i>Max braucht ein Heft.</i></div>
+        <div style="background:#e3ecf7"><span class="ico">👉</span><b>bestimmt: der, die, das</b><br>Wir <b>kennen</b> es schon, oder es ist klar, welches gemeint ist.<br><i>Der Termin ist morgen.</i> · <i>Das Heft liegt auf dem Tisch.</i></div>
+      </div>
+      <div class="pair"><div class="yes" style="font-weight:400">Max braucht <b>ein</b> Heft. → <b>Das</b> Heft ist für die Hausaufgaben. → Die Mutter unterschreibt <b>das</b> Heft.</div></div>
+      <p style="margin:14px 0 6px"><b>Nur diese Ausnahmen stehen allein:</b></p>
+      <div class="exc">
+        <div><span class="ico">👷</span><b>Beruf – nur nach <u>bin/ist/wird</u> oder <u>als</u></b><br>Ich bin Buchhalterin.<br>Ich suche eine Stelle als Buchhalterin.<div class="pair" style="font-size:16px;margin-top:8px"><div class="no">✗ Lehrer hat keine Zeit.</div><div class="yes">✓ <b>Der</b> Lehrer hat keine Zeit.</div></div></div>
+        <div><span class="ico">💧</span><b>nicht zählbar</b><br>Wir essen Reis.<br>Max braucht Geld.</div>
+        <div><span class="ico">💭</span><b>abstrakt</b><br>Ich habe Zeit.<br>Max hat Angst.</div>
+        <div><span class="ico">📦📦</span><b>Plural, irgendwelche</b><br>Max hat Probleme<br>in der Schule.</div>
+      </div>
+    </div>
+    <div id="detTag" class="tag"></div>
+    <div id="detSent" class="det" aria-live="polite"></div>
+    <p id="detFb" class="small"></p>
+    <div class="controls">
+      <button id="detCheck" class="primary">Prüfen</button>
+      <button id="detNext" disabled>Laut gesagt – nächster Satz →</button>
+      <span id="detStat" class="stat"></span>
+    </div>
+  </div>
+</section>
+
+<!-- 4 HÖREN -->
+<section id="t4" hidden>
+  <div class="panel">
+    <h2>Bei Herrn Albrecht</h2>
+    <p>Am nächsten Tag. Frau Schröder sitzt in der Schule bei Herrn Albrecht, dem Klassenlehrer von Max. Er hat nicht viel Zeit.</p>
+    <div id="audioBox" class="box"><b>Hör zu.</b> Beim ersten Mal nur hören, nichts lesen.
+      <audio id="aud" controls preload="auto" src="../../assets/audio/coaching-sprechstunde.mp3" style="width:100%;margin-top:10px"></audio></div>
+    <h3>Beim Hören: Was erfährst du?</h3>
+    <div class="grid">
+      <div class="card"><div class="num">1</div>Wie viel Zeit hat Herr Albrecht?<details><summary>Lösung</summary>Eine Viertelstunde. Um halb fünf kommen die nächsten Eltern.</details></div>
+      <div class="card"><div class="num">2</div>Was merkt Herr Albrecht im Unterricht?<details><summary>Lösung</summary>Max ist oft müde und macht seine Hausaufgaben nicht.</details></div>
+      <div class="card"><div class="num">3</div>Warum fragt Max im Unterricht nicht?<details><summary>Lösung</summary>Er traut sich nicht, denn er will vor den anderen nicht dumm aussehen.</details></div>
+      <div class="card"><div class="num">4</div>Herr Albrecht schlägt drei Dinge vor. Welche?<details><summary>Lösung</summary>1. Max schreibt jeden Tag die Hausaufgaben in ein Heft, die Mutter unterschreibt. 2. Hausaufgabenhilfe. 3. Ein Gespräch zu dritt mit Max.</details></div>
+      <div class="card"><div class="num">5</div>Warum geht Max nur donnerstags zur Hausaufgabenhilfe?<details><summary>Lösung</summary>Weil er dienstags seinen kleinen Bruder vom Fußball abholen muss.</details></div>
+      <div class="card"><div class="num">6</div>Wann ist das Gespräch zu dritt?<details><summary>Lösung</summary>Nächste Woche Mittwoch um vierzehn Uhr.</details></div>
+    </div>
+    <h3>Hör noch einmal: Wie macht Frau Schröder das?</h3>
+    <div class="grid">
+      <div class="card">Wie sagt sie, dass sie sich Sorgen macht?<details><summary>Lösung</summary>„Ich mache mir Sorgen um Max.“</details></div>
+      <div class="card">Wie reagiert sie, als sie etwas Neues erfährt?<details><summary>Lösung</summary>„Das wusste ich nicht. Warum haben Sie mich nicht früher informiert?“</details></div>
+      <div class="card">Wie bringt sie das Gespräch zu einem Ergebnis?<details><summary>Lösung</summary>„Was können wir jetzt konkret tun?“ – und am Ende: „Dann fasse ich zusammen: …“</details></div>
+    </div>
+    <details style="margin-top:18px"><summary>Das Gespräch zum Mitlesen</summary><div id="dlgFull"></div></details>
+  </div>
+</section>
+
+<!-- 5 DU BIST DRAN -->
+<section id="t5" hidden>
+  <div class="panel">
+    <h2>Du bist dran: Du bist Frau Schröder</h2>
+    <p>Regina ist Herr Albrecht. Du sprichst die Rolle der Mutter.</p>
+    <div class="controls">
+      <button class="lv active" data-lv="text">Ganzer Text</button>
+      <button class="lv" data-lv="stich">Nur Stichworte</button>
+      <button class="lv" data-lv="frei">Frei – nur Herr Albrecht</button>
+    </div>
+    <div id="dlgMe"></div>
+    <div class="hint"><b>Dreimal:</b> mit Text, mit Stichworten, frei. Nach jedem Durchgang: Satz-TÜV.
+      <div class="tuv"><label><input type="checkbox">weil: Verb am Ende?</label><label><input type="checkbox">Modalverb + Infinitiv?</label><label><input type="checkbox">Artikel da?</label></div>
+    </div>
+    <h3>Diese Sätze helfen dir in jedem Elterngespräch</h3>
+    <div class="grid">
+      <div class="card"><div class="num">Anfangen</div>Danke, dass Sie Zeit für mich haben. · Ich möchte direkt anfangen. · Ich mache mir Sorgen um …</div>
+      <div class="card"><div class="num">Nachfragen</div>Wie oft …? · Seit wann …? · Das wusste ich nicht. · Was meinen Sie genau?</div>
+      <div class="card"><div class="num">Nicht abwimmeln lassen</div>Das verstehe ich. Trotzdem möchte ich … · Was können wir jetzt konkret tun?</div>
+      <div class="card"><div class="num">Vereinbaren</div>Dann fasse ich zusammen: … · Wann können wir noch einmal sprechen?</div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 ROLLENSPIEL -->
+<section id="t6" hidden>
+  <div class="panel">
+    <h2>Rollenspiel: In der Schule</h2>
+    <p>Keine Vorbereitung. Ein Gedanke – ein Satz. Rote Karten sind Überraschungen.</p>
+    <div class="controls">
+      <button class="md active" data-md="A">Herr Albrecht (freundlich, wenig Zeit)</button>
+      <button class="md" data-md="B">Lehrkraft im Flur (will weg)</button>
+    </div>
+    <div id="rsPrompt" class="prompt" aria-live="polite"></div>
+    <div class="controls">
+      <button id="rsPrev">← Zurück</button>
+      <button id="rsNext" class="primary">Weiter →</button>
+      <button id="rsHelp">Satzanfang zeigen</button>
+    </div>
+    <p id="rsHelpText" class="hint" hidden></p>
+    <div class="tuv"><label><input type="checkbox">weil: Verb am Ende?</label><label><input type="checkbox">Modalverb + Infinitiv?</label><label><input type="checkbox">Artikel?</label></div>
+  </div>
+</section>
+
+<!-- 7 MEINE SPRECHSTUNDE -->
+<section id="t7" hidden>
+  <div class="panel">
+    <h2>Meine Sprechstunde</h2>
+    <p>Bereite dich auf ein Gespräch in der Schule vor – mit deinen eigenen Sätzen. Erst sprechen, dann schreiben.</p>
+    <div class="card"><div class="num">Mein Anliegen · mit weil oder denn</div><textarea placeholder="Ich mache mir Sorgen um …, weil …"></textarea></div>
+    <div class="card" style="margin-top:12px"><div class="num">Meine Fragen · eine mit Modalverb</div><textarea placeholder="Wie oft …? · Was kann …?"></textarea></div>
+    <div class="card" style="margin-top:12px"><div class="num">Was ich vereinbaren möchte</div><textarea placeholder="Ich möchte, dass … · Können wir …?"></textarea></div>
+    <div class="hint">Lies deine Sätze laut. Dann Satz-TÜV: <b>weil</b> – Verb am Ende? <b>Modalverb</b> – Infinitiv am Ende? <b>Artikel</b> da?</div>
+    <h2 style="margin-top:28px">Bis zum nächsten Mal</h2>
+    <div class="grid">
+      <div class="card"><div class="num">Jeden Tag · 10 Minuten</div>Bootcamp: alle Karten, laut. Ziel: Jede Karte ist einmal „sofort richtig“.</div>
+      <div class="card"><div class="num">Zweimal</div>Das Gespräch bei Herrn Albrecht hören und leise mitsprechen.</div>
+      <div class="card"><div class="num">Schreiben</div>Fünf Sätze über deine Woche: zwei mit <b>weil</b>, zwei mit <b>denn</b>, einer mit <b>müssen</b> oder <b>sollen</b>.</div>
+    </div>
+  </div>
+</section>
+</main></div>
+
+<script>
+const tabs=document.querySelectorAll('[data-tab]');
+tabs.forEach(b=>b.onclick=()=>{document.querySelectorAll('main>section').forEach(s=>s.hidden=s.id!==b.dataset.tab);tabs.forEach(x=>x.classList.toggle('active',x===b));window.scrollTo(0,0)});
+const aud=document.getElementById('aud');
+aud.addEventListener('error',()=>{document.getElementById('audioBox').hidden=true},true);
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+
+/* ---------- 1 SZENE 1 mit Klammer-Jagd ---------- */
+// {m1:muss} = Modalverb Nr. 1, {i1:reden} = zugehöriger Infinitiv
+const S1=[
+ ['Mutter','Max, kommst du mal bitte? Ich {m1:muss} mit dir {i1:reden}.'],
+ ['Max','Jetzt? Ich {m2:will} gerade {i2:zocken}.'],
+ ['Mutter','Ja, jetzt. Morgen {m3:muss} ich zu Herrn Albrecht in die Sprechstunde {i3:gehen}.'],
+ ['Max','Na und? Das ist doch nicht so schlimm.'],
+ ['Mutter','Doch. Du hast in Mathe eine Fünf geschrieben, denn du hast nicht gelernt.'],
+ ['Max','Ich habe gelernt! Aber Herr Albrecht {m4:kann} nicht {i4:erklären}.'],
+ ['Mutter','Max, du {m5:sollst} nicht immer die Schuld bei anderen {i5:suchen}.'],
+ ['Max','Ich suche keine Schuld. Ich habe einfach keine Lust mehr auf Schule.'],
+ ['Mutter','Das verstehe ich. Trotzdem {m6:musst} du die neunte Klasse {i6:schaffen}.'],
+ ['Max','Warum denn? Ich {m7:kann} doch auch eine Ausbildung {i7:machen}.'],
+ ['Mutter','Für eine Ausbildung brauchst du ein gutes Zeugnis. Kein Betrieb {m8:will} einen Azubi mit vier Fünfen {i8:nehmen}.'],
+ ['Paul','(kommt herein) Mama! Max hat mich heute nicht vom Fußball abgeholt! Ich {m9:musste} allein nach Hause {i9:laufen}.'],
+ ['Mutter','Max! Du {m10:solltest} Paul um sechs {i10:abholen}!'],
+ ['Max','Ich {m11:konnte} nicht {i11:kommen}, weil ich noch bei Tim war.'],
+ ['Mutter','Bei Tim. Natürlich. … Gut. Morgen spreche ich mit Herrn Albrecht. Und dann reden wir alle drei zusammen.'],
+ ['Max','{m12:Darf} ich jetzt wieder in mein Zimmer {i12:gehen}?'],
+ ['Mutter','Ja. Aber das Handy bleibt hier.']
+];
+const mk=t=>t.replace(/\{m(\d+):([^}]+)\}/g,'<span class="m" data-p="$1">$2</span>').replace(/\{i(\d+):([^}]+)\}/g,'<span class="inf" data-p="$1">$2</span>');
+document.getElementById('scene1').innerHTML=S1.map(([w,t])=>`<div class="line"><div class="who ${w==='Mutter'?'me':''}">${w}</div><div>${mk(t)}</div></div>`).join('');
+const mAll=document.querySelectorAll('#scene1 .m');let mFound=0;
+document.getElementById('mTotal').textContent=mAll.length;
+function mStat(){document.getElementById('mStat').textContent=mFound===mAll.length?'Alle '+mAll.length+' Klammern gefunden! 🎉':'Gefunden: '+mFound+' von '+mAll.length}
+mAll.forEach(m=>m.onclick=()=>{if(m.classList.contains('found'))return;m.classList.add('found');document.querySelector('#scene1 .inf[data-p="'+m.dataset.p+'"]').classList.add('found');mFound++;mStat()});
+mStat();
+
+/* ---------- 2 BOOTCAMP ---------- */
+const V=s=>'<span class="verb">'+s+'</span>', S=s=>'<span class="subj">'+s+'</span>', P=s=>'<span class="pos1">'+s+'</span>', K=s=>'<span class="kon">'+s+'</span>', N=s=>'<span class="neb">'+s+'</span>', X=s=>'<span class="wrongs">'+s+'</span>';
+const BC=[
+ ['wd','Max lernt nicht. Er hat keine Lust. → weil','Max lernt nicht, '+K('weil')+' '+N('er keine Lust <b>hat</b>')+'.'],
+ ['wd','Max lernt nicht. Er hat keine Lust. → denn','Max lernt nicht, '+K('denn')+' '+S('er')+' '+V('hat')+' keine Lust.'],
+ ['wd','Ich gehe in die Sprechstunde. Ich mache mir Sorgen. → weil','Ich gehe in die Sprechstunde, '+K('weil')+' '+N('ich mir Sorgen <b>mache</b>')+'.'],
+ ['wd','Ich gehe in die Sprechstunde. Ich mache mir Sorgen. → denn','Ich gehe in die Sprechstunde, '+K('denn')+' '+S('ich')+' '+V('mache')+' mir Sorgen.'],
+ ['wd','Paul läuft allein nach Hause. Max holt ihn nicht ab. → weil','Paul läuft allein nach Hause, '+K('weil')+' '+N('Max ihn nicht <b>abholt</b>')+'.'],
+ ['wd','Paul läuft allein nach Hause. Max holt ihn nicht ab. → denn','Paul läuft allein nach Hause, '+K('denn')+' '+S('Max')+' '+V('holt')+' ihn nicht <b>ab</b>.'],
+ ['wd','Ich lerne Deutsch. Ich möchte wieder als Buchhalterin arbeiten. → weil (Modalverb!)','Ich lerne Deutsch, '+K('weil')+' '+N('ich wieder als Buchhalterin arbeiten <b>möchte</b>')+'.'],
+ ['wd','Ich lerne Deutsch. Ich möchte wieder als Buchhalterin arbeiten. → denn (Modalverb!)','Ich lerne Deutsch, '+K('denn')+' '+S('ich')+' '+V('möchte')+' wieder als Buchhalterin <b>arbeiten</b>.'],
+ ['wd','Max geht dienstags nicht zur Hausaufgabenhilfe. Er muss Paul abholen. → weil','Max geht dienstags nicht zur Hausaufgabenhilfe, '+K('weil')+' '+N('er Paul abholen <b>muss</b>')+'.'],
+ ['modal','müssen · ich · morgen · in die Schule · gehen',S('Ich')+' '+V('muss')+' morgen in die Schule <b>gehen</b>.'],
+ ['modal','Max · sollen · jeden Tag · die Hausaufgaben · aufschreiben',S('Max')+' '+V('soll')+' jeden Tag die Hausaufgaben <b>aufschreiben</b>.'],
+ ['modal','können · Sie · mir · das · noch einmal · erklären? (Frage)',V('Können')+' '+S('Sie')+' mir das noch einmal <b>erklären</b>?'],
+ ['modal','Heute · wollen · Max · nicht · lernen',P('Heute')+' '+V('will')+' '+S('Max')+' nicht <b>lernen</b>.'],
+ ['modal','dürfen · ich · noch · etwas · fragen? (Frage)',V('Darf')+' '+S('ich')+' noch etwas <b>fragen</b>?'],
+ ['modal','Am Dienstag · müssen · Max · seinen Bruder · abholen',P('Am Dienstag')+' '+V('muss')+' '+S('Max')+' seinen Bruder <b>abholen</b>.'],
+ ['modal','wir · wollen · nächste Woche · mit Max · sprechen',S('Wir')+' '+V('wollen')+' nächste Woche mit Max <b>sprechen</b>.'],
+ ['modal','du · können · Paul · heute · nicht · abholen? (Frage)',V('Kannst')+' '+S('du')+' Paul heute nicht <b>abholen</b>?'],
+ ['fehler','Ich müssen mit dem Lehrer sprechen.',X('müssen')+' → '+S('Ich')+' '+V('muss')+' mit dem Lehrer <b>sprechen</b>. <span class="small">Das Modalverb wird konjugiert!</span>'],
+ ['fehler','Max soll jeden Tag seine Hausaufgaben.',S('Max')+' '+V('soll')+' jeden Tag seine Hausaufgaben <b>machen</b>. <span class="small">Der Infinitiv fehlte!</span>'],
+ ['fehler','Ich kann Paul heute abholen nicht.',S('Ich')+' '+V('kann')+' Paul heute nicht <b>abholen</b>. <span class="small">Der Infinitiv steht ganz am Ende.</span>'],
+ ['fehler','Ich gehe zur Sprechstunde, weil ich mache mir Sorgen.','Ich gehe zur Sprechstunde, '+K('weil')+' '+N('ich mir Sorgen <b>mache</b>')+'. <span class="small">weil → Verb ans Ende.</span>'],
+ ['fehler','Max lernt nicht, denn er keine Lust hat.','Max lernt nicht, '+K('denn')+' '+S('er')+' '+V('hat')+' keine Lust. <span class="small">denn → normaler Satz.</span>'],
+ ['fehler','Morgen ich muss früh aufstehen.',P('Morgen')+' '+V('muss')+' '+S('ich')+' früh <b>aufstehen</b>. <span class="small">Verb auf Position 2.</span>'],
+ ['fehler','Wir wollen sprechen mit Max.',S('Wir')+' '+V('wollen')+' mit Max <b>sprechen</b>. <span class="small">Der Infinitiv steht ganz am Ende.</span>'],
+ ['fehler','Ich möchte arbeiten wieder als Buchhalterin, weil das ist mein Beruf.',S('Ich')+' '+V('möchte')+' wieder als Buchhalterin <b>arbeiten</b>, '+K('weil')+' '+N('das mein Beruf <b>ist</b>')+'. <span class="small">Zwei Fehler!</span>']
+];
+const catName={wd:'weil oder denn',modal:'Modalverb-Klammer',fehler:'Fehler-Finder: Sag es richtig!'};
+let bcQ=[],bcCur=null,bcOkN=0,bcTotal=0,cdT=null,cdLeft=0;
+const CD=10;
+function cdStop(){clearInterval(cdT);cdT=null}
+function cdStart(){cdStop();const bar=document.getElementById('cdBar'),fill=document.getElementById('cdFill');
+  if(!document.getElementById('cdOn').checked){bar.hidden=true;return}
+  bar.hidden=false;cdLeft=CD*10;fill.style.width='100%';
+  cdT=setInterval(()=>{cdLeft--;fill.style.width=(cdLeft/(CD*10)*100)+'%';if(cdLeft<=0){cdStop();const so=document.getElementById('bcSol');if(!so.dataset.shown)so.innerHTML='<span class="zeit">Zeit!</span>'}},100)}
+document.getElementById('cdOn').onchange=()=>{if(bcCur&&!document.getElementById('bcSol').dataset.shown)cdStart();else{cdStop();document.getElementById('cdBar').hidden=!document.getElementById('cdOn').checked}};
+function bcStart(cat){bcQ=shuffle(BC.filter(x=>cat==='alle'||x[0]===cat));bcTotal=bcQ.length;bcOkN=0;bcNext()}
+function bcNext(){
+  const pr=document.getElementById('bcPrompt'),so=document.getElementById('bcSol');delete so.dataset.shown;
+  document.getElementById('bcOk').disabled=true;document.getElementById('bcAgain').disabled=true;document.getElementById('bcShow').disabled=false;
+  if(!bcQ.length){bcCur=null;cdStop();document.getElementById('bcTag').textContent='Geschafft';pr.textContent='Alle Karten sofort richtig. Stark! 💪';so.innerHTML='<span class="small">Noch eine Runde? Oben eine Kategorie wählen.</span>';document.getElementById('bcShow').disabled=true;bcStat();return}
+  bcCur=bcQ.shift();document.getElementById('bcTag').textContent=catName[bcCur[0]];pr.textContent=bcCur[1];
+  pr.classList.toggle('twist',bcCur[0]==='fehler');
+  so.innerHTML='<span class="small">Erst sprechen. Dann klicken.</span>';bcStat();cdStart();
+}
+function bcStat(){document.getElementById('bcStat').textContent='Sofort richtig: '+bcOkN+' von '+bcTotal}
+document.getElementById('bcShow').onclick=()=>{if(!bcCur)return;cdStop();const so=document.getElementById('bcSol');so.dataset.shown='1';so.innerHTML=bcCur[2];document.getElementById('bcOk').disabled=false;document.getElementById('bcAgain').disabled=false;document.getElementById('bcShow').disabled=true};
+document.getElementById('bcOk').onclick=()=>{bcOkN++;bcNext()};
+document.getElementById('bcAgain').onclick=()=>{bcQ.splice(Math.min(3,bcQ.length),0,bcCur);bcNext()};
+document.querySelectorAll('.cat').forEach(b=>b.onclick=()=>{document.querySelectorAll('.cat').forEach(x=>x.classList.toggle('active',x===b));bcStart(b.dataset.cat)});
+bcStart('alle');
+/* Countdown erst starten, wenn der Reiter sichtbar ist */
+cdStop();
+document.querySelector('[data-tab="t2"]').addEventListener('click',()=>{if(bcCur&&!document.getElementById('bcSol').dataset.shown)cdStart()});
+tabs.forEach(b=>{if(b.dataset.tab!=='t2')b.addEventListener('click',cdStop)});
+
+/* ---------- 3 ARTIKEL-DETEKTOR ---------- */
+const DET=[
+ ['Ich habe morgen {einen} Termin in {der} Schule.',''],
+ ['{Der} Lehrer hat nur {eine} Viertelstunde Zeit.',''],
+ ['Max schreibt {die} Hausaufgaben in {ein} Heft.',''],
+ ['Ich bin Buchhalterin von Beruf.','Hier fehlt nichts! Beruf nach „bin“: kein Artikel.'],
+ ['{Die} Hausaufgabenhilfe ist am Donnerstag.',''],
+ ['Ich unterschreibe {das} Heft jeden Abend.',''],
+ ['Ich mache mir Sorgen um {meinen} Sohn.','Auch „mein“ ist ein Artikel.'],
+ ['{Der} kleine Bruder wartet vor {der} Halle.',''],
+ ['Ich suche {eine} Stelle als Buchhalterin.','„als Buchhalterin“: Beruf, kein Artikel.'],
+ ['Wir sprechen nächste Woche mit {dem} Lehrer.',''],
+ ['{Die} Noten sind schlechter geworden.',''],
+ ['Max braucht {ein} gutes Zeugnis für {eine} Ausbildung.','']
+];
+let detI=0,detOk=0,detDone=false,detArts={};
+function detRender(){const [s]=DET[detI];detDone=false;const need={},clean=[];
+  s.split(' ').forEach(w=>{const m=w.match(/^\{(.+)\}$/);if(m)need[clean.length]=m[1];else clean.push(w)});
+  detArts=need;
+  const el=document.getElementById('detSent');el.innerHTML=clean.map((w,i)=>`<span class="slot" data-k="${i}">·</span> ${w} `).join('');
+  el.querySelectorAll('.slot').forEach(sl=>sl.onclick=()=>{if(!detDone)sl.classList.toggle('on')});
+  document.getElementById('detTag').textContent='Satz '+(detI+1)+' von '+DET.length;
+  document.getElementById('detFb').textContent='';
+  document.getElementById('detCheck').disabled=false;document.getElementById('detNext').disabled=true;
+  document.getElementById('detStat').textContent='Ganz richtig: '+detOk}
+document.getElementById('detCheck').onclick=()=>{detDone=true;let perfect=true;
+  document.querySelectorAll('#detSent .slot').forEach(sl=>{const a=detArts[+sl.dataset.k],on=sl.classList.contains('on');sl.classList.remove('on');
+    if(a&&on){sl.classList.add('hit');sl.textContent=a}else if(a&&!on){sl.classList.add('miss');sl.textContent=a;perfect=false}
+    else if(!a&&on){sl.classList.add('wrong');perfect=false}else sl.textContent=''});
+  if(perfect)detOk++;const extra=DET[detI][1];
+  document.getElementById('detFb').innerHTML=(perfect?'✓ Alles gefunden.':'<span style="color:var(--amber)">Orange</span> = vergessen. <span style="color:var(--bad)">Rot</span> = hier gehört keiner hin.')+(extra?' '+extra:'')+' <b>Jetzt den ganzen Satz laut.</b>';
+  document.getElementById('detStat').textContent='Ganz richtig: '+detOk;
+  document.getElementById('detCheck').disabled=true;document.getElementById('detNext').disabled=false;
+  if(detI===DET.length-1)document.getElementById('detNext').textContent='Von vorn ↺'};
+document.getElementById('detNext').onclick=()=>{if(detI===DET.length-1){detI=0;detOk=0;document.getElementById('detNext').textContent='Laut gesagt – nächster Satz →'}else detI++;detRender()};
+detRender();
+
+/* ---------- 4/5 SZENE 2 ---------- */
+const DL=[
+ ['a','Guten Tag, Frau Schröder. Kommen Sie herein. Bitte, nehmen Sie Platz.','—'],
+ ['s','Guten Tag, Herr Albrecht. Danke, dass Sie Zeit für mich haben.','Danke · Zeit'],
+ ['a','Gern. Ich habe allerdings nur eine Viertelstunde. Um halb fünf kommen die nächsten Eltern.','—'],
+ ['s','Das ist kein Problem. Dann möchte ich direkt anfangen. Ich mache mir Sorgen um Max.','direkt anfangen · Sorgen um Max'],
+ ['a','Das kann ich verstehen. Seine Noten sind in diesem Halbjahr deutlich schlechter geworden.','—'],
+ ['s','Ja. Er hat in Mathe eine Fünf geschrieben. Und zu Hause sagt er, dass er keine Lust mehr auf Schule hat.','Fünf in Mathe · sagt, dass … keine Lust'],
+ ['a','Das merke ich auch im Unterricht. Er ist oft müde, und er macht seine Hausaufgaben nicht.','—'],
+ ['s','Wie oft fehlen die Hausaufgaben denn?','wie oft?'],
+ ['a','In den letzten vier Wochen fast jedes Mal.','—'],
+ ['s','Das wusste ich nicht. Warum haben Sie mich nicht früher informiert?','wusste nicht · warum nicht früher?'],
+ ['a','Da haben Sie recht. Das tut mir leid. Ab jetzt schreibe ich Ihnen sofort, wenn etwas fehlt.','—'],
+ ['s','Danke. Max sagt auch, dass er Ihre Erklärungen nicht versteht.','Max sagt, dass … Erklärungen'],
+ ['a','Hm. Das hat er mir noch nie gesagt. Er kann jederzeit fragen – im Unterricht oder nach der Stunde.','—'],
+ ['s','Ich glaube, er traut sich nicht. Denn er will vor den anderen nicht dumm aussehen.','traut sich nicht · denn … dumm aussehen'],
+ ['a','Das ist in dem Alter normal. Mit fünfzehn ist man in einer schwierigen Phase.','—'],
+ ['s','Ja, das ist wirklich eine schwierige Phase. Auch für mich. Was können wir jetzt konkret tun?','schwierige Phase · was konkret tun?'],
+ ['a','Ich schlage drei Dinge vor. Erstens: Max soll jeden Tag seine Hausaufgaben in ein Heft schreiben, und Sie unterschreiben.','—'],
+ ['s','Das kann ich machen. Und zweitens?','kann machen · zweitens?'],
+ ['a','Zweitens gibt es bei uns eine Hausaufgabenhilfe, dienstags und donnerstags bis halb vier. Da können ältere Schüler ihm helfen.','—'],
+ ['s','Dienstags ist schwierig, weil Max dann seinen kleinen Bruder vom Fußball abholen muss.','dienstags schwierig · weil … abholen muss'],
+ ['a','Dann geht er eben nur donnerstags. Das ist auch gut.','—'],
+ ['s','Und drittens?','drittens?'],
+ ['a','Drittens möchte ich gern mit Max selbst sprechen. Am besten wir drei zusammen.','—'],
+ ['s','Das finde ich gut. Wann geht das?','gut · wann?'],
+ ['a','Nächste Woche Mittwoch, um vierzehn Uhr?','—'],
+ ['s','Mittwoch passt. Darf ich noch etwas fragen?','passt · darf ich …?'],
+ ['a','Natürlich.','—'],
+ ['s','Was passiert, wenn Max die Klasse nicht schafft?','was passiert, wenn …?'],
+ ['a','So weit sind wir noch nicht. Das Halbjahr ist noch lang. Wenn er jetzt mitarbeitet, kann er seine Noten noch verbessern.','—'],
+ ['s','Gut. Dann fasse ich zusammen: Max schreibt jeden Tag die Hausaufgaben auf, ich unterschreibe, er geht donnerstags zur Hausaufgabenhilfe, und nächste Woche Mittwoch sprechen wir zu dritt.','zusammenfassen · Heft · Hausaufgabenhilfe · Mittwoch'],
+ ['a','Genau so. Und, Frau Schröder: Max ist ein kluger Junge. Er braucht nur wieder ein Ziel.','—'],
+ ['s','Danke, Herr Albrecht. Das tut gut zu hören. Auf Wiedersehen.','danke · tut gut · Wiedersehen'],
+ ['a','Auf Wiedersehen, und bis Mittwoch.','—']
+];
+const HL=t=>t
+ .replace(/dass er keine Lust mehr auf Schule hat/,'<span class="kon">dass</span> <span class="neb">er keine Lust mehr auf Schule <b>hat</b></span>')
+ .replace(/Denn er will vor den anderen nicht dumm aussehen/,'<span class="kon">Denn</span> <span class="subj">er</span> <span class="verb">will</span> vor den anderen nicht dumm <b>aussehen</b>')
+ .replace(/Was können wir jetzt konkret tun/,'Was <span class="verb">können</span> <span class="subj">wir</span> jetzt konkret <b>tun</b>')
+ .replace(/weil Max dann seinen kleinen Bruder vom Fußball abholen muss/,'<span class="kon">weil</span> <span class="neb">Max dann seinen kleinen Bruder vom Fußball abholen <b>muss</b></span>')
+ .replace(/Das kann ich machen/,'Das <span class="verb">kann</span> <span class="subj">ich</span> <b>machen</b>')
+ .replace(/Darf ich noch etwas fragen/,'<span class="verb">Darf</span> <span class="subj">ich</span> noch etwas <b>fragen</b>')
+ .replace(/Max soll jeden Tag seine Hausaufgaben in ein Heft schreiben/,'<span class="subj">Max</span> <span class="verb">soll</span> jeden Tag seine Hausaufgaben in ein Heft <b>schreiben</b>')
+ .replace(/Dann möchte ich direkt anfangen/,'<span class="pos1">Dann</span> <span class="verb">möchte</span> <span class="subj">ich</span> direkt <b>anfangen</b>');
+document.getElementById('dlgFull').innerHTML=DL.map(([w,t])=>`<div class="line"><div class="who ${w==='s'?'me':''}">${w==='s'?'Frau Schröder':'Herr Albrecht'}</div><div>${HL(t)}</div></div>`).join('');
+let lv='text';
+function renderMe(){document.getElementById('dlgMe').innerHTML=DL.map(([w,t,s])=>{const me=w==='s';let txt=me?HL(t):t;
+  if(me&&lv==='stich')txt='<i>'+s+'</i>';if(me&&lv==='frei')txt='<span class="small">… (du sprichst)</span>';
+  return `<div class="line"><div class="who ${me?'me':''}">${me?'Du':'Herr Albrecht'}</div><div>${txt}</div></div>`}).join('')}
+document.querySelectorAll('.lv').forEach(b=>b.onclick=()=>{lv=b.dataset.lv;document.querySelectorAll('.lv').forEach(x=>x.classList.toggle('active',x===b));renderMe()});
+renderMe();
+
+/* ---------- 6 ROLLENSPIEL ---------- */
+const R={
+ A:[
+  ['Guten Tag! Kommen Sie herein. Sie sind die Mutter von …?','Guten Tag, Herr Albrecht. Ja, ich bin … Danke, dass Sie …'],
+  ['Was kann ich für Sie tun?','Ich mache mir Sorgen um …, weil …'],
+  ['⚡ Ich habe leider nur zehn Minuten.','Kein Problem. Dann möchte ich direkt …'],
+  ['Ihr Sohn macht seine Hausaufgaben nicht.','Das wusste ich nicht. Wie oft …? · Seit wann …?'],
+  ['⚡ Kontrollieren Sie das denn nicht zu Hause?','Doch, aber … · Ich kann nicht immer …, weil …'],
+  ['Was sagt Ihr Sohn denn selbst?','Er sagt, dass … · Er hat keine Lust, denn …'],
+  ['⚡ Ach, in dem Alter ist das ganz normal.','Das verstehe ich. Trotzdem möchte ich … · Was können wir konkret tun?'],
+  ['Ich schlage vor: Er soll jeden Tag seine Hausaufgaben aufschreiben.','Das kann ich machen. · Gibt es auch …?'],
+  ['⚡ Die Hausaufgabenhilfe ist nur dienstags.','Dienstags ist schwierig, weil … · Gibt es auch einen anderen Tag?'],
+  ['Haben Sie noch Fragen?','Ja: Was passiert, wenn …? · Darf ich …?'],
+  ['Gut, dann machen wir das so.','Dann fasse ich zusammen: …']
+ ],
+ B:[
+  ['Ah, Sie sind die Mutter von …? Ich muss eigentlich gleich in eine Konferenz.','Es dauert nicht lange. Ich möchte nur …'],
+  ['⚡ Schreiben Sie mir doch einfach eine E-Mail.','Das kann ich machen. Aber können wir kurz …?'],
+  ['Also gut. Was ist los?','Mein Sohn … · Ich mache mir Sorgen, weil …'],
+  ['⚡ Da kann ich leider nichts machen.','Das verstehe ich nicht. Wer kann mir …? · Was kann ich …?'],
+  ['⚡ Ihr Sohn muss sich eben mehr anstrengen.','Da haben Sie recht. Aber er braucht Hilfe, denn … · Können Sie …?'],
+  ['Na gut. Kommen Sie nächste Woche in meine Sprechstunde.','Gern. Wann genau …? · Darf ich Sie noch etwas fragen?']
+ ]
+};
+let md='A',ri=0;
+const RP=document.getElementById('rsPrompt'),RH=document.getElementById('rsHelpText');
+function rs(){const x=R[md][ri];RP.textContent=x[0].replace('⚡ ','');RP.classList.toggle('twist',x[0].startsWith('⚡'));RH.textContent=x[1];RH.hidden=true;
+  document.getElementById('rsPrev').disabled=ri===0;document.getElementById('rsNext').disabled=ri===R[md].length-1}
+document.getElementById('rsPrev').onclick=()=>{if(ri>0){ri--;rs()}};
+document.getElementById('rsNext').onclick=()=>{if(ri<R[md].length-1){ri++;rs()}};
+document.getElementById('rsHelp').onclick=()=>{RH.hidden=!RH.hidden};
+document.querySelectorAll('.md').forEach(b=>b.onclick=()=>{md=b.dataset.md;ri=0;document.querySelectorAll('.md').forEach(x=>x.classList.toggle('active',x===b));rs()});
+rs();
+</script>
+</body></html>

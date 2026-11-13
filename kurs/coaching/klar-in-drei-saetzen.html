@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Liubov · Klar in drei Sätzen</title>
+<style>
+:root{--ink:#26324f;--navy:#1f4e79;--pale:#e9f0f8;--sky:#f1f5fa;--cream:#fbfaf7;--line:#dfe3ea;--muted:#6b6f7a;--ok:#2e6b4a;--bad:#b03030;--amber:#b5651d;--gold:#a3801f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:19px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+button,textarea,input{font:inherit;color:inherit}
+button{cursor:pointer;border:1px solid var(--line);background:#fff;padding:10px 16px;border-radius:10px}
+button:hover{background:var(--sky)}
+button:disabled{opacity:.4;cursor:default}
+button.active,button.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+button:focus-visible,summary:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+header{padding:36px max(24px,calc((100% - 1080px)/2));background:#fff;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+header:after{content:'§';position:absolute;font:220px/1 Georgia,serif;opacity:.07;right:5%;top:-20px;pointer-events:none}
+.eyebrow{font-size:12px;letter-spacing:.17em;text-transform:uppercase;font-weight:700;color:var(--gold)}
+h1{font:clamp(32px,5vw,48px)/1.12 Georgia,serif;margin:12px 0}
+h2{font:28px/1.2 Georgia,serif;margin:0 0 12px}
+h3{font-size:19px;margin:18px 0 8px}
+p{margin:8px 0 12px}
+.sub{max-width:720px;color:var(--muted)}
+.wrap{max-width:1100px;margin:auto;padding:24px}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;margin-bottom:22px}
+.hint{background:var(--sky);border-radius:12px;padding:14px 18px;margin:12px 0}
+.box{background:var(--pale);border-radius:12px;padding:14px 18px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff}
+.num{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--gold)}
+textarea{width:100%;min-height:64px;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--cream);resize:vertical}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;align-items:center}
+.prompt{font:26px/1.4 Georgia,serif;background:var(--pale);border-left:6px solid var(--navy);border-radius:10px;padding:18px 22px;margin:14px 0;min-height:80px}
+.twist{background:#fbe3e3;border-left-color:var(--bad)}
+.solution{font:24px/1.45 Georgia,serif;background:#fff;border:2px dashed var(--line);border-radius:10px;padding:16px 22px;min-height:70px}
+.tag{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--sky);border-radius:999px;padding:2px 12px;margin-bottom:8px}
+.stat{font-size:16px;color:var(--muted)}
+.kon{color:var(--bad);font-weight:700}.verb{color:var(--ok);font-weight:700}.subj{color:#2457a6;font-weight:700}.neb{color:#7a3fa0}.pos1{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:15px;margin:6px 0 0}
+/* Gesetz */
+.law{border-left:6px solid var(--gold);background:#fffaf0;border-radius:10px;padding:14px 20px;margin:10px 0}
+.law b.par{font:24px Georgia,serif;color:var(--gold);margin-right:8px}
+/* Akte */
+.akte{font:26px/1.4 Georgia,serif;background:#fffaf0;border:1px solid #ecdcb4;border-radius:12px;padding:18px 22px;margin:12px 0}
+.akte .nr{display:block;font:700 12px/1 system-ui;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.pars{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.pars label{display:flex;gap:6px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:8px 14px;background:#fff;cursor:pointer}
+.pars label.ok{background:#e3f1e8;border-color:var(--ok)}.pars label.no{background:#fbe3e3;border-color:var(--bad)}.pars label.miss{background:#fde9cf;border-color:var(--amber)}
+.urteil{background:#fff;border:2px dashed var(--line);border-radius:10px;padding:14px 20px;font-size:20px}
+/* Timer */
+.timer{height:10px;background:var(--line);border-radius:99px;overflow:hidden;margin:6px 0}
+.timer>div{height:100%;background:var(--navy);width:100%}
+.bigtime{font:700 44px/1 Georgia,serif;color:var(--navy);min-width:110px;text-align:center}
+.bigtime.out{color:var(--bad)}
+.zeit{font-weight:700;color:var(--bad);font-size:20px}
+/* Dialog */
+.line{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.who{font-weight:700}.who.me{color:var(--navy)}
+.schema{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:12px 0}
+.schema .card{border-top:5px solid var(--navy)}
+details{border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0;background:#fff}
+summary{cursor:pointer;font-weight:700}
+.small{font-size:15px;color:var(--muted)}
+.tuv{display:flex;gap:16px;flex-wrap:wrap;margin:8px 0;font-size:16px}
+.tuv label{display:flex;gap:6px;align-items:center}
+[hidden]{display:none!important}
+</style></head><body>
+<header>
+  <a href="../einzelcoaching.html" style="display:inline-block;margin-bottom:10px;color:inherit;font-size:15px">← Einzelcoaching</a>
+  <div class="eyebrow">Einzelcoaching · Liubov</div>
+  <h1>Klar in drei Sätzen</h1>
+  <p class="sub">Regeln prüfen kannst du. Jetzt prüfst du Sätze – und dann sprichst du so, dass niemand nachfragen muss.</p>
+</header>
+<div class="wrap">
+<nav>
+  <button data-tab="t1" class="active">1 · Das Satzbau-Gesetz</button>
+  <button data-tab="t2">2 · Die Prüfung</button>
+  <button data-tab="t3">3 · Bootcamp</button>
+  <button data-tab="t4">4 · Am Schalter</button>
+  <button data-tab="t5">5 · Drei Sätze, 30 Sekunden</button>
+  <button data-tab="t6">6 · Die Telefonkonferenz</button>
+  <button data-tab="t7">7 · Das kann ich</button>
+</nav>
+<main>
+
+<!-- 1 GESETZ -->
+<section id="t1">
+  <div class="panel">
+    <h2>Kleines Rechtswörterbuch</h2>
+    <div class="grid">
+      <div class="card"><div class="num">das Gesetz</div>Das Gesetz gilt für alle.</div>
+      <div class="card"><div class="num">der Paragraph (§)</div>Ein Gesetz hat viele Paragraphen.</div>
+      <div class="card"><div class="num">gegen etwas verstoßen</div>Der Satz verstößt gegen § 1.</div>
+      <div class="card"><div class="num">der Verstoß</div>Das ist ein Verstoß gegen § 2.</div>
+      <div class="card"><div class="num">prüfen · die Prüferin</div>Du prüfst den Satz. Du bist die Prüferin.</div>
+      <div class="card"><div class="num">das Urteil</div>Das Urteil: Der Satz ist falsch. Richtig ist …</div>
+    </div>
+    <div class="hint"><b>Sprich laut:</b> Verstoßen ist unregelmäßig – ich verstoße, du verstößt, er verstößt. Perfekt: er <b>hat</b> gegen § 1 <b>verstoßen</b>.</div>
+  </div>
+  <div class="panel">
+    <h2>Das Satzbau-Gesetz</h2>
+    <p>Vier Paragraphen. Sie gelten für jeden deutschen Satz – ohne Ausnahme.</p>
+    <div class="law"><b class="par">§ 1</b><b>Position 2.</b> Im Hauptsatz steht das konjugierte Verb auf Position 2. Das gilt auch, wenn vorne nicht das Subjekt steht.<br>
+      <span class="small">✓</span> <span class="pos1">Heute</span> <span class="verb">treffen</span> <span class="subj">wir</span> uns. &nbsp; <span class="small">✗ Heute wir treffen uns.</span></div>
+    <div class="law"><b class="par">§ 2</b><b>Nebensatz.</b> Nach weil, dass, wenn, obwohl steht das konjugierte Verb am Ende.<br>
+      <span class="small">✓</span> … <span class="kon">weil</span> <span class="neb">das System nicht <b>funktioniert</b></span>. &nbsp; <span class="small">✗ … weil das System funktioniert nicht.</span></div>
+    <div class="law"><b class="par">§ 3</b><b>Modalverb.</b> Das Modalverb wird konjugiert und steht auf Position 2. Das zweite Verb steht im Infinitiv am Ende – nicht im Partizip.<br>
+      <span class="small">✓</span> <span class="subj">Ich</span> <span class="verb">möchte</span> Pizza <b>essen</b>. &nbsp; <span class="small">✗ Ich möchte Pizza gegessen. · ✗ Ich möchte essen Pizza.</span></div>
+    <div class="law"><b class="par">§ 4</b><b>Artikel.</b> Ein Nomen steht fast nie allein. Es braucht einen Begleiter – den Artikel. Er passt zum Genus: der, die, das – mein, meine, mein.<br>
+      <span class="small">✓</span> <b>das</b> Wochenende → Wie war <b>Ihr</b> letzt<b>es</b> Wochenende? &nbsp; <span class="small">✗ Wie war Ihre letzte Wochende?</span></div>
+    <div class="law"><b class="par">§ 4a</b><b>Welcher Artikel?</b> <b>ein, eine</b> (unbestimmt): Etwas ist neu oder nicht konkret. <b>der, die, das</b> (bestimmt): Wir kennen es schon, oder es ist klar, welches gemeint ist.<br>
+      <span class="small">✓</span> <b>Ein</b> Kunde kommt an den Schalter. <b>Der</b> Kunde möchte Geld schicken.</div>
+    <div class="box"><b>Jetzt du:</b> Lies jeden Paragraphen laut vor. Dann sag zu jedem Paragraphen einen eigenen richtigen Satz – über deine Arbeit.</div>
+  </div>
+</section>
+
+<!-- 2 PRÜFUNG -->
+<section id="t2" hidden>
+  <div class="panel">
+    <h2>Die Prüfung: Du bist die Prüferin</h2>
+    <p>Jede Akte enthält einen Satz. Gegen welche Paragraphen verstößt er? Kreuz an und klick „Urteil prüfen“. Dann sprichst du das Urteil laut: <i>„Der Satz verstößt gegen § … Richtig ist: …“</i></p>
+    <div id="akte" class="akte" aria-live="polite"></div>
+    <div class="pars" id="pars">
+      <label><input type="checkbox" value="1">§ 1 Position 2</label>
+      <label><input type="checkbox" value="2">§ 2 Nebensatz</label>
+      <label><input type="checkbox" value="3">§ 3 Modalverb</label>
+      <label><input type="checkbox" value="4">§ 4 Artikel</label>
+      <label><input type="checkbox" value="0">kein Verstoß</label>
+    </div>
+    <div class="controls">
+      <button id="akCheck" class="primary">Urteil prüfen</button>
+      <button id="akNext" disabled>Nächste Akte →</button>
+      <span id="akStat" class="stat"></span>
+    </div>
+    <div id="akUrteil" class="urteil" hidden></div>
+  </div>
+</section>
+
+<!-- 3 BOOTCAMP -->
+<section id="t3" hidden>
+  <div class="panel">
+    <h2>Bootcamp: Schnell und richtig</h2>
+    <p>Prüfen ist gut. Sprechen ist besser. Du siehst die Bausteine und sagst sofort den ganzen Satz – laut. Dann kommt die Lösung. Nicht ganz richtig? Die Karte kommt später noch einmal.</p>
+    <div class="controls">
+      <button class="cat active" data-cat="alle">Alles gemischt</button>
+      <button class="cat" data-cat="1">§ 1 Position 2</button>
+      <button class="cat" data-cat="2">§ 2 Nebensatz</button>
+      <button class="cat" data-cat="3">§ 3 Modalverb</button>
+      <label class="small" style="display:flex;gap:6px;align-items:center;margin-left:auto"><input type="checkbox" id="cdOn" checked> Countdown (10 Sek.)</label>
+    </div>
+    <div id="bcTag" class="tag"></div>
+    <div class="timer" id="cdBar"><div id="cdFill"></div></div>
+    <div id="bcPrompt" class="prompt" aria-live="polite"></div>
+    <div id="bcSol" class="solution" aria-live="polite"><span class="small">Erst sprechen. Dann klicken.</span></div>
+    <div class="controls">
+      <button id="bcShow" class="primary">Lösung zeigen</button>
+      <button id="bcOk" disabled>✓ Sofort richtig</button>
+      <button id="bcAgain" disabled>↻ Nochmal – später</button>
+      <span id="bcStat" class="stat"></span>
+    </div>
+    <div class="legend"><span class="pos1">Position 1</span><span class="verb">konjugiertes Verb</span><span class="subj">Subjekt</span><span class="kon">Konnektor</span><span class="neb">Nebensatz</span></div>
+  </div>
+</section>
+
+<!-- 4 SCHALTER -->
+<section id="t4" hidden>
+  <div class="panel">
+    <h2>Am Schalter: „Warum wollen Sie das wissen?“</h2>
+    <p>Eine Filiale für Geldtransfer. Herr Demir möchte Geld ins Ausland schicken. Frau Hoffmann sitzt am Schalter. Erst läuft alles normal – dann stellt Herr Demir Fragen.</p>
+    <div id="audioBox" class="box"><b>Hör zu.</b> Beim ersten Mal nur hören, nichts lesen.
+      <audio id="aud" controls preload="auto" src="../../assets/audio/coaching-schalter.mp3" style="width:100%;margin-top:10px"></audio></div>
+    <h3>Beim Hören</h3>
+    <div class="grid">
+      <div class="card"><div class="num">1</div>Wohin und wie viel möchte Herr Demir schicken?<details><summary>Lösung</summary>Zweitausend Euro in die Türkei, an seine Schwester in Izmir.</details></div>
+      <div class="card"><div class="num">2</div>Welche zwei Fragen findet Herr Demir unangenehm?<details><summary>Lösung</summary>Den Ausweis zeigen und sagen, woher das Geld kommt.</details></div>
+      <div class="card"><div class="num">3</div>Wie erklärt Frau Hoffmann die Regeln – lang oder kurz?<details><summary>Lösung</summary>Kurz: ein, zwei Sätze. „Das schreibt das Gesetz vor.“ · „Das gilt für alle Kunden.“</details></div>
+      <div class="card"><div class="num">4</div>Was ist ihr letztes Argument für die strengen Regeln?<details><summary>Lösung</summary>So kommt das Geld sicher an – und nicht bei jemand anderem.</details></div>
+    </div>
+    <h3>Mit verteilten Rollen lesen</h3>
+    <p>Du bist Frau Hoffmann, Regina ist Herr Demir. Lies mit Ausdruck! Dann noch einmal mit Stichworten, dann frei.</p>
+    <div class="controls">
+      <button class="lv active" data-lv="text">Ganzer Text</button>
+      <button class="lv" data-lv="stich">Nur Stichworte</button>
+      <button class="lv" data-lv="frei">Frei – nur Herr Demir</button>
+    </div>
+    <div id="dlgMe"></div>
+    <div class="box"><b>Prüferin, bitte:</b> Die farbigen Stellen erfüllen alle das Satzbau-Gesetz. Welcher Paragraph steckt in welcher Stelle?</div>
+  </div>
+</section>
+
+<!-- 5 DREI SÄTZE -->
+<section id="t5" hidden>
+  <div class="panel">
+    <h2>Drei Sätze, 30 Sekunden</h2>
+    <p>Regina ist der Kunde und liest die Frage vor. Du antwortest – <b>höchstens drei Sätze</b>, in Kundensprache, ohne Fachwörter. Dann ist die Zeit um.</p>
+    <div class="hint"><b>Die Kunst:</b> Compliance kannst du. Jetzt erklärst du sie so, dass ein Kunde sie in 30 Sekunden versteht – und zufrieden geht.</div>
+    <div id="q3" class="prompt" aria-live="polite"></div>
+    <div class="controls">
+      <button id="q3Start" class="primary">▶ 30 Sekunden starten</button>
+      <span id="q3Time" class="bigtime">30</span>
+      <button id="q3Help">Satzanfang zeigen</button>
+      <button id="q3Prev">← Zurück</button>
+      <button id="q3Next">Nächste Frage →</button>
+    </div>
+    <div class="timer"><div id="q3Fill"></div></div>
+    <p id="q3HelpText" class="hint" hidden></p>
+    <div class="tuv"><label><input type="checkbox">Höchstens drei Sätze?</label><label><input type="checkbox">Ohne Fachwörter?</label><label><input type="checkbox">§ 1–4 eingehalten?</label></div>
+  </div>
+</section>
+
+<!-- 6 TELEFONKONFERENZ -->
+<section id="t6" hidden>
+  <div class="panel">
+    <h2>Die Telefonkonferenz: Dein Vorschlag in 60 Sekunden</h2>
+    <p>Montag, 9 Uhr. Die Regionalleitung spricht mit allen Filialen. Jede Person hat eine Minute für einen Vorschlag. Danach ist die nächste dran.</p>
+    <h3>Das Schema – immer gleich</h3>
+    <div class="schema">
+      <div class="card"><div class="num">1 · Thema</div>Ich habe einen Vorschlag zum Thema …</div>
+      <div class="card"><div class="num">2 · Problem</div>Zurzeit … · Das Problem ist, dass …</div>
+      <div class="card"><div class="num">3 · Vorschlag</div>Ich schlage vor, dass wir …</div>
+      <div class="card"><div class="num">4 · Begründung</div>Das ist sinnvoll, weil …</div>
+      <div class="card"><div class="num">5 · Vorteil</div>So können wir … · Dann müssen wir nicht mehr …</div>
+    </div>
+    <h3>Erst lesen: So klingt ein Vorschlag in einer Minute</h3>
+    <div class="box" style="font:21px/1.6 Georgia,serif">
+      Ich habe einen Vorschlag zum Thema Wartezeiten. <br>
+      Zurzeit warten unsere Kunden am Monatsanfang oft sehr lange. Das Problem ist, <span class="kon">dass</span> <span class="neb">viele Kunden dann ihr Gehalt bekommen und gleichzeitig Geld schicken <b>wollen</b></span>.<br>
+      Ich schlage vor, <span class="kon">dass</span> <span class="neb">wir in der ersten Woche des Monats eine zweite Person am Schalter <b>einplanen</b></span>.<br>
+      Das ist sinnvoll, <span class="kon">weil</span> <span class="neb">die Kunden dann schneller <b>drankommen</b></span>.<br>
+      So <span class="verb">sind</span> <span class="subj">die Kunden</span> zufriedener, und wir <span class="verb">haben</span> weniger Stress.
+    </div>
+    <div class="hint"><b>Lies den Vorschlag laut – mit Ausdruck, wie in der Kaffeeküche.</b> Dann noch einmal mit der Uhr: Schaffst du es in einer Minute?</div>
+    <h3>Jetzt du: Wähl ein Thema</h3>
+    <div class="controls">
+      <button class="th active" data-th="0">Kunden verstehen die Ausweisregel nicht</button>
+      <button class="th" data-th="1">Schulungen zu neuen Regeln</button>
+      <button class="th" data-th="2">Eigenes Thema</button>
+    </div>
+    <div id="thBox" class="box"></div>
+    <div class="controls">
+      <button id="tkStart" class="primary">▶ 60 Sekunden starten</button>
+      <span id="tkTime" class="bigtime">60</span>
+    </div>
+    <div class="timer"><div id="tkFill"></div></div>
+    <h3>Und dann fragt die Regionalleitung nach</h3>
+    <p>Regina ist die Regionalleitung. Antworte in einem oder zwei Sätzen.</p>
+    <div id="fuPrompt" class="prompt" aria-live="polite"></div>
+    <div class="controls">
+      <button id="fuNext" class="primary">Nächste Rückfrage →</button>
+      <button id="fuHelp">Satzanfang zeigen</button>
+    </div>
+    <p id="fuHelpText" class="hint" hidden></p>
+  </div>
+</section>
+
+<!-- 7 DAS KANN ICH -->
+<section id="t7" hidden>
+  <div class="panel">
+    <h2>Das kann ich</h2>
+    <p>Dein Vorschlag für die nächste Telefonkonferenz – nach dem Schema. Erst sprechen, dann schreiben. Dann prüfst du deinen eigenen Text: § 1 bis § 4.</p>
+    <textarea style="min-height:160px" placeholder="Ich habe einen Vorschlag zum Thema …"></textarea>
+    <div class="tuv"><label><input type="checkbox">§ 1 Position 2</label><label><input type="checkbox">§ 2 Nebensatz</label><label><input type="checkbox">§ 3 Modalverb</label><label><input type="checkbox">§ 4 Artikel</label></div>
+    <h2 style="margin-top:28px">Bis zum nächsten Mal</h2>
+    <div class="grid">
+      <div class="card"><div class="num">Jeden Tag · 10 Minuten</div>Bootcamp: alle Karten, laut. Ziel: Jede Karte ist einmal „sofort richtig“.</div>
+      <div class="card"><div class="num">Zweimal</div>Das Gespräch am Schalter hören und Frau Hoffmanns Rolle laut mitsprechen.</div>
+      <div class="card"><div class="num">Prüferin im Alltag</div>Schreib drei Sätze auf, die du diese Woche gesagt hast. Prüf sie nach § 1 bis § 4 und bring die Urteile mit.</div>
+    </div>
+  </div>
+</section>
+</main></div>
+
+<script>
+const tabs=document.querySelectorAll('[data-tab]');
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const aud=document.getElementById('aud');
+aud.addEventListener('error',()=>{document.getElementById('audioBox').hidden=true},true);
+
+/* Ein Countdown-Helfer für alle Uhren auf der Seite */
+function makeTimer(sec,fillEl,numEl,onEnd){let t=null,left=0;
+  return{start(){this.stop();left=sec*10;if(numEl){numEl.textContent=sec;numEl.classList.remove('out')}fillEl.style.width='100%';
+      t=setInterval(()=>{left--;fillEl.style.width=(left/(sec*10)*100)+'%';if(numEl&&left%10===0)numEl.textContent=left/10;
+        if(left<=0){this.stop();if(numEl){numEl.textContent='Zeit!';numEl.classList.add('out')}if(onEnd)onEnd()}},100)},
+    stop(){clearInterval(t);t=null},
+    reset(){this.stop();fillEl.style.width='100%';if(numEl){numEl.textContent=sec;numEl.classList.remove('out')}}}}
+const allTimers=[];
+tabs.forEach(b=>b.onclick=()=>{allTimers.forEach(t=>t.stop());document.querySelectorAll('main>section').forEach(s=>s.hidden=s.id!==b.dataset.tab);tabs.forEach(x=>x.classList.toggle('active',x===b));window.scrollTo(0,0);if(b.dataset.tab==='t3'&&bcCur&&!document.getElementById('bcSol').dataset.shown)cdStart()});
+
+/* ---------- 2 PRÜFUNG ---------- */
+const AK=[
+ ['Kannst du bitte helfen bei mir?',[3],'Kannst du <b>mir</b> bitte <b>helfen</b>?','Infinitiv ans Ende. Und: helfen + wem? → mir (ohne „bei“).'],
+ ['Heute wir treffen uns, weil ich möchte Pizza gegessen.',[1,2,3],'<span class="pos1">Heute</span> <span class="verb">treffen</span> <span class="subj">wir</span> uns, <span class="kon">weil</span> <span class="neb">ich Pizza essen <b>möchte</b></span>.',''],
+ ['Wie war Ihre letzte Wochende?',[4],'Wie war <b>Ihr</b> letzt<b>es</b> Wochenende?','das Wochenende → Ihr letztes Wochenende.'],
+ ['Der Kunde muss seinen Ausweis gezeigt.',[3],'<span class="subj">Der Kunde</span> <span class="verb">muss</span> seinen Ausweis <b>zeigen</b>.','Nach dem Modalverb: Infinitiv, kein Partizip.'],
+ ['Morgen ich habe Spätschicht.',[1],'<span class="pos1">Morgen</span> <span class="verb">habe</span> <span class="subj">ich</span> Spätschicht.','„Morgen“ ist Position 1, also kommt das Verb direkt danach.'],
+ ['Ich kann nicht überweisen das Geld, weil das System funktioniert nicht.',[2,3],'<span class="subj">Ich</span> <span class="verb">kann</span> das Geld nicht <b>überweisen</b>, <span class="kon">weil</span> <span class="neb">das System nicht <b>funktioniert</b></span>.',''],
+ ['Wir müssen prüfen Herkunft des Geldes.',[3,4],'<span class="subj">Wir</span> <span class="verb">müssen</span> <b>die</b> Herkunft des Geldes <b>prüfen</b>.',''],
+ ['Wenn der Betrag hoch ist, müssen wir nach der Herkunft fragen.',[0],'Kein Verstoß. Freispruch! ✓','Nebensatz vorne → das Verb des Hauptsatzes steht direkt nach dem Komma.'],
+ ['Ich schlage vor, dass wir machen eine Online-Schulung.',[2],'Ich schlage vor, <span class="kon">dass</span> <span class="neb">wir eine Online-Schulung <b>machen</b></span>.',''],
+ ['Der Kunde hat gesagt, dass er hat keine Zeit.',[2],'Der Kunde hat gesagt, <span class="kon">dass</span> <span class="neb">er keine Zeit <b>hat</b></span>.',''],
+ ['Seit Montag gilt neue Regel.',[4],'Seit Montag gilt <b>eine</b> neue Regel.',''],
+ ['Ich möchte haben eine Quittung.',[3],'<span class="subj">Ich</span> <span class="verb">möchte</span> eine Quittung <b>haben</b>.',''],
+ ['Leider wir können heute keine Überweisung in dieses Land machen.',[1],'<span class="pos1">Leider</span> <span class="verb">können</span> <span class="subj">wir</span> heute keine Überweisung in dieses Land <b>machen</b>.','']
+];
+let akI=0,akOk=0,akDone=false,akOrder=shuffle(AK.map((_,i)=>i));
+function akRender(){const a=AK[akOrder[akI]];akDone=false;
+  document.getElementById('akte').innerHTML='<span class="nr">Akte '+(akI+1)+' von '+AK.length+'</span>„'+a[0]+'“';
+  document.querySelectorAll('#pars label').forEach(l=>{l.className='';l.querySelector('input').checked=false;l.querySelector('input').disabled=false});
+  document.getElementById('akUrteil').hidden=true;document.getElementById('akCheck').disabled=false;document.getElementById('akNext').disabled=true;
+  document.getElementById('akStat').textContent='Richtige Urteile: '+akOk}
+document.getElementById('akCheck').onclick=()=>{if(akDone)return;akDone=true;const a=AK[akOrder[akI]],want=a[1];let perfect=true;
+  document.querySelectorAll('#pars label').forEach(l=>{const inp=l.querySelector('input'),v=+inp.value,sel=inp.checked,should=want.includes(v);inp.disabled=true;
+    if(sel&&should)l.className='ok';else if(sel&&!should){l.className='no';perfect=false}else if(!sel&&should){l.className='miss';perfect=false}});
+  if(perfect)akOk++;
+  const pars=want[0]===0?'':'Der Satz verstößt gegen '+want.map(x=>'§ '+x).join(' und ')+'. ';
+  const u=document.getElementById('akUrteil');u.hidden=false;
+  u.innerHTML=(perfect?'<b style="color:var(--ok)">✓ Richtig geprüft.</b> ':'<b style="color:var(--amber)">Nicht ganz.</b> <span class="small">Orange = übersehen, Rot = falsch angekreuzt.</span> ')+
+   '<br><b>Urteil:</b> '+pars+(want[0]===0?'':'Richtig ist: ')+a[2]+(a[3]?'<br><span class="small">'+a[3]+'</span>':'')+
+   '<br><span class="small">Jetzt laut: das Urteil sprechen – und den richtigen Satz.</span>';
+  document.getElementById('akStat').textContent='Richtige Urteile: '+akOk;
+  document.getElementById('akCheck').disabled=true;document.getElementById('akNext').disabled=false;
+  if(akI===AK.length-1)document.getElementById('akNext').textContent='Neue Runde ↺'};
+document.getElementById('akNext').onclick=()=>{if(akI===AK.length-1){akI=0;akOk=0;akOrder=shuffle(akOrder);document.getElementById('akNext').textContent='Nächste Akte →'}else akI++;akRender()};
+document.querySelectorAll('#pars input').forEach(inp=>inp.onchange=()=>{if(inp.value==='0'&&inp.checked)document.querySelectorAll('#pars input').forEach(x=>{if(x!==inp)x.checked=false});else if(inp.checked)document.querySelector('#pars input[value="0"]').checked=false});
+akRender();
+
+/* ---------- 3 BOOTCAMP ---------- */
+const V=s=>'<span class="verb">'+s+'</span>', S=s=>'<span class="subj">'+s+'</span>', P=s=>'<span class="pos1">'+s+'</span>', K=s=>'<span class="kon">'+s+'</span>', N=s=>'<span class="neb">'+s+'</span>';
+const BC=[
+ ['1','Heute · wir · uns · treffen',P('Heute')+' '+V('treffen')+' '+S('wir')+' uns.'],
+ ['1','Morgen · ich · Spätschicht · haben',P('Morgen')+' '+V('habe')+' '+S('ich')+' Spätschicht.'],
+ ['1','Leider · das System · heute · nicht · funktionieren',P('Leider')+' '+V('funktioniert')+' '+S('das System')+' heute nicht.'],
+ ['1','Seit Montag · eine neue Regel · gelten',P('Seit Montag')+' '+V('gilt')+' '+S('eine neue Regel')+'.'],
+ ['1','Am Monatsanfang · viele Kunden · Geld · schicken',P('Am Monatsanfang')+' '+V('schicken')+' '+S('viele Kunden')+' Geld.'],
+ ['1','Zurzeit · ich · am Schalter · arbeiten',P('Zurzeit')+' '+V('arbeite')+' '+S('ich')+' am Schalter.'],
+ ['2','Der Kunde ist ärgerlich. Er muss lange warten. → weil','Der Kunde ist ärgerlich, '+K('weil')+' '+N('er lange warten <b>muss</b>')+'.'],
+ ['2','Ich kann das Geld nicht überweisen. Das System funktioniert nicht. → weil','Ich kann das Geld nicht überweisen, '+K('weil')+' '+N('das System nicht <b>funktioniert</b>')+'.'],
+ ['2','Ich schlage vor: Wir machen eine Online-Schulung. → dass','Ich schlage vor, '+K('dass')+' '+N('wir eine Online-Schulung <b>machen</b>')+'.'],
+ ['2','Der Betrag ist hoch. Wir müssen nach der Herkunft fragen. → wenn (vorne)',K('Wenn')+' '+N('der Betrag hoch <b>ist</b>')+', '+V('müssen')+' '+S('wir')+' nach der Herkunft <b>fragen</b>.'],
+ ['2','Das Problem ist: Viele Kunden verstehen die Regel nicht. → dass','Das Problem ist, '+K('dass')+' '+N('viele Kunden die Regel nicht <b>verstehen</b>')+'.'],
+ ['2','Ich habe Erfahrung in Compliance. Ich arbeite am Schalter. → obwohl (vorne)',K('Obwohl')+' '+N('ich Erfahrung in Compliance <b>habe</b>')+', '+V('arbeite')+' '+S('ich')+' am Schalter.'],
+ ['3','ich · möchten · Pizza · essen',S('Ich')+' '+V('möchte')+' Pizza <b>essen</b>.'],
+ ['3','können · du · mir · bitte · helfen? (Frage)',V('Kannst')+' '+S('du')+' mir bitte <b>helfen</b>?'],
+ ['3','Sie · müssen · Ihren Ausweis · zeigen',S('Sie')+' '+V('müssen')+' Ihren Ausweis <b>zeigen</b>.'],
+ ['3','dürfen · ich · Ihren Ausweis · sehen? (Frage)',V('Darf')+' '+S('ich')+' Ihren Ausweis <b>sehen</b>?'],
+ ['3','Ihre Schwester · können · das Geld · morgen · abholen',S('Ihre Schwester')+' '+V('kann')+' das Geld morgen <b>abholen</b>.'],
+ ['3','Leider · können · wir · keine Ausnahme · machen',P('Leider')+' '+V('können')+' '+S('wir')+' keine Ausnahme <b>machen</b>.']
+];
+const catName={'1':'§ 1 Position 2','2':'§ 2 Nebensatz','3':'§ 3 Modalverb'};
+let bcQ=[],bcCur=null,bcOkN=0,bcTotal=0;
+const cd=makeTimer(10,document.getElementById('cdFill'),null,()=>{const so=document.getElementById('bcSol');if(!so.dataset.shown)so.innerHTML='<span class="zeit">Zeit!</span>'});allTimers.push(cd);
+function cdStart(){if(document.getElementById('cdOn').checked){document.getElementById('cdBar').hidden=false;cd.start()}else{document.getElementById('cdBar').hidden=true;cd.stop()}}
+document.getElementById('cdOn').onchange=()=>{if(bcCur&&!document.getElementById('bcSol').dataset.shown)cdStart();else{cd.stop();document.getElementById('cdBar').hidden=!document.getElementById('cdOn').checked}};
+function bcStart(cat,run){bcQ=shuffle(BC.filter(x=>cat==='alle'||x[0]===cat));bcTotal=bcQ.length;bcOkN=0;bcNext(run)}
+function bcNext(run=true){
+  const pr=document.getElementById('bcPrompt'),so=document.getElementById('bcSol');delete so.dataset.shown;
+  document.getElementById('bcOk').disabled=true;document.getElementById('bcAgain').disabled=true;document.getElementById('bcShow').disabled=false;
+  if(!bcQ.length){bcCur=null;cd.stop();document.getElementById('bcTag').textContent='Geschafft';pr.textContent='Alle Karten sofort richtig. Stark! 💪';so.innerHTML='<span class="small">Noch eine Runde? Oben eine Kategorie wählen.</span>';document.getElementById('bcShow').disabled=true;bcStat();return}
+  bcCur=bcQ.shift();document.getElementById('bcTag').textContent=catName[bcCur[0]];pr.textContent=bcCur[1];
+  so.innerHTML='<span class="small">Erst sprechen. Dann klicken.</span>';bcStat();if(run)cdStart();
+}
+function bcStat(){document.getElementById('bcStat').textContent='Sofort richtig: '+bcOkN+' von '+bcTotal}
+document.getElementById('bcShow').onclick=()=>{if(!bcCur)return;cd.stop();const so=document.getElementById('bcSol');so.dataset.shown='1';so.innerHTML=bcCur[2];document.getElementById('bcOk').disabled=false;document.getElementById('bcAgain').disabled=false;document.getElementById('bcShow').disabled=true};
+document.getElementById('bcOk').onclick=()=>{bcOkN++;bcNext()};
+document.getElementById('bcAgain').onclick=()=>{bcQ.splice(Math.min(3,bcQ.length),0,bcCur);bcNext()};
+document.querySelectorAll('.cat').forEach(b=>b.onclick=()=>{document.querySelectorAll('.cat').forEach(x=>x.classList.toggle('active',x===b));bcStart(b.dataset.cat,true)});
+bcStart('alle',false);
+
+/* ---------- 4 SCHALTER ---------- */
+const DL=[
+ ['h','Guten Tag. Was kann ich für Sie tun?','Guten Tag · was tun?'],
+ ['w','Guten Tag. Ich möchte Geld in die Türkei schicken. Zweitausend Euro.','—'],
+ ['h','Gern. Darf ich bitte Ihren Ausweis sehen?','Ausweis sehen?'],
+ ['w','Meinen Ausweis? Warum denn? Ich war doch letzte Woche schon hier.','—'],
+ ['h','Das stimmt. Trotzdem muss ich bei jeder Überweisung Ihre Identität prüfen. Das schreibt das Gesetz vor.','stimmt · trotzdem · Identität · Gesetz'],
+ ['w','Na gut. Hier, bitte.','—'],
+ ['h','Danke. Bei diesem Betrag muss ich Sie außerdem fragen: Woher kommt das Geld?','Betrag · woher?'],
+ ['w','Wie bitte? Das ist doch meine Sache!','—'],
+ ['h','Ich verstehe, dass die Frage unangenehm ist. Aber bei größeren Beträgen müssen wir das fragen. Das gilt für alle Kunden, nicht nur für Sie.','verstehe, dass … · müssen fragen · alle Kunden'],
+ ['w','Hm. Das ist mein Gehalt. Ich habe gespart.','—'],
+ ['h','Vielen Dank. Und wer bekommt das Geld?','wer bekommt?'],
+ ['w','Meine Schwester in Izmir. Sie heiratet im Dezember.','—'],
+ ['h','Oh, wie schön! Herzlichen Glückwunsch. Dann brauche ich noch den vollständigen Namen Ihrer Schwester.','Glückwunsch · vollständiger Name'],
+ ['w','Elif Demir.','—'],
+ ['h','Danke. Hier sehen Sie die Gebühr und den Wechselkurs. Ist das für Sie in Ordnung?','Gebühr · Wechselkurs · in Ordnung?'],
+ ['w','Ja, das passt. Und wann ist das Geld da?','—'],
+ ['h','Ihre Schwester kann das Geld schon heute abholen. Sie braucht dafür ihren Ausweis und diese Nummer hier.','heute abholen · Ausweis · Nummer'],
+ ['w','Schon wieder ein Ausweis! Sie sind aber streng.','—'],
+ ['h','Ja, das sind wir. Dafür kommt Ihr Geld sicher an – und nicht bei jemand anderem.','streng · sicher an · nicht bei jemand anderem'],
+ ['w','Na, das ist ein Argument. Vielen Dank, Frau Hoffmann.','—'],
+ ['h','Sehr gern. Und schöne Grüße an Ihre Schwester!','Grüße']
+];
+const HL=t=>t
+ .replace(/Darf ich bitte Ihren Ausweis sehen/,'<span class="verb">Darf</span> <span class="subj">ich</span> bitte Ihren Ausweis <b>sehen</b>')
+ .replace(/Trotzdem muss ich bei jeder Überweisung Ihre Identität prüfen/,'<span class="pos1">Trotzdem</span> <span class="verb">muss</span> <span class="subj">ich</span> bei jeder Überweisung Ihre Identität <b>prüfen</b>')
+ .replace(/Bei diesem Betrag muss ich/,'<span class="pos1">Bei diesem Betrag</span> <span class="verb">muss</span> <span class="subj">ich</span>')
+ .replace(/dass die Frage unangenehm ist/,'<span class="kon">dass</span> <span class="neb">die Frage unangenehm <b>ist</b></span>')
+ .replace(/bei größeren Beträgen müssen wir das fragen/,'<span class="pos1">bei größeren Beträgen</span> <span class="verb">müssen</span> <span class="subj">wir</span> das <b>fragen</b>')
+ .replace(/Ihre Schwester kann das Geld schon heute abholen/,'<span class="subj">Ihre Schwester</span> <span class="verb">kann</span> das Geld schon heute <b>abholen</b>')
+ .replace(/Dafür kommt Ihr Geld/,'<span class="pos1">Dafür</span> <span class="verb">kommt</span> <span class="subj">Ihr Geld</span>');
+let lv='text';
+function renderMe(){document.getElementById('dlgMe').innerHTML=DL.map(([w,t,s])=>{const me=w==='h';let txt=me?HL(t):t;
+  if(me&&lv==='stich')txt='<i>'+s+'</i>';if(me&&lv==='frei')txt='<span class="small">… (du sprichst)</span>';
+  return `<div class="line"><div class="who ${me?'me':''}">${me?'Frau Hoffmann':'Herr Demir'}</div><div>${txt}</div></div>`}).join('')}
+document.querySelectorAll('.lv').forEach(b=>b.onclick=()=>{lv=b.dataset.lv;document.querySelectorAll('.lv').forEach(x=>x.classList.toggle('active',x===b));renderMe()});
+renderMe();
+
+/* ---------- 5 DREI SÄTZE ---------- */
+const Q3=[
+ ['Warum muss ich meinen Ausweis zeigen? Ich bin doch Stammkunde!','Das verstehe ich. Trotzdem muss ich … · Das schreibt …'],
+ ['Warum wollen Sie wissen, woher mein Geld kommt?','Bei größeren Beträgen müssen wir … · Das gilt für …'],
+ ['Kann mein Bruder das Geld für mich abholen?','Leider kann … nur … · Er braucht dafür …'],
+ ['Ich habe meinen Ausweis vergessen. Können Sie nicht eine Ausnahme machen?','Das tut mir leid. Leider können wir … · Sie können aber …'],
+ ['Letzte Woche war der Kurs besser. Warum bekomme ich heute weniger?','Der Wechselkurs ändert sich … · Deshalb …'],
+ ['Mein Geld ist noch nicht angekommen! Was ist da los?','Das tut mir leid. Darf ich …? · Ich prüfe sofort, ob …']
+];
+let qi=0;
+const qT=makeTimer(30,document.getElementById('q3Fill'),document.getElementById('q3Time'));allTimers.push(qT);
+function q3(){document.getElementById('q3').textContent=Q3[qi][0];document.getElementById('q3HelpText').textContent=Q3[qi][1];document.getElementById('q3HelpText').hidden=true;qT.reset();
+  document.getElementById('q3Prev').disabled=qi===0;document.getElementById('q3Next').disabled=qi===Q3.length-1}
+document.getElementById('q3Start').onclick=()=>qT.start();
+document.getElementById('q3Help').onclick=()=>{const h=document.getElementById('q3HelpText');h.hidden=!h.hidden};
+document.getElementById('q3Prev').onclick=()=>{if(qi>0){qi--;q3()}};
+document.getElementById('q3Next').onclick=()=>{if(qi<Q3.length-1){qi++;q3()}};
+q3();
+
+/* ---------- 6 TELEFONKONFERENZ ---------- */
+const TH=[
+ '<b>Thema: Die Ausweisregel.</b> Viele Kunden verstehen nicht, warum sie bei jeder Überweisung ihren Ausweis zeigen müssen. Sie werden ärgerlich, und die Schlange wird lang.<br><span class="small">Idee: ein kurzes Infoblatt in mehreren Sprachen am Schalter?</span>',
+ '<b>Thema: Schulungen.</b> Für jede neue Regel gibt es eine Schulung vor Ort. Dafür muss jemand die Filiale verlassen, und am Schalter fehlt dann eine Person.<br><span class="small">Idee: kurze Online-Schulungen, die man zwischendurch machen kann?</span>',
+ '<b>Dein eigenes Thema.</b> Was würdest du in deiner Filiale gern verbessern? Nimm das Schema und sag es in einer Minute.'
+];
+document.querySelectorAll('.th').forEach(b=>b.onclick=()=>{document.querySelectorAll('.th').forEach(x=>x.classList.toggle('active',x===b));document.getElementById('thBox').innerHTML=TH[+b.dataset.th];tkT.reset()});
+document.getElementById('thBox').innerHTML=TH[0];
+const tkT=makeTimer(60,document.getElementById('tkFill'),document.getElementById('tkTime'));allTimers.push(tkT);
+document.getElementById('tkStart').onclick=()=>tkT.start();
+const FU=[
+ ['Danke. Was kostet das?','Das kostet nicht viel, weil … · Ich schätze, dass …'],
+ ['Wer soll das machen?','Ich schlage vor, dass … · Ich kann gern …'],
+ ['Warum ist das besser als jetzt?','Das ist besser, weil … · Dann müssen wir nicht mehr …'],
+ ['Das haben wir schon einmal versucht. Es hat nicht funktioniert.','Das wusste ich nicht. Was war damals das Problem? · Trotzdem glaube ich, dass …'],
+ ['Können Sie das bis nächste Woche kurz aufschreiben?','Ja, gern. Ich schicke Ihnen … bis …']
+];
+let fi=0;
+function fu(){document.getElementById('fuPrompt').textContent=FU[fi][0];document.getElementById('fuHelpText').textContent=FU[fi][1];document.getElementById('fuHelpText').hidden=true}
+document.getElementById('fuNext').onclick=()=>{fi=(fi+1)%FU.length;fu()};
+document.getElementById('fuHelp').onclick=()=>{const h=document.getElementById('fuHelpText');h.hidden=!h.hidden};
+fu();
+</script>
+</body></html>
