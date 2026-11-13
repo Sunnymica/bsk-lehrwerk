@@ -159,21 +159,56 @@ table.feld .k{color:var(--bad);font-weight:700}
     <div class="legend"><span class="pos1">Position 1</span><span class="verb">konjugiertes Verb</span><span class="subj">Subjekt</span><span class="kon">Konnektor</span><span class="neb">Nebensatz</span></div>
   </div>
   <div class="panel">
-    <h2>Die Regeln zum Nachschlagen</h2>
-    <div class="hint"><b>So geht’s:</b> Eine Karte geht zweimal daneben? Dann klapp hier die passende Regel auf, lies sie einmal und sag den Satz danach noch einmal laut.</div>
-    <details><summary>weil oder denn – wohin mit dem Verb?</summary>
-      <p><b>weil</b> macht einen Nebensatz: Das Verb geht ans <b>Ende</b>.<br>
-      Max lernt nicht, <span class="kon">weil</span> <span class="neb">er keine Lust <b>hat</b></span>.</p>
-      <p><b>denn</b> sitzt auf der Bank, Position 0 (wie aber, und, sondern, oder). Danach kommt ein ganz normaler Satz: Subjekt, Verb auf 2.<br>
-      Max lernt nicht, <span class="kon">denn</span> <span class="subj">er</span> <span class="verb">hat</span> keine Lust.</p>
-      <div class="box"><b>Eselsbrücke:</b> <b>weil</b> schickt das Verb weg – ans Ende. <b>denn</b> lässt alles, wie es ist.</div>
-    </details>
-    <details><summary>Die Modalverb-Klammer</summary>
-      <p>Zwei Verben, zwei Aufgaben: Das <b>Modalverb</b> wird <b>konjugiert</b> und steht auf Platz 2 (ich muss, du musst, er muss …). Das <b>zweite Verb</b> steht im <b>Infinitiv</b> ganz am Ende.</p>
-      <p><span class="subj">Max</span> <span class="verb">soll</span> jeden Tag die Hausaufgaben <b>aufschreiben</b>.</p>
-      <p>Im Nebensatz rutscht das Modalverb ganz ans Ende, hinter den Infinitiv:<br>… <span class="kon">weil</span> <span class="neb">er seinen Bruder abholen <b>muss</b></span>.</p>
-      <div class="box"><b>Check:</b> Modalverb konjugiert? ✓ Zweites Verb am Ende? ✓ Dann ist die Klammer zu.</div>
-    </details>
+    <h2>Die Regeln auf einen Blick</h2>
+    <div class="hint"><b>So geht’s:</b> Eine Karte geht zweimal daneben? Dann schau hier auf die passende Tabelle und sag den Satz danach noch einmal laut.</div>
+
+    <div class="rule">
+      <div class="rhead"><span class="rnum">1</span> <b>weil</b> schickt das Verb ans <span class="bigE">Ende</span>. <b>denn</b> lässt alles, wie es ist.</div>
+      <div class="lanes">
+        <div class="lane l1"><div class="chips"><span>weil</span><span>dass</span><span>wenn</span><span>obwohl</span></div><div class="arrow">Verb ganz ans <b>ENDE</b> ⇥</div></div>
+        <div class="lane l3"><div class="chips"><span>denn</span><span>aber</span><span>und</span><span>oder</span><span>sondern</span></div><div class="arrow">Position 0 – <b>nichts ändert sich</b> =</div></div>
+      </div>
+      <table class="feld">
+        <tr><th>Hauptsatz</th><th>Konnektor</th><th>Mitte</th><th class="e">Ende<br><small>Verb</small></th></tr>
+        <tr><td>Max lernt nicht,</td><td class="k">weil</td><td>er keine Lust</td><td class="e">hat.</td></tr>
+        <tr><td>Ich gehe in die Sprechstunde,</td><td class="k">weil</td><td>ich mir Sorgen</td><td class="e">mache.</td></tr>
+      </table>
+      <table class="feld">
+        <tr><th>Hauptsatz</th><th>Position 0</th><th>Subjekt</th><th class="v">Verb<br><small>Position 2</small></th><th>Rest</th></tr>
+        <tr><td>Max lernt nicht,</td><td class="k">denn</td><td>er</td><td class="v">hat</td><td>keine Lust.</td></tr>
+        <tr><td>Ich gehe in die Sprechstunde,</td><td class="k">denn</td><td>ich</td><td class="v">mache</td><td>mir Sorgen.</td></tr>
+      </table>
+      <div class="pair"><div class="no">✗ … weil ich mache mir Sorgen.</div><div class="yes">✓ … weil ich mir Sorgen mache.</div></div>
+      <div class="pair"><div class="no">✗ … denn er keine Lust hat.</div><div class="yes">✓ … denn er hat keine Lust.</div></div>
+    </div>
+
+    <div class="rule">
+      <div class="rhead"><span class="rnum">2</span> Modalverb <b>konjugiert</b> auf <span class="big2">Platz 2</span> – Infinitiv ganz ans <span class="bigE">Ende</span>.</div>
+      <table class="feld">
+        <tr><th>Position 1</th><th class="v">Position 2<br><small>Modalverb</small></th><th>Mittelfeld</th><th class="e">Ende<br><small>Infinitiv</small></th></tr>
+        <tr><td>Ich</td><td class="v">muss</td><td>morgen in die Schule</td><td class="e">gehen.</td></tr>
+        <tr><td>Max</td><td class="v">soll</td><td>jeden Tag die Hausaufgaben</td><td class="e">aufschreiben.</td></tr>
+        <tr><td>Heute</td><td class="v">will</td><td>Max nicht</td><td class="e">lernen.</td></tr>
+      </table>
+      <div class="exc" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:10px 0">
+        <div><b>ich muss</b><br>du musst<br>er / sie muss</div>
+        <div><b>wir müssen</b><br>ihr müsst<br>sie / Sie müssen</div>
+        <div><b>ich kann</b><br>du kannst<br>er / sie kann</div>
+        <div><b>ich soll</b><br>du sollst<br>er / sie soll</div>
+      </div>
+      <div class="pair"><div class="no">✗ Ich müssen mit dem Lehrer sprechen.</div><div class="yes">✓ Ich muss mit dem Lehrer sprechen.</div></div>
+      <div class="pair"><div class="no">✗ Max soll jeden Tag seine Hausaufgaben.</div><div class="yes">✓ Max soll jeden Tag seine Hausaufgaben machen.</div></div>
+    </div>
+
+    <div class="rule">
+      <div class="rhead"><span class="rnum">3</span> Modalverb <b>und</b> weil: Das Modalverb geht ganz ans <span class="bigE">Ende</span> – hinter den Infinitiv.</div>
+      <table class="feld">
+        <tr><th>Konnektor</th><th>Mitte</th><th>Infinitiv</th><th class="e">Ende<br><small>Modalverb</small></th></tr>
+        <tr><td class="k">weil</td><td>Max seinen Bruder</td><td>abholen</td><td class="e">muss.</td></tr>
+        <tr><td class="k">weil</td><td>ich wieder als Buchhalterin</td><td>arbeiten</td><td class="e">möchte.</td></tr>
+      </table>
+      <div class="pair"><div class="no">✗ … weil Max muss seinen Bruder abholen.</div><div class="yes">✓ … weil Max seinen Bruder abholen muss.</div></div>
+    </div>
   </div>
 </section>
 
