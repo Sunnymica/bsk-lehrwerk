@@ -1137,18 +1137,11 @@
     </figure>
   </div>
 
-  <div class="auftrag"><span class="auftrag-marke">1. Hören · ohne Text</span><p>Was ist erledigt? Was ist noch offen?</p></div>
-  <details class="kasten">
-    <summary><strong>Lösung</strong></summary>
-    <p><strong>Erledigt:</strong> Die Post wurde jeden Morgen bis zehn Uhr verteilt. Den Eilbrief hat Nora sofort zu Frau Melnyk gebracht. Die Lieferscheine sind bis Freitag abgeheftet.<br>
-    <strong>Offen:</strong> Zwei neue Lieferscheine liegen in der Ablage. Hat das Gespräch mit Herrn Sommer stattgefunden? Und die Pakete – davon hat Nora noch gar nicht erzählt.</p>
-  </details>
+  <div class="auftrag"><span class="auftrag-marke">1. Hören · ohne Text</span><p>Was ist erledigt? Was ist noch offen? Klicken Sie die richtige Antwort an.</p></div>
+  <div id="quiz-lenz-hoeren1"></div>
 
-  <div class="auftrag"><span class="auftrag-marke">2. Noch einmal hören</span><p>Bei Herrn Sommer weiß Nora etwas nicht genau. Wie sagt sie das? Und was macht sie jetzt?</p></div>
-  <details class="kasten">
-    <summary><strong>Lösung</strong></summary>
-    <p>„Das weiß ich leider nicht. Ich vermute ja, weil Pawel nichts mehr gesagt hat. Aber ich frage noch einmal nach.“ – Sie sagt ehrlich, dass sie es nicht weiß, sagt ihre Vermutung mit Grund und verspricht, nachzufragen.</p>
-  </details>
+  <div class="auftrag"><span class="auftrag-marke">2. Noch einmal hören</span><p>Wissen oder vermuten? Wie spricht Nora über Herrn Sommer?</p></div>
+  <div id="quiz-lenz-hoeren2"></div>
 
   <details class="kasten">
     <summary><strong>Das Gespräch zum Nachlesen</strong> (erst nach dem Hören öffnen)</summary>
@@ -1171,7 +1164,9 @@
     <strong>Petra:</strong> Ich habe Zeit. Den Kaffee hatten wir ja schon.</p>
   </details>
 
-  <div class="auftrag"><span class="auftrag-marke">Und jetzt Sie</span><p>Die längere Geschichte mit den Paketen erzählen Sie selbst – und die ganze Übergabe dazu. Weiter mit den Rollenkarten.</p></div>
+  <div class="auftrag"><span class="auftrag-marke">3. Jetzt sind Sie Nora</span><p>Lesen Sie das Gespräch mit verteilten Rollen: Eine Person ist Nora, eine ist Petra. Dann tauschen Sie. Beim zweiten Mal: Nora spricht ohne Text.</p></div>
+  <div class="merker"><span class="marke-merker">Das braucht Nora</span><p><strong>Ich weiß es:</strong> Ich habe … sofort … gebracht. · … ist erledigt. · … liegt in der Ablage.<br><strong>Ich weiß es nicht:</strong> Das weiß ich leider nicht. · Ich vermute, dass … · Das muss ich noch klären. · Ich frage noch einmal nach.</p></div>
+  <div class="auftrag"><span class="auftrag-marke">Und dann</span><p>Die längere Geschichte mit den Paketen erzählen Sie selbst – und die ganze Übergabe dazu. Weiter mit den Rollenkarten.</p></div>
 
   <div class="differenzierung differenzierung--weiter">
     <strong class="differenzierung__stufe">2 · Mündlich übergeben</strong>
@@ -1785,6 +1780,18 @@ blitz('blitz-we-ausgabe','blitz-we-neu',[
 ]);
 
 /* ---- 7 · In der Kaffeeküche, Szene 1 ---- */
+Lehrwerk.auswahl('quiz-lenz-hoeren1',[
+  {id:'lenz1-q1',text:'Bis wann hat Nora die Post verteilt?',optionen:['jeden Morgen bis zehn Uhr','jeden Morgen bis elf Uhr','jeden Morgen bis halb neun'],richtig:['jeden Morgen bis zehn Uhr'],erklaerung:'„Die Post habe ich jeden Morgen bis zehn Uhr verteilt.“'},
+  {id:'lenz1-q2',text:'Was war am Mittwoch anders?',optionen:['Ein Eilbrief kam erst um elf.','Es kam gar keine Post.','Frau Melnyk war nicht da.'],richtig:['Ein Eilbrief kam erst um elf.'],erklaerung:'„Nur am Mittwoch kam ein Eilbrief erst um elf.“'},
+  {id:'lenz1-q3',text:'Was hat Nora mit dem Eilbrief gemacht?',optionen:['Sie hat ihn sofort zu Frau Melnyk gebracht.','Sie hat ihn in die Ablage gelegt.','Sie hat ihn für Petra aufgehoben.'],richtig:['Sie hat ihn sofort zu Frau Melnyk gebracht.'],erklaerung:'„Für Frau Melnyk. Den habe ich sofort zu ihr gebracht.“'},
+  {id:'lenz1-q4',text:'Die Lieferscheine: Was ist noch offen?',optionen:['Zwei neue von heute liegen noch in der Ablage.','Alle Lieferscheine fehlen noch.','Nichts. Alles ist abgeheftet.'],richtig:['Zwei neue von heute liegen noch in der Ablage.'],erklaerung:'„Die sind alle bis Freitag abgeheftet. Zwei neue von heute liegen noch in der Ablage.“'}
+]);
+Lehrwerk.auswahl('quiz-lenz-hoeren2',[
+  {id:'lenz2-q1',text:'Hat das Gespräch mit Herrn Sommer stattgefunden?',optionen:['Nora weiß es nicht genau.','Ja, am Dienstag um neun.','Nein, Herr Sommer ist nicht gekommen.'],richtig:['Nora weiß es nicht genau.'],erklaerung:'„Das weiß ich leider nicht.“'},
+  {id:'lenz2-q2',text:'Wie sagt Nora, dass sie etwas nur vermutet?',optionen:['„Ich vermute ja, weil Pawel nichts mehr gesagt hat.“','„Ja, das Gespräch hat stattgefunden.“','„Das ist nicht mein Problem.“'],richtig:['„Ich vermute ja, weil Pawel nichts mehr gesagt hat.“'],erklaerung:'Sie sagt ehrlich: Ich weiß es nicht. Dann sagt sie ihre Vermutung – mit Grund.'},
+  {id:'lenz2-q3',text:'Und was macht Nora jetzt?',optionen:['Sie fragt noch einmal bei Pawel nach.','Sie ruft Herrn Sommer an.','Sie macht nichts mehr.'],richtig:['Sie fragt noch einmal bei Pawel nach.'],erklaerung:'„Aber ich frage noch einmal nach.“'},
+  {id:'lenz2-q4',text:'Und die Pakete?',optionen:['Davon erzählt Nora noch nicht – das ist eine längere Geschichte.','Es sind keine Pakete gekommen.','Petra hat sie schon abgeholt.'],richtig:['Davon erzählt Nora noch nicht – das ist eine längere Geschichte.'],erklaerung:'„Oh, die Pakete … Das ist eine längere Geschichte.“ Die erzählen Sie gleich selbst!'}
+]);
 Lehrwerk.auswahl('quiz-kueche-hoeren1',[
   {id:'kue1-q1',text:'Wo war Petra im Urlaub?',optionen:['in Spanien, auf Mallorca','in Italien, am Meer','in den Bergen'],richtig:['in Spanien, auf Mallorca'],erklaerung:'„In Spanien. Auf Mallorca.“'},
   {id:'kue1-q2',text:'Mit wem war Petra in der ersten Woche dort?',optionen:['mit ihrer Schwester','allein','mit einer Kollegin'],richtig:['mit ihrer Schwester'],erklaerung:'„Die erste Woche mit meiner Schwester.“'},
