@@ -889,3 +889,22 @@ details > summary .symbol { margin-top: -0.2rem; }
 .monat[open] > summary::before { transform: rotate(90deg); }
 .monat > summary h2 { display: inline; margin: 0.8rem 0 0.6rem; }
 .monat__zahl { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tinte-weich); }
+
+/* ---------- Regeln auf einen Blick (Feldertabellen, Rot-Grün-Paare, Leiter) ---------- */
+.lw-regel { border: 1px solid rgba(0,0,0,.12); border-radius: 14px; padding: 1rem 1.2rem; margin: 1rem 0; background: #fff; }
+.lw-regel__kopf { font-family: var(--display, Georgia, serif); font-size: 1.2rem; margin: 0 0 .7rem; }
+.lw-regel__kopf .lw-hi { background: #D6EFD2; color: #2C4A28; font-weight: 700; padding: 0 .4rem; border-radius: 5px; }
+.lw-felder { border-collapse: collapse; width: 100%; margin: .6rem 0; font-size: 1.05rem; }
+.lw-felder th { font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: #6b6f7a; text-align: left; padding: .35rem .6rem; border-bottom: 2px solid rgba(0,0,0,.12); }
+.lw-felder td { padding: .55rem .6rem; border: 1px solid rgba(0,0,0,.1); }
+.lw-felder .lw-v { background: #D6EFD2; color: #2C4A28; font-weight: 700; }
+.lw-felder .lw-e { background: #E6F2EA; color: #2C4A28; font-weight: 700; }
+.lw-paar { display: grid; gap: .25rem; margin: .5rem 0; }
+.lw-falsch { background: #FBD5D5; border-left: 6px solid #B03030; padding: .45rem .8rem; border-radius: 8px; }
+.lw-richtig { background: #D6EFD2; border-left: 6px solid #2E6B4A; padding: .45rem .8rem; border-radius: 8px; font-weight: 600; }
+.lw-leiter { display: grid; gap: .4rem; margin: .6rem 0; }
+.lw-leiter div { border-radius: 10px; padding: .55rem .9rem; display: grid; grid-template-columns: 2.2rem 1fr; align-items: center; gap: .5rem; }
+.lw-leiter .lw-stufe { font-size: 1.3rem; text-align: center; }
+.lw-leiter .lw-s1 { background: #F3F1EC; } .lw-leiter .lw-s2 { background: #E6F2EA; } .lw-leiter .lw-s3 { background: #D6EFD2; }
+.lw-leiter .lw-s0 { background: #FBD5D5; }
+.lw-leiter small { display: block; color: #6b6f7a; }
