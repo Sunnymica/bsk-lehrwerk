@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Yuliia · Freundlich, aber klar</title>
+<style>
+:root{--ink:#24324d;--amber:#96506e;--pale:#f8ecf1;--sky:#eaf0f7;--cream:#fdfaf7;--line:#e5dbe0;--muted:#6b6f7a;--ok:#2e6b4a;--bad:#b03030}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:19px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+button,textarea,input{font:inherit;color:inherit}
+button{cursor:pointer;border:1px solid var(--line);background:#fff;padding:10px 16px;border-radius:10px}
+button:hover{background:var(--sky)}
+button:disabled{opacity:.4;cursor:default}
+button.active,button.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+button:focus-visible,summary:focus-visible,textarea:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+header{padding:36px max(24px,calc((100% - 1080px)/2));background:#fff;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+header:after{content:'🤝';position:absolute;font-size:170px;opacity:.08;right:4%;top:-30px;pointer-events:none}
+.eyebrow{font-size:12px;letter-spacing:.17em;text-transform:uppercase;font-weight:700;color:var(--amber)}
+h1{font:clamp(32px,5vw,48px)/1.12 Georgia,serif;margin:12px 0}
+h2{font:28px/1.2 Georgia,serif;margin:0 0 12px}
+h3{font-size:19px;margin:18px 0 8px}
+p{margin:8px 0 12px}
+.sub{max-width:720px;color:var(--muted)}
+.wrap{max-width:1100px;margin:auto;padding:24px}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;margin-bottom:22px}
+.hint{background:var(--sky);border-radius:12px;padding:14px 18px;margin:12px 0}
+.box{background:var(--pale);border-radius:12px;padding:14px 18px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff}
+.num{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--amber)}
+textarea{width:100%;min-height:64px;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--cream);resize:vertical}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;align-items:center}
+.prompt{font:26px/1.4 Georgia,serif;background:var(--pale);border-left:6px solid var(--amber);border-radius:10px;padding:18px 22px;margin:14px 0;min-height:80px}
+.twist{background:#fbe3e3;border-left-color:var(--bad)}
+.solution{font:24px/1.45 Georgia,serif;background:#fff;border:2px dashed var(--line);border-radius:10px;padding:16px 22px;min-height:70px}
+.tag{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--sky);border-radius:999px;padding:2px 12px;margin-bottom:8px}
+.stat{font-size:16px;color:var(--muted)}
+/* Farbsystem Satzbau */
+.kon{color:var(--bad);font-weight:700}.verb{color:var(--ok);font-weight:700}.subj{color:#2457a6;font-weight:700}.neb{color:#7a3fa0}.pos1{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:15px;margin:6px 0 0}
+/* Dialog */
+.line{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.who{font-weight:700}.who.me{color:var(--amber)}
+/* Artikel-Blitz */
+.word{font:44px/1.2 Georgia,serif;text-align:center;padding:26px 10px;background:var(--pale);border-radius:14px;margin:12px 0}
+.word.ok{background:#e3f1e8}.word.no{background:#fbe3e3}
+.art{font-size:24px;min-width:110px}
+/* viel / zu viel */
+.vz{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0}
+.vz .s{font-size:21px}
+.vz .gapx{display:inline-block;min-width:90px;border-bottom:2px solid var(--amber);text-align:center;font-weight:700}
+.vz .opts{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.vz .opts button{padding:6px 14px}
+.vz .fb{margin-top:8px;font-size:17px}
+.okb{background:#e3f1e8!important;border-color:var(--ok)!important}.nob{background:#fbe3e3!important;border-color:var(--bad)!important}
+details{border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0;background:#fff}
+summary{cursor:pointer;font-weight:700}
+.small{font-size:15px;color:var(--muted)}
+.tuv{display:flex;gap:16px;flex-wrap:wrap;margin:8px 0;font-size:16px}
+.tuv label{display:flex;gap:6px;align-items:center}
+.det{font:26px/2.2 Georgia,serif;background:var(--pale);border-radius:12px;padding:18px 22px;margin:12px 0}
+.slot,.slotdemo{display:inline-block;min-width:26px;text-align:center;color:#b9a68f;cursor:pointer;border-radius:6px;padding:0 4px;font-weight:700}
+.slot:hover{background:#fff}
+.slot.on{background:var(--ink);color:#fff}
+.slot.hit{background:#e3f1e8;color:var(--ok)}
+.slot.miss{background:#fde9cf;color:var(--amber)}
+.slot.wrong{background:#fbe3e3;color:var(--bad);text-decoration:line-through}
+/* Regeln visuell */
+.rule{border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:16px 0;background:#fff}
+.rhead{font:22px/1.35 Georgia,serif;margin-bottom:12px}
+.rnum{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;font:700 18px system-ui;margin-right:8px;vertical-align:middle}
+.big2{background:#d8eedf;color:var(--ok);font-weight:700;padding:0 8px;border-radius:6px}
+.bigE{background:#d8eedf;color:var(--ok);font-weight:700;padding:0 8px;border-radius:6px}
+table.feld{border-collapse:collapse;width:100%;margin:10px 0;font-size:20px}
+table.feld th{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 10px;border-bottom:2px solid var(--line)}
+table.feld th small{text-transform:none;letter-spacing:0}
+table.feld td{padding:10px;border:1px solid var(--line)}
+table.feld .v{background:#d8eedf;font-weight:700;color:var(--ok)}
+table.feld .e{background:#e6f2ea;font-weight:700;color:var(--ok)}
+table.feld .k{color:var(--bad);font-weight:700}
+.pair{margin:10px 0;display:grid;gap:4px;font-size:20px}
+.pair .no{background:#fbd5d5;border-left:6px solid var(--bad);padding:8px 14px;border-radius:8px}
+.pair .yes{background:#d8eedf;border-left:6px solid var(--ok);padding:8px 14px;border-radius:8px;font-weight:600}
+.lanes{display:grid;gap:8px;margin:8px 0 12px}
+.lane{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;border-radius:12px;padding:10px 14px}
+.lane.l1{background:#f3e6f7}.lane.l2{background:#fdeedd}.lane.l3{background:#eef1f5}
+.chips span{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:999px;padding:2px 12px;margin:2px;font-weight:700;color:var(--bad)}
+.arrow{font-size:18px;white-space:nowrap}
+.formula{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:8px 0 12px}
+.formula .fb{background:#e3ecf7;border:2px solid #2457a6;border-radius:12px;padding:10px 16px;font-weight:700;color:#2457a6;text-align:center}
+.formula .plus{font:700 32px Georgia,serif}
+.formula .fn{background:#fff;border:2px solid var(--ink);border-radius:12px;padding:14px 22px;font:700 22px Georgia,serif}
+.exc{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.exc>div{background:var(--pale);border-radius:12px;padding:12px 14px;font-size:17px}
+.exc .ico{display:block;font-size:26px;margin-bottom:4px}
+.own{border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+.own .no{background:#fbd5d5;border-left:6px solid var(--bad);padding:10px 14px;border-radius:8px;font:22px/1.4 Georgia,serif}
+.steps3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.steps3>div{background:var(--pale);border-radius:12px;padding:14px 16px}
+.bridge{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.bridge button{display:block;width:100%;text-align:left;margin:6px 0;font-size:19px}
+.bridge button.sel{background:var(--ink);color:#fff}
+.bridge button.done{background:#d8eedf;border-color:var(--ok);color:var(--ok);font-weight:700;cursor:default}
+.bridge button.wrong{background:#fbd5d5;border-color:var(--bad)}
+[hidden]{display:none!important}
+.leiter{display:grid;gap:8px;margin:12px 0}
+.leiter .st{display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:center;border-radius:14px;padding:12px 16px;font-size:20px}
+.leiter .st>span{font-size:32px;text-align:center}
+.leiter .st small{display:block;color:var(--muted);font-size:15px}
+.leiter .weich{background:#fdeedd;margin-right:12%}
+.leiter .gut{background:#d8eedf;border:2px solid var(--ok)}
+.leiter .hart{background:#fbd5d5;margin-left:12%}
+button.so{font-size:19px}
+</style>
+</head><body>
+<header>
+  <a href="../einzelcoaching.html" style="display:inline-block;margin-bottom:10px;color:inherit;font-size:15px">← Einzelcoaching</a>
+  <div class="eyebrow">Einzelcoaching · Yuliia</div>
+  <h1>Freundlich, aber klar</h1>
+  <p class="sub">Jemand steht ohne Termin am Empfang und will sofort zur Beraterin. Du bleibst ruhig, sagst Nein und bietest trotzdem etwas an. Danach übergibst du sachlich an die Kollegin.</p>
+</header>
+<div class="wrap">
+<nav>
+  <button data-tab="t1" class="active">1 · Mein Arbeitsplatz</button>
+  <button data-tab="t2">2 · Ohne Termin</button>
+  <button data-tab="t3">3 · Freundlich, aber klar</button>
+  <button data-tab="t4">4 · Bootcamp</button>
+  <button data-tab="t5">5 · Du bist dran</button>
+  <button data-tab="t6">6 · Rollenspiel</button>
+  <button data-tab="t7">7 · Die Übergabe</button>
+  <button data-tab="t8">8 · Das kann ich</button>
+</nav>
+<main>
+
+<!-- 1 MEIN ARBEITSPLATZ -->
+<section id="t1">
+  <div class="panel">
+    <h2>Mein Arbeitsplatz</h2>
+    <p>Bevor wir üben: Erzähl von deiner Arbeit. Nimm eine Karte nach der anderen. Die Satzanfänge helfen, wenn du nicht weiterkommst.</p>
+    <div class="hint"><b>Wichtig:</b> Ohne Namen und ohne private Details von anderen. Sag einfach „ein Klient“, „eine Kollegin“.</div>
+    <div class="grid">
+      <div class="card"><div class="num">1</div>Wo arbeitest du? Was macht deine Einrichtung?<details><summary>Satzanfänge</summary>Ich arbeite in … · Wir sind eine Einrichtung für … · Zu uns kommen Menschen, die …</details></div>
+      <div class="card"><div class="num">2</div>Wer kommt zu euch? Was brauchen die Leute?<details><summary>Satzanfänge</summary>Viele brauchen Hilfe bei … · Manche haben eine Frage zu … · Einige kommen, weil …</details></div>
+      <div class="card"><div class="num">3</div>Jemand kommt herein. Was machst du zuerst?<details><summary>Satzanfänge</summary>Zuerst begrüße ich … · Dann frage ich, ob … · Danach schaue ich im Kalender nach, …</details></div>
+      <div class="card"><div class="num">4</div>Was erledigst du selbst? Was gibst du weiter?<details><summary>Satzanfänge</summary>Ich bin zuständig für … · Um … kümmere ich mich selbst. · … gebe ich an … weiter.</details></div>
+      <div class="card"><div class="num">5</div>Was ist manchmal schwierig?<details><summary>Satzanfänge</summary>Schwierig ist es, wenn … · Dann muss ich … · Manchmal darf ich nicht …</details></div>
+      <div class="card"><div class="num">6</div>Was gefällt dir an deiner Arbeit?<details><summary>Satzanfänge</summary>Mir gefällt, dass … · Ich mag es, wenn … · Am liebsten …</details></div>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>Mein Tag in fünf Sätzen</h2>
+    <p>Jeder Satz beginnt mit einem anderen Wort. Das Verb bleibt trotzdem auf Platz 2.</p>
+    <table class="feld">
+      <tr><th>Position 1</th><th class="v">Position 2<br><small>Verb</small></th><th>Mittelfeld</th><th class="e">Ende</th></tr>
+      <tr><td>Zuerst</td><td class="v">öffne</td><td>ich die Post.</td><td class="e"></td></tr>
+      <tr><td>Um neun Uhr</td><td class="v">kommen</td><td>die ersten Besucher.</td><td class="e"></td></tr>
+      <tr><td>Danach</td><td class="v">rufe</td><td>ich …</td><td class="e">an.</td></tr>
+      <tr><td>Am Nachmittag</td><td class="v">muss</td><td>ich …</td><td class="e">schreiben.</td></tr>
+      <tr><td>Zum Schluss</td><td class="v">…</td><td>…</td><td class="e"></td></tr>
+    </table>
+    <div class="pair"><div class="no">✗ Zuerst ich öffne die Post.</div><div class="yes">✓ Zuerst öffne ich die Post.</div></div>
+    <div class="hint"><b>Jetzt du:</b> Zuerst … · Um … Uhr … · Danach … · Am Nachmittag … · Zum Schluss …</div>
+  </div>
+</section>
+
+<!-- 2 HÖREN -->
+<section id="t2" hidden>
+  <div class="panel">
+    <h2>Ohne Termin</h2>
+    <p>Eine Beratungsstelle, kurz nach zehn Uhr. Frau Winter arbeitet in der Verwaltung und am Empfang. Da kommt Herr Braun herein. Er hat keinen Termin, aber er hat es sehr eilig.</p>
+    <div id="audioBox" class="box"><b>Hör zu.</b> Beim ersten Mal nur hören, nichts lesen.
+      <audio id="aud" controls preload="auto" src="../../assets/audio/coaching-ohne-termin-a.mp3" style="width:100%;margin-top:10px"></audio></div>
+    <h3>Beim Hören: Was passiert?</h3>
+    <div class="grid">
+      <div class="card"><div class="num">1</div>Was will Herr Braun?<details><summary>Lösung</summary>Er will sofort zu Frau Sander, ohne Termin.</details></div>
+      <div class="card"><div class="num">2</div>Warum ist es für ihn so dringend?<details><summary>Lösung</summary>Er hat einen Brief mit einer Frist bekommen. Bis Freitag muss er antworten.</details></div>
+      <div class="card"><div class="num">3</div>Warum holt Frau Winter die Beraterin nicht?<details><summary>Lösung</summary>Frau Sander ist in einem Gespräch. Ein Beratungsgespräch darf Frau Winter nicht unterbrechen.</details></div>
+      <div class="card"><div class="num">4</div>Herr Braun wird laut. Was sagt Frau Winter?<details><summary>Lösung</summary>„Ich möchte Ihnen helfen. Aber bitte sprechen Sie nicht so laut mit mir.“</details></div>
+      <div class="card"><div class="num">5</div>Was bietet Frau Winter an? Drei Dinge.<details><summary>Lösung</summary>Sie kopiert den Brief und legt ihn Frau Sander hin. Sie gibt ihm einen Termin für morgen um neun Uhr. Sie notiert, dass er auf einen Anruf hofft.</details></div>
+      <div class="card"><div class="num">6</div>Was verspricht Frau Winter nicht?<details><summary>Lösung</summary>Dass Frau Sander ihn heute noch anruft. „Das kann ich Ihnen nicht versprechen.“</details></div>
+    </div>
+    <details style="margin-top:18px"><summary>Das Gespräch zum Mitlesen</summary><div id="dlgFull"></div></details>
+    <div class="hint"><b>Achte auf die farbigen Stellen.</b> Genau diese Sätze trainierst du im Bootcamp.</div>
+  </div>
+</section>
+
+<!-- 3 FREUNDLICH, ABER KLAR -->
+<section id="t3" hidden>
+  <div class="panel">
+    <h2>Die Formel von Frau Winter</h2>
+    <p>Frau Winter sagt Nein, und Herr Braun bedankt sich am Ende trotzdem. Wie macht sie das? Sie geht immer dieselben vier Schritte.</p>
+    <div class="steps3" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr))">
+      <div><span class="rnum">1</span><b>Verständnis</b><br>Ich sehe, dass Sie sich Sorgen machen. · Das verstehe ich.</div>
+      <div><span class="rnum">2</span><b>Klares Nein</b><br>Das kann ich leider nicht machen. · Ich darf … nicht …</div>
+      <div><span class="rnum">3</span><b>Grenze</b><br>Ich möchte Ihnen helfen. Aber bitte sprechen Sie nicht so laut mit mir.</div>
+      <div><span class="rnum">4</span><b>Angebot</b><br>Dann machen wir Folgendes: … · Morgen um neun Uhr ist noch etwas frei.</div>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>Die Leiter: Wie sage ich Nein?</h2>
+    <p>Herr Braun sagt: „Dann holen Sie sie bitte heraus!“ Drei mögliche Antworten:</p>
+    <div class="leiter">
+      <div class="st weich"><span>🫣</span><div><b>zu weich</b> · „Na gut, ich schaue mal, ob ich sie kurz stören kann …“<small>Du gibst nach. Beim nächsten Mal wird er wieder laut.</small></div></div>
+      <div class="st gut"><span>🙂</span><div><b>genau richtig</b> · „Das kann ich leider nicht machen. Ich darf ein Beratungsgespräch nicht unterbrechen.“<small>Freundlicher Ton, klarer Inhalt, kurzer Grund.</small></div></div>
+      <div class="st hart"><span>😠</span><div><b>zu hart</b> · „Ohne Termin geht hier gar nichts.“<small>Der Inhalt stimmt, aber der Ton macht den Streit größer.</small></div></div>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>Zu weich, genau richtig oder zu hart?</h2>
+    <p>Lies den Satz laut, so wie er gemeint ist. Dann entscheide.</p>
+    <div id="soPrompt" class="prompt" aria-live="polite"></div>
+    <div class="controls">
+      <button class="so" data-so="weich">🫣 zu weich</button>
+      <button class="so" data-so="gut">🙂 genau richtig</button>
+      <button class="so" data-so="hart">😠 zu hart</button>
+      <span id="soStat" class="stat"></span>
+    </div>
+    <p id="soFb" class="hint" hidden></p>
+    <div class="controls"><button id="soNext" class="primary" hidden>Weiter →</button></div>
+  </div>
+</section>
+
+<!-- 4 BOOTCAMP -->
+<section id="t4" hidden>
+  <div class="panel">
+    <h2>Bootcamp: Die Sätze von Frau Winter</h2>
+    <p>Du siehst Bausteine. Du sagst sofort den ganzen Satz, laut. Dann kommt die Lösung. Richtig beim ersten Mal? Weiter. Nicht ganz? Die Karte kommt später noch einmal.</p>
+    <div class="controls">
+      <button class="cat active" data-cat="alle">Alles gemischt</button>
+      <button class="cat" data-cat="pos2">Verb auf Position 2</button>
+      <button class="cat" data-cat="modal">Modalverb-Klammer</button>
+      <button class="cat" data-cat="neben">Zwei Sätze verbinden</button>
+      <button class="cat" data-cat="artikel">Artikel-Alarm</button>
+    </div>
+    <div id="bcTag" class="tag"></div>
+    <div id="bcPrompt" class="prompt" aria-live="polite"></div>
+    <div id="bcSol" class="solution" aria-live="polite"><span class="small">Erst sprechen. Dann klicken.</span></div>
+    <div class="controls">
+      <button id="bcShow" class="primary">Lösung zeigen</button>
+      <button id="bcOk" disabled>✓ Sofort richtig</button>
+      <button id="bcAgain" disabled>↻ Nochmal – später</button>
+      <span id="bcStat" class="stat"></span>
+    </div>
+    <div class="legend"><span class="pos1">Position 1</span><span class="verb">konjugiertes Verb</span><span class="subj">Subjekt</span><span class="kon">Konnektor</span><span class="neb">Nebensatz</span></div>
+  </div>
+  <div class="panel">
+    <h2>Die Regeln auf einen Blick</h2>
+    <div class="rule">
+      <div class="rhead"><span class="rnum">1</span> Das Verb steht auf <span class="big2">Platz 2</span> – egal, was vorne steht.</div>
+      <table class="feld">
+        <tr><th>Position 1</th><th class="v">Position 2<br><small>Verb</small></th><th>Mittelfeld</th><th class="e">Ende</th></tr>
+        <tr><td>Im Moment</td><td class="v">ist</td><td>Frau Sander in einem Gespräch.</td><td class="e"></td></tr>
+        <tr><td>Heute</td><td class="v">hat</td><td>sie leider keinen freien Termin mehr.</td><td class="e"></td></tr>
+        <tr><td>Dann</td><td class="v">machen</td><td>wir Folgendes.</td><td class="e"></td></tr>
+      </table>
+      <div class="pair"><div class="no">✗ Heute sie hat keinen Termin mehr.</div><div class="yes">✓ Heute hat sie keinen Termin mehr.</div></div>
+    </div>
+    <div class="rule">
+      <div class="rhead"><span class="rnum">2</span> Modalverb auf <span class="big2">Platz 2</span> – Infinitiv ganz ans <span class="bigE">Ende</span>.</div>
+      <table class="feld">
+        <tr><th>Position 1</th><th class="v">Position 2<br><small>Modalverb</small></th><th>Mittelfeld</th><th class="e">Ende<br><small>Infinitiv</small></th></tr>
+        <tr><td>Ich</td><td class="v">darf</td><td>ein Beratungsgespräch nicht</td><td class="e">unterbrechen.</td></tr>
+        <tr><td>Das</td><td class="v">kann</td><td>ich Ihnen nicht</td><td class="e">versprechen.</td></tr>
+        <tr><td>Ich</td><td class="v">möchte</td><td>Ihnen</td><td class="e">helfen.</td></tr>
+      </table>
+      <div class="pair"><div class="no">✗ Ich darf nicht unterbrechen ein Gespräch.</div><div class="yes">✓ Ich darf ein Gespräch nicht unterbrechen.</div></div>
+    </div>
+    <div class="rule">
+      <div class="rhead"><span class="rnum">3</span> Nach <span class="kon">dass, weil, wenn, sobald</span>: Verb ganz ans <span class="bigE">Ende</span>.</div>
+      <table class="feld">
+        <tr><th>Hauptsatz</th><th>Konnektor</th><th>Mitte</th><th class="e">Ende<br><small>Verb</small></th></tr>
+        <tr><td>Ich sehe,</td><td class="k">dass</td><td>Sie sich Sorgen</td><td class="e">machen.</td></tr>
+        <tr><td>Ich sage es ihr,</td><td class="k">sobald</td><td>sie frei</td><td class="e">ist.</td></tr>
+        <tr><td>Sie ruft Sie an,</td><td class="k">wenn</td><td>sie Zeit</td><td class="e">hat.</td></tr>
+      </table>
+      <div class="pair"><div class="no">✗ Ich sehe, dass Sie machen sich Sorgen.</div><div class="yes">✓ Ich sehe, dass Sie sich Sorgen machen.</div></div>
+    </div>
+    <div class="rule">
+      <div class="rhead"><span class="rnum">4</span> Ein Nomen braucht fast immer einen <span class="big2">Artikel</span>.</div>
+      <table class="feld">
+        <tr><th>zum ersten Mal: unbestimmter Artikel</th><th>schon bekannt: bestimmter Artikel</th></tr>
+        <tr><td>Er hat <b>einen</b> Brief bekommen.</td><td>Ich kopiere <b>den</b> Brief.</td></tr>
+        <tr><td>Haben Sie <b>einen</b> Termin?</td><td><b>Der</b> Termin ist morgen um neun Uhr.</td></tr>
+      </table>
+      <div class="pair"><div class="no">✗ Ich lege Kopie auf Schreibtisch.</div><div class="yes">✓ Ich lege die Kopie auf den Schreibtisch.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 DU BIST DRAN -->
+<section id="t5" hidden>
+  <div class="panel">
+    <h2>Du bist dran: Yuliia am Empfang</h2>
+    <p>Du bist Frau Winter. Regina ist Herr Braun, und er hat keine gute Laune.</p>
+    <div class="controls">
+      <button class="lv active" data-lv="text">Ganzer Text</button>
+      <button class="lv" data-lv="stich">Nur Stichworte</button>
+      <button class="lv" data-lv="frei">Frei – nur Herr Braun</button>
+    </div>
+    <div id="dlgMe"></div>
+    <div class="hint"><b>Dreimal:</b> mit Text, mit Stichworten, frei. Nach jedem Durchgang: Satz-TÜV.
+      <div class="tuv"><label><input type="checkbox">Verb auf 2?</label><label><input type="checkbox">Nebensatz: Verb am Ende?</label><label><input type="checkbox">Artikel da?</label><label><input type="checkbox">Freundlich geblieben?</label></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 ROLLENSPIEL -->
+<section id="t6" hidden>
+  <div class="panel">
+    <h2>Rollenspiel: Drei Besucher, drei Stufen</h2>
+    <p>Keine Vorbereitung. Ein Gedanke, ein Satz. Rote Karten sind Überraschungen. Denk an die Formel: Verständnis, klares Nein, Grenze, Angebot.</p>
+    <div class="controls">
+      <button class="md active" data-md="A">Stufe 1 · Frau Lang (hartnäckig)</button>
+      <button class="md" data-md="B">Stufe 2 · Herr Braun (laut)</button>
+      <button class="md" data-md="C">Stufe 3 · Frau Stein (möchte zu viel)</button>
+    </div>
+    <div id="rsPrompt" class="prompt" aria-live="polite"></div>
+    <div class="controls">
+      <button id="rsPrev">← Zurück</button>
+      <button id="rsNext" class="primary">Weiter →</button>
+      <button id="rsHelp">Satzanfang zeigen</button>
+    </div>
+    <p id="rsHelpText" class="hint" hidden></p>
+    <div class="tuv"><label><input type="checkbox">Verb auf 2?</label><label><input type="checkbox">Nebensatz: Verb am Ende?</label><label><input type="checkbox">Artikel?</label><label><input type="checkbox">Freundlich, aber klar?</label></div>
+  </div>
+</section>
+
+<!-- 7 DIE ÜBERGABE -->
+<section id="t7" hidden>
+  <div class="panel">
+    <h2>Die Übergabe</h2>
+    <p>Elf Uhr. Frau Sander kommt aus ihrem Gespräch. Frau Winter berichtet in einer halben Minute, was passiert ist.</p>
+    <div id="audioBoxB" class="box"><b>Hör zu.</b> Was sagt Frau Winter über Herrn Braun, und was sagt sie nicht?
+      <audio id="audB" controls preload="auto" src="../../assets/audio/coaching-ohne-termin-b.mp3" style="width:100%;margin-top:10px"></audio></div>
+    <details><summary>Die Übergabe zum Mitlesen</summary><div id="dlgB"></div></details>
+    <h3>Die fünf Fragen jeder Übergabe</h3>
+    <div class="steps3" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr))">
+      <div><span class="rnum">1</span><b>Wer? Wann?</b><br>Herr Braun war kurz nach zehn hier, ohne Termin.</div>
+      <div><span class="rnum">2</span><b>Was wollte er?</b><br>Er hat einen Brief mit einer Frist bekommen.</div>
+      <div><span class="rnum">3</span><b>Wie war er?</b><br>Er war sehr nervös und am Anfang auch laut.</div>
+      <div><span class="rnum">4</span><b>Was habe ich gemacht?</b><br>Ich habe ihm einen Termin für morgen gegeben.</div>
+      <div><span class="rnum">5</span><b>Was ist offen?</b><br>Er hofft auf einen Anruf. Ich habe nichts versprochen.</div>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>Sagen, was war – nicht, was ich denke</h2>
+    <p>Bei einer Übergabe zählt, was du gesehen und gehört hast. Deine Meinung über den Menschen gehört nicht hinein.</p>
+    <div class="pair"><div class="no">✗ Herr Braun war wieder unmöglich.</div><div class="yes">✓ Herr Braun war sehr nervös und am Anfang laut.</div></div>
+    <div class="pair"><div class="no">✗ Er hat bestimmt wieder irgendein Problem.</div><div class="yes">✓ Er hat einen Brief mit einer Frist bis Freitag bekommen.</div></div>
+    <div class="pair"><div class="no">✗ Ich habe ihm gesagt, dass Sie gleich anrufen.</div><div class="yes">✓ Er hofft, dass Sie anrufen. Ich habe ihm nichts versprochen.</div></div>
+    <h3>Was passiert ist: Perfekt</h3>
+    <table class="feld">
+      <tr><th>Position 1</th><th class="v">Position 2<br><small>haben / sein</small></th><th>Mittelfeld</th><th class="e">Ende<br><small>Partizip</small></th></tr>
+      <tr><td>Er</td><td class="v">hat</td><td>einen Brief mit einer Frist</td><td class="e">bekommen.</td></tr>
+      <tr><td>Ich</td><td class="v">habe</td><td>ihm einen Termin für morgen</td><td class="e">gegeben.</td></tr>
+      <tr><td>Danach</td><td class="v">hat</td><td>er sich</td><td class="e">entschuldigt.</td></tr>
+    </table>
+    <div class="hint"><b>Aber:</b> „Er <b>war</b> nervös.“ „Er <b>war</b> um zehn Uhr hier.“ Bei <i>sein</i> nimmt man im Gespräch meistens <i>war</i>.</div>
+  </div>
+  <div class="panel">
+    <h2>Jetzt du: Deine Übergabe</h2>
+    <p>Denk an eine Situation aus deiner Arbeit in dieser Woche. Ohne Namen: „ein Klient“, „eine Klientin“. Erst mündlich mit den fünf Fragen, dann in drei bis fünf Sätzen schriftlich.</p>
+    <textarea style="min-height:180px" placeholder="Heute Vormittag war …"></textarea>
+    <div class="tuv"><label><input type="checkbox">Wer? Wann?</label><label><input type="checkbox">Nur Tatsachen?</label><label><input type="checkbox">Perfekt: Partizip am Ende?</label><label><input type="checkbox">alle Artikel?</label><label><input type="checkbox">Was ist offen?</label></div>
+  </div>
+</section>
+
+<!-- 8 DAS KANN ICH -->
+<section id="t8" hidden>
+  <div class="panel">
+    <h2>Das kann ich</h2>
+    <div class="grid">
+      <div class="card">✓ Ich kann meinen Arbeitsplatz und meinen Tag beschreiben.</div>
+      <div class="card">✓ Ich kann freundlich Nein sagen und den Grund nennen.</div>
+      <div class="card">✓ Ich kann eine Grenze ziehen, wenn jemand laut wird.</div>
+      <div class="card">✓ Ich kann eine Lösung anbieten und zusammenfassen.</div>
+      <div class="card">✓ Ich kann sachlich an eine Kollegin übergeben.</div>
+    </div>
+    <h2 style="margin-top:28px">Bis zum nächsten Mal</h2>
+    <div class="steps3">
+      <div><span class="rnum">1</span><b>Jeden Tag · 10 Min.</b><br>Bootcamp: alle Karten laut, bis jede einmal „sofort richtig“ ist.</div>
+      <div><span class="rnum">2</span><b>Zweimal</b><br>Das Gespräch hören und Frau Winters Rolle laut mitsprechen.</div>
+      <div><span class="rnum">3</span><b>Bei der Arbeit</b><br>Einmal bewusst die Formel benutzen: Verständnis, klares Nein, Angebot. Wie hat es funktioniert?</div>
+    </div>
+  </div>
+</section>
+</main></div>
+<script>
+const tabs=document.querySelectorAll('[data-tab]');
+tabs.forEach(b=>b.onclick=()=>{document.querySelectorAll('main>section').forEach(s=>s.hidden=s.id!==b.dataset.tab);tabs.forEach(x=>x.classList.toggle('active',x===b));window.scrollTo(0,0)});
+[['aud','audioBox'],['audB','audioBoxB']].forEach(([a,b])=>document.getElementById(a).addEventListener('error',()=>{document.getElementById(b).hidden=true},true));
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const V=s=>'<span class="verb">'+s+'</span>', S=s=>'<span class="subj">'+s+'</span>', P=s=>'<span class="pos1">'+s+'</span>', K=s=>'<span class="kon">'+s+'</span>', N=s=>'<span class="neb">'+s+'</span>';
+
+/* ---------- DIALOG A: [wer, Text, Stichworte, Text mit Farben] ---------- */
+const DL=[
+ ['b','Guten Morgen. Ich muss sofort zu Frau Sander.'],
+ ['w','Guten Morgen, Herr Braun. Haben Sie heute einen Termin bei ihr?','Gruß · Termin?'],
+ ['b','Nein, aber es ist dringend. Ich habe gestern einen Brief bekommen. Schauen Sie!'],
+ ['w','Ich sehe, dass Sie sich Sorgen machen. Frau Sander ist im Moment aber in einem Gespräch.','ich sehe, dass … · im Gespräch',
+  'Ich sehe, '+K('dass')+' '+N('Sie sich Sorgen <b>machen</b>')+'. Frau Sander ist im Moment aber in einem Gespräch.'],
+ ['b','Dann holen Sie sie bitte heraus. Es dauert nur fünf Minuten.'],
+ ['w','Das kann ich leider nicht machen. Ich darf ein Beratungsgespräch nicht unterbrechen. Das würden Sie bei Ihrem Termin auch nicht wollen.','kann nicht · darf nicht unterbrechen · Sie auch nicht',
+  P('Das')+' '+V('kann')+' '+S('ich')+' leider nicht <b>machen</b>. '+S('Ich')+' '+V('darf')+' ein Beratungsgespräch nicht <b>unterbrechen</b>. Das würden Sie bei Ihrem Termin auch nicht wollen.'],
+ ['b','Das ist doch nicht zu glauben! Ich komme extra hierher, und niemand hat Zeit für mich!'],
+ ['w','Herr Braun, ich möchte Ihnen helfen. Aber bitte sprechen Sie nicht so laut mit mir.','möchte helfen · aber bitte nicht so laut',
+  'Herr Braun, '+S('ich')+' '+V('möchte')+' Ihnen <b>helfen</b>. Aber bitte sprechen Sie nicht so laut mit mir.'],
+ ['b','Entschuldigung. Ich bin nur so nervös. In dem Brief steht eine Frist. Bis Freitag muss ich antworten.'],
+ ['w','Bis Freitag, das ist wirklich bald. Dann machen wir Folgendes. Darf ich den Brief kurz kopieren?','wirklich bald · Folgendes · kopieren?',
+  'Bis Freitag, das ist wirklich bald. '+P('Dann')+' '+V('machen')+' '+S('wir')+' Folgendes. '+V('Darf')+' '+S('ich')+' den Brief kurz <b>kopieren</b>?'],
+ ['b','Ja, bitte.'],
+ ['w','Ich lege die Kopie Frau Sander auf den Schreibtisch und schreibe dazu, dass es eilig ist. Ihr Gespräch dauert noch bis elf Uhr.','Kopie · Schreibtisch · dazuschreiben, dass … · bis elf',
+  'Ich lege <b>die</b> Kopie Frau Sander auf <b>den</b> Schreibtisch und schreibe dazu, '+K('dass')+' '+N('es eilig <b>ist</b>')+'. Ihr Gespräch dauert noch bis elf Uhr.'],
+ ['b','Und dann? Kann ich danach zu ihr?'],
+ ['w','Heute hat sie leider keinen freien Termin mehr. Aber morgen früh um neun Uhr ist noch etwas frei. Passt Ihnen das?','heute kein Termin · morgen neun Uhr · passt?',
+  P('Heute')+' '+V('hat')+' '+S('sie')+' leider keinen freien Termin mehr. Aber '+P('morgen früh um neun Uhr')+' '+V('ist')+' noch etwas frei. Passt Ihnen das?'],
+ ['b','Morgen um neun. Ja, das geht. Aber was ist, wenn sie den Brief nicht liest?'],
+ ['w','Ich sage es ihr persönlich, sobald sie frei ist.','persönlich sagen · sobald …',
+  'Ich sage es ihr persönlich, '+K('sobald')+' '+N('sie frei <b>ist</b>')+'.'],
+ ['b','Kann sie mich heute noch anrufen?'],
+ ['w','Das kann ich Ihnen nicht versprechen. Aber ich notiere es, und wenn sie Zeit hat, ruft sie Sie an. Stimmt Ihre Telefonnummer noch?','nicht versprechen · notieren · wenn Zeit, dann Anruf · Nummer?',
+  P('Das')+' '+V('kann')+' '+S('ich')+' Ihnen nicht <b>versprechen</b>. Aber ich notiere es, und '+K('wenn')+' '+N('sie Zeit <b>hat</b>')+', '+V('ruft')+' '+S('sie')+' Sie <b>an</b>. Stimmt Ihre Telefonnummer noch?'],
+ ['b','Ja, die stimmt noch.'],
+ ['w','Gut. Dann fasse ich zusammen: Ich gebe Frau Sander heute die Kopie von Ihrem Brief. Sie haben morgen um neun Uhr einen Termin. Und bitte bringen Sie den Brief morgen im Original mit.','zusammenfassen: Kopie · Termin · Original mitbringen',
+  'Gut. '+P('Dann')+' '+V('fasse')+' '+S('ich')+' <b>zusammen</b>: Ich gebe Frau Sander heute die Kopie von Ihrem Brief. Sie haben morgen um neun Uhr einen Termin. Und bitte bringen Sie den Brief morgen im Original <b>mit</b>.'],
+ ['b','Das mache ich. Danke, Frau Winter. Und entschuldigen Sie noch einmal den Ton.'],
+ ['w','Schon gut. Bis morgen, Herr Braun.','schon gut · bis morgen']
+];
+document.getElementById('dlgFull').innerHTML=DL.map(([w,t,s,h])=>`<div class="line"><div class="who">${w==='w'?'Frau Winter':'Herr Braun'}</div><div>${h||t}</div></div>`).join('');
+let lv='text';
+function renderMe(){document.getElementById('dlgMe').innerHTML=DL.map(([w,t,s,h])=>{const me=w==='w';let txt=me?(h||t):t;
+  if(me&&lv==='stich')txt='<i>'+s+'</i>';if(me&&lv==='frei')txt='<span class="small">… (du sprichst)</span>';
+  return `<div class="line"><div class="who ${me?'me':''}">${me?'Yuliia':'Herr Braun'}</div><div>${txt}</div></div>`}).join('')}
+document.querySelectorAll('.lv').forEach(b=>b.onclick=()=>{lv=b.dataset.lv;document.querySelectorAll('.lv').forEach(x=>x.classList.toggle('active',x===b));renderMe()});
+renderMe();
+
+/* ---------- DIALOG B ---------- */
+const DB=[
+ ['s','So, das Gespräch ist vorbei. War in der Zwischenzeit etwas los?'],
+ ['w','Ja, Herr Braun war kurz nach zehn hier, ohne Termin.'],
+ ['s','Ach, Herr Braun. Was wollte er denn?'],
+ ['w','Er '+V('hat')+' einen Brief mit einer Frist bis Freitag <b>bekommen</b>. Die Kopie liegt auf Ihrem Schreibtisch.'],
+ ['s','Und wie war er?'],
+ ['w','Er war sehr nervös und am Anfang auch laut. '+P('Danach')+' '+V('hat')+' '+S('er')+' sich <b>entschuldigt</b>.'],
+ ['s','Was haben Sie ihm gesagt?'],
+ ['w','Ich '+V('habe')+' ihm einen Termin für morgen um neun Uhr <b>gegeben</b>. Er hofft, '+K('dass')+' '+N('Sie ihn heute noch <b>anrufen</b>')+'. Aber ich '+V('habe')+' ihm nichts <b>versprochen</b>.'],
+ ['s','Sehr gut. Ich lese den Brief gleich und rufe ihn nach der Mittagspause an. Vielen Dank, Frau Winter.'],
+ ['w','Gern geschehen.']
+];
+document.getElementById('dlgB').innerHTML=DB.map(([w,t])=>`<div class="line"><div class="who ${w==='w'?'me':''}">${w==='w'?'Frau Winter':'Frau Sander'}</div><div>${t}</div></div>`).join('');
+
+/* ---------- ZU WEICH / GENAU RICHTIG / ZU HART ---------- */
+const SO=[
+ ['weich','„Na gut, ich hole Frau Sander kurz aus dem Gespräch.“','Zu weich. Du brichst eine Regel, weil jemand Druck macht.'],
+ ['weich','„Entschuldigung, das ist alles mein Fehler.“','Zu weich. Es ist nicht dein Fehler, dass er keinen Termin hat.'],
+ ['weich','„Ich weiß auch nicht … Vielleicht kommen Sie einfach später noch mal?“','Zu weich. Kein klares Nein und kein richtiges Angebot.'],
+ ['gut','„Das kann ich leider nicht machen. Ich darf ein Gespräch nicht unterbrechen.“','Genau richtig. Klares Nein, kurzer Grund, ruhiger Ton.'],
+ ['gut','„Ich sehe, dass es dringend ist. Morgen um neun Uhr ist noch ein Termin frei.“','Genau richtig. Erst Verständnis, dann ein Angebot.'],
+ ['gut','„Bitte sprechen Sie nicht so laut mit mir. Dann kann ich Ihnen besser helfen.“','Genau richtig. Eine Grenze, und gleich dazu, warum sie ihm nützt.'],
+ ['gut','„Das kann ich Ihnen nicht versprechen. Aber ich sage es ihr persönlich.“','Genau richtig. Ehrlich bleiben und trotzdem etwas tun.'],
+ ['hart','„Ohne Termin geht hier gar nichts.“','Zu hart. Der Inhalt stimmt, aber es fehlen Verständnis und Angebot.'],
+ ['hart','„Das ist nicht mein Problem.“','Zu hart. So fühlt sich niemand ernst genommen.'],
+ ['hart','„Jetzt beruhigen Sie sich erst mal!“','Zu hart. Ein Befehl macht wütende Menschen meistens noch wütender.']
+];
+const soName={weich:'zu weich',gut:'genau richtig',hart:'zu hart'};
+let soQ=[],soCur=null,soOk=0;
+function soNext(){document.getElementById('soFb').hidden=true;document.getElementById('soNext').hidden=true;
+  document.querySelectorAll('.so').forEach(b=>{b.disabled=false;b.classList.remove('active')});
+  if(!soQ.length){soCur=null;document.getElementById('soPrompt').textContent='Fertig! '+soOk+' von '+SO.length+' beim ersten Versuch richtig.';
+    document.querySelectorAll('.so').forEach(b=>b.disabled=true);document.getElementById('soNext').hidden=false;document.getElementById('soNext').textContent='Noch einmal';return}
+  soCur=soQ.shift();document.getElementById('soPrompt').textContent=soCur[1];document.getElementById('soNext').textContent='Weiter →';
+  document.getElementById('soStat').textContent='Satz '+(SO.length-soQ.length)+' von '+SO.length}
+function soStart(){soQ=shuffle(SO);soOk=0;soNext()}
+document.querySelectorAll('.so').forEach(b=>b.onclick=()=>{if(!soCur)return;const ok=b.dataset.so===soCur[0];if(ok)soOk++;
+  const fb=document.getElementById('soFb');fb.innerHTML=(ok?'<b>Stimmt.</b> ':'<b>Nicht ganz: '+soName[soCur[0]]+'.</b> ')+soCur[2].replace(/^(Zu weich|Genau richtig|Zu hart)\.\s*/,'');fb.hidden=false;
+  document.querySelectorAll('.so').forEach(x=>{x.disabled=true;x.classList.toggle('active',x.dataset.so===soCur[0])});document.getElementById('soNext').hidden=false});
+document.getElementById('soNext').onclick=()=>{if(!soCur&&!soQ.length)soStart();else soNext()};
+soStart();
+
+/* ---------- BOOTCAMP ---------- */
+const BC=[
+ ['pos2','im Moment · Frau Sander · in einem Gespräch · sein → Beginne mit „Im Moment“',P('Im Moment')+' '+V('ist')+' '+S('Frau Sander')+' in einem Gespräch.'],
+ ['pos2','heute · sie · leider keinen freien Termin mehr · haben → Beginne mit „Heute“',P('Heute')+' '+V('hat')+' '+S('sie')+' leider keinen freien Termin mehr.'],
+ ['pos2','morgen früh um neun Uhr · noch etwas · frei sein → Beginne mit „Morgen früh“',P('Morgen früh um neun Uhr')+' '+V('ist')+' '+S('noch etwas')+' frei.'],
+ ['pos2','dann · wir · Folgendes · machen → Beginne mit „Dann“',P('Dann')+' '+V('machen')+' '+S('wir')+' Folgendes.'],
+ ['pos2','in dem Brief · eine Frist · stehen → Beginne mit „In dem Brief“',P('In dem Brief')+' '+V('steht')+' '+S('eine Frist')+'.'],
+ ['pos2','danach · er · sich · entschuldigen (Perfekt) → Beginne mit „Danach“',P('Danach')+' '+V('hat')+' '+S('er')+' sich <b>entschuldigt</b>.'],
+ ['modal','ich · ein Beratungsgespräch · nicht unterbrechen · dürfen',S('Ich')+' '+V('darf')+' ein Beratungsgespräch nicht <b>unterbrechen</b>.'],
+ ['modal','das · ich · Ihnen · nicht versprechen · können → Beginne mit „Das“',P('Das')+' '+V('kann')+' '+S('ich')+' Ihnen nicht <b>versprechen</b>.'],
+ ['modal','ich · den Brief · kurz kopieren · dürfen → als Frage',V('Darf')+' '+S('ich')+' den Brief kurz <b>kopieren</b>?'],
+ ['modal','Sie · bis Freitag · antworten · müssen',S('Sie')+' '+V('müssen')+' bis Freitag <b>antworten</b>.'],
+ ['modal','ich · Ihnen · helfen · möchten',S('Ich')+' '+V('möchte')+' Ihnen <b>helfen</b>.'],
+ ['modal','sie · mich · heute noch · anrufen · können → als Frage',V('Kann')+' '+S('sie')+' mich heute noch <b>anrufen</b>?'],
+ ['neben','Ich sehe … · Sie machen sich Sorgen. → dass','Ich sehe, '+K('dass')+' '+N('Sie sich Sorgen <b>machen</b>')+'.'],
+ ['neben','Ich sage es ihr persönlich … · Sie ist frei. → sobald','Ich sage es ihr persönlich, '+K('sobald')+' '+N('sie frei <b>ist</b>')+'.'],
+ ['neben','Sie hat Zeit. · Sie ruft Sie an. → Beginne mit „Wenn“',K('Wenn')+' '+N('sie Zeit <b>hat</b>')+', '+V('ruft')+' '+S('sie')+' Sie <b>an</b>.'],
+ ['neben','Ich schreibe dazu … · Es ist eilig. → dass','Ich schreibe dazu, '+K('dass')+' '+N('es eilig <b>ist</b>')+'.'],
+ ['neben','Er war laut … · Er war sehr nervös. → weil','Er war laut, '+K('weil')+' '+N('er sehr nervös <b>war</b>')+'.'],
+ ['neben','Er hofft … · Sie rufen ihn heute noch an. → dass','Er hofft, '+K('dass')+' '+N('Sie ihn heute noch <b>anrufen</b>')+'.'],
+ ['artikel','🚨 „Ich lege Kopie auf Schreibtisch.“ → mit Artikeln','Ich lege <b>die</b> Kopie auf <b>den</b> Schreibtisch.'],
+ ['artikel','🚨 „Haben Sie Termin bei Frau Sander?“ → mit Artikel','Haben Sie <b>einen</b> Termin bei Frau Sander?'],
+ ['artikel','🚨 „Bitte bringen Sie Brief in Original mit.“ → mit Artikeln','Bitte bringen Sie <b>den</b> Brief <b>im</b> Original mit.'],
+ ['artikel','🚨 „Er hat Brief mit Frist bekommen.“ → mit Artikeln','Er hat <b>einen</b> Brief mit <b>einer</b> Frist bekommen.'],
+ ['artikel','🚨 „Kopie liegt auf Schreibtisch.“ → mit Artikeln','<b>Die</b> Kopie liegt auf <b>dem</b> Schreibtisch.'],
+ ['artikel','🚨 „Ich darf Gespräch nicht unterbrechen.“ → mit Artikel','Ich darf <b>das</b> Gespräch nicht unterbrechen. <span class="small">Auch richtig: ein Gespräch (ganz allgemein).</span>']
+];
+const catName={pos2:'Verb auf Position 2',modal:'Modalverb-Klammer',neben:'Zwei Sätze verbinden',artikel:'Artikel-Alarm'};
+let bcQ=[],bcCur=null,bcOkN=0,bcTotal=0;
+function bcStart(cat){bcQ=shuffle(BC.filter(x=>cat==='alle'||x[0]===cat));bcTotal=bcQ.length;bcOkN=0;bcNext()}
+function bcNext(){
+  const pr=document.getElementById('bcPrompt'),so=document.getElementById('bcSol');
+  document.getElementById('bcOk').disabled=true;document.getElementById('bcAgain').disabled=true;document.getElementById('bcShow').disabled=false;
+  if(!bcQ.length){bcCur=null;document.getElementById('bcTag').textContent='Geschafft';pr.textContent='Alle Karten sofort richtig. Stark! 💪';so.innerHTML='<span class="small">Noch eine Runde? Oben eine Kategorie wählen.</span>';document.getElementById('bcShow').disabled=true;bcStat();return}
+  bcCur=bcQ.shift();document.getElementById('bcTag').textContent=catName[bcCur[0]];pr.textContent=bcCur[1];so.innerHTML='<span class="small">Erst sprechen. Dann klicken.</span>';bcStat();
+}
+function bcStat(){document.getElementById('bcStat').textContent='Sofort richtig: '+bcOkN+' von '+bcTotal}
+document.getElementById('bcShow').onclick=()=>{if(!bcCur)return;document.getElementById('bcSol').innerHTML=bcCur[2];document.getElementById('bcOk').disabled=false;document.getElementById('bcAgain').disabled=false;document.getElementById('bcShow').disabled=true};
+document.getElementById('bcOk').onclick=()=>{bcOkN++;bcNext()};
+document.getElementById('bcAgain').onclick=()=>{bcQ.splice(Math.min(3,bcQ.length),0,bcCur);bcNext()};
+document.querySelectorAll('.cat').forEach(b=>b.onclick=()=>{document.querySelectorAll('.cat').forEach(x=>x.classList.toggle('active',x===b));bcStart(b.dataset.cat)});
+bcStart('alle');
+
+/* ---------- ROLLENSPIEL ---------- */
+const R={
+ A:[
+  ['Guten Tag. Ich möchte kurz zu Herrn Vogel. Nur zwei Minuten.','Guten Tag, Frau Lang. Haben Sie heute einen Termin …?'],
+  ['Nein, aber ich habe nur eine ganz kleine Frage.','Herr Vogel ist im Moment … · Kann ich Ihnen vielleicht …?'],
+  ['⚡ Sie können mir nicht helfen. Ich brauche Herrn Vogel.','Das verstehe ich. Heute hat er leider … · Aber am … um … ist noch …'],
+  ['⚡ Das ist mir zu spät. Ich warte hier, bis er Zeit hat.','Sie können gern warten. Aber ich kann Ihnen nicht versprechen, dass …'],
+  ['Können Sie ihm wenigstens etwas ausrichten?','Ja, gern. Ich notiere … · Wie kann er Sie erreichen?'],
+  ['Gut. Und was passiert jetzt?','Ich fasse zusammen: Ich …, und Sie …']
+ ],
+ B:[
+  ['Ich muss sofort zu Frau Sander!','Guten Morgen, Herr Braun. Haben Sie …? · Frau Sander ist im Moment …'],
+  ['⚡ Dann holen Sie sie heraus! Sofort!','Das kann ich leider nicht machen. Ich darf …'],
+  ['⚡ Niemand hilft mir hier! Das ist eine Frechheit!','Ich möchte Ihnen helfen. Aber bitte …'],
+  ['Ich habe einen Brief bekommen. Mit einer Frist!','Bis wann …? · Darf ich den Brief …? · Dann machen wir Folgendes: …'],
+  ['⚡ Und wenn sie den Brief gar nicht liest?','Ich sage es ihr persönlich, sobald …'],
+  ['⚡ Sie soll mich in zehn Minuten anrufen!','Das kann ich Ihnen nicht versprechen. Aber wenn …, …'],
+  ['Na gut. Also morgen?','Ich fasse zusammen: … Und bitte bringen Sie …']
+ ],
+ C:[
+  ['Sie sind immer so nett zu mir. Darf ich Sie etwas fragen?','Ja, natürlich. Worum geht es?'],
+  ['Ich verstehe dieses Formular nicht. Können Sie es für mich ausfüllen?','Ausfüllen darf ich es leider nicht. Aber ich kann Ihnen zeigen, … · Frau Sander kann …'],
+  ['⚡ Geben Sie mir doch Ihre private Nummer. Dann rufe ich Sie abends an.','Das geht leider nicht. Meine private Nummer gebe ich nicht weiter. · Aber hier erreichen Sie uns …'],
+  ['⚡ Aber Sie sind die Einzige, die mich versteht!','Das freut mich. Trotzdem … · Für solche Fragen ist Frau Sander da, weil …'],
+  ['Dann komme ich eben jeden Tag vorbei.','Sie können gern einen Termin … · Am besten …'],
+  ['Sie haben ja recht. Danke.','Gern. Ich fasse zusammen: …']
+ ]
+};
+let md='A',ri=0;
+const RP=document.getElementById('rsPrompt'),RH=document.getElementById('rsHelpText');
+function rs(){const x=R[md][ri];RP.textContent=x[0].replace('⚡ ','');RP.classList.toggle('twist',x[0].startsWith('⚡'));RH.textContent=x[1];RH.hidden=true;
+  document.getElementById('rsPrev').disabled=ri===0;document.getElementById('rsNext').disabled=ri===R[md].length-1}
+document.getElementById('rsPrev').onclick=()=>{if(ri>0){ri--;rs()}};
+document.getElementById('rsNext').onclick=()=>{if(ri<R[md].length-1){ri++;rs()}};
+document.getElementById('rsHelp').onclick=()=>{RH.hidden=!RH.hidden};
+document.querySelectorAll('.md').forEach(b=>b.onclick=()=>{md=b.dataset.md;ri=0;document.querySelectorAll('.md').forEach(x=>x.classList.toggle('active',x===b));rs()});
+rs();
+</script>
+</body></html>
