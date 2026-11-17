@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Aufwecker – schnelle Spiele – Deutsch fürs Büro</title>
-<link rel="stylesheet" href="../assets/basis.css?v=20261117e">
-<link rel="stylesheet" href="../assets/platform.css?v=20261117e">
-<link rel="stylesheet" href="../assets/lehrwerk.css?v=20261117e">
-<link rel="stylesheet" href="../assets/aufgaben.css?v=20261117e">
-<script src="../assets/platform.js?v=20261117e"></script>
+<link rel="stylesheet" href="../assets/basis.css?v=20261117f">
+<link rel="stylesheet" href="../assets/platform.css?v=20261117f">
+<link rel="stylesheet" href="../assets/lehrwerk.css?v=20261117f">
+<link rel="stylesheet" href="../assets/aufgaben.css?v=20261117f">
+<script src="../assets/platform.js?v=20261117f"></script>
 <style>
   .aw-wrap { max-width: 56rem; margin: 0 auto; padding-bottom: 4rem; }
 
@@ -49,6 +49,20 @@
   .aw-stein.fest { background: var(--platform-terracotta); color: #fff; }
   .aw-wahl { background: var(--flieder); color: var(--flieder-tief); }
   .aw-klein { font-family: var(--mono); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--tinte-weich); margin: .6rem 0 0; }
+  /* Mengenmesser */
+  .aw-loesung small { display: block; font-weight: 400; font-size: .78em; margin-top: .15rem; }
+  .mm-lage { font-size: 1.15rem; margin: .2rem 0 .7rem; }
+  .mm-messer { display: inline-flex; flex-wrap: wrap; align-items: flex-end; justify-content: center; gap: .15rem; background: var(--platform-bg); border: 2px solid var(--linie); border-radius: 14px; padding: 1.9rem .8rem .6rem; margin: 0 auto .4rem; max-width: 100%; }
+  .mm-ding { font-size: clamp(1.6rem, 3.4vw, 2.4rem); line-height: 1; }
+  .mm-grenze { position: relative; align-self: stretch; width: 0; border-left: 4px dashed var(--himmel-tief); margin: -1.3rem .5rem 0; }
+  .mm-grenze span { position: absolute; top: -.45rem; left: 50%; transform: translateX(-50%); white-space: nowrap; background: var(--himmel-tief); color: #fff; font-size: .78rem; font-weight: 700; border-radius: 999px; padding: .05rem .6rem; }
+  .mm-ding.ueber { background: #FBD5D5; border-radius: 8px; }
+  .mm-ding.ueber:nth-child(odd) { transform: rotate(14deg) translateY(-.35rem); }
+  .mm-ding.ueber:nth-child(even) { transform: rotate(-17deg) translateY(.2rem); }
+  .mm-satz .mm-luecke { display: inline-block; min-width: 5.5rem; border-bottom: 4px solid var(--platform-terracotta); margin: 0 .2rem; }
+  .mm-regel td { font-size: 1.05rem; } .mm-regel .mm-zu { background: #FBD5D5; color: #7A2323; font-weight: 600; }
+  .aw-wrap details.kasten { margin: .8rem 0 0; } .aw-wrap details.kasten summary { cursor: pointer; font-weight: 700; }
+
   /* Aufzug */
   .az-layout { display: grid; grid-template-columns: 17rem minmax(0, 1fr); gap: 1.2rem; align-items: start; margin-top: 1rem; }
   .az-rechts .aw-dranleiste { margin-top: 0; }
@@ -134,7 +148,8 @@
     <button role="tab" aria-selected="false" data-blatt="salat">4 · Satzsalat</button>
     <button role="tab" aria-selected="false" data-blatt="artikel">5 · Artikel</button>
     <button role="tab" aria-selected="false" data-blatt="weil">6 · weil / deshalb</button>
-    <button role="tab" aria-selected="false" data-blatt="aufzug">7 · 🛗 Aufzug</button>
+    <button role="tab" aria-selected="false" data-blatt="menge">7 · Mengen</button>
+    <button role="tab" aria-selected="false" data-blatt="aufzug">8 · 🛗 Aufzug</button>
   </div>
 
   <!-- ============ 1 · Stimmt nicht! ============ -->
@@ -179,7 +194,23 @@
     <div class="aw-buehne" id="we-buehne"></div>
   </section>
 
-  <!-- ============ 7 · Der KONTOR-Aufzug ============ -->
+  <!-- ============ 7 · Der Mengenmesser ============ -->
+  <section class="blatt" id="blatt-menge" hidden>
+    <p class="stand-hinweis">Wer dran ist, spricht den ganzen Satz</p>
+    <div class="aw-so">Der Mengenmesser zeigt: Wie viel ist da, und wo ist die <strong>Grenze</strong>? Bis zur Grenze ist es <strong>viel</strong> oder <strong>viele</strong>. Über der Grenze ist es <strong>zu viel</strong> oder <strong>zu viele</strong>. Dann gibt es ein Problem.</div>
+    <details class="kasten">
+      <summary>Die Regel als Tabelle</summary>
+      <table class="lw-felder mm-regel">
+        <tr><th></th><th>groß, aber in Ordnung</th><th>mehr, als gut ist</th></tr>
+        <tr><td><strong>Man kann es zählen</strong><br><small>ein Ordner, zwei Ordner · ein Gast, zwei Gäste</small></td><td class="lw-e">viel<strong>e</strong> Ordner</td><td class="mm-zu"><strong>zu</strong> viel<strong>e</strong> Ordner</td></tr>
+        <tr><td><strong>Man kann es nicht zählen</strong><br><small>Papier, Kaffee, Arbeit, Geld, Zeit</small></td><td class="lw-e">viel Papier</td><td class="mm-zu"><strong>zu</strong> viel Papier</td></tr>
+      </table>
+      <div class="lw-paar"><div class="lw-falsch">✗ Ich habe zu viel Arbeit. Das ist super! </div><div class="lw-richtig">✓ Ich habe viel Arbeit. Das ist super! · Ich habe zu viel Arbeit. Ich schaffe das nicht.</div></div>
+    </details>
+    <div class="aw-buehne" id="mm-buehne"></div>
+  </section>
+
+  <!-- ============ 8 · Der KONTOR-Aufzug ============ -->
   <section class="blatt" id="blatt-aufzug" hidden>
     <p class="stand-hinweis">Teamspiel · alle zusammen bringen den Aufzug nach oben</p>
     <div class="aw-so">Vier Etagen, auf jeder Etage zwei Sätze. Wer dran ist, spricht. Die anderen hören zu und helfen. <strong>Zwei richtige Sätze</strong>, und der Aufzug fährt eine Etage höher. Hier gibt es keine Punkte: <strong>Sie gewinnen nur zusammen.</strong></div>
@@ -203,7 +234,7 @@
 
 </main>
 
-<script src="../assets/lehrwerk.js?v=20261117e"></script>
+<script src="../assets/lehrwerk.js?v=20261117f"></script>
 <script>
 Lehrwerk.reiter();
 
@@ -638,7 +669,45 @@ Lehrwerk.reiter();
   kartenspiel('ar-buehne', ARTIKEL, 'Karte', vornArtikel);
   kartenspiel('we-buehne', WEIL, 'Karte', vornWeil);
 
-  /* ---------- 7 · Der KONTOR-Aufzug (Idee und Turm: Leo) ---------- */
+
+  /* ---------- 7 · Der Mengenmesser ---------- */
+  var MENGEN = [
+    { lage: 'Der Messestand hat Platz für acht Personen.', bild: '🧍', n: 7, g: 8, gt: 'voll', satz: 'Am Stand sind ___ Besucher.', w: 'viele', z: true, grund: 'Besucher kann man zählen. Es passen noch alle hinein.' },
+    { lage: 'Der Messestand hat Platz für acht Personen.', bild: '🧍', n: 12, g: 8, gt: 'voll', satz: 'Am Stand sind ___ Besucher.', w: 'zu viele', z: true, grund: 'Besucher kann man zählen. Vier passen nicht mehr hinein.' },
+    { lage: 'Fünf Tassen Kaffee am Tag sind in Ordnung.', bild: '☕', n: 4, g: 5, gt: 'noch gesund', satz: 'Finn trinkt ___ Kaffee.', w: 'viel', z: false, grund: 'Kaffee kann man nicht zählen (nur die Tassen). Es ist noch in Ordnung.' },
+    { lage: 'Fünf Tassen Kaffee am Tag sind in Ordnung.', bild: '☕', n: 9, g: 5, gt: 'noch gesund', satz: 'Finn trinkt ___ Kaffee.', w: 'zu viel', z: false, grund: 'Kaffee kann man nicht zählen. Neun Tassen sind nicht mehr gesund.' },
+    { lage: 'Auf Noras Schreibtisch ist Platz für sechs Ordner.', bild: '📁', n: 6, g: 6, gt: 'Platz', satz: 'Auf dem Schreibtisch liegen ___ Ordner.', w: 'viele', z: true, grund: 'Ordner kann man zählen. Der Schreibtisch ist voll, aber es passt noch.' },
+    { lage: 'Auf Noras Schreibtisch ist Platz für sechs Ordner.', bild: '📁', n: 10, g: 6, gt: 'Platz', satz: 'Auf dem Schreibtisch liegen ___ Ordner.', w: 'zu viele', z: true, grund: 'Ordner kann man zählen. Vier Ordner haben keinen Platz mehr.' },
+    { lage: 'In das Papierfach vom Drucker passen sechs Stapel.', bild: '📄', n: 5, g: 6, gt: 'Fach voll', satz: 'Im Drucker ist ___ Papier.', w: 'viel', z: false, grund: 'Papier kann man nicht zählen. Das Fach ist gut gefüllt.' },
+    { lage: 'In das Papierfach vom Drucker passen sechs Stapel.', bild: '📄', n: 9, g: 6, gt: 'Fach voll', satz: 'Im Drucker ist ___ Papier.', w: 'zu viel', z: false, grund: 'Papier kann man nicht zählen. Das Fach geht nicht mehr zu: Papierstau!' },
+    { lage: 'In den Transporter passen acht Kisten.', bild: '📦', n: 7, g: 8, gt: 'Transporter voll', satz: 'Pawel hat ___ Kisten gepackt.', w: 'viele', z: true, grund: 'Kisten kann man zählen. Alle passen in den Transporter.' },
+    { lage: 'In den Transporter passen acht Kisten.', bild: '📦', n: 11, g: 8, gt: 'Transporter voll', satz: 'Pawel hat ___ Kisten gepackt.', w: 'zu viele', z: true, grund: 'Kisten kann man zählen. Drei Kisten bleiben auf der Rampe stehen.' },
+    { lage: 'Noras Arbeitstag hat acht Stunden. Jede Aufgabe dauert eine Stunde.', bild: '📋', n: 8, g: 8, gt: 'Feierabend', satz: 'Nora hat heute ___ Arbeit.', w: 'viel', z: false, grund: 'Arbeit kann man nicht zählen. Der Tag ist voll, aber sie schafft es.' },
+    { lage: 'Noras Arbeitstag hat acht Stunden. Jede Aufgabe dauert eine Stunde.', bild: '📋', n: 12, g: 8, gt: 'Feierabend', satz: 'Nora hat heute ___ Arbeit.', w: 'zu viel', z: false, grund: 'Arbeit kann man nicht zählen. Das schafft sie heute nicht mehr.' },
+    { lage: 'Das Budget für das Hotel: 120 Euro pro Nacht. Ein Schein ist 20 Euro. Das Hotel kostet 100 Euro.', bild: '💶', n: 5, g: 6, gt: 'Budget', satz: 'Das Hotel kostet ___ Geld.', w: 'viel', z: false, grund: 'Geld kann man nicht zählen (nur die Euro). 100 Euro sind noch im Budget.' },
+    { lage: 'Das Budget für das Hotel: 120 Euro pro Nacht. Ein Schein ist 20 Euro. Das Hotel kostet 180 Euro.', bild: '💶', n: 9, g: 6, gt: 'Budget', satz: 'Das Hotel kostet ___ Geld.', w: 'zu viel', z: false, grund: 'Geld kann man nicht zählen. 180 Euro sind mehr als das Budget.' }
+  ];
+  MENGEN.forEach(function (k) {
+    k.h = 'Zwei Fragen: Kann man es zählen? Und ist es noch vor der Grenze oder schon darüber?';
+    k.l = k.satz.replace('___', '<span class="aw-neu">' + k.w + '</span>') + ' <small>' + k.grund + '</small>';
+  });
+  kartenspiel('mm-buehne', MENGEN, 'Messung', function (k, buehne) {
+    buehne.appendChild(el('p', 'mm-lage', k.lage));
+    var dinge = '';
+    for (var i = 0; i < k.n; i++) {
+      if (i === k.g) dinge += '<span class="mm-grenze"><span>' + k.gt + '</span></span>';
+      dinge += '<span class="mm-ding' + (i >= k.g ? ' ueber' : '') + '">' + k.bild + '</span>';
+    }
+    if (k.n <= k.g) {
+      for (var j = k.n; j < k.g; j++) dinge += '<span class="mm-ding" style="opacity:.15">' + k.bild + '</span>';
+      dinge += '<span class="mm-grenze"><span>' + k.gt + '</span></span>';
+    }
+    buehne.appendChild(el('div', '', '<div class="mm-messer" aria-hidden="true">' + dinge + '</div>'));
+    buehne.appendChild(el('p', 'aw-gross mm-satz', k.satz.replace('___', '<span class="mm-luecke"></span>')));
+    buehne.appendChild(el('div', 'aw-steine', ['viel', 'viele', 'zu viel', 'zu viele'].map(function (x) { return '<span class="aw-stein aw-wahl">' + x + '</span>'; }).join('')));
+  });
+
+  /* ---------- 8 · Der KONTOR-Aufzug (Idee und Turm: Leo) ---------- */
   var KLAMMER = [
     { an: 'Heute', t: ['Nora', 'den Kunden', 'zurückrufen', 'müssen'], inf: 'die Verben stehen im Infinitiv', h: 'Das Modalverb kommt auf Position 2, der Infinitiv ganz ans Ende.', l: 'Heute <span class="aw-neu">muss</span> Nora den Kunden <span class="aw-neu">zurückrufen</span>.' },
     { an: 'Die Rechnung', t: ['noch nicht', 'bezahlt werden', 'können'], inf: 'die Verben stehen im Infinitiv', h: '„können“ kommt auf Position 2, „bezahlt werden“ ganz ans Ende.', l: 'Die Rechnung <span class="aw-neu">kann</span> noch nicht <span class="aw-neu">bezahlt werden</span>.' },
