@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Der Satzbau-Automat – Sprachwerkstatt – Deutsch fürs Büro</title>
+<link rel="stylesheet" href="../assets/basis.css?v=20261117c">
+<link rel="stylesheet" href="../assets/platform.css?v=20261117c">
+<link rel="stylesheet" href="../assets/lehrwerk.css?v=20261117c">
+<link rel="stylesheet" href="../assets/aufgaben.css?v=20261117c">
+<script src="../assets/platform.js?v=20261117c"></script>
+<style>
+
+.sba{--paper:#fffaf2;--ink:#273449;--edge:#dfdfd9;--green:#D6EFD2;--good:#2E6B4A;--bad:#B03030;--blue:#eaf0fb}
+.stage{background:white;border:1px solid #e9e3d9;border-radius:20px;padding:clamp(16px,2.4vw,29px);box-shadow:0 8px 25px #4e51340b}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.mode{border-radius:100px;background:#e7f1e3;color:#295c36;padding:7px 13px;font-size:15px;font-weight:750}
+.count{color:#687384;font-size:15px}
+.task{font-size:clamp(19px,2.4vw,25px);font-weight:680;margin:8px 0 19px}
+.gridout{padding:14px 12px 18px;border:1px solid #eee9dd;border-radius:16px;background:#fffdfa;min-height:210px}
+.lw-felder{width:100%;border-collapse:separate;border-spacing:7px;table-layout:fixed;margin:0}
+.lw-felder th{padding:9px 4px;text-align:center;font-size:14px;color:#586176;letter-spacing:0;text-transform:none;background:#f4f4ef;border:0;border-radius:9px}
+.lw-felder td{vertical-align:top;border:1px solid #e3e5e2;border-radius:12px;background:#fff;padding:8px;min-height:65px}
+.cell{min-height:64px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:7px}.cell .placeholder{flex:1;min-width:45px}.empty-end{border:2px dashed #d8dcd4;border-radius:9px;height:50px;background:#fafcf9}.cell .word{flex:0 1 auto}
+.cell.vertical{flex-direction:column}.cell .word{min-width:75px;max-width:100%}
+.placeholder{width:100%;height:50px;border:2px dashed #dddcd5;border-radius:10px;display:grid;place-items:center;color:#9299a0;font-size:14px}
+.word{border:1px solid #d9d9d9;border-bottom:3px solid #c8c9c4;border-radius:10px;background:#f7f8f7;padding:11px 13px;font-weight:760;color:#1e2c38;font-size:clamp(17px,2vw,22px);min-height:53px;line-height:1.2;cursor:pointer;transition:transform .15s ease,background .2s ease}
+.word:hover{transform:translateY(-2px)}.word:focus-visible,button:focus-visible{outline:3px solid #4c8ee5;outline-offset:3px}
+.word.fixed{background:#f0f0ec;cursor:default;border-style:dashed}.word.reveal-verb,.lw-v{background:#D6EFD2!important;color:#2C4A28!important}.word.reveal-end,.lw-e{background:#E6F2EA!important;color:#2C4A28!important}
+.word.lw-richtig{border:3px solid #2E6B4A;position:relative}.word.lw-richtig:not(.reveal-verb):not(.reveal-end){background:#fff!important;color:#1e2c38!important}.word.lw-richtig::after{content:"✓";position:absolute;right:-8px;top:-10px;background:#2E6B4A;color:#fff;border-radius:100%;width:19px;height:19px;line-height:19px;font-size:12px}.word.lw-falsch{background:#fff!important;color:#8d2c2c;border:3px solid #B03030}
+.wobble{animation:wobble .4s linear}@keyframes wobble{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}50%{transform:translateX(4px)}75%{transform:translateX(-3px)}}
+@media(prefers-reduced-motion:reduce){.wobble{animation:none}.word{transition:none}}
+.comma{font-size:36px;font-weight:900;color:#7a8289;text-align:center;align-self:center}
+.frame{border:2px solid #b8c9e2;border-radius:16px;padding:9px;background:#f7faff}.frame-title{font-size:13px;font-weight:800;margin:0 0 7px;color:#4d6585}
+.frame table.lw-felder{border-spacing:4px}
+.sentence-tail{display:grid;grid-template-columns:35px 1fr 1.2fr;gap:7px;margin:10px 7px 0;align-items:stretch}.tailgroup{background:white;border:1px solid #e4e3dc;border-radius:10px;padding:7px}.tailgroup label{font-size:13px;font-weight:750;color:#566178;display:block;text-align:center;margin-bottom:6px}
+.tray-head{display:flex;align-items:center;gap:8px;justify-content:space-between;flex-wrap:wrap;margin:19px 0 10px}.tray-head strong{font-size:16px}.hintline{font-size:14px;color:#667282}
+.tray{display:flex;flex-wrap:wrap;gap:12px;align-items:center;min-height:95px;padding:18px;border:2px dashed #e5e4dc;border-radius:15px;background:#fbfcfa}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:19px}button.action{padding:12px 17px;border:0;border-radius:11px;background:#e9edf2;font:700 16px system-ui;cursor:pointer;color:#213249}button.action:hover{filter:brightness(.96)}button.primary{background:#347647;color:white}button.secondary{background:#dcebf5}button.warning{background:#ffe9b9}
+.feedback{margin-top:15px;min-height:46px;font-size:17px;font-weight:700;color:#34425a}.feedback.good{color:#2b6b44}.feedback.bad{color:#993232}
+.help{margin-top:10px;border-left:5px solid #d7c08a;padding:12px 16px;background:#fff6df;border-radius:10px;font-size:17px}
+.note{font-size:14px;color:#687483;margin-top:12px}.confetti{position:fixed;top:-30px;pointer-events:none;z-index:100;animation:confetti-fall 1.5s ease-in forwards}@keyframes confetti-fall{to{transform:translateY(105vh) rotate(700deg);opacity:0}}@media(prefers-reduced-motion:reduce){.confetti{display:none}}
+@media(max-width:650px){.lw-felder th{font-size:11px}.lw-felder td{padding:3px}.word{min-width:0;padding:9px;font-size:16px}.frame{padding:4px}.stage{padding:12px}.cell .word{min-width:0}.sentence-tail{grid-template-columns:22px 1fr 1fr;margin-left:0;margin-right:0}}
+.sba{color:var(--ink);font-size:18px;line-height:1.4;padding-bottom:3rem}.sba *{box-sizing:border-box}
+.sba .stage{border:0;box-shadow:none;padding:0;background:transparent}.sba .gridout{padding:10px 6px 14px}
+#machine>table.lw-felder th:nth-child(3){width:46%}.frame table.lw-felder th:nth-child(2){width:56%}
+</style>
+</head>
+<body data-page="module" data-bereich="grammatik" data-root="../">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../grammatik.html">← Grammatik</a>
+    <h1><em>Sprachwerkstatt:</em> Der Satzbau-Automat</h1>
+    <p class="anleitung">Hier sehen Sie, wo das Verb steht. Sagen Sie den Satz zuerst laut. Dann setzen Sie die Wörter ein und prüfen.</p>
+  </div>
+</header>
+
+<main class="innen modul sba">
+<section class="stage"><div class="top"><span class="mode" id="mode"></span><span class="count" id="counter"></span></div>
+<div class="task" id="task"></div>
+<div class="gridout" id="machine" aria-label="Satzschiene"></div>
+<div class="tray-head"><strong>Wortmagazin</strong><span class="hintline">Klicken: einsetzen · Wort oben anklicken: zurücklegen</span></div>
+<div id="tray" class="tray" aria-label="Wörter zum Einsetzen"></div>
+<div class="actions"><button class="action primary" id="check">✓ Prüfen</button><button class="action secondary" id="hint">? Hilfe</button><button class="action warning" id="solution">Lösung zeigen</button><button class="action" id="reset">↺ Noch einmal</button><button class="action" id="next">Nächste Karte →</button></div>
+<div class="feedback" id="feedback" aria-live="polite"></div><div class="help" id="help" hidden></div>
+</section>
+</main>
+
+<script src="../assets/lehrwerk.js?v=20261117c"></script>
+<script>
+/* Satzbau-Automat: Mechanik und Karten von Leo (Demo v3), eingebaut ins Lehrwerk. */
+
+/* Datensätze: jedes Wort hat eine ID, jedes Feld eine Slot-ID.
+   Alle zulässigen Anordnungen stehen in muster/varianten, ohne Änderung der Mechanik. */
+const KARTEN = [
+ {id:'h1',typ:'haupt',aufgabe:'Beginnen Sie mit „Heute“. Bilden Sie den Satz.',
+  teile:[['start','Heute'],['v','begrüßt'],['sub','Frau Lenz'],['obj','die Besucher'],['ort','am Empfang']],
+  felder:{start:['start'],v:['v'],mitte:['sub','obj','ort'],ende:[]},
+  muster:['start','v','sub','obj','ort'], varianten:[['start','v','sub','ort','obj']],
+  hilfe:'Das konjugierte Verb steht im Hauptsatz auf Position 2. Das Feld „Ende“ bleibt leer, wenn kein zweiter Verbteil vorhanden ist.'},
+ {id:'h2',typ:'haupt',aufgabe:'Beginnen Sie mit „Nora“. Verwenden Sie „zurückrufen“.',
+  teile:[['start','Nora'],['v','ruft'],['obj','den Kunden'],['zeit','nach der Messe'],['end','zurück']],
+  felder:{start:['start'],v:['v'],mitte:['obj','zeit'],ende:['end']},
+  muster:['start','v','obj','zeit','end'], varianten:[['start','v','zeit','obj','end']],
+  hilfe:'Im Hauptsatz steht das konjugierte Verb auf Position 2; der abgetrennte Verbteil steht am Ende.'},
+ {id:'h3',typ:'haupt',aufgabe:'Beginnen Sie mit „Frau Melnyk“. Bilden Sie den Satz mit „müssen“.',
+  teile:[['start','Frau Melnyk'],['v','muss'],['obj','die Unterlagen'],['end','verschicken']],
+  felder:{start:['start'],v:['v'],mitte:['obj'],ende:['end']},
+  muster:['start','v','obj','end'],varianten:[],hilfe:'Im Hauptsatz steht das konjugierte Modalverb auf Position 2 und der Infinitiv im Feld „Ende“.'},
+ {id:'h4',typ:'haupt',aufgabe:'Beginnen Sie mit „Morgen“. Bilden Sie den Satz.',
+  teile:[['start','Morgen'],['v','bespricht'],['sub','Samira'],['obj','die Messeplanung'],['mit','mit Nora']],
+  felder:{start:['start'],v:['v'],mitte:['sub','obj','mit'],ende:[]},
+  muster:['start','v','sub','obj','mit'],varianten:[['start','v','sub','mit','obj']],
+  hilfe:'Auch nach einer Zeitangabe steht das konjugierte Verb auf Position 2. Ein einzelnes konjugiertes Verb braucht keinen zweiten Teil am Ende.'},
+ {id:'w1',typ:'weil',aufgabe:'Beginnen Sie mit „Weil“. Warum bleibt Frau Lenz am Empfang?',
+  teile:[['weil','Weil'],['sub','der Kunde'],['obj','noch eine Frage'],['subv','hat'],['mainv','bleibt'],['mainm','Frau Lenz am Empfang']],
+  felder:{weil:['weil'],nebmitte:['sub','obj'],nebverb:['subv'],mainv:['mainv'],mainmitte:['mainm'],mainende:[]},
+  muster:['weil','sub','obj','subv','mainv','mainm'],varianten:[],hilfe:'Der ganze weil-Satz besetzt Position 1. Das konjugierte Verb steht im weil-Satz am Ende; nach dem festen Komma folgt das konjugierte Verb des Hauptsatzes.'},
+ {id:'w2',typ:'weil',aufgabe:'Beginnen Sie mit „Weil“. Warum schreibt Nora eine Nachricht?',
+  teile:[['weil','Weil'],['sub','die Lieferung'],['zeit','zu spät'],['subv','kommt'],['mainv','schreibt'],['mainm','Nora eine Nachricht']],
+  felder:{weil:['weil'],nebmitte:['sub','zeit'],nebverb:['subv'],mainv:['mainv'],mainmitte:['mainm'],mainende:[]},
+  muster:['weil','sub','zeit','subv','mainv','mainm'],varianten:[],hilfe:'Im weil-Satz steht das konjugierte Verb am Ende. Der folgende Hauptsatz beginnt nach dem Komma direkt mit dem konjugierten Verb.'},
+ {id:'w3',typ:'weil',aufgabe:'Beginnen Sie mit „Weil“. Warum kann die Rechnung nicht bezahlt werden?',
+  teile:[['weil','Weil'],['sub','die Rechnungsnummer'],['zeit','noch'],['subv','fehlt'],['mainv','kann'],['mainm','die Rechnung noch nicht'],['mainend','bezahlt werden']],
+  felder:{weil:['weil'],nebmitte:['sub','zeit'],nebverb:['subv'],mainv:['mainv'],mainmitte:['mainm'],mainende:['mainend']},
+  muster:['weil','sub','zeit','subv','mainv','mainm','mainend'],varianten:[],hilfe:'Im weil-Satz steht das konjugierte Verb hinten. Im Hauptsatz bildet das Modalverb mit dem Infinitiv eine Satzklammer.'},
+ {id:'h5',typ:'haupt',aufgabe:'Beginnen Sie mit „Nach der Messe“. Bilden Sie den Satz.',
+  teile:[['start','Nach der Messe'],['v','schickt'],['sub','Nora'],['obj','die Unterlagen'],['ziel','an den Kunden']],
+  felder:{start:['start'],v:['v'],mitte:['sub','obj','ziel'],ende:[]},
+  muster:['start','v','sub','obj','ziel'],varianten:[['start','v','sub','ziel','obj']],
+  hilfe:'Position 1 ist besetzt, danach steht das konjugierte Verb. Ohne zweiten Verbteil bleibt das Feld „Ende“ leer.'}
+];
+let cardIndex=0, slots={}, deck=[], solved=false, checked=false, version=0, winning=false;
+const $=id=>document.getElementById(id), card=()=>KARTEN[cardIndex];
+const byId=id=>card().teile.find(t=>t[0]===id)?.[1]||'';
+const shuffle=a=>{const x=[...a];for(let i=x.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]]}return x};
+const fields=()=>Object.values(card().felder).flat();
+function init(){version++;solved=false;checked=false;winning=false;slots={};const c=card();for(const id of fields())slots[id]=null;
+ const fixed=c.typ==='haupt'?'start':'weil';slots[fixed]=fixed;
+ deck=shuffle(c.teile.map(x=>x[0]).filter(id=>id!==fixed));$('feedback').textContent='';$('feedback').className='feedback';$('help').hidden=true;$('help').textContent='';
+ $('mode').textContent=c.typ==='haupt'?'Hauptsatz · Position 1 | Verb | Mitte | Ende':'weil-Satz · ganzer Nebensatz auf Position 1';$('task').textContent=c.aufgabe;$('counter').textContent=`Karte ${cardIndex+1} von ${KARTEN.length}`;render()}
+function makeTile(id, slotId){const b=document.createElement('button');b.type='button';b.className='word';b.textContent=byId(id);b.dataset.part=id;if(slotId){if(id===card().muster[0])b.classList.add('fixed');else if(!solved)b.addEventListener('click',()=>remove(slotId));}
+ else b.addEventListener('click',()=>add(id));if(solved||(checked&&winning)){if(['v','subv','mainv'].includes(id)&&slots[slotId]===id)b.classList.add('lw-v','reveal-verb');if(['end','mainend'].includes(id)&&slots[slotId]===id)b.classList.add('lw-e','reveal-end')}
+ if(checked&&!solved){const p=bestPattern();const position=fields().indexOf(slotId);if(p[position]===id)b.classList.add('lw-richtig');else b.classList.add('lw-falsch','wobble')}
+ return b}
+function cellFor(ids){const box=document.createElement('div');box.className='cell';if(!ids.length){const e=document.createElement('div');e.className='empty-end';e.style.width='100%';e.title='Hier bleibt das Feld leer.';box.appendChild(e);return box}
+ ids.forEach(id=>{if(slots[id])box.appendChild(makeTile(slots[id],id));else{const e=document.createElement('span');e.className='placeholder';e.textContent='·';e.dataset.slot=id;box.appendChild(e)}});return box}
+function makeField(ids){const td=document.createElement('td');td.appendChild(cellFor(ids));return td}
+function fieldTable(defs){const t=document.createElement('table');t.className='lw-felder';const head=document.createElement('tr'),row=document.createElement('tr');defs.forEach(([label,ids])=>{const h=document.createElement('th');h.textContent=label;head.appendChild(h);row.appendChild(makeField(ids))});t.append(head,row);return t}
+function render(){const c=card(),m=$('machine');m.innerHTML='';if(c.typ==='haupt'){
+ m.appendChild(fieldTable([['Position 1',c.felder.start],['Verb',c.felder.v],['Mitte',c.felder.mitte],['Ende',c.felder.ende]]));
+}else{const f=document.createElement('div');f.className='frame';const label=document.createElement('p');label.className='frame-title';label.textContent='POSITION 1 · GANZER WEIL-SATZ';f.append(label,fieldTable([['weil',c.felder.weil],['Mitte',c.felder.nebmitte],['Verb am Ende',c.felder.nebverb]]));m.appendChild(f);
+ const tail=document.createElement('div');tail.className='sentence-tail';tail.style.gridTemplateColumns='35px 1fr 1.4fr 1fr';const comma=document.createElement('span');comma.className='comma';comma.textContent=',';tail.appendChild(comma);
+ for(const [name,key] of [['Verb','mainv'],['Mitte','mainmitte'],['Ende','mainende']]){const g=document.createElement('div');g.className='tailgroup';const label=document.createElement('label');label.textContent=name;g.append(label,cellFor(c.felder[key]));tail.appendChild(g)}m.appendChild(tail)}
+ const tray=$('tray');tray.replaceChildren(...deck.map(id=>makeTile(id,null)));if(!deck.length){const x=document.createElement('span');x.className='hintline';x.textContent='Alle Wörter eingesetzt.';tray.append(x)}}
+function add(id){if(solved)return;const next=fields().find(slotId=>slots[slotId]===null);if(!next)return;slots[next]=id;deck=deck.filter(x=>x!==id);checked=false;winning=false;clearFeedback();render()}
+function remove(slotId){if(solved||slotId===card().muster[0])return;const id=slots[slotId];if(!id)return;slots[slotId]=null;deck.push(id);checked=false;winning=false;clearFeedback();render()}
+function clearFeedback(){$('feedback').textContent='';$('feedback').className='feedback'}
+function patterns(){return [card().muster,...(card().varianten||[])]}
+function sequence(){return fields().map(id=>slots[id])}
+function bestPattern(){const seq=sequence();return patterns().map(p=>({p,score:seq.reduce((sum,id,i)=>sum+(p[i]===id?1:0),0)})).sort((a,b)=>b.score-a.score)[0].p}
+function konfetti(){const colors=['#2e6b4a','#ffd35b','#d47f9d','#77a4d4'];for(let i=0;i<22;i++){const p=document.createElement('span');p.className='confetti';p.textContent=['●','■','◆'][i%3];p.style.left=(Math.random()*100)+'vw';p.style.color=colors[i%colors.length];p.style.fontSize=(10+Math.random()*10)+'px';p.style.animationDelay=(Math.random()*.25)+'s';document.body.append(p);setTimeout(()=>p.remove(),2000)}}
+function check(){if(solved)return;if(sequence().some(x=>!x)){$('feedback').textContent='Setzen Sie zuerst alle Wörter ein.';$('feedback').className='feedback bad';return}
+ checked=true;const exact=patterns().some(p=>p.every((id,i)=>sequence()[i]===id));const neu=exact&&!winning;winning=exact;render();$('feedback').className='feedback '+(exact?'good':'bad');$('feedback').textContent=exact?'Richtig! Alle Satzteile stehen an ihrem Platz.':'Noch nicht ganz. Prüfen Sie die markierten Wörter und versuchen Sie es erneut.';if(neu)konfetti()}
+function solution(){if(solved)return;version++;const mine=version;solved=true;checked=false;winning=false;clearFeedback();const c=card();Object.keys(slots).forEach(k=>slots[k]=null);const fixed=c.muster[0];slots[fixed]=fixed;deck=c.muster.slice(1);render();let i=1;
+ const step=()=>{if(mine!==version)return;if(i>=c.muster.length){$('feedback').className='feedback good';$('feedback').textContent='Musterlösung – achten Sie auf die grün markierten Verben.';return}const slotId=fields()[i],id=c.muster[i];slots[slotId]=id;deck=deck.filter(x=>x!==id);i++;render();setTimeout(step,260)};setTimeout(step,160)}
+$('check').onclick=check;$('solution').onclick=solution;$('hint').onclick=()=>{const el=$('help');el.hidden=!el.hidden;el.textContent=card().hilfe};$('reset').onclick=init;$('next').onclick=()=>{cardIndex=(cardIndex+1)%KARTEN.length;init()};init();
+</script>
+</body>
+</html>

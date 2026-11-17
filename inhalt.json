@@ -854,6 +854,18 @@
               "status": "fertig"
             },
             {
+              "titel": "Sprachwerkstatt: Der Satzbau-Automat",
+              "beschreibung": "Sätze auf der Schiene bauen und prüfen: Position 1, Verb, Mitte, Ende – und der weil-Satz als ganze Position 1.",
+              "pfad": "satzbau-automat.html",
+              "niveau": "B1–B2",
+              "dauer": "20 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "fertig"
+            },
+            {
               "titel": "Konnektoren – der Überblick",
               "beschreibung": "Die vier Familien: ADUSO, Subjunktionen, Adverbien, zweiteilige.",
               "pfad": "konnektoren-ueberblick.html",
