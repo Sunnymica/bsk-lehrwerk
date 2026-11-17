@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Aufwecker – schnelle Spiele – Deutsch fürs Büro</title>
-<link rel="stylesheet" href="../assets/basis.css?v=20261117c">
-<link rel="stylesheet" href="../assets/platform.css?v=20261117c">
-<link rel="stylesheet" href="../assets/lehrwerk.css?v=20261117c">
-<link rel="stylesheet" href="../assets/aufgaben.css?v=20261117c">
-<script src="../assets/platform.js?v=20261117c"></script>
+<link rel="stylesheet" href="../assets/basis.css?v=20261117d">
+<link rel="stylesheet" href="../assets/platform.css?v=20261117d">
+<link rel="stylesheet" href="../assets/lehrwerk.css?v=20261117d">
+<link rel="stylesheet" href="../assets/aufgaben.css?v=20261117d">
+<script src="../assets/platform.js?v=20261117d"></script>
 <style>
   .aw-wrap { max-width: 56rem; margin: 0 auto; padding-bottom: 4rem; }
 
@@ -18,14 +18,17 @@
   .aw-spieler { display: flex; align-items: center; gap: .5rem; background: #fff; border: 2px solid var(--linie); border-radius: 12px; padding: .4rem .5rem .4rem .7rem; font-size: 1.05rem; transition: transform .12s, border-color .12s, background .12s, opacity .12s; }
   .aw-spieler label { display: flex; align-items: center; gap: .45rem; cursor: pointer; }
   .aw-spieler input { width: 1.05rem; height: 1.05rem; accent-color: var(--himmel-tief); cursor: pointer; }
-  .aw-spieler b { font-family: var(--mono); font-size: 1.25rem; min-width: 1.6rem; text-align: center; }
-  .aw-spieler button { border: 0; background: var(--himmel); color: var(--himmel-tief); font-weight: 700; font-size: 1.05rem; border-radius: 8px; width: 2.1rem; height: 2.1rem; cursor: pointer; }
+  .aw-spieler b { font-family: var(--mono); font-size: 1.5rem; min-width: 2.2rem; text-align: center; background: var(--sand); color: var(--sand-tief); border-radius: 8px; padding: 0 .35rem; }
+  .aw-pm { display: inline-flex; gap: .25rem; }
+  .aw-spieler button { border: 2px solid var(--himmel-tief); background: #fff; color: var(--himmel-tief); font-weight: 700; font-size: 1.25rem; line-height: 1; border-radius: 50%; width: 2.1rem; height: 2.1rem; cursor: pointer; }
+  .aw-spieler button.plus { background: var(--himmel-tief); color: #fff; }
+  .aw-spieler button.minus { border-color: var(--linie); color: var(--tinte-weich); width: 1.7rem; height: 1.7rem; font-size: 1rem; align-self: center; }
   .aw-spieler button:hover { background: var(--himmel-tief); color: #fff; }
   .aw-spieler.dran { border-color: var(--platform-terracotta); background: var(--sand); transform: scale(1.06); }
   .aw-spieler.flackert { border-color: var(--platform-yellow); background: #FFF7DC; }
   .aw-spieler.fehlt { opacity: .45; background: transparent; }
-  .aw-spieler.fehlt button { visibility: hidden; }
-  .aw-spieler.vorn b { color: var(--platform-terracotta); }
+  .aw-spieler.fehlt .aw-pm { visibility: hidden; }
+  .aw-spieler.vorn b { background: var(--platform-terracotta); color: #fff; }
   .aw-tafel-knoepfe { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin: .2rem 0 1.2rem; }
   .aw-editor { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin: 0 0 1.2rem; }
   .aw-editor[hidden] { display: none; }
@@ -153,7 +156,7 @@
 
 </main>
 
-<script src="../assets/lehrwerk.js?v=20261117c"></script>
+<script src="../assets/lehrwerk.js?v=20261117d"></script>
 <script>
 Lehrwerk.reiter();
 
@@ -227,13 +230,23 @@ Lehrwerk.reiter();
       label.appendChild(haken); label.appendChild(name);
       box.appendChild(label);
       box.appendChild(el('b', '', String(pkt)));
-      var plus = el('button', '', '+1');
+      var minus = el('button', 'minus', '−');
+      minus.type = 'button';
+      minus.title = 'Einen Punkt wegnehmen';
+      minus.setAttribute('aria-label', 'Einen Punkt wegnehmen bei ' + p.n);
+      minus.addEventListener('click', function () {
+        tafel.punkte[p.n] = Math.max(0, (tafel.punkte[p.n] || 0) - 1); merken(); tafelZeigen();
+      });
+      var plus = el('button', 'plus', '+');
       plus.type = 'button';
-      plus.setAttribute('aria-label', 'Ein Punkt für ' + p.n);
+      plus.title = 'Einen Punkt geben';
+      plus.setAttribute('aria-label', 'Einen Punkt geben an ' + p.n);
       plus.addEventListener('click', function () {
         tafel.punkte[p.n] = (tafel.punkte[p.n] || 0) + 1; merken(); tafelZeigen();
       });
-      box.appendChild(plus);
+      var paar = el('span', 'aw-pm');
+      paar.appendChild(minus); paar.appendChild(plus);
+      box.appendChild(paar);
       tafelEl.appendChild(box);
     });
   }
