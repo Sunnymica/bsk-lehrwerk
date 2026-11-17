@@ -4,24 +4,52 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Aufwecker – drei schnelle Spiele – Deutsch fürs Büro</title>
-<link rel="stylesheet" href="../assets/basis.css?v=20261117a">
-<link rel="stylesheet" href="../assets/platform.css?v=20261117a">
-<link rel="stylesheet" href="../assets/lehrwerk.css?v=20261117a">
-<link rel="stylesheet" href="../assets/aufgaben.css?v=20261117a">
-<script src="../assets/platform.js?v=20261117a"></script>
+<title>Aufwecker – schnelle Spiele – Deutsch fürs Büro</title>
+<link rel="stylesheet" href="../assets/basis.css?v=20261117b">
+<link rel="stylesheet" href="../assets/platform.css?v=20261117b">
+<link rel="stylesheet" href="../assets/lehrwerk.css?v=20261117b">
+<link rel="stylesheet" href="../assets/aufgaben.css?v=20261117b">
+<script src="../assets/platform.js?v=20261117b"></script>
 <style>
   .aw-wrap { max-width: 56rem; margin: 0 auto; padding-bottom: 4rem; }
 
   /* Punktetafel */
   .aw-tafel { display: flex; flex-wrap: wrap; gap: .5rem; align-items: stretch; margin: 1rem 0 .4rem; }
-  .aw-spieler { display: flex; align-items: center; gap: .5rem; background: #fff; border: 2px solid var(--linie); border-radius: 12px; padding: .4rem .5rem .4rem .8rem; font-size: 1.05rem; transition: transform .15s, border-color .15s, background .15s; }
+  .aw-spieler { display: flex; align-items: center; gap: .5rem; background: #fff; border: 2px solid var(--linie); border-radius: 12px; padding: .4rem .5rem .4rem .7rem; font-size: 1.05rem; transition: transform .12s, border-color .12s, background .12s, opacity .12s; }
+  .aw-spieler label { display: flex; align-items: center; gap: .45rem; cursor: pointer; }
+  .aw-spieler input { width: 1.05rem; height: 1.05rem; accent-color: var(--himmel-tief); cursor: pointer; }
   .aw-spieler b { font-family: var(--mono); font-size: 1.25rem; min-width: 1.6rem; text-align: center; }
   .aw-spieler button { border: 0; background: var(--himmel); color: var(--himmel-tief); font-weight: 700; font-size: 1.05rem; border-radius: 8px; width: 2.1rem; height: 2.1rem; cursor: pointer; }
   .aw-spieler button:hover { background: var(--himmel-tief); color: #fff; }
-  .aw-spieler.dran { border-color: var(--platform-terracotta); background: var(--sand); transform: scale(1.08); }
+  .aw-spieler.dran { border-color: var(--platform-terracotta); background: var(--sand); transform: scale(1.06); }
+  .aw-spieler.flackert { border-color: var(--platform-yellow); background: #FFF7DC; }
+  .aw-spieler.fehlt { opacity: .45; background: transparent; }
+  .aw-spieler.fehlt button { visibility: hidden; }
   .aw-spieler.vorn b { color: var(--platform-terracotta); }
-  .aw-tafel-knoepfe { display: flex; flex-wrap: wrap; gap: .5rem; margin: .2rem 0 1.2rem; }
+  .aw-tafel-knoepfe { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin: .2rem 0 1.2rem; }
+  .aw-editor { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin: 0 0 1.2rem; }
+  .aw-editor[hidden] { display: none; }
+  .aw-wrap .reiter { flex-wrap: wrap; overflow: visible; }
+  .aw-editor input { flex: 1 1 18rem; font: inherit; padding: .45rem .7rem; border: 2px solid var(--linie); border-radius: 10px; }
+
+  /* Wer ist dran? */
+  .aw-dranleiste { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.2rem; background: var(--sand); border-radius: 14px; padding: .6rem .9rem; margin: 1rem 0 0; min-height: 4.4rem; }
+  .aw-dranleiste small { color: var(--sand-tief); font-size: .95rem; }
+  .aw-dranname { font-family: var(--display); font-weight: 800; font-size: clamp(1.8rem, 4.6vw, 3rem); line-height: 1.05; color: var(--platform-terracotta); }
+  .aw-dranname.rattert { color: var(--tinte-weich); }
+  .aw-dranname.da { animation: aw-plopp .35s cubic-bezier(.2,1.5,.6,1); }
+  @keyframes aw-plopp { from { transform: scale(.8); opacity: .4; } to { transform: scale(1); opacity: 1; } }
+
+  /* Bausteine */
+  .aw-steine { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: .7rem 0 .2rem; }
+  .aw-stein { background: var(--himmel); color: var(--himmel-tief); font-weight: 700; font-size: clamp(1.15rem, 2.8vw, 1.7rem); border-radius: 10px; padding: .3rem .8rem; }
+  .aw-stein.fest { background: var(--platform-terracotta); color: #fff; }
+  .aw-wahl { background: var(--flieder); color: var(--flieder-tief); }
+  .aw-klein { font-family: var(--mono); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--tinte-weich); margin: .6rem 0 0; }
+  .aw-konfetti { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 50; }
+  .aw-konfetti i { position: absolute; top: -1.5rem; width: .6rem; height: 1rem; border-radius: 2px; animation: aw-fall 1.6s ease-in forwards; }
+  @keyframes aw-fall { to { transform: translateY(105vh) rotate(680deg); opacity: .2; } }
+  @media (prefers-reduced-motion: reduce) { .aw-konfetti { display: none; } .aw-dranname.da { animation: none; } }
 
   /* Knöpfe */
   .aw-knopf { font-family: var(--body); font-size: 1.05rem; font-weight: 600; border: 2px solid var(--himmel-tief); background: #fff; color: var(--himmel-tief); border-radius: 999px; padding: .55rem 1.3rem; cursor: pointer; }
@@ -55,7 +83,7 @@
 <header class="hero bereich-kopf">
   <div class="innen">
     <a class="zurueck" href="../training.html">← Training</a>
-    <h1><em>Aufwecker:</em> drei schnelle Spiele</h1>
+    <h1><em>Aufwecker:</em> schnelle Spiele</h1>
     <p class="anleitung">Müde? Dann fünf Minuten spielen. Alles dreht sich um KONTOR, die Messe und den Empfang. Wer richtig und schnell ist, bekommt einen Punkt.</p>
   </div>
 </header>
@@ -64,15 +92,21 @@
 
   <div class="aw-tafel" id="aw-tafel" aria-label="Punktetafel"></div>
   <div class="aw-tafel-knoepfe">
-    <button type="button" class="aw-knopf" id="aw-wuerfeln">🎲 Wer ist dran?</button>
     <button type="button" class="aw-knopf klein" id="aw-namen">Namen ändern</button>
     <button type="button" class="aw-knopf klein" id="aw-null">Punkte auf null</button>
+  </div>
+  <div class="aw-editor" id="aw-editor" hidden>
+    <input type="text" id="aw-namenfeld" aria-label="Vornamen, mit Komma getrennt">
+    <button type="button" class="aw-knopf klein" id="aw-namen-ok">Übernehmen</button>
   </div>
 
   <div class="reiter" role="tablist">
     <button role="tab" aria-selected="true"  data-blatt="stimmt">1 · Stimmt nicht!</button>
-    <button role="tab" aria-selected="false" data-blatt="kette">2 · Die Kette</button>
-    <button role="tab" aria-selected="false" data-blatt="frage">3 · Wie heißt die Frage?</button>
+    <button role="tab" aria-selected="false" data-blatt="kette">2 · Kette</button>
+    <button role="tab" aria-selected="false" data-blatt="frage">3 · Frage?</button>
+    <button role="tab" aria-selected="false" data-blatt="salat">4 · Satzsalat</button>
+    <button role="tab" aria-selected="false" data-blatt="artikel">5 · Artikel</button>
+    <button role="tab" aria-selected="false" data-blatt="weil">6 · weil / deshalb</button>
   </div>
 
   <!-- ============ 1 · Stimmt nicht! ============ -->
@@ -96,9 +130,30 @@
     <div class="aw-buehne" id="fr-buehne"></div>
   </section>
 
+  <!-- ============ 4 · Satzsalat ============ -->
+  <section class="blatt" id="blatt-salat" hidden>
+    <p class="stand-hinweis">Wer dran ist, spricht · die anderen kontrollieren</p>
+    <div class="aw-so">Die Teile liegen durcheinander. Der <strong>Anfang steht schon fest</strong>. Bauen Sie den Satz und sagen Sie ihn laut. Denken Sie zuerst an das <strong>Verb</strong>.</div>
+    <div class="aw-buehne" id="sa-buehne"></div>
+  </section>
+
+  <!-- ============ 5 · Artikel-Alarm ============ -->
+  <section class="blatt" id="blatt-artikel" hidden>
+    <p class="stand-hinweis">Wer dran ist, spricht den ganzen Satz</p>
+    <div class="aw-so">Zwei Sorten Karten: Bei <strong>„Welcher Artikel?“</strong> wählen Sie den richtigen Artikel. Bei <strong>„Artikel-Alarm!“</strong> hat jemand die Artikel vergessen. Reparieren Sie den Satz. Es zählt nur der <strong>ganze Satz, laut gesprochen</strong>.</div>
+    <div class="aw-buehne" id="ar-buehne"></div>
+  </section>
+
+  <!-- ============ 6 · Weil oder deshalb? ============ -->
+  <section class="blatt" id="blatt-weil" hidden>
+    <p class="stand-hinweis">Wer dran ist, verbindet die zwei Sätze</p>
+    <div class="aw-so">Aus zwei Sätzen wird einer. Das Wort in der Mitte ist vorgegeben: <strong>weil</strong> oder <strong>deshalb</strong>. Die große Frage ist jedes Mal: <strong>Wo steht jetzt das Verb?</strong></div>
+    <div class="aw-buehne" id="we-buehne"></div>
+  </section>
+
 </main>
 
-<script src="../assets/lehrwerk.js?v=20261117a"></script>
+<script src="../assets/lehrwerk.js?v=20261117b"></script>
 <script>
 Lehrwerk.reiter();
 
@@ -126,62 +181,136 @@ Lehrwerk.reiter();
     return b;
   }
 
-  /* ---------- Punktetafel ---------- */
-  var SCHLUESSEL = 'aufwecker-tafel-v1';
-  var tafel = { namen: ['Danylo', 'Iryna', 'Liubov', 'Olha', 'Yuliia'], punkte: {} };
+  /* ---------- Punktetafel und „Wer ist dran?“ ---------- */
+  var SCHLUESSEL = 'aufwecker-tafel-v2';
+  var tafel = { spieler: ['Danylo', 'Iryna', 'Liubov', 'Olha', 'Yuliia'].map(function (n) { return { n: n, da: true }; }), punkte: {} };
   try {
     var alt = JSON.parse(localStorage.getItem(SCHLUESSEL) || 'null');
-    if (alt && Array.isArray(alt.namen) && alt.namen.length) tafel = alt;
+    if (alt && Array.isArray(alt.spieler) && alt.spieler.length) tafel = alt;
   } catch (e) { /* ohne Speicher geht es auch */ }
   function merken() {
     try { localStorage.setItem(SCHLUESSEL, JSON.stringify(tafel)); } catch (e) { /* egal */ }
   }
   var tafelEl = document.getElementById('aw-tafel');
-  var dran = null;
+  var dran = null, flackert = null, wuerfelt = false, beutel = [];
+  var leisten = [];
+
+  function anwesend() { return tafel.spieler.filter(function (p) { return p.da; }).map(function (p) { return p.n; }); }
+
+  /* Jeder Name liegt zweimal im Beutel, nie zweimal direkt hintereinander. */
+  function beutelFuellen() {
+    var da = anwesend(), versuch = 0, neu;
+    if (da.length < 2) { beutel = da.slice(); return; }
+    do {
+      neu = mischen(da.concat(da)); versuch++;
+      var ok = neu[0] !== dran;
+      for (var i = 1; ok && i < neu.length; i++) if (neu[i] === neu[i - 1]) ok = false;
+    } while (!ok && versuch < 200);
+    beutel = neu;
+  }
 
   function tafelZeigen() {
     tafelEl.innerHTML = '';
     var max = 0;
-    tafel.namen.forEach(function (n) { max = Math.max(max, tafel.punkte[n] || 0); });
-    tafel.namen.forEach(function (n) {
-      var p = tafel.punkte[n] || 0;
-      var box = el('div', 'aw-spieler' + (n === dran ? ' dran' : '') + (max > 0 && p === max ? ' vorn' : ''));
-      box.appendChild(el('span', '', n.replace(/</g, '&lt;')));
-      box.appendChild(el('b', '', String(p)));
+    tafel.spieler.forEach(function (p) { if (p.da) max = Math.max(max, tafel.punkte[p.n] || 0); });
+    tafel.spieler.forEach(function (p) {
+      var pkt = tafel.punkte[p.n] || 0;
+      var box = el('div', 'aw-spieler' + (p.da ? '' : ' fehlt') + (p.n === dran ? ' dran' : '') + (p.n === flackert ? ' flackert' : '') + (p.da && max > 0 && pkt === max ? ' vorn' : ''));
+      var label = el('label');
+      var haken = el('input'); haken.type = 'checkbox'; haken.checked = p.da;
+      haken.setAttribute('aria-label', p.n + ' ist da');
+      haken.addEventListener('change', function () {
+        p.da = haken.checked; if (!p.da && dran === p.n) { dran = null; namenZeigen(''); }
+        beutel = []; merken(); tafelZeigen();
+      });
+      var name = el('span'); name.textContent = p.n;
+      label.appendChild(haken); label.appendChild(name);
+      box.appendChild(label);
+      box.appendChild(el('b', '', String(pkt)));
       var plus = el('button', '', '+1');
       plus.type = 'button';
-      plus.setAttribute('aria-label', 'Ein Punkt für ' + n);
+      plus.setAttribute('aria-label', 'Ein Punkt für ' + p.n);
       plus.addEventListener('click', function () {
-        tafel.punkte[n] = (tafel.punkte[n] || 0) + 1; merken(); tafelZeigen();
+        tafel.punkte[p.n] = (tafel.punkte[p.n] || 0) + 1; merken(); tafelZeigen();
       });
       box.appendChild(plus);
       tafelEl.appendChild(box);
     });
   }
 
-  document.getElementById('aw-wuerfeln').addEventListener('click', function () {
-    if (!tafel.namen.length) return;
-    var runden = 10 + Math.floor(Math.random() * 6), i = 0;
-    var letzter = dran;
-    (function weiter() {
-      var wahl;
-      do { wahl = tafel.namen[Math.floor(Math.random() * tafel.namen.length)]; }
-      while (tafel.namen.length > 1 && (wahl === dran || (i === runden - 1 && wahl === letzter)));
-      dran = wahl; tafelZeigen();
-      if (++i < runden) setTimeout(weiter, 70 + i * 14);
+  function namenZeigen(text, klasse) {
+    leisten.forEach(function (l) {
+      l.name.textContent = text;
+      l.name.className = 'aw-dranname' + (klasse ? ' ' + klasse : '');
+      l.vor.hidden = !text || klasse === 'rattert';
+    });
+  }
+
+  function wuerfeln() {
+    var da = anwesend();
+    if (wuerfelt || !da.length) return;
+    if (!beutel.length) beutelFuellen();
+    var ziel = beutel.shift();
+    if (da.length === 1) { dran = ziel; flackert = null; namenZeigen(ziel, 'da'); tafelZeigen(); return; }
+    wuerfelt = true; dran = null;
+    var schritte = 11, i = 0, letzter = null;
+    (function tick() {
+      if (i >= schritte) {
+        wuerfelt = false; flackert = null; dran = ziel;
+        namenZeigen(ziel, 'da'); tafelZeigen(); return;
+      }
+      var n;
+      do { n = da[Math.floor(Math.random() * da.length)]; } while (n === letzter);
+      letzter = n; flackert = n;
+      namenZeigen(n, 'rattert'); tafelZeigen();
+      i++; setTimeout(tick, 70 + i * 9);   /* zusammen gut eine Sekunde */
     })();
+  }
+
+  /* Über jede Spielkarte kommt die Leiste mit Würfel und Name. */
+  [].forEach.call(document.querySelectorAll('.aw-buehne'), function (buehne) {
+    var leiste = el('div', 'aw-dranleiste');
+    leiste.appendChild(knopf('🎲 Wer ist dran?', 'haupt', wuerfeln));
+    var vor = el('small', '', 'Jetzt spricht:'); vor.hidden = true;
+    var name = el('span', 'aw-dranname'); name.setAttribute('aria-live', 'polite');
+    leiste.appendChild(vor); leiste.appendChild(name);
+    buehne.parentNode.insertBefore(leiste, buehne);
+    leisten.push({ name: name, vor: vor });
   });
+
   document.getElementById('aw-null').addEventListener('click', function () {
-    tafel.punkte = {}; dran = null; merken(); tafelZeigen();
+    tafel.punkte = {}; dran = null; beutel = []; namenZeigen(''); merken(); tafelZeigen();
   });
+  var editor = document.getElementById('aw-editor'), namenfeld = document.getElementById('aw-namenfeld');
   document.getElementById('aw-namen').addEventListener('click', function () {
-    var neu = window.prompt('Vornamen, mit Komma getrennt:', tafel.namen.join(', '));
-    if (neu === null) return;
-    var liste = neu.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
-    if (!liste.length) return;
-    tafel.namen = liste; dran = null; merken(); tafelZeigen();
+    editor.hidden = !editor.hidden;
+    if (!editor.hidden) { namenfeld.value = tafel.spieler.map(function (p) { return p.n; }).join(', '); namenfeld.focus(); }
   });
+  function namenUebernehmen() {
+    var liste = namenfeld.value.split(',').map(function (x) { return x.trim().slice(0, 24); }).filter(Boolean);
+    liste = liste.filter(function (n, i) { return liste.indexOf(n) === i; });
+    if (!liste.length) return;
+    tafel.spieler = liste.map(function (n) {
+      var alt = tafel.spieler.filter(function (p) { return p.n === n; })[0];
+      return { n: n, da: alt ? alt.da : true };
+    });
+    dran = null; beutel = []; namenZeigen(''); editor.hidden = true; merken(); tafelZeigen();
+  }
+  document.getElementById('aw-namen-ok').addEventListener('click', namenUebernehmen);
+  namenfeld.addEventListener('keydown', function (e) { if (e.key === 'Enter') namenUebernehmen(); });
   tafelZeigen();
+
+  function konfetti() {
+    var k = el('div', 'aw-konfetti'), farben = ['#B86143', '#E8C46A', '#31536F', '#574269', '#833F4B'];
+    for (var i = 0; i < 36; i++) {
+      var f = el('i');
+      f.style.left = (Math.random() * 100) + '%'; f.style.background = farben[i % farben.length];
+      f.style.animationDelay = (Math.random() * .5) + 's';
+      k.appendChild(f);
+    }
+    document.body.appendChild(k);
+    setTimeout(function () { k.remove(); }, 2400);
+  }
 
   /* ---------- 1 · Stimmt nicht! ---------- */
   var STIMMT = [
@@ -350,7 +479,102 @@ Lehrwerk.reiter();
     karte();
   })();
 
+  /* ---------- 4 · Satzsalat ---------- */
+  var SALAT = [
+    { an: 'Heute', t: ['muss', 'Nora', 'die Druckerei', 'anrufen'], h: 'Nach „Heute“ kommt sofort das Verb: muss', l: 'Heute <span class="aw-neu">muss</span> Nora die Druckerei <span class="aw-neu">anrufen</span>.' },
+    { an: 'Finn', t: ['druckt', 'die Namensschilder', 'aus'], h: 'ausdrucken: Der kleine Teil „aus“ geht ganz ans Ende.', l: 'Finn <span class="aw-neu">druckt</span> die Namensschilder <span class="aw-neu">aus</span>.' },
+    { an: 'Frau Lenz', t: ['erklärt', 'dem Azubi', 'den Ablauf'], h: 'Erst die Person (wem?), dann die Sache (was?).', l: 'Frau Lenz <span class="aw-neu">erklärt</span> dem Azubi den Ablauf.' },
+    { an: 'Die Spedition', t: ['soll', 'die Kisten', 'nach Dortmund', 'liefern'], h: 'Zwei Verben: „soll“ auf Position 2, „liefern“ ganz ans Ende.', l: 'Die Spedition <span class="aw-neu">soll</span> die Kisten nach Dortmund <span class="aw-neu">liefern</span>.' },
+    { an: 'Herr Becker', t: ['hat', 'den Standplan', 'bekommen'], h: 'Perfekt: „hat“ auf Position 2, „bekommen“ ganz ans Ende.', l: 'Herr Becker <span class="aw-neu">hat</span> den Standplan <span class="aw-neu">bekommen</span>.' },
+    { an: 'Nora sagt,', t: ['dass', 'Pawel', 'die Kisten', 'verpackt'], h: 'Nach „dass“ steht das Verb ganz am Ende.', l: 'Nora sagt, <span class="aw-neu">dass</span> Pawel die Kisten <span class="aw-neu">verpackt</span>.' },
+    { an: 'Wir reklamieren,', t: ['weil', 'die Lieferung', 'zu spät', 'kommt'], h: 'Nach „weil“ steht das Verb ganz am Ende.', l: 'Wir reklamieren, <span class="aw-neu">weil</span> die Lieferung zu spät <span class="aw-neu">kommt</span>.' },
+    { an: 'Weil er neu ist,', t: ['stellt', 'Finn', 'viele Fragen'], h: 'Der weil-Satz steht auf Position 1. Danach kommt sofort das Verb.', l: 'Weil er neu ist, <span class="aw-neu">stellt</span> Finn viele Fragen.' },
+    { an: 'Könnten Sie', t: ['mir', 'den Standplan', 'schicken', '?'], h: 'Das kurze Wort „mir“ steht gleich hinter „Sie“.', l: '<span class="aw-neu">Könnten</span> Sie mir den Standplan <span class="aw-neu">schicken</span>?' },
+    { an: 'Bis wann', t: ['muss', 'Pawel', 'die Kisten', 'verpacken', '?'], h: 'Nach dem Fragewort kommt sofort das Verb: muss', l: 'Bis wann <span class="aw-neu">muss</span> Pawel die Kisten <span class="aw-neu">verpacken</span>?' }
+  ];
+
+  /* ---------- 5 · Artikel-Alarm ---------- */
+  var ARTIKEL = [
+    { satz: 'Nora spricht mit ___ Druckerei.', wahl: ['die', 'der', 'den'], h: 'mit + Dativ · die Druckerei', l: 'Nora spricht mit <span class="aw-neu">der</span> Druckerei.' },
+    { satz: 'Der Standplan liegt auf ___ Schreibtisch.', wahl: ['den', 'dem', 'der'], h: 'Wo liegt er? → Dativ · der Schreibtisch', l: 'Der Standplan liegt auf <span class="aw-neu">dem</span> Schreibtisch.' },
+    { satz: 'Nora legt die Liste auf ___ Schreibtisch.', wahl: ['den', 'dem', 'der'], h: 'Wohin legt sie die Liste? → Akkusativ · der Schreibtisch', l: 'Nora legt die Liste auf <span class="aw-neu">den</span> Schreibtisch.' },
+    { satz: 'KONTOR hat ___ neuen Azubi.', wahl: ['ein', 'einen', 'einem'], h: 'haben + Akkusativ · der Azubi · zum ersten Mal genannt: unbestimmter Artikel', l: 'KONTOR hat <span class="aw-neu">einen</span> neuen Azubi.' },
+    { satz: 'Finn ist ___ Azubi.', wahl: ['ein', 'der', 'kein Artikel'], h: 'Beruf nach „ist“', l: 'Finn ist Azubi. <small>Beruf nach bin / ist / wird: ohne Artikel.</small>' },
+    { alarm: true, satz: 'Nora ruft Druckerei an.', h: 'Es fehlt 1 Artikel.', l: 'Nora ruft <span class="aw-neu">die</span> Druckerei an.' },
+    { alarm: true, satz: 'Finn trägt Namen in Besucherliste ein.', h: 'Es fehlen 2 Artikel. · der Name, die Besucherliste', l: 'Finn trägt <span class="aw-neu">den</span> Namen in <span class="aw-neu">die</span> Besucherliste ein.' },
+    { alarm: true, satz: 'Besucher wartet an Empfang.', h: 'Es fehlen 2 Artikel. · an + dem = am', l: '<span class="aw-neu">Ein</span> Besucher wartet <span class="aw-neu">am</span> Empfang.', auch: 'Der Besucher wartet am Empfang. (Wenn wir ihn schon kennen.)' },
+    { alarm: true, satz: 'Nora schickt Standplan an Herrn Becker.', h: 'Es fehlt nur 1 Artikel. Vor Namen steht keiner.', l: 'Nora schickt <span class="aw-neu">den</span> Standplan an Herrn Becker.' },
+    { alarm: true, satz: 'Ich habe Frage zu Rechnung.', h: 'Es fehlen 2 Artikel. · zu + der = zur', l: 'Ich habe <span class="aw-neu">eine</span> Frage <span class="aw-neu">zur</span> Rechnung.' }
+  ];
+
+  /* ---------- 6 · Weil oder deshalb? ---------- */
+  var WEIL = [
+    { a: 'Die Prospekte fehlen.', b: 'Nora ruft die Druckerei an.', k: 'deshalb', l: 'Die Prospekte fehlen, <span class="aw-neu">deshalb ruft</span> Nora die Druckerei an.' },
+    { a: 'Nora ruft die Druckerei an.', b: 'Die Prospekte fehlen.', k: 'weil', l: 'Nora ruft die Druckerei an, <span class="aw-neu">weil</span> die Prospekte <span class="aw-neu">fehlen</span>.' },
+    { a: 'Finn ist neu.', b: 'Frau Lenz erklärt alles genau.', k: 'deshalb', l: 'Finn ist neu, <span class="aw-neu">deshalb erklärt</span> Frau Lenz alles genau.' },
+    { a: 'Finn fragt oft nach.', b: 'Er will alles richtig machen.', k: 'weil', l: 'Finn fragt oft nach, <span class="aw-neu">weil</span> er alles richtig machen <span class="aw-neu">will</span>.' },
+    { a: 'Die Messe ist in zwei Wochen.', b: 'Pawel muss die Kisten bis Montag verpacken.', k: 'deshalb', l: 'Die Messe ist in zwei Wochen, <span class="aw-neu">deshalb muss</span> Pawel die Kisten bis Montag verpacken.' },
+    { a: 'Nora bucht zwei Zimmer.', b: 'Herr Becker und Frau Vogt fahren nach Dortmund.', k: 'weil', l: 'Nora bucht zwei Zimmer, <span class="aw-neu">weil</span> Herr Becker und Frau Vogt nach Dortmund <span class="aw-neu">fahren</span>.' },
+    { a: 'Der Besucher hat keinen Termin.', b: 'Finn ruft die Kollegin an.', k: 'deshalb', l: 'Der Besucher hat keinen Termin, <span class="aw-neu">deshalb ruft</span> Finn die Kollegin an.' },
+    { a: 'Nora fragt nach dem Preis.', b: 'Das Angebot ist schon ein paar Wochen alt.', k: 'weil', l: 'Nora fragt nach dem Preis, <span class="aw-neu">weil</span> das Angebot schon ein paar Wochen alt <span class="aw-neu">ist</span>.' },
+    { a: 'Der Drucker hat kein Papier mehr.', b: 'Wir können nichts ausdrucken.', k: 'deshalb', l: 'Der Drucker hat kein Papier mehr, <span class="aw-neu">deshalb können</span> wir nichts ausdrucken.' },
+    { a: 'Nora fasst alles zusammen.', b: 'Sie hat sieben Aufträge bekommen.', k: 'weil', l: 'Nora fasst alles zusammen, <span class="aw-neu">weil</span> sie sieben Aufträge bekommen <span class="aw-neu">hat</span>.' }
+  ];
+
+  /* Gemeinsamer Ablauf für die Kartenspiele 4 bis 6 */
+  function kartenspiel(id, DATEN, wort, vorn) {
+    var buehne = document.getElementById(id);
+    var stapel = mischen(DATEN), nr = 0;
+    function karte() {
+      buehne.innerHTML = '';
+      if (nr >= stapel.length) { ende(buehne, function () { stapel = mischen(DATEN); nr = 0; karte(); }); return; }
+      var k = stapel[nr];
+      buehne.appendChild(el('p', 'aw-zaehler', wort + ' ' + (nr + 1) + ' von ' + stapel.length));
+      vorn(k, buehne);
+      var hilfe = el('p', 'aw-hilfe', 'Hilfe: ' + k.h); hilfe.hidden = true;
+      buehne.appendChild(hilfe);
+      var loesung = el('div', 'aw-loesung', '<div class="lw-richtig">✓ ' + k.l + '</div>' + (k.auch ? '<p class="aw-hilfe">Auch richtig: ' + k.auch + '</p>' : '')); loesung.hidden = true;
+      buehne.appendChild(loesung);
+      var reihe = el('div', 'aw-reihe');
+      var h = knopf('Hilfe', '', function () { hilfe.hidden = false; h.hidden = true; });
+      var z = knopf('Lösung zeigen', '', function () { loesung.hidden = false; z.hidden = true; });
+      reihe.appendChild(h); reihe.appendChild(z);
+      reihe.appendChild(knopf('Nächste Karte →', 'haupt', function () { nr++; karte(); }));
+      buehne.appendChild(reihe);
+    }
+    karte();
+  }
+
+  kartenspiel('sa-buehne', SALAT, 'Satz', function (k, buehne) {
+    var teile;
+    do { teile = mischen(k.t.filter(function (x) { return x !== '?'; })); }
+    while (teile.length > 2 && teile.join('|') === k.t.filter(function (x) { return x !== '?'; }).join('|'));
+    buehne.appendChild(el('p', 'aw-klein', 'So fängt der Satz an'));
+    buehne.appendChild(el('div', 'aw-steine', '<span class="aw-stein fest">' + k.an + ' …' + (k.t.indexOf('?') > -1 ? ' ?' : '') + '</span>'));
+    buehne.appendChild(el('p', 'aw-klein', 'Und diese Teile fehlen noch'));
+    buehne.appendChild(el('div', 'aw-steine', teile.map(function (x) { return '<span class="aw-stein">' + x + '</span>'; }).join('')));
+  });
+
+  kartenspiel('ar-buehne', ARTIKEL, 'Karte', function (k, buehne) {
+    if (k.alarm) {
+      buehne.appendChild(el('div', '', '<span class="aw-plus">🚨 Artikel-Alarm!</span>'));
+      buehne.appendChild(el('p', 'aw-gross', k.satz));
+    } else {
+      buehne.appendChild(el('div', '', '<span class="aw-fragewort">Welcher Artikel?</span>'));
+      buehne.appendChild(el('p', 'aw-gross', k.satz));
+      buehne.appendChild(el('div', 'aw-steine', k.wahl.map(function (x) { return '<span class="aw-stein aw-wahl">' + x + '</span>'; }).join('')));
+    }
+  });
+
+  kartenspiel('we-buehne', WEIL, 'Karte', function (k, buehne) {
+    buehne.appendChild(el('p', 'aw-mittel', k.a));
+    buehne.appendChild(el('div', '', '<span class="' + (k.k === 'weil' ? 'aw-fragewort' : 'aw-plus') + '">' + k.k + '</span>'));
+    buehne.appendChild(el('p', 'aw-mittel', k.b));
+    k.h = k.k === 'weil' ? 'Nach „weil“ wandert das Verb ganz ans Ende.' : 'Nach „deshalb“ kommt sofort das Verb, erst dann die Person.';
+  });
+
   function ende(buehne, neu) {
+    konfetti();
     buehne.appendChild(el('p', 'aw-gross', 'Fertig! 🎉'));
     buehne.appendChild(el('p', 'aw-ende', 'Wer hat die meisten Punkte?'));
     var reihe = el('div', 'aw-reihe');

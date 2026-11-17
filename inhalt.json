@@ -1615,8 +1615,8 @@
           "titel": "Spiele",
           "module": [
             {
-              "titel": "Aufwecker – drei schnelle Spiele",
-              "beschreibung": "Stimmt nicht!, Die Kette und Wie heißt die Frage? Fünf Minuten Tempo mit KONTOR, Messe und Empfang, mit Punktetafel.",
+              "titel": "Aufwecker – schnelle Spiele",
+              "beschreibung": "Sechs Spielreihen für zwischendurch: Stimmt nicht!, Die Kette, Wie heißt die Frage?, Satzsalat, Artikel-Alarm, Weil oder deshalb? Mit Punktetafel und Namenswürfel.",
               "pfad": "aufwecker.html",
               "niveau": "B1/B2",
               "dauer": "10 Min",
