@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Aufwecker – schnelle Spiele – Deutsch fürs Büro</title>
-<link rel="stylesheet" href="../assets/basis.css?v=20261117d">
-<link rel="stylesheet" href="../assets/platform.css?v=20261117d">
-<link rel="stylesheet" href="../assets/lehrwerk.css?v=20261117d">
-<link rel="stylesheet" href="../assets/aufgaben.css?v=20261117d">
-<script src="../assets/platform.js?v=20261117d"></script>
+<link rel="stylesheet" href="../assets/basis.css?v=20261117e">
+<link rel="stylesheet" href="../assets/platform.css?v=20261117e">
+<link rel="stylesheet" href="../assets/lehrwerk.css?v=20261117e">
+<link rel="stylesheet" href="../assets/aufgaben.css?v=20261117e">
+<script src="../assets/platform.js?v=20261117e"></script>
 <style>
   .aw-wrap { max-width: 56rem; margin: 0 auto; padding-bottom: 4rem; }
 
@@ -49,6 +49,30 @@
   .aw-stein.fest { background: var(--platform-terracotta); color: #fff; }
   .aw-wahl { background: var(--flieder); color: var(--flieder-tief); }
   .aw-klein { font-family: var(--mono); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--tinte-weich); margin: .6rem 0 0; }
+  /* Aufzug */
+  .az-layout { display: grid; grid-template-columns: 17rem minmax(0, 1fr); gap: 1.2rem; align-items: start; margin-top: 1rem; }
+  .az-rechts .aw-dranleiste { margin-top: 0; }
+  .az-turm { background: linear-gradient(160deg, var(--sand), var(--himmel)); border: 2px solid var(--linie); border-radius: 16px; padding: .9rem .9rem 1rem; text-align: center; }
+  .az-titel { font-family: var(--mono); font-weight: 700; letter-spacing: .25em; font-size: .85rem; margin: 0 0 .6rem; color: var(--himmel-tief); }
+  .az-haus { position: relative; background: #fff; border: 2px solid var(--himmel-tief); border-radius: 10px; overflow: hidden; }
+  .az-schacht { position: absolute; left: 0; top: 0; bottom: 0; width: 4.6rem; background: repeating-linear-gradient(0deg, #f3f1ec 0 8px, #e6e9ee 8px 16px); border-right: 2px solid var(--himmel-tief); }
+  .az-kabine { position: absolute; left: .55rem; top: 0; width: 3.5rem; height: 3.3rem; background: linear-gradient(90deg, #FFF4CD 0 47%, #C9A45A 47% 53%, #FFF4CD 53%); border: 3px solid var(--sand-tief); border-radius: 7px; box-shadow: 0 5px 10px rgba(0,0,0,.18); transition: top .8s cubic-bezier(.2,.8,.2,1); z-index: 2; }
+  .az-etage { display: grid; grid-template-columns: 1.6rem 1fr; gap: .5rem; align-items: center; height: 4.9rem; margin-left: 4.6rem; padding: 0 .6rem; border-bottom: 2px solid var(--linie); text-align: left; }
+  .az-etage:last-child { border-bottom: 0; }
+  .az-etage b { font-family: var(--display); font-size: 1.4rem; color: var(--tinte-weich); text-align: center; }
+  .az-etage span { font-weight: 700; font-size: 1rem; line-height: 1.2; }
+  .az-etage small { display: block; font-weight: 400; font-size: .8rem; color: var(--tinte-weich); }
+  .az-etage.aktiv { background: var(--sand); }
+  .az-etage.aktiv b, .az-etage.aktiv span { color: var(--platform-terracotta); }
+  .az-etage.fertig b { font-size: 0; }
+  .az-etage.fertig b::after { content: "✓"; font-size: 1.4rem; color: #2E6B4A; }
+  .az-stand { font-weight: 700; margin: .7rem 0 .5rem; }
+  .az-punkte { display: flex; align-items: center; justify-content: center; gap: .4rem; margin: 0 0 .5rem; }
+  .az-punkte span { width: 1rem; height: 1rem; border-radius: 50%; background: var(--linie); }
+  .az-punkte span.voll { background: var(--platform-terracotta); }
+  .az-punkte small { color: var(--tinte-weich); font-size: .9rem; margin-left: .3rem; }
+  @media (max-width: 52rem) { .az-layout { grid-template-columns: 1fr; } .az-turm { max-width: 19rem; margin: 0 auto; } }
+  @media (prefers-reduced-motion: reduce) { .az-kabine { transition: none; } }
   .aw-konfetti { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 50; }
   .aw-konfetti i { position: absolute; top: -1.5rem; width: .6rem; height: 1rem; border-radius: 2px; animation: aw-fall 1.6s ease-in forwards; }
   @keyframes aw-fall { to { transform: translateY(105vh) rotate(680deg); opacity: .2; } }
@@ -110,6 +134,7 @@
     <button role="tab" aria-selected="false" data-blatt="salat">4 · Satzsalat</button>
     <button role="tab" aria-selected="false" data-blatt="artikel">5 · Artikel</button>
     <button role="tab" aria-selected="false" data-blatt="weil">6 · weil / deshalb</button>
+    <button role="tab" aria-selected="false" data-blatt="aufzug">7 · 🛗 Aufzug</button>
   </div>
 
   <!-- ============ 1 · Stimmt nicht! ============ -->
@@ -154,9 +179,31 @@
     <div class="aw-buehne" id="we-buehne"></div>
   </section>
 
+  <!-- ============ 7 · Der KONTOR-Aufzug ============ -->
+  <section class="blatt" id="blatt-aufzug" hidden>
+    <p class="stand-hinweis">Teamspiel · alle zusammen bringen den Aufzug nach oben</p>
+    <div class="aw-so">Vier Etagen, auf jeder Etage zwei Sätze. Wer dran ist, spricht. Die anderen hören zu und helfen. <strong>Zwei richtige Sätze</strong>, und der Aufzug fährt eine Etage höher. Hier gibt es keine Punkte: <strong>Sie gewinnen nur zusammen.</strong></div>
+    <div class="az-layout">
+      <aside class="az-turm" aria-label="Der Aufzug">
+        <p class="az-titel">KONTOR</p>
+        <div class="az-haus">
+          <div class="az-schacht"></div>
+          <div class="az-kabine" id="az-kabine" aria-hidden="true"></div>
+          <div class="az-etage" data-e="3"><b>4</b><span>Chefetage<small>Die Satzklammer</small></span></div>
+          <div class="az-etage" data-e="2"><b>3</b><span>Buchhaltung<small>Artikel</small></span></div>
+          <div class="az-etage" data-e="1"><b>2</b><span>Besprechung<small>weil und deshalb</small></span></div>
+          <div class="az-etage" data-e="0"><b>1</b><span>Empfang<small>Satzsalat</small></span></div>
+        </div>
+        <p class="az-stand" id="az-stand" aria-live="polite"></p>
+        <button type="button" class="aw-knopf klein" id="az-neu">↺ Neue Fahrt</button>
+      </aside>
+      <div class="az-rechts"><div class="aw-buehne" id="az-buehne"></div></div>
+    </div>
+  </section>
+
 </main>
 
-<script src="../assets/lehrwerk.js?v=20261117d"></script>
+<script src="../assets/lehrwerk.js?v=20261117e"></script>
 <script>
 Lehrwerk.reiter();
 
@@ -558,17 +605,17 @@ Lehrwerk.reiter();
     karte();
   }
 
-  kartenspiel('sa-buehne', SALAT, 'Satz', function (k, buehne) {
+  var vornSalat = function (k, buehne) {
     var teile;
     do { teile = mischen(k.t.filter(function (x) { return x !== '?'; })); }
     while (teile.length > 2 && teile.join('|') === k.t.filter(function (x) { return x !== '?'; }).join('|'));
     buehne.appendChild(el('p', 'aw-klein', 'So fängt der Satz an'));
     buehne.appendChild(el('div', 'aw-steine', '<span class="aw-stein fest">' + k.an + ' …' + (k.t.indexOf('?') > -1 ? ' ?' : '') + '</span>'));
-    buehne.appendChild(el('p', 'aw-klein', 'Und diese Teile fehlen noch'));
+    buehne.appendChild(el('p', 'aw-klein', k.inf ? 'Und diese Teile fehlen noch · ' + k.inf : 'Und diese Teile fehlen noch'));
     buehne.appendChild(el('div', 'aw-steine', teile.map(function (x) { return '<span class="aw-stein">' + x + '</span>'; }).join('')));
-  });
+  };
 
-  kartenspiel('ar-buehne', ARTIKEL, 'Karte', function (k, buehne) {
+  var vornArtikel = function (k, buehne) {
     if (k.alarm) {
       buehne.appendChild(el('div', '', '<span class="aw-plus">🚨 Artikel-Alarm!</span>'));
       buehne.appendChild(el('p', 'aw-gross', k.satz));
@@ -577,14 +624,105 @@ Lehrwerk.reiter();
       buehne.appendChild(el('p', 'aw-gross', k.satz));
       buehne.appendChild(el('div', 'aw-steine', k.wahl.map(function (x) { return '<span class="aw-stein aw-wahl">' + x + '</span>'; }).join('')));
     }
-  });
+  };
 
-  kartenspiel('we-buehne', WEIL, 'Karte', function (k, buehne) {
+  var vornWeil = function (k, buehne) {
     buehne.appendChild(el('p', 'aw-mittel', k.a));
     buehne.appendChild(el('div', '', '<span class="' + (k.k === 'weil' ? 'aw-fragewort' : 'aw-plus') + '">' + k.k + '</span>'));
     buehne.appendChild(el('p', 'aw-mittel', k.b));
     k.h = k.k === 'weil' ? 'Nach „weil“ wandert das Verb ganz ans Ende.' : 'Nach „deshalb“ kommt sofort das Verb, erst dann die Person.';
-  });
+  };
+
+
+  kartenspiel('sa-buehne', SALAT, 'Satz', vornSalat);
+  kartenspiel('ar-buehne', ARTIKEL, 'Karte', vornArtikel);
+  kartenspiel('we-buehne', WEIL, 'Karte', vornWeil);
+
+  /* ---------- 7 · Der KONTOR-Aufzug (Idee und Turm: Leo) ---------- */
+  var KLAMMER = [
+    { an: 'Heute', t: ['Nora', 'den Kunden', 'zurückrufen', 'müssen'], inf: 'die Verben stehen im Infinitiv', h: 'Das Modalverb kommt auf Position 2, der Infinitiv ganz ans Ende.', l: 'Heute <span class="aw-neu">muss</span> Nora den Kunden <span class="aw-neu">zurückrufen</span>.' },
+    { an: 'Die Rechnung', t: ['noch nicht', 'bezahlt werden', 'können'], inf: 'die Verben stehen im Infinitiv', h: '„können“ kommt auf Position 2, „bezahlt werden“ ganz ans Ende.', l: 'Die Rechnung <span class="aw-neu">kann</span> noch nicht <span class="aw-neu">bezahlt werden</span>.' },
+    { an: 'Pawel', t: ['die Kisten', 'bis Montag', 'verpacken', 'sollen'], inf: 'die Verben stehen im Infinitiv', h: 'Das Modalverb kommt auf Position 2, der Infinitiv ganz ans Ende.', l: 'Pawel <span class="aw-neu">soll</span> die Kisten bis Montag <span class="aw-neu">verpacken</span>.', auch: 'Pawel soll bis Montag die Kisten verpacken.' },
+    { an: 'Gestern', t: ['Nora', 'zwei Zimmer', 'buchen'], inf: 'bilden Sie das Perfekt', h: 'Perfekt: „hat“ auf Position 2, das Partizip ganz ans Ende.', l: 'Gestern <span class="aw-neu">hat</span> Nora zwei Zimmer <span class="aw-neu">gebucht</span>.' },
+    { an: 'Finn', t: ['morgen', 'die Namensschilder', 'ausdrucken', 'wollen'], inf: 'die Verben stehen im Infinitiv', h: 'Mit Modalverb bleibt „ausdrucken“ zusammen und steht am Ende.', l: 'Finn <span class="aw-neu">will</span> morgen die Namensschilder <span class="aw-neu">ausdrucken</span>.' },
+    { an: 'Die Prospekte', t: ['am Mittwoch', 'geliefert werden', 'müssen'], inf: 'die Verben stehen im Infinitiv', h: '„müssen“ kommt auf Position 2, „geliefert werden“ ganz ans Ende.', l: 'Die Prospekte <span class="aw-neu">müssen</span> am Mittwoch <span class="aw-neu">geliefert werden</span>.' },
+    { an: 'Frau Melnyk', t: ['den Standplan', 'schon', 'schicken'], inf: 'bilden Sie das Perfekt', h: 'Perfekt: „hat“ auf Position 2, das Partizip ganz ans Ende.', l: 'Frau Melnyk <span class="aw-neu">hat</span> den Standplan schon <span class="aw-neu">geschickt</span>.' },
+    { an: 'Leider', t: ['Herr Becker', 'am Montag', 'nicht', 'kommen', 'können'], inf: 'die Verben stehen im Infinitiv', h: 'Nach „Leider“ kommt sofort das Modalverb. Der Infinitiv steht am Ende.', l: 'Leider <span class="aw-neu">kann</span> Herr Becker am Montag nicht <span class="aw-neu">kommen</span>.' }
+  ];
+
+  (function () {
+    var buehne = document.getElementById('az-buehne');
+    var ETAGEN = [
+      { name: 'Empfang', thema: 'Satzsalat', daten: SALAT, vorn: vornSalat },
+      { name: 'Besprechung', thema: 'weil und deshalb', daten: WEIL, vorn: vornWeil },
+      { name: 'Buchhaltung', thema: 'Artikel', daten: ARTIKEL, vorn: vornArtikel },
+      { name: 'Chefetage', thema: 'Die Satzklammer', daten: KLAMMER, vorn: vornSalat }
+    ];
+    var etage = 0, treffer = 0, stapel = [], karteJetzt = null, oben = false;
+    var kabine = document.getElementById('az-kabine'), stand = document.getElementById('az-stand');
+
+    function ziehen() {
+      if (!stapel[etage] || !stapel[etage].length) {
+        var neu = mischen(ETAGEN[etage].daten);
+        if (karteJetzt && neu.length > 1 && neu[0] === karteJetzt) neu.push(neu.shift());
+        stapel[etage] = neu;
+      }
+      karteJetzt = stapel[etage].shift();
+    }
+    function turm() {
+      [].forEach.call(document.querySelectorAll('.az-etage'), function (d) {
+        var n = Number(d.getAttribute('data-e'));
+        d.classList.toggle('aktiv', !oben && n === etage);
+        d.classList.toggle('fertig', oben || n < etage);
+      });
+      stand.textContent = oben ? 'Chefetage erreicht! 🏆' : 'Etage ' + (etage + 1) + ' · ' + ETAGEN[etage].name;
+      var ziel = document.querySelector('.az-etage[data-e="' + etage + '"]');
+      if (ziel && ziel.offsetHeight) kabine.style.top = (ziel.offsetTop + (ziel.offsetHeight - kabine.offsetHeight) / 2) + 'px';
+    }
+    function karte() {
+      buehne.innerHTML = '';
+      turm();
+      var e = ETAGEN[etage], k = karteJetzt;
+      buehne.appendChild(el('p', 'aw-zaehler', 'Etage ' + (etage + 1) + ' · ' + e.name + ' · ' + e.thema));
+      buehne.appendChild(el('div', 'az-punkte', '<span class="' + (treffer > 0 ? 'voll' : '') + '"></span><span></span> <small>Zwei richtige Sätze, dann fährt der Aufzug.</small>'));
+      e.vorn(k, buehne);
+      var hilfe = el('p', 'aw-hilfe', 'Hilfe: ' + k.h); hilfe.hidden = true;
+      buehne.appendChild(hilfe);
+      var loesung = el('div', 'aw-loesung', '<div class="lw-richtig">✓ ' + k.l + '</div>' + (k.auch ? '<p class="aw-hilfe">Auch richtig: ' + k.auch + '</p>' : '')); loesung.hidden = true;
+      buehne.appendChild(loesung);
+      var reihe = el('div', 'aw-reihe');
+      var h = knopf('Hilfe', '', function () { hilfe.hidden = false; h.hidden = true; });
+      var ja = knopf('✓ Richtig gesprochen', 'haupt', function () {
+        treffer++;
+        if (treffer < 2) { ziehen(); karte(); return; }
+        treffer = 0;
+        if (etage < ETAGEN.length - 1) { etage++; ziehen(); karte(); return; }
+        gewonnen();
+      });
+      var nein = knopf('✗ Noch nicht · neue Karte', '', function () { ziehen(); karte(); });
+      ja.hidden = true; nein.hidden = true;
+      var z = knopf('Lösung zeigen', 'haupt', function () { loesung.hidden = false; z.hidden = true; h.hidden = true; ja.hidden = false; nein.hidden = false; });
+      reihe.appendChild(h); reihe.appendChild(z); reihe.appendChild(ja); reihe.appendChild(nein);
+      buehne.appendChild(reihe);
+    }
+    function gewonnen() {
+      oben = true; turm();
+      buehne.innerHTML = '';
+      buehne.appendChild(el('p', 'aw-gross', 'Die Chefetage ist erreicht! 🏆'));
+      buehne.appendChild(el('p', 'aw-ende', 'Acht richtige Sätze, vier Etagen, ein Team.'));
+      var reihe = el('div', 'aw-reihe');
+      reihe.appendChild(knopf('Neue Fahrt', 'haupt', start));
+      buehne.appendChild(reihe);
+      konfetti();
+    }
+    function start() { etage = 0; treffer = 0; oben = false; ziehen(); karte(); }
+    document.getElementById('az-neu').addEventListener('click', start);
+    window.addEventListener('resize', turm);
+    [].forEach.call(document.querySelectorAll('.reiter button'), function (b) {
+      b.addEventListener('click', function () { setTimeout(turm, 30); });
+    });
+    start();
+  })();
 
   function ende(buehne, neu) {
     konfetti();
