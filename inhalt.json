@@ -1132,6 +1132,18 @@
           "titel": "Die Nomengruppe",
           "module": [
             {
+              "titel": "Sprachwerkstatt: Die Artikel-Notaufnahme",
+              "beschreibung": "Elf Patienten: Fehlt ein Artikel, oder ist der Satz gesund? Der Kontext entscheidet zwischen bestimmt, unbestimmt und gar keinem Artikel.",
+              "pfad": "artikel-notaufnahme.html",
+              "niveau": "B1–B2",
+              "dauer": "20 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "fertig"
+            },
+            {
               "titel": "Adjektivendungen",
               "beschreibung": "Fünf Endungen, ein Kennbuchstabe, drei Situationen — mit Genitiv, den Mengenwörtern viele und alle und dem artikellosen Nominalstil der Geschäftssprache.",
               "pfad": "adjektivendungen.html",

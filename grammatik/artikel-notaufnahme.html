@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Die Artikel-Notaufnahme – Sprachwerkstatt – Deutsch fürs Büro</title>
+<link rel="stylesheet" href="../assets/basis.css?v=20261117c">
+<link rel="stylesheet" href="../assets/platform.css?v=20261117c">
+<link rel="stylesheet" href="../assets/lehrwerk.css?v=20261117c">
+<link rel="stylesheet" href="../assets/aufgaben.css?v=20261117c">
+<script src="../assets/platform.js?v=20261117c"></script>
+<style>
+.ana{--ink:#24324d;--line:#e4dfe0;--cream:#fdfaf7;--plum:#96506e;--pink:#f8ecf1;--green:#2e6b4a;--gp:#d6efd2;--red:#b03030;--rp:#fbd5d5}
+.ana *{box-sizing:border-box}
+.ana button{font:inherit;cursor:pointer;border:1px solid var(--line);border-radius:12px;padding:10px 17px;background:#fff;color:var(--ink)}
+.ana button:hover{filter:brightness(.97)}
+.ana button:focus-visible{outline:3px solid var(--plum);outline-offset:2px}
+.ana button:disabled{opacity:.46;cursor:default}
+.ana .wrap{max-width:1100px;margin:24px auto;padding:0 18px}
+.ana .panel{background:white;border:1px solid var(--line);border-radius:20px;padding:24px;margin-bottom:18px}
+.ana .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ana .spread{justify-content:space-between}
+.ana .pill{font-size:14px;font-weight:700;padding:6px 12px;border-radius:99px;background:var(--pink);color:#783552}
+.ana .number{font-weight:800;color:var(--plum)}
+.ana .context{padding:15px 18px;background:#f2f4f8;border-radius:12px;margin:20px 0 11px}
+.ana .label{font-size:13px;font-weight:800;letter-spacing:.1em;color:#737987;text-transform:uppercase}
+.ana .broken{font:clamp(25px,3.5vw,38px)/1.55 Georgia,serif;padding:17px 20px;background:var(--pink);border-radius:16px;border-left:6px solid var(--plum);margin:8px 0 18px;min-height:105px}
+.ana .work{padding:16px;background:#fffaf6;border:1px dashed #ead6cc;border-radius:16px;min-height:122px}
+.ana .sentence{font:clamp(24px,3vw,33px)/1.55 Georgia,serif;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ana .gap{display:inline-flex;align-items:center;justify-content:center;min-width:88px;min-height:56px;padding:4px 10px;border:2px dashed #d3b6c6;border-radius:11px;cursor:pointer;background:#fff;color:#7a6773;font:700 21px system-ui}
+.ana .gap.filled{border-style:solid;border-color:#b5a9b0;background:#fff}
+.ana .gap.good{background:var(--gp);border-color:var(--green);color:var(--green)}
+.ana .gap.bad{background:var(--rp);border-color:var(--red);color:var(--red);animation:shake .33s}
+.ana .gap.focus{box-shadow:0 0 0 4px #f1d2e0}
+.ana .magazine{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 16px}
+.ana .article{min-width:92px;font-size:22px;font-weight:700;background:#fff;border:2px solid #ded5d9}
+.ana .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.ana .primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ana .pink{background:var(--pink);border-color:#e8c9d9}
+.ana .feedback{margin-top:17px;border-radius:12px;padding:12px 16px;background:#f3f5f8;font-size:17px}
+.ana .feedback.good{background:var(--gp);color:var(--green)}
+.ana .feedback.bad{background:#fff1e9;color:#933b2e}
+.ana .foot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.ana .dots{display:flex;gap:7px;flex-wrap:wrap}
+.ana .dot{width:11px;height:11px;border-radius:50%;background:#e6dde0}
+.ana .dot.done{background:var(--green)}
+.ana .hint{background:#eef2f9;border-radius:12px;padding:13px 16px;margin-top:12px;font-size:17px}
+.ana .celebrate{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.ana .piece{position:absolute;top:-30px;width:10px;height:17px;animation:drop 1.7s ease-in forwards;opacity:0}
+.ana .small{font-size:14px;color:#6e7787}
+.ana .subtle{font-size:16px;color:#5e6878}
+.ana .badge-ok{color:var(--green);font-weight:800}
+.ana .slot-none{min-width:122px}
+.ana .repair-title{margin-bottom:7px}
+.ana .diagnosis-controls{margin:13px 0}
+.ana .tag{font-size:14px;color:var(--plum);font-weight:800}
+.ana .step{border-radius:9px;padding:2px 8px;background:#f0e9ee;color:var(--plum);font-size:14px;font-weight:800}
+@keyframes drop{0%{transform:translateY(-35px) rotate(0);opacity:1}100%{transform:translateY(100vh) rotate(480deg);opacity:0}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-5px)}40%,80%{transform:translateX(5px)}}
+@media(max-width:650px){.ana .panel{padding:16px}
+.ana .gap{min-width:65px}
+.ana .article{min-width:72px}
+.ana .broken{padding:14px}}
+.ana{color:var(--ink);font-size:19px;line-height:1.55;padding-bottom:3rem}
+.ana .wrap{margin:0;padding:0;max-width:none}
+.ana .celebrate{z-index:60}
+.ana [hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){.ana .celebrate{display:none}}
+</style>
+</head>
+<body data-page="module" data-bereich="grammatik" data-root="../">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../grammatik.html">← Grammatik</a>
+    <h1><em>Sprachwerkstatt:</em> Die Artikel-Notaufnahme</h1>
+    <p class="anleitung">Erst die Diagnose: Fehlt ein Artikel, oder ist der Satz gesund? Sagen Sie den Satz laut. Dann wird behandelt.</p>
+  </div>
+</header>
+
+<main class="innen modul ana"><div class="wrap"><section class="panel">
+<div class="row spread"><div class="row"><span class="pill">KONTOR</span><span class="pill">Artikel · Kasus · Kontext</span></div><span class="number" id="count">Fall 1 von 11</span></div>
+<div class="context"><div class="label">Das ist passiert</div><div id="context"></div></div>
+<div class="label">Der Patient</div><div class="broken" id="broken"></div>
+<div class="diagnosis-controls row" id="diagnosis"><button class="primary" id="treat">🩹 Behandeln</button><button id="healthy">✓ Der Satz ist gesund</button></div>
+<div id="treatment" hidden><div class="label repair-title">Die Reparatur <span class="step">2 · Artikel einsetzen</span></div><div class="work"><div class="sentence" id="sentence"></div></div><div class="label" style="margin-top:22px">Artikel-Magazin</div><div class="magazine" id="magazine"></div></div>
+<div class="toolbar"><button class="primary" id="check" hidden>🔍 Prüfen</button><button class="pink" id="help">🩹 Hilfe</button><button id="solve">Lösung zeigen</button><button id="reset">↺ Neu versuchen</button><button id="next">Nächster Fall →</button></div>
+<div id="hint" class="hint" hidden></div><div id="feedback" class="feedback" aria-live="polite">Fehlt etwas? Sagen Sie den korrigierten Satz laut. Oder ist er schon gesund?</div>
+</section><section class="panel foot"><div><strong id="score">0 Patienten versorgt</strong><div class="small">Richtig diagnostiziert und behandelt zählt als Erfolg. Keine Zeitmessung.</div></div><div class="dots" id="dots"></div></section></div></main><div class="celebrate" id="celebrate"></div>
+
+<script src="../assets/lehrwerk.js?v=20261117c"></script>
+<script>
+/* Artikel-Notaufnahme: Mechanik und Fälle von Leo (Demo v2), eingebaut ins Lehrwerk. */
+
+'use strict';
+/* Daten und Spielmechanik getrennt: pro Fall Anamnese, Satz, Lücken-Teile, zugelassene Lösungen, Optionen und Erläuterung. "∅" heißt kein Artikel. */
+const NONE='∅';
+const CASES=[
+ {context:'Herr Sommer hat sich für heute angekündigt. Jetzt kommt er an den Empfang.',raw:'Frau Lenz begrüßt Besucher am Empfang.',parts:['Frau Lenz begrüßt ',{gap:0},' Besucher am Empfang.'],answers:[['den']],options:['den','dem','einen','der'],hint:'Der Besucher ist bereits bekannt. Wen begrüßt Frau Lenz?',explanation:'„den Besucher“: Akkusativ, maskulin. Der Kontext verweist auf den angekündigten Herrn Sommer.'},
+ {context:'Ein Kunde hat eine Rechnung von KONTOR erhalten und entdeckt darin einen Fehler.',raw:'Der Kunde ruft wegen Rechnung an.',parts:['Der Kunde ruft wegen ',{gap:0},' Rechnung an.'],answers:[['der']],options:['die','der','einer','den'],hint:'Nach „wegen“ wird hier der Genitiv verwendet. Die Rechnung wurde bereits erwähnt.',explanation:'„wegen der Rechnung“: Genitiv, feminin, bereits bekannt.'},
+ {context:'KONTOR hat die Prospekte bei einer bestimmten Druckerei bestellt. Die Lieferung ist überfällig.',raw:'Nora ruft Druckerei an.',parts:['Nora ruft ',{gap:0},' Druckerei an.'],answers:[['die']],options:['eine','der','die','dem'],hint:'Es geht um die bereits beauftragte Druckerei. Wen ruft Nora an?',explanation:'„die Druckerei“: Akkusativ, feminin, bereits bekannt.'},
+ {context:'Herr Sommer wartet am Empfang und braucht noch einen Termin für ein Gespräch.',raw:'Frau Lenz gibt Besucher Termin.',parts:['Frau Lenz gibt ',{gap:0},' Besucher ',{gap:1},' Termin.'],answers:[['dem','einen']],options:['dem','einem','einen','ein','den','der'],hint:'Wem gibt Frau Lenz etwas? Dativ. Was gibt sie? Akkusativ. Der Besucher ist Herr Sommer, der Termin wird erstmals erwähnt.',explanation:'„dem Besucher“: Dativ, bereits bekannt. „einen Termin“: Akkusativ, neu.'},
+ {context:'Das Paket für den Kunden liegt fertig verpackt auf dem Tisch. Nora möchte es verschicken.',raw:'Nora nimmt Paket vom Tisch.',parts:['Nora nimmt ',{gap:0},' Paket vom Tisch.'],answers:[['das']],options:['ein','das','dem','den'],hint:'Welches Paket? Das bereits genannte. Was nimmt Nora?',explanation:'„das Paket“: Akkusativ, Neutrum, bereits bekannt.'},
+ {context:'Die Prospekte wurden gerade geliefert. Der blaue Ordner liegt geöffnet auf Noras Schreibtisch.',raw:'Nora legt Prospekte in Ordner.',parts:['Nora legt ',{gap:0},' Prospekte in ',{gap:1},' Ordner.'],answers:[['die','den']],options:['der','die','einen','den','dem','das'],hint:'Welche Prospekte? Die bereits gelieferten. Wohin legt Nora sie? Wechselpräposition „in“ mit Akkusativ.',explanation:'„die Prospekte“: Akkusativ Plural. „in den Ordner“: Richtung, Akkusativ maskulin.'},
+ {context:'Eine Besucherin kommt zum ersten Mal zu KONTOR. Frau Lenz kennt sie nicht und fragt nach.',raw:'Haben Sie Termin bei Herrn Becker?',parts:['Haben Sie ',{gap:0},' Termin bei Herrn Becker?'],answers:[['einen']],options:['ein','der','einen','dem'],hint:'„Termin“ ist maskulin. Was haben Sie? Akkusativ. Der Termin ist noch nicht bekannt.',explanation:'„einen Termin“: unbestimmter Artikel im Akkusativ, maskulin.'},
+ {context:'Herr Sommer hat eine Frage zur Messe und ruft KONTOR an. Frau Lenz nimmt den Anruf entgegen.',raw:'Frau Lenz spricht mit Anrufer.',parts:['Frau Lenz spricht mit ',{gap:0},' Anrufer.'],answers:[['dem']],options:['den','einem','dem','der'],hint:'„mit“ verlangt Dativ. Wer anruft, wissen wir schon.',explanation:'„mit dem Anrufer“: Dativ, maskulin, bereits bekannt.'},
+ {context:'Finn ist neu bei KONTOR. Er macht dort seine Ausbildung.',raw:'Finn arbeitet als Azubi am Empfang.',parts:['Finn arbeitet als ',{gap:0},' Azubi am Empfang.'],answers:[[NONE]],options:['ein','der',NONE,'einem'],healthy:true,hint:'Welche Artikelregel gilt bei einer Berufsbezeichnung nach „als“ ohne weitere nähere Bestimmung?',explanation:'„als Azubi“ steht hier ohne Artikel. Der Satz war bereits richtig.'},
+ {context:'Ein Besucher fragt Nora, wer bei KONTOR am Empfang arbeitet. Nora antwortet.',raw:'Frau Lenz arbeitet am Empfang.',parts:[{gap:0},' Frau Lenz arbeitet am Empfang.'],answers:[[NONE]],options:['die',NONE,'eine','der'],healthy:true,hint:'Schauen Sie auf den Satzanfang: Braucht ein Name mit „Frau“ einen Artikel?',explanation:'„Frau Lenz“ ist eine Namensanrede. Hier wird kein Artikel verwendet.'},
+ {context:'Auf der Messe hat KONTOR ganz allgemein mit mehreren Interessenten gesprochen, ohne bestimmte Personen zu nennen.',raw:'Nora spricht mit Kunden über neue Produkte.',parts:['Nora spricht mit ',{gap:0},' Kunden über neue Produkte.'],answers:[[NONE]],options:['den',NONE,'einen','die'],healthy:true,hint:'Es sind allgemein Kunden gemeint, nicht bereits bekannte bestimmte Kunden. Wie verhält sich der unbestimmte Artikel im Plural?',explanation:'„mit Kunden“: unbestimmter Plural ohne Artikel. Der Satz war gesund.'}
+];
+let i=0,values=[],active=0,solved=false,treated=false,completed=new Set(),shuffledOptions=[];
+const el=id=>document.getElementById(id);
+const esc=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const mix=a=>{const x=[...a];for(let k=x.length-1;k>0;k--){let j=Math.floor(Math.random()*(k+1));[x[k],x[j]]=[x[j],x[k]]}return x};
+const numGaps=()=>CASES[i].parts.filter(p=>typeof p!=='string').length;
+const correct=()=>CASES[i].answers.some(a=>a.length===values.length&&a.every((v,j)=>v===values[j]));
+function msg(text,kind=''){el('feedback').textContent=text;el('feedback').className='feedback '+kind}
+function render(){const c=CASES[i];el('count').textContent=`Fall ${i+1} von ${CASES.length}`;el('context').textContent=c.context;el('broken').textContent=c.raw;
+ el('diagnosis').hidden=treated||solved;el('treatment').hidden=!treated;el('check').hidden=!treated||solved;
+ el('sentence').replaceChildren();let n=0;
+ for(const part of c.parts){if(typeof part==='string'){let s=document.createElement('span');s.textContent=part;el('sentence').appendChild(s)}else{
+ let index=n++;let b=document.createElement('button');b.type='button';b.className='gap'+(values[index]!==null?' filled':'')+(!solved&&active===index?' focus':'');b.textContent=values[index]===null?'…':(values[index]===NONE?'kein Artikel':values[index]);b.setAttribute('aria-label','Stelle '+(index+1));b.onclick=()=>{if(!solved){active=index;render()}};el('sentence').appendChild(b)}}
+ el('magazine').replaceChildren();for(const opt of shuffledOptions){let b=document.createElement('button');b.type='button';b.className='article';b.textContent=opt===NONE?'kein Artikel':opt;b.disabled=solved;b.onclick=()=>{values[active]=opt;const next=values.findIndex(v=>v===null);if(next!==-1)active=next;render();msg('Sprechen Sie den vollständigen Satz. Danach prüfen.')};el('magazine').appendChild(b)}
+ el('dots').innerHTML=CASES.map((_,j)=>`<span class="dot ${completed.has(j)?'done':''}" title="Fall ${j+1}"></span>`).join('');el('score').textContent=`${completed.size} von ${CASES.length} Patienten versorgt`;
+}
+function beginTreatment(){if(solved)return;treated=true;render();msg('Jetzt die Artikel einsetzen – oder „kein Artikel“ wählen. Dann prüfen.');}
+function finish(text){solved=true;completed.add(i);render();msg(text,'good');if(completed.size===CASES.length)confetti();}
+function judgeHealthy(){if(solved)return;if(CASES[i].healthy){finish('✓ Richtig erkannt: Dieser Patient ist gesund. '+CASES[i].explanation)}else{msg('Hier fehlt tatsächlich etwas. Sprechen Sie den verbesserten Satz und klicken Sie auf „Behandeln“.','bad')}}
+function marks(){let buttons=[...el('sentence').querySelectorAll('.gap')];buttons.forEach((b,j)=>{let ok=CASES[i].answers.some(a=>a[j]===values[j]);b.classList.remove('good','bad','focus');b.classList.add(values[j]!==null&&ok?'good':'bad')})}
+function check(){if(solved)return;if(values.includes(null)){marks();msg('Noch nicht alle Stellen geprüft. Ergänzen Sie jede Stelle, gegebenenfalls mit „kein Artikel“.','bad');return}
+ if(correct()){finish('✓ Patient versorgt! '+CASES[i].explanation);marks()}else{marks();msg('Noch nicht richtig. Die rot markierten Stellen prüfen und erneut versuchen.','bad')}}
+function help(){el('hint').hidden=!el('hint').hidden;el('hint').textContent=CASES[i].hint}
+function showSolution(){if(solved)return;treated=true;values=[...CASES[i].answers[0]];solved=true;render();marks();msg('Musterlösung: '+CASES[i].explanation);}
+function reset(){values=Array(numGaps()).fill(null);active=0;solved=false;treated=false;shuffledOptions=mix(CASES[i].options);el('hint').hidden=true;render();msg('Fehlt etwas? Sprechen Sie den korrigierten Satz laut. Oder ist er schon gesund?')}
+function next(){i=(i+1)%CASES.length;reset()}
+function confetti(){const p=el('celebrate');p.replaceChildren();const colors=['#96506e','#d6efd2','#ffd166','#8caed4','#ef9f87'];for(let j=0;j<65;j++){let s=document.createElement('span');s.className='piece';s.style.left=Math.random()*100+'%';s.style.background=colors[j%colors.length];s.style.animationDelay=Math.random()*.7+'s';p.appendChild(s)}setTimeout(()=>p.replaceChildren(),2600)}
+el('treat').onclick=beginTreatment;el('healthy').onclick=judgeHealthy;el('check').onclick=check;el('help').onclick=help;el('solve').onclick=showSolution;el('reset').onclick=reset;el('next').onclick=next;{const gemischt=mix(CASES);CASES.length=0;CASES.push(...gemischt)}reset();
+</script>
+</body>
+</html>
