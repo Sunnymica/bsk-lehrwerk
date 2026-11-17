@@ -3,8 +3,9 @@
    ausschalten mit ?lehrkraft=0. Der Schalter und alle Urteile liegen nur im Browser
    der Lehrkraft (localStorage), es wird nichts übertragen.
 
-   Jede Aufgabe (Block .differenzierung mit Überschrift) bekommt vier Knöpfe:
-   Sitzt · Üben · Zu schwer · Übersprungen. Danach schlägt die Seite nach festen Regeln
+   Jede Aufgabe (Block .differenzierung mit Überschrift) bekommt fünf Knöpfe:
+   Sitzt · Üben · Zu schwer (drei Urteile) und Später · Entfällt (nicht gemacht).
+   Eine Einheit gilt als abgeschlossen, wenn jede Aufgabe sitzt oder bewusst entfällt. Danach schlägt die Seite nach festen Regeln
    einen Anschluss vor. Die Etiketten pro Aufgabe stehen in window.KURSURTEIL der Modulseite. */
 (function () {
   'use strict';
@@ -66,7 +67,10 @@
     '.ku-leiste button[data-u="sitzt"][aria-pressed="true"]{background:#2E6B4A;border-color:#2E6B4A}' +
     '.ku-leiste button[data-u="ueben"][aria-pressed="true"]{background:#B5651D;border-color:#B5651D}' +
     '.ku-leiste button[data-u="schwer"][aria-pressed="true"]{background:#B03030;border-color:#B03030}' +
-    '.ku-leiste button[data-u="skip"][aria-pressed="true"]{background:#657177;border-color:#657177}' +
+    '.ku-leiste button[data-u="spaeter"][aria-pressed="true"]{background:#31536F;border-color:#31536F}' +
+    '.ku-leiste button[data-u="entfaellt"][aria-pressed="true"]{background:#657177;border-color:#657177}' +
+    '.ku-leiste i{width:1px;align-self:stretch;background:#cfcabd;margin:0 .3rem}' +
+    '.ku-fertig{color:#2E6B4A}' +
     '.ku-tipp{flex-basis:100%;margin:.2rem 0 0;padding:.4rem .6rem;border-radius:8px;background:#E3EBF3;color:#22222b}' +
     '.ku-tipp a{font-weight:700}' +
     '.ku-stand{margin:0 0 1rem;padding:.6rem .9rem;border:1px dashed #b9b4a8;border-radius:10px;background:#fffdf6;font-size:.95rem}' +
@@ -77,7 +81,7 @@
     '@media print{.ku-leiste,.ku-stand{display:none}}';
   document.head.appendChild(css);
 
-  var NAME = { sitzt: 'Sitzt', ueben: 'Üben', schwer: 'Zu schwer', skip: 'Übersprungen' };
+  var NAME = { sitzt: 'Sitzt', ueben: 'Üben', schwer: 'Zu schwer', spaeter: 'Später', entfaellt: 'Entfällt' };
   var aufgaben = [];
 
   [].forEach.call(document.querySelectorAll('.blatt'), function (blatt) {
@@ -91,7 +95,8 @@
       var a = { id: blatt.id.replace('blatt-', '') + '/' + kurz(titel), titel: titel, reiter: reiterName, reiterKnopf: reiter, form: form, g: etiketten[titel] || '', naechste: kopfListe[i + 1] ? kopfListe[i + 1].querySelector('h2, h3').textContent.trim() : '' };
       var leiste = el('div', 'ku-leiste');
       leiste.appendChild(el('span', '', 'Kursurteil'));
-      ['sitzt', 'ueben', 'schwer', 'skip'].forEach(function (u) {
+      ['sitzt', 'ueben', 'schwer', 'spaeter', 'entfaellt'].forEach(function (u) {
+        if (u === 'spaeter') leiste.appendChild(el('i'));
         var b = el('button', '', NAME[u]); b.type = 'button'; b.setAttribute('data-u', u); b.setAttribute('aria-pressed', 'false');
         b.addEventListener('click', function () { urteilen(a, u); });
         leiste.appendChild(b);
@@ -104,10 +109,10 @@
   });
   if (!aufgaben.length) return;
 
-  function stand(a) { var s = (laden()[seite] || {})[a.id]; return s ? s.u : ''; }
+  function stand(a) { var s = (laden()[seite] || {})[a.id]; return s ? (s.u === 'skip' ? 'spaeter' : s.u) : ''; }
   function urteilen(a, u) {
     var alles = laden(); alles[seite] = alles[seite] || {};
-    if (alles[seite][a.id] && alles[seite][a.id].u === u) delete alles[seite][a.id];
+    if (stand(a) === u) delete alles[seite][a.id];
     else alles[seite][a.id] = { u: u, d: new Date().toISOString().slice(0, 10), t: a.titel, r: a.reiter };
     sichern(alles); zeigen();
   }
@@ -117,7 +122,8 @@
       var weiter = a.naechste ? 'Weiter mit „' + a.naechste + '“.' : 'Dieser Reiter ist durch. Weiter mit dem nächsten Reiter.';
       return weiter + (a.g ? ' Zum Anwenden im Team: <a href="' + root + 'training/aufwecker.html">der KONTOR-Aufzug</a>.' : '');
     }
-    if (u === 'skip') return 'Steht auf der Liste „Offen geblieben“ oben im Kursstand.';
+    if (u === 'spaeter') return 'Steht oben im Kursstand auf der Liste „Für später“.';
+    if (u === 'entfaellt') return 'Passt nicht zu dieser Gruppe. Zählt als abgeschlossen und steht auf der Liste für die Nacharbeit am Material.';
     var g = ANSCHLUSS[a.g] && ANSCHLUSS[a.g][u];
     if (g) return (u === 'ueben' ? 'Zum Üben passt: ' : 'Einen Schritt zurück: ') + g.map(function (e) { return link(e) + ' – ' + e[2]; }).join(' ');
     var f = FORM[a.form] && FORM[a.form][u];
@@ -130,13 +136,13 @@
   erstesBlatt.parentNode.insertBefore(kasten, document.querySelector('.reiter') || erstesBlatt);
 
   function zeigen() {
-    var z = { sitzt: 0, ueben: 0, schwer: 0, skip: 0, offen: 0 }, proReiter = {};
+    var z = { sitzt: 0, ueben: 0, schwer: 0, spaeter: 0, entfaellt: 0, offen: 0 }, proReiter = {};
     aufgaben.forEach(function (a) {
       var u = stand(a);
       [].forEach.call(a.leiste.querySelectorAll('button'), function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-u') === u ? 'true' : 'false'); });
       a.tipp.hidden = !u; a.tipp.innerHTML = u ? tippText(a, u) : '';
       z[u || 'offen']++;
-      var p = proReiter[a.reiter] = proReiter[a.reiter] || { k: a.reiterKnopf, n: 0, fertig: 0 }; p.n++; if (u) p.fertig++;
+      var p = proReiter[a.reiter] = proReiter[a.reiter] || { k: a.reiterKnopf, n: 0, fertig: 0 }; p.n++; if (u === 'sitzt' || u === 'entfaellt') p.fertig++;
     });
     Object.keys(proReiter).forEach(function (r) {
       var p = proReiter[r]; if (!p.k) return;
@@ -148,13 +154,14 @@
       var l = aufgaben.filter(function (a) { return stand(a) === u; });
       return l.length ? '<p><strong>' + kopf + '</strong></p><ul>' + l.map(function (a) { return '<li>' + a.reiter + ' → ' + a.titel + '</li>'; }).join('') + '</ul>' : '';
     }
-    kasten.innerHTML = '<summary>Kursstand dieser Einheit: ' + z.sitzt + ' sitzen · ' + z.ueben + ' üben · ' + z.schwer + ' zu schwer · ' + z.skip + ' übersprungen · ' + z.offen + ' noch nicht gemacht</summary>' +
-      liste('ueben', 'Noch einmal üben') + liste('schwer', 'Zu schwer – braucht Nacharbeit am Material') + liste('skip', 'Offen geblieben (übersprungen)') +
+    var fertig = z.sitzt + z.entfaellt === aufgaben.length;
+    kasten.innerHTML = '<summary>' + (fertig ? '<span class="ku-fertig">✓ Einheit abgeschlossen</span> · ' : 'Kursstand dieser Einheit: ') + z.sitzt + ' sitzen · ' + z.ueben + ' üben · ' + z.schwer + ' zu schwer · ' + z.spaeter + ' für später · ' + z.entfaellt + ' entfallen · ' + z.offen + ' noch nicht gemacht</summary>' +
+      liste('ueben', 'Noch einmal üben') + liste('spaeter', 'Für später') + liste('schwer', 'Zu schwer – braucht Nacharbeit am Material') + liste('entfaellt', 'Entfällt für diese Gruppe – passt nicht zur Lebenswelt') +
       '<p><button type="button" data-ku="kopieren">Liste kopieren</button><button type="button" data-ku="leeren">Urteile dieser Einheit löschen</button></p>';
     kasten.open = offenAuf;
     kasten.querySelector('[data-ku="kopieren"]').addEventListener('click', function () {
       var zeilen = ['Kursstand ' + document.title + ' (' + new Date().toISOString().slice(0, 10) + ')'];
-      ['sitzt', 'ueben', 'schwer', 'skip'].forEach(function (u) {
+      ['sitzt', 'ueben', 'schwer', 'spaeter', 'entfaellt'].forEach(function (u) {
         aufgaben.filter(function (a) { return stand(a) === u; }).forEach(function (a) { zeilen.push(NAME[u] + ': ' + a.reiter + ' → ' + a.titel); });
       });
       aufgaben.filter(function (a) { return !stand(a); }).forEach(function (a) { zeilen.push('Noch nicht gemacht: ' + a.reiter + ' → ' + a.titel); });
