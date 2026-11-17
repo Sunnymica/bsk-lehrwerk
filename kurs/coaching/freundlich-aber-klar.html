@@ -180,6 +180,9 @@ button.so{font-size:19px}
       <div class="card"><div class="num">6</div>Was verspricht Frau Winter nicht?<details><summary>Lösung</summary>Dass Frau Sander ihn heute noch anruft. „Das kann ich Ihnen nicht versprechen.“</details></div>
     </div>
     <details style="margin-top:18px"><summary>Das Gespräch zum Mitlesen</summary><div id="dlgFull"></div></details>
+    <h3>Und was meinst du?</h3>
+    <div class="box">Frau Winter sagt: <b>„Das würden Sie bei Ihrem Termin auch nicht wollen.“</b> Wie wirkt dieser Satz auf Herrn Braun? Würdest du ihn auch sagen, oder lässt du ihn lieber weg?
+      <details><summary>Satzanfänge</summary>Ich finde den Satz …, weil … · Ich würde ihn (nicht) sagen, weil … · Bei uns sage ich lieber: …</details></div>
     <div class="hint"><b>Achte auf die farbigen Stellen.</b> Genau diese Sätze trainierst du im Bootcamp.</div>
   </div>
 </section>
@@ -276,12 +279,13 @@ button.so{font-size:19px}
       <div class="pair"><div class="no">✗ Ich sehe, dass Sie machen sich Sorgen.</div><div class="yes">✓ Ich sehe, dass Sie sich Sorgen machen.</div></div>
     </div>
     <div class="rule">
-      <div class="rhead"><span class="rnum">4</span> Ein Nomen braucht fast immer einen <span class="big2">Artikel</span>.</div>
+      <div class="rhead"><span class="rnum">4</span> Bei jedem Nomen prüfen: Brauche ich einen <span class="big2">Artikel</span>? Und welchen?</div>
       <table class="feld">
         <tr><th>zum ersten Mal: unbestimmter Artikel</th><th>schon bekannt: bestimmter Artikel</th></tr>
         <tr><td>Er hat <b>einen</b> Brief bekommen.</td><td>Ich kopiere <b>den</b> Brief.</td></tr>
         <tr><td>Haben Sie <b>einen</b> Termin?</td><td><b>Der</b> Termin ist morgen um neun Uhr.</td></tr>
       </table>
+      <div class="hint"><b>Ohne Artikel:</b> Beruf nach <i>ist</i> oder <i>als</i> (Sie arbeitet als Beraterin.) · mehrere Dinge, ganz allgemein (Wir bekommen oft Briefe.) · Namen (Ich sage es Frau Sander.)</div>
       <div class="pair"><div class="no">✗ Ich lege Kopie auf Schreibtisch.</div><div class="yes">✓ Ich lege die Kopie auf den Schreibtisch.</div></div>
     </div>
   </div>
@@ -455,7 +459,7 @@ const SO=[
  ['weich','„Entschuldigung, das ist alles mein Fehler.“','Zu weich. Es ist nicht dein Fehler, dass er keinen Termin hat.'],
  ['weich','„Ich weiß auch nicht … Vielleicht kommen Sie einfach später noch mal?“','Zu weich. Kein klares Nein und kein richtiges Angebot.'],
  ['gut','„Das kann ich leider nicht machen. Ich darf ein Gespräch nicht unterbrechen.“','Genau richtig. Klares Nein, kurzer Grund, ruhiger Ton.'],
- ['gut','„Ich sehe, dass es dringend ist. Morgen um neun Uhr ist noch ein Termin frei.“','Genau richtig. Erst Verständnis, dann ein Angebot.'],
+ ['gut','„Ich sehe, dass es dringend ist. Heute geht es leider nicht mehr. Aber morgen um neun Uhr ist noch ein Termin frei.“','Genau richtig. Verständnis, klares Nein, Angebot: die ganze Formel in drei Sätzen.'],
  ['gut','„Bitte sprechen Sie nicht so laut mit mir. Dann kann ich Ihnen besser helfen.“','Genau richtig. Eine Grenze, und gleich dazu, warum sie ihm nützt.'],
  ['gut','„Das kann ich Ihnen nicht versprechen. Aber ich sage es ihr persönlich.“','Genau richtig. Ehrlich bleiben und trotzdem etwas tun.'],
  ['hart','„Ohne Termin geht hier gar nichts.“','Zu hart. Der Inhalt stimmt, aber es fehlen Verständnis und Angebot.'],
@@ -495,7 +499,7 @@ const BC=[
  ['neben','Ich sage es ihr persönlich … · Sie ist frei. → sobald','Ich sage es ihr persönlich, '+K('sobald')+' '+N('sie frei <b>ist</b>')+'.'],
  ['neben','Sie hat Zeit. · Sie ruft Sie an. → Beginne mit „Wenn“',K('Wenn')+' '+N('sie Zeit <b>hat</b>')+', '+V('ruft')+' '+S('sie')+' Sie <b>an</b>.'],
  ['neben','Ich schreibe dazu … · Es ist eilig. → dass','Ich schreibe dazu, '+K('dass')+' '+N('es eilig <b>ist</b>')+'.'],
- ['neben','Er war laut … · Er war sehr nervös. → weil','Er war laut, '+K('weil')+' '+N('er sehr nervös <b>war</b>')+'.'],
+ ['neben','Frau Sander kann jetzt nicht kommen … · Sie ist in einem Gespräch. → weil','Frau Sander kann jetzt nicht kommen, '+K('weil')+' '+N('sie in einem Gespräch <b>ist</b>')+'.'],
  ['neben','Er hofft … · Sie rufen ihn heute noch an. → dass','Er hofft, '+K('dass')+' '+N('Sie ihn heute noch <b>anrufen</b>')+'.'],
  ['artikel','🚨 „Ich lege Kopie auf Schreibtisch.“ → mit Artikeln','Ich lege <b>die</b> Kopie auf <b>den</b> Schreibtisch.'],
  ['artikel','🚨 „Haben Sie Termin bei Frau Sander?“ → mit Artikel','Haben Sie <b>einen</b> Termin bei Frau Sander?'],
@@ -505,18 +509,18 @@ const BC=[
  ['artikel','🚨 „Ich darf Gespräch nicht unterbrechen.“ → mit Artikel','Ich darf <b>das</b> Gespräch nicht unterbrechen. <span class="small">Auch richtig: ein Gespräch (ganz allgemein).</span>']
 ];
 const catName={pos2:'Verb auf Position 2',modal:'Modalverb-Klammer',neben:'Zwei Sätze verbinden',artikel:'Artikel-Alarm'};
-let bcQ=[],bcCur=null,bcOkN=0,bcTotal=0;
-function bcStart(cat){bcQ=shuffle(BC.filter(x=>cat==='alle'||x[0]===cat));bcTotal=bcQ.length;bcOkN=0;bcNext()}
+let bcRep=new Set(),bcQ=[],bcCur=null,bcOkN=0,bcTotal=0;
+function bcStart(cat){bcQ=shuffle(BC.filter(x=>cat==='alle'||x[0]===cat));bcTotal=bcQ.length;bcOkN=0;bcRep=new Set();bcNext()}
 function bcNext(){
   const pr=document.getElementById('bcPrompt'),so=document.getElementById('bcSol');
   document.getElementById('bcOk').disabled=true;document.getElementById('bcAgain').disabled=true;document.getElementById('bcShow').disabled=false;
-  if(!bcQ.length){bcCur=null;document.getElementById('bcTag').textContent='Geschafft';pr.textContent='Alle Karten sofort richtig. Stark! 💪';so.innerHTML='<span class="small">Noch eine Runde? Oben eine Kategorie wählen.</span>';document.getElementById('bcShow').disabled=true;bcStat();return}
+  if(!bcQ.length){bcCur=null;document.getElementById('bcTag').textContent='Geschafft';pr.textContent=bcOkN===bcTotal?'Alle Karten sofort richtig. Stark! 💪':'Geschafft! '+bcOkN+' von '+bcTotal+' Karten sofort richtig.';so.innerHTML='<span class="small">Noch eine Runde? Oben eine Kategorie wählen.</span>';document.getElementById('bcShow').disabled=true;bcStat();return}
   bcCur=bcQ.shift();document.getElementById('bcTag').textContent=catName[bcCur[0]];pr.textContent=bcCur[1];so.innerHTML='<span class="small">Erst sprechen. Dann klicken.</span>';bcStat();
 }
 function bcStat(){document.getElementById('bcStat').textContent='Sofort richtig: '+bcOkN+' von '+bcTotal}
 document.getElementById('bcShow').onclick=()=>{if(!bcCur)return;document.getElementById('bcSol').innerHTML=bcCur[2];document.getElementById('bcOk').disabled=false;document.getElementById('bcAgain').disabled=false;document.getElementById('bcShow').disabled=true};
-document.getElementById('bcOk').onclick=()=>{bcOkN++;bcNext()};
-document.getElementById('bcAgain').onclick=()=>{bcQ.splice(Math.min(3,bcQ.length),0,bcCur);bcNext()};
+document.getElementById('bcOk').onclick=()=>{if(!bcRep.has(bcCur))bcOkN++;bcNext()};
+document.getElementById('bcAgain').onclick=()=>{bcRep.add(bcCur);bcQ.splice(Math.min(3,bcQ.length),0,bcCur);bcNext()};
 document.querySelectorAll('.cat').forEach(b=>b.onclick=()=>{document.querySelectorAll('.cat').forEach(x=>x.classList.toggle('active',x===b));bcStart(b.dataset.cat)});
 bcStart('alle');
 

@@ -405,19 +405,19 @@ const BC=[
  ['neben','Ich rufe Sie an. Ich kann Ihnen mehr sagen. → sobald (Achtung, Modalverb!)','Ich rufe Sie an, '+K('sobald')+' '+N('ich Ihnen mehr sagen <b>kann</b>')+'.']
 ];
 const catName={pos2:'Verb auf Position 2',modal:'Modalverb-Klammer',neben:'Zwei Sätze verbinden'};
-let bcQ=[],bcCur=null,bcOkN=0,bcTotal=0;
+let bcRep=new Set(),bcQ=[],bcCur=null,bcOkN=0,bcTotal=0;
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
-function bcStart(cat){bcQ=shuffle(BC.filter(x=>cat==='alle'||x[0]===cat));bcTotal=bcQ.length;bcOkN=0;bcNext()}
+function bcStart(cat){bcQ=shuffle(BC.filter(x=>cat==='alle'||x[0]===cat));bcTotal=bcQ.length;bcOkN=0;bcRep=new Set();bcNext()}
 function bcNext(){
   const pr=document.getElementById('bcPrompt'),so=document.getElementById('bcSol');
   document.getElementById('bcOk').disabled=true;document.getElementById('bcAgain').disabled=true;document.getElementById('bcShow').disabled=false;
-  if(!bcQ.length){bcCur=null;document.getElementById('bcTag').textContent='Geschafft';pr.textContent='Alle Karten sofort richtig. Stark! 💪';so.innerHTML='<span class="small">Noch eine Runde? Oben eine Kategorie wählen.</span>';document.getElementById('bcShow').disabled=true;bcStat();return}
+  if(!bcQ.length){bcCur=null;document.getElementById('bcTag').textContent='Geschafft';pr.textContent=bcOkN===bcTotal?'Alle Karten sofort richtig. Stark! 💪':'Geschafft! '+bcOkN+' von '+bcTotal+' Karten sofort richtig.';so.innerHTML='<span class="small">Noch eine Runde? Oben eine Kategorie wählen.</span>';document.getElementById('bcShow').disabled=true;bcStat();return}
   bcCur=bcQ.shift();document.getElementById('bcTag').textContent=catName[bcCur[0]];pr.textContent=bcCur[1];so.innerHTML='<span class="small">Erst sprechen. Dann klicken.</span>';bcStat();
 }
 function bcStat(){document.getElementById('bcStat').textContent='Sofort richtig: '+bcOkN+' von '+bcTotal}
 document.getElementById('bcShow').onclick=()=>{if(!bcCur)return;document.getElementById('bcSol').innerHTML=bcCur[2];document.getElementById('bcOk').disabled=false;document.getElementById('bcAgain').disabled=false;document.getElementById('bcShow').disabled=true};
-document.getElementById('bcOk').onclick=()=>{bcOkN++;bcNext()};
-document.getElementById('bcAgain').onclick=()=>{bcQ.splice(Math.min(3,bcQ.length),0,bcCur);bcNext()};
+document.getElementById('bcOk').onclick=()=>{if(!bcRep.has(bcCur))bcOkN++;bcNext()};
+document.getElementById('bcAgain').onclick=()=>{bcRep.add(bcCur);bcQ.splice(Math.min(3,bcQ.length),0,bcCur);bcNext()};
 document.querySelectorAll('.cat').forEach(b=>b.onclick=()=>{document.querySelectorAll('.cat').forEach(x=>x.classList.toggle('active',x===b));bcStart(b.dataset.cat)});
 bcStart('alle');
 

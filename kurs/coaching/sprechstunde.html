@@ -401,7 +401,7 @@ const BC=[
  ['fehler','Ich möchte arbeiten wieder als Buchhalterin, weil das ist mein Beruf.',S('Ich')+' '+V('möchte')+' wieder als Buchhalterin <b>arbeiten</b>, '+K('weil')+' '+N('das mein Beruf <b>ist</b>')+'. <span class="small">Zwei Fehler!</span>']
 ];
 const catName={wd:'weil oder denn',modal:'Modalverb-Klammer',fehler:'Fehler-Finder: Sag es richtig!'};
-let bcQ=[],bcCur=null,bcOkN=0,bcTotal=0,cdT=null,cdLeft=0;
+let bcRep=new Set(),bcQ=[],bcCur=null,bcOkN=0,bcTotal=0,cdT=null,cdLeft=0;
 const CD=10;
 function cdStop(){clearInterval(cdT);cdT=null}
 function cdStart(){cdStop();const bar=document.getElementById('cdBar'),fill=document.getElementById('cdFill');
@@ -409,19 +409,19 @@ function cdStart(){cdStop();const bar=document.getElementById('cdBar'),fill=docu
   bar.hidden=false;cdLeft=CD*10;fill.style.width='100%';
   cdT=setInterval(()=>{cdLeft--;fill.style.width=(cdLeft/(CD*10)*100)+'%';if(cdLeft<=0){cdStop();const so=document.getElementById('bcSol');if(!so.dataset.shown)so.innerHTML='<span class="zeit">Zeit!</span>'}},100)}
 document.getElementById('cdOn').onchange=()=>{if(bcCur&&!document.getElementById('bcSol').dataset.shown)cdStart();else{cdStop();document.getElementById('cdBar').hidden=!document.getElementById('cdOn').checked}};
-function bcStart(cat){bcQ=shuffle(BC.filter(x=>cat==='alle'||x[0]===cat));bcTotal=bcQ.length;bcOkN=0;bcNext()}
+function bcStart(cat){bcQ=shuffle(BC.filter(x=>cat==='alle'||x[0]===cat));bcTotal=bcQ.length;bcOkN=0;bcRep=new Set();bcNext()}
 function bcNext(){
   const pr=document.getElementById('bcPrompt'),so=document.getElementById('bcSol');delete so.dataset.shown;
   document.getElementById('bcOk').disabled=true;document.getElementById('bcAgain').disabled=true;document.getElementById('bcShow').disabled=false;
-  if(!bcQ.length){bcCur=null;cdStop();document.getElementById('bcTag').textContent='Geschafft';pr.textContent='Alle Karten sofort richtig. Stark! 💪';so.innerHTML='<span class="small">Noch eine Runde? Oben eine Kategorie wählen.</span>';document.getElementById('bcShow').disabled=true;bcStat();return}
+  if(!bcQ.length){bcCur=null;cdStop();document.getElementById('bcTag').textContent='Geschafft';pr.textContent=bcOkN===bcTotal?'Alle Karten sofort richtig. Stark! 💪':'Geschafft! '+bcOkN+' von '+bcTotal+' Karten sofort richtig.';so.innerHTML='<span class="small">Noch eine Runde? Oben eine Kategorie wählen.</span>';document.getElementById('bcShow').disabled=true;bcStat();return}
   bcCur=bcQ.shift();document.getElementById('bcTag').textContent=catName[bcCur[0]];pr.textContent=bcCur[1];
   pr.classList.toggle('twist',bcCur[0]==='fehler');
   so.innerHTML='<span class="small">Erst sprechen. Dann klicken.</span>';bcStat();cdStart();
 }
 function bcStat(){document.getElementById('bcStat').textContent='Sofort richtig: '+bcOkN+' von '+bcTotal}
 document.getElementById('bcShow').onclick=()=>{if(!bcCur)return;cdStop();const so=document.getElementById('bcSol');so.dataset.shown='1';so.innerHTML=bcCur[2];document.getElementById('bcOk').disabled=false;document.getElementById('bcAgain').disabled=false;document.getElementById('bcShow').disabled=true};
-document.getElementById('bcOk').onclick=()=>{bcOkN++;bcNext()};
-document.getElementById('bcAgain').onclick=()=>{bcQ.splice(Math.min(3,bcQ.length),0,bcCur);bcNext()};
+document.getElementById('bcOk').onclick=()=>{if(!bcRep.has(bcCur))bcOkN++;bcNext()};
+document.getElementById('bcAgain').onclick=()=>{bcRep.add(bcCur);bcQ.splice(Math.min(3,bcQ.length),0,bcCur);bcNext()};
 document.querySelectorAll('.cat').forEach(b=>b.onclick=()=>{document.querySelectorAll('.cat').forEach(x=>x.classList.toggle('active',x===b));bcStart(b.dataset.cat)});
 bcStart('alle');
 /* Countdown erst starten, wenn der Reiter sichtbar ist */
