@@ -92,7 +92,7 @@
     }
     feld.addEventListener('keydown', function (e) { if (e.key === 'Enter') uebernehmen(); if (e.key === 'Escape') { e.stopPropagation(); weg = true; feld.remove(); } });
     feld.addEventListener('blur', uebernehmen);
-    flaeche.appendChild(feld); setTimeout(function () { feld.focus(); }, 0);
+    flaeche.appendChild(feld); feld.focus(); setTimeout(function () { if (!weg) feld.focus(); }, 0);
   }
   function fertig() { if (!aktuell) return; striche.push(aktuell); aktuell = null; papierkorb = null; sichern(); malen(); zeigen(); }
   canvas.addEventListener('pointerup', fertig); canvas.addEventListener('pointercancel', fertig);
