@@ -75,14 +75,14 @@
   <div class="innen">
     <a class="zurueck" href="../grammatik.html">← Grammatik</a>
     <h1><em>Sprachwerkstatt:</em> Die Artikel-Notaufnahme</h1>
-    <p class="anleitung">Erst die Diagnose: Fehlt ein Artikel, oder ist der Satz gesund? Sagen Sie den Satz laut. Dann wird behandelt.</p>
+    <p class="anleitung">Erst die Diagnose: Fehlt ein Artikel, oder ist der Satz gesund? Sagen Sie den Satz laut. Dann wird behandelt. <strong>Bei Nomen ohne Artikel gilt Singular, sofern die Karte nicht ausdrücklich „Plural“ angibt.</strong></p>
   </div>
 </header>
 
 <main class="innen modul ana"><div class="wrap"><section class="panel">
 <div class="row spread"><div class="row"><span class="pill">KONTOR</span><span class="pill">Artikel · Kasus · Kontext</span></div><span class="number" id="count">Fall 1 von 11</span></div>
 <div class="context"><div class="label">Das ist passiert</div><div id="context"></div></div>
-<div class="label">Der Patient</div><div class="broken" id="broken"></div>
+<div class="row spread"><div class="label">Der Patient</div><span class="tag" id="number-hint" hidden></span></div><div class="broken" id="broken"></div>
 <div class="diagnosis-controls row" id="diagnosis"><button class="primary" id="treat">🩹 Behandeln</button><button id="healthy">✓ Der Satz ist gesund</button></div>
 <div id="treatment" hidden><div class="label repair-title">Die Reparatur <span class="step">2 · Artikel einsetzen</span></div><div class="work"><div class="sentence" id="sentence"></div></div><div class="label" style="margin-top:22px">Artikel-Magazin</div><div class="magazine" id="magazine"></div></div>
 <div class="toolbar"><button class="primary" id="check" hidden>🔍 Prüfen</button><button class="pink" id="help">🩹 Hilfe</button><button id="solve">Lösung zeigen</button><button id="reset">↺ Neu versuchen</button><button id="next">Nächster Fall →</button></div>
@@ -102,12 +102,12 @@ const CASES=[
  {context:'KONTOR hat die Prospekte bei einer bestimmten Druckerei bestellt. Die Lieferung ist überfällig.',raw:'Nora ruft Druckerei an.',parts:['Nora ruft ',{gap:0},' Druckerei an.'],answers:[['die']],options:['eine','der','die','dem'],hint:'Es geht um die bereits beauftragte Druckerei. Wen ruft Nora an?',explanation:'„die Druckerei“: Akkusativ, feminin, bereits bekannt.'},
  {context:'Herr Sommer wartet am Empfang und braucht noch einen Termin für ein Gespräch.',raw:'Frau Lenz gibt Besucher Termin.',parts:['Frau Lenz gibt ',{gap:0},' Besucher ',{gap:1},' Termin.'],answers:[['dem','einen']],options:['dem','einem','einen','ein','den','der'],hint:'Wem gibt Frau Lenz etwas? Dativ. Was gibt sie? Akkusativ. Der Besucher ist Herr Sommer, der Termin wird erstmals erwähnt.',explanation:'„dem Besucher“: Dativ, bereits bekannt. „einen Termin“: Akkusativ, neu.'},
  {context:'Das Paket für den Kunden liegt fertig verpackt auf dem Tisch. Nora möchte es verschicken.',raw:'Nora nimmt Paket vom Tisch.',parts:['Nora nimmt ',{gap:0},' Paket vom Tisch.'],answers:[['das']],options:['ein','das','dem','den'],hint:'Welches Paket? Das bereits genannte. Was nimmt Nora?',explanation:'„das Paket“: Akkusativ, Neutrum, bereits bekannt.'},
- {context:'Die Prospekte wurden gerade geliefert. Der blaue Ordner liegt geöffnet auf Noras Schreibtisch.',raw:'Nora legt Prospekte in Ordner.',parts:['Nora legt ',{gap:0},' Prospekte in ',{gap:1},' Ordner.'],answers:[['die','den']],options:['der','die','einen','den','dem','das'],hint:'Welche Prospekte? Die bereits gelieferten. Wohin legt Nora sie? Wechselpräposition „in“ mit Akkusativ.',explanation:'„die Prospekte“: Akkusativ Plural. „in den Ordner“: Richtung, Akkusativ maskulin.'},
+ {context:'Die Prospekte wurden gerade geliefert. Der blaue Ordner liegt geöffnet auf Noras Schreibtisch.',raw:'Nora legt Prospekte in Ordner.',numberHint:'Prospekte: Plural',parts:['Nora legt ',{gap:0},' Prospekte in ',{gap:1},' Ordner.'],answers:[['die','den']],options:['der','die','einen','den','dem','das'],hint:'Welche Prospekte? Die bereits gelieferten. Wohin legt Nora sie? Wechselpräposition „in“ mit Akkusativ.',explanation:'„die Prospekte“: Akkusativ Plural. „in den Ordner“: Richtung, Akkusativ maskulin.'},
  {context:'Eine Besucherin kommt zum ersten Mal zu KONTOR. Frau Lenz kennt sie nicht und fragt nach.',raw:'Haben Sie Termin bei Herrn Becker?',parts:['Haben Sie ',{gap:0},' Termin bei Herrn Becker?'],answers:[['einen']],options:['ein','der','einen','dem'],hint:'„Termin“ ist maskulin. Was haben Sie? Akkusativ. Der Termin ist noch nicht bekannt.',explanation:'„einen Termin“: unbestimmter Artikel im Akkusativ, maskulin.'},
  {context:'Herr Sommer hat eine Frage zur Messe und ruft KONTOR an. Frau Lenz nimmt den Anruf entgegen.',raw:'Frau Lenz spricht mit Anrufer.',parts:['Frau Lenz spricht mit ',{gap:0},' Anrufer.'],answers:[['dem']],options:['den','einem','dem','der'],hint:'„mit“ verlangt Dativ. Wer anruft, wissen wir schon.',explanation:'„mit dem Anrufer“: Dativ, maskulin, bereits bekannt.'},
  {context:'Finn ist neu bei KONTOR. Er macht dort seine Ausbildung.',raw:'Finn arbeitet als Azubi am Empfang.',parts:['Finn arbeitet als ',{gap:0},' Azubi am Empfang.'],answers:[[NONE]],options:['ein','der',NONE,'einem'],healthy:true,hint:'Welche Artikelregel gilt bei einer Berufsbezeichnung nach „als“ ohne weitere nähere Bestimmung?',explanation:'„als Azubi“ steht hier ohne Artikel. Der Satz war bereits richtig.'},
  {context:'Ein Besucher fragt Nora, wer bei KONTOR am Empfang arbeitet. Nora antwortet.',raw:'Frau Lenz arbeitet am Empfang.',parts:[{gap:0},' Frau Lenz arbeitet am Empfang.'],answers:[[NONE]],options:['die',NONE,'eine','der'],healthy:true,hint:'Schauen Sie auf den Satzanfang: Braucht ein Name mit „Frau“ einen Artikel?',explanation:'„Frau Lenz“ ist eine Namensanrede. Hier wird kein Artikel verwendet.'},
- {context:'Auf der Messe hat KONTOR ganz allgemein mit mehreren Interessenten gesprochen, ohne bestimmte Personen zu nennen.',raw:'Nora spricht mit Kunden über neue Produkte.',parts:['Nora spricht mit ',{gap:0},' Kunden über neue Produkte.'],answers:[[NONE]],options:['den',NONE,'einen','die'],healthy:true,hint:'Es sind allgemein Kunden gemeint, nicht bereits bekannte bestimmte Kunden. Wie verhält sich der unbestimmte Artikel im Plural?',explanation:'„mit Kunden“: unbestimmter Plural ohne Artikel. Der Satz war gesund.'}
+ {context:'Auf der Messe hat KONTOR ganz allgemein mit mehreren Interessenten gesprochen, ohne bestimmte Personen zu nennen.',raw:'Nora spricht mit Kunden über neue Produkte.',numberHint:'Kunden: Plural',parts:['Nora spricht mit ',{gap:0},' Kunden über neue Produkte.'],answers:[[NONE]],options:['den',NONE,'einen','die'],healthy:true,hint:'Es sind allgemein Kunden gemeint, nicht bereits bekannte bestimmte Kunden. Wie verhält sich der unbestimmte Artikel im Plural?',explanation:'„mit Kunden“: unbestimmter Plural ohne Artikel. Der Satz war gesund.'}
 ];
 let i=0,values=[],active=0,solved=false,treated=false,completed=new Set(),shuffledOptions=[];
 const el=id=>document.getElementById(id);
@@ -116,7 +116,7 @@ const mix=a=>{const x=[...a];for(let k=x.length-1;k>0;k--){let j=Math.floor(Math
 const numGaps=()=>CASES[i].parts.filter(p=>typeof p!=='string').length;
 const correct=()=>CASES[i].answers.some(a=>a.length===values.length&&a.every((v,j)=>v===values[j]));
 function msg(text,kind=''){el('feedback').textContent=text;el('feedback').className='feedback '+kind}
-function render(){const c=CASES[i];el('count').textContent=`Fall ${i+1} von ${CASES.length}`;el('context').textContent=c.context;el('broken').textContent=c.raw;
+function render(){const c=CASES[i];el('count').textContent=`Fall ${i+1} von ${CASES.length}`;el('context').textContent=c.context;el('broken').textContent=c.raw;el('number-hint').hidden=!c.numberHint;el('number-hint').textContent=c.numberHint||'';
  el('diagnosis').hidden=treated||solved;el('treatment').hidden=!treated;el('check').hidden=!treated||solved;
  el('sentence').replaceChildren();let n=0;
  for(const part of c.parts){if(typeof part==='string'){let s=document.createElement('span');s.textContent=part;el('sentence').appendChild(s)}else{
