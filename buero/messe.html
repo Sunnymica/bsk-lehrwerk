@@ -460,6 +460,17 @@
 
 </main>
 
+<script>
+/* Etiketten für das Kursurteil (Prototyp): Aufgabentitel → Grammatik */
+window.KURSURTEIL = { etiketten: {
+  'Nora fragt nach': 'fragen', 'Was fehlt noch?': 'fragen', 'Jetzt sind Sie Nora': 'fragen',
+  'Wo steht das Verb?': 'klammer', 'Aus einer Info wird ein Auftrag': 'klammer',
+  'Höflich oder unhöflich?': 'hoeflich', 'Die Höflichkeitsleiter': 'hoeflich', 'Bitte freundlicher!': 'hoeflich', 'Schnell und höflich': 'hoeflich',
+  'Mit Sie und mit du': 'imperativ', 'Was fehlt in diesem Auftrag?': 'fragen', 'Frau Lenz erklärt mit du': 'imperativ',
+  'Finn ist unsicher, und das ist gut so': 'fragen', 'Jetzt sind Sie Finn': 'fragen'
+} };
+</script>
+<script src="../assets/kursurteil.js?v=20261117a" defer></script>
 <script src="../assets/lehrwerk.js?v=20261109a"></script><script>
 Lehrwerk.modul('messe');
 Lehrwerk.reiter();
