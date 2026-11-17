@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Der Mengenmesser – Sprachwerkstatt – Deutsch fürs Büro</title>
+<link rel="stylesheet" href="../assets/basis.css?v=20261117f">
+<link rel="stylesheet" href="../assets/platform.css?v=20261117f">
+<link rel="stylesheet" href="../assets/lehrwerk.css?v=20261117f">
+<link rel="stylesheet" href="../assets/aufgaben.css?v=20261117f">
+<script src="../assets/platform.js?v=20261117f"></script>
+<style>
+.mmw{--ink:#26364a;--muted:#657588;--paper:#fffdf8;--line:#e0e6e1;--green:#397b52;--red:#bd4d47;--teal:#087e83;--yellow:#f6be50}
+.mmw *{box-sizing:border-box}
+.mmw button{font:inherit;cursor:pointer;border:1px solid #d4ddd9;border-radius:13px;background:white;color:inherit;padding:11px 17px;font-weight:700}
+.mmw button:hover{filter:brightness(.97)}
+.mmw button:focus-visible{outline:3px solid #37878a;outline-offset:2px}
+.mmw button[disabled]{opacity:.48;cursor:default}
+.mmw h1,.mmw h2,.mmw p{margin-top:0}
+.mmw h2{font-size:20px;margin-bottom:8px}
+.mmw .pill{display:inline-block;background:#e3f2eb;color:#24573d;border-radius:100px;font-size:14px;font-weight:800;padding:6px 12px}
+.mmw .board{background:white;border:1px solid var(--line);border-radius:23px;box-shadow:0 18px 50px #29443a10;padding:24px}
+.mmw .top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.mmw .tiny{font-size:14px;color:var(--muted)}
+.mmw .layout{display:grid;grid-template-columns:1.02fr 1fr;gap:16px;margin-top:12px}
+.mmw .scene{background:linear-gradient(160deg,#f9f2e6,#f1f5f1);border-radius:19px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.mmw .scenehead{display:flex;align-items:center;gap:12px}
+.mmw .symbol{width:60px;height:60px;display:grid;place-items:center;border-radius:16px;background:white;font-size:35px;box-shadow:0 4px 16px #283b2510}
+.mmw .tag{font-weight:800;text-transform:uppercase;font-size:12px;letter-spacing:.11em;color:#78796e}
+.mmw .context{font-size:20px;margin-top:2px;line-height:1.45}
+.mmw .viz{position:relative;margin:8px 0 0;padding-top:3px}
+.mmw .numbers{display:flex;justify-content:space-between;font-size:14px;font-weight:700;color:#697b79;gap:8px}
+.mmw .meter{height:34px;border:2px solid #d1ded8;background:#fff;border-radius:12px;position:relative;margin:8px 0 0;overflow:hidden}
+.mmw .fill{height:100%;width:0;background:repeating-linear-gradient(115deg,#79b8ac 0 22px,#69ada0 22px 44px);transition:width .8s cubic-bezier(.2,.8,.2,1)}
+.mmw .limit{position:absolute;left:72%;height:100%;border-left:3px dashed #5e6471;top:0}
+.mmw .question{background:#eff6f3;border-left:5px solid #389080;border-radius:14px;padding:18px 19px;font-size:22px;font-weight:700;margin:13px 0 17px}
+.mmw .label{font-size:13px;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#6c7887}
+.mmw .choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:8px 0 15px}
+.mmw .choice{font-size:23px;padding:16px 8px;background:#fffdf8}
+.mmw .choice.sel{background:#ddf1eb;border:2px solid #19877f;padding:15px 7px}
+.mmw .choice.bad{background:#fff0ed;border:2px solid var(--red);padding:15px 7px;animation:shake .35s}
+.mmw .choice.good{background:#e3f2e6;border:2px solid var(--green);padding:15px 7px}
+.mmw .actions{display:flex;gap:10px;flex-wrap:wrap}
+.mmw .primary{background:#233f49;color:white;border-color:#233f49}
+.mmw .alt{background:#fff6dd}
+.mmw .status{margin:14px 0 0;padding:12px 14px;background:#f1f4f5;border-radius:12px;min-height:55px}
+.mmw .status.good{color:#246342;background:#e3f2e6}
+.mmw .status.bad{color:#9d403b;background:#fff0ed}
+.mmw .solution{display:none;margin-top:12px;font-size:20px;padding:15px 16px;background:#e9f2e8;border-radius:12px}
+.mmw .solution.show{display:block}
+.mmw .word{font-size:27px;color:#276944;font-weight:900}
+.mmw .progress{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:17px;flex-wrap:wrap}
+.mmw .dots{display:flex;gap:7px;flex-wrap:wrap}
+.mmw .dot{width:13px;height:13px;border-radius:50%;background:#e0e8e3}
+.mmw .dot.done{background:#36825a}
+.mmw .dot.current{outline:2px solid #418e7d;outline-offset:2px}
+.confetti{position:fixed;top:-20px;width:10px;height:16px;pointer-events:none;animation:fall 2s ease-in forwards;z-index:40}
+.mmw .how{font-size:15px;color:var(--muted);margin-top:15px}
+.mmw .notice{margin-top:16px;font-size:15px;color:#687786}
+@keyframes shake{0%,100%{transform:translateX(0)}25%,75%{transform:translateX(-4px)}50%{transform:translateX(4px)}}
+@keyframes fall{to{transform:translateY(110vh) rotate(550deg);opacity:0}}
+@media(max-width:740px){.mmw .layout{grid-template-columns:1fr}
+.mmw .board{padding:15px}
+.mmw .scene{min-height:0}
+.mmw .question{font-size:20px}}
+.mmw{color:var(--ink);font-size:18px;line-height:1.5;padding-bottom:3rem}
+.mmw .board{border:0;box-shadow:none;padding:0;background:transparent}
+.mmw .meter{height:44px}
+.mmw .zuviel{position:absolute;top:0;height:100%;background:repeating-linear-gradient(115deg,#e58f86 0 14px,#d9776e 14px 28px);transition:left .8s cubic-bezier(.2,.8,.2,1),width .8s cubic-bezier(.2,.8,.2,1)}
+.mmw .limit{border-left:4px dashed #26364a;z-index:2}
+@media (prefers-reduced-motion:reduce){.confetti{display:none}}
+</style>
+</head>
+<body data-page="module" data-bereich="grammatik" data-root="../">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../grammatik.html">← Grammatik</a>
+    <h1><em>Sprachwerkstatt:</em> Der Mengenmesser</h1>
+    <p class="anleitung">Viel ist nicht immer zu viel! Schauen Sie, was im Büro passiert. Sagen Sie den Satz laut. Dann wählen Sie die passende Form.</p>
+  </div>
+</header>
+
+<main class="innen modul mmw"><div class="board"><div class="top"><span class="pill" id="where">Empfang</span><span class="tiny" id="counter">Fall 1 von 10</span></div><div class="layout"><section class="scene"><div class="scenehead"><div class="symbol" id="emoji">📚</div><div><div class="tag" id="sceneTag">Menge und Bedarf</div><h2 id="sceneTitle">Die Lage</h2></div></div><div class="context" id="context"></div><div class="viz"><div class="numbers"><span id="amount">Vorhanden: 0</span><span id="needed">Bedarf: 0</span></div><div class="meter"><div class="fill" id="fill"></div><div class="zuviel" id="zuviel"></div><div class="limit" id="limit"></div></div></div></section><section><div class="label">Sprechaufgabe</div><div class="question" id="prompt"></div><div class="label">Welche Form passt?</div><div class="choices" id="choices"></div><div class="actions"><button class="primary" id="check">🔎 Prüfen</button><button class="alt" id="hint">💡 Hilfe</button><button id="solve">Lösung zeigen</button><button id="next">Nächster Fall →</button></div><div class="status" id="status" aria-live="polite">Erst den Satz laut sagen – dann die passende Form wählen.</div><div class="solution" id="solution"></div></section></div><div class="progress"><div><b id="score">0 von 10 Fällen richtig gelöst</b><div class="tiny">Ein gemeinsames Büro, viele Mengenprobleme.</div></div><div class="dots" id="dots"></div></div></div><div class="notice">Bei „viele“ und „zu viele“ zählt man einzelne Dinge oder Personen. Bei „viel“ und „zu viel“ geht es um eine nicht zählbare Menge. Ob etwas <em>zu viel</em> ist, entscheidet die Situation – nicht allein die Zahl.</div></main>
+<script src="../assets/lehrwerk.js?v=20261117f"></script>
+<script>
+/* Mengenmesser: Mechanik und Fälle von Leo (Demo v2), eingebaut ins Lehrwerk. */
+
+'use strict';
+const CASES=[
+ {area:'Empfang',emoji:'🪑',title:'Besucher am Empfang',context:'19 Gäste kommen. Es gibt nur 12 Stühle.',amount:19,need:12,amountLabel:'Gäste',needLabel:'Stühle',prompt:'Es sind ___ Gäste gekommen.',answer:'zu viele',reason:'„Gäste“ ist zählbar (Plural). Sieben Gäste müssen stehen.',hint:'Können alle Gäste sitzen? Sind „Gäste“ zählbar?'},
+ {area:'Messe',emoji:'🤝',title:'Besuch am Messestand',context:'70 Interessenten kommen. Alle werden gut betreut.',amount:70,need:85,amountLabel:'Interessenten',needLabel:'Betreuung möglich für',prompt:'Heute waren ___ Interessenten am Stand.',answer:'viele',reason:'„Interessenten“ ist zählbar (Plural). Alle werden betreut; die Zahl ist kein Problem.',hint:'Ist die große Besucherzahl ein Problem oder ein Erfolg?'},
+ {area:'Buchhaltung',emoji:'🧾',title:'Am Drucker',context:'Es werden 300 Blatt gedruckt. 35 hätten genügt.',amount:300,need:35,amountLabel:'Blatt verbraucht',needLabel:'Blatt benötigt',prompt:'Wir haben ___ Papier verbraucht.',answer:'zu viel',reason:'„Papier“ bezeichnet hier einen nicht zählbaren Stoff. 300 statt 35 Blatt sind unnötig.',hint:'Kann man „Papier“ in diesem Satz zählen? War der Verbrauch nötig?'},
+ {area:'Kaffeeküche',emoji:'☕',title:'Das Teamtreffen',context:'Für das Teamtreffen werden 10 Tassen Kaffee gebraucht. Die Kanne reicht genau.',amount:10,need:10,amountLabel:'Tassen vorhanden',needLabel:'Tassen gebraucht',prompt:'Für das Treffen brauchen wir ___ Kaffee.',answer:'viel',reason:'„Kaffee“ ist hier nicht zählbar. Die große Menge wird tatsächlich gebraucht.',hint:'Ist die große Menge unnötig oder genau richtig?'},
+ {area:'Empfang',emoji:'📞',title:'Anrufe am Empfang',context:'Frau Lenz schafft 15 Anrufe pro Stunde. Heute kommen 28.',amount:28,need:15,amountLabel:'Anrufe',needLabel:'Bearbeitbar',prompt:'Am Empfang gibt es heute ___ Anrufe.',answer:'zu viele',reason:'„Anrufe“ ist zählbar (Plural). 28 übersteigen die Kapazität.',hint:'Schafft Frau Lenz alle Anrufe?'},
+ {area:'Lager',emoji:'📦',title:'Die Lieferung',context:'KONTOR braucht 80 Kartons. Genau 80 sind angekommen.',amount:80,need:80,amountLabel:'Kartons geliefert',needLabel:'Kartons bestellt',prompt:'Wir haben ___ Kartons bekommen.',answer:'viele',reason:'„Kartons“ ist zählbar (Plural). Es sind viele, aber genau die benötigte Menge.',hint:'Sind es mehr Kartons als benötigt?'},
+ {area:'Buchhaltung',emoji:'💶',title:'Ein Angebot der Werkstatt',context:'Geplant sind 150 Euro. Der neue Preis beträgt 690 Euro.',amount:690,need:150,amountLabel:'Preis in Euro',needLabel:'Geplant in Euro',prompt:'Die Reparatur kostet ___ Geld.',answer:'zu viel',reason:'„Geld“ ist nicht zählbar. Der Preis liegt deutlich über dem geplanten Betrag.',hint:'Ist „Geld“ hier zählbar? Passt der Preis zum Plan?'},
+ {area:'KONTOR',emoji:'⏱️',title:'Die Übergabe',context:'Die Übergabe dauert 40 Minuten. So viel Zeit wird für alle Fälle gebraucht.',amount:40,need:40,amountLabel:'Minuten eingeplant',needLabel:'Minuten benötigt',prompt:'Für die Übergabe brauchen wir ___ Zeit.',answer:'viel',reason:'„Zeit“ ist nicht zählbar. Die 40 Minuten werden tatsächlich benötigt.',hint:'Ist die Zeit unnötig oder nötig?'},
+ {area:'Besprechung',emoji:'📋',title:'Die Aufgabenliste',context:'Das Team schafft acht Aufgaben. Heute sind es 20.',amount:20,need:8,amountLabel:'Aufgaben heute',needLabel:'Aufgaben machbar',prompt:'Wir haben heute ___ Aufgaben.',answer:'zu viele',reason:'„Aufgaben“ ist zählbar (Plural). Das Team kann nicht alle schaffen.',hint:'Sind Aufgaben zählbar? Schafft das Team sie?'},
+ {area:'Messe',emoji:'💬',title:'Gespräche am Stand',context:'Nora führt 26 Gespräche. Es ist genügend Zeit für alle.',amount:26,need:30,amountLabel:'Gespräche geführt',needLabel:'Gespräche möglich',prompt:'Wir haben heute ___ Gespräche geführt.',answer:'viele',reason:'„Gespräche“ ist zählbar (Plural). Alle Gespräche sind gut zu bewältigen.',hint:'Sind die vielen Gespräche ein Erfolg oder eine Überlastung?'}
+];
+const OPTIONS=['viel','viele','zu viel','zu viele'];
+let order=[],position=0,selected=null,reviewed=false,solutionShown=false,solved=new Set(),tried=false,wrongChoice=null,optionOrder=shuffle(['viel','viele','zu viel','zu viele']);
+const $=id=>document.getElementById(id);
+function shuffle(a){let b=[...a];for(let i=b.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
+function current(){return CASES[order[position]]}
+function render(){let c=current();$('where').textContent=c.area;$('counter').textContent=`Fall ${position+1} von ${CASES.length}`;$('emoji').textContent=c.emoji;$('sceneTitle').textContent=c.title;$('context').textContent=c.context;$('amount').textContent=`${c.amountLabel}: ${c.amount}`;$('needed').textContent=`${c.needLabel}: ${c.need}`;$('prompt').textContent=c.prompt;
+const max=Math.max(c.amount,c.need)*1.12;$('fill').style.width=(100*c.amount/max)+'%';$('limit').style.left=(100*c.need/max)+'%';$('limit').style.display='block';const zu=$('zuviel');if(c.amount>c.need){zu.style.left=(100*c.need/max)+'%';zu.style.width=(100*(c.amount-c.need)/max)+'%';zu.style.display='block'}else{zu.style.display='none'}$('choices').replaceChildren();
+for(const value of optionOrder){let b=document.createElement('button');b.className='choice'+(selected===value?' sel':'')+(wrongChoice===value?' bad':'');b.textContent=value;b.disabled=reviewed||solutionShown;b.onclick=()=>{selected=value;wrongChoice=null;render();$('status').className='status';$('status').textContent='Sprechen Sie jetzt den ganzen Satz und klicken Sie auf „Prüfen“.'};$('choices').append(b)}
+$('check').disabled=!selected||reviewed||solutionShown;$('solution').classList.toggle('show',reviewed||solutionShown);$('solution').innerHTML=reviewed||solutionShown?`<strong>Muster:</strong> ${c.prompt.replace('___',`<span class="word">${c.answer}</span>`)}<div class="tiny" style="margin-top:8px">${c.reason}</div>`:'';
+$('score').textContent=`${solved.size} von ${CASES.length} Fällen richtig gelöst`;$('dots').replaceChildren();for(let j=0;j<CASES.length;j++){let d=document.createElement('span');d.className='dot'+(solved.has(order[j])?' done':'')+(j===position?' current':'');$('dots').append(d)}
+}
+function check(){if(!selected||reviewed||solutionShown)return;tried=true;let c=current();if(selected===c.answer){reviewed=true;solved.add(order[position]);$('status').textContent='✓ Richtig! Die Menge und die Grammatik passen zusammen.';$('status').className='status good';render();if(solved.size===CASES.length)celebrate()}else{$('status').textContent='Noch nicht. Überlegen Sie: Zählbar oder nicht zählbar? Zu viel oder einfach viel?';$('status').className='status bad';wrongChoice=selected;selected=null;render();$('check').disabled=true}}
+function help(){$('status').textContent=current().hint;$('status').className='status'}
+function showSolution(){solutionShown=true;$('status').textContent='Musterlösung gezeigt. Die Karte zählt nicht als selbst gelöst.';$('status').className='status';render()}
+function next(){position=(position+1)%CASES.length;if(position===0){order=shuffle(CASES.map((_,i)=>i))}selected=null;wrongChoice=null;reviewed=false;solutionShown=false;tried=false;optionOrder=shuffle(OPTIONS);$('status').textContent='Erst den Satz laut sagen – dann die passende Form wählen.';$('status').className='status';render()}
+function celebrate(){const colors=['#edba4a','#51aa8c','#cf7770','#7da6d8'];for(let i=0;i<75;i++){let e=document.createElement('span');e.className='confetti';e.style.left=Math.random()*100+'vw';e.style.background=colors[i%4];e.style.animationDelay=(Math.random()*.7)+'s';document.body.append(e);setTimeout(()=>e.remove(),3000)}}
+$('check').onclick=check;$('hint').onclick=help;$('solve').onclick=showSolution;$('next').onclick=next;order=shuffle(CASES.map((_,i)=>i));render();
+</script>
+</body>
+</html>

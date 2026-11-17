@@ -1144,6 +1144,18 @@
               "status": "fertig"
             },
             {
+              "titel": "Sprachwerkstatt: Der Mengenmesser",
+              "beschreibung": "viel, viele, zu viel, zu viele: Zehn Fälle aus dem Büro. Zählbar oder nicht – und entscheidet die Situation, ob es zu viel ist?",
+              "pfad": "mengenmesser.html",
+              "niveau": "B1",
+              "dauer": "15 Min",
+              "fertigkeiten": [
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "fertig"
+            },
+            {
               "titel": "Adjektivendungen",
               "beschreibung": "Fünf Endungen, ein Kennbuchstabe, drei Situationen — mit Genitiv, den Mengenwörtern viele und alle und dem artikellosen Nominalstil der Geschäftssprache.",
               "pfad": "adjektivendungen.html",
