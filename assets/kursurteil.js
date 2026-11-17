@@ -71,6 +71,7 @@
     '.ku-leiste button[data-u="entfaellt"][aria-pressed="true"]{background:#657177;border-color:#657177}' +
     '.ku-leiste i{width:1px;align-self:stretch;background:#cfcabd;margin:0 .3rem}' +
     '.ku-fertig{color:#2E6B4A}' +
+    '.ku-sammel{margin-top:1.4rem}' +
     '.ku-tipp{flex-basis:100%;margin:.2rem 0 0;padding:.4rem .6rem;border-radius:8px;background:#E3EBF3;color:#22222b}' +
     '.ku-tipp a{font-weight:700}' +
     '.ku-stand{margin:0 0 1rem;padding:.6rem .9rem;border:1px dashed #b9b4a8;border-radius:10px;background:#fffdf6;font-size:.95rem}' +
@@ -108,6 +109,21 @@
     });
   });
   if (!aufgaben.length) return;
+
+  [].forEach.call(document.querySelectorAll('.blatt'), function (blatt) {
+    var meine = aufgaben.filter(function (a) { return a.id.indexOf(blatt.id.replace('blatt-', '') + '/') === 0; });
+    if (!meine.length) return;
+    var reihe = el('div', 'ku-leiste ku-sammel');
+    reihe.appendChild(el('span', '', 'Kursurteil'));
+    var b = el('button', '', 'Alle übrigen Aufgaben in diesem Reiter: sitzt'); b.type = 'button';
+    b.addEventListener('click', function () {
+      var alles = laden(); alles[seite] = alles[seite] || {};
+      meine.forEach(function (a) { if (!stand(a)) alles[seite][a.id] = { u: 'sitzt', d: new Date().toISOString().slice(0, 10), t: a.titel, r: a.reiter }; });
+      sichern(alles); zeigen();
+    });
+    reihe.appendChild(b);
+    blatt.appendChild(reihe);
+  });
 
   function stand(a) { var s = (laden()[seite] || {})[a.id]; return s ? (s.u === 'skip' ? 'spaeter' : s.u) : ''; }
   function urteilen(a, u) {
