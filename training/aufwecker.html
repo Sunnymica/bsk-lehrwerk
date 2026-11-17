@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Aufwecker – drei schnelle Spiele – Deutsch fürs Büro</title>
+<link rel="stylesheet" href="../assets/basis.css?v=20261117a">
+<link rel="stylesheet" href="../assets/platform.css?v=20261117a">
+<link rel="stylesheet" href="../assets/lehrwerk.css?v=20261117a">
+<link rel="stylesheet" href="../assets/aufgaben.css?v=20261117a">
+<script src="../assets/platform.js?v=20261117a"></script>
+<style>
+  .aw-wrap { max-width: 56rem; margin: 0 auto; padding-bottom: 4rem; }
+
+  /* Punktetafel */
+  .aw-tafel { display: flex; flex-wrap: wrap; gap: .5rem; align-items: stretch; margin: 1rem 0 .4rem; }
+  .aw-spieler { display: flex; align-items: center; gap: .5rem; background: #fff; border: 2px solid var(--linie); border-radius: 12px; padding: .4rem .5rem .4rem .8rem; font-size: 1.05rem; transition: transform .15s, border-color .15s, background .15s; }
+  .aw-spieler b { font-family: var(--mono); font-size: 1.25rem; min-width: 1.6rem; text-align: center; }
+  .aw-spieler button { border: 0; background: var(--himmel); color: var(--himmel-tief); font-weight: 700; font-size: 1.05rem; border-radius: 8px; width: 2.1rem; height: 2.1rem; cursor: pointer; }
+  .aw-spieler button:hover { background: var(--himmel-tief); color: #fff; }
+  .aw-spieler.dran { border-color: var(--platform-terracotta); background: var(--sand); transform: scale(1.08); }
+  .aw-spieler.vorn b { color: var(--platform-terracotta); }
+  .aw-tafel-knoepfe { display: flex; flex-wrap: wrap; gap: .5rem; margin: .2rem 0 1.2rem; }
+
+  /* Knöpfe */
+  .aw-knopf { font-family: var(--body); font-size: 1.05rem; font-weight: 600; border: 2px solid var(--himmel-tief); background: #fff; color: var(--himmel-tief); border-radius: 999px; padding: .55rem 1.3rem; cursor: pointer; }
+  .aw-knopf:hover { background: var(--himmel); }
+  .aw-knopf.haupt { background: var(--himmel-tief); color: #fff; }
+  .aw-knopf.haupt:hover { background: var(--platform-blue-dark); }
+  .aw-knopf.klein { font-size: .85rem; font-weight: 500; padding: .35rem .9rem; border-color: var(--linie); color: var(--tinte-weich); }
+  .aw-knopf:focus-visible { outline: 3px solid var(--platform-yellow); outline-offset: 2px; }
+  .aw-reihe { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin: 1.2rem 0 .4rem; }
+
+  /* Bühne */
+  .aw-buehne { background: #fff; border: 1px solid var(--linie); border-radius: 18px; padding: 1.6rem 1.4rem 1.3rem; margin: 1rem 0; text-align: center; min-height: 19rem; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 10px 30px rgba(37,50,58,.07); }
+  .aw-zaehler { font-family: var(--mono); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--tinte-weich); margin: 0 0 .8rem; }
+  .aw-gross { font-family: var(--display); font-size: clamp(1.6rem, 4.2vw, 2.7rem); line-height: 1.25; font-weight: 700; margin: .3rem 0 .6rem; color: var(--tinte); }
+  .aw-mittel { font-size: clamp(1.15rem, 2.6vw, 1.55rem); line-height: 1.35; margin: .3rem 0; }
+  .aw-plus { display: inline-block; background: var(--sand); color: var(--sand-tief); font-weight: 700; font-size: clamp(1.4rem, 3.6vw, 2.2rem); border-radius: 12px; padding: .3rem 1.1rem; margin: .7rem 0 .3rem; }
+  .aw-fragewort { display: inline-block; background: var(--flieder); color: var(--flieder-tief); font-weight: 700; font-size: clamp(1.4rem, 3.6vw, 2.2rem); border-radius: 12px; padding: .3rem 1.1rem; margin: .6rem 0 .3rem; }
+  .aw-hilfe { color: var(--tinte-weich); font-size: 1.15rem; margin: .4rem 0; }
+  .aw-loesung { text-align: left; max-width: 44rem; margin: .9rem auto 0; font-size: clamp(1.1rem, 2.4vw, 1.45rem); }
+  .aw-loesung .lw-richtig, .aw-loesung .lw-falsch { padding: .6rem 1rem; }
+  .aw-neu { background: var(--platform-yellow); border-radius: 5px; padding: 0 .25rem; }
+  .aw-wahr { display: inline-block; background: var(--himmel); color: var(--himmel-tief); border-radius: 8px; padding: .1rem .6rem; font-size: .9rem; font-weight: 700; margin-right: .4rem; }
+  .aw-so { background: var(--flieder); border-radius: 12px; padding: .7rem 1rem; margin: .6rem 0 0; font-size: 1.05rem; }
+  .aw-so strong { color: var(--flieder-tief); }
+  .aw-ende { font-size: 1.3rem; }
+  @media (max-width: 34rem) { .aw-buehne { padding: 1.1rem .8rem; } }
+</style>
+</head>
+<body data-page="module" data-bereich="training" data-root="../">
+
+<header class="hero bereich-kopf">
+  <div class="innen">
+    <a class="zurueck" href="../training.html">← Training</a>
+    <h1><em>Aufwecker:</em> drei schnelle Spiele</h1>
+    <p class="anleitung">Müde? Dann fünf Minuten spielen. Alles dreht sich um KONTOR, die Messe und den Empfang. Wer richtig und schnell ist, bekommt einen Punkt.</p>
+  </div>
+</header>
+
+<main class="innen modul aw-wrap">
+
+  <div class="aw-tafel" id="aw-tafel" aria-label="Punktetafel"></div>
+  <div class="aw-tafel-knoepfe">
+    <button type="button" class="aw-knopf" id="aw-wuerfeln">🎲 Wer ist dran?</button>
+    <button type="button" class="aw-knopf klein" id="aw-namen">Namen ändern</button>
+    <button type="button" class="aw-knopf klein" id="aw-null">Punkte auf null</button>
+  </div>
+
+  <div class="reiter" role="tablist">
+    <button role="tab" aria-selected="true"  data-blatt="stimmt">1 · Stimmt nicht!</button>
+    <button role="tab" aria-selected="false" data-blatt="kette">2 · Die Kette</button>
+    <button role="tab" aria-selected="false" data-blatt="frage">3 · Wie heißt die Frage?</button>
+  </div>
+
+  <!-- ============ 1 · Stimmt nicht! ============ -->
+  <section class="blatt" id="blatt-stimmt">
+    <p class="stand-hinweis">Alle zusammen · wer zuerst richtig widerspricht, bekommt den Punkt</p>
+    <div class="aw-so">Hier steht fast nur Unsinn. Widersprechen Sie, laut und als ganzer Satz: <strong>„Das stimmt nicht. … ist nicht …, sondern …“</strong> Aber Achtung: Manchmal stimmt der Satz. Dann sagen Sie: <strong>„Doch, das stimmt.“</strong></div>
+    <div class="aw-buehne" id="st-buehne"></div>
+  </section>
+
+  <!-- ============ 2 · Die Kette ============ -->
+  <section class="blatt" id="blatt-kette" hidden>
+    <p class="stand-hinweis">Reihum · jede Person baut ein Teil in den Satz ein</p>
+    <div class="aw-so">Der Satz wächst. Sie bekommen ein neues Teil und sagen den <strong>ganzen Satz</strong> noch einmal, mit dem neuen Teil an der richtigen Stelle. Passen Sie auf: <strong>Wo steht das Verb?</strong></div>
+    <div class="aw-buehne" id="ke-buehne"></div>
+  </section>
+
+  <!-- ============ 3 · Wie heißt die Frage? ============ -->
+  <section class="blatt" id="blatt-frage" hidden>
+    <p class="stand-hinweis">Reihum oder alle zusammen · die Antwort ist schon da</p>
+    <div class="aw-so">Sie sehen eine <strong>Antwort</strong> und das <strong>Fragewort</strong>. Wie heißt die Frage? Sagen Sie sie laut. Wenn es nicht geht: Die Hilfe gibt Ihnen die Wörter.</div>
+    <div class="aw-buehne" id="fr-buehne"></div>
+  </section>
+
+</main>
+
+<script src="../assets/lehrwerk.js?v=20261117a"></script>
+<script>
+Lehrwerk.reiter();
+
+(function () {
+  'use strict';
+
+  function mischen(liste) {
+    var a = liste.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+  function el(tag, klasse, htmlText) {
+    var e = document.createElement(tag);
+    if (klasse) e.className = klasse;
+    if (htmlText !== undefined) e.innerHTML = htmlText;
+    return e;
+  }
+  function knopf(text, klasse, aktion) {
+    var b = el('button', 'aw-knopf' + (klasse ? ' ' + klasse : ''), text);
+    b.type = 'button';
+    b.addEventListener('click', aktion);
+    return b;
+  }
+
+  /* ---------- Punktetafel ---------- */
+  var SCHLUESSEL = 'aufwecker-tafel-v1';
+  var tafel = { namen: ['Danylo', 'Iryna', 'Liubov', 'Olha', 'Yuliia'], punkte: {} };
+  try {
+    var alt = JSON.parse(localStorage.getItem(SCHLUESSEL) || 'null');
+    if (alt && Array.isArray(alt.namen) && alt.namen.length) tafel = alt;
+  } catch (e) { /* ohne Speicher geht es auch */ }
+  function merken() {
+    try { localStorage.setItem(SCHLUESSEL, JSON.stringify(tafel)); } catch (e) { /* egal */ }
+  }
+  var tafelEl = document.getElementById('aw-tafel');
+  var dran = null;
+
+  function tafelZeigen() {
+    tafelEl.innerHTML = '';
+    var max = 0;
+    tafel.namen.forEach(function (n) { max = Math.max(max, tafel.punkte[n] || 0); });
+    tafel.namen.forEach(function (n) {
+      var p = tafel.punkte[n] || 0;
+      var box = el('div', 'aw-spieler' + (n === dran ? ' dran' : '') + (max > 0 && p === max ? ' vorn' : ''));
+      box.appendChild(el('span', '', n.replace(/</g, '&lt;')));
+      box.appendChild(el('b', '', String(p)));
+      var plus = el('button', '', '+1');
+      plus.type = 'button';
+      plus.setAttribute('aria-label', 'Ein Punkt für ' + n);
+      plus.addEventListener('click', function () {
+        tafel.punkte[n] = (tafel.punkte[n] || 0) + 1; merken(); tafelZeigen();
+      });
+      box.appendChild(plus);
+      tafelEl.appendChild(box);
+    });
+  }
+
+  document.getElementById('aw-wuerfeln').addEventListener('click', function () {
+    if (!tafel.namen.length) return;
+    var runden = 10 + Math.floor(Math.random() * 6), i = 0;
+    var letzter = dran;
+    (function weiter() {
+      var wahl;
+      do { wahl = tafel.namen[Math.floor(Math.random() * tafel.namen.length)]; }
+      while (tafel.namen.length > 1 && (wahl === dran || (i === runden - 1 && wahl === letzter)));
+      dran = wahl; tafelZeigen();
+      if (++i < runden) setTimeout(weiter, 70 + i * 14);
+    })();
+  });
+  document.getElementById('aw-null').addEventListener('click', function () {
+    tafel.punkte = {}; dran = null; merken(); tafelZeigen();
+  });
+  document.getElementById('aw-namen').addEventListener('click', function () {
+    var neu = window.prompt('Vornamen, mit Komma getrennt:', tafel.namen.join(', '));
+    if (neu === null) return;
+    var liste = neu.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+    if (!liste.length) return;
+    tafel.namen = liste; dran = null; merken(); tafelZeigen();
+  });
+  tafelZeigen();
+
+  /* ---------- 1 · Stimmt nicht! ---------- */
+  var STIMMT = [
+    { s: 'Die Messe ist in Hamburg.', r: 'Die Messe ist nicht in Hamburg, sondern in Dortmund.' },
+    { s: 'Frau Lenz ist die Geschäftsführerin von KONTOR.', r: 'Frau Lenz ist nicht die Geschäftsführerin. Sie arbeitet am Empfang. Die Geschäftsführerin ist Frau Melnyk.' },
+    { s: 'Nora arbeitet im Lager.', r: 'Nora arbeitet nicht im Lager, sondern im Einkauf.' },
+    { s: 'Die Prospekte müssen spätestens am Freitag da sein.', r: 'Die Prospekte müssen nicht am Freitag, sondern spätestens am Mittwoch da sein.' },
+    { s: 'Nora soll heute die Druckerei anrufen.', w: true, r: 'Nora soll heute noch die Druckerei anrufen.' },
+    { s: 'Das Hotel darf höchstens 200 Euro pro Nacht kosten.', r: 'Das Hotel darf nicht 200 Euro, sondern höchstens 120 Euro pro Nacht kosten.' },
+    { s: 'Nora bucht vier Zimmer.', r: 'Nora bucht nicht vier Zimmer, sondern zwei.' },
+    { s: 'Frau Vogt kommt aus München.', r: 'Frau Vogt kommt nicht aus München, sondern aus Bremen.' },
+    { s: 'Herr Becker betreut den Stand auf der Messe.', w: true, r: 'Herr Becker betreut den Stand. Deshalb bekommt er den Standplan.' },
+    { s: 'Pawel soll die Kisten bis Freitag verpacken.', r: 'Pawel soll die Kisten nicht bis Freitag, sondern bis Montag verpacken.' },
+    { s: 'Die Spedition liefert die Kisten zu Frau Melnyk nach Hause.', r: 'Die Spedition liefert die Kisten nicht zu Frau Melnyk nach Hause, sondern direkt an die Messe.' },
+    { s: 'Der Stand von KONTOR ist in Halle 14, Stand 3.', r: 'Der Stand ist nicht in Halle 14, sondern in Halle 3, Stand 14.' },
+    { s: 'Finn Albers ist der neue Chef.', r: 'Finn ist nicht der neue Chef, sondern der neue Azubi.' },
+    { s: 'Finn ist 19 Jahre alt.', w: true, r: 'Finn ist 19 und im ersten Lehrjahr.' },
+    { s: 'Frau Lenz und Finn siezen sich.', r: 'Frau Lenz und Finn siezen sich nicht, sondern sie duzen sich.' },
+    { s: 'Finn hilft Nora bei den Hotelzimmern.', r: 'Finn hilft Nora nicht bei den Hotelzimmern, sondern bei den Namensschildern.' },
+    { s: 'Nora hat zwei Monate am Empfang gearbeitet.', r: 'Nora hat nicht zwei Monate, sondern zwei Wochen am Empfang gearbeitet.' },
+    { s: 'Der Eilbrief war für Pawel.', r: 'Der Eilbrief war nicht für Pawel, sondern für Frau Melnyk.' },
+    { s: 'Nora hat die Post jeden Morgen bis zehn Uhr verteilt.', w: true, r: 'Nur am Mittwoch kam ein Eilbrief erst um elf.' },
+    { s: 'Herr Sommer hatte einen Termin mit Frau Lenz.', r: 'Herr Sommer hatte keinen Termin mit Frau Lenz, sondern mit Pawel.' },
+    { s: 'KONTOR verkauft Autos.', r: 'KONTOR verkauft keine Autos, sondern Bürobedarf.' },
+    { s: 'KONTOR hat seinen Sitz in Berlin.', r: 'KONTOR hat seinen Sitz nicht in Berlin, sondern in Köln.' }
+  ];
+
+  /* ---------- 2 · Die Kette ---------- */
+  var KETTEN = [
+    { start: 'Nora ruft an.', teile: [
+      { plus: 'die Druckerei', satz: 'Nora ruft <span class="aw-neu">die Druckerei</span> an.' },
+      { plus: 'heute', satz: 'Nora ruft <span class="aw-neu">heute</span> die Druckerei an.' },
+      { plus: 'weil die Prospekte fehlen', satz: 'Nora ruft heute die Druckerei an<span class="aw-neu">, weil die Prospekte fehlen</span>.' },
+      { plus: 'Beginnen Sie mit „Heute …“', satz: '<span class="aw-neu">Heute ruft Nora</span> die Druckerei an, weil die Prospekte fehlen.' }
+    ] },
+    { start: 'Pawel verpackt die Kisten.', teile: [
+      { plus: 'bis Montag', satz: 'Pawel verpackt die Kisten <span class="aw-neu">bis Montag</span>.', auch: 'Pawel verpackt bis Montag die Kisten.' },
+      { plus: 'im Lager', satz: 'Pawel verpackt die Kisten bis Montag <span class="aw-neu">im Lager</span>.' },
+      { plus: 'muss', satz: 'Pawel <span class="aw-neu">muss</span> die Kisten bis Montag im Lager <span class="aw-neu">verpacken</span>.' },
+      { plus: 'Beginnen Sie mit „Bis Montag …“', satz: '<span class="aw-neu">Bis Montag muss Pawel</span> die Kisten im Lager verpacken.' }
+    ] },
+    { start: 'Finn druckt aus.', teile: [
+      { plus: 'die Namensschilder', satz: 'Finn druckt <span class="aw-neu">die Namensschilder</span> aus.' },
+      { plus: 'morgen', satz: 'Finn druckt <span class="aw-neu">morgen</span> die Namensschilder aus.' },
+      { plus: 'für den Stand', satz: 'Finn druckt morgen die Namensschilder <span class="aw-neu">für den Stand</span> aus.' },
+      { plus: 'Beginnen Sie mit „Nora sagt, dass …“', satz: '<span class="aw-neu">Nora sagt, dass</span> Finn morgen die Namensschilder für den Stand <span class="aw-neu">ausdruckt</span>.' }
+    ] },
+    { start: 'Nora bucht zwei Zimmer.', teile: [
+      { plus: 'von Dienstag bis Freitag', satz: 'Nora bucht <span class="aw-neu">von Dienstag bis Freitag</span> zwei Zimmer.', auch: 'Nora bucht zwei Zimmer von Dienstag bis Freitag.' },
+      { plus: 'für Herrn Becker und Frau Vogt', satz: 'Nora bucht von Dienstag bis Freitag zwei Zimmer <span class="aw-neu">für Herrn Becker und Frau Vogt</span>.' },
+      { plus: 'hat … gebucht', satz: 'Nora <span class="aw-neu">hat</span> von Dienstag bis Freitag zwei Zimmer für Herrn Becker und Frau Vogt <span class="aw-neu">gebucht</span>.' },
+      { plus: 'Machen Sie eine Frage daraus', satz: '<span class="aw-neu">Hat Nora</span> von Dienstag bis Freitag zwei Zimmer für Herrn Becker und Frau Vogt gebucht<span class="aw-neu">?</span>' }
+    ] },
+    { start: 'Die Spedition liefert die Kisten.', teile: [
+      { plus: 'direkt an die Messe', satz: 'Die Spedition liefert die Kisten <span class="aw-neu">direkt an die Messe</span>.' },
+      { plus: 'nächste Woche', satz: 'Die Spedition liefert die Kisten <span class="aw-neu">nächste Woche</span> direkt an die Messe.' },
+      { plus: 'soll', satz: 'Die Spedition <span class="aw-neu">soll</span> die Kisten nächste Woche direkt an die Messe <span class="aw-neu">liefern</span>.' },
+      { plus: 'Beginnen Sie mit „Nächste Woche …“', satz: '<span class="aw-neu">Nächste Woche soll die Spedition</span> die Kisten direkt an die Messe liefern.' }
+    ] },
+    { start: 'Frau Lenz erklärt den Ablauf.', teile: [
+      { plus: 'dem Azubi', satz: 'Frau Lenz erklärt <span class="aw-neu">dem Azubi</span> den Ablauf.' },
+      { plus: 'heute', satz: 'Frau Lenz erklärt dem Azubi <span class="aw-neu">heute</span> den Ablauf.', auch: 'Frau Lenz erklärt heute dem Azubi den Ablauf.' },
+      { plus: 'weil er neu ist', satz: 'Frau Lenz erklärt dem Azubi heute den Ablauf<span class="aw-neu">, weil er neu ist</span>.' },
+      { plus: 'Beginnen Sie mit „Weil er neu ist, …“', satz: '<span class="aw-neu">Weil er neu ist, erklärt Frau Lenz</span> dem Azubi heute den Ablauf.' }
+    ] }
+  ];
+
+  /* ---------- 3 · Wie heißt die Frage? ---------- */
+  var FRAGEN = [
+    { a: 'In Dortmund.', w: 'Wo …?', h: 'die Messe · sein', l: 'Wo ist die Messe?' },
+    { a: 'Am Mittwoch.', w: 'Wann …?', h: 'die Prospekte · da sein müssen', l: 'Wann müssen die Prospekte da sein?' },
+    { a: 'Höchstens 120 Euro pro Nacht.', w: 'Wie viel …?', h: 'das Hotel · kosten dürfen', l: 'Wie viel darf das Hotel kosten?' },
+    { a: 'Herr Becker.', w: 'Wer …?', h: 'den Stand betreuen', l: 'Wer betreut den Stand?' },
+    { a: 'Aus Bremen.', w: 'Woher …?', h: 'Frau Vogt · kommen', l: 'Woher kommt Frau Vogt?' },
+    { a: 'Bis Montag.', w: 'Bis wann …?', h: 'Pawel · die Kisten verpacken müssen', l: 'Bis wann muss Pawel die Kisten verpacken?' },
+    { a: 'Direkt an die Messe, Halle 3, Stand 14.', w: 'Wohin …?', h: 'die Spedition · liefern sollen', l: 'Wohin soll die Spedition liefern?' },
+    { a: 'Am Empfang.', w: 'Wo …?', h: 'Finn · arbeiten', l: 'Wo arbeitet Finn?' },
+    { a: 'Zwei.', w: 'Wie viele …?', h: 'Zimmer · Nora · buchen', l: 'Wie viele Zimmer bucht Nora?' },
+    { a: 'Für Frau Melnyk.', w: 'Für wen …?', h: 'der Eilbrief · sein (gestern!)', l: 'Für wen war der Eilbrief?' },
+    { a: 'Um neun Uhr.', w: 'Um wie viel Uhr …?', h: 'der Termin mit Herrn Sommer · sein (gestern!)', l: 'Um wie viel Uhr war der Termin mit Herrn Sommer?' },
+    { a: 'Die Druckerei.', w: 'Wen …?', h: 'Nora · anrufen', l: 'Wen ruft Nora an?' },
+    { a: 'Mit Pawel.', w: 'Mit wem …?', h: 'Herr Sommer · einen Termin haben', l: 'Mit wem hat Herr Sommer einen Termin?' },
+    { a: 'Weil er neu ist.', w: 'Warum …?', h: 'Finn · viele Fragen stellen', l: 'Warum stellt Finn viele Fragen?' },
+    { a: 'Ja, natürlich.', w: 'Ohne Fragewort: Verb nach vorn!', h: 'Sie · kurz Zeit haben', l: 'Haben Sie kurz Zeit?' },
+    { a: 'Nein, noch nicht.', w: 'Ohne Fragewort: Verb nach vorn!', h: 'die Druckerei · sich schon melden (Perfekt)', l: 'Hat sich die Druckerei schon gemeldet?' },
+    { a: 'Ja, höchstens 120 Euro.', w: 'Ohne Fragewort: Verb nach vorn!', h: 'es · ein Budget für das Hotel · geben', l: 'Gibt es ein Budget für das Hotel?' }
+  ];
+
+  /* ---------- Spielablauf: Stimmt nicht! ---------- */
+  (function () {
+    var buehne = document.getElementById('st-buehne');
+    var stapel = mischen(STIMMT), nr = 0;
+    function karte() {
+      buehne.innerHTML = '';
+      if (nr >= stapel.length) { ende(buehne, function () { stapel = mischen(STIMMT); nr = 0; karte(); }); return; }
+      var k = stapel[nr];
+      buehne.appendChild(el('p', 'aw-zaehler', 'Satz ' + (nr + 1) + ' von ' + stapel.length));
+      buehne.appendChild(el('p', 'aw-gross', '„' + k.s + '“'));
+      var loesung = el('div', 'aw-loesung'); loesung.hidden = true;
+      if (k.w) loesung.innerHTML = '<div class="lw-richtig"><span class="aw-wahr">Doch, das stimmt.</span>' + k.r + '</div>';
+      else loesung.innerHTML = '<div class="lw-paar"><div class="lw-falsch">✗ ' + k.s + '</div><div class="lw-richtig">✓ ' + k.r + '</div></div>';
+      buehne.appendChild(loesung);
+      var reihe = el('div', 'aw-reihe');
+      var zeigen = knopf('Lösung zeigen', '', function () { loesung.hidden = false; zeigen.hidden = true; });
+      reihe.appendChild(zeigen);
+      reihe.appendChild(knopf('Nächster Satz →', 'haupt', function () { nr++; karte(); }));
+      buehne.appendChild(reihe);
+    }
+    karte();
+  })();
+
+  /* ---------- Spielablauf: Die Kette ---------- */
+  (function () {
+    var buehne = document.getElementById('ke-buehne');
+    var stapel = mischen(KETTEN), nr = 0, schritt = 0, offen = false;
+    function karte() {
+      buehne.innerHTML = '';
+      if (nr >= stapel.length) { ende(buehne, function () { stapel = mischen(KETTEN); nr = 0; schritt = 0; offen = false; karte(); }); return; }
+      var k = stapel[nr];
+      var aktuell = schritt === 0 ? k.start : k.teile[schritt - 1].satz;
+      buehne.appendChild(el('p', 'aw-zaehler', 'Kette ' + (nr + 1) + ' von ' + stapel.length + ' · Teil ' + Math.min(schritt + 1, k.teile.length) + ' von ' + k.teile.length));
+      var reihe = el('div', 'aw-reihe');
+      if (schritt < k.teile.length && !offen) {
+        buehne.appendChild(el('p', 'aw-mittel', aktuell.replace(/<[^>]+>/g, '')));
+        buehne.appendChild(el('div', '', '<span class="aw-plus">+ ' + k.teile[schritt].plus + '</span>'));
+        reihe.appendChild(knopf('Lösung zeigen', 'haupt', function () { offen = true; karte(); }));
+      } else if (schritt < k.teile.length) {
+        var t = k.teile[schritt];
+        buehne.appendChild(el('div', '', '<span class="aw-plus">+ ' + t.plus + '</span>'));
+        buehne.appendChild(el('p', 'aw-gross', t.satz));
+        if (t.auch) buehne.appendChild(el('p', 'aw-hilfe', 'Auch richtig: ' + t.auch));
+        var letzter = schritt === k.teile.length - 1;
+        reihe.appendChild(knopf(letzter ? 'Neue Kette →' : 'Nächstes Teil →', 'haupt', function () {
+          offen = false;
+          if (letzter) { nr++; schritt = 0; } else { schritt++; }
+          karte();
+        }));
+      }
+      buehne.appendChild(reihe);
+    }
+    karte();
+  })();
+
+  /* ---------- Spielablauf: Wie heißt die Frage? ---------- */
+  (function () {
+    var buehne = document.getElementById('fr-buehne');
+    var stapel = mischen(FRAGEN), nr = 0;
+    function karte() {
+      buehne.innerHTML = '';
+      if (nr >= stapel.length) { ende(buehne, function () { stapel = mischen(FRAGEN); nr = 0; karte(); }); return; }
+      var k = stapel[nr];
+      buehne.appendChild(el('p', 'aw-zaehler', 'Antwort ' + (nr + 1) + ' von ' + stapel.length));
+      buehne.appendChild(el('p', 'aw-gross', '„' + k.a + '“'));
+      buehne.appendChild(el('div', '', '<span class="aw-fragewort">' + k.w + '</span>'));
+      var hilfe = el('p', 'aw-hilfe', 'Hilfe: ' + k.h); hilfe.hidden = true;
+      buehne.appendChild(hilfe);
+      var loesung = el('div', 'aw-loesung', '<div class="lw-richtig">✓ ' + k.l + '</div>'); loesung.hidden = true;
+      buehne.appendChild(loesung);
+      var reihe = el('div', 'aw-reihe');
+      var h = knopf('Hilfe', '', function () { hilfe.hidden = false; h.hidden = true; });
+      var z = knopf('Lösung zeigen', '', function () { loesung.hidden = false; z.hidden = true; });
+      reihe.appendChild(h); reihe.appendChild(z);
+      reihe.appendChild(knopf('Nächste Antwort →', 'haupt', function () { nr++; karte(); }));
+      buehne.appendChild(reihe);
+    }
+    karte();
+  })();
+
+  function ende(buehne, neu) {
+    buehne.appendChild(el('p', 'aw-gross', 'Fertig! 🎉'));
+    buehne.appendChild(el('p', 'aw-ende', 'Wer hat die meisten Punkte?'));
+    var reihe = el('div', 'aw-reihe');
+    reihe.appendChild(knopf('Noch eine Runde', 'haupt', neu));
+    buehne.appendChild(reihe);
+  }
+})();
+</script>
+
+</body>
+</html>

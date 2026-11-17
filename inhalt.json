@@ -1615,6 +1615,18 @@
           "titel": "Spiele",
           "module": [
             {
+              "titel": "Aufwecker – drei schnelle Spiele",
+              "beschreibung": "Stimmt nicht!, Die Kette und Wie heißt die Frage? Fünf Minuten Tempo mit KONTOR, Messe und Empfang, mit Punktetafel.",
+              "pfad": "aufwecker.html",
+              "niveau": "B1/B2",
+              "dauer": "10 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Üben"
+              ],
+              "status": "fertig"
+            },
+            {
               "titel": "Grammatik-Meisterschaft",
               "beschreibung": "Quiz in mehreren Runden. Allein oder zu dritt.",
               "pfad": "grammatik-meisterschaft.html",
