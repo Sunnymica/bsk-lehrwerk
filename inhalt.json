@@ -1592,6 +1592,20 @@
       "einleitung": "Diese Seiten funktionieren im Kurs zu dritt und allein zu Hause. Sie sind kurz gehalten, damit sie in jede Sitzung passen.",
       "gruppen": [
         {
+          "titel": "Prüfungstraining",
+          "module": [
+            {
+              "titel": "Stimmt auch der Zusammenhang?",
+              "beschreibung": "Die Wiedererkennungsfalle: Ein bekanntes Wort ist noch keine richtige Antwort. Erkennen, verstehen, anwenden, beim Lesen und beim Hören.",
+              "pfad": "wiedererkennungsfalle.html",
+              "niveau": "B1/B2",
+              "dauer": "45 Min",
+              "fertigkeiten": ["Lesen", "Hören"],
+              "status": "teilweise"
+            }
+          ]
+        },
+        {
           "titel": "Sprechen",
           "module": [
             {
