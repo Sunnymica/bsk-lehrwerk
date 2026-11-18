@@ -18,6 +18,7 @@
 .wahl button:hover { border-color: var(--rose-tief); }
 .wahl button.richtig { background: var(--salbei); border-color: var(--salbei-tief); }
 .wahl button.falsch  { background: var(--rose); border-color: var(--rose-tief); }
+.wahl button[aria-pressed="true"] { background: var(--sand); border-color: var(--sand-tief); }
 .wahl button:disabled { cursor: default; }
 
 .rueckmeldung { margin-top: 0.7rem; font-size: 0.95rem; color: var(--tinte-weich); }

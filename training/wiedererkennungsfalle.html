@@ -106,7 +106,7 @@
   <div class="differenzierung differenzierung--weiter">
     <strong class="differenzierung__stufe">Hören</strong>
     <h2><img class="symbol" src="../assets/symbole/paket.webp" alt="">Zwei Lieferungen</h2>
-    <p>Pawel Nowak hat Nora Seidel eine Nachricht geschickt. Sehen Sie sich zuerst Schritt 1 an. Hören Sie dann die Nachricht einmal und verbinden Sie schon beim Hören.</p>
+    <p>Pawel Nowak hat Nora Seidel eine Nachricht geschickt. Sehen Sie sich zuerst Schritt 1 an. Hören Sie dann die Nachricht und verbinden Sie schon beim Hören. Versuchen Sie es mit einmal Hören. Wenn es nicht klappt, hören Sie noch einmal.</p>
   </div>
   <figure class="bildgrammatik">
     <audio controls preload="none" src="../assets/audio/wiedererkennung-lieferungen.mp3" style="width:100%">Ihr Browser kann die Audiodatei nicht abspielen.</audio>
@@ -259,44 +259,88 @@ Lehrwerk.auswahl('verstehen-hoeren', [
 ]);
 
 /* ---- 3 · Anwenden ---- */
-Lehrwerk.auswahl('anwenden', [
-  { id: 'a1', text: '<strong>1</strong> Die Stadtverwaltung Bonn …',
-    optionen: ['a  hat 60 Bürostühle bestellt', 'b  bekommt ihre Stühle im Januar', 'c  bestellt im Februar 40 weitere Stühle'],
-    richtig: ['b  bekommt ihre Stühle im Januar'],
-    erklaerung: 'Bestellt sind 40 Stühle, geliefert wird im Januar. 60 weitere Stühle sind nur möglich.' },
-  { id: 'a1w', text: 'Warum passt b?',
-    optionen: ['Im Text gehört Januar zur Zustimmung des Stadtrats', 'Im Text gehört Januar zur Lieferung der bestellten Stühle', 'Im Text sind die 60 Stühle schon fest bestellt'],
-    richtig: ['Im Text gehört Januar zur Lieferung der bestellten Stühle'],
-    erklaerung: 'Der Stadtrat entscheidet im Februar, und nur über die zweite Bestellung.' },
-  { id: 'a2', text: '<strong>2</strong> Nach der Messe …',
-    optionen: ['a  gab es 150 neue Aufträge', 'b  gab es 12 Gespräche am Stand', 'c  hat das Team schon einige Aufträge bekommen'],
-    richtig: ['c  hat das Team schon einige Aufträge bekommen'],
-    erklaerung: 'Aus 150 Gesprächen sind bis jetzt 12 Aufträge entstanden.' },
-  { id: 'a2w', text: 'Warum passt c?',
-    optionen: ['Im Text gehört 12 zu den Aufträgen und 150 zu den Gesprächen', 'Im Text gehört 150 zu den Aufträgen', 'Im Text gehört 12 zu den Gesprächen'],
-    richtig: ['Im Text gehört 12 zu den Aufträgen und 150 zu den Gesprächen'],
-    erklaerung: 'Beide Zahlen stehen im Text. Entscheidend ist, wozu sie gehören.' },
-  { id: 'a3', text: '<strong>3</strong> Während Jonas Becker im Urlaub ist, …',
-    optionen: ['a  beantwortet Nora Seidel Fragen zu Rechnungen', 'b  kümmert sich Nora Seidel um seine Kunden', 'c  übernimmt die Buchhaltung seine Kunden'],
-    richtig: ['b  kümmert sich Nora Seidel um seine Kunden'],
-    erklaerung: 'Nora Seidel betreut die Kunden. Rechnungen bleiben wie immer bei der Buchhaltung.' },
-  { id: 'a3w', text: 'Warum passt b?',
-    optionen: ['Im Text beantwortet Nora Seidel die Fragen zu Rechnungen', 'Im Text übernimmt die Buchhaltung die Kunden', 'Im Text gehören die Kunden zu Nora Seidel und die Rechnungen zur Buchhaltung'],
-    richtig: ['Im Text gehören die Kunden zu Nora Seidel und die Rechnungen zur Buchhaltung'],
-    erklaerung: 'Personen und Aufgaben stehen beide im Text. Sie müssen richtig zusammenpassen.' }
-]);
-Lehrwerk.frei('begruendung-frei');
-
-/* Die Begründungsfrage erscheint erst, wenn die Prüfungsfrage beantwortet ist. */
+/* Antwort und Begründung werden erst gemeinsam ausgewertet,
+   damit die Rückmeldung zur Antwort die Begründung nicht vorwegnimmt. */
 (function () {
-  const fragen = [...document.querySelectorAll('#anwenden > .frage')];
-  for (let i = 1; i < fragen.length; i += 2) {
-    const vorher = fragen[i - 1], warum = fragen[i];
-    const offen = () => !!vorher.querySelector('.wahl button:disabled');
-    warum.hidden = !offen();
-    vorher.querySelectorAll('.wahl button').forEach(b => b.addEventListener('click', () => { warum.hidden = false; }));
-  }
+  const AUFGABEN = [
+    { id: 'a1', text: '<strong>1</strong> Die Stadtverwaltung Bonn …',
+      optionen: ['a  hat 60 Bürostühle bestellt', 'b  bekommt ihre Stühle im Januar', 'c  bestellt im Februar 40 weitere Stühle'], richtig: 1,
+      gruende: ['Im Text gehört Januar zur Zustimmung des Stadtrats', 'Im Text sind die 60 Stühle schon fest bestellt', 'Im Text gehört Januar zur Lieferung der bestellten Stühle'], grund: 2,
+      erklaerung: 'Bestellt sind 40 Stühle, geliefert wird im Januar. 60 weitere Stühle sind nur möglich, wenn der Stadtrat im Februar zustimmt.' },
+    { id: 'a2', text: '<strong>2</strong> Nach der Messe …',
+      optionen: ['a  gab es 150 neue Aufträge', 'b  gab es 12 Gespräche am Stand', 'c  hat das Team schon einige Aufträge bekommen'], richtig: 2,
+      gruende: ['Im Text gehört 12 zu den Aufträgen und 150 zu den Gesprächen', 'Im Text gehört 150 zu den Aufträgen', 'Im Text gehört 12 zu den Gesprächen'], grund: 0,
+      erklaerung: 'Aus 150 Gesprächen am Stand sind bis jetzt 12 Aufträge entstanden. Beide Zahlen stehen im Text. Entscheidend ist, wozu sie gehören.' },
+    { id: 'a3', text: '<strong>3</strong> Während Jonas Becker im Urlaub ist, …',
+      optionen: ['a  beantwortet Nora Seidel Fragen zu Rechnungen', 'b  kümmert sich Nora Seidel um seine Kunden', 'c  übernimmt die Buchhaltung seine Kunden'], richtig: 1,
+      gruende: ['Im Text übernimmt die Buchhaltung die Kunden', 'Im Text gehören die Kunden zu Nora Seidel und die Rechnungen zur Buchhaltung', 'Im Text beantwortet Nora Seidel die Fragen zu Rechnungen'], grund: 1,
+      erklaerung: 'Nora Seidel betreut die Kunden. Rechnungen bleiben wie immer bei der Buchhaltung.' }
+  ];
+  const SCHLUESSEL = 'wiedererkennungsfalle:anwenden';
+  let stand = {};
+  try { stand = JSON.parse(localStorage.getItem(SCHLUESSEL) || '{}'); } catch (e) { stand = {}; }
+  function sichern() { try { localStorage.setItem(SCHLUESSEL, JSON.stringify(stand)); } catch (e) {} }
+
+  const box = document.getElementById('anwenden');
+  AUFGABEN.forEach(a => {
+    const s = stand[a.id] || {};
+    const div = document.createElement('div');
+    div.className = 'frage';
+    div.innerHTML = '<p>' + a.text + '</p>';
+    const wahlA = document.createElement('div'); wahlA.className = 'wahl';
+    const frageG = document.createElement('p'); frageG.textContent = 'Welcher Satz stützt Ihre Antwort?';
+    const wahlG = document.createElement('div'); wahlG.className = 'wahl';
+    const reihe = document.createElement('div'); reihe.className = 'knopfreihe';
+    const pruefen = document.createElement('button'); pruefen.type = 'button'; pruefen.className = 'knopf'; pruefen.textContent = 'Prüfen';
+    const rueck = document.createElement('p'); rueck.className = 'rueckmeldung'; rueck.hidden = true;
+    reihe.appendChild(pruefen);
+
+    function knoepfe(wahl, texte, feld) {
+      texte.forEach((t, i) => {
+        const b = document.createElement('button');
+        b.type = 'button'; b.textContent = t; b.setAttribute('aria-pressed', s[feld] === i ? 'true' : 'false');
+        b.addEventListener('click', () => {
+          if (s.geprueft) return;
+          s[feld] = i; stand[a.id] = s; sichern();
+          wahl.querySelectorAll('button').forEach((x, j) => x.setAttribute('aria-pressed', j === i ? 'true' : 'false'));
+          pruefen.disabled = !(s.antwort >= 0 && s.grund >= 0);
+        });
+        wahl.appendChild(b);
+      });
+    }
+    knoepfe(wahlA, a.optionen, 'antwort');
+    knoepfe(wahlG, a.gruende, 'grund');
+    pruefen.disabled = !(s.antwort >= 0 && s.grund >= 0);
+
+    function auswerten() {
+      s.geprueft = true; stand[a.id] = s; sichern();
+      [[wahlA, s.antwort, a.richtig], [wahlG, s.grund, a.grund]].forEach(([wahl, gewaehlt, richtig]) => {
+        wahl.querySelectorAll('button').forEach((x, j) => {
+          x.disabled = true;
+          x.setAttribute('aria-pressed', 'false');
+          if (j === richtig) x.classList.add('richtig');
+          else if (j === gewaehlt) x.classList.add('falsch');
+        });
+      });
+      const okA = s.antwort === a.richtig, okG = s.grund === a.grund;
+      rueck.hidden = false;
+      rueck.textContent = (okA && okG ? 'Antwort und Begründung richtig. '
+        : okA ? 'Die Antwort ist richtig, die Begründung noch nicht. '
+        : okG ? 'Die Begründung ist richtig, die Antwort noch nicht. '
+        : 'Antwort und Begründung noch nicht richtig. ') + a.erklaerung;
+      pruefen.hidden = true;
+    }
+    pruefen.addEventListener('click', auswerten);
+
+    div.appendChild(wahlA); div.appendChild(frageG); div.appendChild(wahlG); div.appendChild(reihe); div.appendChild(rueck);
+    box.appendChild(div);
+    if (s.geprueft) auswerten();
+  });
+
+  const zurueck = document.getElementById('zuruecksetzen');
+  if (zurueck) zurueck.addEventListener('click', () => { try { localStorage.removeItem(SCHLUESSEL); } catch (e) {} });
 })();
+Lehrwerk.frei('begruendung-frei');
 
 Lehrwerk.abschluss();
 </script>
