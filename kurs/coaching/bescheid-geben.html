@@ -38,6 +38,17 @@ textarea{width:100%;min-height:64px;border:1px solid var(--line);border-radius:1
 details{border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0;background:#fff}
 summary{cursor:pointer;font-weight:700}
 [hidden]{display:none!important}
+.slotq{border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:10px 0;background:#fff}
+.slotq .s{font:22px/2.1 Georgia,serif}
+.slotq .sl{display:inline-block;min-width:30px;text-align:center;border:2px dashed #d9c3b0;border-radius:8px;margin:0 4px;padding:0 6px;cursor:pointer;color:#b9a68f;font:700 16px system-ui;line-height:28px;vertical-align:middle;background:#fff}
+.slotq .sl:hover{background:var(--sky)}
+.slotq .sl.hit{border-style:solid;border-color:var(--ok);background:#e3f1e8;color:var(--nv);font:700 22px Georgia,serif}
+.slotq .sl.miss{border-color:var(--bad);background:#fbe3e3}
+.slotq .fb{margin-top:6px;font-size:17px;border-radius:10px;padding:8px 12px}
+.slotq .fb.ok{background:#e3f1e8}.slotq .fb.no{background:#fbe3e3}
+.jd{margin-top:10px;border-top:1px dashed var(--line);padding-top:10px}
+.jd .pr{font-size:17px}
+.jd .so{font:20px/1.4 Georgia,serif;background:#e3f1e8;border-radius:10px;padding:8px 12px;margin-top:6px}
 /* Farben */
 .verb{color:var(--ok);font-weight:700}
 .nv{color:var(--nv);font-weight:700;border-bottom:2px dotted var(--nv)}
@@ -125,7 +136,7 @@ table.feld tr.sep td{border-top:3px solid var(--line)}
 <section id="t1">
   <div class="panel">
     <h2>Wörtlich genommen?</h2>
-    <p>In der Beratungsstelle ist ein ganz normaler Tag. Aber was wäre, wenn man jedes Wort genau so versteht, wie es da steht? Lies den Satz, schau dir den Unsinn an, und dann klick: Was heißt das wirklich?</p>
+    <p>In der Beratungsstelle ist ein ganz normaler Tag. Aber was wäre, wenn man jedes Wort genau so versteht, wie es da steht? Lies den Satz und schau dir den Unsinn an. Was heißt der Satz wirklich? Rate zuerst, dann klick.</p>
     <div class="lit" id="litBox"></div>
   </div>
   <div class="panel">
@@ -143,12 +154,10 @@ table.feld tr.sep td{border-top:3px solid var(--line)}
   </div>
   <div class="panel">
     <h2>Achtung, Falle: Bescheid oder der Bescheid?</h2>
-    <p>Bei der Arbeit kennst du „Bescheid“ wahrscheinlich auch als Brief vom Amt. Ein kleines Wort macht den großen Unterschied.</p>
-    <div class="grid">
-      <div class="card"><div class="num">ohne Artikel</div><p style="font:22px/1.4 Georgia,serif;margin:6px 0">Ich gebe Ihnen morgen <span class="nv">Bescheid</span>.</p>= Ich informiere Sie morgen. Ich sage es Ihnen.</div>
-      <div class="card"><div class="num">mit Artikel</div><p style="font:22px/1.4 Georgia,serif;margin:6px 0">Ich gebe Ihnen <b>den</b> Bescheid vom Jobcenter.</p>= Ich gebe Ihnen den Brief. Sie halten ihn in der Hand.</div>
-    </div>
-    <div class="hint"><b>Merke:</b> In „<span class="nv">Bescheid</span> geben“ steht nie ein Artikel. Im Gespräch hörst du auch oft „Bescheid sagen“: „Sag mir Bescheid!“</div>
+    <p>Bei der Arbeit kennst du „Bescheid“ auch als Brief vom Amt. Was ist gemeint: eine Information oder ein Brief?</p>
+    <div id="falleBox"></div>
+    <div class="hint" id="falleMerk" hidden><b>Merke:</b> In „<span class="nv">Bescheid</span> geben“ steht nie ein Artikel. Mit Artikel ist es ein Brief: <b>der</b> Bescheid vom Jobcenter. Im Gespräch hörst du auch oft „Bescheid sagen“: „Sag mir Bescheid!“</div>
+    <p class="stat" id="falleStat"></p>
   </div>
 </section>
 
@@ -167,6 +176,9 @@ table.feld tr.sep td{border-top:3px solid var(--line)}
       <tr class="sep"><td class="lbl" rowspan="2">Modalverb</td><td>Ich</td><td class="v">kann</td><td>Sie morgen</td><td class="e"><span class="verb">anrufen</span>.</td></tr>
       <tr><td>Ich</td><td class="v">kann</td><td>Ihnen morgen</td><td class="e"><span class="nv">Bescheid</span> <span class="verb">geben</span>.</td></tr>
     </table>
+    <h3>Jetzt du: Wohin kommt das Nomen?</h3>
+    <p>Klick auf die richtige Lücke.</p>
+    <div id="slotA"></div>
     <h3>Und im Nebensatz?</h3>
     <p>Nach <span class="kon">dass, weil, wenn, sobald</span> geht das konjugierte Verb ans Ende. Das Nomen bleibt direkt davor, genau wie das „an“.</p>
     <table class="feld">
@@ -176,16 +188,12 @@ table.feld tr.sep td{border-top:3px solid var(--line)}
       <tr class="sep"><td>Ich melde mich,</td><td class="kon">weil</td><td>ich Sie</td><td class="e"><span class="verb">anrufen möchte</span>.</td></tr>
       <tr><td>Ich melde mich,</td><td class="kon">weil</td><td>ich Ihnen</td><td class="e"><span class="nv">Bescheid</span> <span class="verb">geben möchte</span>.</td></tr>
     </table>
+    <h3>Jetzt du: Wohin kommt das Nomen?</h3>
+    <div id="slotB"></div>
     <div class="legend"><span class="verb">Verb</span><span class="nv">Nomen aus der Verbindung</span><span class="kon">Konnektor</span></div>
   </div>
   <div class="panel">
-    <h2>Typische Fehler</h2>
-    <div class="pair"><div class="no">✗ Ich gebe Bescheid Ihnen morgen.</div><div class="yes">✓ Ich gebe Ihnen morgen Bescheid.</div></div>
-    <div class="pair"><div class="no">✗ Ich habe gegeben Ihnen Bescheid.</div><div class="yes">✓ Ich habe Ihnen Bescheid gegeben.</div></div>
-    <div class="pair"><div class="no">✗ …, weil ich möchte Ihnen Bescheid geben.</div><div class="yes">✓ …, weil ich Ihnen Bescheid geben möchte.</div></div>
-  </div>
-  <div class="panel">
-    <h2>Gut zu wissen</h2>
+    <details><summary>Gut zu wissen: drei Extras für Neugierige</summary>
     <div class="rule">
       <div class="rhead"><span class="rnum">1</span> Das Nomen darf auch nach vorn, wenn man es betonen will.</div>
       <table class="feld">
@@ -205,6 +213,7 @@ table.feld tr.sep td{border-top:3px solid var(--line)}
       <p>Früher hat man oft getrennt geschrieben: „statt finden“, „Theil nehmen“. Heute schreibt man <b>stattfinden</b> und <b>teilnehmen</b>. Im Satz funktionieren sie noch genauso wie „Bescheid geben“:</p>
       <p>Die Besprechung <span class="verb">findet</span> um zehn Uhr <span class="verb">statt</span>. · Ich <span class="verb">gebe</span> Ihnen um zehn Uhr <span class="nv">Bescheid</span>.</p>
     </div>
+    </details>
   </div>
 </section>
 
@@ -212,7 +221,7 @@ table.feld tr.sep td{border-top:3px solid var(--line)}
 <section id="t3" hidden>
   <div class="panel">
     <h2>Im Büro gebraucht: die ersten sechs</h2>
-    <p>Diese sechs lernst du gründlich. Sortiert nach dem, was du im Büro tun willst. <span class="fest">So markiert</span> ist alles, was fest dazugehört und sich nie ändert.</p>
+    <p>Diese sechs lernst du gründlich. Sortiert nach dem, was du im Büro tun willst. Bei jeder Karte: erst lesen, dann „Jetzt du“ laut sprechen, dann die Lösung ansehen. <span class="fest">So markiert</span> ist alles, was fest dazugehört und sich nie ändert.</p>
     <div class="grid" id="kernBox"></div>
     <div class="merk" style="margin-top:20px">„Ich <span class="verb">halte</span> erst <span class="nv">Rücksprache</span> mit meiner Kollegin und <span class="verb">gebe</span> Ihnen dann <span class="nv">Bescheid</span>.“</div>
     <p class="small">Diesen Satz kannst du morgen bei der Arbeit sagen. Lern ihn auswendig.</p>
@@ -335,13 +344,42 @@ const N=s=>'<span class="nv">'+s+'</span>', V=s=>'<span class="verb">'+s+'</span
 
 /* ---------- 1 WÖRTLICH GENOMMEN ---------- */
 const LIT=[
- ['🪑','Frau Winter '+V('nimmt')+' '+N('Platz')+'.','Sie packt den Platz ein und nimmt ihn mit nach Hause.','Sie setzt sich.'],
- ['🎯','Frau Sander '+V('trifft')+' eine '+N('Entscheidung')+'.','Sie wirft mit Pfeilen und trifft die Entscheidung genau in der Mitte.','Sie entscheidet.'],
- ['🗄️','Herr Braun '+V('stellt')+' einen '+N('Antrag')+'.','Er stellt das Formular ins Regal, schön gerade.','Er beantragt etwas, zum Beispiel Wohngeld.'],
- ['🎁','Frau Winter '+V('gibt')+' Herrn Braun '+N('Bescheid')+'.','Sie gibt ihm ein Päckchen. Was ist drin? Ein Bescheid!','Sie informiert ihn. Sie sagt ihm etwas.']
+ ['🪑','Frau Winter '+V('nimmt')+' '+N('Platz')+'.','Sie packt den Platz ein und nimmt ihn mit nach Hause.',[['Sie setzt sich.',1],['Sie trägt einen Stuhl weg.',0],['Sie reserviert einen Tisch.',0]]],
+ ['🎯','Frau Sander '+V('trifft')+' eine '+N('Entscheidung')+'.','Sie wirft mit Pfeilen und trifft die Entscheidung genau in der Mitte.',[['Sie entscheidet.',1],['Sie trifft eine Kollegin.',0],['Sie spielt Darts.',0]]],
+ ['🗄️','Herr Braun '+V('stellt')+' einen '+N('Antrag')+'.','Er stellt das Formular ins Regal, schön gerade.',[['Er beantragt etwas, zum Beispiel Wohngeld.',1],['Er räumt das Regal auf.',0],['Er bringt ein Formular zur Post.',0]]],
+ ['🎁','Frau Winter '+V('gibt')+' Herrn Braun '+N('Bescheid')+'.','Sie gibt ihm ein Päckchen. Was ist drin? Ein Bescheid!',[['Sie informiert ihn. Sie sagt ihm etwas.',1],['Sie gibt ihm einen Brief vom Amt.',0],['Sie macht ihm ein Geschenk.',0]]]
 ];
-$('litBox').innerHTML=LIT.map((x,i)=>`<div class="card"><div class="ico">${x[0]}</div><div class="satz">${x[1]}</div><div class="w">Wörtlich genommen: ${x[2]}</div><div class="r" id="lr${i}" hidden><b>Wirklich:</b> ${x[3]}</div><button data-lr="${i}">Was heißt das wirklich?</button></div>`).join('');
-document.querySelectorAll('[data-lr]').forEach(b=>b.onclick=()=>{$('lr'+b.dataset.lr).hidden=false;b.hidden=true});
+$('litBox').innerHTML=LIT.map((x,i)=>`<div class="card"><div class="ico">${x[0]}</div><div class="satz">${x[1]}</div><div class="w">Wörtlich genommen: ${x[2]}</div><div class="q" style="margin:6px 0 0;padding:10px 12px"><div class="small" style="margin-bottom:6px">Was heißt das wirklich?</div><div class="opts col">${shuffle(x[3].map((o,j)=>[o,j])).map(([o,j])=>`<button data-li="${i}" data-lj="${j}" style="font-size:17px;padding:6px 12px">${o[0]}</button>`).join('')}</div><div class="fb" hidden></div></div></div>`).join('');
+document.querySelectorAll('[data-li]').forEach(b=>b.onclick=()=>{const x=LIT[+b.dataset.li],o=x[3][+b.dataset.lj],q=b.closest('.q'),fb=q.querySelector('.fb');if(q.dataset.done)return;
+  if(o[1]){q.dataset.done=1;b.classList.add('okb');q.querySelectorAll('button').forEach(y=>y.disabled=y!==b);fb.className='fb ok';fb.innerHTML='<b>Genau.</b> Das Verb macht hier gar nicht, was es sonst macht.'}
+  else{b.classList.add('nob');b.disabled=true;fb.className='fb no';fb.innerHTML='Nein, das wäre wörtlich genommen. Noch einmal!'}fb.hidden=false});
+
+mcList('falleBox','falleStat',[
+ {s:'„Ich gebe Ihnen morgen '+N('Bescheid')+'.“',o:[['eine Information',true],['ein Brief vom Amt',false,'Hier steht kein Artikel. Also: Ich informiere Sie morgen.']],e:'Kein Artikel: Bescheid geben = informieren.'},
+ {s:'„Ich gebe Ihnen <b>den</b> Bescheid vom Jobcenter.“',o:[['ein Brief vom Amt',true],['eine Information',false,'Achte auf „den“. Mit Artikel ist der Bescheid ein Brief, den man in der Hand hält.']],e:'Mit Artikel: der Bescheid = ein Brief vom Amt.'},
+ {s:'„Bitte sagen Sie mir '+N('Bescheid')+', wenn Sie den Termin wissen.“',o:[['eine Information',true],['ein Brief vom Amt',false,'Kein Artikel, und „sagen“: Es geht um eine Information.']],e:'Bescheid sagen = Bescheid geben, nur lockerer.'}
+]);
+$('falleBox').addEventListener('click',()=>{$('falleMerk').hidden=false});
+
+/* ---------- 2 LÜCKEN ---------- */
+function slotTask(boxId,items){
+  const box=$(boxId);
+  box.innerHTML=items.map((it,i)=>{let h='';it.w.forEach((w,k)=>{h+=`<span class="sl" data-i="${i}" data-k="${k}">+</span>`+(it.cls&&it.cls[k]?'<span class="'+it.cls[k]+'">'+w+'</span>':w)});h+=`<span class="sl" data-i="${i}" data-k="${it.w.length}">+</span>`+(it.end||'.');
+    return `<div class="slotq"><div class="small">${it.lbl} · Wohin kommt <b class="nv">${it.ins}</b>?</div><div class="s">${h}</div><div class="fb" hidden></div></div>`}).join('');
+  box.querySelectorAll('.sl').forEach(sl=>sl.onclick=()=>{const it=items[+sl.dataset.i],k=+sl.dataset.k,q=sl.closest('.slotq'),fb=q.querySelector('.fb');if(q.dataset.done)return;
+    if(it.ok.includes(k)){q.dataset.done=1;q.querySelectorAll('.sl').forEach(x=>{if(x!==sl)x.replaceWith(document.createTextNode(+x.dataset.k===0||+x.dataset.k===it.w.length?'':' '))});sl.textContent=it.ins;sl.className='sl hit';fb.className='fb ok';fb.innerHTML='<b>Richtig.</b> '+(it.e||'')}
+    else{sl.classList.add('miss');fb.className='fb no';fb.innerHTML=it.no||'Da nicht. Wo steht bei „anrufen“ das „an“?'}fb.hidden=false});
+}
+slotTask('slotA',[
+ {lbl:'Präsens',ins:'Bescheid',w:['Ich','gebe','Ihnen','morgen'],cls:{1:'verb'},ok:[4],e:'Ganz hinten, wie das „an“: Ich rufe Sie morgen an.'},
+ {lbl:'Perfekt',ins:'Bescheid',w:['Ich','habe','Ihnen','gestern','gegeben'],cls:{1:'verb',4:'verb'},ok:[4],e:'Direkt vor dem Partizip: Bescheid gegeben, wie angerufen.',no:'Da nicht. Das Partizip (gegeben) steht ganz am Ende. Das Nomen kommt direkt davor.'},
+ {lbl:'Modalverb',ins:'Bescheid',w:['Ich','kann','Ihnen','morgen','geben'],cls:{1:'verb',4:'verb'},ok:[4],e:'Direkt vor dem Infinitiv: Bescheid geben, wie anrufen.',no:'Da nicht. Der Infinitiv (geben) steht ganz am Ende. Das Nomen kommt direkt davor.'},
+ {lbl:'Perfekt, zwei Lösungen',ins:'Rücksprache',w:['Ich','habe','mit der Kollegin','gehalten'],cls:{1:'verb',3:'verb'},ok:[2,3],e:'Beides geht: „Ich habe Rücksprache mit der Kollegin gehalten“ und „Ich habe mit der Kollegin Rücksprache gehalten“. Die andere Lücke ist also auch richtig.'}
+]);
+slotTask('slotB',[
+ {lbl:'Nebensatz',ins:'Bescheid',w:['Ich warte,','bis','Sie','mir','geben'],cls:{1:'kon',4:'verb'},ok:[4],e:'Das Verb steht am Ende, das Nomen direkt davor.',no:'Da nicht. Nach „bis“ steht das Verb am Ende. Das Nomen kommt direkt davor.'},
+ {lbl:'Nebensatz mit Modalverb',ins:'Bescheid',w:['Ich melde mich,','weil','ich','Ihnen','geben','möchte'],cls:{1:'kon',4:'verb',5:'verb'},ok:[4],e:'Bescheid geben möchte, wie anrufen möchte.',no:'Da nicht. Am Ende steht der Verbblock „geben möchte“. Das Nomen kommt direkt davor.'}
+]);
 
 /* ---------- 3 KERN ---------- */
 const KERN=[
@@ -350,9 +388,18 @@ const KERN=[
  ['etwas klären',F('eine')+' '+N('Frage')+' stellen','fragen','Darf ich Ihnen eine Frage stellen?','Nicht: eine Frage fragen. Die Person steht im Dativ: <b>Ihnen</b> eine Frage stellen.'],
  ['etwas entscheiden',F('eine')+' '+N('Entscheidung')+' treffen','entscheiden','Wir treffen morgen eine Entscheidung.','Nicht: eine Entscheidung machen.'],
  ['etwas offiziell erledigen',F('einen')+' '+N('Antrag')+' stellen '+F('auf')+' + Akk.','beantragen','Sie können einen Antrag auf Wohngeld stellen.','Immer mit „auf“: ein Antrag <b>auf</b> Wohngeld, <b>auf</b> Urlaub.'],
- ['mit anderen zusammenarbeiten',F('zur')+' '+N('Verfügung')+' stehen','da sein, bereit sein','Bei Fragen stehe ich Ihnen gern zur Verfügung.','„zur“ = zu der. Immer „zur“, nie „zu Verfügung“. Die Person steht im Dativ: <b>Ihnen</b>.']
+ ['mit anderen zusammenarbeiten',F('zur')+' '+N('Verfügung')+' stehen','da sein, bereit sein','Frau Sander steht Ihnen morgen ab neun Uhr zur Verfügung.','„zur“ = zu der. Immer „zur“, nie „zu Verfügung“. Die Person steht im Dativ: <b>Ihnen</b>.']
 ];
-$('kernBox').innerHTML=KERN.map(x=>`<div class="vk"><div class="fn">${x[0]}</div><div class="ausdr">${x[1]}</div><div class="einf">= ${x[2]}</div><div class="bsp">${x[3]}</div><div class="achtung">⚠️ ${x[4]}</div></div>`).join('');
+const JD=[
+ ['Gestern hast du die Kollegin informiert. Erzähl es. (Perfekt)','Ich habe der Kollegin gestern Bescheid gegeben.'],
+ ['Du weißt die Antwort nicht. Du musst erst die Kollegin fragen. (müssen)','Ich muss erst Rücksprache mit meiner Kollegin halten.'],
+ ['Ein Klient hat heute viel gefragt. Erzähl es der Kollegin. (Perfekt, viele)','Er hat mir heute viele Fragen gestellt.'],
+ ['Wer entscheidet über das Bargeld? Beginne mit „Die Entscheidung …“','Die Entscheidung trifft der Bezugsbetreuer.'],
+ ['Ein Klient braucht Wohngeld. Was muss er tun? (müssen)','Er muss einen Antrag auf Wohngeld stellen.'],
+ ['Der letzte Satz in einer Mail: Du hilfst gern bei Fragen.','Bei Fragen stehe ich Ihnen gern zur Verfügung.']
+];
+$('kernBox').innerHTML=KERN.map((x,i)=>`<div class="vk"><div class="fn">${x[0]}</div><div class="ausdr">${x[1]}</div><div class="einf">= ${x[2]}</div><div class="bsp">${x[3]}</div><div class="achtung">⚠️ ${x[4]}</div><div class="jd"><div class="pr"><b>Jetzt du:</b> ${JD[i][0]}</div><button data-jd="${i}" style="margin-top:6px;padding:6px 12px;font-size:16px">Lösung</button><div class="so" id="jd${i}" hidden>${JD[i][1]}</div></div></div>`).join('');
+document.querySelectorAll('[data-jd]').forEach(b=>b.onclick=()=>{const so=$('jd'+b.dataset.jd);so.hidden=!so.hidden});
 
 /* ---------- Mehrfachauswahl-Baustein ---------- */
 function mcList(boxId,statId,items,{col=false}={}){
