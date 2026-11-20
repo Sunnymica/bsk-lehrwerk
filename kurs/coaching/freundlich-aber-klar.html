@@ -139,12 +139,12 @@ button.so{font-size:19px}
     <p>Bevor wir üben: Erzähl von deiner Arbeit. Nimm eine Karte nach der anderen. Die Satzanfänge helfen, wenn du nicht weiterkommst.</p>
     <div class="hint"><b>Wichtig:</b> Ohne Namen und ohne private Details von anderen. Sag einfach „ein Klient“, „eine Kollegin“.</div>
     <div class="grid">
-      <div class="card"><div class="num">1</div>Wo arbeitest du? Was macht deine Einrichtung?<details><summary>Satzanfänge</summary>Ich arbeite in … · Wir sind eine Einrichtung für … · Zu uns kommen Menschen, die …</details></div>
-      <div class="card"><div class="num">2</div>Wer kommt zu euch? Was brauchen die Leute?<details><summary>Satzanfänge</summary>Viele brauchen Hilfe bei … · Manche haben eine Frage zu … · Einige kommen, weil …</details></div>
-      <div class="card"><div class="num">3</div>Jemand kommt herein. Was machst du zuerst?<details><summary>Satzanfänge</summary>Zuerst begrüße ich … · Dann frage ich, ob … · Danach schaue ich im Kalender nach, …</details></div>
-      <div class="card"><div class="num">4</div>Was erledigst du selbst? Was gibst du weiter?<details><summary>Satzanfänge</summary>Ich bin zuständig für … · Um … kümmere ich mich selbst. · … gebe ich an … weiter.</details></div>
-      <div class="card"><div class="num">5</div>Was ist manchmal schwierig?<details><summary>Satzanfänge</summary>Schwierig ist es, wenn … · Dann muss ich … · Manchmal darf ich nicht …</details></div>
-      <div class="card"><div class="num">6</div>Was gefällt dir an deiner Arbeit?<details><summary>Satzanfänge</summary>Mir gefällt, dass … · Ich mag es, wenn … · Am liebsten …</details></div>
+      <div class="card"><div class="num">1</div>Wo arbeitest du? Was macht deine Einrichtung?<details><summary>Satzanfänge</summary>Ich arbeite in … · Wir sind eine Einrichtung für … · Zu uns kommen Menschen, die …</details><textarea class="ap" data-k="ap1" placeholder="Hier schreiben …" style="margin-top:8px"></textarea></div>
+      <div class="card"><div class="num">2</div>Wer kommt zu euch? Was brauchen die Leute?<details><summary>Satzanfänge</summary>Viele brauchen Hilfe bei … · Manche haben eine Frage zu … · Einige kommen, weil …</details><textarea class="ap" data-k="ap2" placeholder="Hier schreiben …" style="margin-top:8px"></textarea></div>
+      <div class="card"><div class="num">3</div>Jemand kommt herein. Was machst du zuerst?<details><summary>Satzanfänge</summary>Zuerst begrüße ich … · Dann frage ich, ob … · Danach schaue ich im Kalender nach, …</details><textarea class="ap" data-k="ap3" placeholder="Hier schreiben …" style="margin-top:8px"></textarea></div>
+      <div class="card"><div class="num">4</div>Was erledigst du selbst? Was gibst du weiter?<details><summary>Satzanfänge</summary>Ich bin zuständig für … · Um … kümmere ich mich selbst. · … gebe ich an … weiter.</details><textarea class="ap" data-k="ap4" placeholder="Hier schreiben …" style="margin-top:8px"></textarea></div>
+      <div class="card"><div class="num">5</div>Was ist manchmal schwierig?<details><summary>Satzanfänge</summary>Schwierig ist es, wenn … · Dann muss ich … · Manchmal darf ich nicht …</details><textarea class="ap" data-k="ap5" placeholder="Hier schreiben …" style="margin-top:8px"></textarea></div>
+      <div class="card"><div class="num">6</div>Was gefällt dir an deiner Arbeit?<details><summary>Satzanfänge</summary>Mir gefällt, dass … · Ich mag es, wenn … · Am liebsten …</details><textarea class="ap" data-k="ap6" placeholder="Hier schreiben …" style="margin-top:8px"></textarea></div>
     </div>
   </div>
   <div class="panel">
@@ -561,5 +561,6 @@ document.getElementById('rsNext').onclick=()=>{if(ri<R[md].length-1){ri++;rs()}}
 document.getElementById('rsHelp').onclick=()=>{RH.hidden=!RH.hidden};
 document.querySelectorAll('.md').forEach(b=>b.onclick=()=>{md=b.dataset.md;ri=0;document.querySelectorAll('.md').forEach(x=>x.classList.toggle('active',x===b));rs()});
 rs();
+document.querySelectorAll('textarea.ap').forEach(t=>{try{t.value=localStorage.getItem('yuliia-'+t.dataset.k)||''}catch(e){}t.addEventListener('input',()=>{try{localStorage.setItem('yuliia-'+t.dataset.k,t.value)}catch(e){}})});
 </script>
 </body></html>
