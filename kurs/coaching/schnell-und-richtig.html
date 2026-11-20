@@ -289,7 +289,8 @@ const BC=[
  ['artikel','🚨 „Wir sind Einrichtung in Sozialbereich.“ → mit Artikeln','Wir sind <b>eine</b> Einrichtung <b>im</b> Sozialbereich.'],
  ['artikel','🚨 „Viele Menschen kommen in schwierige Situation.“ → mit Artikel','Viele Menschen kommen in <b>eine</b> schwierige Situation.'],
  ['artikel','🚨 Ein Klient möchte Geld abholen. „Bezugsbetreuer entscheidet, wie viel Geld Klient abholen darf.“ → mit Artikeln','<b>Der</b> Bezugsbetreuer entscheidet, wie viel Geld <b>der</b> Klient abholen darf. <span class="small">Der Klient ist schon genannt. Und er hat genau einen Bezugsbetreuer.</span>'],
- ['artikel','🚨 Eine Klientin bekommt Geld. „Das Geld kommt direkt auf eigene Konto.“ → mit Artikel','Das Geld kommt direkt auf <b>ihr</b> eigenes Konto. <span class="small">Auch richtig: auf das eigene Konto.</span>'],
+ ['artikel','🚨 Eine Klientin braucht Bargeld. „Für Bargeld hat sie bei uns eigenes Konto.“ → mit Artikel','Für Bargeld hat sie bei uns <b>ein</b> eigenes Konto. <span class="small">Das Konto wird hier zum ersten Mal genannt.</span>'],
+ ['neben','Jeder Klient hat ein Konto. · Der gesetzliche Betreuer verwaltet es. → das','Jeder Klient hat ein Konto, '+K('das')+' der gesetzliche Betreuer '+V('verwaltet')+'.'],
  ['artikel','🚨 „Ich arbeite mit gesetzlichem Betreuer zusammen.“ → mit Artikel','Ich arbeite mit <b>dem</b> gesetzlichen Betreuer zusammen. <span class="small">Auch richtig, ganz allgemein: mit gesetzlichen Betreuern (Mehrzahl, ohne Artikel).</span>']
 ];
 const catName={neben:'Verb ans Ende',leute:'Die Leute kommen',endung:'richtig / richtige',artikel:'Artikel-Alarm'};
@@ -313,8 +314,8 @@ const AP=[
   'Zu uns '+V('kommen')+' meistens Leute, '+K('die')+' Sozialleistungen '+V('bekommen')+'. Viele '+V('können')+' ihren Alltag nicht allein organisieren. Wir unterstützen sie bei Arztterminen und bei Terminen beim Amt. Manchmal helfen wir auch dabei, mit Geld '+E('richtig')+' umzugehen.'],
  ['Jemand kommt herein.','begrüßen · fragen, wie … · machen, was … · wenn nicht helfen kann → weitergeben',
   'Zuerst begrüße ich die Person. Dann frage ich, '+K('wie')+' ich helfen '+V('kann')+'. Ich mache, '+K('was')+' zu meinen Aufgaben '+V('gehört')+'. '+K('Wenn')+' ich nicht helfen '+V('kann')+', '+V('gebe')+' ich die Anfrage an den Bezugsbetreuer oder an die Geschäftsleitung weiter.'],
- ['Was erledige ich?','Papierkram · neue Aufnahmen · telefonieren · gesetzliche Betreuer · Klientenkasse · entscheidet, wie viel Geld …',
-  'Ich erledige den Papierkram: Ich bearbeite neue Aufnahmen und telefoniere danach oft. Ich arbeite mit den gesetzlichen Betreuern zusammen und kümmere mich um die Klientenkasse. Der gesetzliche Betreuer überweist das Geld, und der Bezugsbetreuer entscheidet, '+K('wie viel Geld')+' der Klient abholen '+V('darf')+'.'],
+ ['Was erledige ich?','Papierkram · neue Aufnahmen · telefonieren · gesetzliche Betreuer · Konto für Miete · Konto für Bargeld bei uns · entscheidet, wie viel Geld …',
+  'Ich erledige den Papierkram: Ich bearbeite neue Aufnahmen und telefoniere danach oft. Ich arbeite mit den gesetzlichen Betreuern zusammen und kümmere mich um die Klientenkasse. Jeder Klient hat ein Konto, '+K('das')+' der gesetzliche Betreuer '+V('verwaltet')+'. Von diesem Konto '+V('gehen')+' zum Beispiel die Miete und andere Rechnungen ab. Für Bargeld '+V('haben')+' die Klienten bei uns ein eigenes Konto. Der gesetzliche Betreuer überweist Geld darauf, und der Bezugsbetreuer entscheidet, '+K('wie viel Geld')+' der Klient abholen '+V('darf')+'.'],
  ['Was ist schwierig?','Kommunikation · gestern: Anruf, ohne Pause geredet · nicht gut verstanden, weil … · erklären, was ich meine',
   'Schwierig ist manchmal die Kommunikation. Gestern hat zum Beispiel jemand von einer Zeitarbeitsfirma angerufen und ohne Pause geredet. Ich habe ihn nicht gut verstanden, '+K('weil')+' er sehr '+E('schnell')+' gesprochen '+V('hat')+'. Dann muss ich nachfragen und genau erklären, '+K('was')+' ich '+V('meine')+'.'],
  ['Was gefällt mir?','eigentlich alles · kommunizieren, Deutsch lernen · Aufgaben nicht schwierig · kollegiale Atmosphäre',
