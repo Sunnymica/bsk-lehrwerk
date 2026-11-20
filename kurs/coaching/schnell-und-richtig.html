@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Yuliia · Schnell und richtig</title>
+<style>
+:root{--ink:#24324d;--amber:#96506e;--pale:#f8ecf1;--sky:#eaf0f7;--cream:#fdfaf7;--line:#e5dbe0;--muted:#6b6f7a;--ok:#2e6b4a;--bad:#b03030;--nv:#b5651d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:19px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+button,textarea,input{font:inherit;color:inherit}
+button{cursor:pointer;border:1px solid var(--line);background:#fff;padding:10px 16px;border-radius:10px}
+button:hover{background:var(--sky)}
+button:disabled{opacity:.4;cursor:default}
+button.active,button.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+button:focus-visible,summary:focus-visible,textarea:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+header{padding:36px max(24px,calc((100% - 1080px)/2));background:#fff;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+header:after{content:'⏱️';position:absolute;font-size:170px;opacity:.08;right:4%;top:-30px;pointer-events:none}
+.eyebrow{font-size:12px;letter-spacing:.17em;text-transform:uppercase;font-weight:700;color:var(--amber)}
+h1{font:clamp(32px,5vw,48px)/1.12 Georgia,serif;margin:12px 0}
+h2{font:28px/1.2 Georgia,serif;margin:0 0 12px}
+h3{font-size:19px;margin:18px 0 8px}
+p{margin:8px 0 12px}
+.sub{max-width:720px;color:var(--muted)}
+.wrap{max-width:1100px;margin:auto;padding:24px}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;margin-bottom:22px}
+.hint{background:var(--sky);border-radius:12px;padding:14px 18px;margin:12px 0}
+.box{background:var(--pale);border-radius:12px;padding:14px 18px;margin:12px 0}
+.merk{font:23px/1.4 Georgia,serif;background:#fff3e0;border-left:6px solid var(--nv);border-radius:10px;padding:16px 22px;margin:16px 0}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;align-items:center}
+.prompt{font:24px/1.4 Georgia,serif;background:var(--pale);border-left:6px solid var(--amber);border-radius:10px;padding:18px 22px;margin:14px 0;min-height:70px}
+.solution{font:22px/1.45 Georgia,serif;background:#fff;border:2px dashed var(--line);border-radius:10px;padding:16px 22px;min-height:64px}
+.tag{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--sky);border-radius:999px;padding:2px 12px;margin-bottom:8px}
+.stat{font-size:16px;color:var(--muted)}
+.small{font-size:15px;color:var(--muted)}
+details{border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0;background:#fff}
+summary{cursor:pointer;font-weight:700}
+[hidden]{display:none!important}
+.verb{color:var(--ok);font-weight:700}.kon{color:var(--bad);font-weight:700}.subj{color:#2457a6;font-weight:700}.neb{color:#7a3fa0}.pos1{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.end{color:var(--nv);font-weight:700}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:15px;margin:6px 0 0}
+table.feld{border-collapse:collapse;width:100%;margin:10px 0;font-size:20px}
+table.feld th{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 10px;border-bottom:2px solid var(--line)}
+table.feld th small{text-transform:none;letter-spacing:0}
+table.feld td{padding:9px 10px;border:1px solid var(--line)}
+table.feld .v{background:#d8eedf;font-weight:700;color:var(--ok)}
+table.feld .e{background:#e6f2ea;font-weight:700;color:var(--ok)}
+table.feld .k{color:var(--bad);font-weight:700}
+table.feld tr.sep td{border-top:3px solid var(--line)}
+.pair{margin:10px 0;display:grid;gap:4px;font-size:20px}
+.pair .no{background:#fbd5d5;border-left:6px solid var(--bad);padding:8px 14px;border-radius:8px}
+.pair .yes{background:#d8eedf;border-left:6px solid var(--ok);padding:8px 14px;border-radius:8px;font-weight:600}
+.leiter{display:grid;gap:10px;margin:12px 0}
+.leiter .st{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;border-radius:14px;padding:14px 16px;font-size:20px;background:var(--pale)}
+.leiter .st .rnum{margin:0}
+.leiter .st small{display:block;color:var(--muted);font-size:16px}
+.rnum{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;font:700 18px system-ui;margin-right:8px;vertical-align:middle}
+.q{border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;background:#fff}
+.q .s{font:22px/1.4 Georgia,serif;margin-bottom:8px}
+.q .opts{display:flex;gap:8px;flex-wrap:wrap}
+.q .opts.col{flex-direction:column;align-items:stretch}
+.q .opts.col button{text-align:left}
+.q .fb{margin-top:10px;font-size:17px;border-radius:10px;padding:10px 14px}
+.q .fb.ok{background:#e3f1e8}.q .fb.no{background:#fbe3e3}
+.okb{background:#e3f1e8!important;border-color:var(--ok)!important;color:var(--ok)!important;font-weight:700}
+.nob{background:#fbe3e3!important;border-color:var(--bad)!important}
+.gap{display:inline-block;min-width:90px;border-bottom:2px solid var(--amber)}
+.line{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line);font-size:20px}
+.tuv{display:flex;gap:16px;flex-wrap:wrap;margin:8px 0;font-size:16px}
+.tuv label{display:flex;gap:6px;align-items:center}
+.ua{background:var(--sky);border-radius:10px;padding:10px 14px;font-size:18px}
+</style>
+</head><body>
+<header>
+  <a href="../einzelcoaching.html" style="display:inline-block;margin-bottom:10px;color:inherit;font-size:15px">← Einzelcoaching</a>
+  <div class="eyebrow">Einzelcoaching · Yuliia</div>
+  <h1>Schnell und richtig</h1>
+  <p class="sub">Du sprichst schnell und hast viele Wörter. Jetzt machen wir die Sätze sauber: Verb ans Ende, „die Leute kommen“, „richtig“ ohne Endung. Alles mit deinen eigenen Sätzen.</p>
+</header>
+<div class="wrap">
+<nav>
+  <button data-tab="t1" class="active">1 · Das Verb wandert</button>
+  <button data-tab="t2">2 · Die Leute kommen</button>
+  <button data-tab="t3">3 · richtig oder richtige?</button>
+  <button data-tab="t4">4 · Bootcamp</button>
+  <button data-tab="t5">5 · Mein Arbeitsplatz – repariert</button>
+</nav>
+<main>
+
+<!-- 1 VERB WANDERT -->
+<section id="t1">
+  <div class="panel">
+    <h2>Das Verb wandert ans Ende</h2>
+    <p>Das kennst du schon: Nach <span class="kon">weil, wenn, dass</span> steht das Verb am Ende. <b>Neu:</b> Das passiert auch nach zwei anderen Wörtern.</p>
+    <table class="feld">
+      <tr><th>Hauptsatz</th><th>Wort</th><th>Mitte</th><th class="e">Ende<br><small>Verb</small></th></tr>
+      <tr><td>Ich rufe an,</td><td class="k">weil</td><td>ich eine Frage</td><td class="e">habe.</td></tr>
+      <tr class="sep"><td>Ich frage,</td><td class="k">was</td><td>ich für Sie tun</td><td class="e">kann.</td></tr>
+      <tr><td>Der Betreuer entscheidet,</td><td class="k">wie viel Geld</td><td>der Klient abholen</td><td class="e">darf.</td></tr>
+      <tr class="sep"><td>Wir betreuen Menschen,</td><td class="k">die</td><td>Schwierigkeiten im Leben</td><td class="e">haben.</td></tr>
+      <tr><td>Zu uns kommen Leute,</td><td class="k">die</td><td>Sozialleistungen</td><td class="e">bekommen.</td></tr>
+    </table>
+    <div class="merk">Fragewort am Satzanfang mit „?“ → Verb auf Platz 2.<br>Fragewort <b>mitten im Satz</b> → Verb ans Ende.<br>„die“ nach einem Nomen → Verb ans Ende.</div>
+    <div class="pair"><div class="no">✗ Ich frage, was kann ich tun.</div><div class="yes">✓ Was kann ich tun? · Ich frage, was ich tun kann.</div></div>
+    <div class="pair"><div class="no">✗ Wir betreuen Menschen, die haben Schwierigkeiten.</div><div class="yes">✓ Wir betreuen Menschen, die Schwierigkeiten haben.</div></div>
+  </div>
+  <div class="panel">
+    <h2>Gleich ausprobieren</h2>
+    <p>Welcher Satz ist richtig?</p>
+    <div id="q1Box"></div>
+    <p class="stat" id="q1Stat"></p>
+  </div>
+</section>
+
+<!-- 2 LEUTE -->
+<section id="t2" hidden>
+  <div class="panel">
+    <h2>Die Leute kommen</h2>
+    <p>„Leute“ gibt es nur in der Mehrzahl. Es gibt kein „ein Leut“. Darum steht das Verb immer in der Mehrzahl, wie bei „sie“ (Mehrzahl).</p>
+    <table class="feld">
+      <tr><th>Einzahl</th><th>Mehrzahl</th></tr>
+      <tr><td>Ein Mensch <span class="verb">kommt</span>. · Jemand <span class="verb">kommt</span>.</td><td>Die Leute <span class="verb">kommen</span>. · Sie <span class="verb">kommen</span>.</td></tr>
+      <tr><td>Die Klientin <span class="verb">hat</span> eine Frage.</td><td>Viele Leute <span class="verb">haben</span> eine Frage.</td></tr>
+    </table>
+    <div class="merk">Achtung, Falle: Wenn „Leute“ <b>hinter</b> dem Verb steht, vergisst man es leicht.<br>Zu uns <span class="verb">kommen</span> meistens Leute.</div>
+    <div class="pair"><div class="no">✗ Zu uns kommt meistens Leute.</div><div class="yes">✓ Zu uns kommen meistens Leute.</div></div>
+    <div class="hint"><b>Trick:</b> Erst den Satz bis zum Ende denken, dann das Verb anpassen. Oder im Kopf „Leute“ durch „sie“ ersetzen: Sie kommen.</div>
+  </div>
+  <div class="panel">
+    <h2>Gleich ausprobieren</h2>
+    <p>Welche Form passt?</p>
+    <div id="q2Box"></div>
+    <p class="stat" id="q2Stat"></p>
+  </div>
+</section>
+
+<!-- 3 ADJEKTIV / ADVERB -->
+<section id="t3" hidden>
+  <div class="panel">
+    <h2>richtig oder richtige?</h2>
+    <p>Dasselbe Wort, einmal mit Endung, einmal ohne. Wann was? Es gibt drei Plätze im Satz.</p>
+    <div class="leiter">
+      <div class="st"><span class="rnum">1</span><div><b>Vor einem Nomen → mit Endung</b><br>eine richtig<span class="end">e</span> Entscheidung · der wichtig<span class="end">e</span> Termin · bei verschieden<span class="end">en</span> Terminen<small>Das Wort beschreibt das Nomen. Es passt sich an: der, die, das, Mehrzahl, Fall.</small></div></div>
+      <div class="st"><span class="rnum">2</span><div><b>Nach „sein“ oder „werden“ → ohne Endung</b><br>Die Entscheidung ist richtig. · Meine Aufgabe ist nicht schwierig.<small>Das Wort beschreibt auch hier das Nomen, steht aber allein hinter dem Verb.</small></div></div>
+      <div class="st"><span class="rnum">3</span><div><b>Beim Verb → ohne Endung</b><br>Sie geht richtig mit Geld um. · Die Anruferin spricht schnell. · Ich erkläre es genau.<small>Das Wort sagt, <b>wie</b> man etwas macht. Dann heißt es Adverb und hat nie eine Endung.</small></div></div>
+    </div>
+    <div class="merk">Fragetest:<br>„Was für eine Entscheidung?“ → eine richtig<span class="end">e</span> Entscheidung (mit Endung)<br>„Wie geht sie mit Geld um?“ → richtig (ohne Endung)</div>
+    <div class="ua"><b>Ukrainisch und Deutsch:</b> Im Ukrainischen ändert sich das Wort: правильний → правильно. Im Deutschen gibt es keine extra Form. Das Adverb ist einfach das Wort <b>ohne Endung</b>: richtig.</div>
+    <div class="pair"><div class="no">✗ Wir helfen, mit Geld richtige umzugehen.</div><div class="yes">✓ Wir helfen, mit Geld richtig umzugehen.</div></div>
+  </div>
+  <div class="panel">
+    <h2>Gleich ausprobieren</h2>
+    <p>Mit Endung oder ohne?</p>
+    <div id="q3Box"></div>
+    <p class="stat" id="q3Stat"></p>
+  </div>
+</section>
+
+<!-- 4 BOOTCAMP -->
+<section id="t4" hidden>
+  <div class="panel">
+    <h2>Bootcamp: deine Sätze</h2>
+    <p>Diese Sätze kommen aus deinen Antworten von heute. Du siehst Bausteine. Sag sofort den ganzen Satz, laut. Dann kommt die Lösung. Richtig beim ersten Mal? Weiter. Nicht ganz? Die Karte kommt später noch einmal.</p>
+    <div class="hint"><b>Langsam ist erlaubt.</b> Lieber ein sauberer Satz in fünf Sekunden als drei schnelle mit Fehlern. Das Tempo kommt von allein.</div>
+    <div class="controls">
+      <button class="cat active" data-cat="alle">Alles gemischt</button>
+      <button class="cat" data-cat="neben">Verb ans Ende</button>
+      <button class="cat" data-cat="leute">Die Leute kommen</button>
+      <button class="cat" data-cat="endung">richtig / richtige</button>
+      <button class="cat" data-cat="artikel">Artikel-Alarm</button>
+    </div>
+    <div id="bcTag" class="tag"></div>
+    <div id="bcPrompt" class="prompt" aria-live="polite"></div>
+    <div id="bcSol" class="solution" aria-live="polite"><span class="small">Erst sprechen. Dann klicken.</span></div>
+    <div class="controls">
+      <button id="bcShow" class="primary">Lösung zeigen</button>
+      <button id="bcOk" disabled>✓ Sofort richtig</button>
+      <button id="bcAgain" disabled>↻ Nochmal – später</button>
+      <span id="bcStat" class="stat"></span>
+    </div>
+    <div class="legend"><span class="pos1">Position 1</span><span class="verb">konjugiertes Verb</span><span class="kon">Konnektor / Fragewort</span><span class="end">Endung</span></div>
+  </div>
+</section>
+
+<!-- 5 ARBEITSPLATZ REPARIERT -->
+<section id="t5" hidden>
+  <div class="panel">
+    <h2>Mein Arbeitsplatz – repariert</h2>
+    <p>Das sind deine Antworten von heute, in sauberem Deutsch. Lies jeden Text zuerst laut. Dann mit Stichworten. Dann frei.</p>
+    <div class="controls">
+      <button class="lv active" data-lv="text">Ganzer Text</button>
+      <button class="lv" data-lv="stich">Nur Stichworte</button>
+      <button class="lv" data-lv="frei">Frei</button>
+    </div>
+    <div id="apBox"></div>
+    <div class="hint"><b>Satz-TÜV nach jedem Durchgang:</b>
+      <div class="tuv"><label><input type="checkbox">Nebensatz: Verb am Ende?</label><label><input type="checkbox">Leute → Mehrzahl?</label><label><input type="checkbox">Artikel da?</label><label><input type="checkbox">richtig ohne Endung?</label></div>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>Bis zum nächsten Mal</h2>
+    <div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+      <div class="box"><span class="rnum">1</span><b>Jeden Tag · 10 Min.</b><br>Bootcamp, alle Karten laut, bis jede einmal „sofort richtig“ ist.</div>
+      <div class="box"><span class="rnum">2</span><b>Zweimal</b><br>„Mein Arbeitsplatz – repariert“ laut lesen, dann frei erzählen. Gern mit Handy aufnehmen und anhören.</div>
+      <div class="box"><span class="rnum">3</span><b>Bei der Arbeit</b><br>Einmal bewusst sagen: „Ich frage, wie ich helfen kann.“</div>
+    </div>
+  </div>
+</section>
+</main></div>
+<script>
+const $=id=>document.getElementById(id);
+const tabs=document.querySelectorAll('[data-tab]');
+tabs.forEach(b=>b.onclick=()=>{document.querySelectorAll('main>section').forEach(s=>s.hidden=s.id!==b.dataset.tab);tabs.forEach(x=>x.classList.toggle('active',x===b));window.scrollTo(0,0)});
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const V=s=>'<span class="verb">'+s+'</span>',K=s=>'<span class="kon">'+s+'</span>',P=s=>'<span class="pos1">'+s+'</span>',E=s=>'<span class="end">'+s+'</span>';
+const G='<span class="gap">&nbsp;</span>';
+
+function mcList(boxId,statId,items,col){
+  let ok=0,done=0;const box=$(boxId);
+  box.innerHTML=items.map((it,i)=>`<div class="q"><div class="s">${it.s}</div><div class="opts${col?' col':''}">${shuffle(it.o.map((o,j)=>[o,j])).map(([o,j])=>`<button data-i="${i}" data-j="${j}">${o[0]}</button>`).join('')}</div><div class="fb" id="${boxId}fb${i}" hidden></div></div>`).join('');
+  const stat=()=>{$(statId).textContent=done===items.length?`Fertig: ${ok} von ${items.length} beim ersten Versuch richtig.`:`Beim ersten Versuch richtig: ${ok} von ${done}`};
+  box.querySelectorAll('button').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i,j=+b.dataset.j,it=items[i],o=it.o[j],fb=$(boxId+'fb'+i),q=b.closest('.q');
+    if(q.dataset.done)return;const first=!q.dataset.tried;q.dataset.tried=1;
+    if(o[1]){q.dataset.done=1;b.classList.add('okb');q.querySelectorAll('button').forEach(x=>x.disabled=x!==b);done++;if(first)ok++;fb.className='fb ok';fb.innerHTML='<b>Richtig.</b> '+(it.e||'')}
+    else{b.classList.add('nob');b.disabled=true;fb.className='fb no';fb.innerHTML='<b>Nicht ganz.</b> '+(o[2]||it.e||'Versuch es noch einmal.')}
+    fb.hidden=false;stat()});
+  stat();
+}
+
+/* 1 */
+mcList('q1Box','q1Stat',[
+ {o:[['Ich frage, wie ich helfen kann.',true],['Ich frage, wie kann ich helfen.',false]],e:'„wie“ steht mitten im Satz. Darum: Verb ans Ende.',s:''},
+ {o:[['Wir betreuen Leute, die Hilfe brauchen.',true],['Wir betreuen Leute, die brauchen Hilfe.',false]],e:'„die“ nach einem Nomen: Verb ans Ende.',s:''},
+ {o:[['Wie viel Geld darf der Klient abholen?',true],['Wie viel Geld der Klient abholen darf?',false]],e:'Hier ist es eine echte Frage mit „?“. Das Fragewort steht am Anfang, das Verb auf Platz 2.',s:''},
+ {o:[['Der Betreuer entscheidet, wie viel Geld der Klient abholen darf.',true],['Der Betreuer entscheidet, wie viel Geld darf der Klient abholen.',false]],e:'Jetzt steht die Frage mitten im Satz. Darum: Verb ans Ende.',s:''},
+ {o:[['Ich mache, was zu meinen Aufgaben gehört.',true],['Ich mache, was gehört zu meinen Aufgaben.',false]],e:'„was“ mitten im Satz: Verb ans Ende.',s:''},
+ {o:[['Wenn ich nicht helfen kann, gebe ich die Anfrage weiter.',true],['Wenn ich kann nicht helfen, gebe ich die Anfrage weiter.',false]],e:'Nach „wenn“ geht das Verb ans Ende. Und danach: Verb gleich an den Anfang (gebe ich).',s:''},
+ {o:[['Zu uns kommen Menschen, die in eine schwierige Situation geraten sind.',true],['Zu uns kommen Menschen, die sind in eine schwierige Situation geraten.',false]],e:'Auch im Perfekt: Nach „die“ steht das konjugierte Verb (sind) ganz am Ende.',s:''},
+ {o:[['Ich habe ihn nicht verstanden, weil er sehr schnell gesprochen hat.',true],['Ich habe ihn nicht verstanden, weil er hat sehr schnell gesprochen.',false]],e:'Nach „weil“: konjugiertes Verb (hat) ganz ans Ende.',s:''}
+].map(x=>({...x,s:'Welcher Satz stimmt?'})),true);
+
+/* 2 */
+mcList('q2Box','q2Stat',[
+ {s:'Zu uns '+G+' meistens Leute, die Hilfe brauchen.',o:[['kommen',true],['kommt',false]],e:'Leute = Mehrzahl: kommen. Auch wenn „Leute“ erst hinter dem Verb steht.'},
+ {s:'Die Leute '+G+' oft Probleme mit Ämtern.',o:[['haben',true],['hat',false]],e:'Die Leute = sie (Mehrzahl): haben.'},
+ {s:'Jemand '+G+' am Empfang und hat keinen Termin.',o:[['steht',true],['stehen',false]],e:'„Jemand“ ist Einzahl: steht.'},
+ {s:'Manchmal '+G+' die Leute sehr nervös.',o:[['sind',true],['ist',false]],e:'Die Leute sind. Das Verb steht vorn, das Subjekt danach. Trotzdem Mehrzahl.'},
+ {s:'Viele Leute '+G+' ihren Tag nicht allein organisieren.',o:[['können',true],['kann',false]],e:'Viele Leute können.'},
+ {s:'Die Klientin '+G+' eine Frage zu ihrem Konto.',o:[['hat',true],['haben',false]],e:'Die Klientin = sie (Einzahl): hat.'},
+ {s:'Bei uns '+G+' viele Leute Sozialleistungen.',o:[['bekommen',true],['bekommt',false]],e:'Viele Leute bekommen. Wieder: Subjekt hinter dem Verb, trotzdem Mehrzahl.'},
+ {s:'Die Leute '+G+' oft nicht genau, was sie tun müssen.',o:[['wissen',true],['weiß',false]],e:'Die Leute wissen.'}
+]);
+
+/* 3 */
+mcList('q3Box','q3Stat',[
+ {s:'Wir helfen, mit Geld '+G+' umzugehen.',o:[['richtig',true],['richtige',false]],e:'Wie geht man mit Geld um? Beim Verb: ohne Endung.'},
+ {s:'Das war eine '+G+' Entscheidung.',o:[['richtige',true],['richtig',false]],e:'Vor einem Nomen (Entscheidung): mit Endung.'},
+ {s:'Die Entscheidung war '+G+'.',o:[['richtig',true],['richtige',false]],e:'Nach „sein“ (war): ohne Endung.'},
+ {s:'Die Anruferin spricht sehr '+G+'.',o:[['schnell',true],['schnelle',false]],e:'Wie spricht sie? Beim Verb: ohne Endung.'},
+ {s:'Wir brauchen eine '+G+' Antwort.',o:[['schnelle',true],['schnell',false]],e:'Vor einem Nomen (Antwort): mit Endung.'},
+ {s:'Bitte erklären Sie es mir '+G+'.',o:[['genau',true],['genaue',false]],e:'Wie soll sie es erklären? Ohne Endung.'},
+ {s:'Meine Aufgabe ist nicht '+G+'.',o:[['schwierig',true],['schwieriger',false],['schwierige',false]],e:'Nach „sein“: ohne Endung. Und „schwieriger“ bedeutet etwas anderes: Das vergleicht zwei Dinge.'},
+ {s:'Wir unterstützen die Leute bei '+G+' Terminen.',o:[['verschiedenen',true],['verschieden',false],['verschiedene',false]],e:'Vor einem Nomen, Dativ Mehrzahl: bei verschiedenen Terminen.'},
+ {s:'Sie organisiert ihren Tag sehr '+G+'.',o:[['gut',true],['gute',false]],e:'Wie organisiert sie? Ohne Endung.'},
+ {s:'Wir haben eine '+G+' Atmosphäre im Team.',o:[['kollegiale',true],['kollegial',false]],e:'Vor einem Nomen: mit Endung.'}
+]);
+
+/* 4 BOOTCAMP */
+const BC=[
+ ['neben','Wir betreuen Menschen … · Sie haben Schwierigkeiten im Leben. → die','Wir betreuen Menschen, '+K('die')+' Schwierigkeiten im Leben '+V('haben')+'.'],
+ ['neben','Zu uns kommen Leute … · Sie bekommen Sozialleistungen. → die','Zu uns kommen Leute, '+K('die')+' Sozialleistungen '+V('bekommen')+'.'],
+ ['neben','Ich frage: „Was kann ich für Sie tun?“ → Ich frage, was …','Ich frage, '+K('was')+' ich für Sie tun '+V('kann')+'.'],
+ ['neben','Ich frage: „Wie kann ich helfen?“ → Ich frage, wie …','Ich frage, '+K('wie')+' ich helfen '+V('kann')+'.'],
+ ['neben','Ich mache das. · Es gehört zu meinen Aufgaben. → Ich mache, was …','Ich mache, '+K('was')+' zu meinen Aufgaben '+V('gehört')+'.'],
+ ['neben','Ich kann nicht helfen. · Ich gebe die Anfrage an den Bezugsbetreuer weiter. → Beginne mit „Wenn“',K('Wenn')+' ich nicht helfen '+V('kann')+', '+V('gebe')+' ich die Anfrage an den Bezugsbetreuer weiter.'],
+ ['neben','Ich kann nicht helfen. · Ich halte Rücksprache mit der Kollegin. → Beginne mit „Wenn“',K('Wenn')+' ich nicht helfen '+V('kann')+', '+V('halte')+' ich Rücksprache mit der Kollegin.'],
+ ['neben','Der Bezugsbetreuer entscheidet … · Wie viel Geld darf der Klient abholen?','Der Bezugsbetreuer entscheidet, '+K('wie viel Geld')+' der Klient abholen '+V('darf')+'.'],
+ ['neben','Das Telefonat war schwierig … · Ich konnte den Anrufer nicht gut verstehen. → weil','Das Telefonat war schwierig, '+K('weil')+' ich den Anrufer nicht gut verstehen '+V('konnte')+'.'],
+ ['neben','Ich erkläre … · Was meine ich genau?','Ich erkläre, '+K('was')+' ich genau '+V('meine')+'.'],
+ ['leute','zu uns · meistens Leute · kommen → Beginne mit „Zu uns“',P('Zu uns')+' '+V('kommen')+' meistens Leute.'],
+ ['leute','viele Leute · Probleme mit Ämtern · haben','Viele Leute '+V('haben')+' Probleme mit Ämtern.'],
+ ['leute','manchmal · die Leute · sehr nervös · sein → Beginne mit „Manchmal“',P('Manchmal')+' '+V('sind')+' die Leute sehr nervös.'],
+ ['leute','die Leute · ihren Tag · nicht allein organisieren · können','Die Leute '+V('können')+' ihren Tag nicht allein organisieren.'],
+ ['endung','wir · helfen · mit Geld · richtig? richtige? · umgehen (zu)','Wir helfen, mit Geld '+E('richtig')+' umzugehen. <span class="small">Wie? → ohne Endung.</span>'],
+ ['endung','meine Aufgabe · nicht schwierig? schwierige? · sein','Meine Aufgabe ist nicht '+E('schwierig')+'. <span class="small">Nach „sein“ → ohne Endung.</span>'],
+ ['endung','wir · die Leute · bei verschieden… Termin… · unterstützen','Wir unterstützen die Leute bei verschieden'+E('en')+' Termin'+E('en')+'. <span class="small">Vor dem Nomen → Endung. Und Termin in der Mehrzahl.</span>'],
+ ['endung','die Anruferin · sehr schnell? schnelle? · sprechen (Perfekt)','Die Anruferin hat sehr '+E('schnell')+' gesprochen. <span class="small">Wie? → ohne Endung.</span>'],
+ ['endung','im Team · wir · eine kollegial… Atmosphäre · haben → Beginne mit „Im Team“',P('Im Team')+' '+V('haben')+' wir eine kollegial'+E('e')+' Atmosphäre.'],
+ ['artikel','🚨 „Wir sind Einrichtung in Sozialbereich.“ → mit Artikeln','Wir sind <b>eine</b> Einrichtung <b>im</b> Sozialbereich.'],
+ ['artikel','🚨 „Viele Menschen kommen in schwierige Situation.“ → mit Artikel','Viele Menschen kommen in <b>eine</b> schwierige Situation.'],
+ ['artikel','🚨 Ein Klient möchte Geld abholen. „Bezugsbetreuer entscheidet, wie viel Geld Klient abholen darf.“ → mit Artikeln','<b>Der</b> Bezugsbetreuer entscheidet, wie viel Geld <b>der</b> Klient abholen darf. <span class="small">Der Klient ist schon genannt. Und er hat genau einen Bezugsbetreuer.</span>'],
+ ['artikel','🚨 Eine Klientin bekommt Geld. „Das Geld kommt direkt auf eigene Konto.“ → mit Artikel','Das Geld kommt direkt auf <b>ihr</b> eigenes Konto. <span class="small">Auch richtig: auf das eigene Konto.</span>'],
+ ['artikel','🚨 „Ich arbeite mit gesetzlichem Betreuer zusammen.“ → mit Artikel','Ich arbeite mit <b>dem</b> gesetzlichen Betreuer zusammen. <span class="small">Auch richtig, ganz allgemein: mit gesetzlichen Betreuern (Mehrzahl, ohne Artikel).</span>']
+];
+const catName={neben:'Verb ans Ende',leute:'Die Leute kommen',endung:'richtig / richtige',artikel:'Artikel-Alarm'};
+let bcRep=new Set(),bcQ=[],bcCur=null,bcOkN=0,bcTotal=0;
+function bcStart(cat){bcQ=shuffle(BC.filter(x=>cat==='alle'||x[0]===cat));bcTotal=bcQ.length;bcOkN=0;bcRep=new Set();bcNext()}
+function bcNext(){const pr=$('bcPrompt'),so=$('bcSol');$('bcOk').disabled=true;$('bcAgain').disabled=true;$('bcShow').disabled=false;
+  if(!bcQ.length){bcCur=null;$('bcTag').textContent='Geschafft';pr.textContent=bcOkN===bcTotal?'Alle Karten sofort richtig. Stark! 💪':'Geschafft! '+bcOkN+' von '+bcTotal+' Karten sofort richtig.';so.innerHTML='<span class="small">Noch eine Runde? Oben eine Kategorie wählen.</span>';$('bcShow').disabled=true;bcStat();return}
+  bcCur=bcQ.shift();$('bcTag').textContent=catName[bcCur[0]];pr.textContent=bcCur[1];so.innerHTML='<span class="small">Erst sprechen. Dann klicken.</span>';bcStat()}
+function bcStat(){$('bcStat').textContent='Sofort richtig: '+bcOkN+' von '+bcTotal}
+$('bcShow').onclick=()=>{if(!bcCur)return;$('bcSol').innerHTML=bcCur[2];$('bcOk').disabled=false;$('bcAgain').disabled=false;$('bcShow').disabled=true};
+$('bcOk').onclick=()=>{if(!bcRep.has(bcCur))bcOkN++;bcNext()};
+$('bcAgain').onclick=()=>{bcRep.add(bcCur);bcQ.splice(Math.min(3,bcQ.length),0,bcCur);bcNext()};
+document.querySelectorAll('.cat').forEach(b=>b.onclick=()=>{document.querySelectorAll('.cat').forEach(x=>x.classList.toggle('active',x===b));bcStart(b.dataset.cat)});
+bcStart('alle');
+
+/* 5 ARBEITSPLATZ */
+const AP=[
+ ['Wo arbeite ich?','Einrichtung im Sozialbereich · Menschen helfen, die … · Sucht, Behinderung · schwierige Situation',
+  'Ich arbeite in einer Einrichtung im Sozialbereich. Wir helfen und unterstützen Menschen, '+K('die')+' Schwierigkeiten im Leben '+V('haben')+', zum Beispiel wegen einer Sucht oder einer Behinderung. Zu uns kommen Menschen, '+K('die')+' in eine schwierige Situation geraten '+V('sind')+'.'],
+ ['Wer kommt zu uns?','Leute, die Sozialleistungen … · Alltag nicht allein · Arzttermine, Amt · mit Geld richtig umgehen',
+  'Zu uns '+V('kommen')+' meistens Leute, '+K('die')+' Sozialleistungen '+V('bekommen')+'. Viele '+V('können')+' ihren Alltag nicht allein organisieren. Wir unterstützen sie bei Arztterminen und bei Terminen beim Amt. Manchmal helfen wir auch dabei, mit Geld '+E('richtig')+' umzugehen.'],
+ ['Jemand kommt herein.','begrüßen · fragen, wie … · machen, was … · wenn nicht helfen kann → weitergeben',
+  'Zuerst begrüße ich die Person. Dann frage ich, '+K('wie')+' ich helfen '+V('kann')+'. Ich mache, '+K('was')+' zu meinen Aufgaben '+V('gehört')+'. '+K('Wenn')+' ich nicht helfen '+V('kann')+', '+V('gebe')+' ich die Anfrage an den Bezugsbetreuer oder an die Geschäftsleitung weiter.'],
+ ['Was erledige ich?','Papierkram · neue Aufnahmen · telefonieren · gesetzliche Betreuer · Klientenkasse · entscheidet, wie viel Geld …',
+  'Ich erledige den Papierkram: Ich bearbeite neue Aufnahmen und telefoniere danach oft. Ich arbeite mit den gesetzlichen Betreuern zusammen und kümmere mich um die Klientenkasse. Der gesetzliche Betreuer überweist das Geld, und der Bezugsbetreuer entscheidet, '+K('wie viel Geld')+' der Klient abholen '+V('darf')+'.'],
+ ['Was ist schwierig?','Kommunikation · gestern: Anruf, ohne Pause geredet · nicht gut verstanden, weil … · erklären, was ich meine',
+  'Schwierig ist manchmal die Kommunikation. Gestern hat zum Beispiel jemand von einer Zeitarbeitsfirma angerufen und ohne Pause geredet. Ich habe ihn nicht gut verstanden, '+K('weil')+' er sehr '+E('schnell')+' gesprochen '+V('hat')+'. Dann muss ich nachfragen und genau erklären, '+K('was')+' ich '+V('meine')+'.'],
+ ['Was gefällt mir?','eigentlich alles · kommunizieren, Deutsch lernen · Aufgaben nicht schwierig · kollegiale Atmosphäre',
+  'Mir gefällt eigentlich alles. Ich kann kommunizieren und dabei Deutsch lernen. Meine Aufgaben sind nicht '+E('schwierig')+'. Und im Team haben wir eine kollegial'+E('e')+' Atmosphäre.']
+];
+let lv='text';
+function apDraw(){$('apBox').innerHTML=AP.map((x,i)=>`<div class="line"><span class="rnum">${i+1}</span><div><b>${x[0]}</b><br>${lv==='text'?x[2]:lv==='stich'?'<i>'+x[1]+'</i>':'<span class="small">… (du sprichst)</span>'}</div></div>`).join('')}
+document.querySelectorAll('.lv').forEach(b=>b.onclick=()=>{lv=b.dataset.lv;document.querySelectorAll('.lv').forEach(x=>x.classList.toggle('active',x===b));apDraw()});
+apDraw();
+</script>
+</body></html>
