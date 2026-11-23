@@ -1470,15 +1470,15 @@
             },
             {
               "titel": "Nomen-Verb-Verbindungen",
-              "beschreibung": "in Anspruch nehmen, zur Verfügung stellen.",
+              "beschreibung": "Bescheid geben, Rücksprache halten: Bedeutung, Satzstellung, Üben.",
               "pfad": "nomen-verb.html",
-              "niveau": "C1",
-              "dauer": "10 Min",
+              "niveau": "B1–B2",
+              "dauer": "45 Min",
               "fertigkeiten": [
                 "Üben",
                 "Schreiben"
               ],
-              "status": "in-arbeit"
+              "status": "fertig"
             },
             {
               "titel": "Kollokationen",

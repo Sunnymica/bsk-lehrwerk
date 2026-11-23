@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nomen-Verb-Verbindungen · Deutsch fürs Büro</title>
+<style>
+:root{--ink:#24324d;--amber:#96506e;--pale:#f8ecf1;--sky:#eaf0f7;--cream:#fdfaf7;--line:#e5dbe0;--muted:#6b6f7a;--ok:#2e6b4a;--bad:#b03030;--nv:#b5651d;--warn:#fde9cf}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:19px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+button,textarea,input{font:inherit;color:inherit}
+button{cursor:pointer;border:1px solid var(--line);background:#fff;padding:10px 16px;border-radius:10px}
+button:hover{background:var(--sky)}
+button:disabled{opacity:.4;cursor:default}
+button.active,button.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+button:focus-visible,summary:focus-visible,textarea:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+header{padding:36px max(24px,calc((100% - 1080px)/2));background:#fff;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+header:after{content:'🧩';position:absolute;font-size:170px;opacity:.08;right:4%;top:-30px;pointer-events:none}
+.eyebrow{font-size:12px;letter-spacing:.17em;text-transform:uppercase;font-weight:700;color:var(--amber)}
+h1{font:clamp(32px,5vw,48px)/1.12 Georgia,serif;margin:12px 0}
+h2{font:28px/1.2 Georgia,serif;margin:0 0 12px}
+h3{font-size:19px;margin:18px 0 8px}
+p{margin:8px 0 12px}
+.sub{max-width:720px;color:var(--muted)}
+.wrap{max-width:1100px;margin:auto;padding:24px}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;margin-bottom:22px}
+.hint{background:var(--sky);border-radius:12px;padding:14px 18px;margin:12px 0}
+.box{background:var(--pale);border-radius:12px;padding:14px 18px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff}
+.num{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--amber)}
+textarea{width:100%;min-height:64px;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--cream);resize:vertical}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;align-items:center}
+.prompt{font:24px/1.4 Georgia,serif;background:var(--pale);border-left:6px solid var(--amber);border-radius:10px;padding:18px 22px;margin:14px 0;min-height:70px}
+.solution{font:22px/1.45 Georgia,serif;background:#fff;border:2px dashed var(--line);border-radius:10px;padding:16px 22px;min-height:64px}
+.tag{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--sky);border-radius:999px;padding:2px 12px;margin-bottom:8px}
+.stat{font-size:16px;color:var(--muted)}
+.small{font-size:15px;color:var(--muted)}
+details{border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0;background:#fff}
+summary{cursor:pointer;font-weight:700}
+[hidden]{display:none!important}
+.slotq{border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:10px 0;background:#fff}
+.slotq .s{font:22px/2.1 Georgia,serif}
+.slotq .sl{display:inline-block;min-width:30px;text-align:center;border:2px dashed #d9c3b0;border-radius:8px;margin:0 4px;padding:0 6px;cursor:pointer;color:#b9a68f;font:700 16px system-ui;line-height:28px;vertical-align:middle;background:#fff}
+.slotq .sl:hover{background:var(--sky)}
+.slotq .sl.hit{border-style:solid;border-color:var(--ok);background:#e3f1e8;color:var(--nv);font:700 22px Georgia,serif}
+.slotq .sl.miss{border-color:var(--bad);background:#fbe3e3}
+.slotq .fb{margin-top:6px;font-size:17px;border-radius:10px;padding:8px 12px}
+.slotq .fb.ok{background:#e3f1e8}.slotq .fb.no{background:#fbe3e3}
+.jd{margin-top:10px;border-top:1px dashed var(--line);padding-top:10px}
+.jd .pr{font-size:17px}
+.jd .so{font:20px/1.4 Georgia,serif;background:#e3f1e8;border-radius:10px;padding:8px 12px;margin-top:6px}
+/* Farben */
+.verb{color:var(--ok);font-weight:700}
+.nv{color:var(--nv);font-weight:700;border-bottom:2px dotted var(--nv)}
+.fest{background:#fff3e0;border-radius:5px;padding:0 4px;color:var(--nv);font-weight:700}
+.kon{color:var(--bad);font-weight:700}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:15px;margin:6px 0 0}
+/* Wörtlich genommen */
+.lit{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.lit .card{display:flex;flex-direction:column;gap:6px}
+.lit .ico{font-size:52px;line-height:1}
+.lit .satz{font:22px/1.35 Georgia,serif}
+.lit .w{color:var(--muted);font-style:italic}
+.lit .r{background:#e3f1e8;border-radius:10px;padding:8px 12px}
+.lit button{align-self:flex-start;margin-top:auto}
+.merk{font:24px/1.4 Georgia,serif;background:#fff3e0;border-left:6px solid var(--nv);border-radius:10px;padding:16px 22px;margin:16px 0}
+/* Feldertabelle */
+table.feld{border-collapse:collapse;width:100%;margin:10px 0;font-size:20px}
+table.feld th{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 10px;border-bottom:2px solid var(--line)}
+table.feld th small{text-transform:none;letter-spacing:0}
+table.feld td{padding:9px 10px;border:1px solid var(--line)}
+table.feld td.lbl{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--cream);white-space:nowrap}
+table.feld .v{background:#d8eedf;font-weight:700;color:var(--ok)}
+table.feld .e{background:#fbf1e4}
+table.feld tr.sep td{border-top:3px solid var(--line)}
+.pair{margin:10px 0;display:grid;gap:4px;font-size:20px}
+.pair .no{background:#fbd5d5;border-left:6px solid var(--bad);padding:8px 14px;border-radius:8px}
+.pair .yes{background:#d8eedf;border-left:6px solid var(--ok);padding:8px 14px;border-radius:8px;font-weight:600}
+.rule{border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:16px 0;background:#fff}
+.rhead{font:22px/1.35 Georgia,serif;margin-bottom:12px}
+.rnum{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;font:700 18px system-ui;margin-right:8px;vertical-align:middle}
+/* Karten Wortschatz */
+.vk{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff}
+.vk .fn{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--amber)}
+.vk .ausdr{font:24px/1.3 Georgia,serif;margin:6px 0}
+.vk .einf{font-size:16px;color:var(--muted)}
+.vk .bsp{background:var(--pale);border-radius:10px;padding:8px 12px;margin-top:8px}
+.vk .achtung{font-size:16px;margin-top:8px}
+/* Quiz */
+.q{border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;background:#fff}
+.q .s{font:22px/1.4 Georgia,serif;margin-bottom:8px}
+.q .opts{display:flex;gap:8px;flex-wrap:wrap}
+.q .opts.col{flex-direction:column;align-items:stretch}
+.q .opts.col button{text-align:left}
+.q .fb{margin-top:10px;font-size:17px;border-radius:10px;padding:10px 14px}
+.q .fb.ok{background:#e3f1e8}.q .fb.no{background:#fbe3e3}.q .fb.mid{background:var(--warn)}
+.okb{background:#e3f1e8!important;border-color:var(--ok)!important;color:var(--ok)!important;font-weight:700}
+.nob{background:#fbe3e3!important;border-color:var(--bad)!important}
+.sit{font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--amber);font-weight:700}
+.ab{display:grid;gap:6px;margin:8px 0}
+.ab div{background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:8px 14px;font-size:20px}
+/* Satzbau */
+.chips{display:flex;gap:8px;flex-wrap:wrap;min-height:52px;margin:8px 0}
+.chips button{font-size:20px;padding:8px 14px}
+.chips button.n{color:var(--nv);font-weight:700}
+.line-ans{min-height:60px;border:2px dashed var(--line);border-radius:12px;padding:8px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:var(--cream)}
+.line-ans .pre{font:20px Georgia,serif;padding:0 6px}
+/* Situation */
+.line{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.who{font-weight:700}.who.me{color:var(--amber)}
+.steps3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.steps3>div{background:var(--pale);border-radius:12px;padding:14px 16px}
+.tuv{display:flex;gap:16px;flex-wrap:wrap;margin:8px 0;font-size:16px}
+.tuv label{display:flex;gap:6px;align-items:center}
+.sub-nav{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 6px}
+.sub-nav a{font-size:15px;background:var(--sky);border-radius:999px;padding:4px 14px;color:inherit;text-decoration:none}
+</style>
+</head><body>
+<header>
+  <a href="../pauken.html" style="display:inline-block;margin-bottom:10px;color:inherit;font-size:15px">← Pauken</a>
+  <div class="eyebrow">Deutsch fürs Büro · Wortschatz Büro</div>
+  <h1>Nomen-Verb-Verbindungen</h1>
+  <p class="sub">Bescheid geben, Rücksprache halten, eine Entscheidung treffen: zwei Wörter, eine Bedeutung. Sie lernen, was sie bedeuten, wo sie im Satz stehen und wie man sie im Büro benutzt.</p>
+</header>
+<div class="wrap">
+<nav>
+  <button data-tab="t1" class="active">1 · Wörtlich genommen?</button>
+  <button data-tab="t2">2 · Wo steht das Nomen?</button>
+  <button data-tab="t3">3 · Im Büro gebraucht</button>
+  <button data-tab="t4">4 · Üben</button>
+  <button data-tab="t5">5 · Zum Schluss</button>
+</nav>
+<main>
+
+<!-- 1 WÖRTLICH GENOMMEN -->
+<section id="t1">
+  <div class="panel">
+    <h2>Wörtlich genommen?</h2>
+    <p>Ein ganz normaler Tag bei KONTOR. Aber was wäre, wenn man jedes Wort genau so versteht, wie es da steht? Lesen Sie den Satz und den Unsinn darunter. Was heißt der Satz wirklich? Erst raten, dann klicken.</p>
+    <div class="lit" id="litBox"></div>
+  </div>
+  <div class="panel">
+    <h2>Was ist hier passiert?</h2>
+    <p>In allen vier Sätzen macht das Verb nicht das, was es sonst macht. Niemand trägt einen Platz weg, niemand wirft Pfeile, und kein Formular steht im Regal.</p>
+    <div class="merk">Das Verb ist nur der Gepäckträger.<br>Die Bedeutung steckt im <span class="nv">Nomen</span>.</div>
+    <table class="feld">
+      <tr><th>Nomen-Verb-Verbindung</th><th>Das bedeutet</th><th>Das Verb allein bedeutet sonst …</th></tr>
+      <tr><td><span class="nv">Platz</span> <span class="verb">nehmen</span></td><td>sich setzen</td><td>etwas in die Hand nehmen</td></tr>
+      <tr><td>eine <span class="nv">Entscheidung</span> <span class="verb">treffen</span></td><td>entscheiden</td><td>ein Ziel treffen, eine Person treffen</td></tr>
+      <tr><td>einen <span class="nv">Antrag</span> <span class="verb">stellen</span></td><td>beantragen</td><td>etwas irgendwohin stellen</td></tr>
+      <tr><td><span class="nv">Bescheid</span> <span class="verb">geben</span></td><td>informieren, sagen</td><td>jemandem etwas geben</td></tr>
+    </table>
+    <div class="hint"><b>Darum lernen Sie sie immer zusammen:</b> Nomen und Verb sind ein Paar. Man sagt „eine Entscheidung <b>treffen</b>“, nicht „eine Entscheidung machen“.</div>
+  </div>
+  <div class="panel">
+    <h2>Achtung, Falle: Bescheid oder der Bescheid?</h2>
+    <p>„Bescheid“ gibt es auch als Brief vom Amt. Was ist gemeint: eine Information oder ein Brief?</p>
+    <div id="falleBox"></div>
+    <div class="hint" id="falleMerk" hidden><b>Merke:</b> In „<span class="nv">Bescheid</span> geben“ steht nie ein Artikel. Mit Artikel ist es ein Brief: <b>der</b> Bescheid vom Finanzamt. Im Gespräch hört man auch oft „Bescheid sagen“: „Sag mir Bescheid!“</div>
+    <p class="stat" id="falleStat"></p>
+  </div>
+</section>
+
+<!-- 2 WO STEHT DAS NOMEN -->
+<section id="t2" hidden>
+  <div class="panel">
+    <h2>Wo steht das Nomen?</h2>
+    <p>Vergleichen Sie mit einem Verb, das Sie gut kennen: <b>anrufen</b>. Lesen Sie immer zwei Sätze zusammen.</p>
+    <div class="merk">Das <span class="nv">Nomen</span> ist ein Teil vom Verb.<br>Es steht da, wo bei „anrufen“ das „an“ steht.</div>
+    <table class="feld">
+      <tr><th></th><th>Position 1</th><th class="v">Position 2<br><small>konjugiertes Verb</small></th><th>Mittelfeld</th><th class="e">Ende<br><small>zweiter Verbteil</small></th></tr>
+      <tr><td class="lbl" rowspan="2">Präsens</td><td>Ich</td><td class="v">rufe</td><td>Sie morgen</td><td class="e"><span class="verb">an</span>.</td></tr>
+      <tr><td>Ich</td><td class="v">gebe</td><td>Ihnen morgen</td><td class="e"><span class="nv">Bescheid</span>.</td></tr>
+      <tr class="sep"><td class="lbl" rowspan="2">Perfekt</td><td>Nora</td><td class="v">hat</td><td>Frau Melnyk</td><td class="e"><span class="verb">angerufen</span>.</td></tr>
+      <tr><td>Nora</td><td class="v">hat</td><td>Frau Melnyk</td><td class="e"><span class="nv">Bescheid</span> <span class="verb">gegeben</span>.</td></tr>
+      <tr class="sep"><td class="lbl" rowspan="2">Modalverb</td><td>Ich</td><td class="v">kann</td><td>Sie morgen</td><td class="e"><span class="verb">anrufen</span>.</td></tr>
+      <tr><td>Ich</td><td class="v">kann</td><td>Ihnen morgen</td><td class="e"><span class="nv">Bescheid</span> <span class="verb">geben</span>.</td></tr>
+    </table>
+    <h3>Und bei der Anweisung mit Sie?</h3>
+    <table class="feld">
+      <tr><th class="v">Verb</th><th>Sie</th><th>Mitte</th><th class="e">Ende</th></tr>
+      <tr><td class="v">Rufen</td><td>Sie</td><td>mich bitte</td><td class="e"><span class="verb">an</span>.</td></tr>
+      <tr><td class="v">Geben</td><td>Sie</td><td>mir bitte</td><td class="e"><span class="nv">Bescheid</span>.</td></tr>
+    </table>
+    <h3>Jetzt Sie: Wohin kommt das Nomen?</h3>
+    <p>Klicken Sie auf die richtige Lücke.</p>
+    <div id="slotA"></div>
+    <h3>Und im Nebensatz?</h3>
+    <p>Nach <span class="kon">dass, weil, wenn, sobald</span> geht das konjugierte Verb ans Ende. Das Nomen bleibt direkt davor, genau wie das „an“.</p>
+    <table class="feld">
+      <tr><th>Hauptsatz</th><th>Konnektor</th><th>Mitte</th><th class="e">Ende</th></tr>
+      <tr><td>Nora wartet,</td><td class="kon">bis</td><td>die Druckerei</td><td class="e"><span class="verb">anruft</span>.</td></tr>
+      <tr><td>Nora wartet,</td><td class="kon">bis</td><td>die Druckerei</td><td class="e"><span class="nv">Bescheid</span> <span class="verb">gibt</span>.</td></tr>
+      <tr class="sep"><td>Ich melde mich,</td><td class="kon">weil</td><td>ich Sie</td><td class="e"><span class="verb">anrufen möchte</span>.</td></tr>
+      <tr><td>Ich melde mich,</td><td class="kon">weil</td><td>ich Ihnen</td><td class="e"><span class="nv">Bescheid</span> <span class="verb">geben möchte</span>.</td></tr>
+    </table>
+    <h3>Jetzt Sie: Wohin kommt das Nomen?</h3>
+    <div id="slotB"></div>
+    <div class="legend"><span class="verb">Verb</span><span class="nv">Nomen aus der Verbindung</span><span class="kon">Konnektor</span></div>
+  </div>
+  <div class="panel">
+    <details><summary>Gut zu wissen: zwei Extras</summary>
+    <div class="rule">
+      <div class="rhead"><span class="rnum">1</span> Das Nomen darf nach vorn, wenn man es betonen will.</div>
+      <p>Ich <span class="verb">gebe</span> Ihnen morgen <span class="nv">Bescheid</span>. · <span class="nv">Bescheid</span> <span class="verb">gebe</span> ich Ihnen morgen. Heute weiß ich es leider noch nicht.</p>
+      <p class="small">Der zweite Satz ist richtig, aber besonders: Bescheid kommt morgen, nicht heute. Im normalen Satz steht das Nomen hinten.</p>
+    </div>
+    <div class="rule">
+      <div class="rhead"><span class="rnum">2</span> Mit Artikel ist das Nomen etwas beweglicher.</div>
+      <p>Wir <span class="verb">treffen</span> morgen eine <span class="nv">Entscheidung</span>. · <b>Die</b> <span class="nv">Entscheidung</span> <span class="verb">trifft</span> Frau Melnyk.</p>
+      <p class="small">Beides ist normal. Ohne besonderen Grund steht das Nomen aber hinten.</p>
+    </div>
+    </details>
+  </div>
+</section>
+
+<!-- 3 IM BÜRO GEBRAUCHT -->
+<section id="t3" hidden>
+  <div class="panel">
+    <h2>Im Büro gebraucht: die wichtigsten sechs</h2>
+    <p>Sortiert nach dem, was Sie im Büro tun wollen. <span class="fest">So markiert</span> ist alles, was fest dazugehört. Bei jeder Karte: erst lesen, dann „Jetzt Sie“ laut sprechen, dann die Lösung ansehen.</p>
+    <div class="grid" id="kernBox"></div>
+    <div class="merk" style="margin-top:20px">„Ich <span class="verb">halte</span> erst <span class="nv">Rücksprache</span> mit meiner Kollegin und <span class="verb">gebe</span> Ihnen dann <span class="nv">Bescheid</span>.“</div>
+    <p class="small">Diesen Satz können Sie morgen im Büro sagen.</p>
+  </div>
+  <div class="panel">
+    <h2>Selbst entdecken: sechs neue</h2>
+    <p>Lesen Sie den Satz. Was bedeutet die markierte Verbindung?</p>
+    <div id="entdBox"></div>
+    <p class="stat" id="entdStat"></p>
+  </div>
+</section>
+
+<!-- 4 ÜBEN -->
+<section id="t4" hidden>
+  <div class="panel">
+    <div class="sub-nav"><a href="#u1">A · Welches Verb?</a><a href="#u2">B · Umbauen</a><a href="#u3">C · Sätze bauen</a><a href="#u4">D · Was passt hier?</a></div>
+    <h2 id="u1">A · Welches Verb gehört dazu?</h2>
+    <p>Nomen und Verb sind ein festes Paar. Wählen Sie das Verb.</p>
+    <div id="vbBox"></div>
+    <p class="stat" id="vbStat"></p>
+  </div>
+  <div class="panel">
+    <h2 id="u2">B · Umbauen</h2>
+    <p>Oben steht ein Satz mit einem einfachen Verb. Welcher Satz sagt dasselbe mit einer Nomen-Verb-Verbindung? Lesen Sie auch die Erklärung.</p>
+    <div id="ubBox"></div>
+    <p class="stat" id="ubStat"></p>
+  </div>
+  <div class="panel">
+    <h2 id="u3">C · Sätze bauen</h2>
+    <p>Klicken Sie die Bausteine in der richtigen Reihenfolge an. Ein Klick in der Zeile nimmt einen Baustein wieder heraus. Manchmal gibt es mehr als eine richtige Lösung.</p>
+    <div class="tag" id="sbTag"></div>
+    <div class="line-ans" id="sbAns"></div>
+    <div class="chips" id="sbChips"></div>
+    <div class="controls">
+      <button id="sbCheck" class="primary">Prüfen</button>
+      <button id="sbReset">Neu legen</button>
+      <button id="sbNext" hidden>Nächster Satz →</button>
+      <span class="stat" id="sbStat"></span>
+    </div>
+    <div id="sbFb" class="hint" hidden></div>
+  </div>
+  <div class="panel">
+    <h2 id="u4">D · Was passt hier?</h2>
+    <p>Eine Nomen-Verb-Verbindung ist nicht immer besser. In einer Mail an Kunden klingt sie gut, in der Kaffeeküche oft komisch. Was passt hier?</p>
+    <div id="rgBox"></div>
+    <p class="stat" id="rgStat"></p>
+  </div>
+</section>
+
+<!-- 5 ZUM SCHLUSS -->
+<section id="t5" hidden>
+  <div class="panel">
+    <h2>Hausaufgabe: Nora schreibt Frau Melnyk</h2>
+    <p>Nora hat mit Pawel über den Transport zur Messe gesprochen. Jetzt schreibt sie Frau Melnyk eine kurze Mail. Benutzen Sie <b>mindestens drei</b> Verbindungen.</p>
+    <div class="steps3">
+      <div><span class="rnum">1</span>Nora hat mit Pawel gesprochen.<br><span class="small">Rücksprache halten (Perfekt)</span></div>
+      <div><span class="rnum">2</span>Die Spedition muss bis Donnerstag antworten.<br><span class="small">eine Frist setzen (Perfekt)</span></div>
+      <div><span class="rnum">3</span>Nora informiert Frau Melnyk, sobald die Spedition antwortet.<br><span class="small">Bescheid geben, sobald …</span></div>
+      <div><span class="rnum">4</span>Frau Melnyk muss noch über das Hotel entscheiden.<br><span class="small">eine Entscheidung treffen (müssen)</span></div>
+    </div>
+    <textarea id="mail" style="min-height:200px;margin-top:14px" placeholder="Liebe Frau Melnyk,"></textarea>
+    <div class="controls"><button id="mailCopy">Text kopieren</button><span class="stat" id="mailStat"></span></div>
+    <div class="tuv"><label><input type="checkbox">drei Verbindungen?</label><label><input type="checkbox">Nomen hinten?</label><label><input type="checkbox">Artikel richtig?</label><label><input type="checkbox">Anrede und Gruß?</label></div>
+    <details><summary>Eine Musterlösung ansehen (erst nach dem Schreiben!)</summary>
+      <p style="font:20px/1.6 Georgia,serif">Liebe Frau Melnyk,<br><br>
+      ich habe heute mit Pawel <span class="nv">Rücksprache</span> <span class="verb">gehalten</span>. Wir haben der Spedition eine <span class="nv">Frist</span> bis Donnerstag <span class="verb">gesetzt</span>. Ich <span class="verb">gebe</span> Ihnen <span class="nv">Bescheid</span>, sobald sie sich meldet. Beim Hotel <span class="verb">müssen</span> Sie bitte noch eine <span class="nv">Entscheidung</span> <span class="verb">treffen</span>.<br><br>
+      Viele Grüße<br>Nora</p>
+      <p class="small">Ihre Mail muss nicht genauso aussehen. Wichtig sind die Verbindungen und die Satzstellung.</p>
+    </details>
+  </div>
+  <div class="panel">
+    <h2>Das kann ich</h2>
+    <div class="grid">
+      <div class="card">✓ Ich weiß, warum „Platz nehmen“ nichts mit Wegnehmen zu tun hat.</div>
+      <div class="card">✓ Ich kenne sechs Verbindungen fürs Büro und ihre einfachen Verben.</div>
+      <div class="card">✓ Ich stelle das Nomen an die richtige Stelle, auch in der Anweisung, im Perfekt und im Nebensatz.</div>
+      <div class="card">✓ Ich merke, wann eine Verbindung passt und wann ein einfaches Verb besser klingt.</div>
+    </div>
+    <div class="hint" style="margin-top:18px"><b>Mehr Verbindungen?</b> Eine große Sammlung zum Nachschlagen und Üben kommt bald.</div>
+  </div>
+</section>
+</main></div>
+<script>
+const $=id=>document.getElementById(id);
+const tabs=document.querySelectorAll('[data-tab]');
+tabs.forEach(b=>b.onclick=()=>{document.querySelectorAll('main>section').forEach(s=>s.hidden=s.id!==b.dataset.tab);tabs.forEach(x=>x.classList.toggle('active',x===b));window.scrollTo(0,0)});
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const N=s=>'<span class="nv">'+s+'</span>', V=s=>'<span class="verb">'+s+'</span>', F=s=>'<span class="fest">'+s+'</span>';
+
+function mcList(boxId,statId,items,col){
+  let ok=0,done=0;const box=$(boxId);
+  box.innerHTML=items.map((it,i)=>`<div class="q"><div class="s">${it.s}</div><div class="opts${col?' col':''}">${shuffle(it.o.map((o,j)=>[o,j])).map(([o,j])=>`<button data-i="${i}" data-j="${j}">${o[0]}</button>`).join('')}</div><div class="fb" id="${boxId}fb${i}" hidden></div></div>`).join('');
+  const stat=()=>{$(statId).textContent=done===items.length?`Fertig: ${ok} von ${items.length} beim ersten Versuch richtig.`:`Beim ersten Versuch richtig: ${ok} von ${done}`};
+  box.querySelectorAll('button').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i,j=+b.dataset.j,it=items[i],o=it.o[j],fb=$(boxId+'fb'+i),q=b.closest('.q');
+    if(q.dataset.done)return;const first=!q.dataset.tried;q.dataset.tried=1;
+    if(o[1]===true){q.dataset.done=1;b.classList.add('okb');q.querySelectorAll('button').forEach(x=>x.disabled=x!==b);done++;if(first)ok++;fb.className='fb ok';fb.innerHTML='<b>Richtig.</b> '+(o[2]||it.e||'')}
+    else{b.classList.add('nob');b.disabled=true;fb.className='fb no';fb.innerHTML='<b>Nicht ganz.</b> '+(o[2]||it.e||'Versuchen Sie es noch einmal.')}
+    fb.hidden=false;stat()});
+  stat();
+}
+
+/* ---------- 1 WÖRTLICH ---------- */
+const LIT=[
+ ['🪑','Petra Lenz '+V('nimmt')+' '+N('Platz')+'.','Sie packt den Platz ein und nimmt ihn mit nach Hause.',[['Sie setzt sich.',1],['Sie trägt einen Stuhl weg.',0],['Sie reserviert einen Tisch.',0]]],
+ ['🎯','Frau Melnyk '+V('trifft')+' eine '+N('Entscheidung')+'.','Sie wirft mit Pfeilen und trifft die Entscheidung genau in der Mitte.',[['Sie entscheidet.',1],['Sie trifft eine Kollegin.',0],['Sie spielt Darts.',0]]],
+ ['🗄️','Pawel Nowak '+V('stellt')+' einen '+N('Antrag')+' auf Urlaub.','Er stellt das Formular ins Regal, schön gerade.',[['Er beantragt Urlaub.',1],['Er räumt das Regal auf.',0],['Er bringt ein Formular zur Post.',0]]],
+ ['🎁','Nora '+V('gibt')+' Jonas '+N('Bescheid')+'.','Sie gibt ihm ein Päckchen. Was ist drin? Ein Bescheid!',[['Sie informiert ihn. Sie sagt ihm etwas.',1],['Sie gibt ihm einen Brief vom Amt.',0],['Sie macht ihm ein Geschenk.',0]]]
+];
+$('litBox').innerHTML=LIT.map((x,i)=>`<div class="card"><div class="ico">${x[0]}</div><div class="satz">${x[1]}</div><div class="w">Wörtlich genommen: ${x[2]}</div><div class="q" style="margin:6px 0 0;padding:10px 12px"><div class="small" style="margin-bottom:6px">Was heißt das wirklich?</div><div class="opts col">${shuffle(x[3].map((o,j)=>[o,j])).map(([o,j])=>`<button data-li="${i}" data-lj="${j}" style="font-size:17px;padding:6px 12px">${o[0]}</button>`).join('')}</div><div class="fb" hidden></div></div></div>`).join('');
+document.querySelectorAll('[data-li]').forEach(b=>b.onclick=()=>{const x=LIT[+b.dataset.li],o=x[3][+b.dataset.lj],q=b.closest('.q'),fb=q.querySelector('.fb');if(q.dataset.done)return;
+  if(o[1]){q.dataset.done=1;b.classList.add('okb');q.querySelectorAll('button').forEach(y=>y.disabled=y!==b);fb.className='fb ok';fb.innerHTML='<b>Genau.</b> Das Verb macht hier gar nicht, was es sonst macht.'}
+  else{b.classList.add('nob');b.disabled=true;fb.className='fb no';fb.innerHTML='Nein, das wäre wörtlich genommen. Noch einmal!'}fb.hidden=false});
+
+mcList('falleBox','falleStat',[
+ {s:'„Ich gebe Ihnen morgen '+N('Bescheid')+'.“',o:[['eine Information',true],['ein Brief vom Amt',false,'Hier steht kein Artikel. Also: Ich informiere Sie morgen.']],e:'Kein Artikel: Bescheid geben = informieren.'},
+ {s:'„Der <b>Bescheid</b> vom Finanzamt ist heute gekommen.“',o:[['ein Brief vom Amt',true],['eine Information',false,'Achten Sie auf „der“. Mit Artikel ist der Bescheid ein Brief, den man in der Hand hält.']],e:'Mit Artikel: der Bescheid = ein Brief vom Amt.'},
+ {s:'„Bitte sagen Sie mir '+N('Bescheid')+', wenn die Druckerei anruft.“',o:[['eine Information',true],['ein Brief vom Amt',false,'Kein Artikel, und „sagen“: Es geht um eine Information.']],e:'Bescheid sagen = Bescheid geben, nur lockerer.'}
+]);
+$('falleBox').addEventListener('click',()=>{$('falleMerk').hidden=false});
+
+/* ---------- 2 LÜCKEN ---------- */
+function slotTask(boxId,items){
+  const box=$(boxId);
+  box.innerHTML=items.map((it,i)=>{let h='';it.w.forEach((w,k)=>{h+=`<span class="sl" data-i="${i}" data-k="${k}">+</span>`+(it.cls&&it.cls[k]?'<span class="'+it.cls[k]+'">'+w+'</span>':w)});h+=`<span class="sl" data-i="${i}" data-k="${it.w.length}">+</span>`+(it.end||'.');
+    return `<div class="slotq"><div class="small">${it.lbl} · Wohin kommt <b class="nv">${it.ins}</b>?</div><div class="s">${h}</div><div class="fb" hidden></div></div>`}).join('');
+  box.querySelectorAll('.sl').forEach(sl=>sl.onclick=()=>{const it=items[+sl.dataset.i],k=+sl.dataset.k,q=sl.closest('.slotq'),fb=q.querySelector('.fb');if(q.dataset.done)return;
+    if(it.ok.includes(k)){q.dataset.done=1;q.querySelectorAll('.sl').forEach(x=>{if(x!==sl)x.replaceWith(document.createTextNode(+x.dataset.k===0||+x.dataset.k===it.w.length?'':' '))});sl.textContent=it.ins;sl.className='sl hit';fb.className='fb ok';fb.innerHTML='<b>Richtig.</b> '+(it.e||'')}
+    else{sl.classList.add('miss');fb.className='fb no';fb.innerHTML=it.no||'Da nicht. Wo steht bei „anrufen“ das „an“?'}fb.hidden=false});
+}
+slotTask('slotA',[
+ {lbl:'Anweisung',ins:'Bescheid',w:['Geben','Sie','mir','bitte','kurz'],cls:{0:'verb'},ok:[5],e:'Ganz hinten, wie das „an“: Rufen Sie mich bitte kurz an.'},
+ {lbl:'Präsens',ins:'Bescheid',w:['Ich','gebe','Ihnen','morgen'],cls:{1:'verb'},ok:[4],e:'Ganz hinten: Ich rufe Sie morgen an.'},
+ {lbl:'Perfekt',ins:'Bescheid',w:['Nora','hat','Frau Melnyk','schon','gegeben'],cls:{1:'verb',4:'verb'},ok:[4],e:'Direkt vor dem Partizip: Bescheid gegeben, wie angerufen.',no:'Da nicht. Das Partizip (gegeben) steht ganz am Ende. Das Nomen kommt direkt davor.'},
+ {lbl:'Perfekt, zwei Lösungen',ins:'Rücksprache',w:['Ich','habe','mit Pawel','gehalten'],cls:{1:'verb',3:'verb'},ok:[2,3],e:'Beides geht: „Ich habe Rücksprache mit Pawel gehalten“ und „Ich habe mit Pawel Rücksprache gehalten“.'}
+]);
+slotTask('slotB',[
+ {lbl:'Nebensatz',ins:'Bescheid',w:['Nora wartet,','bis','die Druckerei','gibt'],cls:{1:'kon',3:'verb'},ok:[3],e:'Das Verb steht am Ende, das Nomen direkt davor.',no:'Da nicht. Nach „bis“ steht das Verb am Ende. Das Nomen kommt direkt davor.'},
+ {lbl:'Nebensatz',ins:'Bescheid',w:['Geben Sie mir bitte kurz','Bescheid,','wenn','die Spedition','einen Abholtermin','hat'],cls:{2:'kon',5:'verb'},ok:[],skip:true},
+ {lbl:'Nebensatz mit Modalverb',ins:'Bescheid',w:['Ich melde mich,','weil','ich','Ihnen','geben','möchte'],cls:{1:'kon',4:'verb',5:'verb'},ok:[4],e:'Bescheid geben möchte, wie anrufen möchte.',no:'Da nicht. Am Ende steht der Verbblock „geben möchte“. Das Nomen kommt direkt davor.'}
+].filter(x=>!x.skip));
+
+/* ---------- 3 KERN ---------- */
+const KERN=[
+ ['jemanden informieren',N('Bescheid')+' geben','informieren, etwas sagen','Ich gebe Ihnen Bescheid, sobald die Druckerei sich meldet.','Ohne Artikel! Nicht: einen Bescheid geben. Die Person steht im Dativ: Ich gebe <b>Ihnen</b> Bescheid.','Nora hat Frau Melnyk gestern informiert. Sagen Sie es mit „Bescheid“. (Perfekt)','Nora hat Frau Melnyk gestern Bescheid gegeben.'],
+ ['etwas klären',N('Rücksprache')+' halten '+F('mit')+' + Dat.','sich mit jemandem besprechen, nachfragen','Ich halte kurz Rücksprache mit Herrn Becker.','Ohne Artikel. Immer mit „mit“: Rücksprache mit der Kollegin.','Nora kennt den Preis nicht. Sie muss erst Pawel fragen. (müssen)','Nora muss erst Rücksprache mit Pawel halten.'],
+ ['etwas klären',F('eine')+' '+N('Frage')+' stellen','fragen','Darf ich Ihnen eine Frage stellen?','Nicht: eine Frage fragen. Die Person steht im Dativ: <b>Ihnen</b> eine Frage stellen.','Finn hat heute viel gefragt. Erzählen Sie es. (Perfekt, viele)','Finn hat heute viele Fragen gestellt.'],
+ ['etwas entscheiden',F('eine')+' '+N('Entscheidung')+' treffen','entscheiden','Wir treffen morgen eine Entscheidung.','Nicht: eine Entscheidung machen.','Wer entscheidet über das Hotel? Beginnen Sie mit „Die Entscheidung …“','Die Entscheidung trifft Frau Melnyk.'],
+ ['etwas offiziell erledigen',F('einen')+' '+N('Antrag')+' stellen '+F('auf')+' + Akk.','beantragen','Pawel stellt einen Antrag auf Urlaub.','Immer mit „auf“: ein Antrag <b>auf</b> Urlaub, <b>auf</b> Bildungsurlaub.','Jonas möchte eine Weiterbildung machen. Was muss er tun? (müssen, Bildungsurlaub)','Er muss einen Antrag auf Bildungsurlaub stellen.'],
+ ['mit anderen zusammenarbeiten',F('zur')+' '+N('Verfügung')+' stehen','da sein, bereit sein','Frau Haddad steht Ihnen morgen ab neun Uhr zur Verfügung.','„zur“ = zu der. Immer „zur“, nie „zu Verfügung“. Die Person steht im Dativ: <b>Ihnen</b>.','Der letzte Satz in einer Mail: Sie helfen gern bei Fragen.','Bei Fragen stehe ich Ihnen gern zur Verfügung.']
+];
+$('kernBox').innerHTML=KERN.map((x,i)=>`<div class="vk"><div class="fn">${x[0]}</div><div class="ausdr">${x[1]}</div><div class="einf">= ${x[2]}</div><div class="bsp">${x[3]}</div><div class="achtung">⚠️ ${x[4]}</div><div class="jd"><div class="pr"><b>Jetzt Sie:</b> ${x[5]}</div><button data-jd="${i}" style="margin-top:6px;padding:6px 12px;font-size:16px">Lösung</button><div class="so" id="jd${i}" hidden>${x[6]}</div></div></div>`).join('');
+document.querySelectorAll('[data-jd]').forEach(b=>b.onclick=()=>{const so=$('jd'+b.dataset.jd);so.hidden=!so.hidden});
+
+mcList('entdBox','entdStat',[
+ {s:'„Am Telefon dürfen wir leider keine '+N('Auskunft')+' über Preise '+V('geben')+'.“',o:[['Wir dürfen keine Informationen weitergeben.',true],['Wir dürfen nichts verschenken.',false,'Mit Geschenken hat das nichts zu tun. Auskunft = Information.'],['Wir dürfen keine Fragen stellen.',false,'Andersherum: Wer Auskunft gibt, beantwortet Fragen.']],e:'Auskunft geben = informieren.'},
+ {s:'„Darf ich einen '+N('Vorschlag')+' '+V('machen')+'? Wir verschieben das Meeting auf Dienstag.“',o:[['Ich möchte etwas vorschlagen, eine Idee sagen.',true],['Ich möchte etwas basteln.',false,'„machen“ ist hier nur der Gepäckträger.'],['Ich möchte etwas entscheiden.',false,'Fast. Aber ein Vorschlag ist nur eine Idee. Entscheiden müssen die anderen.']],e:'einen Vorschlag machen = vorschlagen.'},
+ {s:'„Die Spedition muss bis Donnerstag antworten. Wir '+V('setzen')+' ihr eine '+N('Frist')+'.“',o:[['Wir sagen ihr, bis wann sie etwas tun muss.',true],['Wir bieten ihr einen Stuhl an.',false,'Hier geht es um Zeit, nicht um Möbel.'],['Wir geben ihr mehr Zeit.',false,'Eher das Gegenteil: Mit einer Frist gibt es ein klares Ende.']],e:'eine Frist setzen = sagen, bis wann etwas fertig sein muss.'},
+ {s:'„Bitte '+V('nehmen')+' Sie die neuen Öffnungszeiten '+F('zur')+' '+N('Kenntnis')+'.“',o:[['Bitte lesen Sie das, dann wissen Sie Bescheid.',true],['Bitte nehmen Sie den Zettel mit.',false,'Gemeint ist das Wissen, nicht der Zettel.'],['Bitte unterschreiben Sie hier.',false,'Unterschreiben ist mehr. Zur Kenntnis nehmen heißt nur: Ich weiß es jetzt.']],e:'zur Kenntnis nehmen = etwas lesen oder hören und jetzt Bescheid wissen. Typisch für Rundmails und Aushänge.'},
+ {s:'„Nora '+V('nimmt')+' mit der Druckerei '+N('Kontakt')+' '+V('auf')+'.“',o:[['Nora meldet sich bei der Druckerei.',true],['Nora nimmt die Druckerei mit.',false,'Wörtlich genommen! Gemeint ist: anrufen, schreiben, sich melden.'],['Nora streitet mit der Druckerei.',false,'Nein, es geht nur um den ersten Kontakt.']],e:'Kontakt aufnehmen = sich zum ersten Mal melden. „aufnehmen“ ist trennbar: „auf“ steht ganz am Ende.'},
+ {s:'„Petra Lenz '+V('vereinbart')+' einen '+N('Termin')+' mit dem Kunden.“',o:[['Sie macht einen Termin aus.',true],['Sie sagt den Termin ab.',false,'Absagen ist das Gegenteil.'],['Sie erinnert den Kunden an den Termin.',false,'Nein, der Termin ist neu.']],e:'einen Termin vereinbaren = einen Termin ausmachen. Hier hat das Verb noch eigene Bedeutung. Ein festes Paar ist es trotzdem.'}
+],true);
+
+/* ---------- 4A WELCHES VERB ---------- */
+const VB=[
+ ['Bescheid',['geben','machen','stellen','treffen'],'Bescheid geben = informieren.'],
+ ['Rücksprache',['halten','treffen','stellen','geben'],'Rücksprache halten = sich besprechen.'],
+ ['eine Frage',['stellen','machen','treffen','halten'],'eine Frage stellen = fragen. Nicht: eine Frage machen.'],
+ ['eine Entscheidung',['treffen','machen','stellen','halten'],'eine Entscheidung treffen. „Eine Entscheidung machen“ klingt nach Englisch.'],
+ ['einen Antrag',['stellen','treffen','halten','nehmen'],'einen Antrag stellen = beantragen.'],
+ ['zur Verfügung',['stehen','halten','treffen','geben'],'zur Verfügung stehen = da sein. (Auch richtig, aber hier nicht dabei: etwas zur Verfügung stellen = etwas geben.)'],
+ ['Auskunft',['geben','stellen','treffen','halten'],'Auskunft geben = informieren.'],
+ ['einen Vorschlag',['machen','treffen','halten','nehmen'],'einen Vorschlag machen = vorschlagen.'],
+ ['eine Frist',['setzen','machen','treffen','nehmen'],'eine Frist setzen = sagen, bis wann etwas fertig sein muss.'],
+ ['zur Kenntnis',['nehmen','stellen','treffen','halten'],'zur Kenntnis nehmen = etwas lesen oder hören und jetzt wissen.'],
+ ['Kontakt',['aufnehmen','stellen','treffen','geben'],'Kontakt aufnehmen = sich melden.'],
+ ['einen Termin',['vereinbaren','stellen','treffen','halten'],'einen Termin vereinbaren = einen Termin ausmachen.']
+];
+mcList('vbBox','vbStat',shuffle(VB).map(([n,vs,e])=>({s:N(n)+' <span style="display:inline-block;min-width:110px;border-bottom:2px solid var(--amber)">&nbsp;</span>',o:vs.map((v,k)=>[v,k===0,k===0?e:'„'+n+' '+v+'“ sagt man nicht.']),e})));
+
+/* ---------- 4B UMBAUEN ---------- */
+mcList('ubBox','ubStat',[
+ {s:'Informieren Sie mich bitte.',o:[['Geben Sie mir bitte Bescheid.',true,'Und achten Sie auf den Fall: informieren Sie <b>mich</b>, aber geben Sie <b>mir</b> Bescheid.'],['Geben Sie Bescheid mir bitte.',false,'Das Nomen gehört ans Ende, wie das „an“: Rufen Sie mich bitte an. Also: Geben Sie mir bitte Bescheid.'],['Geben Sie mich bitte Bescheid.',false,'Fast! Aber Bescheid geben braucht den Dativ: <b>mir</b>.']]},
+ {s:'Nora fragt kurz Pawel.',o:[['Nora hält kurz Rücksprache mit Pawel.',true,'Rücksprache halten <b>mit</b> + Dativ.'],['Nora hält kurz Rücksprache Pawel.',false,'Da fehlt etwas: Rücksprache <b>mit</b> Pawel.'],['Nora Rücksprache hält kurz mit Pawel.',false,'Das konjugierte Verb steht auf Position 2: Nora <b>hält</b> …']]},
+ {s:'Darf ich Sie etwas fragen?',o:[['Darf ich Ihnen eine Frage stellen?',true,'<b>Sie</b> fragen, aber <b>Ihnen</b> eine Frage stellen.'],['Darf ich Ihnen eine Frage fragen?',false,'Doppelt gemoppelt. Eine Frage <b>stellt</b> man.'],['Darf ich stellen Ihnen eine Frage?',false,'Mit Modalverb kommt „stellen“ ans Ende.']]},
+ {s:'Wir entscheiden morgen.',o:[['Wir treffen morgen eine Entscheidung.',true],['Wir treffen morgen Entscheidung.',false,'Hier fehlt der Artikel: <b>eine</b> Entscheidung.'],['Wir machen morgen eine Entscheidung.',false,'Eine Entscheidung <b>trifft</b> man.']]},
+ {s:'Pawel beantragt Urlaub.',o:[['Pawel stellt einen Antrag auf Urlaub.',true,'Ein Antrag <b>auf</b> etwas.'],['Pawel stellt einen Antrag Urlaub.',false,'Da fehlt die Präposition: einen Antrag <b>auf</b> Urlaub.'],['Pawel stellt Antrag auf Urlaub.',false,'Hier fehlt der Artikel: <b>einen</b> Antrag.']]},
+ {s:'Ich bin für Ihre Fragen da.',o:[['Ich stehe Ihnen für Fragen zur Verfügung.',true],['Ich stehe Ihnen für Fragen zu Verfügung.',false,'Fest: <b>zur</b> Verfügung (= zu der).'],['Ich stehe zur Verfügung Ihnen für Fragen.',false,'„zur Verfügung“ gehört nach hinten.']]},
+ {s:'Nora hat Frau Melnyk informiert.',o:[['Nora hat Frau Melnyk Bescheid gegeben.',true,'Perfekt: Nomen und Partizip stehen zusammen am Ende.'],['Nora hat Frau Melnyk gegeben Bescheid.',false,'Das Partizip steht ganz am Ende, „Bescheid“ direkt davor.'],['Nora hat Bescheid Frau Melnyk gegeben.',false,'„Bescheid“ gehört direkt vor das Partizip: Frau Melnyk <b>Bescheid gegeben</b>.']]},
+ {s:'Nora wartet, bis Frau Melnyk entscheidet.',o:[['Nora wartet, bis Frau Melnyk eine Entscheidung trifft.',true,'Im Nebensatz steht das konjugierte Verb am Ende, das Nomen direkt davor.'],['Nora wartet, bis Frau Melnyk trifft eine Entscheidung.',false,'Nach „bis“ geht das Verb ans Ende.'],['Nora wartet, bis Frau Melnyk eine Entscheidung macht.',false,'Eine Entscheidung <b>trifft</b> man.']]}
+],true);
+
+/* ---------- 4C SÄTZE BAUEN ---------- */
+const SB=[
+ {tag:'Anweisung',chips:['geben','Sie','mir bitte','Bescheid'],ok:['geben Sie mir bitte Bescheid'],note:{}},
+ {tag:'Perfekt',chips:['ich','habe','mit Herrn Becker','Rücksprache','gehalten'],ok:['ich habe mit Herrn Becker Rücksprache gehalten','ich habe Rücksprache mit Herrn Becker gehalten','mit Herrn Becker habe ich Rücksprache gehalten'],note:{'ich habe Rücksprache gehalten mit Herrn Becker':'Im Gespräch hört man das oft. Geschrieben ist besser: Ich habe mit Herrn Becker Rücksprache gehalten.','Rücksprache habe ich mit Herrn Becker gehalten':'Richtig, aber betont. Normal ist: Ich habe mit Herrn Becker Rücksprache gehalten.'}},
+ {tag:'Modalverb',chips:['wir','müssen','heute','eine Entscheidung','treffen'],ok:['wir müssen heute eine Entscheidung treffen','heute müssen wir eine Entscheidung treffen'],note:{'eine Entscheidung müssen wir heute treffen':'Richtig, aber betont. Normal ist: Wir müssen heute eine Entscheidung treffen.','wir müssen eine Entscheidung heute treffen':'Geht, wenn „heute“ betont ist (heute, nicht morgen). Normal ist: Wir müssen heute eine Entscheidung treffen.'}},
+ {tag:'Nebensatz',pre:'Nora wartet,',chips:['bis','Frau Melnyk','eine Entscheidung','trifft'],ok:['bis Frau Melnyk eine Entscheidung trifft'],note:{}},
+ {tag:'Nebensatz mit Modalverb',pre:'Ich melde mich,',chips:['weil','ich','Ihnen','Bescheid','geben','möchte'],ok:['weil ich Ihnen Bescheid geben möchte'],note:{}},
+ {tag:'trennbares Verb',chips:['Nora','nimmt','mit der Druckerei','Kontakt','auf'],ok:['Nora nimmt mit der Druckerei Kontakt auf','Nora nimmt Kontakt mit der Druckerei auf','mit der Druckerei nimmt Nora Kontakt auf'],note:{}}
+];
+const NVW=['Bescheid','Rücksprache','eine Entscheidung','Kontakt'];
+let sbI=0,sbAns=[],sbPool=[],sbFirst=true,sbOk=0;
+const norm=s=>s.toLowerCase().replace(/\s+/g,' ').trim();
+const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+function sbLoad(){const t=SB[sbI];sbAns=[];sbPool=shuffle(t.chips.map((c,k)=>k));sbFirst=true;$('sbTag').textContent='Satz '+(sbI+1)+' von '+SB.length+' · '+t.tag;$('sbFb').hidden=true;$('sbNext').hidden=true;$('sbCheck').disabled=false;sbDraw();sbStat()}
+function sbDraw(){const t=SB[sbI];
+  $('sbAns').innerHTML=(t.pre?'<span class="pre">'+t.pre+'</span>':'')+sbAns.map((k,p)=>`<button data-p="${p}" class="${NVW.includes(t.chips[k])?'n':''}">${t.chips[k]}</button>`).join('');
+  $('sbChips').innerHTML=sbPool.filter(k=>!sbAns.includes(k)).map(k=>`<button data-k="${k}" class="${NVW.includes(t.chips[k])?'n':''}">${t.chips[k]}</button>`).join('');
+  $('sbAns').querySelectorAll('button').forEach(b=>b.onclick=()=>{sbAns.splice(+b.dataset.p,1);sbDraw()});
+  $('sbChips').querySelectorAll('button').forEach(b=>b.onclick=()=>{sbAns.push(+b.dataset.k);sbDraw()})}
+function sbStat(){$('sbStat').textContent='Beim ersten Versuch richtig: '+sbOk}
+$('sbCheck').onclick=()=>{const t=SB[sbI],fb=$('sbFb');if(sbAns.length<t.chips.length){fb.hidden=false;fb.style.background='var(--sky)';fb.innerHTML='Es fehlen noch Bausteine.';return}
+  const a=norm(sbAns.map(k=>t.chips[k]).join(' '));fb.hidden=false;
+  const okHit=t.ok.some(x=>norm(x)===a);const noteKey=Object.keys(t.note).find(x=>norm(x)===a);
+  const full=s=>(t.pre?t.pre+' '+s:cap(s))+(t.tag==='Anweisung'?'.':'.');
+  if(okHit){fb.style.background='#e3f1e8';fb.innerHTML='<b>Richtig!</b>'+(t.ok.length>1?' Auch möglich: '+t.ok.filter(x=>norm(x)!==a).map(x=>'„'+full(x)+'“').join(' · '):'')}
+  else if(noteKey){fb.style.background='var(--warn)';fb.innerHTML='<b>Geht.</b> '+t.note[noteKey]}
+  else{fb.style.background='#fbe3e3';fb.innerHTML='<b>So sagt man das normalerweise nicht.</b> Wo steht das konjugierte Verb, wo das Nomen? Noch einmal, oder vergleichen Sie:<details style="margin-top:8px"><summary>Lösung zeigen</summary>'+t.ok.map(x=>'„'+full(x)+'“').join('<br>')+'</details>';sbFirst=false;return}
+  if(sbFirst)sbOk++;sbStat();$('sbCheck').disabled=true;$('sbNext').hidden=false;$('sbNext').textContent=sbI<SB.length-1?'Nächster Satz →':'Von vorn'};
+$('sbReset').onclick=()=>{if(!$('sbNext').hidden)sbFirst=false;sbAns=[];sbDraw();$('sbFb').hidden=true;$('sbCheck').disabled=false};
+$('sbNext').onclick=()=>{if(sbI<SB.length-1)sbI++;else{sbI=0;sbOk=0}sbLoad()};
+sbLoad();
+
+/* ---------- 4D REGISTER ---------- */
+const RG=[
+ {sit:'Mittagspause · Jonas fragt: „Was isst du heute?“',a:'Ich entscheide mich gleich.',b:'Ich treffe gleich eine Entscheidung über mein Mittagessen.',r:'a',e:'Satz B ist grammatisch richtig, aber für ein Mittagessen viel zu feierlich. 😄 Im Alltag nimmt man meistens das einfache Verb.'},
+ {sit:'Mail an einen Kunden · der letzte Satz',a:'Wenn was ist, fragen Sie einfach.',b:'Bei Fragen stehe ich Ihnen gern zur Verfügung.',r:'b',e:'In einer Mail an Kunden klingt Satz B höflich und professionell. Satz A ist zu locker.'},
+ {sit:'Telefon · Ein Kunde fragt nach einem Preis. Nora weiß ihn nicht.',a:'Ich frage kurz meinen Kollegen und rufe Sie dann zurück.',b:'Ich halte kurz Rücksprache mit meinem Kollegen und rufe Sie dann zurück.',r:'beide',e:'Beides ist gut. A ist einfach und freundlich, B klingt etwas offizieller.'},
+ {sit:'Kaffeeküche · Nora zu Pawel',a:'Ich stelle dir mal eine Frage.',b:'Ich frag dich mal was.',r:'b',e:'Satz A ist richtig, aber unter Kollegen etwas steif. Locker sagt man: Ich frag dich mal was.'}
+];
+mcList('rgBox','rgStat',RG.map(x=>({s:'<div class="sit">'+x.sit+'</div><div class="ab"><div><b>A</b> · '+x.a+'</div><div><b>B</b> · '+x.b+'</div></div>',o:[['A passt besser',x.r==='a',x.e],['B passt besser',x.r==='b',x.e],['Beides passt',x.r==='beide',x.e]],e:x.e})));
+
+/* ---------- Mail ---------- */
+try{const m=localStorage.getItem('pauken-nvv-mail');if(m)$('mail').value=m}catch(e){}
+$('mail').addEventListener('input',()=>{try{localStorage.setItem('pauken-nvv-mail',$('mail').value)}catch(e){}});
+$('mailCopy').onclick=async()=>{try{await navigator.clipboard.writeText($('mail').value);$('mailStat').textContent='Kopiert.'}catch(e){$('mail').select();$('mailStat').textContent='Text markiert. Mit Strg + C kopieren.'}};
+</script>
+</body></html>
