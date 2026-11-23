@@ -29,7 +29,7 @@ const WMS_AMT = [
           ]
         ],
         "find": {
-          "id": "antrag",
+          "id": "antrag", "rel": ["angaben", "nachweis", "genehmigung", "anfrage"],
           "expr": "<span class=\"fx\">einen</span> <span class=\"nv\">Antrag</span> <span class=\"fx\">auf + Akk.</span> <span class=\"v\">stellen</span>",
           "mean": "offiziell um etwas bitten, das genehmigt werden muss",
           "bau": "einen Antrag auf + Akk. stellen · Artikel und Präposition",
@@ -73,7 +73,7 @@ const WMS_AMT = [
           ]
         ],
         "find": {
-          "id": "angaben",
+          "id": "angaben", "rel": ["antrag", "nachweis", "auskunft"],
           "expr": "<span class=\"nv\">Angaben</span> <span class=\"v\">machen</span>",
           "mean": "in einem Formular oder einer Mitteilung Informationen nennen",
           "bau": "Angaben zu + Dat. machen · meist Mehrzahl",
@@ -117,7 +117,7 @@ const WMS_AMT = [
           ]
         ],
         "find": {
-          "id": "nachweis",
+          "id": "nachweis", "rel": ["angaben", "antrag"],
           "expr": "<span class=\"fx\">den</span> <span class=\"nv\">Nachweis</span> <span class=\"v\">erbringen</span>",
           "mean": "durch Belege oder Unterlagen beweisen, dass etwas stimmt",
           "bau": "den Nachweis für + Akk. / einer Sache (Gen.) erbringen",
@@ -247,7 +247,7 @@ const WMS_AMT = [
           ]
         ],
         "find": {
-          "id": "bearbeitung",
+          "id": "bearbeitung", "rel": ["genehmigung", "frist_amt", "antrag"],
           "expr": "<span class=\"fx\">in</span> <span class=\"nv\">Bearbeitung</span> <span class=\"v\">sein</span>",
           "mean": "gerade bearbeitet werden, noch nicht abgeschlossen sein",
           "bau": "in Bearbeitung sein · feste Präposition",
@@ -291,7 +291,7 @@ const WMS_AMT = [
           ]
         ],
         "find": {
-          "id": "genehmigung",
+          "id": "genehmigung", "rel": ["bearbeitung", "zustimmung", "antrag"],
           "expr": "<span class=\"fx\">eine</span> <span class=\"nv\">Genehmigung</span> <span class=\"v\">erteilen</span>",
           "mean": "etwas offiziell erlauben",
           "bau": "jemandem eine Genehmigung für + Akk. erteilen · formell",
@@ -335,7 +335,7 @@ const WMS_AMT = [
           ]
         ],
         "find": {
-          "id": "frist",
+          "id": "frist_amt", "rel": ["frist", "bearbeitung", "verzug_amt"],
           "expr": "<span class=\"fx\">eine</span> <span class=\"nv\">Frist</span> <span class=\"v\">setzen</span>",
           "mean": "festlegen, bis wann etwas erledigt werden muss",
           "bau": "jemandem (Dat.) eine Frist bis + Datum setzen",
@@ -473,7 +473,7 @@ const WMS_AMT = [
           ]
         ],
         "find": {
-          "id": "einspruch",
+          "id": "einspruch", "rel": ["widerspruch", "beschwerde", "einwaende"],
           "expr": "<span class=\"nv\">Einspruch</span> <span class=\"v\">einlegen</span>",
           "mean": "einer Entscheidung mit einem vorgesehenen Rechtsbehelf entgegentreten",
           "bau": "Einspruch gegen + Akk. einlegen · formell",
@@ -517,7 +517,7 @@ const WMS_AMT = [
           ]
         ],
         "find": {
-          "id": "beschwerde",
+          "id": "beschwerde", "rel": ["einspruch", "kritik"],
           "expr": "<span class=\"nv\">Beschwerde</span> <span class=\"v\">einlegen</span>",
           "mean": "eine Beanstandung offiziell vorbringen",
           "bau": "bei + Dat. Beschwerde einlegen · formell",
@@ -561,7 +561,7 @@ const WMS_AMT = [
           ]
         ],
         "find": {
-          "id": "widerspruch",
+          "id": "widerspruch", "rel": ["einspruch", "beschwerde", "einwaende"],
           "expr": "<span class=\"nv\">Widerspruch</span> <span class=\"v\">erheben</span>",
           "mean": "einer Entscheidung förmlich widersprechen",
           "bau": "Widerspruch gegen + Akk. erheben · formell",
@@ -699,7 +699,7 @@ const WMS_AMT = [
           ]
         ],
         "find": {
-          "id": "verzug",
+          "id": "verzug_amt", "rel": ["verzug", "frist_amt"],
           "expr": "<span class=\"fx\">in</span> <span class=\"nv\">Verzug</span> <span class=\"v\">geraten</span>",
           "mean": "bei einer geschuldeten Leistung rechtlich relevant zu spät kommen",
           "bau": "mit + Dat. in Verzug geraten · formell",
@@ -743,7 +743,7 @@ const WMS_AMT = [
           ]
         ],
         "find": {
-          "id": "inkraft",
+          "id": "inkraft", "rel": ["ausserkraft", "frist_amt"],
           "expr": "<span class=\"fx\">in</span> <span class=\"nv\">Kraft</span> <span class=\"v\">treten</span>",
           "mean": "ab einem bestimmten Zeitpunkt rechtlich gelten",
           "bau": "in Kraft treten · feste Wortgruppe",
@@ -787,7 +787,7 @@ const WMS_AMT = [
           ]
         ],
         "find": {
-          "id": "ausserkraft",
+          "id": "ausserkraft", "rel": ["inkraft"],
           "expr": "<span class=\"fx\">außer</span> <span class=\"nv\">Kraft</span> <span class=\"v\">setzen</span>",
           "mean": "dafür sorgen, dass eine Regelung nicht mehr gilt",
           "bau": "etwas (Akk.) außer Kraft setzen · formell",
@@ -898,3 +898,4 @@ const WMS_AMT = [
     ]
   }
 ];
+(window.WMS=window.WMS||[]).push({bereich:'amt',goals:WMS_AMT});

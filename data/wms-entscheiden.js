@@ -29,7 +29,7 @@ const WMS_ENTSCHEIDEN = [
           ]
         ],
         "find": {
-          "id": "betracht",
+          "id": "betracht", "rel": ["infrage", "auswahl_stehen", "entscheidung"],
           "expr": "etwas <span class=\"fx\">in</span> <span class=\"nv\">Betracht</span> <span class=\"v\">ziehen</span>",
           "mean": "eine Möglichkeit ernsthaft prüfen, ohne schon zu entscheiden",
           "bau": "etwas (Akk.) in Betracht ziehen",
@@ -73,7 +73,7 @@ const WMS_ENTSCHEIDEN = [
           ]
         ],
         "find": {
-          "id": "infrage",
+          "id": "infrage", "rel": ["betracht", "auswahl_stehen"],
           "expr": "<span class=\"fx\">in</span> <span class=\"nv\">Frage</span> <span class=\"v\">kommen</span>",
           "mean": "als Möglichkeit geeignet sein",
           "bau": "infrage kommen · ohne Artikel",
@@ -117,7 +117,7 @@ const WMS_ENTSCHEIDEN = [
           ]
         ],
         "find": {
-          "id": "auswahl_stehen",
+          "id": "auswahl_stehen", "rel": ["auswahl_treffen", "infrage"],
           "expr": "<span class=\"fx\">zur</span> <span class=\"nv\">Auswahl</span> <span class=\"v\">stehen</span>",
           "mean": "als auswählbare Möglichkeit angeboten werden",
           "bau": "zur Auswahl stehen · feste Präposition",
@@ -255,7 +255,7 @@ const WMS_ENTSCHEIDEN = [
           ]
         ],
         "find": {
-          "id": "entscheidung",
+          "id": "entscheidung", "rel": ["auswahl_treffen", "entschluss", "prioritaeten"],
           "expr": "<span class=\"fx\">eine</span> <span class=\"nv\">Entscheidung</span> <span class=\"v\">treffen</span>",
           "mean": "entscheiden und sich festlegen",
           "bau": "eine Entscheidung treffen · mit Artikel",
@@ -299,7 +299,7 @@ const WMS_ENTSCHEIDEN = [
           ]
         ],
         "find": {
-          "id": "entschluss",
+          "id": "entschluss", "rel": ["entscheidung", "verantwortung"],
           "expr": "<span class=\"fx\">einen</span> <span class=\"nv\">Entschluss</span> <span class=\"v\">fassen</span>",
           "mean": "sich fest vornehmen, etwas zu tun",
           "bau": "einen Entschluss fassen, etwas zu tun · mit Artikel",
@@ -343,7 +343,7 @@ const WMS_ENTSCHEIDEN = [
           ]
         ],
         "find": {
-          "id": "auswahl_treffen",
+          "id": "auswahl_treffen", "rel": ["auswahl_stehen", "entscheidung"],
           "expr": "<span class=\"fx\">eine</span> <span class=\"nv\">Auswahl</span> <span class=\"v\">treffen</span>",
           "mean": "aus mehreren Möglichkeiten etwas auswählen",
           "bau": "eine Auswahl treffen · mit Artikel",
@@ -481,7 +481,7 @@ const WMS_ENTSCHEIDEN = [
           ]
         ],
         "find": {
-          "id": "zustimmung",
+          "id": "zustimmung", "rel": ["zustimmung_finden", "ablehnung", "genehmigung"],
           "expr": "<span class=\"fx\">seine</span> <span class=\"nv\">Zustimmung</span> <span class=\"fx\">zu + Dat.</span> <span class=\"v\">geben</span>",
           "mean": "ausdrücklich einverstanden sein",
           "bau": "seine Zustimmung zu + Dat. geben",
@@ -525,7 +525,7 @@ const WMS_ENTSCHEIDEN = [
           ]
         ],
         "find": {
-          "id": "zustimmung_finden",
+          "id": "zustimmung_finden", "rel": ["zustimmung", "ablehnung"],
           "expr": "<span class=\"nv\">Zustimmung</span> <span class=\"v\">finden</span>",
           "mean": "von anderen positiv aufgenommen werden",
           "bau": "Zustimmung finden · ohne Artikel",
@@ -569,7 +569,7 @@ const WMS_ENTSCHEIDEN = [
           ]
         ],
         "find": {
-          "id": "ablehnung",
+          "id": "ablehnung", "rel": ["zustimmung_finden", "kritik", "einwaende"],
           "expr": "<span class=\"fx\">auf</span> <span class=\"nv\">Ablehnung</span> <span class=\"v\">stoßen</span>",
           "mean": "von anderen abgelehnt werden",
           "bau": "auf Ablehnung stoßen · feste Präposition",
@@ -703,7 +703,7 @@ const WMS_ENTSCHEIDEN = [
           ]
         ],
         "find": {
-          "id": "konsequenzen",
+          "id": "konsequenzen", "rel": ["verantwortung", "inkauf", "vorbereitung"],
           "expr": "<span class=\"nv\">Konsequenzen</span> <span class=\"v\">ziehen</span>",
           "mean": "aus Erfahrungen oder Fehlern konkrete Folgen für das eigene Handeln ableiten",
           "bau": "Konsequenzen aus + Dat. ziehen",
@@ -747,7 +747,7 @@ const WMS_ENTSCHEIDEN = [
           ]
         ],
         "find": {
-          "id": "inkauf",
+          "id": "inkauf", "rel": ["konsequenzen", "verantwortung"],
           "expr": "<span class=\"nv\">Risiko</span> <span class=\"fx\">in</span> <span class=\"nv\">Kauf</span> <span class=\"v\">nehmen</span>",
           "mean": "einen bekannten möglichen Nachteil bewusst akzeptieren",
           "bau": "ein Risiko in Kauf nehmen · feste Wortgruppe",
@@ -791,7 +791,7 @@ const WMS_ENTSCHEIDEN = [
           ]
         ],
         "find": {
-          "id": "verantwortung",
+          "id": "verantwortung", "rel": ["konsequenzen", "entschluss", "unterstuetzung"],
           "expr": "<span class=\"nv\">Verantwortung</span> <span class=\"v\">übernehmen</span>",
           "mean": "eine Aufgabe und die Zuständigkeit dafür auf sich nehmen",
           "bau": "Verantwortung für + Akk. übernehmen",
@@ -898,3 +898,4 @@ const WMS_ENTSCHEIDEN = [
     ]
   }
 ];
+(window.WMS=window.WMS||[]).push({bereich:'entscheiden',goals:WMS_ENTSCHEIDEN});
