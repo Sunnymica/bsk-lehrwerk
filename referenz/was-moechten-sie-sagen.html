@@ -28,6 +28,10 @@ h2{font:clamp(24px,4vw,30px)/1.2 Georgia,serif;margin:0 0 10px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .chip{border-radius:999px;padding:5px 14px;font-size:16px;border:1px dashed #cdbfb2;color:#b3a69a;background:#fff}
 .chip.on{border:1px solid #e8cfa9;background:var(--peach);color:var(--ink)}
+button.chip{cursor:pointer}button.chip.on:hover{border-color:var(--nv)}
+.chip.sel{box-shadow:0 0 0 2px var(--nv)}
+.chip.q{border-style:dashed;background:#fff;color:var(--accent)}
+.related h4{margin:16px 0 4px;font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 /* Journey */
 .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .dots{display:flex;gap:6px}
@@ -95,6 +99,7 @@ h2{font:clamp(24px,4vw,30px)/1.2 Georgia,serif;margin:0 0 10px}
     <h3>Ihre Fundstücke</h3>
     <div class="score" id="shelfCount"></div>
     <div class="chips" id="shelf"></div>
+    <div id="shelfCard"></div>
   </div>
 </section>
 
@@ -120,7 +125,7 @@ const G=[
  cases:[
  {who:'Nora · Einkauf',scene:'Ein Lieferant ruft an. Er fragt, ob seine Ersatzteile schon angekommen sind. Nora weiß es nicht. Das Lager meldet sich erst morgen.',ask:'Was sagt Nora?',
   opts:[['„Ich gebe Ihnen morgen Bescheid.“','best','Die Antwort kommt später, wenn Nora sie hat. Genau dafür ist „Bescheid geben“ da.'],
-        ['„Ich gebe Ihnen morgen Auskunft.“','geht','Grammatisch richtig, klingt aber nach Amt. Auskunft gibt man meistens sofort, auf eine konkrete Frage.'],
+        ['„Ich gebe Ihnen morgen Auskunft.“','geht','Grammatisch richtig, klingt hier aber förmlich. Auskunft gibt man auf eine konkrete Frage. Nora kündigt nur an, dass sie sich meldet.'],
         ['„Ich halte Sie morgen auf dem Laufenden.“','nein','„Auf dem Laufenden halten“ heißt: immer wieder informieren. Hier geht es um eine einzige Nachricht.']],
   find:{id:'bescheid',expr:N('Bescheid')+' '+V('geben'),mean:'jemanden informieren, oft später, wenn man die Antwort hat',bau:'jemandem (Dat.) Bescheid geben · ohne Artikel',
    satz:'Ich '+V('gebe')+' Ihnen morgen '+N('Bescheid')+'.',satzHint:'Wie „Ich rufe Sie morgen an“: Das Nomen steht am Ende.',
@@ -147,7 +152,7 @@ const G=[
   ['Kunde','Kann mir jemand sagen, was der Versand nach Polen kostet?'],
   ['Nora','Ja, unser Kundenservice {2}.']],
   gaps:[
-   [['gebe Ihnen Bescheid','best','Nora meldet sich, wenn sie es weiß.'],['gebe Ihnen Auskunft','geht','Richtig, aber förmlich. Und Auskunft gibt man eher sofort.'],['halte Ihnen auf dem Laufenden','nein','Zwei Probleme: Es geht um eine Nachricht, und es heißt „halte <b>Sie</b>“.']],
+   [['gebe Ihnen Bescheid','best','Nora meldet sich, wenn sie es weiß.'],['gebe Ihnen Auskunft','geht','Richtig, aber förmlich. Nora kündigt hier nur an, dass sie sich meldet.'],['halte Ihnen auf dem Laufenden','nein','Zwei Probleme: Es geht um eine Nachricht, und es heißt „halte <b>Sie</b>“.']],
    [['halte ich Sie auf dem Laufenden','best','Jeden Tag informieren: auf dem Laufenden halten.'],['gebe ich Ihnen Bescheid','geht','Möglich, aber „jeden Tag“ passt besser zu „auf dem Laufenden halten“.'],['gebe ich Ihnen Auskunft','nein','Der Kunde fragt hier nichts. Er will informiert werden.']],
    [['gibt Ihnen gern Auskunft','best','Eine konkrete Frage zum Preis: Auskunft geben.'],['gibt Ihnen gern Bescheid','nein','„Bescheid geben“ passt zu einer Nachricht, auf die man wartet. Hier stellt der Kunde eine Frage.'],['hält Sie gern auf dem Laufenden','nein','Der Kunde will nur eine Zahl wissen, keine regelmäßigen Nachrichten.']]]},
  next:['nachfragen','antworten']},
@@ -156,7 +161,7 @@ const G=[
  cases:[
  {who:'Pawel Nowak · Lager',scene:'Pawel findet im neuen Lagerplan eine Abkürzung, die er nicht kennt. Nora sitzt im Büro nebenan. Die beiden duzen sich.',ask:'Was sagt Pawel zu Nora?',
   opts:[['„Nora, darf ich dir kurz eine Frage stellen?“','best','Eine einfache Frage an eine Kollegin. Freundlich und ganz normal.'],
-        ['„Nora, ich möchte eine Anfrage an dich stellen.“','nein','Viel zu förmlich. Anfragen gehen an Firmen oder Ämter, nicht an die Kollegin nebenan.'],
+        ['„Nora, ich möchte eine Anfrage an dich stellen.“','nein','Viel zu förmlich für eine kurze Frage an die Kollegin nebenan. Eine Anfrage ist eine offizielle, meist schriftliche Bitte, oft an Firmen oder Ämter.'],
         ['„Nora, ich muss mit dir Rücksprache halten.“','nein','Rücksprache hält man, bevor man etwas entscheidet. Pawel will nur etwas wissen.']],
   find:{id:'frage',expr:F('eine')+' '+N('Frage')+' '+V('stellen'),mean:'fragen',bau:'jemandem (Dat.) eine Frage (zu + Dat.) stellen',
    satz:'Pawel '+V('stellt')+' Nora eine '+N('Frage')+' zum Lagerplan.',satzHint:'Nie: „eine Frage fragen“. Eine Frage stellt man.',
@@ -167,11 +172,11 @@ const G=[
         ['„Hiermit möchten wir mit Ihnen Rücksprache halten.“','nein','Mit einer fremden Firma hält man keine Rücksprache. Rücksprache ist Abstimmung, meist intern.']],
   find:{id:'anfrage',expr:F('eine')+' '+N('Anfrage')+' '+V('stellen'),mean:'offiziell um eine Information oder ein Angebot bitten',bau:'(bei + Dat.) eine Anfrage stellen',
    satz:'Nora '+V('stellt')+' bei der Spedition eine '+N('Anfrage')+'.',satzHint:'Mit „bei“: bei der Spedition, bei der Stadt.',
-   more:[['Einfacher gesagt','„Wir fragen bei der Spedition an.“'],['ein Angebot einholen','Typisch im Einkauf: mehrere Angebote einholen und vergleichen.'],['Frage oder Anfrage?','Frage: Kollegin, Alltag. Anfrage: Firma, Amt, schriftlich.']]}},
+   more:[['Einfacher gesagt','„Wir fragen bei der Spedition an.“'],['ein Angebot einholen','Typisch im Einkauf: mehrere Angebote einholen und vergleichen.'],['Frage oder Anfrage?','Frage: mündlich, Alltag. Anfrage: offiziell, meist schriftlich, oft an Firmen oder Ämter.']]}},
  {who:'Nora · Einkauf',scene:'Ein Kunde möchte zehn Prozent Rabatt. Nora findet das in Ordnung, darf es aber nicht allein entscheiden.',ask:'Was sagt Nora zum Kunden?',
   opts:[['„Ich halte kurz Rücksprache mit meiner Chefin und melde mich dann.“','best','Etwas muss abgestimmt werden, bevor Nora zusagt: Rücksprache halten.'],
         ['„Ich stelle meiner Chefin kurz eine Frage und melde mich dann.“','geht','Auch freundlich und richtig. „Rücksprache“ zeigt aber besser: Das muss erst entschieden werden.'],
-        ['„Ich stelle kurz eine Anfrage bei meiner Chefin.“','nein','Eine Anfrage geht nach außen, nicht an die eigene Chefin.']],
+        ['„Ich stelle kurz eine Anfrage bei meiner Chefin.“','nein','Für ein kurzes Abstimmen mit der Chefin zu förmlich. Eine Anfrage ist eine offizielle, meist schriftliche Bitte.']],
   find:{id:'ruecksprache',expr:N('Rücksprache')+' '+V('halten'),mean:'sich mit jemandem abstimmen, bevor man etwas entscheidet',bau:'(mit + Dat.) Rücksprache halten · ohne Artikel',
    satz:'Ich '+V('halte')+' zuerst '+N('Rücksprache')+' mit Frau Melnyk.',satzHint:'„zuerst“ steht vor „Rücksprache“. Die Ergänzung „mit Frau Melnyk“ darf davor oder dahinter stehen.',
    more:[['Einfacher gesagt','„Ich spreche kurz mit meiner Chefin.“'],['nach Rücksprache mit','Sehr häufig in Mails: „Nach Rücksprache mit Frau Melnyk können wir Ihnen …“'],['sich abstimmen','Ähnlich, etwas lockerer: „Ich stimme mich kurz ab.“']]}}],
@@ -182,7 +187,7 @@ const G=[
   ['Nora','Das weiß ich noch nicht. Ich werde bei der Spedition {1}.'],
   ['Kunde','Gut. Ach, {2}?']],
   gaps:[
-   [['mit Frau Melnyk Rücksprache halten','best','Vor der Zusage wird abgestimmt.'],['Frau Melnyk eine Frage stellen','geht','Möglich, aber „Rücksprache“ zeigt: Es geht um eine Entscheidung.'],['eine Anfrage bei Frau Melnyk stellen','nein','Eine Anfrage geht nach außen.']],
+   [['mit Frau Melnyk Rücksprache halten','best','Vor der Zusage wird abgestimmt.'],['Frau Melnyk eine Frage stellen','geht','Möglich, aber „Rücksprache“ zeigt: Es geht um eine Entscheidung.'],['eine Anfrage bei Frau Melnyk stellen','nein','Zu förmlich. Nora will sich nur kurz abstimmen.']],
    [['eine Anfrage stellen','best','Bei einer Firma: eine Anfrage stellen.'],['Rücksprache halten','nein','Rücksprache hält man <b>mit</b> jemandem, meistens intern.'],['eine Frage stellen','nein','Eine Frage stellt man <b>jemandem</b>, nicht „bei“ jemandem.']],
    [['darf ich Ihnen noch eine Frage stellen','best','Höflich und normal.'],['darf ich noch eine Anfrage stellen','nein','Am Telefon, mitten im Gespräch: viel zu förmlich.'],['darf ich noch Rücksprache halten','nein','Der Kunde will etwas wissen, nichts abstimmen.']]]},
  next:['informieren','probleme']},
@@ -265,12 +270,27 @@ try{found=new Set(JSON.parse(localStorage.getItem('wms-found')||'[]'))}catch(e){
 const save=()=>{try{localStorage.setItem('wms-found',JSON.stringify([...found]))}catch(e){}};
 const allFinds=G.flatMap(g=>g.cases.map(c=>c.find));
 const plain=h=>h.replace(/<[^>]+>/g,'');
+const REL={bescheid:['auskunft','rueckmeldung','laufend'],auskunft:['bescheid','anfrage','frage'],laufend:['bescheid','rueckmeldung'],frage:['anfrage','ruecksprache','auskunft'],anfrage:['frage','auskunft'],ruecksprache:['frage','stellung'],rueckmeldung:['bescheid','absage','stellung'],stellung:['rueckmeldung','kritik','einwaende'],absage:['rueckmeldung','einwaende'],sprache:['kritik','einwaende','ruecksprache'],kritik:['sprache','einwaende','stellung'],einwaende:['kritik','stellung']};
+const findById=Object.fromEntries(G.flatMap(g=>g.cases.map(c=>[c.find.id,{f:c.find,g}])));
+function cardHTML(f,isNew,tag){return `<div class="find"><div class="tag">${tag}</div><div class="expr">${f.expr}</div><div class="mean">= ${f.mean}</div><div class="bau">${f.bau}</div>
+   <div class="satz">${f.satz}<small>${f.satzHint}</small></div>
+   <div class="more">${f.more.map((m,k)=>`<button type="button" data-m="${k}">${m[0]}</button>`).join('')}</div><div class="reveal" id="rev" hidden></div>
+   <div class="related"><h4>Weiterstöbern</h4><div class="chips">${(REL[f.id]||[]).map(r=>found.has(r)?`<button type="button" class="chip on" data-rel="${r}">${plain(findById[r].f.expr)}</button>`:`<button type="button" class="chip q" data-goalrel="${findById[r].g.key}">? Noch verdeckt · ${findById[r].g.title}</button>`).join('')}</div></div></div>`}
+function wireCard(f,box){
+  box.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{const m=f.more[+b.dataset.m],rv=box.querySelector('#rev');const open=b.classList.contains('open');box.querySelectorAll('[data-m]').forEach(x=>x.classList.remove('open'));if(open){rv.hidden=true;return}b.classList.add('open');rv.hidden=false;rv.innerHTML='<b>'+m[0]+':</b> '+m[1]});
+  const inJourney=!$('#journey').hidden;
+  box.querySelectorAll('[data-rel]').forEach(b=>b.onclick=()=>{if(!inJourney)return openShelf(b.dataset.rel);const r=findById[b.dataset.rel].f,rv=box.querySelector('#rev');rv.hidden=false;rv.innerHTML='<b>'+plain(r.expr)+':</b> '+r.mean+'<br><span style="font-family:Georgia,serif">'+r.satz+'</span>'});
+  box.querySelectorAll('[data-goalrel]').forEach(b=>{if(inJourney){b.disabled=true;b.style.cursor='default';b.textContent=b.textContent.replace('? Noch verdeckt','? Noch zu entdecken')}else b.onclick=()=>openGoal(b.dataset.goalrel)});
+}
+function openShelf(id){$('#journey').hidden=true;$('#start').hidden=false;const box=$('#shelfCard');box.innerHTML=cardHTML(findById[id].f,false,'Aus Ihrer Sammlung');wireCard(findById[id].f,box);document.querySelectorAll('#shelf .chip').forEach(c=>c.classList.toggle('sel',c.dataset.id===id));box.scrollIntoView({behavior:'smooth',block:'start'})}
 
 function drawStart(){
+  if($('#shelfCard'))$('#shelfCard').innerHTML='';
   $('#goals').innerHTML=G.map(g=>{const n=g.cases.filter(c=>found.has(c.find.id)).length;return `<button class="goal" data-goal="${g.key}" type="button"><span class="ico">${g.ico}</span><strong>${g.title}</strong><small>${g.short}</small><span class="found">${n?n+' von 3 entdeckt':'&nbsp;'}</span></button>`}).join('');
   document.querySelectorAll('[data-goal]').forEach(b=>b.onclick=()=>openGoal(b.dataset.goal));
-  $('#shelf').innerHTML=allFinds.map(f=>found.has(f.id)?`<span class="chip on">${plain(f.expr)}</span>`:'<span class="chip">?</span>').join('');
-  $('#shelfCount').textContent=found.size?`${found.size} von ${allFinds.length} Ausdrücken entdeckt`:'Noch leer. Jede Situation bringt Ihnen einen neuen Ausdruck.';
+  $('#shelf').innerHTML=allFinds.map(f=>found.has(f.id)?`<button type="button" class="chip on" data-id="${f.id}">${plain(f.expr)}</button>`:'<span class="chip">?</span>').join('');
+  document.querySelectorAll('#shelf [data-id]').forEach(b=>b.onclick=()=>openShelf(b.dataset.id));
+  $('#shelfCount').textContent=found.size?`${found.size} von ${allFinds.length} Ausdrücken entdeckt. Tippen Sie auf einen Ausdruck, um ihn wieder zu öffnen.`:'Noch leer. Jede Situation bringt Ihnen einen neuen Ausdruck.';
 }
 function $(s){return document.querySelector(s)}
 
@@ -305,11 +325,8 @@ function pick(c,i){
 }
 function showFind(f){
   const isNew=!found.has(f.id);found.add(f.id);save();
-  $('#after').innerHTML=`<div class="find"><div class="tag">${isNew?'Neu entdeckt':'Schon in Ihrer Sammlung'}</div><div class="expr">${f.expr}</div><div class="mean">= ${f.mean}</div><div class="bau">${f.bau}</div>
-   <div class="satz">${f.satz}<small>${f.satzHint}</small></div>
-   <div class="more">${f.more.map((m,k)=>`<button type="button" data-m="${k}">${m[0]}</button>`).join('')}</div><div class="reveal" id="rev" hidden></div></div>
-   <div class="row"><button class="btn primary" id="go" type="button">${step<cur.cases.length-1?'Nächste Situation →':'Zum Dialog →'}</button></div>`;
-  document.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{const m=f.more[+b.dataset.m],rv=$('#rev');const open=b.classList.contains('open');document.querySelectorAll('[data-m]').forEach(x=>x.classList.remove('open'));if(open){rv.hidden=true;return}b.classList.add('open');rv.hidden=false;rv.innerHTML='<b>'+m[0]+':</b> '+m[1]});
+  $('#after').innerHTML=cardHTML(f,isNew,isNew?'Neu entdeckt':'Schon in Ihrer Sammlung')+`<div class="row"><button class="btn primary" id="go" type="button">${step<cur.cases.length-1?'Nächste Situation →':'Zum Dialog →'}</button></div>`;
+  wireCard(f,$('#after'));
   $('#go').onclick=()=>{step++;render();window.scrollTo(0,0)};
   $('.find').scrollIntoView({behavior:'smooth',block:'start'});
 }
