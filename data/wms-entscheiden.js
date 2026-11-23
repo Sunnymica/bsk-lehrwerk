@@ -23,13 +23,18 @@ const WMS_ENTSCHEIDEN = [
             "Auch richtig. Das beschreibt die Eignung als Möglichkeit, nicht so deutlich Noras aktives Prüfen."
           ],
           [
-            "„Wir treffen einen Miettransporter in Betracht.“",
+            "„Wir bringen den Miettransporter jetzt zum Einsatz.“",
             "nein",
-            "Die Verbindung lautet „etwas in Betracht ziehen“, nicht „treffen“."
+            "„Zum Einsatz bringen“ bedeutet, dass er bereits eingesetzt wird. Nora prüft aber erst eine Möglichkeit."
           ]
         ],
         "find": {
-          "id": "betracht", "rel": ["infrage", "auswahl_stehen", "entscheidung"],
+          "id": "betracht",
+          "rel": [
+            "infrage",
+            "auswahl_stehen",
+            "entscheidung"
+          ],
           "expr": "etwas <span class=\"fx\">in</span> <span class=\"nv\">Betracht</span> <span class=\"v\">ziehen</span>",
           "mean": "eine Möglichkeit ernsthaft prüfen, ohne schon zu entscheiden",
           "bau": "etwas (Akk.) in Betracht ziehen",
@@ -67,13 +72,17 @@ const WMS_ENTSCHEIDEN = [
             "Das ist auch richtig, wenn Donnerstag ausdrücklich eine der angebotenen Alternativen ist."
           ],
           [
-            "„Der Donnerstag trifft eine Entscheidung.“",
+            "„Der Donnerstag tritt ebenfalls in Kraft.“",
             "nein",
-            "Ein Termin kann keine Entscheidung treffen."
+            "„In Kraft treten“ passt zu Regeln und Vorschriften. Ein Termin wird dadurch nicht zur möglichen Option."
           ]
         ],
         "find": {
-          "id": "infrage", "rel": ["betracht", "auswahl_stehen"],
+          "id": "infrage",
+          "rel": [
+            "betracht",
+            "auswahl_stehen"
+          ],
           "expr": "<span class=\"fx\">in</span> <span class=\"nv\">Frage</span> <span class=\"v\">kommen</span>",
           "mean": "als Möglichkeit geeignet sein",
           "bau": "infrage kommen · ohne Artikel",
@@ -111,13 +120,17 @@ const WMS_ENTSCHEIDEN = [
             "Auch möglich, denn alle drei wären geeignet. Die ausdrücklich angebotene Auswahl wird weniger deutlich."
           ],
           [
-            "„Drei Räume treffen eine Auswahl.“",
+            "„Drei Räume werden zur Verfügung gestellt.“",
             "nein",
-            "Eine Auswahl treffen kann nur jemand, der auswählt."
+            "„Zur Verfügung stellen“ heißt: Man kann die Räume benutzen. Es sagt nicht unbedingt, dass die Gäste daraus wählen sollen."
           ]
         ],
         "find": {
-          "id": "auswahl_stehen", "rel": ["auswahl_treffen", "infrage"],
+          "id": "auswahl_stehen",
+          "rel": [
+            "auswahl_treffen",
+            "infrage"
+          ],
           "expr": "<span class=\"fx\">zur</span> <span class=\"nv\">Auswahl</span> <span class=\"v\">stehen</span>",
           "mean": "als auswählbare Möglichkeit angeboten werden",
           "bau": "zur Auswahl stehen · feste Präposition",
@@ -181,9 +194,9 @@ const WMS_ENTSCHEIDEN = [
             "Sprachlich korrekt, aber hier soll eine Nomen-Verb-Verbindung geübt werden."
           ],
           [
-            "zur Auswahl ziehen",
+            "zur Verfügung stellen",
             "nein",
-            "Diese Verbindung gibt es so nicht."
+            "„Zur Verfügung stellen“ hieße, einen Transporter bereitzustellen. Hier werden Mietmöglichkeiten erst geprüft."
           ]
         ],
         [
@@ -198,9 +211,9 @@ const WMS_ENTSCHEIDEN = [
             "Richtiges einfaches Verb, aber hier wird die Nomen-Verb-Verbindung geübt."
           ],
           [
-            "kommt zur Auswahl",
+            "tritt in Kraft",
             "nein",
-            "Hier sagt man „kommt infrage“ oder „steht zur Auswahl“."
+            "Das beschreibt den Geltungsbeginn einer Regel, nicht die Eignung eines Fahrzeugs."
           ]
         ],
         [
@@ -215,9 +228,9 @@ const WMS_ENTSCHEIDEN = [
             "Auch möglich, wenn alle drei geeignet sind."
           ],
           [
-            "ziehen in Betracht",
+            "kommen zum Einsatz",
             "nein",
-            "Das wäre eine Tätigkeit von Personen, nicht der Fahrzeuge."
+            "Das bedeutet, die Fahrzeuge werden tatsächlich eingesetzt. Nora spricht über angebotene Optionen."
           ]
         ]
       ]
@@ -249,13 +262,18 @@ const WMS_ENTSCHEIDEN = [
             "Auch richtig, denn sie wählt einen Lieferanten aus. Die Entscheidung kann darüber hinaus weitere Bedingungen betreffen."
           ],
           [
-            "„Frau Melnyk nimmt heute eine Entscheidung.“",
+            "„Frau Melnyk stellt heute einen Antrag.“",
             "nein",
-            "Man „trifft“ oder „fällt“ eine Entscheidung, man „nimmt“ sie nicht."
+            "Einen Antrag stellen heißt: offiziell um etwas bitten. Frau Melnyk entscheidet aber selbst."
           ]
         ],
         "find": {
-          "id": "entscheidung", "rel": ["auswahl_treffen", "entschluss", "prioritaeten"],
+          "id": "entscheidung",
+          "rel": [
+            "auswahl_treffen",
+            "entschluss",
+            "prioritaeten"
+          ],
           "expr": "<span class=\"fx\">eine</span> <span class=\"nv\">Entscheidung</span> <span class=\"v\">treffen</span>",
           "mean": "entscheiden und sich festlegen",
           "bau": "eine Entscheidung treffen · mit Artikel",
@@ -293,13 +311,17 @@ const WMS_ENTSCHEIDEN = [
             "Auch richtig. „Entschluss fassen“ betont den festen Vorsatz."
           ],
           [
-            "„Pawel hat einen Entschluss genommen.“",
+            "„Pawel hat den Antrag auf die Schulung gestellt.“",
             "nein",
-            "Es heißt „einen Entschluss fassen“."
+            "Ein Antrag wäre eine Bitte um Genehmigung. Im Fall hat Pawel sich zunächst selbst fest entschlossen."
           ]
         ],
         "find": {
-          "id": "entschluss", "rel": ["entscheidung", "verantwortung"],
+          "id": "entschluss",
+          "rel": [
+            "entscheidung",
+            "verantwortung"
+          ],
           "expr": "<span class=\"fx\">einen</span> <span class=\"nv\">Entschluss</span> <span class=\"v\">fassen</span>",
           "mean": "sich fest vornehmen, etwas zu tun",
           "bau": "einen Entschluss fassen, etwas zu tun · mit Artikel",
@@ -337,13 +359,17 @@ const WMS_ENTSCHEIDEN = [
             "Auch richtig, aber „Auswahl“ betont das Aussuchen aus mehreren Modellen."
           ],
           [
-            "„Nora stellt eine Auswahl.“",
+            "„Nora stellt die fünf Modelle zur Verfügung.“",
             "nein",
-            "Das Verb der Verbindung ist „treffen“."
+            "Zur Verfügung stellen bedeutet: Andere können sie nutzen. Nora soll aber zwei Modelle auswählen."
           ]
         ],
         "find": {
-          "id": "auswahl_treffen", "rel": ["auswahl_stehen", "entscheidung"],
+          "id": "auswahl_treffen",
+          "rel": [
+            "auswahl_stehen",
+            "entscheidung"
+          ],
           "expr": "<span class=\"fx\">eine</span> <span class=\"nv\">Auswahl</span> <span class=\"v\">treffen</span>",
           "mean": "aus mehreren Möglichkeiten etwas auswählen",
           "bau": "eine Auswahl treffen · mit Artikel",
@@ -407,9 +433,9 @@ const WMS_ENTSCHEIDEN = [
             "Auch möglich, wenn Nora aus den fünf Schreibtischen auswählt."
           ],
           [
-            "eine Entscheidung nehmen",
+            "einen Antrag stellen",
             "nein",
-            "Das ist keine richtige Verbindung."
+            "Ein Antrag ist eine Bitte um Genehmigung. Nora entscheidet selbst über den Kauf."
           ]
         ],
         [
@@ -424,9 +450,9 @@ const WMS_ENTSCHEIDEN = [
             "Das ist richtig, aber weniger spezifisch."
           ],
           [
-            "einen Entschluss genommen",
+            "Rücksprache gehalten",
             "nein",
-            "Die Verbindung heißt „einen Entschluss fassen“."
+            "Das würde nur bedeuten, dass Pawel etwas besprochen hat. Seinen festen Entschluss drückt es nicht aus."
           ]
         ],
         [
@@ -441,9 +467,9 @@ const WMS_ENTSCHEIDEN = [
             "Auch richtig, aber weniger konkret."
           ],
           [
-            "eine Auswahl stellen",
+            "Maßnahmen treffen",
             "nein",
-            "Das ist keine gebräuchliche Verbindung."
+            "Maßnahmen wären konkrete Schritte. Hier sollen zunächst zwei Stuhlmodelle ausgesucht werden."
           ]
         ]
       ]
@@ -475,13 +501,18 @@ const WMS_ENTSCHEIDEN = [
             "Genauso richtig, nur einfacher ausgedrückt."
           ],
           [
-            "„Samira nimmt ihre Zustimmung.“",
+            "„Samira gibt Rückmeldung zu der Änderung.“",
             "nein",
-            "Die Verbindung heißt „Zustimmung geben“."
+            "Eine Rückmeldung kann auch eine Ablehnung oder Nachfrage sein. Hier erklärt Samira ausdrücklich ihr Einverständnis."
           ]
         ],
         "find": {
-          "id": "zustimmung", "rel": ["zustimmung_finden", "ablehnung", "genehmigung"],
+          "id": "zustimmung",
+          "rel": [
+            "zustimmung_finden",
+            "ablehnung",
+            "genehmigung"
+          ],
           "expr": "<span class=\"fx\">seine</span> <span class=\"nv\">Zustimmung</span> <span class=\"fx\">zu + Dat.</span> <span class=\"v\">geben</span>",
           "mean": "ausdrücklich einverstanden sein",
           "bau": "seine Zustimmung zu + Dat. geben",
@@ -519,13 +550,17 @@ const WMS_ENTSCHEIDEN = [
             "Inhaltlich ebenso richtig, nur ohne Nomen-Verb-Verbindung."
           ],
           [
-            "„Der Vorschlag gibt Zustimmung.“",
+            "„Der Vorschlag kommt bei allen zur Sprache.“",
             "nein",
-            "Nicht der Vorschlag gibt Zustimmung; er kann Zustimmung finden."
+            "Zur Sprache kommen heißt: Man spricht über den Vorschlag. Das sagt noch nichts über die Zustimmung."
           ]
         ],
         "find": {
-          "id": "zustimmung_finden", "rel": ["zustimmung", "ablehnung"],
+          "id": "zustimmung_finden",
+          "rel": [
+            "zustimmung",
+            "ablehnung"
+          ],
           "expr": "<span class=\"nv\">Zustimmung</span> <span class=\"v\">finden</span>",
           "mean": "von anderen positiv aufgenommen werden",
           "bau": "Zustimmung finden · ohne Artikel",
@@ -563,13 +598,18 @@ const WMS_ENTSCHEIDEN = [
             "Ebenfalls richtig, die Ablehnung klingt darin etwas weniger deutlich."
           ],
           [
-            "„Der Vorschlag erteilt Ablehnung.“",
+            "„Der Vorschlag findet Beachtung.“",
             "nein",
-            "Ein Vorschlag kann keine Ablehnung erteilen."
+            "Beachtung finden bedeutet: Etwas wird wahrgenommen. Die Beschäftigten lehnen den Vorschlag aber ausdrücklich ab."
           ]
         ],
         "find": {
-          "id": "ablehnung", "rel": ["zustimmung_finden", "kritik", "einwaende"],
+          "id": "ablehnung",
+          "rel": [
+            "zustimmung_finden",
+            "kritik",
+            "einwaende"
+          ],
           "expr": "<span class=\"fx\">auf</span> <span class=\"nv\">Ablehnung</span> <span class=\"v\">stoßen</span>",
           "mean": "von anderen abgelehnt werden",
           "bau": "auf Ablehnung stoßen · feste Präposition",
@@ -629,9 +669,9 @@ const WMS_ENTSCHEIDEN = [
             "Inhaltlich richtig, aber hier soll die Nomen-Verb-Verbindung geübt werden."
           ],
           [
-            "gibt Zustimmung",
+            "steht zur Diskussion",
             "nein",
-            "Der Vorschlag kann sie nicht geben."
+            "Das heißt, der Vorschlag wird noch besprochen. Ob die Beschäftigten zustimmen, bleibt offen."
           ]
         ],
         [
@@ -646,9 +686,9 @@ const WMS_ENTSCHEIDEN = [
             "Auch richtig, schwächer als die ausdrückliche Ablehnung."
           ],
           [
-            "erteilt er Ablehnung",
+            "kommt er zur Sprache",
             "nein",
-            "Ein Vorschlag erteilt nichts."
+            "Das bezeichnet nur das Ansprechen des Themas, nicht die ablehnende Reaktion."
           ]
         ],
         [
@@ -663,9 +703,9 @@ const WMS_ENTSCHEIDEN = [
             "Richtig und einfacher, aber keine Nomen-Verb-Verbindung."
           ],
           [
-            "finde meine Zustimmung",
+            "gebe Rückmeldung",
             "nein",
-            "Das ist keine gebräuchliche Wendung."
+            "Eine Rückmeldung muss keine Zustimmung sein. Samira stimmt hier ausdrücklich zu."
           ]
         ]
       ]
@@ -697,13 +737,18 @@ const WMS_ENTSCHEIDEN = [
             "Auch richtig: Sie handelt. „Konsequenzen ziehen“ betont, dass die Maßnahmen eine Reaktion auf die Fehler sind."
           ],
           [
-            "„Frau Melnyk gibt Konsequenzen.“",
+            "„Frau Melnyk nimmt die Fehler zur Kenntnis.“",
             "nein",
-            "Man „zieht“ Konsequenzen; man gibt sie nicht."
+            "Zur Kenntnis nehmen heißt zunächst: Die Fehler werden registriert. Hier verändert sie als Reaktion bereits das Verfahren."
           ]
         ],
         "find": {
-          "id": "konsequenzen", "rel": ["verantwortung", "inkauf", "vorbereitung"],
+          "id": "konsequenzen",
+          "rel": [
+            "verantwortung",
+            "inkauf",
+            "vorbereitung"
+          ],
           "expr": "<span class=\"nv\">Konsequenzen</span> <span class=\"v\">ziehen</span>",
           "mean": "aus Erfahrungen oder Fehlern konkrete Folgen für das eigene Handeln ableiten",
           "bau": "Konsequenzen aus + Dat. ziehen",
@@ -741,13 +786,17 @@ const WMS_ENTSCHEIDEN = [
             "Auch richtig, nur anders formuliert."
           ],
           [
-            "„Nora stellt das Risiko in Kauf.“",
+            "„Nora zieht das Risiko in Betracht.“",
             "nein",
-            "Die Verbindung heißt „in Kauf nehmen“."
+            "In Betracht ziehen heißt: etwas erwägen. Nora entscheidet sich bereits und akzeptiert den möglichen Nachteil."
           ]
         ],
         "find": {
-          "id": "inkauf", "rel": ["konsequenzen", "verantwortung"],
+          "id": "inkauf",
+          "rel": [
+            "konsequenzen",
+            "verantwortung"
+          ],
           "expr": "<span class=\"nv\">Risiko</span> <span class=\"fx\">in</span> <span class=\"nv\">Kauf</span> <span class=\"v\">nehmen</span>",
           "mean": "einen bekannten möglichen Nachteil bewusst akzeptieren",
           "bau": "ein Risiko in Kauf nehmen · feste Wortgruppe",
@@ -785,13 +834,18 @@ const WMS_ENTSCHEIDEN = [
             "Genauso richtig und einfacher."
           ],
           [
-            "„Ich treffe die Verantwortung für die Warenannahme.“",
+            "„Ich halte Rücksprache über die Warenannahme.“",
             "nein",
-            "Man „übernimmt“ oder „trägt“ Verantwortung, man trifft sie nicht."
+            "Rücksprache halten heißt: sich abstimmen. Pawel sagt aber zu, selbst zuständig zu sein."
           ]
         ],
         "find": {
-          "id": "verantwortung", "rel": ["konsequenzen", "entschluss", "unterstuetzung"],
+          "id": "verantwortung",
+          "rel": [
+            "konsequenzen",
+            "entschluss",
+            "unterstuetzung"
+          ],
           "expr": "<span class=\"nv\">Verantwortung</span> <span class=\"v\">übernehmen</span>",
           "mean": "eine Aufgabe und die Zuständigkeit dafür auf sich nehmen",
           "bau": "Verantwortung für + Akk. übernehmen",
@@ -851,9 +905,9 @@ const WMS_ENTSCHEIDEN = [
             "Auch richtig, wenn konkrete Schritte gemeint sind."
           ],
           [
-            "Konsequenzen geben",
+            "die Fehler zur Kenntnis nehmen",
             "nein",
-            "Das ist keine richtige Verbindung."
+            "Das wäre zunächst nur das Registrieren. Nora will jetzt konkrete Änderungen anstoßen."
           ]
         ],
         [
@@ -868,9 +922,9 @@ const WMS_ENTSCHEIDEN = [
             "Auch möglich, wenn Pawel tatsächlich die Arbeitsgruppe leitet."
           ],
           [
-            "Verantwortung treffen",
+            "Abstimmung übernehmen",
             "nein",
-            "Diese Verbindung gibt es nicht."
+            "Eine Abstimmung ist ein Verfahren oder Gespräch, nicht die Verantwortung für die Warenannahme."
           ]
         ],
         [
@@ -885,9 +939,9 @@ const WMS_ENTSCHEIDEN = [
             "Inhaltlich richtig, aber kein Nomen-Verb-Gefüge."
           ],
           [
-            "in Kauf stellen",
+            "in Betracht ziehen",
             "nein",
-            "Die feste Verbindung heißt „in Kauf nehmen“."
+            "Das hieße: das Risiko nur erwägen. Frau Melnyk akzeptiert es bereits bewusst."
           ]
         ]
       ]
