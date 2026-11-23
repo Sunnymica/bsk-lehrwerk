@@ -1723,6 +1723,18 @@
               "status": "fertig"
             },
             {
+              "titel": "Nomen-Verb-Verbindungen: die große Sammlung",
+              "beschreibung": "Über 60 Verbindungen nach Situation, Verb und Register, mit Satzbau-Training und Übungen.",
+              "pfad": "nomen-verb-sammlung.html",
+              "niveau": "B1–C1",
+              "dauer": "Nachschlagen",
+              "fertigkeiten": [
+                "Lesen",
+                "Üben"
+              ],
+              "status": "fertig"
+            },
+            {
               "titel": "Glossar",
               "beschreibung": "Alle Wörter des Kurses, durchsuchbar.",
               "pfad": "glossar.html",
