@@ -23,13 +23,19 @@ const WMS_AMT = [
             "Das ist ebenso richtig und einfacher."
           ],
           [
-            "„Samira nimmt einen Antrag auf Förderung.“",
+            "„Samira stellt eine Anfrage zur Förderung.“",
             "nein",
-            "Einen Antrag stellt man. „Aufnehmen“ wäre hier etwas anderes."
+            "Eine Anfrage kann zunächst nur Informationen erbitten. Samira reicht hier einen offiziellen Förderantrag ein."
           ]
         ],
         "find": {
-          "id": "antrag", "rel": ["angaben", "nachweis", "genehmigung", "anfrage"],
+          "id": "antrag",
+          "rel": [
+            "angaben",
+            "nachweis",
+            "genehmigung",
+            "anfrage"
+          ],
           "expr": "<span class=\"fx\">einen</span> <span class=\"nv\">Antrag</span> <span class=\"fx\">auf + Akk.</span> <span class=\"v\">stellen</span>",
           "mean": "offiziell um etwas bitten, das genehmigt werden muss",
           "bau": "einen Antrag auf + Akk. stellen · Artikel und Präposition",
@@ -67,13 +73,18 @@ const WMS_AMT = [
             "Das ist richtig und einfacher."
           ],
           [
-            "„KONTOR stellt Angaben auf.“",
+            "„KONTOR erbringt den Nachweis der Lagerfläche und der Beschäftigtenzahl.“",
             "nein",
-            "Man „macht“ Angaben; „aufstellen“ passt hier nicht."
+            "Ein Nachweis belegt Angaben mit Unterlagen. Hier soll KONTOR zunächst die Zahlen nennen."
           ]
         ],
         "find": {
-          "id": "angaben", "rel": ["antrag", "nachweis", "auskunft"],
+          "id": "angaben",
+          "rel": [
+            "antrag",
+            "nachweis",
+            "auskunft"
+          ],
           "expr": "<span class=\"nv\">Angaben</span> <span class=\"v\">machen</span>",
           "mean": "in einem Formular oder einer Mitteilung Informationen nennen",
           "bau": "Angaben zu + Dat. machen · meist Mehrzahl",
@@ -111,13 +122,17 @@ const WMS_AMT = [
             "Das ist genauso richtig und kürzer."
           ],
           [
-            "„Nora hat einen Nachweis getroffen.“",
+            "„Nora hat Angaben zur Zahlung gemacht.“",
             "nein",
-            "Einen Nachweis kann man erbringen oder vorlegen, aber nicht treffen."
+            "Angaben machen bedeutet: etwas mitteilen. Der Zahlungsbeleg dient gerade als Nachweis."
           ]
         ],
         "find": {
-          "id": "nachweis", "rel": ["angaben", "antrag"],
+          "id": "nachweis",
+          "rel": [
+            "angaben",
+            "antrag"
+          ],
           "expr": "<span class=\"fx\">den</span> <span class=\"nv\">Nachweis</span> <span class=\"v\">erbringen</span>",
           "mean": "durch Belege oder Unterlagen beweisen, dass etwas stimmt",
           "bau": "den Nachweis für + Akk. / einer Sache (Gen.) erbringen",
@@ -173,9 +188,9 @@ const WMS_AMT = [
             "Ebenso richtig und einfacher, aber hier wird die Nomen-Verb-Verbindung geübt."
           ],
           [
-            "einen Antrag zur Förderung nehmen",
+            "eine Anfrage zur Förderung stellen",
             "nein",
-            "So lautet die Verbindung nicht."
+            "Eine Anfrage bittet erst um Informationen. Die Förderung wird hier bereits beantragt."
           ]
         ],
         [
@@ -190,9 +205,9 @@ const WMS_AMT = [
             "Richtiges einfaches Verb, aber hier wird die Wortverbindung geübt."
           ],
           [
-            "die Lagerfläche Nachweis machen",
+            "Nachweise zur Lagerfläche erbringen",
             "nein",
-            "Diese Verbindung ist grammatisch falsch."
+            "Damit würde KONTOR eine Angabe belegen; hier geht es zuerst darum, die Zahlen einzutragen."
           ]
         ],
         [
@@ -207,9 +222,9 @@ const WMS_AMT = [
             "Auch richtig, das betont die Abgabe des Dokuments."
           ],
           [
-            "den Nachweis der Zahlung treffen",
+            "Angaben zur Zahlung machen",
             "nein",
-            "Die Verbindung heißt „Nachweis erbringen“."
+            "Angaben wären nur eine Mitteilung. Die vorhandene Quittung beweist die Zahlung."
           ]
         ]
       ]
@@ -241,13 +256,18 @@ const WMS_AMT = [
             "Auch richtig, soweit tatsächlich eine Prüfung läuft."
           ],
           [
-            "„Der Antrag ist schon in Kraft.“",
+            "„Der Antrag ist bereits genehmigt.“",
             "nein",
-            "In Kraft treten können Regelungen, nicht die Bearbeitung eines Antrags."
+            "Eine Genehmigung wäre die Entscheidung. Tatsächlich wird der Antrag noch geprüft."
           ]
         ],
         "find": {
-          "id": "bearbeitung", "rel": ["genehmigung", "frist_amt", "antrag"],
+          "id": "bearbeitung",
+          "rel": [
+            "genehmigung",
+            "frist_amt",
+            "antrag"
+          ],
           "expr": "<span class=\"fx\">in</span> <span class=\"nv\">Bearbeitung</span> <span class=\"v\">sein</span>",
           "mean": "gerade bearbeitet werden, noch nicht abgeschlossen sein",
           "bau": "in Bearbeitung sein · feste Präposition",
@@ -285,13 +305,18 @@ const WMS_AMT = [
             "Genauso richtig, nur mit einem einfachen Verb."
           ],
           [
-            "„Die Behörde hat eine Genehmigung gestellt.“",
+            "„Die Behörde hat den Antrag in Bearbeitung genommen.“",
             "nein",
-            "Man „erteilt“ eine Genehmigung; man stellt einen Antrag."
+            "Die Bearbeitung ist nur ein Verfahrensschritt. Laut Fall liegt die Erlaubnis bereits vor."
           ]
         ],
         "find": {
-          "id": "genehmigung", "rel": ["bearbeitung", "zustimmung", "antrag"],
+          "id": "genehmigung",
+          "rel": [
+            "bearbeitung",
+            "zustimmung",
+            "antrag"
+          ],
           "expr": "<span class=\"fx\">eine</span> <span class=\"nv\">Genehmigung</span> <span class=\"v\">erteilen</span>",
           "mean": "etwas offiziell erlauben",
           "bau": "jemandem eine Genehmigung für + Akk. erteilen · formell",
@@ -329,13 +354,18 @@ const WMS_AMT = [
             "Auch richtig, aber die feste Frist wird hier nicht ausdrücklich benannt."
           ],
           [
-            "„Die Behörde befristet KONTOR bis zum 15. Dezember.“",
+            "„Die Behörde hat die Unterlagen zur Kenntnis genommen.“",
             "nein",
-            "„Befristen“ bedeutet etwas anderes; eine Frist setzt man."
+            "Zur Kenntnis nehmen heißt: eine Information registrieren. Hier fordert sie fehlende Unterlagen bis zu einem festen Termin an."
           ]
         ],
         "find": {
-          "id": "frist_amt", "rel": ["frist", "bearbeitung", "verzug_amt"],
+          "id": "frist_amt",
+          "rel": [
+            "frist",
+            "bearbeitung",
+            "verzug_amt"
+          ],
           "expr": "<span class=\"fx\">eine</span> <span class=\"nv\">Frist</span> <span class=\"v\">setzen</span>",
           "mean": "festlegen, bis wann etwas erledigt werden muss",
           "bau": "jemandem (Dat.) eine Frist bis + Datum setzen",
@@ -399,9 +429,9 @@ const WMS_AMT = [
             "Auch richtig, sofern der Antrag derzeit geprüft wird."
           ],
           [
-            "ist schon in Kraft",
+            "ist bereits genehmigt",
             "nein",
-            "Das sagt man nicht über den Bearbeitungsstand eines Antrags."
+            "Das wäre eine positive Entscheidung. Der Antrag wird laut Gespräch aber noch bearbeitet."
           ]
         ],
         [
@@ -416,9 +446,9 @@ const WMS_AMT = [
             "Genauso richtig und einfacher."
           ],
           [
-            "einen Antrag gestellt",
+            "den Antrag geprüft",
             "nein",
-            "Den Antrag stellt KONTOR, nicht die genehmigende Behörde."
+            "Eine Prüfung ist noch keine offizielle Erlaubnis, die hier bereits vorliegt."
           ]
         ],
         [
@@ -433,9 +463,9 @@ const WMS_AMT = [
             "Auch möglich, aber weniger präzise."
           ],
           [
-            "KONTOR bis Dezember befristet",
+            "eine Genehmigung für den Sicherheitsplan erteilt",
             "nein",
-            "Das ist keine korrekte Paraphrase für eine Fristsetzung."
+            "Das hieße, der Sicherheitsplan sei schon erlaubt. Hier muss er erst nachgereicht werden."
           ]
         ]
       ]
@@ -467,13 +497,18 @@ const WMS_AMT = [
             "Als allgemeine Beschreibung ist das richtig, nennt aber nicht den konkreten Rechtsbehelf."
           ],
           [
-            "„KONTOR möchte den Steuerbescheid genehmigen.“",
+            "„KONTOR möchte Stellung zum Steuerbescheid nehmen.“",
             "nein",
-            "KONTOR genehmigt keinen Steuerbescheid; es möchte ihn überprüfen lassen."
+            "Eine Stellungnahme erklärt die eigene Sicht. Laut Rechtsbehelfsbelehrung soll hier förmlich Einspruch eingelegt werden."
           ]
         ],
         "find": {
-          "id": "einspruch", "rel": ["widerspruch", "beschwerde", "einwaende"],
+          "id": "einspruch",
+          "rel": [
+            "widerspruch",
+            "beschwerde",
+            "einwaende"
+          ],
           "expr": "<span class=\"nv\">Einspruch</span> <span class=\"v\">einlegen</span>",
           "mean": "einer Entscheidung mit einem vorgesehenen Rechtsbehelf entgegentreten",
           "bau": "Einspruch gegen + Akk. einlegen · formell",
@@ -501,9 +536,9 @@ const WMS_AMT = [
         "ask": "Wie kann man das formeller ausdrücken?",
         "opts": [
           [
-            "„Nora legt bei der Spedition Beschwerde ein.“",
+            "„Nora reicht bei der Spedition eine Beschwerde ein.“",
             "best",
-            "Sie bringt ihren Unmut formell beim Unternehmen vor."
+            "Sie reicht ihre Beanstandung schriftlich beim Unternehmen ein."
           ],
           [
             "„Nora beschwert sich bei der Spedition.“",
@@ -511,18 +546,22 @@ const WMS_AMT = [
             "Ebenso richtig und im Geschäftsalltag natürlicher."
           ],
           [
-            "„Nora erteilt der Spedition Beschwerde.“",
+            "„Nora stellt bei der Spedition eine Anfrage.“",
             "nein",
-            "Eine Beschwerde kann man einlegen oder vorbringen, nicht erteilen."
+            "Eine Anfrage bittet um Informationen oder ein Angebot. Nora will eine fehlerhafte Lieferung beanstanden."
           ]
         ],
         "find": {
-          "id": "beschwerde", "rel": ["einspruch", "kritik"],
-          "expr": "<span class=\"nv\">Beschwerde</span> <span class=\"v\">einlegen</span>",
-          "mean": "eine Beanstandung offiziell vorbringen",
-          "bau": "bei + Dat. Beschwerde einlegen · formell",
-          "satz": "Nora <span class=\"v\">legt</span> bei der Spedition <span class=\"nv\">Beschwerde</span> <span class=\"v\">ein</span>.",
-          "satzHint": "Das trennbare Verb ist „einlegen“; „ein“ steht im Hauptsatz am Ende.",
+          "id": "beschwerde",
+          "rel": [
+            "einspruch",
+            "kritik"
+          ],
+          "expr": "<span class=\"fx\">eine</span> <span class=\"nv\">Beschwerde</span> <span class=\"v\">einreichen</span>",
+          "mean": "eine Beanstandung schriftlich oder formell bei der zuständigen Stelle vorbringen",
+          "bau": "bei + Dat. eine Beschwerde einreichen · Büro/formell",
+          "satz": "Nora <span class=\"v\">reicht</span> bei der Spedition eine <span class=\"nv\">Beschwerde</span> <span class=\"v\">ein</span>.",
+          "satzHint": "„Einreichen“ ist trennbar: „reicht ... ein“.",
           "more": [
             [
               "Einfacher gesagt",
@@ -530,7 +569,7 @@ const WMS_AMT = [
             ],
             [
               "Andere Wendung",
-              "„Eine Beschwerde vorbringen“ ist ebenfalls möglich."
+              "Auch üblich: „eine Beschwerde vorbringen“."
             ],
             [
               "Nicht automatisch",
@@ -545,23 +584,28 @@ const WMS_AMT = [
         "ask": "Wie beschreibt man das?",
         "opts": [
           [
-            "„KONTOR erhebt Widerspruch gegen den Bescheid.“",
-            "best",
-            "KONTOR nutzt den genannten Rechtsbehelf."
-          ],
-          [
             "„KONTOR legt Widerspruch gegen den Bescheid ein.“",
-            "geht",
-            "Ebenso richtig und besonders gebräuchlich."
+            "best",
+            "„Widerspruch einlegen“ ist die übliche Formulierung für den im Bescheid genannten Rechtsbehelf."
           ],
           [
-            "„KONTOR erteilt dem Bescheid Widerspruch.“",
+            "„KONTOR erhebt Widerspruch gegen den Bescheid.“",
+            "geht",
+            "„Widerspruch erheben“ ist ebenfalls richtig und formell."
+          ],
+          [
+            "„KONTOR möchte zum Bescheid Stellung nehmen.“",
             "nein",
-            "So lautet die Verbindung nicht."
+            "Eine Stellungnahme legt die eigene Sicht dar, ersetzt aber nicht den im Bescheid vorgesehenen Widerspruch."
           ]
         ],
         "find": {
-          "id": "widerspruch", "rel": ["einspruch", "beschwerde", "einwaende"],
+          "id": "widerspruch",
+          "rel": [
+            "einspruch",
+            "beschwerde",
+            "einwaende"
+          ],
           "expr": "<span class=\"nv\">Widerspruch</span> <span class=\"v\">erheben</span>",
           "mean": "einer Entscheidung förmlich widersprechen",
           "bau": "Widerspruch gegen + Akk. erheben · formell",
@@ -625,43 +669,43 @@ const WMS_AMT = [
             "Allgemein richtig, benennt den Rechtsbehelf aber nicht."
           ],
           [
-            "eine Genehmigung erteilen",
+            "Stellung nehmen",
             "nein",
-            "Das ist kein Rechtsbehelf."
+            "Eine Stellungnahme ist nicht der im Steuerbescheid genannte Einspruch."
           ]
         ],
         [
           [
-            "Beschwerde einlegen",
+            "eine Beschwerde einreichen",
             "best",
-            "Eine formelle Beanstandung beim Unternehmen ist gemeint."
+            "Eine formelle Beanstandung bei der Spedition."
           ],
           [
             "sich beschweren",
             "geht",
-            "Genauso richtig, nur einfacher."
+            "Ebenso richtig, nur einfacher."
           ],
           [
-            "Einspruch gegen die Spedition einlegen",
+            "eine Anfrage stellen",
             "nein",
-            "„Einspruch“ bezeichnet hier keinen passenden Rechtsbehelf."
+            "Eine Anfrage erfragt etwas; Nora will einen Schaden beanstanden."
           ]
         ],
         [
           [
-            "Widerspruch gegen den Bescheid erheben",
-            "best",
-            "Der Bescheid benennt ausdrücklich den Widerspruch."
-          ],
-          [
             "Widerspruch gegen den Bescheid einlegen",
-            "geht",
-            "Ebenso richtig und gebräuchlich."
+            "best",
+            "„Widerspruch einlegen“ ist hier die übliche Form."
           ],
           [
-            "den Bescheid mit Widerspruch erteilen",
+            "Widerspruch gegen den Bescheid erheben",
+            "geht",
+            "„Widerspruch erheben“ ist ebenfalls korrekt."
+          ],
+          [
+            "zum Bescheid Stellung nehmen",
             "nein",
-            "Man erteilt keinen Widerspruch."
+            "Eine Stellungnahme ist kein Ersatz für den ausdrücklich vorgesehenen Widerspruch."
           ]
         ]
       ]
@@ -693,13 +737,17 @@ const WMS_AMT = [
             "Das wäre richtig, wenn die Lieferung inzwischen erfolgt wäre; hier steht sie aber noch aus."
           ],
           [
-            "„KONTOR hat die Frist in Kraft gesetzt.“",
+            "„KONTOR ist mit der Lieferung in Verhandlungen getreten.“",
             "nein",
-            "Das bedeutet nicht, dass eine Lieferung verspätet ist."
+            "In Verhandlungen treten bedeutet: Gespräche zur Einigung beginnen. Die Lieferung ist aber überfällig."
           ]
         ],
         "find": {
-          "id": "verzug_amt", "rel": ["verzug", "frist_amt"],
+          "id": "verzug_amt",
+          "rel": [
+            "verzug",
+            "frist_amt"
+          ],
           "expr": "<span class=\"fx\">in</span> <span class=\"nv\">Verzug</span> <span class=\"v\">geraten</span>",
           "mean": "bei einer geschuldeten Leistung rechtlich relevant zu spät kommen",
           "bau": "mit + Dat. in Verzug geraten · formell",
@@ -737,13 +785,17 @@ const WMS_AMT = [
             "Genauso richtig und einfacher."
           ],
           [
-            "„Die neue Regelung erteilt am 1. Januar Kraft.“",
+            "„Die neue Regelung kommt am 1. Januar zur Anwendung.“",
             "nein",
-            "Eine Regelung „tritt in Kraft“."
+            "Zur Anwendung kommen heißt: eine Regel wird in einem Fall angewendet. Hier ist ausdrücklich der Beginn ihrer rechtlichen Geltung gemeint."
           ]
         ],
         "find": {
-          "id": "inkraft", "rel": ["ausserkraft", "frist_amt"],
+          "id": "inkraft",
+          "rel": [
+            "ausserkraft",
+            "frist_amt"
+          ],
           "expr": "<span class=\"fx\">in</span> <span class=\"nv\">Kraft</span> <span class=\"v\">treten</span>",
           "mean": "ab einem bestimmten Zeitpunkt rechtlich gelten",
           "bau": "in Kraft treten · feste Wortgruppe",
@@ -781,13 +833,16 @@ const WMS_AMT = [
             "Genauso richtig und einfacher."
           ],
           [
-            "„Die Geschäftsführung tritt die Regelung außer Kraft.“",
+            "„Die Geschäftsführung stellt die Regelung zur Diskussion.“",
             "nein",
-            "Eine Regelung kann außer Kraft treten; die Geschäftsführung setzt sie außer Kraft."
+            "Zur Diskussion stellen bedeutet: darüber beraten lassen. Die Geschäftsführung hat die Aufhebung bereits beschlossen."
           ]
         ],
         "find": {
-          "id": "ausserkraft", "rel": ["inkraft"],
+          "id": "ausserkraft",
+          "rel": [
+            "inkraft"
+          ],
           "expr": "<span class=\"fx\">außer</span> <span class=\"nv\">Kraft</span> <span class=\"v\">setzen</span>",
           "mean": "dafür sorgen, dass eine Regelung nicht mehr gilt",
           "bau": "etwas (Akk.) außer Kraft setzen · formell",
@@ -851,9 +906,9 @@ const WMS_AMT = [
             "Alltagssprachlich richtig, aber nicht die gesuchte Verbindung."
           ],
           [
-            "in Kraft geraten",
+            "in Verhandlungen getreten",
             "nein",
-            "Diese Verbindung gibt es nicht."
+            "Das wäre der Beginn von Gesprächen, nicht die rechtlich relevante Verspätung."
           ]
         ],
         [
@@ -868,9 +923,9 @@ const WMS_AMT = [
             "Richtiges einfaches Verb, aber die Nomen-Verb-Verbindung wird geübt."
           ],
           [
-            "außer Kraft setzen",
+            "zur Anwendung kommen",
             "nein",
-            "Das würde die Geltung beenden, nicht beginnen."
+            "Das bezieht sich auf die Anwendung im konkreten Fall, nicht zwingend auf den Beginn der Geltung."
           ]
         ],
         [
@@ -885,9 +940,9 @@ const WMS_AMT = [
             "Genauso richtig und einfacher."
           ],
           [
-            "außer Kraft treten",
+            "zur Diskussion stellen",
             "nein",
-            "Dazu müsste der Satz „Die Regelung wird außer Kraft treten“ heißen; mit „wir werden“ braucht man „setzen“."
+            "Die Leitung hat die Aufhebung bereits beschlossen, sie möchte die Regel nicht nur diskutieren."
           ]
         ]
       ]
