@@ -786,8 +786,8 @@ const WMS_AMT = [
           ],
           [
             "„Die neue Regelung kommt am 1. Januar zur Anwendung.“",
-            "nein",
-            "Zur Anwendung kommen heißt: eine Regel wird in einem Fall angewendet. Hier ist ausdrücklich der Beginn ihrer rechtlichen Geltung gemeint."
+            "geht",
+            "Möglich: Ab dann wird sie angewendet. „In Kraft treten“ sagt aber genauer, dass sie ab diesem Tag rechtlich gilt."
           ]
         ],
         "find": {
@@ -924,8 +924,8 @@ const WMS_AMT = [
           ],
           [
             "zur Anwendung kommen",
-            "nein",
-            "Das bezieht sich auf die Anwendung im konkreten Fall, nicht zwingend auf den Beginn der Geltung."
+            "geht",
+            "Möglich. „In Kraft treten“ sagt aber genauer, dass die Regelung ab diesem Tag rechtlich gilt."
           ]
         ],
         [
