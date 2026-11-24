@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Modalverben: die Grundlagen · Deutsch fürs Büro</title>
+<style>
+:root{--ink:#24324d;--amber:#96506e;--pale:#f8ecf1;--sky:#eaf0f7;--cream:#fdfaf7;--line:#e5dbe0;--muted:#6b6f7a;--ok:#2e6b4a;--bad:#b03030;--nv:#b5651d;--warn:#fde9cf}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:19px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+button{font:inherit;color:inherit;cursor:pointer;border:1px solid var(--line);background:#fff;padding:10px 16px;border-radius:10px}
+button:hover{background:var(--sky)}
+button:disabled{opacity:.45;cursor:default}
+button.active,button.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+button:focus-visible,summary:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+header{padding:36px max(24px,calc((100% - 1080px)/2));background:#fff;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+header:after{content:'🔧';position:absolute;font-size:170px;opacity:.08;right:4%;top:-30px;pointer-events:none}
+.eyebrow{font-size:12px;letter-spacing:.17em;text-transform:uppercase;font-weight:700;color:var(--amber)}
+h1{font:clamp(32px,5vw,48px)/1.12 Georgia,serif;margin:12px 0}
+h2{font:28px/1.2 Georgia,serif;margin:0 0 12px}
+h3{font-size:19px;margin:22px 0 8px}
+p{margin:8px 0 12px}
+.sub{max-width:720px;color:var(--muted)}
+.wrap{max-width:1100px;margin:auto;padding:24px}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.folgt{font-size:12px;background:var(--warn);border-radius:999px;padding:1px 8px;margin-left:6px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;margin-bottom:22px}
+.hint{background:var(--sky);border-radius:12px;padding:14px 18px;margin:12px 0}
+.small{font-size:15px;color:var(--muted)}
+.stat{font-size:16px;color:var(--muted)}
+details{border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0;background:#fff}
+summary{cursor:pointer;font-weight:700}
+[hidden]{display:none!important}
+.verb{color:var(--ok);font-weight:700}
+.merk{font:24px/1.4 Georgia,serif;background:#e3f1e8;border-left:6px solid var(--ok);border-radius:10px;padding:16px 22px;margin:16px 0}
+.blitz{background:var(--warn);border-radius:12px;padding:14px 18px;margin:18px 0 6px;font-size:19px}
+.blitz b:first-child{display:block;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--nv);margin-bottom:4px}
+.vorlage{font:22px/1.4 Georgia,serif;background:#fff;border-radius:8px;padding:6px 12px;display:inline-block;margin-top:4px}
+/* Bedeutungskarten */
+.lit{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff;display:flex;flex-direction:column;gap:6px}
+.card .ico{font-size:46px;line-height:1}
+.card .sit{color:var(--muted);font-size:17px}
+.card .satz{font:22px/1.35 Georgia,serif}
+/* Tabellen */
+table.feld{border-collapse:collapse;width:100%;margin:10px 0;font-size:20px}
+table.feld th{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 10px;border-bottom:2px solid var(--line)}
+table.feld th small{text-transform:none;letter-spacing:0}
+table.feld td{padding:9px 10px;border:1px solid var(--line)}
+table.feld .v{background:#d8eedf;font-weight:700;color:var(--ok)}
+table.feld .e{background:#d8eedf55}
+table.feld tr.sep td{border-top:3px solid var(--line)}
+.pair{margin:10px 0;display:grid;gap:4px;font-size:20px}
+.pair .no{background:#fbd5d5;border-left:6px solid var(--bad);padding:8px 14px;border-radius:8px}
+.pair .yes{background:#d8eedf;border-left:6px solid var(--ok);padding:8px 14px;border-radius:8px;font-weight:600}
+.zwei{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:12px 0}
+.zwei>div{border-radius:14px;padding:16px 18px;font-size:19px}
+.zwei .gut{background:#e3f1e8}.zwei .stop{background:#fbe3e3}.zwei .neutral{background:var(--sky)}
+.zwei .gr{font:24px/1.3 Georgia,serif;margin-bottom:6px}
+/* Quiz */
+.q{border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;background:#fff}
+.q .sit2{font-size:17px;color:var(--muted);margin-bottom:4px}
+.q .s{font:22px/1.4 Georgia,serif;margin-bottom:8px}
+.q .opts{display:flex;gap:8px;flex-wrap:wrap}
+.q .opts.col{flex-direction:column;align-items:stretch}
+.q .opts.col button{text-align:left}
+.q .fb{margin-top:10px;font-size:17px;border-radius:10px;padding:10px 14px}
+.fb.ok{background:#e3f1e8}.fb.no{background:#fbe3e3}.fb.mid{background:var(--warn)}
+.okb{background:#e3f1e8!important;border-color:var(--ok)!important;color:var(--ok)!important;font-weight:700;opacity:1!important}
+.midb{background:var(--warn)!important;border-color:#d9a54a!important;opacity:1!important}
+.nob{background:#fbe3e3!important;border-color:var(--bad)!important}
+.legend3{display:flex;gap:10px;flex-wrap:wrap;font-size:15px;margin:4px 0 8px}
+.legend3 span{border-radius:999px;padding:2px 12px}
+/* Lücken */
+.slotq{border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:10px 0;background:#fff}
+.slotq .s{font:22px/2.1 Georgia,serif}
+.slotq .sl{display:inline-block;min-width:30px;text-align:center;border:2px dashed #b9d3c2;border-radius:8px;margin:0 4px;padding:0 6px;cursor:pointer;color:#8fb39c;font:700 16px system-ui;line-height:28px;vertical-align:middle;background:#fff}
+.slotq .sl:hover{background:var(--sky)}
+.slotq .sl.hit{border-style:solid;border-color:var(--ok);background:#e3f1e8;color:var(--ok);font:700 22px Georgia,serif}
+.slotq .sl.miss{border-color:var(--bad);background:#fbe3e3}
+.slotq .fb{margin-top:6px;font-size:17px;border-radius:10px;padding:8px 12px}
+/* Sätze bauen */
+.chips{display:flex;gap:8px;flex-wrap:wrap;min-height:52px;margin:8px 0}
+.chips button{font-size:20px;padding:8px 14px}
+.chips button.m{color:var(--ok);font-weight:700}
+.line-ans{min-height:60px;border:2px dashed var(--line);border-radius:12px;padding:8px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:var(--cream)}
+.line-ans button{font-size:20px;padding:8px 14px}
+.line-ans button.m{color:var(--ok);font-weight:700}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;align-items:center}
+.tag{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--sky);border-radius:999px;padding:2px 12px;margin-bottom:8px}
+.sub-nav{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 6px}
+.sub-nav a{font-size:15px;background:var(--sky);border-radius:999px;padding:4px 14px;color:inherit;text-decoration:none}
+</style>
+</head><body>
+<header>
+  <a href="../grammatik.html" style="display:inline-block;margin-bottom:10px;color:inherit;font-size:15px">← Grammatik</a>
+  <div class="eyebrow">Deutsch fürs Büro · Verben · Grundlagen</div>
+  <h1>Modalverben: die Grundlagen</h1>
+  <p class="sub">müssen, können, dürfen, sollen, wollen, möchten: sechs kleine Wörter, die im Büro ständig vorkommen. Was bedeuten sie, wo stehen sie im Satz, und welche Verwechslung macht Ärger?</p>
+</header>
+<div class="wrap">
+<nav>
+  <button data-tab="t1" class="active">1 · Was bedeutet das?</button>
+  <button data-tab="t2">2 · Die Klammer</button>
+  <button data-tab="t3">3 · Gefährliche Paare</button>
+  <button disabled>4 · Formen<span class="folgt">folgt</span></button>
+  <button disabled>5 · Höflich bitten<span class="folgt">folgt</span></button>
+</nav>
+<main>
+
+<!-- 1 BEDEUTUNG -->
+<section id="t1">
+  <div class="panel">
+    <h2>Was bedeutet das?</h2>
+    <p>Sechs Situationen bei KONTOR. Lesen Sie die Situation und den Satz. Was sagt das <span class="verb">grüne Wort</span>? Erst raten, dann klicken.</p>
+    <div class="lit" id="bedBox"></div>
+  </div>
+  <div class="panel">
+    <h2>Die sechs auf einen Blick</h2>
+    <table class="feld">
+      <tr><th>Modalverb</th><th>Das bedeutet</th><th>Beispiel bei KONTOR</th></tr>
+      <tr><td class="verb">müssen</td><td>Das ist nötig. Es gibt keine andere Möglichkeit.</td><td>Pawel muss heute länger bleiben.</td></tr>
+      <tr><td class="verb">können</td><td>Das ist möglich. Ich kann das.</td><td>Petra kann Polnisch sprechen.</td></tr>
+      <tr><td class="verb">dürfen</td><td>Das ist erlaubt.</td><td>Im Hof darf man rauchen.</td></tr>
+      <tr><td class="verb">sollen</td><td>Eine andere Person will das. Es ist ein Auftrag.</td><td>Finn soll die Post zu Petra bringen.</td></tr>
+      <tr><td class="verb">wollen</td><td>Das ist mein fester Plan.</td><td>Jonas will einen Excel-Kurs machen.</td></tr>
+      <tr><td class="verb">möchten</td><td>Das ist mein Wunsch. Höflich.</td><td>Ich möchte gern ein Glas Wasser.</td></tr>
+    </table>
+  </div>
+  <div class="panel">
+    <h2>Jetzt Sie: Welches Modalverb passt?</h2>
+    <p>Manchmal passen zwei. Dann sehen Sie es an der Farbe:</p>
+    <div class="legend3"><span style="background:#e3f1e8">grün: passt am besten</span><span style="background:var(--warn)">gelb: geht auch</span><span style="background:#fbe3e3">rot: passt hier nicht</span></div>
+    <div id="wahlBox"></div>
+    <p class="stat" id="wahlStat"></p>
+    <div class="blitz"><b>Chat-Blitz</b>Schreiben Sie einen Satz in den Teams-Chat. Was müssen Sie heute noch machen?<br><span class="vorlage">Heute <span class="verb">muss</span> ich noch … <span class="verb">…</span>.</span><br><span class="small">Zum Beispiel: Heute muss ich noch einkaufen.</span></div>
+  </div>
+</section>
+
+<!-- 2 KLAMMER -->
+<section id="t2" hidden>
+  <div class="panel">
+    <h2>Die Klammer</h2>
+    <p>Ein Satz mit Modalverb hat <b>zwei</b> Verben. Sie stehen an zwei festen Plätzen, wie eine Klammer um den Satz.</p>
+    <div class="merk">Das <span class="verb">Modalverb</span> steht auf Position 2.<br>Das zweite <span class="verb">Verb</span> geht ans Ende. Es bleibt im Infinitiv.</div>
+    <table class="feld">
+      <tr><th>Position 1</th><th class="v">Position 2<br><small>Modalverb</small></th><th>Mitte</th><th class="e">Ende<br><small>Infinitiv</small></th></tr>
+      <tr><td>Ich</td><td class="v">muss</td><td>Pawel heute</td><td class="e"><span class="verb">anrufen</span>.</td></tr>
+      <tr><td>Heute</td><td class="v">muss</td><td>ich Pawel</td><td class="e"><span class="verb">anrufen</span>.</td></tr>
+      <tr class="sep"><td>Ich</td><td class="v">kann</td><td>Ihnen morgen</td><td class="e">Bescheid <span class="verb">geben</span>.</td></tr>
+      <tr><td>Morgen</td><td class="v">kann</td><td>ich Ihnen</td><td class="e">Bescheid <span class="verb">geben</span>.</td></tr>
+      <tr class="sep"><td>Im Lager</td><td class="v">darf</td><td>man nicht</td><td class="e"><span class="verb">rauchen</span>.</td></tr>
+    </table>
+    <div class="hint"><b>Achtung, Position 1:</b> Steht „heute“, „morgen“ oder „im Lager“ vorn, dann ist Position 1 schon besetzt. Das Modalverb kommt trotzdem auf Position 2. Die Person rutscht nach hinten.</div>
+    <div class="pair"><div class="no">✗ Morgen wir müssen früher kommen.</div><div class="yes">✓ Morgen <span class="verb">müssen</span> wir früher <span class="verb">kommen</span>.</div></div>
+    <div class="pair"><div class="no">✗ Ich muss rufen Pawel an.</div><div class="yes">✓ Ich <span class="verb">muss</span> Pawel <span class="verb">anrufen</span>.</div></div>
+    <p class="small">„anrufen“ bleibt am Ende zusammen, ein Wort. Genauso: aufräumen, abholen, Bescheid geben.</p>
+    <h3>Und die Frage?</h3>
+    <p>Bei einer Ja-Nein-Frage springt das Modalverb nach vorn. Das zweite Verb bleibt am Ende.</p>
+    <table class="feld">
+      <tr><th class="v">Modalverb</th><th>Person</th><th>Mitte</th><th class="e">Ende</th></tr>
+      <tr><td class="v">Können</td><td>Sie</td><td>mir bitte</td><td class="e"><span class="verb">helfen</span>?</td></tr>
+      <tr><td class="v">Muss</td><td>ich</td><td>am Samstag</td><td class="e"><span class="verb">kommen</span>?</td></tr>
+    </table>
+  </div>
+  <div class="panel">
+    <h3 style="margin-top:0">Jetzt Sie: Wohin kommt das zweite Verb?</h3>
+    <p>Klicken Sie auf die richtige Lücke.</p>
+    <div id="slotA"></div>
+    <h3>Jetzt Sie: Wohin kommt das Modalverb?</h3>
+    <p>Hier steht schon etwas auf Position 1. Klicken Sie auf die richtige Lücke.</p>
+    <div id="slotB"></div>
+    <div class="blitz"><b>Chat-Blitz</b>Was müssen Sie morgen machen? Beginnen Sie mit „Morgen“.<br><span class="vorlage">Morgen <span class="verb">muss</span> ich … <span class="verb">…</span>.</span><br><span class="small">Zum Beispiel: Morgen muss ich meine Mutter anrufen.</span></div>
+  </div>
+  <div class="panel">
+    <h2>Sätze bauen</h2>
+    <p>Klicken Sie die Bausteine in der richtigen Reihenfolge an. Ein Klick in der Zeile nimmt einen Baustein wieder heraus. Manchmal gibt es mehr als eine richtige Lösung.</p>
+    <div class="tag" id="sbTag"></div>
+    <div class="line-ans" id="sbAns"></div>
+    <div class="chips" id="sbChips"></div>
+    <div class="controls">
+      <button id="sbCheck" class="primary">Prüfen</button>
+      <button id="sbReset">Neu legen</button>
+      <button id="sbNext" hidden>Nächster Satz →</button>
+      <span class="stat" id="sbStat"></span>
+    </div>
+    <div id="sbFb" class="hint" hidden></div>
+  </div>
+</section>
+
+<!-- 3 GEFÄHRLICHE PAARE -->
+<section id="t3" hidden>
+  <div class="panel">
+    <div class="sub-nav"><a href="#p1">A · nicht müssen / nicht dürfen</a><a href="#p2">B · sollen / müssen</a><a href="#p3">C · wollen / möchten</a><a href="#p4">D · Alles gemischt</a></div>
+    <h2 id="p1">A · nicht müssen oder nicht dürfen?</h2>
+    <p>Das ist die gefährlichste Verwechslung. In vielen Sprachen sieht das gleich aus, auf Deutsch ist es das Gegenteil.</p>
+    <div class="zwei">
+      <div class="gut"><div class="gr">Sie <span class="verb">müssen</span> nicht kommen. 🙂</div>Es ist nicht nötig. Sie können kommen, aber Sie können auch zu Hause bleiben.</div>
+      <div class="stop"><div class="gr">Sie <span class="verb">dürfen</span> nicht kommen. ⛔</div>Es ist verboten. Bitte bleiben Sie weg.</div>
+    </div>
+    <p>Welcher Satz passt? Lesen Sie die Situation genau.</p>
+    <div id="paarA"></div>
+    <p class="stat" id="paarAStat"></p>
+  </div>
+  <div class="panel">
+    <h2 id="p2">B · sollen oder müssen?</h2>
+    <div class="zwei">
+      <div class="neutral"><div class="gr">Ich <span class="verb">muss</span> Papier bestellen.</div>Es ist nötig. Das Papier ist alle.</div>
+      <div class="neutral"><div class="gr">Ich <span class="verb">soll</span> Papier bestellen.</div>Eine andere Person will das. Frau Melnyk hat es mir gesagt.</div>
+    </div>
+    <div class="hint"><b>Extra: „Soll ich …?“ ist ein Angebot.</b> „Soll ich das Fenster aufmachen?“ heißt: Möchten Sie das? Ich mache es gern.</div>
+    <div id="paarB"></div>
+    <p class="stat" id="paarBStat"></p>
+  </div>
+  <div class="panel">
+    <h2 id="p3">C · wollen oder möchten?</h2>
+    <div class="zwei">
+      <div class="neutral"><div class="gr">Ich <span class="verb">will</span> …</div>Fester Plan, klare Entscheidung. Direkt, manchmal hart.</div>
+      <div class="neutral"><div class="gr">Ich <span class="verb">möchte</span> …</div>Wunsch, höflich. Beim Bestellen, am Telefon, bei Kunden und bei der Chefin.</div>
+    </div>
+    <div class="pair"><div class="no">„Ich will mit dem Chef sprechen.“ klingt wie eine Beschwerde.</div><div class="yes">„Ich möchte bitte mit Herrn Becker sprechen.“ klingt freundlich.</div></div>
+    <div id="paarC"></div>
+    <p class="stat" id="paarCStat"></p>
+    <div class="blitz"><b>Chat-Blitz</b>Was darf man bei Ihrer Arbeit nicht? Oder an Ihrem Wunscharbeitsplatz?<br><span class="vorlage">Bei uns <span class="verb">darf</span> man nicht … <span class="verb">…</span>.</span><br><span class="small">Zum Beispiel: Bei uns darf man nicht im Büro essen.</span></div>
+  </div>
+  <div class="panel">
+    <h2 id="p4">D · Alles gemischt</h2>
+    <p>Bedeutung und Satzstellung. Welcher Satz passt am besten?</p>
+    <div id="mixBox"></div>
+    <p class="stat" id="mixStat"></p>
+  </div>
+  <div class="panel">
+    <h2>Das kann ich</h2>
+    <div class="lit">
+      <div class="card">✓ Ich kenne die Bedeutung der sechs Modalverben.</div>
+      <div class="card">✓ Das Modalverb steht auf Position 2, das zweite Verb am Ende. Auch nach „heute“ und „morgen“.</div>
+      <div class="card">✓ Ich verwechsle „nicht müssen“ und „nicht dürfen“ nicht mehr.</div>
+      <div class="card">✓ Ich sage „möchte“, wenn ich höflich sein will.</div>
+    </div>
+  </div>
+</section>
+</main></div>
+<script>
+const $=id=>document.getElementById(id);
+const tabs=document.querySelectorAll('[data-tab]');
+tabs.forEach(b=>b.onclick=()=>{document.querySelectorAll('main>section').forEach(s=>s.hidden=s.id!==b.dataset.tab);tabs.forEach(x=>x.classList.toggle('active',x===b));window.scrollTo(0,0)});
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const V=s=>'<span class="verb">'+s+'</span>';
+
+/* Quiz mit drei Stufen: o=[Text, true | 'mid' | false, Erklärung] */
+function mcList(boxId,statId,items,col){
+  let ok=0,done=0;const box=$(boxId);
+  box.innerHTML=items.map((it,i)=>`<div class="q">${it.sit?`<div class="sit2">${it.sit}</div>`:''}<div class="s">${it.s||''}</div><div class="opts${col?' col':''}">${shuffle(it.o.map((o,j)=>[o,j])).map(([o,j])=>`<button data-i="${i}" data-j="${j}">${o[0]}</button>`).join('')}</div><div class="fb" hidden></div></div>`).join('');
+  const stat=()=>{if(!statId)return;$(statId).textContent=done===items.length?`Fertig: ${ok} von ${items.length} beim ersten Versuch gelöst.`:(done?`Beim ersten Versuch gelöst: ${ok} von ${done}`:'')};
+  box.querySelectorAll('button').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i,j=+b.dataset.j,it=items[i],o=it.o[j],q=b.closest('.q'),fb=q.querySelector('.fb');
+    if(q.dataset.done)return;const first=!q.dataset.tried;q.dataset.tried=1;
+    if(o[1]===true||o[1]==='mid'){
+      q.dataset.done=1;done++;if(first)ok++;
+      q.querySelectorAll('button').forEach(x=>{const oo=it.o[+x.dataset.j];if(oo[1]===true)x.classList.add('okb');x.disabled=true});
+      if(o[1]==='mid'){b.classList.add('midb');fb.className='fb mid';fb.innerHTML='<b>Geht auch.</b> '+(o[2]||'')+(it.e?' '+it.e:'')}
+      else{fb.className='fb ok';fb.innerHTML='<b>Passt am besten.</b> '+(o[2]||it.e||'')}
+    }else{b.classList.add('nob');b.disabled=true;fb.className='fb no';fb.innerHTML='<b>Passt hier nicht.</b> '+(o[2]||'Versuchen Sie es noch einmal.')}
+    fb.hidden=false;stat()});
+  stat();
+}
+
+/* ---------- 1 BEDEUTUNG ---------- */
+const BED=[
+ ['🚚','Der Lastwagen kommt heute erst um 18 Uhr.','Pawel '+V('muss')+' heute länger bleiben.',[['Es ist nötig. Es gibt keine andere Möglichkeit.',1],['Pawel hat Lust, länger zu bleiben.',0],['Pawel hat die Erlaubnis, länger zu bleiben.',0]],'müssen = nötig, keine Wahl.'],
+ ['🗣️','Petra Lenz spricht Polnisch. Heute kommen Gäste aus Krakau.','Petra '+V('kann')+' die Gäste auf Polnisch begrüßen.',[['Sie spricht die Sprache. Es ist möglich.',1],['Frau Melnyk hat es ihr gesagt.',0],['Es ist ihr fester Plan.',0]],'können = möglich, ich kann das.'],
+ ['🚭','Im Lager hängt ein Schild: Rauchen nur im Hof.','Im Hof '+V('darf')+' man rauchen.',[['Das ist erlaubt.',1],['Das ist nötig.',0],['Das ist ein Wunsch.',0]],'dürfen = erlaubt.'],
+ ['📋','Frau Melnyk sagt zu Finn: „Bring bitte die Post zu Petra.“','Finn '+V('soll')+' die Post zu Petra bringen.',[['Eine andere Person will das. Es ist ein Auftrag.',1],['Finn hat Lust dazu.',0],['Finn hat die Erlaubnis dazu.',0]],'sollen = eine andere Person will das.'],
+ ['🎓','Jonas hat sich entschieden. Nächstes Jahr lernt er Excel richtig.','Jonas '+V('will')+' einen Excel-Kurs machen.',[['Das ist sein fester Plan.',1],['Sein Chef hat es ihm gesagt.',0],['Es ist ihm erlaubt.',0]],'wollen = fester Plan.'],
+ ['☕','Ein Besucher wartet am Empfang. Petra fragt: „Was darf ich Ihnen bringen?“','„Ich '+V('möchte')+' gern ein Glas Wasser.“',[['Das ist sein Wunsch, höflich gesagt.',1],['Er muss Wasser trinken, sonst passiert etwas.',0],['Er hat den Auftrag, Wasser zu holen.',0]],'möchten = Wunsch, höflich.']
+];
+$('bedBox').innerHTML=BED.map((x,i)=>`<div class="card"><div class="ico">${x[0]}</div><div class="sit">${x[1]}</div><div class="satz">${x[2]}</div><div class="q" style="margin:6px 0 0;padding:10px 12px"><div class="small" style="margin-bottom:6px">Was sagt das grüne Wort?</div><div class="opts col">${shuffle(x[3].map((o,j)=>[o,j])).map(([o,j])=>`<button data-bi="${i}" data-bj="${j}" style="font-size:17px;padding:6px 12px">${o[0]}</button>`).join('')}</div><div class="fb" hidden></div></div></div>`).join('');
+document.querySelectorAll('[data-bi]').forEach(b=>b.onclick=()=>{const x=BED[+b.dataset.bi],o=x[3][+b.dataset.bj],q=b.closest('.q'),fb=q.querySelector('.fb');if(q.dataset.done)return;
+  if(o[1]){q.dataset.done=1;b.classList.add('okb');q.querySelectorAll('button').forEach(y=>y.disabled=y!==b);fb.className='fb ok';fb.innerHTML='<b>Genau.</b> '+x[4]}
+  else{b.classList.add('nob');b.disabled=true;fb.className='fb no';fb.innerHTML='Nein. Lesen Sie die Situation noch einmal.'}fb.hidden=false});
+
+mcList('wahlBox','wahlStat',[
+ {sit:'Im Lager hängt ein Schild: Rauchen verboten.',s:'Hier ___ man nicht rauchen.',o:[['darf',true,'Rauchen ist nicht erlaubt.'],['muss',false,'„Hier muss man nicht rauchen“ heißt: Rauchen ist nicht nötig. Das ist lustig, aber falsch.'],['will',false,'Hier geht es um eine Regel, nicht um einen Plan.']]},
+ {sit:'Frau Melnyk hat zu Finn gesagt: „Bring bitte die Post zu Petra.“ Finn erzählt es Pawel.',s:'Ich ___ die Post zu Petra bringen.',o:[['soll',true,'Frau Melnyk will das. Es ist ihr Auftrag.'],['muss',"mid",'Mit „soll“ hört Pawel aber auch: Das hat jemand gesagt.'],['will',false,'Es ist nicht Finns Plan, sondern ein Auftrag.']]},
+ {sit:'Der Drucker ist kaputt.',s:'Nora ___ die Rechnungen heute nicht drucken.',o:[['kann',true,'Es ist nicht möglich.'],['darf',false,'Niemand verbietet es. Der Drucker funktioniert einfach nicht.'],['will',false,'Nora hat schon Lust. Es geht nur nicht.']]},
+ {sit:'Morgen kommt der Zoll und prüft die Papiere.',s:'Alle Lieferscheine ___ morgen fertig sein.',o:[['müssen',true,'Es ist nötig. Es gibt keine andere Möglichkeit.'],['sollen',"mid",'Dann hat jemand gesagt: Macht das fertig!'],['können',false,'Hier geht es nicht um eine Möglichkeit, sondern um eine Pflicht.']]},
+ {sit:'Jonas hat sich entschieden. Er sagt:',s:'Nächstes Jahr ___ ich einen Excel-Kurs machen.',o:[['will',true,'Fester Plan, klare Entscheidung.'],['möchte',"mid",'Das klingt höflicher, aber weniger fest.'],['muss',false,'Niemand zwingt ihn. Er hat sich selbst entschieden.']]},
+ {sit:'Finn hat morgen einen Arzttermin. Er fragt Frau Haddad:',s:'___ ich morgen eine Stunde früher gehen?',o:[['Darf',true,'Finn fragt um Erlaubnis.'],['Kann',"mid",'Im Alltag sagt man das sehr oft.'],['Muss',false,'„Muss ich früher gehen?“ heißt: Ist das nötig? Finn will aber eine Erlaubnis.']]}
+]);
+
+/* ---------- 2 LÜCKEN ---------- */
+function slotTask(boxId,items,frage){
+  const box=$(boxId);
+  box.innerHTML=items.map((it,i)=>{let h='';it.w.forEach((w,k)=>{h+=`<span class="sl" data-i="${i}" data-k="${k}">+</span>`+w});h+=`<span class="sl" data-i="${i}" data-k="${it.w.length}">+</span>`+(it.end||'.');
+    return `<div class="slotq"><div class="small">${frage} <b class="verb">${it.ins}</b>?</div><div class="s">${h}</div><div class="fb" hidden></div></div>`}).join('');
+  box.querySelectorAll('.sl').forEach(sl=>sl.onclick=()=>{const it=items[+sl.dataset.i],k=+sl.dataset.k,q=sl.closest('.slotq'),fb=q.querySelector('.fb');if(q.dataset.done)return;
+    if(it.ok.includes(k)){q.dataset.done=1;q.querySelectorAll('.sl').forEach(x=>{if(x!==sl)x.replaceWith(document.createTextNode(+x.dataset.k===0||+x.dataset.k===it.w.length?'':' '))});sl.textContent=it.ins;sl.className='sl hit';fb.className='fb ok';fb.innerHTML='<b>Richtig.</b> '+(it.e||'')}
+    else{sl.classList.add('miss');fb.className='fb no';fb.innerHTML=it.no}fb.hidden=false});
+}
+const NO_END='Da nicht. Das zweite Verb geht ganz ans Ende.';
+slotTask('slotA',[
+ {ins:'anrufen',w:['Ich','muss','Pawel','heute'],ok:[4],no:NO_END,e:'Ich muss Pawel heute anrufen.'},
+ {ins:'bestellen',w:['Nora','soll','heute','neues Papier'],ok:[4],no:NO_END,e:'Nora soll heute neues Papier bestellen.'},
+ {ins:'Bescheid geben',w:['Ich','kann','Ihnen','morgen'],ok:[4],no:NO_END+' „Bescheid geben“ bleibt zusammen.',e:'Ich kann Ihnen morgen Bescheid geben.'},
+ {ins:'aufräumen',w:['Finn','muss','das Lager','bis Freitag'],ok:[4],no:NO_END+' „aufräumen“ bleibt ein Wort.',e:'Finn muss das Lager bis Freitag aufräumen.'},
+ {ins:'helfen',w:['Können','Sie','mir','bitte'],end:'?',ok:[4],no:'Da nicht. Auch in der Frage steht das zweite Verb am Ende.',e:'Können Sie mir bitte helfen?'}
+],'Wohin kommt');
+const NO_P2='Da nicht. Das Modalverb steht auf Position 2. Position 1 ist hier schon besetzt.';
+slotTask('slotB',[
+ {ins:'müssen',w:['Morgen','wir','früher','kommen'],ok:[1],no:NO_P2,e:'Morgen müssen wir früher kommen. Die Person (wir) steht danach.'},
+ {ins:'kann',w:['Heute','ich','leider nicht','kommen'],ok:[1],no:NO_P2,e:'Heute kann ich leider nicht kommen.'},
+ {ins:'darf',w:['Im Lager','man','nicht','rauchen'],ok:[1],no:NO_P2+' „Im Lager“ ist Position 1.',e:'Im Lager darf man nicht rauchen.'},
+ {ins:'möchte',w:['Am Freitag','Jonas','den Kunden','besuchen'],ok:[1],no:NO_P2+' „Am Freitag“ ist Position 1.',e:'Am Freitag möchte Jonas den Kunden besuchen.'},
+ {ins:'soll',w:['Bis Montag','Nora','die Rechnung','bezahlen'],ok:[1],no:NO_P2+' „Bis Montag“ ist Position 1.',e:'Bis Montag soll Nora die Rechnung bezahlen.'}
+],'Wohin kommt');
+
+/* ---------- 2 SÄTZE BAUEN ---------- */
+const SB=[
+ {tag:'Aussage',chips:['ich','muss','Pawel','heute','anrufen'],m:[1,4],ok:['Ich muss Pawel heute anrufen','Ich muss heute Pawel anrufen','Heute muss ich Pawel anrufen','Pawel muss ich heute anrufen']},
+ {tag:'„Morgen“ vorn',chips:['morgen','müssen','wir','früher','kommen'],m:[1,4],ok:['Morgen müssen wir früher kommen','Wir müssen morgen früher kommen']},
+ {tag:'Mit Bescheid',chips:['ich','kann','Ihnen','morgen','Bescheid','geben'],m:[1,5],ok:['Ich kann Ihnen morgen Bescheid geben','Morgen kann ich Ihnen Bescheid geben']},
+ {tag:'Frage',end:'?',chips:['können','Sie','mir','bitte','helfen'],m:[0,4],ok:['Können Sie mir bitte helfen']},
+ {tag:'Verbot',chips:['im Lager','darf','man','nicht','rauchen'],m:[1,4],ok:['Im Lager darf man nicht rauchen','Man darf im Lager nicht rauchen']},
+ {tag:'Auftrag',chips:['Finn','soll','die Post','zu Petra','bringen'],m:[1,4],ok:['Finn soll die Post zu Petra bringen','Die Post soll Finn zu Petra bringen']}
+];
+let sbI=0,sbPick=[],sbOk=0,sbTried=false,order=shuffle(SB.map((_,i)=>i));
+const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+function sbRender(){
+  const it=SB[order[sbI]];$('sbTag').textContent=(sbI+1)+' / '+SB.length+' · '+it.tag;
+  $('sbAns').innerHTML=sbPick.map((c,p)=>`<button data-p="${p}" class="${it.m.includes(c)?'m':''}">${p===0?cap(it.chips[c]):it.chips[c]}</button>`).join('')+(sbPick.length===it.chips.length?'<span style="font:20px Georgia,serif">'+(it.end||'.')+'</span>':'');
+  $('sbChips').innerHTML=it.shuf.filter(c=>!sbPick.includes(c)).map(c=>`<button data-c="${c}" class="${it.m.includes(c)?'m':''}">${it.chips[c]}</button>`).join('');
+  $('sbAns').querySelectorAll('button').forEach(b=>b.onclick=()=>{if(!$('sbNext').hidden)return;sbPick.splice(+b.dataset.p,1);$('sbFb').hidden=true;sbRender()});
+  $('sbChips').querySelectorAll('button').forEach(b=>b.onclick=()=>{sbPick.push(+b.dataset.c);$('sbFb').hidden=true;sbRender()});
+}
+function sbStart(){const it=SB[order[sbI]];it.shuf=shuffle(it.chips.map((_,i)=>i));sbPick=[];sbTried=false;$('sbNext').hidden=true;$('sbCheck').disabled=false;$('sbFb').hidden=true;sbRender()}
+$('sbCheck').onclick=()=>{const it=SB[order[sbI]],fb=$('sbFb');
+  if(sbPick.length<it.chips.length){fb.hidden=false;fb.innerHTML='Es fehlen noch Bausteine.';return}
+  const s=sbPick.map(c=>it.chips[c]).join(' ').toLowerCase(),first=!sbTried;sbTried=true;
+  const okL=it.ok.map(x=>x.toLowerCase());if(okL.includes(s)){if(first)sbOk++;fb.hidden=false;fb.innerHTML='<b>Richtig.</b>'+(it.ok.length>1?' Andere richtige Lösungen: '+it.ok.filter(x=>x.toLowerCase()!==s).map(x=>'„'+x+(it.end||'.')+'“').join(' · '):'');$('sbNext').hidden=sbI===SB.length-1;$('sbCheck').disabled=true;
+    $('sbStat').textContent=sbI===SB.length-1?`Fertig: ${sbOk} von ${SB.length} beim ersten Versuch richtig.`:'';return}
+  const pm=sbPick.indexOf(it.m[0]),pi=sbPick.indexOf(it.m[1]);let tip;
+  if(it.end==='?'&&pm!==0)tip='Bei der Ja-Nein-Frage steht das Modalverb ganz vorn.';
+  else if(it.end!=='?'&&pm!==1)tip='Das Modalverb (grün) steht auf Position 2. Was steht auf Position 1?';
+  else if(pi!==it.chips.length-1)tip='Das zweite Verb (grün) geht ganz ans Ende.';
+  else tip='Die Verben stehen richtig. Schauen Sie noch einmal auf die Mitte.';
+  fb.hidden=false;fb.innerHTML='<b>Noch nicht.</b> '+tip};
+$('sbReset').onclick=()=>{sbPick=[];$('sbFb').hidden=true;sbRender()};
+$('sbNext').onclick=()=>{sbI++;sbStart()};
+sbStart();
+
+/* ---------- 3 PAARE ---------- */
+mcList('paarA','paarAStat',[
+ {sit:'Die Besprechung ist nur für den Verkauf. Pawel arbeitet im Lager. Frau Melnyk sagt zu ihm:',o:[['Sie müssen nicht zur Besprechung kommen.',true,'Es ist nicht nötig. Pawel kann im Lager bleiben.'],['Sie dürfen nicht zur Besprechung kommen.',false,'Das klingt, als wäre Pawel dort nicht willkommen. Das gibt Ärger!']]},
+ {sit:'Im Lager hängt ein Schild: Rauchen verboten.',o:[['Hier darf man nicht rauchen.',true,'Es ist verboten.'],['Hier muss man nicht rauchen.',false,'Das heißt: Rauchen ist nicht nötig. Lustig, aber falsch.']]},
+ {sit:'Am Samstag ist Inventur. Wer hilft, bekommt am Montag frei. Finn fragt: „Muss ich am Samstag kommen?“ Frau Haddad antwortet:',o:[['Nein, Sie müssen nicht. Aber Sie können gern kommen.',true,'Es ist nicht nötig, aber erlaubt.'],['Nein, Sie dürfen nicht kommen.',false,'Dann wäre es verboten. Dabei freut sich Frau Haddad über Hilfe!']]},
+ {sit:'Ein Anrufer fragt nach der Adresse eines Kunden. Die Kundendaten sind geheim. Petra sagt:',o:[['Das darf ich Ihnen leider nicht sagen.',true,'Es ist nicht erlaubt. Freundlich und klar.'],['Das muss ich Ihnen leider nicht sagen.',false,'Das klingt frech: Ich habe keine Lust. Ärger!']]}
+],true);
+mcList('paarB','paarBStat',[
+ {sit:'Frau Melnyk hat zu Nora gesagt: „Bestellen Sie bitte neues Papier.“ Pawel fragt Nora: „Warum bestellst du Papier?“ Nora:',o:[['Frau Melnyk hat gesagt, ich soll Papier bestellen.',true,'Ein Auftrag von Frau Melnyk.'],['Ich muss Papier bestellen.',"mid",'Pawel weiß dann aber nicht, dass der Auftrag von Frau Melnyk kommt.'],['Ich will Papier bestellen.',false,'Es ist nicht Noras Plan, sondern ein Auftrag.']]},
+ {sit:'Es ist warm im Büro. Petra fragt den Besucher:',o:[['Soll ich das Fenster aufmachen?',true,'Ein Angebot: Möchten Sie das? Ich mache es gern.'],['Darf ich das Fenster aufmachen?',"mid",'Dann fragt Petra um Erlaubnis. Sie will dem Besucher aber etwas anbieten.'],['Muss ich das Fenster aufmachen?',false,'Das klingt genervt: Ist das wirklich nötig?']]},
+ {sit:'Die Ärztin hat zu Jonas gesagt: „Trinken Sie weniger Kaffee!“ Jonas erzählt:',o:[['Ich soll weniger Kaffee trinken.',true,'Die Ärztin will das.'],['Ich muss weniger Kaffee trinken.',"mid",'Mit „soll“ hört man aber: Das hat die Ärztin gesagt.'],['Ich darf weniger Kaffee trinken.',false,'Das klingt, als wäre weniger Kaffee ein Geschenk.']]},
+ {sit:'Ohne Unterschrift gilt der Vertrag nicht.',o:[['Der Kunde muss unterschreiben.',true,'Es ist nötig. Ohne Unterschrift geht es nicht.'],['Der Kunde soll unterschreiben.',"mid",'Dann sagt man: Jemand will das.'],['Der Kunde darf unterschreiben.',false,'Unterschreiben ist hier keine Erlaubnis, sondern eine Pflicht.']]}
+],true);
+mcList('paarC','paarCStat',[
+ {sit:'Ein Kunde ruft an. Er ist freundlich und sagt:',o:[['Ich möchte bitte mit Herrn Becker sprechen.',true,'Höflich und klar.'],['Ich will mit Herrn Becker sprechen.',false,'Das klingt fordernd, fast wie eine Beschwerde.']]},
+ {sit:'Petra bestellt in der Kantine:',o:[['Ich möchte einen Kaffee, bitte.',true,'So bestellt man.'],['Ich will einen Kaffee.',false,'Das klingt wie ein ungeduldiges Kind.']]},
+ {sit:'Jonas hat sich entschieden. Er sagt zu Frau Haddad:',o:[['Ich will nächstes Jahr die Weiterbildung machen.',true,'Fester Plan. Hier ist „will“ genau richtig.'],['Ich möchte nächstes Jahr die Weiterbildung machen.',"mid",'Das klingt höflicher, aber weniger fest.'],['Ich soll nächstes Jahr die Weiterbildung machen.',false,'Dann hätte jemand anders entschieden.']]},
+ {sit:'Die Lieferung ist zum dritten Mal zu spät. Der Kunde ist sehr wütend. Er sagt:',o:[['Ich will jetzt sofort mit Ihrem Chef sprechen!',true,'So klingt ein wütender Kunde. Jetzt wissen Sie: Es brennt.'],['Ich möchte bitte mit Ihrem Chef sprechen.',"mid",'Aber so klingt er gar nicht wütend.'],['Ich soll mit Ihrem Chef sprechen.',false,'Niemand hat ihm einen Auftrag gegeben.']]}
+],true);
+mcList('mixBox','mixStat',[
+ {sit:'Der Kunde kommt schon um acht Uhr.',o:[['Morgen müssen wir früher kommen.',true,'Position 2: müssen. Ende: kommen.'],['Morgen wir müssen früher kommen.',false,'„Morgen“ ist Position 1. Das Modalverb kommt direkt danach.'],['Morgen müssen wir kommen früher.',false,'Das zweite Verb geht ganz ans Ende.']]},
+ {sit:'Pawel ist krank. Frau Melnyk sagt zu Finn: „Räum bitte heute das Lager auf.“',o:[['Finn soll heute das Lager aufräumen.',true,'Ein Auftrag von Frau Melnyk.'],['Finn muss heute das Lager aufräumen.',"mid",'Mit „soll“ hört man aber, dass Frau Melnyk es gesagt hat.'],['Finn soll heute das Lager auf räumen.',false,'„aufräumen“ bleibt am Ende ein Wort.']]},
+ {sit:'Ohne Sicherheitsschuhe ist die Arbeit im Lager verboten.',o:[['Ohne Sicherheitsschuhe darf man im Lager nicht arbeiten.',true,'Verboten = nicht dürfen.'],['Ohne Sicherheitsschuhe kann man im Lager nicht arbeiten.',"mid",'Aber „darf“ sagt klar: Es ist verboten.'],['Ohne Sicherheitsschuhe muss man im Lager nicht arbeiten.',false,'Das heißt: Arbeiten ist nicht nötig. Das ist etwas ganz anderes.']]},
+ {sit:'Nora weiß es heute noch nicht. Morgen weiß sie es.',o:[['Ich kann Ihnen morgen Bescheid geben.',true,'Ihnen vor morgen, Bescheid geben am Ende.'],['Ich kann morgen Ihnen Bescheid geben.',"mid",'So klingt „Ihnen“ betont. Normal ist: Ihnen morgen.'],['Ich kann Ihnen morgen geben Bescheid.',false,'„Bescheid geben“ bleibt zusammen am Ende.']]},
+ {sit:'Die Kisten sind schwer. Nora fragt Pawel:',o:[['Soll ich dir helfen?',true,'Ein Angebot.'],['Kann ich dir helfen?',true,'Auch ein Angebot. Beides ist ganz normal.'],['Muss ich dir helfen?',false,'Das klingt genervt: Ist das wirklich nötig?']]},
+ {sit:'Am Telefon. Der Anrufer ist freundlich.',o:[['Ich möchte gern einen Termin vereinbaren.',true,'Höflicher Wunsch.'],['Ich will einen Termin vereinbaren.',false,'Am Telefon klingt das zu hart.'],['Ich möchte gern einen Termin vereinbaren mit Ihnen.',"mid",'Im Gespräch hört man das. Besser: mit Ihnen einen Termin vereinbaren.']]}
+],true);
+</script>
+</body></html>

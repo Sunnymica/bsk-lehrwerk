@@ -1077,6 +1077,18 @@
               "status": "in-arbeit"
             },
             {
+              "titel": "Modalverben: die Grundlagen",
+              "beschreibung": "müssen, können, dürfen, sollen, wollen, möchten: Bedeutung, die Klammer im Satz und die gefährlichen Paare (nicht müssen oder nicht dürfen?).",
+              "pfad": "modalverben-grundlagen.html",
+              "niveau": "A2–B1",
+              "dauer": "3 Lernabschnitte",
+              "fertigkeiten": [
+                "Üben",
+                "Sprechen"
+              ],
+              "status": "teilweise"
+            },
+            {
               "titel": "Modalverben",
               "beschreibung": "Grundbedeutungen, die folgenreiche Verneinung (nicht müssen gegen nicht dürfen), Modalverbpassiv und Doppelinfinitiv — dazu der subjektive Gebrauch als Sicherheitsleiter von muss bis mag.",
               "pfad": "modalverben.html",
