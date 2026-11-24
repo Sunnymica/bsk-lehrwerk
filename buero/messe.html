@@ -522,6 +522,19 @@
     <summary><strong>Das Gespräch zum Nachlesen</strong> (erst nach dem Hören öffnen)</summary>
     <div id="azubi-transkript"></div>
   </details>
+
+  <div class="differenzierung differenzierung--weiter">
+    <strong class="differenzierung__stufe">Entdecken</strong>
+    <h2>Darf ich …? Kannst du …? Kleine Wörter, große Wirkung</h2>
+    <p>Finn sagt: „<span class="verb">Darf</span> ich mir das aufschreiben?“ Er könnte auch sagen: „<span class="verb">Muss</span> ich mir das aufschreiben?“ Aber das bedeutet etwas ganz anderes. Was bedeuten die Sätze?</p>
+  </div>
+  <div id="quiz-finn-modal"></div>
+  <div class="merker">
+    <span class="marke-merker">Modalverben</span>
+    <p><strong>darf</strong> = Es ist erlaubt. · <strong>kann</strong> = Es ist möglich. · <strong>muss</strong> = Es ist nötig.</p>
+    <p>Das Modalverb steht auf Position 2, das zweite Verb ganz am Ende: Finn <span class="verb">darf</span> sich das <span class="verb">aufschreiben</span>.</p>
+    <p>Mehr dazu: <a href="../grammatik/modalverben-grundlagen.html">Modalverben: die Grundlagen</a></p>
+  </div>
 </section>
 
 <!-- ============ 5 · IHR ARBEITSPLATZ ============ -->
@@ -569,7 +582,7 @@ window.KURSURTEIL = { etiketten: {
   'Wo steht das Verb?': 'klammer', 'Aus einer Info wird ein Auftrag': 'klammer',
   'Höflich oder unhöflich?': 'hoeflich', 'Die Höflichkeitsleiter': 'hoeflich', 'Bitte freundlicher!': 'hoeflich', 'Schnell und höflich': 'hoeflich',
   'Mit Sie und mit du': 'imperativ', 'Was fehlt in diesem Auftrag?': 'fragen', 'Frau Lenz erklärt mit du': 'imperativ',
-  'Finn ist unsicher, und das ist gut so': 'fragen', 'Jetzt sind Sie Finn': 'fragen',
+  'Finn ist unsicher, und das ist gut so': 'fragen', 'Darf ich …? Kannst du …? Kleine Wörter, große Wirkung': 'modalverben', 'Jetzt sind Sie Finn': 'fragen',
   'Nora verteilt die Aufgaben: So klingt es': 'imperativ', 'Chat-Blitz: Alle schreiben gleichzeitig': 'imperativ', 'Mit Karten sprechen': 'imperativ', 'Jetzt ohne Karte': 'imperativ'
 } };
 </script>
@@ -717,6 +730,11 @@ Lehrwerk.gruppieren('gruppieren-lenz',{
     {id:'ganz',titel:'Das Verb bleibt ganz',woerter:['begrüßen','fragen','schauen','schicken','kontrollieren','achten']}
   ]
 });
+Lehrwerk.auswahl('quiz-finn-modal',[
+  {id:'fm-q1',text:'„Darf ich mir das aufschreiben?“',optionen:['Finn fragt um Erlaubnis.','Finn fragt, ob es nötig ist.','Finn sagt, dass er keine Lust hat.'],richtig:['Finn fragt um Erlaubnis.'],erklaerung:'darf = Es ist erlaubt. Frau Lenz sagt sofort: Ja, mach dir Notizen.'},
+  {id:'fm-q2',text:'„Muss ich mir das aufschreiben?“',optionen:['Finn fragt, ob es nötig ist.','Finn fragt um Erlaubnis.','Finn bietet Hilfe an.'],richtig:['Finn fragt, ob es nötig ist.'],erklaerung:'muss = Es ist nötig. Das klingt ein bisschen so: Ich habe eigentlich keine Lust.'},
+  {id:'fm-q3',text:'„Kannst du mir das noch einmal zeigen?“',optionen:['Finn bittet Frau Lenz um Hilfe.','Finn fragt, ob Frau Lenz das darf.','Finn sagt, dass er das schon kann.'],richtig:['Finn bittet Frau Lenz um Hilfe.'],erklaerung:'Mit „Kannst du …?“ bittet man freundlich um etwas.'}
+]);
 Lehrwerk.auswahl('quiz-finn',[
   {id:'fi-q1',text:'„Du meinst, jeder Besucher bekommt einen Ausweis, auch wenn er nur kurz bleibt?“',optionen:['Finn prüft, ob er richtig verstanden hat.','Finn widerspricht Frau Lenz.','Finn will keinen Ausweis ausgeben.'],richtig:['Finn prüft, ob er richtig verstanden hat.'],erklaerung:'Mit „Du meinst, …?“ vergewissert man sich.'},
   {id:'fi-q2',text:'„Und wenn sie keinen Termin hat?“',optionen:['Finn fragt nach einem anderen Fall.','Finn hat nicht zugehört.','Finn möchte den Termin absagen.'],richtig:['Finn fragt nach einem anderen Fall.'],erklaerung:'„Und wenn …?“ ist die wichtigste Frage beim Lernen eines Ablaufs: Was mache ich, wenn es anders läuft?'},
