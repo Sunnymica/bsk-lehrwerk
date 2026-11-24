@@ -121,7 +121,7 @@ table.feld tr.sep td{border-top:3px solid var(--line)}
       <tr><td class="verb">müssen</td><td>Das ist nötig. Es gibt keine andere Möglichkeit.</td><td>Pawel muss heute länger bleiben.</td></tr>
       <tr><td class="verb">können</td><td>Das ist möglich. Ich kann das.</td><td>Petra kann Polnisch sprechen.</td></tr>
       <tr><td class="verb">dürfen</td><td>Das ist erlaubt.</td><td>Im Hof darf man rauchen.</td></tr>
-      <tr><td class="verb">sollen</td><td>Eine andere Person will das. Es ist ein Auftrag.</td><td>Finn soll die Post zu Petra bringen.</td></tr>
+      <tr><td class="verb">sollen</td><td>Eine andere Person will das. Es ist ein Auftrag.</td><td>Nora soll die Post zu Petra bringen.</td></tr>
       <tr><td class="verb">wollen</td><td>Das ist mein fester Plan.</td><td>Jonas will einen Excel-Kurs machen.</td></tr>
       <tr><td class="verb">möchten</td><td>Das ist mein Wunsch. Höflich.</td><td>Ich möchte gern ein Glas Wasser.</td></tr>
     </table>
@@ -270,7 +270,7 @@ const BED=[
  ['🚚','Der Lastwagen kommt heute erst um 18 Uhr.','Pawel '+V('muss')+' heute länger bleiben.',[['Es ist nötig. Es gibt keine andere Möglichkeit.',1],['Pawel hat Lust, länger zu bleiben.',0],['Pawel hat die Erlaubnis, länger zu bleiben.',0]],'müssen = nötig, keine Wahl.'],
  ['🗣️','Petra Lenz spricht Polnisch. Heute kommen Gäste aus Krakau.','Petra '+V('kann')+' die Gäste auf Polnisch begrüßen.',[['Sie spricht die Sprache. Es ist möglich.',1],['Frau Melnyk hat es ihr gesagt.',0],['Es ist ihr fester Plan.',0]],'können = möglich, ich kann das.'],
  ['🚭','Im Lager hängt ein Schild: Rauchen nur im Hof.','Im Hof '+V('darf')+' man rauchen.',[['Das ist erlaubt.',1],['Das ist nötig.',0],['Das ist ein Wunsch.',0]],'dürfen = erlaubt.'],
- ['📋','Frau Melnyk sagt zu Finn: „Bring bitte die Post zu Petra.“','Finn '+V('soll')+' die Post zu Petra bringen.',[['Eine andere Person will das. Es ist ein Auftrag.',1],['Finn hat Lust dazu.',0],['Finn hat die Erlaubnis dazu.',0]],'sollen = eine andere Person will das.'],
+ ['📋','Frau Melnyk sagt zu Nora: „Bringen Sie bitte die Post zu Petra.“','Nora '+V('soll')+' die Post zu Petra bringen.',[['Eine andere Person will das. Es ist ein Auftrag.',1],['Nora hat Lust dazu.',0],['Nora hat die Erlaubnis dazu.',0]],'sollen = eine andere Person will das.'],
  ['🎓','Jonas hat sich entschieden. Nächstes Jahr lernt er Excel richtig.','Jonas '+V('will')+' einen Excel-Kurs machen.',[['Das ist sein fester Plan.',1],['Sein Chef hat es ihm gesagt.',0],['Es ist ihm erlaubt.',0]],'wollen = fester Plan.'],
  ['☕','Ein Besucher wartet am Empfang. Petra fragt: „Was darf ich Ihnen bringen?“','„Ich '+V('möchte')+' gern ein Glas Wasser.“',[['Das ist sein Wunsch, höflich gesagt.',1],['Er muss Wasser trinken, sonst passiert etwas.',0],['Er hat den Auftrag, Wasser zu holen.',0]],'möchten = Wunsch, höflich.']
 ];
@@ -281,11 +281,11 @@ document.querySelectorAll('[data-bi]').forEach(b=>b.onclick=()=>{const x=BED[+b.
 
 mcList('wahlBox','wahlStat',[
  {sit:'Im Lager hängt ein Schild: Rauchen verboten.',s:'Hier ___ man nicht rauchen.',o:[['darf',true,'Rauchen ist nicht erlaubt.'],['muss',false,'„Hier muss man nicht rauchen“ heißt: Rauchen ist nicht nötig. Das ist lustig, aber falsch.'],['will',false,'Hier geht es um eine Regel, nicht um einen Plan.']]},
- {sit:'Frau Melnyk hat zu Finn gesagt: „Bring bitte die Post zu Petra.“ Finn erzählt es Pawel.',s:'Ich ___ die Post zu Petra bringen.',o:[['soll',true,'Frau Melnyk will das. Es ist ihr Auftrag.'],['muss',"mid",'Mit „soll“ hört Pawel aber auch: Das hat jemand gesagt.'],['will',false,'Es ist nicht Finns Plan, sondern ein Auftrag.']]},
+ {sit:'Frau Melnyk hat zu Nora gesagt: „Bringen Sie bitte die Post zu Petra.“ Nora erzählt es Pawel.',s:'Ich ___ die Post zu Petra bringen.',o:[['soll',true,'Frau Melnyk will das. Es ist ihr Auftrag.'],['muss',"mid",'Mit „soll“ hört Pawel aber auch: Das hat jemand gesagt.'],['will',false,'Es ist nicht Noras Plan, sondern ein Auftrag.']]},
  {sit:'Der Drucker ist kaputt.',s:'Nora ___ die Rechnungen heute nicht drucken.',o:[['kann',true,'Es ist nicht möglich.'],['darf',false,'Niemand verbietet es. Der Drucker funktioniert einfach nicht.'],['will',false,'Nora hat schon Lust. Es geht nur nicht.']]},
  {sit:'Morgen kommt der Zoll und prüft die Papiere.',s:'Alle Lieferscheine ___ morgen fertig sein.',o:[['müssen',true,'Es ist nötig. Es gibt keine andere Möglichkeit.'],['sollen',"mid",'Dann hat jemand gesagt: Macht das fertig!'],['können',false,'Hier geht es nicht um eine Möglichkeit, sondern um eine Pflicht.']]},
  {sit:'Jonas hat sich entschieden. Er sagt:',s:'Nächstes Jahr ___ ich einen Excel-Kurs machen.',o:[['will',true,'Fester Plan, klare Entscheidung.'],['möchte',"mid",'Das klingt höflicher, aber weniger fest.'],['muss',false,'Niemand zwingt ihn. Er hat sich selbst entschieden.']]},
- {sit:'Finn hat morgen einen Arzttermin. Er fragt Frau Haddad:',s:'___ ich morgen eine Stunde früher gehen?',o:[['Darf',true,'Finn fragt um Erlaubnis.'],['Kann',"mid",'Im Alltag sagt man das sehr oft.'],['Muss',false,'„Muss ich früher gehen?“ heißt: Ist das nötig? Finn will aber eine Erlaubnis.'+W+'Frau Haddad: „Nein, Sie müssen nicht. Bleiben Sie ruhig bis 17 Uhr.“ Finn verpasst seinen Arzttermin.'+E]]}
+ {sit:'Pawel hat morgen einen Arzttermin. Er fragt Frau Haddad:',s:'___ ich morgen eine Stunde früher gehen?',o:[['Darf',true,'Pawel fragt um Erlaubnis.'],['Kann',"mid",'Im Alltag sagt man das sehr oft.'],['Muss',false,'„Muss ich früher gehen?“ heißt: Ist das nötig? Pawel will aber eine Erlaubnis.'+W+'Frau Haddad: „Nein, Sie müssen nicht. Bleiben Sie ruhig bis 17 Uhr.“ Pawel verpasst seinen Arzttermin.'+E]]}
 ]);
 
 /* ---------- 2 LÜCKEN ---------- */
@@ -302,7 +302,7 @@ slotTask('slotA',[
  {ins:'anrufen',w:['Ich','muss','Pawel','heute'],ok:[4],no:NO_END,e:'Ich muss Pawel heute anrufen.'},
  {ins:'bestellen',w:['Nora','soll','heute','neues Papier'],ok:[4],no:NO_END,e:'Nora soll heute neues Papier bestellen.'},
  {ins:'Bescheid geben',w:['Ich','kann','Ihnen','morgen'],ok:[4],no:NO_END+' „Bescheid geben“ bleibt zusammen.',e:'Ich kann Ihnen morgen Bescheid geben.'},
- {ins:'aufräumen',w:['Finn','muss','das Lager','bis Freitag'],ok:[4],no:NO_END+' „aufräumen“ bleibt ein Wort.',e:'Finn muss das Lager bis Freitag aufräumen.'},
+ {ins:'aufräumen',w:['Pawel','muss','das Lager','bis Freitag'],ok:[4],no:NO_END+' „aufräumen“ bleibt ein Wort.',e:'Pawel muss das Lager bis Freitag aufräumen.'},
  {ins:'helfen',w:['Können','Sie','mir','bitte'],end:'?',ok:[4],no:'Da nicht. Auch in der Frage steht das zweite Verb am Ende.',e:'Können Sie mir bitte helfen?'}
 ],'Wohin kommt');
 const NO_P2='Da nicht. Das Modalverb steht auf Position 2. Position 1 ist hier schon besetzt.';
@@ -321,7 +321,7 @@ const SB=[
  {tag:'Mit Bescheid',chips:['ich','kann','Ihnen','morgen','Bescheid','geben'],m:[1,5],ok:['Ich kann Ihnen morgen Bescheid geben','Morgen kann ich Ihnen Bescheid geben']},
  {tag:'Frage',end:'?',chips:['können','Sie','mir','bitte','helfen'],m:[0,4],ok:['Können Sie mir bitte helfen']},
  {tag:'Verbot',chips:['im Lager','darf','man','nicht','rauchen'],m:[1,4],ok:['Im Lager darf man nicht rauchen','Man darf im Lager nicht rauchen']},
- {tag:'Auftrag',chips:['Finn','soll','die Post','zu Petra','bringen'],m:[1,4],ok:['Finn soll die Post zu Petra bringen','Die Post soll Finn zu Petra bringen']}
+ {tag:'Auftrag',chips:['Nora','soll','die Post','zu Petra','bringen'],m:[1,4],ok:['Nora soll die Post zu Petra bringen','Die Post soll Nora zu Petra bringen']}
 ];
 let sbI=0,sbPick=[],sbOk=0,sbTried=false,order=shuffle(SB.map((_,i)=>i));
 const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
@@ -352,7 +352,7 @@ sbStart();
 mcList('paarA','paarAStat',[
  {sit:'Die Besprechung ist nur für den Verkauf. Pawel arbeitet im Lager. Frau Melnyk sagt zu ihm:',o:[['Sie müssen nicht zur Besprechung kommen.',true,'Es ist nicht nötig. Pawel kann im Lager bleiben.'],['Sie dürfen nicht zur Besprechung kommen.',false,'Das heißt: verboten.'+W+'Pawel ist drei Tage beleidigt und fragt jeden im Lager: „Was habe ich falsch gemacht?“'+E]]},
  {sit:'Im Lager hängt ein Schild: Rauchen verboten.',o:[['Hier darf man nicht rauchen.',true,'Es ist verboten.'],['Hier muss man nicht rauchen.',false,'Das heißt nur: Niemand zwingt Sie zum Rauchen.'+W+'Pawel liest das Schild und ist erleichtert: „Zum Glück, ich rauche ja freiwillig.“ Und zündet sich eine an, direkt neben den Kartons.'+E]]},
- {sit:'Am Samstag ist Inventur. Wer hilft, bekommt am Montag frei. Finn fragt: „Muss ich am Samstag kommen?“ Frau Haddad antwortet:',o:[['Nein, Sie müssen nicht. Aber Sie können gern kommen.',true,'Es ist nicht nötig, aber erlaubt.'],['Nein, Sie dürfen nicht kommen.',false,'Das heißt: verboten.'+W+'Finn bleibt zu Hause. Frau Haddad zählt am Samstag allein 4.000 Schrauben.'+E]]},
+ {sit:'Am Samstag ist Inventur. Wer hilft, bekommt am Montag frei. Nora fragt: „Muss ich am Samstag kommen?“ Frau Haddad antwortet:',o:[['Nein, Sie müssen nicht. Aber Sie können gern kommen.',true,'Es ist nicht nötig, aber erlaubt.'],['Nein, Sie dürfen nicht kommen.',false,'Das heißt: verboten.'+W+'Nora bleibt zu Hause. Frau Haddad zählt am Samstag allein 4.000 Schrauben.'+E]]},
  {sit:'Ein Anrufer fragt nach der Adresse eines Kunden. Die Kundendaten sind geheim. Petra sagt:',o:[['Das darf ich Ihnen leider nicht sagen.',true,'Es ist nicht erlaubt. Freundlich und klar.'],['Das muss ich Ihnen leider nicht sagen.',false,'Das klingt wie: Ich habe keine Lust.'+W+'Der Anrufer ist beleidigt und verlangt sofort Frau Melnyk.'+E]]}
 ],true);
 mcList('paarB','paarBStat',[
@@ -369,8 +369,8 @@ mcList('paarC','paarCStat',[
 ],true);
 mcList('mixBox','mixStat',[
  {sit:'Der Kunde kommt schon um acht Uhr.',o:[['Morgen müssen wir früher kommen.',true,'Position 2: müssen. Ende: kommen.'],['Morgen wir müssen früher kommen.',false,'„Morgen“ ist Position 1. Das Modalverb kommt direkt danach.'],['Morgen müssen wir kommen früher.',false,'Das zweite Verb geht ganz ans Ende.']]},
- {sit:'Pawel ist krank. Frau Melnyk sagt zu Finn: „Räum bitte heute das Lager auf.“',o:[['Finn soll heute das Lager aufräumen.',true,'Ein Auftrag von Frau Melnyk.'],['Finn muss heute das Lager aufräumen.',"mid",'Mit „soll“ hört man aber, dass Frau Melnyk es gesagt hat.'],['Finn soll heute das Lager auf räumen.',false,'„aufräumen“ bleibt am Ende ein Wort.']]},
- {sit:'Ohne Sicherheitsschuhe ist die Arbeit im Lager verboten.',o:[['Ohne Sicherheitsschuhe darf man im Lager nicht arbeiten.',true,'Verboten = nicht dürfen.'],['Ohne Sicherheitsschuhe kann man im Lager nicht arbeiten.',"mid",'Aber „darf“ sagt klar: Es ist verboten.'],['Ohne Sicherheitsschuhe muss man im Lager nicht arbeiten.',false,'Das heißt: Arbeiten ist nicht nötig.'+W+'Finn liest das, zieht die Schuhe aus und macht Pause.'+E]]},
+ {sit:'Pawel ist krank. Frau Melnyk sagt zu Jonas: „Räumen Sie bitte heute das Lager auf.“',o:[['Jonas soll heute das Lager aufräumen.',true,'Ein Auftrag von Frau Melnyk.'],['Jonas muss heute das Lager aufräumen.',"mid",'Mit „soll“ hört man aber, dass Frau Melnyk es gesagt hat.'],['Jonas soll heute das Lager auf räumen.',false,'„aufräumen“ bleibt am Ende ein Wort.']]},
+ {sit:'Ohne Sicherheitsschuhe ist die Arbeit im Lager verboten.',o:[['Ohne Sicherheitsschuhe darf man im Lager nicht arbeiten.',true,'Verboten = nicht dürfen.'],['Ohne Sicherheitsschuhe kann man im Lager nicht arbeiten.',"mid",'Aber „darf“ sagt klar: Es ist verboten.'],['Ohne Sicherheitsschuhe muss man im Lager nicht arbeiten.',false,'Das heißt: Arbeiten ist nicht nötig.'+W+'Jonas aus dem Verkauf liest das, zieht die Schuhe aus und macht Pause.'+E]]},
  {sit:'Nora weiß es heute noch nicht. Morgen weiß sie es.',o:[['Ich kann Ihnen morgen Bescheid geben.',true,'Ihnen vor morgen, Bescheid geben am Ende.'],['Ich kann morgen Ihnen Bescheid geben.',"mid",'So klingt „Ihnen“ betont. Normal ist: Ihnen morgen.'],['Ich kann Ihnen morgen geben Bescheid.',false,'„Bescheid geben“ bleibt zusammen am Ende.']]},
  {sit:'Die Kisten sind schwer. Nora fragt Pawel:',o:[['Soll ich dir helfen?',true,'Ein Angebot.'],['Kann ich dir helfen?',true,'Auch ein Angebot. Beides ist ganz normal.'],['Muss ich dir helfen?',false,'Das klingt genervt: Ist das wirklich nötig?'+W+'Pawel trägt die Kisten allein. Und erzählt es in der Mittagspause allen.'+E]]},
  {sit:'Am Telefon. Der Anrufer ist freundlich.',o:[['Ich möchte gern einen Termin vereinbaren.',true,'Höflicher Wunsch.'],['Ich will einen Termin vereinbaren.',false,'Am Telefon klingt das zu hart.'+W+'Petra holt vorsichtshalber Frau Melnyk ans Telefon.'+E],['Ich möchte gern einen Termin vereinbaren mit Ihnen.',"mid",'Im Gespräch hört man das. Besser: mit Ihnen einen Termin vereinbaren.']]}
