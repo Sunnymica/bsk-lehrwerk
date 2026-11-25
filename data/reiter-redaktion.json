@@ -1,0 +1,392 @@
+{
+  "_hinweis": [
+    "Redaktionelle Angaben zu einzelnen Reitern. Einzige Quelle, nur hier ändern.",
+    "Schlüssel = Pfad + vorhandener Anker, wie in den Adressen. Nie umbenennen.",
+    "Felder: heimat (Schlüssel aus heimaten), lernziel (Kann-Satz), suchbegriffe, optional vorher (Reiter, auf dem dieser aufbaut), optional freigabe (ausgeblendet | nur-lehrkraft; ohne Angabe gilt: wie das Modul).",
+    "Daraus erzeugt tools/reiter.py die Datei data/reiter.json. Die wird nie von Hand bearbeitet.",
+    "Stand: Pilot 25.11.2026 (Bürowelt-Hauptweg, Rechnung, Modalverben-Grundlagen). Zuordnung: Leo, geprüft: Claude, freigegeben: Regina."
+  ],
+  "heimaten": {
+    "buerowelt/ankommen": "Bürowelt · Im Unternehmen ankommen",
+    "buerowelt/auftraege": "Bürowelt · Arbeitsaufträge",
+    "buerowelt/telefon-empfang": "Bürowelt · Telefon und Empfang",
+    "buerowelt/ablaeufe": "Bürowelt · Arbeitsabläufe",
+    "buerowelt/schriftverkehr": "Bürowelt · Schriftverkehr",
+    "buerowelt/kunden-prozesse": "Bürowelt · Kunden und Geschäftsprozesse",
+    "buerowelt/zusammenarbeit": "Bürowelt · Zusammenarbeit und Kommunikation",
+    "buerowelt/personal-bewerbung": "Bürowelt · Personal und Bewerbung",
+    "buerowelt/sicherheit": "Bürowelt · Sicherheit am Arbeitsplatz",
+    "grammatik/satz": "Grammatik · Der Satz – Wo steht was?",
+    "grammatik/saetze-verbinden": "Grammatik · Sätze verbinden",
+    "grammatik/verb": "Grammatik · Das Verb – Formen, Zeiten, Modalverben, Passiv",
+    "grammatik/nomen": "Grammatik · Nomen, Artikel und Endungen",
+    "grammatik/kleine-woerter": "Grammatik · Präpositionen, Pronomen und kleine Wörter",
+    "grammatik/woerter-bauen": "Grammatik · Wörter bauen",
+    "ueben": "Üben"
+  },
+  "hauptweg": [
+    "buero/im-unternehmen-ankommen.html",
+    "buero/kollegen-kunden-zahlen.html",
+    "buero/empfang.html",
+    "buero/messe.html"
+  ],
+  "reiter": {
+    "buero/im-unternehmen-ankommen.html#blatt-menschen": {
+      "heimat": "buerowelt/ankommen",
+      "lernziel": "Ich kann Personen, Abteilungen und Zuständigkeiten benennen.",
+      "suchbegriffe": [
+        "Rollen",
+        "Tätigkeiten",
+        "Abteilungen",
+        "Zuständigkeiten",
+        "Kollegen"
+      ]
+    },
+    "buero/im-unternehmen-ankommen.html#blatt-orte": {
+      "heimat": "buerowelt/ankommen",
+      "lernziel": "Ich kann Arbeitsorte und Arbeitsmittel benennen und ihren Gebrauch beschreiben.",
+      "suchbegriffe": [
+        "Büro",
+        "Räume",
+        "Arbeitsmittel",
+        "Artikel"
+      ]
+    },
+    "buero/im-unternehmen-ankommen.html#blatt-produkte": {
+      "heimat": "buerowelt/kunden-prozesse",
+      "lernziel": "Ich kann den Weg einer Bestellung und die beteiligten Dokumente beschreiben.",
+      "suchbegriffe": [
+        "Anfrage",
+        "Angebot",
+        "Auftrag",
+        "Rechnung",
+        "Bestellung",
+        "Dokumente"
+      ]
+    },
+    "buero/im-unternehmen-ankommen.html#blatt-hausaufgabe": {
+      "heimat": "ueben",
+      "lernziel": "Ich kann den eingeführten Wortschatz selbstständig abrufen.",
+      "suchbegriffe": [
+        "Wortschatz",
+        "Wiederholung",
+        "KONTOR-Blitz",
+        "Hausaufgabe"
+      ]
+    },
+    "buero/kollegen-kunden-zahlen.html#blatt-kollegen": {
+      "heimat": "buerowelt/zusammenarbeit",
+      "lernziel": "Ich kann typische Abstimmungen mit Kollegen beschreiben.",
+      "suchbegriffe": [
+        "Kollegen",
+        "Termine",
+        "Rückfragen",
+        "Abstimmung"
+      ]
+    },
+    "buero/kollegen-kunden-zahlen.html#blatt-kunden": {
+      "heimat": "buerowelt/kunden-prozesse",
+      "lernziel": "Ich kann typische Kundenanliegen benennen und klären, wer weiterhilft.",
+      "suchbegriffe": [
+        "Kundenkontakt",
+        "Kundenanliegen",
+        "Weiterleitung",
+        "Zuständigkeit"
+      ]
+    },
+    "buero/kollegen-kunden-zahlen.html#blatt-zahlen": {
+      "heimat": "buerowelt/kunden-prozesse",
+      "lernziel": "Ich kann beruflich relevante Zahlen verstehen und absichern.",
+      "suchbegriffe": [
+        "Zahlen",
+        "Daten",
+        "Beträge",
+        "Mengen",
+        "Datum"
+      ]
+    },
+    "buero/kollegen-kunden-zahlen.html#blatt-grafiken": {
+      "heimat": "buerowelt/zusammenarbeit",
+      "lernziel": "Ich kann Zahlen vergleichen und Entwicklungen beschreiben.",
+      "suchbegriffe": [
+        "Grafik",
+        "Diagramm",
+        "Komparativ",
+        "Superlativ",
+        "Entwicklung"
+      ]
+    },
+    "buero/empfang.html#blatt-uebergabe": {
+      "heimat": "buerowelt/ablaeufe",
+      "lernziel": "Ich kann eine Urlaubsübergabe verstehen und Aufgaben daraus entnehmen.",
+      "suchbegriffe": [
+        "Übergabe",
+        "Urlaub",
+        "Zuständigkeiten",
+        "trennbare Verben"
+      ]
+    },
+    "buero/empfang.html#blatt-suchen": {
+      "heimat": "buerowelt/telefon-empfang",
+      "lernziel": "Ich kann nach Arbeitsmitteln und ihrem Standort fragen.",
+      "suchbegriffe": [
+        "Wo ist",
+        "stehen",
+        "liegen",
+        "hängen",
+        "welcher",
+        "suchen"
+      ]
+    },
+    "buero/empfang.html#blatt-paket": {
+      "heimat": "buerowelt/telefon-empfang",
+      "lernziel": "Ich kann eine Lieferung am Empfang annehmen.",
+      "suchbegriffe": [
+        "Paket",
+        "Lieferung",
+        "Lieferschein",
+        "Paketbote",
+        "Rückfragen"
+      ]
+    },
+    "buero/empfang.html#blatt-besuch": {
+      "heimat": "buerowelt/telefon-empfang",
+      "lernziel": "Ich kann einen Besucher mit Termin empfangen und weiterleiten.",
+      "suchbegriffe": [
+        "Besuch",
+        "Besucher",
+        "Termin",
+        "Terminliste",
+        "Begrüßung",
+        "Empfang"
+      ]
+    },
+    "buero/empfang.html#blatt-organisieren": {
+      "heimat": "buerowelt/ablaeufe",
+      "lernziel": "Ich kann Aufgaben und eine Vertretung organisieren und Prioritäten begründen.",
+      "suchbegriffe": [
+        "Organisieren",
+        "Vertretung",
+        "Fristen",
+        "Planung",
+        "Prioritäten"
+      ]
+    },
+    "buero/empfang.html#blatt-entscheidet": {
+      "heimat": "buerowelt/zusammenarbeit",
+      "lernziel": "Ich kann eine Entscheidung verstehen, Termine abstimmen und Beteiligte informieren.",
+      "suchbegriffe": [
+        "Entscheidung",
+        "Termine",
+        "Telefon",
+        "E-Mail",
+        "informieren"
+      ],
+      "vorher": "buero/empfang.html#blatt-organisieren"
+    },
+    "buero/empfang.html#blatt-kaffeekueche": {
+      "heimat": "buerowelt/zusammenarbeit",
+      "lernziel": "Ich kann neugierig nachfragen, höflich ausweichen und das Du anbieten.",
+      "suchbegriffe": [
+        "Smalltalk",
+        "Flurfunk",
+        "Kaffeeküche",
+        "duzen",
+        "Du anbieten",
+        "Modalpartikeln"
+      ]
+    },
+    "buero/empfang.html#blatt-meine": {
+      "heimat": "buerowelt/ablaeufe",
+      "lernziel": "Ich kann erledigte und offene Aufgaben bei einer Übergabe verständlich zusammenfassen.",
+      "suchbegriffe": [
+        "Übergabe",
+        "erledigt",
+        "offen",
+        "zusammenfassen",
+        "Rückfragen"
+      ]
+    },
+    "buero/messe.html#blatt-auftrag": {
+      "heimat": "buerowelt/auftraege",
+      "lernziel": "Ich kann einen Arbeitsauftrag verstehen, notieren und bei Unklarheiten nachfragen.",
+      "suchbegriffe": [
+        "Arbeitsauftrag",
+        "Telefon",
+        "Frist",
+        "Rückfrage",
+        "notieren"
+      ]
+    },
+    "buero/messe.html#blatt-anweisung": {
+      "heimat": "buerowelt/auftraege",
+      "lernziel": "Ich kann eine höfliche Anweisung formulieren und ihren Ton beurteilen.",
+      "suchbegriffe": [
+        "Anweisung",
+        "Imperativ",
+        "bitte",
+        "könnten",
+        "höflich",
+        "Ton"
+      ]
+    },
+    "buero/messe.html#blatt-weiter": {
+      "heimat": "buerowelt/auftraege",
+      "lernziel": "Ich kann Aufträge an Kollegen weitergeben, Rückfragen beantworten und eine kurze Nachricht schreiben.",
+      "suchbegriffe": [
+        "weitergeben",
+        "delegieren",
+        "du",
+        "Sie",
+        "Imperativ",
+        "Bescheid geben",
+        "Modalverben",
+        "Nachricht"
+      ]
+    },
+    "buero/messe.html#blatt-azubi": {
+      "heimat": "buerowelt/ablaeufe",
+      "lernziel": "Ich kann einen erklärten Arbeitsablauf verstehen und mich durch Rückfragen absichern.",
+      "suchbegriffe": [
+        "Einarbeitung",
+        "Azubi",
+        "Finn",
+        "Rückfragen",
+        "Modalverben"
+      ]
+    },
+    "buero/messe.html#blatt-ablauf": {
+      "heimat": "buerowelt/ablaeufe",
+      "lernziel": "Ich kann einen Arbeitsablauf aus meinem Beruf erklären und Rückfragen beantworten.",
+      "suchbegriffe": [
+        "Arbeitsablauf",
+        "zuerst",
+        "dann",
+        "wenn",
+        "Imperativ",
+        "erklären"
+      ]
+    },
+    "buero/rechnung.html#blatt-belege": {
+      "heimat": "buerowelt/kunden-prozesse",
+      "lernziel": "Ich kann Rechnung, Bestätigung und Lieferschein vergleichen.",
+      "suchbegriffe": [
+        "Rechnung",
+        "Auftragsbestätigung",
+        "Lieferschein",
+        "Beträge",
+        "Mengen",
+        "Belege"
+      ]
+    },
+    "buero/rechnung.html#blatt-finn": {
+      "heimat": "buerowelt/kunden-prozesse",
+      "lernziel": "Ich kann auf einen Fehler hinweisen und zwischen Vermutung und Beweis unterscheiden.",
+      "suchbegriffe": [
+        "Fehler",
+        "Reklamation",
+        "Belege",
+        "Vermutung",
+        "Beweis"
+      ]
+    },
+    "buero/rechnung.html#blatt-reklamieren": {
+      "heimat": "buerowelt/kunden-prozesse",
+      "lernziel": "Ich kann eine falsche Rechnung telefonisch reklamieren.",
+      "suchbegriffe": [
+        "reklamieren",
+        "Reklamation",
+        "Telefon",
+        "Beschwerde",
+        "Passiv"
+      ],
+      "vorher": "buero/rechnung.html#blatt-finn"
+    },
+    "buero/rechnung.html#blatt-schriftlich": {
+      "heimat": "buerowelt/schriftverkehr",
+      "lernziel": "Ich kann eine Reklamation mit konkreten Forderungen schriftlich formulieren.",
+      "suchbegriffe": [
+        "E-Mail",
+        "Reklamation",
+        "schriftlich",
+        "Forderung",
+        "Passiv mit Modalverb"
+      ]
+    },
+    "buero/rechnung.html#blatt-entscheiden": {
+      "heimat": "buerowelt/kunden-prozesse",
+      "lernziel": "Ich kann eine Zahlungsentscheidung begründen und den Prüfablauf beschreiben.",
+      "suchbegriffe": [
+        "Zahlung",
+        "Skonto",
+        "Frist",
+        "Entscheidung",
+        "Passiv"
+      ],
+      "vorher": "buero/rechnung.html#blatt-schriftlich"
+    },
+    "grammatik/modalverben-grundlagen.html#t1": {
+      "heimat": "grammatik/verb",
+      "lernziel": "Ich kann die sechs Modalverben in typischen Situationen unterscheiden.",
+      "suchbegriffe": [
+        "Modalverben",
+        "müssen",
+        "können",
+        "dürfen",
+        "sollen",
+        "wollen",
+        "möchten",
+        "Bedeutung"
+      ]
+    },
+    "grammatik/modalverben-grundlagen.html#t2": {
+      "heimat": "grammatik/verb",
+      "lernziel": "Ich kann Modalverb und Infinitiv im Hauptsatz und in der Ja-Nein-Frage richtig platzieren.",
+      "suchbegriffe": [
+        "Modalverben",
+        "Satzklammer",
+        "Wortstellung",
+        "Position 2",
+        "Infinitiv am Ende"
+      ]
+    },
+    "grammatik/modalverben-grundlagen.html#t3": {
+      "heimat": "grammatik/verb",
+      "lernziel": "Ich kann nicht müssen/nicht dürfen, sollen/müssen und wollen/möchten situationsgerecht unterscheiden.",
+      "suchbegriffe": [
+        "nicht müssen",
+        "nicht dürfen",
+        "sollen",
+        "müssen",
+        "wollen",
+        "möchten",
+        "Verwechslung"
+      ]
+    },
+    "grammatik/modalverben-grundlagen.html#t4": {
+      "heimat": "grammatik/verb",
+      "lernziel": "Ich kann die Modalverben passend zur Person bilden.",
+      "suchbegriffe": [
+        "Modalverben",
+        "Formen",
+        "Konjugation",
+        "ich kann",
+        "ihr müsst"
+      ]
+    },
+    "grammatik/modalverben-grundlagen.html#t5": {
+      "heimat": "grammatik/verb",
+      "lernziel": "Ich kann höflich bitten, um Erlaubnis fragen und eine Rückrufbitte in einer Nachricht verstehen.",
+      "suchbegriffe": [
+        "höflich",
+        "bitten",
+        "Bitte",
+        "könnten",
+        "Darf ich",
+        "Erlaubnis",
+        "Rückruf",
+        "Telefonnotiz"
+      ]
+    }
+  }
+}
