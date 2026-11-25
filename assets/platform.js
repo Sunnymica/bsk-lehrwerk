@@ -306,8 +306,11 @@
 
   function renderNextModule() {
     const modules = availableModules();
-    const done = completedSet();
-    const next = modules.find(item => !done.has(item.area.id + '/' + item.module.pfad)) || modules[0];
+    /* Weiter geht es dort, wo zuletzt gearbeitet wurde. Abhaken ist dafür
+       nicht nötig, übersprungene Module stören nicht. */
+    const besucht = read(KEYS.activity, []).map(item => item.path);
+    const zuletzt = besucht.map(path => modules.find(item => item.area.id + '/' + item.module.pfad === path)).find(Boolean);
+    const next = zuletzt || modules[0];
     if (!next) {
       document.querySelector('#next-title').textContent = 'Die Plattform ist vorbereitet';
       document.querySelector('#next-description').textContent = 'Neue Module erscheinen hier, sobald die zugehörige Datei veröffentlicht wurde.';
@@ -318,7 +321,9 @@
     document.querySelector('#next-description').textContent = next.module.beschreibung;
     document.querySelector('#next-meta').innerHTML = `<span>${esc(next.area.label)}</span><span>${esc(next.module.niveau)}</span><span>${esc(next.module.dauer)}</span>`;
     document.querySelector('#continue-button').href = next.area.id + '/' + next.module.pfad;
-    document.querySelector('#continue-button').textContent = done.has(next.area.id + '/' + next.module.pfad) ? 'Noch einmal öffnen' : 'Weiterlernen';
+    document.querySelector('#continue-button').textContent = zuletzt ? 'Weitermachen' : 'Anfangen';
+    const kicker = document.querySelector('#heute .kicker');
+    if (kicker) kicker.textContent = zuletzt ? 'Zuletzt geöffnet' : 'Hier geht es los';
   }
 
   function renderCourseArea() {
