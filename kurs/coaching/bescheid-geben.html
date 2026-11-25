@@ -520,4 +520,5 @@ try{const m=localStorage.getItem('coaching-yuliia-nvv-mail');if(m)$('mail').valu
 $('mail').addEventListener('input',()=>{try{localStorage.setItem('coaching-yuliia-nvv-mail',$('mail').value)}catch(e){}});
 $('mailCopy').onclick=async()=>{try{await navigator.clipboard.writeText($('mail').value);$('mailStat').textContent='Kopiert. Jetzt im Google Doc einfügen.'}catch(e){$('mail').select();$('mailStat').textContent='Text markiert. Mit Strg + C kopieren.'}};
 </script>
+<script src="../../assets/navi.js" defer></script>
 </body></html>

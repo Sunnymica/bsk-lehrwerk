@@ -147,4 +147,5 @@ $("next").onclick=()=>{ii++;if(ii>=sets()[si].items.length){si=(si+1)%sets().len
 $("timer").onchange=draw;
 document.addEventListener("keydown",e=>{if(["INPUT","SELECT","TEXTAREA"].includes(e.target.tagName))return;if(e.code==="Space"){e.preventDefault();$("show").click()}if(e.key==="ArrowRight")$("next").click();if(e.key==="ArrowLeft")$("prev").click()});
 buildTabs();draw();
-</script></body></html>
+</script><script src="../assets/navi.js" defer></script>
+</body></html>

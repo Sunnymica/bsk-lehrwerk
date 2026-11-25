@@ -53,6 +53,7 @@
 
   async function init() {
     addLegalFooter();
+    loadNavigation();
     recordActivity();
     if (document.body.dataset.page === 'home') {
       fillSidebar(document.querySelector('#sidebar'), 'home');
@@ -200,6 +201,14 @@
     button.addEventListener('click', () => { sidebar.classList.toggle('open'); backdrop.classList.toggle('show'); });
     backdrop.addEventListener('click', close);
     sidebar.addEventListener('click', event => { if (event.target.closest('a')) close(); });
+  }
+
+  /* Gemeinsame Navigation (Seitenanfang, Pfeil) für alle Seiten. */
+  function loadNavigation() {
+    if (window.__lehrwerkNavi || document.querySelector('script[src*="navi.js"]')) return;
+    const script = document.createElement('script');
+    script.src = root() + 'assets/navi.js';
+    document.body.appendChild(script);
   }
 
   function addLegalFooter() {

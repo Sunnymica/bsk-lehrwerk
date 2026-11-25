@@ -458,4 +458,5 @@ try{const m=localStorage.getItem('pauken-nvv-mail');if(m)$('mail').value=m}catch
 $('mail').addEventListener('input',()=>{try{localStorage.setItem('pauken-nvv-mail',$('mail').value)}catch(e){}});
 $('mailCopy').onclick=async()=>{try{await navigator.clipboard.writeText($('mail').value);$('mailStat').textContent='Kopiert.'}catch(e){$('mail').select();$('mailStat').textContent='Text markiert. Mit Strg + C kopieren.'}};
 </script>
+<script src="../assets/navi.js" defer></script>
 </body></html>
