@@ -149,6 +149,27 @@
               "status": "in-arbeit"
             },
             {
+              "titel": "Am Empfang: Nora übernimmt",
+              "beschreibung": "Eine Urlaubsübergabe lesen, den Arbeitsplatz beschreiben, schwierigen Besuch empfangen.",
+              "pfad": "empfang.html",
+              "niveau": "B2",
+              "dauer": "45 Min",
+              "fertigkeiten": [
+                "Sprechen",
+                "Lesen"
+              ],
+              "status": "teilweise"
+            },
+            {
+              "titel": "Die Messe kommt",
+              "beschreibung": "Aufträge am Telefon verstehen, nachfragen, höflich anweisen und mit du und Sie weitergeben.",
+              "pfad": "messe.html",
+              "niveau": "B2",
+              "dauer": "225 Min",
+              "fertigkeiten": ["Hören", "Sprechen"],
+              "status": "teilweise"
+            },
+            {
               "titel": "Arbeitsaufträge verstehen",
               "beschreibung": "Die sechs Fragen eines vollständigen Auftrags, die fünf Auftragskiller, Rückfragen formulieren, vom Zuruf zur E-Mail.",
               "pfad": "arbeitsauftraege-verstehen.html",
@@ -268,27 +289,6 @@
                 "Hören"
               ],
               "status": "fertig"
-            },
-            {
-              "titel": "Am Empfang: Nora übernimmt",
-              "beschreibung": "Eine Urlaubsübergabe lesen, den Arbeitsplatz beschreiben, schwierigen Besuch empfangen.",
-              "pfad": "empfang.html",
-              "niveau": "B2",
-              "dauer": "45 Min",
-              "fertigkeiten": [
-                "Sprechen",
-                "Lesen"
-              ],
-              "status": "teilweise"
-            },
-            {
-              "titel": "Die Messe kommt",
-              "beschreibung": "Aufträge am Telefon verstehen, nachfragen, höflich anweisen und mit du und Sie weitergeben.",
-              "pfad": "messe.html",
-              "niveau": "B2",
-              "dauer": "225 Min",
-              "fertigkeiten": ["Hören", "Sprechen"],
-              "status": "teilweise"
             },
             {
               "titel": "Kundengespräche am Telefon",
