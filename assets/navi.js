@@ -1,5 +1,5 @@
 /* =========================================================
-   Deutsch fürs Büro – gemeinsame Navigation (Wegenetz, Stufe 1)
+   Deutsch fürs Büro – gemeinsame Navigation (Wegenetz, Stufe 1 und 3)
 
    Eine Datei für alle Seiten:
    - „↑ Zum Seitenanfang“ am Seitenende
@@ -174,6 +174,56 @@
     pruefen();
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
-  else start();
+  /* ---------- Wegenetz Stufe 3: stabile Direktlinks ----------
+     Der Anker in der Adresse öffnet den Reiter, egal in welcher
+     Bauweise die Seite gebaut ist:
+       Vorlage:      #blatt-x  → button[data-blatt="x"]
+       Sonderseite:  #t3       → button[data-tab="t3"]
+     Plattformseiten öffnen den Reiter schon selbst (lehrwerk.js);
+     hier wird nur geklickt, wenn der Reiter danach noch zu ist.
+     Auf Sonderseiten merkt sich die Adresse beim Klick den Reiter
+     (replaceState: kein Eintrag im Verlauf, Pfad bleibt gleich),
+     damit Neuladen und Zurück-Taste dort wieder herauskommen. */
+  function knoepfe() {
+    return [].slice.call(document.querySelectorAll('button[data-tab], button[data-blatt]'));
+  }
+  function zielVon(b) {
+    if (b.hasAttribute('data-tab')) return b.getAttribute('data-tab');
+    var w = b.getAttribute('data-blatt');
+    return w.indexOf('blatt-') === 0 ? w : 'blatt-' + w;
+  }
+  function offen(el) {
+    return !el.hidden && el.getClientRects().length > 0;
+  }
+  function reiterAusAdresse() {
+    var id;
+    try { id = decodeURIComponent(location.hash.slice(1)); } catch (e) { return; }
+    if (!id) return;
+    var ziel = document.getElementById(id);
+    if (!ziel || offen(ziel)) return;
+    var knopf = knoepfe().filter(function (b) { return zielVon(b) === id && !b.disabled; })[0];
+    if (knopf) knopf.click();
+  }
+  function reiterMerken() {
+    knoepfe().forEach(function (b) {
+      if (!b.hasAttribute('data-tab') || !document.getElementById(b.getAttribute('data-tab'))) return;
+      b.addEventListener('click', function () {
+        var h = '#' + b.getAttribute('data-tab');
+        if (location.hash !== h) {
+          try { history.replaceState(history.state, '', h); } catch (e) {}
+        }
+      });
+    });
+  }
+  function direktlinks() {
+    reiterMerken();
+    /* Erst die Seite ihre eigene Logik ausführen lassen, dann nachsehen. */
+    setTimeout(reiterAusAdresse, 0);
+    window.addEventListener('hashchange', function () { setTimeout(reiterAusAdresse, 0); });
+    window.addEventListener('pageshow', function (e) { if (e.persisted) reiterAusAdresse(); });
+  }
+
+  function alles() { start(); direktlinks(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', alles);
+  else alles();
 })();

@@ -150,7 +150,7 @@ def bauen():
                         'gruppe': gruppe['titel'],
                         'sichtbar': modul_sichtbar and freigabe is None,
                         'nur_lehrkraft': freigabe == 'nur-lehrkraft',
-                        'direktlink': bauweise != 'data-tab',
+                        'direktlink': True,  # seit Stufe 3 öffnet navi.js jeden Reiter aus der Adresse
                         'heimat': r.get('heimat'),
                         'lernziel': r.get('lernziel'),
                         'suchbegriffe': r.get('suchbegriffe', []),
@@ -189,7 +189,7 @@ def bericht(daten):
     print(f'Reiter und Einzelseiten insgesamt: {len(r)}')
     print(f'Mit redaktionellen Angaben (Pilot): {len(mit)}')
     print(f'Für TN sichtbar: {sum(x["sichtbar"] for x in r)}')
-    print(f'Ohne Direktlink (Sonderseite, Adapter folgt): {sum(not x["direktlink"] for x in r)}')
+    print(f'Ohne Direktlink: {sum(not x["direktlink"] for x in r)}')
     print('\nUnser Lehrbuch (Hauptweg):')
     for x in r:
         if x['kapitel']:
