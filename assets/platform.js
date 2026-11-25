@@ -144,9 +144,6 @@
         <a class="nav-link ${active === 'home' ? 'active' : ''}" href="${base}index.html#heute">Heute</a>
         <a class="nav-link ${document.body.dataset.bereich === 'kurs' ? 'active' : ''}" href="${base}kurs.html">Unser Kurs</a>
         <a class="nav-link ${active === 'areas' && document.body.dataset.bereich !== 'kurs' ? 'active' : ''}" href="${base}index.html#bereiche">Lernbereiche</a>
-        <a class="nav-link" href="${base}index.html#hausaufgaben">Hausaufgaben <b class="homework-badge">0</b></a>
-        <a class="nav-link" href="${base}index.html#notizbuch">Notizbuch</a>
-        <a class="nav-link" href="${base}index.html#fortschritt">Fortschritt</a>
       </nav>
       <div class="sidebar-areas">
         <span class="nav-caption">Direkt zu</span>
@@ -343,7 +340,8 @@
       const available = all.filter(module => module._available === true);
       const complete = available.filter(module => done.has(area.id + '/' + module.pfad)).length;
       const meta = AREA_META[area.id] || [area.label, '•'];
-      return `<a class="area-card area-${area.id}" href="${area.id}.html"><div class="area-card-top"><span class="area-icon">${meta[1]}</span><span class="pill">${area.gruppen.length} Themen</span></div><h3>${esc(area.label)}</h3><p>${esc(area.kurz)}</p><div class="area-card-foot"><span>${all.length} Module im Plan</span><strong>${available.length ? complete + ' von ' + available.length + ' bearbeitet' : 'im Aufbau'}</strong></div></a>`;
+      const themen = area.gruppen.filter(group => group.module.some(module => module._available === true)).length;
+      return `<a class="area-card area-${area.id}" href="${area.id}.html"><div class="area-card-top"><span class="area-icon">${meta[1]}</span><span class="pill">${themen} ${themen === 1 ? 'Thema' : 'Themen'}</span></div><h3>${esc(area.label)}</h3><p>${esc(area.kurz)}</p><div class="area-card-foot"><span>${available.length} ${available.length === 1 ? 'Modul' : 'Module'}</span></div></a>`;
     }).join('');
   }
 

@@ -1275,7 +1275,16 @@ window.Lehrwerk = (function () {
       ziel.innerHTML = '';
       const offeneGruppen = geoeffnet();
 
-      b.gruppen.forEach((g, nr) => {
+      /* Was es noch nicht gibt, sehen die TN nicht. Mit ?lehrkraft=1 bleiben
+         die Ankündigungen sichtbar, damit die Planung nicht verloren geht. */
+      const lehrkraft = /[?&]lehrkraft=1/.test(location.search);
+      const zeigbar = m => lehrkraft || m._available === true || (id === 'referenz' && m.pfad === 'hausaufgaben.html');
+      let nr = -1;
+
+      b.gruppen.forEach(g => {
+        const module = g.module.filter(zeigbar);
+        if (!module.length) return;
+        nr++;
         const sec = document.createElement('details');
         sec.className = 'gruppe';
         const gruppenId = id + '/' + g.titel;
@@ -1303,7 +1312,7 @@ window.Lehrwerk = (function () {
           <summary class="kopfzeile">
             <span class="nummer">${String(nr + 1).padStart(2, '0')}</span>
             <h2>${g.titel}</h2>
-            <span class="anzahl">${anzahl(g.module.length, 'Modul', 'Module')}</span>
+            <span class="anzahl">${anzahl(module.length, 'Modul', 'Module')}</span>
             <span class="deckung">${deckung}</span>
             <span class="pfeil" aria-hidden="true">▾</span>
           </summary>`;
@@ -1311,7 +1320,7 @@ window.Lehrwerk = (function () {
         const grid = document.createElement('div');
         grid.className = 'kartei';
 
-        g.module.forEach(m => {
+        module.forEach(m => {
           const hausaufgabenBereich = id === 'referenz' && m.pfad === 'hausaufgaben.html';
           const offen = hausaufgabenBereich || m._available === true;
           const kennung = id + '/' + m.pfad;
