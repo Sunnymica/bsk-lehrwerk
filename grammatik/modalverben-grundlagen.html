@@ -104,7 +104,7 @@ mark{background:var(--warn);color:var(--nv);font-weight:700;border-radius:3px;pa
   <button data-tab="t2">2 · Die Klammer</button>
   <button data-tab="t3">3 · Gefährliche Paare</button>
   <button data-tab="t4">4 · Formen</button>
-  <button disabled>5 · Höflich bitten<span class="folgt">folgt</span></button>
+  <button data-tab="t5">5 · Höflich bitten</button>
 </nav>
 <main>
 
@@ -310,6 +310,82 @@ mark{background:var(--warn);color:var(--nv);font-weight:700;border-radius:3px;pa
     <h2>Jetzt alles durcheinander</h2>
     <p>Bedeutung, Form und Satzstellung: Welcher Satz passt?</p>
     <div id="fMix"></div><p class="stat" id="fMixStat"></p>
+  </div>
+</section>
+<!-- 5 HÖFLICH BITTEN -->
+<section id="t5" hidden>
+  <div class="panel">
+    <h2>Die Höflichkeitstreppe</h2>
+    <p>Nora steht am Kopierer. Das Papier klemmt. Sie braucht Hilfe. Dieselbe Bitte, vier Stufen:</p>
+    <table class="feld">
+      <tr><th>So sagt Nora es</th><th>So klingt es</th></tr>
+      <tr><td>Hilf mir!</td><td>Sehr direkt. Nur im Notfall.</td></tr>
+      <tr><td><span class="verb">Kannst</span> du mir <span class="verb">helfen</span>?</td><td>Normal unter Kollegen.</td></tr>
+      <tr><td><span class="verb">Kannst</span> du mir bitte <span class="verb">helfen</span>?</td><td>Freundlich.</td></tr>
+      <tr><td><span class="verb">Könntest</span> du mir bitte <span class="verb">helfen</span>?</td><td>Sehr höflich.</td></tr>
+    </table>
+    <div class="zwei">
+      <div class="neutral"><div class="gr">du</div><span class="verb">Kannst</span> du …? · <span class="verb">Könntest</span> du …?<br><span class="small">Kolleginnen und Kollegen, mit denen Sie sich duzen.</span></div>
+      <div class="neutral"><div class="gr">Sie</div><span class="verb">Können</span> Sie …? · <span class="verb">Könnten</span> Sie …?<br><span class="small">Kunden, Besucher, die Chefin, alle, die Sie siezen.</span></div>
+    </div>
+    <div class="merk">Frage mit <span class="verb">können</span> + bitte = höflich. Mit <span class="verb">könnten</span> noch etwas höflicher.</div>
+    <p class="small">„könnte“ ist eine besondere Form von „können“. Lernen Sie hier einfach die Sätze: Könntest du …? Könnten Sie …?</p>
+  </div>
+  <div class="panel">
+    <h2>A · Unter Kollegen: du</h2>
+    <p>Bei KONTOR duzen sich viele Kollegen. Welche Bitte passt am besten?</p>
+    <div id="hDu"></div><p class="stat" id="hDuStat"></p>
+  </div>
+  <div class="panel">
+    <h2>B · Mit Kunden und der Chefin: Sie</h2>
+    <p>Jetzt siezen alle. Welche Bitte passt am besten?</p>
+    <div id="hSie"></div><p class="stat" id="hSieStat"></p>
+    <div class="blitz"><b>Chat-Blitz</b>Bitten Sie Frau Melnyk höflich um etwas. Schreiben Sie in den Chat:<br><span class="vorlage"><span class="verb">Könnten</span> Sie mir bitte … <span class="verb">…</span>?</span><br><span class="small">Zum Beispiel: Könnten Sie mir bitte die Unterlagen schicken?</span></div>
+  </div>
+  <div class="panel">
+    <h2>C · Darf ich …?</h2>
+    <p>Finn ist neu bei KONTOR. Er fragt lieber einmal zu viel. Mit „Darf ich …?“ fragt er um Erlaubnis.</p>
+    <div class="zwei">
+      <div class="gut"><div class="gr"><span class="verb">Darf</span> ich das Telefon <span class="verb">benutzen</span>?</div>Ich frage um Erlaubnis. Ist das okay?</div>
+      <div class="neutral"><div class="gr"><span class="verb">Darf</span> ich Ihnen einen Kaffee <span class="verb">bringen</span>?</div>Ein freundliches Angebot. So spricht Petra am Empfang.</div>
+    </div>
+    <div class="hint"><b>Vorsicht:</b> „Muss ich …?“ heißt: Ist das meine Pflicht? Das ist keine Bitte.</div>
+    <div id="hDarf"></div><p class="stat" id="hDarfStat"></p>
+  </div>
+  <div class="panel">
+    <h2>D · Die Becker-Falle</h2>
+    <p>Jonas Becker aus dem Verkauf ist heute bei einem Kunden in Köln. Er ruft an. Frau Melnyk telefoniert gerade. Petra schreibt einen Zettel:</p>
+    <div class="vorlage" style="display:block;max-width:520px;margin:10px 0 14px;border:1px solid var(--line);background:#fffbe8">📝 Frau Melnyk, Herr Becker hat angerufen.<br>Sie <span class="verb">möchten</span> ihn bitte <span class="verb">zurückrufen</span>.<br><span class="small">Petra, 10:15 Uhr</span></div>
+    <div id="hBecker1"></div>
+    <div id="hBeckerRegel" hidden>
+      <div class="merk">In einer Nachricht heißt „Sie <span class="verb">möchten</span> bitte …“: Eine <b>andere Person</b> möchte das. Es ist eine höfliche Bitte, fast wie „Sie <span class="verb">sollen</span> …“.</div>
+      <div class="zwei">
+        <div class="neutral"><div class="gr">Herr Becker sagt:</div>„Frau Melnyk <span class="verb">soll</span> mich bitte zurückrufen.“</div>
+        <div class="gut"><div class="gr">Petra schreibt:</div>„Sie <span class="verb">möchten</span> ihn bitte zurückrufen.“</div>
+      </div>
+    </div>
+    <h3>Jetzt Sie: Wer möchte hier etwas?</h3>
+    <div id="hBecker2"></div><p class="stat" id="hBecker2Stat"></p>
+  </div>
+  <div class="panel">
+    <h2>E · Wohin kommt das zweite Verb?</h2>
+    <p>Auch in der höflichen Frage gilt die Klammer: Das zweite Verb steht ganz am Ende.</p>
+    <div id="hSlot"></div>
+  </div>
+  <div class="panel">
+    <h2>F · Alles gemischt</h2>
+    <p>Höflichkeit, Bedeutung und Satzstellung: Welcher Satz passt am besten?</p>
+    <div id="hMix"></div><p class="stat" id="hMixStat"></p>
+    <div class="blitz"><b>Chat-Blitz</b>Sie sind neu im Büro. Fragen Sie um Erlaubnis. Schreiben Sie in den Chat:<br><span class="vorlage"><span class="verb">Darf</span> ich … <span class="verb">…</span>?</span><br><span class="small">Zum Beispiel: Darf ich das Fenster aufmachen?</span></div>
+  </div>
+  <div class="panel">
+    <h2>Das kann ich</h2>
+    <div class="lit">
+      <div class="card">✓ Ich bitte höflich: Kannst du …? Könnten Sie …?</div>
+      <div class="card">✓ Ich weiß, wann ich „du“ und wann ich „Sie“ sage.</div>
+      <div class="card">✓ Ich frage um Erlaubnis: Darf ich …?</div>
+      <div class="card">✓ Ich verstehe „Sie möchten bitte zurückrufen“ in einer Nachricht.</div>
+    </div>
   </div>
 </section>
 </main></div>
@@ -544,6 +620,46 @@ mcList('mixBox','mixStat',[
     {sit:'Nora kann dem Kunden erst morgen antworten.',o:[fP('Morgen kann sie dem Kunden Bescheid geben.',true,'Position 2: kann. Ende: Bescheid geben.'),fP('Morgen können sie dem Kunden Bescheid geben.',false,'Form: Nora allein = sie kann.'),fP('Morgen sie kann dem Kunden Bescheid geben.',false,'Stellung: Morgen steht schon auf Position 1.') ]}
   ],true);
 })();
+
+/* ---------- 5 HÖFLICH BITTEN ---------- */
+mcList('hDu','hDuStat',[
+ {sit:'Pawel trägt Kisten ins Lager. Nora braucht den Schlüssel für den Schrank. Sie sagt:',o:[['Pawel, kannst du mir kurz den Schlüssel geben?',true,'Freundlich und normal unter Kollegen.'],['Pawel, könntest du mir eventuell vielleicht bitte den Schlüssel geben?',"mid",'Die Form stimmt. Aber so viel Höflichkeit klingt unter Kollegen fast ironisch. Pawel schaut misstrauisch.'],['Pawel, gib mir den Schlüssel!',false,'Das ist ein Befehl.'+W+'Pawel gibt ihr den Schlüssel. Danach spricht er bis Freitag nur noch mit dem Gabelstapler.'+E]]},
+ {sit:'Finn sitzt neben Frau Lenz am Empfang. Der Drucker zeigt einen Fehler. Finn fragt:',o:[['Kannst du mir bitte helfen?',true,'Freundlich, mit „bitte“.'],['Hilfst du mir?',"mid",'Das geht. Es klingt aber etwas knapp. Mit „Kannst du … bitte“ ist es freundlicher.'],['Du musst mir helfen!',false,'„müssen“ klingt hier nach Notfall.'+W+'Frau Lenz springt auf und ruft: „Brennt es?“ Es war nur ein Papierstau.'+E]]},
+ {sit:'Jonas hat morgen eine Präsentation. Nora hat die Folien. Jonas fragt:',o:[['Könntest du mir bitte die Folien schicken?',true,'Sehr höflich.'],['Kannst du mir bitte die Folien schicken?',true,'Freundlich. Unter Kollegen ganz normal.'],['Schick mir die Folien.',false,'Ohne Frage und ohne „bitte“ ist das ein Befehl.'+W+'Nora schickt die Folien. Alle 87. Einzeln.'+E]]}
+],true);
+mcList('hSie','hSieStat',[
+ {sit:'Ein Besucher steht am Empfang. Petra braucht seinen Namen. Sie sagt:',o:[['Können Sie mir bitte Ihren Namen sagen?',true,'Höflich und klar.'],['Könnten Sie mir bitte Ihren Namen sagen?',true,'Sehr höflich. Auch sehr gut.'],['Sagen Sie mir Ihren Namen!',false,'Das klingt wie bei der Polizei.'+W+'Der Besucher sagt seinen Namen. Dann fragt er nach dem Beschwerdeformular.'+E]]},
+ {sit:'Frau Melnyk hat viel Stress. Nora braucht noch eine Unterschrift. Sie sagt:',o:[['Könnten Sie das bitte noch unterschreiben?',true,'Sehr höflich. Bei der Chefin im Stress genau richtig.'],['Können Sie das bitte noch unterschreiben?',"mid",'Das ist auch höflich. „Könnten“ ist aber noch etwas weicher.'],['Sie müssen das unterschreiben.',false,'Das stimmt vielleicht. Aber es klingt wie ein Befehl an die Chefin.'+W+'Frau Melnyk unterschreibt. Eine Woche lang fragt sie bei jedem Papier: „Muss ich das auch?“'+E]]},
+ {sit:'Herr Sommer von Brandt Verpackungen ruft an. Er spricht sehr schnell. Petra versteht nichts. Sie sagt:',o:[['Könnten Sie das bitte noch einmal langsam sagen?',true,'Höflich. So fragt man am Telefon nach.'],['Sprechen Sie langsam!',false,'Das ist ein Befehl.'+W+'Herr Sommer spricht jetzt sehr langsam. Und sehr laut. Und sehr beleidigt.'+E],['Können Sie bitte langsam?',false,'Hier fehlt das zweite Verb. Richtig: Können Sie bitte langsamer sprechen?']]}
+],true);
+mcList('hDarf','hDarfStat',[
+ {sit:'Finn hat seinen ersten Tag am Empfang. Er möchte das Telefon benutzen. Er fragt Frau Lenz:',o:[['Darf ich das Telefon benutzen?',true,'Finn fragt um Erlaubnis.'],['Kann ich das Telefon benutzen?',"mid",'Im Alltag sagt man das oft. Mit „darf“ fragt Finn aber klar um Erlaubnis.'],['Muss ich das Telefon benutzen?',false,'Das heißt: Ist das meine Pflicht?'+W+'Frau Lenz: „Na ja … du sitzt am Empfang. Eigentlich schon.“ Finn schaut das Telefon an wie einen Tiger.'+E]]},
+ {sit:'Nora ist bei einem Kunden. Im Büro ist es sehr warm. Nora möchte frische Luft. Sie fragt:',o:[['Darf ich das Fenster aufmachen?',true,'Nora ist Gast. Sie fragt um Erlaubnis.'],['Ich will das Fenster aufmachen.',false,'Das ist keine Frage, das ist ein Plan.'+W+'Der Kunde macht das Fenster selbst auf. Den Vertrag unterschreibt er lieber nächste Woche.'+E],['Muss ich das Fenster aufmachen?',false,'Das heißt: Ist das meine Pflicht? Aber Nora möchte frische Luft.']]},
+ {sit:'Ein Besucher wartet am Empfang. Petra möchte ihm etwas anbieten. Sie fragt:',o:[['Darf ich Ihnen einen Kaffee bringen?',true,'Ein freundliches Angebot.'],['Möchten Sie einen Kaffee?',true,'Auch sehr höflich.'],['Wollen Sie Kaffee?',"mid",'Im Alltag hört man das. Am Empfang klingt „Möchten Sie …?“ oder „Darf ich …?“ aber freundlicher.']]},
+ {sit:'Finn hat eine Frage an Frau Melnyk. Er siezt sie. Sie telefoniert gerade. Jetzt ist sie fertig. Finn sagt:',o:[['Darf ich Sie kurz etwas fragen?',true,'Höflich. Finn fragt, ob er stören darf.'],['Kann ich Sie kurz etwas fragen?',"mid",'Das geht auch. „Darf ich“ ist bei der Chefin noch etwas höflicher.'],['Ich muss Sie etwas fragen.',false,'Das klingt dringend.'+W+'Frau Melnyk legt erschrocken den Hörer weg: „Was ist passiert?“ Finn wollte nur wissen, wo die Kaffeetassen sind.'+E]]}
+],true);
+mcList('hBecker1',null,[
+ {sit:'Lesen Sie Petras Zettel noch einmal.',s:'Wer möchte, dass Frau Melnyk anruft?',o:[['Herr Becker. Er möchte einen Rückruf.',true,'Genau. „Sie möchten bitte …“ ist hier sein Wunsch, nicht der Wunsch von Frau Melnyk.'],['Frau Melnyk. Sie hat Lust zu telefonieren.',false,'Das ist die Becker-Falle!'+W+'Frau Melnyk liest den Zettel: „Ich möchte? Ich möchte gar nichts.“ Sie legt den Zettel weg. Jonas wartet in Köln bis zum Abend.'+E],['Petra. Sie möchte telefonieren.',false,'Petra schreibt nur die Nachricht. Sie ist die Botin.']]}
+],true);
+document.querySelector('#hBecker1').addEventListener('click',()=>{if(document.querySelector('#hBecker1 .q').dataset.done)$('hBeckerRegel').hidden=false});
+mcList('hBecker2','hBecker2Stat',[
+ {sit:'Frau Haddad ist nicht im Büro. Petra sagt am Telefon zu einem Kunden:',s:'„Frau Haddad lässt ausrichten: Sie möchten bitte morgen noch einmal anrufen.“',o:[['Frau Haddad möchte, dass der Kunde morgen anruft.',true,'Genau. Es ist Frau Haddads Bitte.'],['Der Kunde hat Lust, morgen anzurufen.',false,'Das ist die Becker-Falle. Der Kunde wird gebeten.'],['Petra möchte morgen anrufen.',false,'Petra gibt nur die Nachricht weiter.']]},
+ {sit:'Frau Melnyk sagt zu Petra: „Herr Sommer soll mich bitte zurückrufen.“ Petra schreibt Herrn Sommer eine E-Mail.',s:'Was schreibt Petra?',o:[['Sie möchten bitte Frau Melnyk zurückrufen.',true,'Höflich. Der Kunde versteht: Frau Melnyk bittet darum.'],['Sie sollen Frau Melnyk zurückrufen.',"mid",'Das ist richtig. Für einen Kunden klingt es aber etwas direkt.'],['Sie wollen Frau Melnyk zurückrufen.',false,'„wollen“ ist der eigene Plan von Herrn Sommer.'+W+'Herr Sommer antwortet: „Will ich das? Davon weiß ich nichts.“'+E]]},
+ {sit:'Nora findet einen Zettel auf ihrem Tisch:',s:'„Nora, Pawel hat angerufen. Du möchtest bitte ins Lager kommen.“',o:[['Pawel möchte, dass Nora ins Lager kommt.',true,'Genau. Auch mit „du“ gibt es die Becker-Falle.'],['Nora hat Lust, ins Lager zu gehen.',false,'Nora wird gebeten. Es ist Pawels Wunsch.'],['Pawel möchte ins Lager kommen.',false,'Pawel ist schon im Lager. Er möchte, dass Nora kommt.']]}
+],true);
+slotTask('hSlot',[
+ {ins:'helfen',w:['Könnten','Sie','mir','bitte'],end:'?',ok:[4],no:'Da nicht. Auch in der höflichen Frage steht das zweite Verb am Ende.',e:'Könnten Sie mir bitte helfen?'},
+ {ins:'zeigen',w:['Kannst','du','mir','das','noch einmal'],end:'?',ok:[5],no:'Da nicht. Das zweite Verb geht ganz ans Ende.',e:'Kannst du mir das noch einmal zeigen?'},
+ {ins:'aufmachen',w:['Darf','ich','das Fenster'],end:'?',ok:[3],no:'Da nicht. Das zweite Verb geht ganz ans Ende. „aufmachen“ bleibt ein Wort.',e:'Darf ich das Fenster aufmachen?'},
+ {ins:'zurückrufen',w:['Sie','möchten','Herrn Becker','bitte'],ok:[4],no:'Da nicht. „möchten“ steht auf Position 2, das zweite Verb ganz am Ende.',e:'Sie möchten Herrn Becker bitte zurückrufen.'},
+ {ins:'unterschreiben',w:['Könnten','Sie','das','heute noch'],end:'?',ok:[4],no:'Da nicht. Das zweite Verb geht ganz ans Ende.',e:'Könnten Sie das heute noch unterschreiben?'}
+],'Wohin kommt');
+mcList('hMix','hMixStat',[
+ {sit:'Ein Kunde ruft an. Petra versteht den Namen nicht.',o:[['Könnten Sie Ihren Namen bitte buchstabieren?',true,'Höflich, und das zweite Verb steht am Ende.'],['Könnten Sie bitte buchstabieren Ihren Namen?',false,'Die Höflichkeit stimmt. Aber „buchstabieren“ gehört ans Ende.'],['Buchstabieren Sie!',false,'Das ist ein Befehl. Der Kunde ist dann vielleicht beleidigt.']]},
+ {sit:'Finn möchte früher gehen. Er hat einen Arzttermin. Er fragt Frau Lenz:',o:[['Darf ich heute eine Stunde früher gehen?',true,'Finn fragt um Erlaubnis.'],['Muss ich heute eine Stunde früher gehen?',false,'Das heißt: Ist das meine Pflicht?'+W+'Frau Lenz: „Nein, natürlich nicht!“ Finn bleibt. Der Arzttermin auch, aber ohne Finn.'+E],['Kann ich heute eine Stunde früher gehen?',"mid",'Im Alltag sagt man das oft. Mit „darf“ fragt Finn aber klar um Erlaubnis.']]},
+ {sit:'Auf Noras Tisch liegt ein Zettel: „Herr Brückner hat angerufen. Sie möchten ihn bitte zurückrufen.“',s:'Was macht Nora?',o:[['Sie ruft Herrn Brückner zurück.',true,'Herr Brückner möchte das.'],['Nichts. Sie hat keine Lust.',false,'Becker-Falle! „Sie möchten“ ist hier nicht Noras Wunsch, sondern Herrn Brückners Bitte.'],['Sie wartet, bis Herr Brückner noch einmal anruft.',false,'Herr Brückner wartet auf ihren Anruf.']]},
+ {sit:'Pawel und Nora duzen sich. Nora braucht Hilfe.',o:[['Kannst du mir bitte helfen?',true,'Freundlich und richtig.'],['Können Sie mir bitte helfen?',"mid",'Höflich, aber Pawel und Nora duzen sich. Pawel denkt: Ist sie sauer auf mich?'],['Kannst du mir bitte?',false,'Das zweite Verb fehlt: Kannst du mir bitte helfen?']]}
+],true);
 </script>
 <script src="../assets/navi.js" defer></script>
 </body></html>

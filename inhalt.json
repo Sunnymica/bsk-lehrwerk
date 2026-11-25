@@ -1078,15 +1078,15 @@
             },
             {
               "titel": "Modalverben: die Grundlagen",
-              "beschreibung": "müssen, können, dürfen, sollen, wollen, möchten: Bedeutung, die Klammer im Satz und die gefährlichen Paare (nicht müssen oder nicht dürfen?).",
+              "beschreibung": "müssen, können, dürfen, sollen, wollen, möchten: Bedeutung, die Klammer im Satz, die gefährlichen Paare, die Formen und höflich bitten.",
               "pfad": "modalverben-grundlagen.html",
               "niveau": "A2–B1",
-              "dauer": "3 Lernabschnitte",
+              "dauer": "5 Lernabschnitte",
               "fertigkeiten": [
                 "Üben",
                 "Sprechen"
               ],
-              "status": "teilweise"
+              "status": "fertig"
             },
             {
               "titel": "Modalverben",
