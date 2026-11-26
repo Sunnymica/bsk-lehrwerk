@@ -1,5 +1,5 @@
 /* =========================================================
-   Deutsch fürs Büro – gemeinsame Navigation (Wegenetz, Stufe 1 und 3)
+   Deutsch fürs Büro – gemeinsame Navigation (Wegenetz, Stufen 1, 3 und 4)
 
    Eine Datei für alle Seiten:
    - „↑ Zum Seitenanfang“ am Seitenende
@@ -223,7 +223,38 @@
     window.addEventListener('pageshow', function (e) { if (e.persisted) reiterAusAdresse(); });
   }
 
-  function alles() { start(); direktlinks(); }
+  /* ---------- Wegenetz Stufe 4: Ausflüge im eigenen Tab ----------
+     Ein Link auf einer Lernseite, der zu einer anderen Lernseite
+     führt (z. B. Messe → Modalverben), öffnet einen neuen Tab.
+     Der Unterricht bleibt im alten Tab genau so stehen, wie er war:
+     Reiter, Scrollposition, Eingaben, Finn-Dialog, offene Kästen.
+     Zurück geht es durch Klick auf den Tab (oder Strg + 1).
+     Unverändert bleiben: Startseite und Bereichsübersichten,
+     Kopfzeile und Menüs (führen zu Übersichten), Anker auf derselben
+     Seite, Links mit „←“ (Rückwege) und alles mit eigenem target. */
+  var KEINE_LERNORDNER = { assets: 1, data: 1, docs: 1, vorschau: 1, experimente: 1, tools: 1 };
+  function lernseite(url) {
+    var wurzel = new URL(WURZEL, location.href);
+    if (url.href.indexOf(wurzel.href) !== 0) return false;
+    var rest = url.pathname.slice(wurzel.pathname.length);
+    var teile = rest.split('/');
+    return teile.length > 1 && !KEINE_LERNORDNER[teile[0]] && /\.html?$/.test(rest);
+  }
+  function ausfluege() {
+    document.addEventListener('click', function (e) {
+      if (e.defaultPrevented || e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+      var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a || a.hasAttribute('target') || a.hasAttribute('download')) return;
+      if (/^\s*←/.test(a.textContent || '')) return;
+      var ziel;
+      try { ziel = new URL(a.getAttribute('href'), location.href); } catch (x) { return; }
+      if (ziel.origin !== location.origin || ziel.pathname === location.pathname) return;
+      if (!lernseite(new URL(location.href)) || !lernseite(ziel)) return;
+      a.target = '_blank';
+    });
+  }
+
+  function alles() { start(); direktlinks(); ausfluege(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', alles);
   else alles();
 })();
