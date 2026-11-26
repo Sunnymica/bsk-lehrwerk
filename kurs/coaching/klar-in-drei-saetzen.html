@@ -63,6 +63,16 @@ summary{cursor:pointer;font-weight:700}
 .small{font-size:15px;color:var(--muted)}
 .tuv{display:flex;gap:16px;flex-wrap:wrap;margin:8px 0;font-size:16px}
 .tuv label{display:flex;gap:6px;align-items:center}
+/* Mein Weg */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 4px}
+.chips button{padding:6px 14px;border-radius:999px;font-size:17px}
+.chips button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.chips input{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:17px;min-width:190px;background:var(--cream)}
+.slot{font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+.pitch{font:24px/1.6 Georgia,serif;background:#fffaf0;border:1px solid #ecdcb4;border-radius:12px;padding:18px 22px;margin:14px 0}
+.pitch .ende{color:var(--ok);font-weight:700}
+.luecke{color:var(--muted);border-bottom:2px dotted var(--muted)}
+.hand{font:700 22px/1.3 Georgia,serif}
 [hidden]{display:none!important}
 </style></head><body>
 <header>
@@ -79,7 +89,8 @@ summary{cursor:pointer;font-weight:700}
   <button data-tab="t4">4 · Am Schalter</button>
   <button data-tab="t5">5 · Drei Sätze, 30 Sekunden</button>
   <button data-tab="t6">6 · Die Telefonkonferenz</button>
-  <button data-tab="t7">7 · Das kann ich</button>
+  <button data-tab="t8">7 · Mein Weg in drei Sätzen</button>
+  <button data-tab="t7">8 · Das kann ich</button>
 </nav>
 <main>
 
@@ -253,7 +264,60 @@ summary{cursor:pointer;font-weight:700}
   </div>
 </section>
 
-<!-- 7 DAS KANN ICH -->
+<!-- 7 MEIN WEG (id t8, damit alte Links auf t7 = „Das kann ich“ bleiben) -->
+<section id="t8" hidden>
+  <div class="panel">
+    <h2>Mein Weg in drei Sätzen</h2>
+    <p><b>Die Situation:</b> Vorstellungsgespräch. Die Personalerin sagt: „Erzählen Sie bitte kurz etwas über sich.“ Du hast viel zu erzählen. Sie hat wenig Zeit.</p>
+    <div class="box"><span class="hand">✋ Die Spielregel:</span> Drei Sätze. Wenn Regina die Hand hebt, machst du einen Punkt.</div>
+
+    <h3>Erst klicken: Bau deine drei Sätze</h3>
+    <p class="small">Klick, was passt. Passt nichts? Schreib es ins weiße Feld.</p>
+
+    <div class="card" style="margin:12px 0">
+      <div class="num">Satz 1 · Was habe ich gemacht?</div>
+      <div class="slot">Beruf</div>
+      <div class="chips" data-slot="beruf" data-wahl="Juristin|Buchhalterin|Sachbearbeiterin|Finanzberaterin|Lehrerin"></div>
+      <div class="slot">Wo?</div>
+      <div class="chips" data-slot="wo" data-wahl="für die Regierung|für eine Stadtverwaltung|bei einer Bank|in einer Baufirma|in einer Kanzlei"></div>
+    </div>
+    <div class="card" style="margin:12px 0">
+      <div class="num">Satz 2 · Was kann ich?</div>
+      <div class="slot">Erfahrung mit …</div>
+      <div class="chips" data-slot="mit" data-wahl="Investitionen|Verträgen|Krediten|Förderprogrammen|Compliance"></div>
+      <div class="slot">In welchem Bereich?</div>
+      <div class="chips" data-slot="bereich" data-wahl="im Wohnungsbau|im Finanzbereich|im internationalen Recht|im Kundenservice"></div>
+    </div>
+    <div class="card" style="margin:12px 0">
+      <div class="num">Satz 3 · Was will ich?</div>
+      <div class="slot">In Deutschland möchte ich … arbeiten</div>
+      <div class="chips" data-slot="ziel" data-wahl="im Finanzbereich|in einer Bank|bei einer Förderbank|in der Verwaltung|in einer Rechtsabteilung"></div>
+    </div>
+
+    <h3>Dein Text</h3>
+    <div id="mwPitch" class="pitch" aria-live="polite"></div>
+    <div class="hint"><b>Siehst du die Klammer?</b> <span class="verb">habe</span> … <span class="ende">gearbeitet</span> · <span class="verb">möchte</span> … <span class="ende">arbeiten</span>. Das erste Verb steht auf Position 2, das zweite ganz am Ende. Das ist § 1 und § 3.</div>
+    <div class="hint"><b>Jetzt laut.</b> Lies deine drei Sätze vor. Dann noch einmal, ohne hinzuschauen. ✋</div>
+
+    <h3>Dann fragt die Personalerin nach</h3>
+    <p>Regina ist die Personalerin. Antworte in einem oder zwei Sätzen.</p>
+    <div id="mwFrage" class="prompt" aria-live="polite"></div>
+    <div class="controls">
+      <button id="mwNext" class="primary">Nächste Frage →</button>
+      <button id="mwHelp">Satzanfang zeigen</button>
+    </div>
+    <p id="mwHelpText" class="hint" hidden></p>
+
+    <details>
+      <summary>Für Profis: deine drei Sätze ohne Bausteine</summary>
+      <p class="small">Schreib deinen eigenen Text. Er bleibt nur auf deinem Gerät.</p>
+      <textarea id="mwFrei" style="min-height:120px" placeholder="In meinem Heimatland habe ich als …"></textarea>
+      <div class="tuv"><label><input type="checkbox">Drei Sätze?</label><label><input type="checkbox">§ 1 Position 2</label><label><input type="checkbox">§ 3 Klammer</label><label><input type="checkbox">§ 4 Artikel</label></div>
+    </details>
+  </div>
+</section>
+
+<!-- 8 DAS KANN ICH -->
 <section id="t7" hidden>
   <div class="panel">
     <h2>Das kann ich</h2>
@@ -446,6 +510,45 @@ function fu(){document.getElementById('fuPrompt').textContent=FU[fi][0];document
 document.getElementById('fuNext').onclick=()=>{fi=(fi+1)%FU.length;fu()};
 document.getElementById('fuHelp').onclick=()=>{const h=document.getElementById('fuHelpText');h.hidden=!h.hidden};
 fu();
+/* ---------- 7 MEIN WEG (Bausteine, speichert nur im Browser) ---------- */
+(function(){
+  const KEY='coaching-liubov-mein-weg';
+  let st={};try{st=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){}
+  const sichern=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
+  const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const wert=k=>(st[k]||'').trim();
+  const L=(k,leer)=>wert(k)?'<b>'+esc(wert(k))+'</b>':'<span class="luecke">'+leer+'</span>';
+  function zeigen(){
+    const mit=wert('mit')?L('mit')+(wert('bereich')?' '+L('bereich'):''):L('mit','…');
+    document.getElementById('mwPitch').innerHTML=
+      '<span class="pos1">In meinem Heimatland</span> <span class="verb">habe</span> <span class="subj">ich</span> als '+L('beruf','…')+' '+L('wo','…')+' <span class="ende">gearbeitet</span>.<br>'+
+      '<span class="subj">Ich</span> <span class="verb">habe</span> Erfahrung mit '+mit+'.<br>'+
+      '<span class="pos1">In Deutschland</span> <span class="verb">möchte</span> <span class="subj">ich</span> '+L('ziel','…')+' <span class="ende">arbeiten</span>.';
+  }
+  document.querySelectorAll('#t8 .chips').forEach(box=>{
+    const k=box.dataset.slot, wahl=box.dataset.wahl.split('|');
+    const knoepfe=wahl.map(w=>{const b=document.createElement('button');b.type='button';b.textContent=w;box.appendChild(b);return b});
+    const ein=document.createElement('input');ein.placeholder='eigenes …';ein.setAttribute('aria-label','Eigene Angabe');box.appendChild(ein);
+    const markieren=()=>{knoepfe.forEach(b=>b.classList.toggle('on',b.textContent===wert(k)));ein.value=wahl.includes(wert(k))?'':wert(k)};
+    knoepfe.forEach(b=>b.onclick=()=>{st[k]=st[k]===b.textContent?'':b.textContent;sichern();markieren();zeigen()});
+    ein.oninput=()=>{st[k]=ein.value;sichern();knoepfe.forEach(b=>b.classList.remove('on'));zeigen()};
+    markieren();
+  });
+  const frei=document.getElementById('mwFrei');frei.value=st.frei||'';frei.oninput=()=>{st.frei=frei.value;sichern()};
+  zeigen();
+  const FR=[
+   ['Was genau war Ihre Aufgabe?','Ich war zuständig für … · Ich habe … geprüft.'],
+   ['Warum möchten Sie in Deutschland im Finanzbereich arbeiten?','Ich möchte im Finanzbereich arbeiten, weil …'],
+   ['Kennen Sie das deutsche Recht?','Das deutsche Recht kenne ich noch nicht gut. Aber ich lerne schnell, weil …'],
+   ['Was machen Sie zurzeit?','Zurzeit arbeite ich bei … Dort …'],
+   ['Was können Sie bei uns besonders gut?','Ich kann gut … · Ich habe viel Erfahrung mit …']
+  ];
+  let i=0;
+  function frage(){document.getElementById('mwFrage').textContent=FR[i][0];const h=document.getElementById('mwHelpText');h.textContent=FR[i][1];h.hidden=true}
+  document.getElementById('mwNext').onclick=()=>{i=(i+1)%FR.length;frage()};
+  document.getElementById('mwHelp').onclick=()=>{const h=document.getElementById('mwHelpText');h.hidden=!h.hidden};
+  frage();
+})();
 </script>
 <script src="../../assets/navi.js" defer></script>
 </body></html>
