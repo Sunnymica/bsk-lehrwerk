@@ -1255,6 +1255,49 @@ window.Lehrwerk = (function () {
     return '<span>' + wert + '</span>';
   }
 
+  /* ====== Kurz erklärt ======
+     Gruppen in inhalt.json dürfen eine Liste "videos" haben:
+     { titel, beschreibung, datei, dauer, niveau } – datei ohne Endung,
+     erwartet assets/video/<datei>.mp4 und assets/video/<datei>.jpg (Standbild).
+     Kein Autoplay, Ton nur nach Klick; startet ein Video, halten die anderen an. */
+  function videozeile(videos) {
+    const wurzel = (document.body && document.body.dataset.root) || '';
+    const zeile = document.createElement('section');
+    zeile.className = 'kurz-erklaert';
+    zeile.setAttribute('aria-label', 'Kurz erklärt: Videos');
+    zeile.innerHTML = '<p class="kurz-erklaert__kopf"><span aria-hidden="true">▶</span> Kurz erklärt</p>';
+    const raster = document.createElement('div');
+    raster.className = 'kartei';
+    videos.forEach(v => {
+      const pfad = wurzel + 'assets/video/' + v.datei;
+      const karte = document.createElement('article');
+      karte.className = 'karte videokarte';
+      karte.innerHTML = `
+        <div class="videokarte__bild">
+          <video preload="none" playsinline poster="${pfad}.jpg"><source src="${pfad}.mp4" type="video/mp4"></video>
+          <button class="videokarte__play" type="button" aria-label="Video „${v.titel}“ abspielen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l15 8-15 8z"/></svg></button>
+          ${v.dauer ? '<span class="videokarte__dauer">' + v.dauer + '</span>' : ''}
+        </div>
+        <h3>${v.titel}</h3>
+        <p class="text">${v.beschreibung || ''}</p>
+        <div class="meta"><span class="fk-Video">▶ Video</span>${v.niveau ? '<span>' + v.niveau + '</span>' : ''}</div>`;
+      const bild = karte.querySelector('.videokarte__bild');
+      const video = karte.querySelector('video');
+      const los = () => {
+        document.querySelectorAll('.videokarte video').forEach(a => { if (a !== video) a.pause(); });
+        video.controls = true;
+        bild.classList.add('laeuft');
+        video.play();
+      };
+      karte.querySelector('.videokarte__play').addEventListener('click', ev => { ev.stopPropagation(); los(); });
+      bild.addEventListener('click', () => { if (!bild.classList.contains('laeuft')) los(); });
+      video.addEventListener('ended', () => { bild.classList.remove('laeuft'); video.controls = false; video.load(); });
+      raster.appendChild(karte);
+    });
+    zeile.appendChild(raster);
+    return zeile;
+  }
+
   function bereich(id) {
     countdown();
 
@@ -1285,6 +1328,7 @@ window.Lehrwerk = (function () {
         const module = g.module.filter(zeigbar);
         if (!module.length) return;
         nr++;
+        const videos = Array.isArray(g.videos) ? g.videos : [];
         const sec = document.createElement('details');
         sec.className = 'gruppe';
         const gruppenId = id + '/' + g.titel;
@@ -1312,10 +1356,12 @@ window.Lehrwerk = (function () {
           <summary class="kopfzeile">
             <span class="nummer">${String(nr + 1).padStart(2, '0')}</span>
             <h2>${g.titel}</h2>
-            <span class="anzahl">${anzahl(module.length, 'Modul', 'Module')}</span>
+            <span class="anzahl">${anzahl(module.length, 'Modul', 'Module')}${videos.length ? ' · ' + anzahl(videos.length, 'Video', 'Videos') : ''}</span>
             <span class="deckung">${deckung}</span>
             <span class="pfeil" aria-hidden="true">▾</span>
           </summary>`;
+
+        if (videos.length) sec.appendChild(videozeile(videos));
 
         const grid = document.createElement('div');
         grid.className = 'kartei';

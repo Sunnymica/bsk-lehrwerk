@@ -839,6 +839,22 @@
       "gruppen": [
         {
           "titel": "Satzbau",
+          "videos": [
+            {
+              "titel": "Die Satzklammer",
+              "beschreibung": "Klammer auf – alles rein – Klammer zu. Perfekt, Modalverb, trennbare Verben und „Bescheid geben“.",
+              "datei": "satzklammer",
+              "dauer": "1:22",
+              "niveau": "A2–B1"
+            },
+            {
+              "titel": "weil, denn, deshalb",
+              "beschreibung": "Drei Wörter, drei Plätze für das Verb: bleibt, ans Ende, sofort.",
+              "datei": "weil-denn-deshalb",
+              "dauer": "1:08",
+              "niveau": "B1"
+            }
+          ],
           "module": [
             {
               "titel": "Satzbau: Das Verb gibt den Takt",
