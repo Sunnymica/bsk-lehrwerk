@@ -254,28 +254,38 @@ body[data-bereich="referenz"]  .karte { border-left-color: var(--flieder-tief); 
 .haken:hover { color: rgba(34,34,43,0.3); }
 .haken:focus-visible { outline: 2px solid var(--tinte); outline-offset: 2px; }
 
-/* Kurz erklärt: Videokarten oben in einer Gruppe */
-.gruppe > .kurz-erklaert { padding: 0.2rem 0.2rem 1.1rem; }
-.kurz-erklaert__kopf {
-  margin: 0 0 0.6rem; font-family: var(--mono); font-size: 0.63rem;
-  letter-spacing: 0.12em; text-transform: uppercase; color: var(--tinte-weich);
+/* Kurz erklärt: eigene Bühne oben in einer Gruppe */
+.gruppe > .kurz-erklaert {
+  margin: 0.4rem 0.2rem 2.2rem; padding: 1.5rem 1.4rem 1.7rem;
+  background: var(--rose); border-radius: 18px; text-align: center;
 }
-.videokarte { padding-top: 0; overflow: hidden; }
-.videokarte:hover { transform: none; }
-.videokarte__bild {
-  position: relative; aspect-ratio: 1 / 1; margin: 0 -1.1rem 0.95rem;
-  background: #F1EEE6; cursor: pointer;
+.kurz-erklaert__kopf { margin: 0 0 1.2rem; }
+.kurz-erklaert__marke {
+  display: block; margin-bottom: 0.3rem; font-family: var(--mono); font-size: 0.6rem;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose-tief); opacity: 0.8;
 }
+.kurz-erklaert__titel { margin: 0; font-family: var(--display); font-weight: 600; font-size: 1.25rem; color: var(--rose-tief); }
+.kurz-erklaert__unter { margin: 0.25rem 0 0; font-size: 0.9rem; color: var(--tinte-weich); }
+.kurz-erklaert .videoreihe { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem; }
+body .gruppe .karte.videokarte {
+  width: 16.5rem; padding: 0 0 1rem; text-align: left; overflow: hidden;
+  border: 0; border-radius: 14px; background: var(--karte);
+  box-shadow: 0 1px 2px rgba(34,34,43,0.06), 0 6px 18px rgba(34,34,43,0.07);
+}
+body .gruppe .karte.videokarte:hover { transform: translateY(-2px); box-shadow: 0 2px 4px rgba(34,34,43,0.07), 0 10px 24px rgba(34,34,43,0.10); }
+.videokarte > h3, .videokarte > .text, .videokarte > .meta { padding-left: 1rem; padding-right: 1rem; }
+.videokarte > h3 { margin-top: 0.85rem; }
+.videokarte__bild { position: relative; aspect-ratio: 1 / 1; background: #F1EEE6; cursor: pointer; }
 .videokarte__bild video { display: block; width: 100%; height: 100%; object-fit: cover; background: #F1EEE6; }
 .videokarte__play {
   position: absolute; inset: 0; margin: auto; width: 3.4rem; height: 3.4rem;
-  border: 0; border-radius: 50%; background: rgba(31,35,40,0.78);
+  border: 0; border-radius: 50%; background: var(--rose-tief);
   display: grid; place-items: center; cursor: pointer; padding: 0;
-  transition: transform 140ms ease;
+  box-shadow: 0 4px 14px rgba(34,34,43,0.25); transition: transform 140ms ease;
 }
 .videokarte__play:hover { transform: scale(1.08); }
 .videokarte__play:focus-visible { outline: 2px solid var(--tinte); outline-offset: 2px; }
-.videokarte__play svg { width: 1.5rem; height: 1.5rem; margin-left: 0.2rem; fill: #FFFFFF; }
+.videokarte__play svg { width: 1.4rem; height: 1.4rem; margin-left: 0.2rem; fill: #FFFFFF; }
 .videokarte__dauer {
   position: absolute; right: 0.6rem; bottom: 0.7rem;
   background: rgba(31,35,40,0.78); color: #FFFFFF;

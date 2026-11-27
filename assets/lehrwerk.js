@@ -1265,9 +1265,11 @@ window.Lehrwerk = (function () {
     const zeile = document.createElement('section');
     zeile.className = 'kurz-erklaert';
     zeile.setAttribute('aria-label', 'Kurz erklärt: Videos');
-    zeile.innerHTML = '<p class="kurz-erklaert__kopf"><span aria-hidden="true">▶</span> Kurz erklärt</p>';
+    zeile.innerHTML = '<div class="kurz-erklaert__kopf"><span class="kurz-erklaert__marke">▶ ' + anzahl(videos.length, 'Video', 'Videos') + '</span>' +
+      '<h3 class="kurz-erklaert__titel">Kurz erklärt</h3>' +
+      '<p class="kurz-erklaert__unter">In gut einer Minute auf den Punkt.</p></div>';
     const raster = document.createElement('div');
-    raster.className = 'kartei';
+    raster.className = 'videoreihe';
     videos.forEach(v => {
       const pfad = wurzel + 'assets/video/' + v.datei;
       const karte = document.createElement('article');
