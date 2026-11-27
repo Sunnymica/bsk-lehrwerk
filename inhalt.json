@@ -1034,6 +1034,15 @@
         },
         {
           "titel": "Verben in allen Zeiten",
+          "videos": [
+            {
+              "titel": "Das Passiv",
+              "beschreibung": "Die Rechnung wird geschrieben. Wichtig ist, was passiert – nicht, wer es tut. Mit dem typischen Fehler wird + Infinitiv.",
+              "datei": "passiv",
+              "dauer": "1:07",
+              "niveau": "B1"
+            }
+          ],
           "module": [
             {
               "titel": "Zeitformen im Beruf",
