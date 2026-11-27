@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Olha · Ausflug zum Weihnachtsmarkt</title>
+<style>
+:root{--ink:#2b3a55;--chestnut:#8a4b2a;--red:#a8323a;--pale:#f8ece2;--sky:#eaf0f7;--cream:#fdfaf5;--line:#e3dbd0;--muted:#6b6f7a;--ok:#2e6b4a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:19px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+button,textarea,input{font:inherit;color:inherit}
+button{cursor:pointer;border:1px solid var(--line);background:#fff;padding:10px 16px;border-radius:10px}
+button:hover{background:var(--sky)}
+button.active,button.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+button:disabled{opacity:.45;cursor:default}
+button:focus-visible,textarea:focus-visible{outline:3px solid var(--chestnut);outline-offset:3px}
+header{padding:36px max(24px,calc((100% - 1080px)/2));background:#fff;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+header:after{content:'🎄';position:absolute;font-size:170px;opacity:.08;right:4%;top:-30px;pointer-events:none}
+.eyebrow{font-size:12px;letter-spacing:.17em;text-transform:uppercase;font-weight:700;color:var(--red)}
+h1{font:clamp(32px,5vw,48px)/1.12 Georgia,serif;margin:12px 0}
+h2{font:28px/1.2 Georgia,serif;margin:0 0 12px}
+h3{font-size:19px;margin:16px 0 8px}
+p{margin:8px 0 12px}
+.sub{max-width:700px;color:var(--muted)}
+.wrap{max-width:1100px;margin:auto;padding:24px}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;margin-bottom:22px}
+.hint{background:var(--sky);border-radius:12px;padding:14px 18px;margin:12px 0}
+.box{background:var(--pale);border-radius:12px;padding:14px 18px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff}
+.card ul{margin:6px 0 0;padding-left:1.1em}.card li{margin:4px 0}
+.num{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--red)}
+.gap{background:#fff3c4;border-radius:6px;padding:0 6px}
+.check{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));list-style:none;padding:0;margin:0}
+.check label{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#fff;cursor:pointer}
+.check input{width:22px;height:22px;margin-top:4px;flex:none}
+.check small{display:block;color:var(--muted);font-size:16px}
+.words{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:8px 0}
+.words li{border:1px solid var(--line);border-radius:999px;padding:4px 14px;background:#fff}
+.words b{color:var(--ok)}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.prompt{font:24px/1.4 Georgia,serif;background:var(--pale);border-left:6px solid var(--red);border-radius:10px;padding:18px 22px;margin:14px 0;min-height:70px}
+.prompt small{display:block;font:14px system-ui,sans-serif;color:var(--muted);margin-bottom:6px}
+.small{font-size:15px;color:var(--muted)}
+.end p{margin:6px 0}
+textarea{width:100%;min-height:64px;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--cream);resize:vertical}
+[hidden]{display:none!important}
+</style></head><body>
+<header>
+  <a href="../einzelcoaching.html" style="display:inline-block;margin-bottom:10px;color:inherit;font-size:15px">← Einzelcoaching</a>
+  <div class="eyebrow">Einzelcoaching · Olha</div>
+  <h1>Ausflug zum Weihnachtsmarkt</h1>
+  <p class="sub">Geleitetes Sprechen: Wir planen gemeinsam einen Nachmittag mit den Kindern.</p>
+</header>
+<div class="wrap">
+<nav>
+  <button data-tab="t1" class="active">1 · Die Situation</button>
+  <button data-tab="t2">2 · Redemittel</button>
+  <button data-tab="t3">3 · Wir planen</button>
+  <button data-tab="t4">4 · Karten ziehen</button>
+  <button data-tab="t5">5 · Der Plan</button>
+</nav>
+<main>
+
+<section id="t1">
+  <div class="panel">
+    <h2>Die Situation</h2>
+    <div class="box">Du und eine <b>deutsche Mutter</b> aus deiner Nachbarschaft wollt am <b>Wochenende</b> mit euren Kindern auf einen <b>Weihnachtsmarkt in der Nähe</b>. Ihr plant den Ausflug zusammen. Du machst Vorschläge, sie hat auch eigene Wünsche. Am Ende habt ihr einen gemeinsamen Plan.</div>
+    <div class="hint"><b>Regina spielt die deutsche Mutter.</b> Du fängst an: Welchen Weihnachtsmarkt kennst du in deiner Nähe? Was gibt es dort?</div>
+    <h3>Wörter vom Weihnachtsmarkt</h3>
+    <ul class="words" id="words"></ul>
+  </div>
+</section>
+
+<section id="t2" hidden>
+  <div class="panel">
+    <h2>Redemittel</h2>
+    <p>Benutze jedes Kästchen mindestens einmal.</p>
+    <div class="grid" id="rm"></div>
+  </div>
+</section>
+
+<section id="t3" hidden>
+  <div class="panel">
+    <h2>Das müsst ihr klären</h2>
+    <p>Abhaken, wenn ein Punkt besprochen ist.</p>
+    <ul class="check" id="tasks"></ul>
+  </div>
+</section>
+
+<section id="t4" hidden>
+  <div class="panel">
+    <h2>Karten der deutschen Mutter</h2>
+    <p>Regina zieht eine Karte. Du reagierst sofort und machst einen neuen Vorschlag. Ein Gedanke – ein Satz.</p>
+    <div id="karte" class="prompt" aria-live="polite"><small>Noch keine Karte</small>Los geht's!</div>
+    <div class="controls">
+      <button id="draw" class="primary">Karte ziehen</button>
+      <button id="help">Satzanfang zeigen</button>
+      <button id="mix">Neu mischen</button>
+    </div>
+    <p id="helpText" class="hint" hidden></p>
+  </div>
+</section>
+
+<section id="t5" hidden>
+  <div class="panel">
+    <h2>Erklär den Plan deinem Sohn</h2>
+    <div class="box end">
+      <p>„Am <span class="gap">…</span> fahren wir mit <span class="gap">…</span> nach <span class="gap">…</span>.</p>
+      <p>Wir treffen uns um <span class="gap">…</span> Uhr am <span class="gap">…</span>.</p>
+      <p>Dort können wir <span class="gap">…</span> und <span class="gap">…</span>.</p>
+      <p>Wir essen <span class="gap">…</span>, und du darfst <span class="gap">…</span>.</p>
+      <p>Wenn es regnet, <span class="gap">…</span>.“</p>
+    </div>
+    <div class="hint">Erst mit Text, dann <b>frei</b>, ohne hinzuschauen.</div>
+    <p>Was hast du heute gut gemacht?</p>
+    <textarea placeholder="Heute habe ich …"></textarea>
+    <p class="small">Viel Spaß auf dem Weihnachtsmarkt! 🎄</p>
+  </div>
+</section>
+</main></div>
+
+<script>
+const tabs=document.querySelectorAll('[data-tab]');
+tabs.forEach(b=>b.onclick=()=>{document.querySelectorAll('main>section').forEach(s=>s.hidden=s.id!==b.dataset.tab);tabs.forEach(x=>x.classList.toggle('active',x===b));window.scrollTo(0,0)});
+
+const words=[['der','Glühwein'],['der','Kinderpunsch'],['das','Karussell'],['die','Bude'],['der','Lebkuchen'],['die','gebrannten Mandeln'],['die','Bratwurst'],['die','Lichterkette'],['das','Gedränge'],['der','Treffpunkt'],['die','Hin- und Rückfahrt'],['sich warm','anziehen']];
+document.getElementById('words').innerHTML=words.map(w=>`<li>${w[0]} <b>${w[1]}</b></li>`).join('');
+
+const rm=[
+ ['Vorschlagen',['Ich schlage vor, dass wir … fahren.','Wir könnten auch …','Wie wäre es mit …?','Was hältst du von …?']],
+ ['Nach dem Termin fragen',['Passt dir Samstag um … Uhr?','Hast du am Sonntag Zeit?','Wann geht es bei dir am besten?']],
+ ['Zustimmen',['Gute Idee!','Das passt mir gut.','Einverstanden, dann …','Ja, das machen wir so.']],
+ ['Ablehnen und Alternative',['Das geht leider nicht, weil …','Lieber nicht, denn …','Hm, ich weiß nicht. Vielleicht lieber …?']],
+ ['Verabreden',['Dann treffen wir uns um … am …','Ich kümmere mich um …, und du …','Ich schreibe dir noch mal.']]
+];
+document.getElementById('rm').innerHTML=rm.map(g=>`<div class="card"><div class="num">${g[0]}</div><ul>${g[1].map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('');
+
+const tasks=[
+ ['Welcher Weihnachtsmarkt?','Schlag einen Markt in deiner Nähe vor. Was gibt es dort?'],
+ ['Wann?','Samstag oder Sonntag? Um wie viel Uhr?'],
+ ['Wie kommen wir hin?','Zug, Bus oder Auto? Wo treffen wir uns?'],
+ ['Was machen die Kinder?','Karussell, Kinderpunsch, Basteln, Nikolaus …'],
+ ['Essen und Geld','Dort essen oder etwas mitnehmen? Wie viel Geld?'],
+ ['Und wenn es regnet?','Habt ihr einen Plan B?']
+];
+document.getElementById('tasks').innerHTML=tasks.map(t=>`<li><label><input type="checkbox"><span><b>${t[0]}</b><small>${t[1]}</small></span></label></li>`).join('');
+
+const K=[
+ ['Samstag kann ich leider nicht, da hat meine Tochter Fußball.','Schade. Wie wäre es dann mit …?'],
+ ['Mein Auto ist gerade in der Werkstatt.','Kein Problem. Wir können auch mit … fahren.'],
+ ['Mein Sohn mag kein Gedränge. Gibt es auch einen kleineren Markt?','Ja, in … gibt es … · Wir könnten früh … fahren.'],
+ ['Glühwein für uns, gern. Aber was trinken die Kinder?','Für die Kinder gibt es …'],
+ ['Am Abend ist es mir zu kalt für die Kleinen. Geht es auch früher?','Klar, wir können schon um … fahren.'],
+ ['Ich habe nicht so viel Geld diesen Monat. Wollen wir etwas mitnehmen?','Gute Idee. Ich nehme … mit, und du …'],
+ ['Es soll am Sonntag regnen. Was machen wir dann?','Wenn es regnet, …'],
+ ['Meine Mutter will vielleicht mitkommen. Ist das okay?','Natürlich! Dann …']
+];
+let stack=[],cur=null;
+const kEl=document.getElementById('karte'),hEl=document.getElementById('helpText');
+const mix=()=>{stack=K.map(c=>[Math.random(),c]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);cur=null;kEl.innerHTML="<small>Neu gemischt</small>Los geht's!";hEl.hidden=true};
+mix();
+document.getElementById('draw').onclick=()=>{hEl.hidden=true;
+ if(!stack.length){cur=null;kEl.innerHTML='<small>Alle Karten gezogen</small>Super, alles geklärt!';return}
+ cur=stack.pop();kEl.innerHTML=`<small>Karte ${K.length-stack.length} von ${K.length}</small>„${cur[0]}“`;};
+document.getElementById('help').onclick=()=>{if(!cur)return;hEl.textContent=cur[1];hEl.hidden=!hEl.hidden};
+document.getElementById('mix').onclick=mix;
+</script>
+<script src="../../assets/navi.js" defer></script>
+</body></html>
